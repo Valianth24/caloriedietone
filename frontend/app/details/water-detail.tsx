@@ -9,6 +9,7 @@ import { LineChart, BarChart } from 'react-native-gifted-charts';
 import { useRouter } from 'expo-router';
 import { useStore } from '../../store/useStore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Constants from 'expo-constants';
 import { LogBox } from 'react-native';
 import { clearReminderNotifications, requestNotificationPermission, syncReminderNotifications, sendTestNotification, getScheduledNotifications } from '../../utils/notifications';
 
@@ -18,6 +19,11 @@ LogBox.ignoreLogs([
   'expo-notifications: Android Push notifications',
   '`expo-notifications` functionality is not fully supported in Expo Go',
 ]);
+
+// Get backend URL
+const API_BASE_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL 
+  || process.env.EXPO_PUBLIC_BACKEND_URL 
+  || '';
 
 export default function WaterDetailScreen() {
   const { t } = useTranslation();
