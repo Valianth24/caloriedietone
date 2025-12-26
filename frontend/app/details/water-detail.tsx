@@ -180,6 +180,35 @@ export default function WaterDetailScreen() {
     }
   };
 
+  const handleRemoveWater = async (amount: number) => {
+    if (todayWater <= 0) return;
+    
+    try {
+      setLoading(true);
+      const token = await AsyncStorage.getItem('session_token');
+      
+      const response = await fetch(`${API_BASE_URL}/api/water/remove`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({ amount })
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to remove water');
+      }
+      
+      await loadData();
+      triggerRefresh();
+    } catch (error) {
+      console.error('Error removing water:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const chartData = weeklyWater.map((item) => ({
     value: item.amount / 1000,
     label: new Date(item.date).toLocaleDateString('tr-TR', { weekday: 'short' }),
