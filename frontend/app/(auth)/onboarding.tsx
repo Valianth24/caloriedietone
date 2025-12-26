@@ -593,7 +593,8 @@ export default function OnboardingScreen() {
                 <Text style={styles.continueBtnText}>{t('continue')}</Text>
               </LinearGradient>
             </TouchableOpacity>
-        </View>
+          </View>
+        </ScrollView>
       </SafeAreaView>
     );
   }
