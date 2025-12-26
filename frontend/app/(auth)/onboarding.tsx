@@ -20,8 +20,8 @@ import { useTranslation } from 'react-i18next';
 import { languageList, changeLanguage, isFirstLaunch, setFirstLaunchDone, loadSavedLanguage } from '../../utils/i18n';
 import { useAuth } from '../../contexts/AuthContext';
 import { LinearGradient } from 'expo-linear-gradient';
-import AdvancedRulerPicker from '../../components/AdvancedRulerPicker';
-import AgeWheelPicker from '../../components/AgeWheelPicker';
+import EnhancedRulerPicker from '../../components/EnhancedRulerPicker';
+import EnhancedAgePicker from '../../components/EnhancedAgePicker';
 
 const { width } = Dimensions.get('window');
 
