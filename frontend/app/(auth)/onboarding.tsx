@@ -22,6 +22,8 @@ import { useAuth } from '../../contexts/AuthContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import EnhancedRulerPicker from '../../components/EnhancedRulerPicker';
 import EnhancedAgePicker from '../../components/EnhancedAgePicker';
+import PremiumHeightPicker from '../../components/PremiumHeightPicker';
+import PremiumAgePicker from '../../components/PremiumAgePicker';
 
 const { width } = Dimensions.get('window');
 
