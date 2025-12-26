@@ -1472,6 +1472,23 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
+  // Advanced picker styles
+  agePickerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 20,
+  },
+  advancedPickerHeader: {
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  advancedRulerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 10,
+  },
 });
 
 
