@@ -32,63 +32,24 @@ export default function PremiumAgePicker({
 }: PremiumAgePickerProps) {
   const { t } = useTranslation();
   const [selectedAge, setSelectedAge] = useState(initialAge);
-  const rotationValue = useRef(new Animated.Value(0)).current;
+  const scrollY = useRef(new Animated.Value(0)).current;
   const lastAge = useRef(initialAge);
   const lastHapticAge = useRef(initialAge);
 
-  const DEGREES_PER_AGE = 4;
-  const totalAges = maxAge - minAge + 1;
-
-  // Glow animation
-  const glowAnim = useRef(new Animated.Value(0)).current;
-  const pulseAnim = useRef(new Animated.Value(1)).current;
+  const ITEM_HEIGHT = 50;
+  const VISIBLE_ITEMS = 5;
+  const CONTAINER_HEIGHT = ITEM_HEIGHT * VISIBLE_ITEMS;
+  const totalItems = maxAge - minAge + 1;
 
   useEffect(() => {
-    // Glow animation
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(glowAnim, {
-          toValue: 1,
-          duration: 2000,
-          useNativeDriver: false,
-        }),
-        Animated.timing(glowAnim, {
-          toValue: 0,
-          duration: 2000,
-          useNativeDriver: false,
-        }),
-      ])
-    ).start();
-
-    // Pulse animation for selected value
-    Animated.loop(
-      Animated.sequence([
-        Animated.timing(pulseAnim, {
-          toValue: 1.05,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-        Animated.timing(pulseAnim, {
-          toValue: 1,
-          duration: 1000,
-          useNativeDriver: true,
-        }),
-      ])
-    ).start();
-  }, []);
-
-  // Initialize rotation
-  useEffect(() => {
-    const initialRotation = (initialAge - minAge) * DEGREES_PER_AGE;
-    rotationValue.setValue(-initialRotation);
+    const initialIndex = initialAge - minAge;
+    scrollY.setValue(-initialIndex * ITEM_HEIGHT);
   }, []);
 
   const triggerHaptic = useCallback(async (age: number) => {
     if (age !== lastHapticAge.current) {
       lastHapticAge.current = age;
       if (age % 10 === 0) {
-        await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
-      } else if (age % 5 === 0) {
         await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
       } else {
         await Haptics.selectionAsync();
@@ -96,9 +57,10 @@ export default function PremiumAgePicker({
     }
   }, []);
 
-  const updateAge = useCallback((rotation: number) => {
-    const ageOffset = Math.round(-rotation / DEGREES_PER_AGE);
-    const newAge = Math.max(minAge, Math.min(maxAge, minAge + ageOffset));
+  const updateAge = useCallback((scrollValue: number) => {
+    const newIndex = Math.round(-scrollValue / ITEM_HEIGHT);
+    const clampedIndex = Math.max(0, Math.min(totalItems - 1, newIndex));
+    const newAge = minAge + clampedIndex;
 
     if (newAge !== lastAge.current) {
       lastAge.current = newAge;
@@ -106,55 +68,52 @@ export default function PremiumAgePicker({
       onAgeChange(newAge);
       triggerHaptic(newAge);
     }
-  }, [minAge, maxAge, onAgeChange, triggerHaptic]);
+  }, [minAge, totalItems, onAgeChange, triggerHaptic]);
 
   const panResponder = useRef(
     PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onMoveShouldSetPanResponder: () => true,
       onPanResponderGrant: () => {
-        rotationValue.stopAnimation();
-        rotationValue.setOffset((rotationValue as any)._value);
-        rotationValue.setValue(0);
+        scrollY.stopAnimation();
+        scrollY.setOffset((scrollY as any)._value);
+        scrollY.setValue(0);
       },
       onPanResponderMove: (_, gestureState) => {
-        const rotation = gestureState.dx * 0.5;
-        rotationValue.setValue(rotation);
-        const currentRotation = (rotationValue as any)._offset + rotation;
-        updateAge(currentRotation);
+        scrollY.setValue(gestureState.dy);
+        const currentScroll = (scrollY as any)._offset + gestureState.dy;
+        updateAge(currentScroll);
       },
       onPanResponderRelease: (_, gestureState) => {
-        rotationValue.flattenOffset();
+        scrollY.flattenOffset();
+        const currentScroll = (scrollY as any)._value;
+        const newIndex = Math.round(-currentScroll / ITEM_HEIGHT);
+        const clampedIndex = Math.max(0, Math.min(totalItems - 1, newIndex));
+        const targetScroll = -clampedIndex * ITEM_HEIGHT;
 
-        const currentRotation = (rotationValue as any)._value;
-        const ageOffset = Math.round(-currentRotation / DEGREES_PER_AGE);
-        const clampedAge = Math.max(minAge, Math.min(maxAge, minAge + ageOffset));
-        const targetRotation = -(clampedAge - minAge) * DEGREES_PER_AGE;
-
-        Animated.spring(rotationValue, {
-          toValue: targetRotation,
+        Animated.spring(scrollY, {
+          toValue: targetScroll,
           useNativeDriver: true,
-          tension: 80,
+          tension: 100,
           friction: 12,
         }).start();
 
-        setSelectedAge(clampedAge);
-        onAgeChange(clampedAge);
-        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+        const finalAge = minAge + clampedIndex;
+        setSelectedAge(finalAge);
+        onAgeChange(finalAge);
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
       },
     })
   ).current;
 
   const selectAge = async (age: number) => {
-    const targetRotation = -(age - minAge) * DEGREES_PER_AGE;
-
-    Animated.spring(rotationValue, {
-      toValue: targetRotation,
+    const newIndex = age - minAge;
+    Animated.spring(scrollY, {
+      toValue: -newIndex * ITEM_HEIGHT,
       useNativeDriver: true,
-      tension: 80,
+      tension: 100,
       friction: 12,
     }).start();
-
     setSelectedAge(age);
     onAgeChange(age);
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -165,186 +124,161 @@ export default function PremiumAgePicker({
     await selectAge(newAge);
   };
 
-  // Get age category
+  // Yaş kategorisi
   const getAgeCategory = (age: number) => {
-    if (age < 18) return { label: t('teenager') || 'Genç', emoji: '🧒', color: '#4CAF50' };
-    if (age < 30) return { label: t('youngAdult') || 'Genç Yetişkin', emoji: '🧑', color: '#2196F3' };
-    if (age < 45) return { label: t('adult') || 'Yetişkin', emoji: '👨', color: '#9C27B0' };
-    if (age < 60) return { label: t('middleAge') || 'Orta Yaş', emoji: '👨‍🦳', color: '#FF9800' };
-    return { label: t('senior') || 'Yaşlı', emoji: '👴', color: '#795548' };
+    if (age < 18) return { label: 'Genç', emoji: '🧒' };
+    if (age < 30) return { label: 'Genç Yetişkin', emoji: '🧑' };
+    if (age < 45) return { label: 'Yetişkin', emoji: '👨' };
+    if (age < 60) return { label: 'Orta Yaş', emoji: '👨‍🦳' };
+    return { label: 'Yaşlı', emoji: '👴' };
   };
 
   const ageCategory = getAgeCategory(selectedAge);
 
-  // Render dial marks
-  const renderDialMarks = () => {
-    const marks = [];
-    for (let i = 0; i < totalAges; i++) {
+  const renderPickerItems = () => {
+    const items = [];
+    for (let i = 0; i < totalItems; i++) {
       const age = minAge + i;
-      const angle = i * DEGREES_PER_AGE;
-      const isMultipleOf10 = age % 10 === 0;
-      const isMultipleOf5 = age % 5 === 0;
 
-      marks.push(
+      const inputRange = [
+        -(i + 2) * ITEM_HEIGHT,
+        -(i + 1) * ITEM_HEIGHT,
+        -i * ITEM_HEIGHT,
+        -(i - 1) * ITEM_HEIGHT,
+        -(i - 2) * ITEM_HEIGHT,
+      ];
+
+      const scale = scrollY.interpolate({
+        inputRange,
+        outputRange: [0.7, 0.85, 1, 0.85, 0.7],
+        extrapolate: 'clamp',
+      });
+
+      const opacity = scrollY.interpolate({
+        inputRange,
+        outputRange: [0.3, 0.5, 1, 0.5, 0.3],
+        extrapolate: 'clamp',
+      });
+
+      const rotateX = scrollY.interpolate({
+        inputRange,
+        outputRange: ['30deg', '15deg', '0deg', '-15deg', '-30deg'],
+        extrapolate: 'clamp',
+      });
+
+      items.push(
         <Animated.View
           key={age}
           style={[
-            styles.dialMark,
+            styles.pickerItem,
             {
-              transform: [
-                {
-                  rotate: rotationValue.interpolate({
-                    inputRange: [-360, 360],
-                    outputRange: [`${angle - 360}deg`, `${angle + 360}deg`],
-                  }),
-                },
-              ],
+              opacity,
+              transform: [{ scale }, { rotateX }],
             },
           ]}
         >
-          <View
-            style={[
-              styles.markLine,
-              isMultipleOf10 && [styles.markLineLong, { backgroundColor: primaryColor }],
-              isMultipleOf5 && !isMultipleOf10 && styles.markLineMedium,
-            ]}
-          />
-          {isMultipleOf10 && (
-            <Animated.Text
-              style={[
-                styles.markLabel,
-                { color: primaryColor },
-                {
-                  transform: [
-                    {
-                      rotate: rotationValue.interpolate({
-                        inputRange: [-360, 360],
-                        outputRange: [`${-angle + 360}deg`, `${-angle - 360}deg`],
-                      }),
-                    },
-                  ],
-                },
-              ]}
-            >
-              {age}
-            </Animated.Text>
-          )}
+          <Text style={[styles.pickerItemText, { color: Colors.darkText }]}>
+            {age}
+          </Text>
         </Animated.View>
       );
     }
-    return marks;
+    return items;
   };
-
-  const glowOpacity = glowAnim.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0.3, 0.6],
-  });
 
   return (
     <View style={styles.wrapper}>
-      {/* Premium Value Display */}
-      <Animated.View style={[styles.valueDisplayWrapper, { transform: [{ scale: pulseAnim }] }]}>
+      {/* Value Display */}
+      <LinearGradient
+        colors={[primaryColor, primaryColor + 'DD']}
+        style={styles.valueContainer}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1, y: 1 }}
+      >
+        <Text style={styles.emojiText}>{ageCategory.emoji}</Text>
+        <View style={styles.valueRow}>
+          <Text style={styles.valueText}>{selectedAge}</Text>
+          <Text style={styles.unitText}>{t('age') || 'yaş'}</Text>
+        </View>
+        <View style={styles.categoryBadge}>
+          <Text style={styles.categoryText}>{ageCategory.label}</Text>
+        </View>
+      </LinearGradient>
+
+      {/* Picker Wheel */}
+      <View style={[styles.pickerContainer, { height: CONTAINER_HEIGHT }]}>
         <Animated.View
           style={[
-            styles.glowEffect,
+            styles.pickerContent,
             {
-              opacity: glowOpacity,
-              shadowColor: primaryColor,
+              paddingVertical: CONTAINER_HEIGHT / 2 - ITEM_HEIGHT / 2,
+              transform: [{
+                translateY: scrollY.interpolate({
+                  inputRange: [-(totalItems - 1) * ITEM_HEIGHT, 0],
+                  outputRange: [-(totalItems - 1) * ITEM_HEIGHT, 0],
+                  extrapolate: 'clamp',
+                }),
+              }],
             },
           ]}
+          {...panResponder.panHandlers}
+        >
+          {renderPickerItems()}
+        </Animated.View>
+
+        {/* Selection Indicator */}
+        <View style={[styles.selectionIndicator, { borderColor: primaryColor }]} pointerEvents="none" />
+
+        {/* Gradient Overlays */}
+        <LinearGradient
+          colors={['#FFFFFF', 'rgba(255,255,255,0)']}
+          style={[styles.gradientTop, { height: CONTAINER_HEIGHT * 0.35 }]}
+          pointerEvents="none"
         />
         <LinearGradient
-          colors={[primaryColor, adjustColor(primaryColor, -40)]}
-          style={styles.valueGradient}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-        >
-          <View style={styles.emojiContainer}>
-            <Text style={styles.emojiText}>{ageCategory.emoji}</Text>
-          </View>
-          <View style={styles.valueContent}>
-            <Text style={styles.valueText}>{selectedAge}</Text>
-            <Text style={styles.unitText}>{t('age') || 'yaş'}</Text>
-          </View>
-          <View style={[styles.categoryBadge, { backgroundColor: ageCategory.color }]}>
-            <Text style={styles.categoryText}>{ageCategory.label}</Text>
-          </View>
-        </LinearGradient>
-      </Animated.View>
-
-      {/* Circular Dial */}
-      <View style={styles.dialWrapper}>
-        <View style={[styles.dialContainer, { borderColor: primaryColor + '30' }]}>
-          <Animated.View style={styles.dialContent} {...panResponder.panHandlers}>
-            {renderDialMarks()}
-          </Animated.View>
-
-          {/* Center indicator */}
-          <View style={styles.centerIndicator} pointerEvents="none">
-            <View style={[styles.indicatorArrow, { borderBottomColor: primaryColor }]} />
-            <View style={[styles.indicatorDot, { backgroundColor: primaryColor }]} />
-          </View>
-
-          {/* Inner circle */}
-          <View style={[styles.innerCircle, { borderColor: primaryColor + '20' }]}>
-            <Text style={styles.swipeHint}>↔ {t('swipe') || 'Kaydır'}</Text>
-          </View>
-        </View>
+          colors={['rgba(255,255,255,0)', '#FFFFFF']}
+          style={[styles.gradientBottom, { height: CONTAINER_HEIGHT * 0.35 }]}
+          pointerEvents="none"
+        />
       </View>
 
-      {/* Quick Adjust Buttons */}
-      <View style={styles.quickButtonsContainer}>
-        <View style={styles.quickButtonsRow}>
-          <TouchableOpacity
-            style={[styles.quickBtn, styles.quickBtnLarge, { borderColor: primaryColor }]}
-            onPress={() => quickAdjust(-10)}
-            activeOpacity={0.7}
-          >
-            <Text style={[styles.quickBtnText, { color: primaryColor }]}>-10</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.quickBtn, { borderColor: primaryColor }]}
-            onPress={() => quickAdjust(-5)}
-            activeOpacity={0.7}
-          >
-            <Text style={[styles.quickBtnText, { color: primaryColor }]}>-5</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.quickBtn, { borderColor: primaryColor }]}
-            onPress={() => quickAdjust(-1)}
-            activeOpacity={0.7}
-          >
-            <Text style={[styles.quickBtnText, { color: primaryColor }]}>-1</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.quickBtn, { borderColor: primaryColor }]}
-            onPress={() => quickAdjust(1)}
-            activeOpacity={0.7}
-          >
-            <Text style={[styles.quickBtnText, { color: primaryColor }]}>+1</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.quickBtn, { borderColor: primaryColor }]}
-            onPress={() => quickAdjust(5)}
-            activeOpacity={0.7}
-          >
-            <Text style={[styles.quickBtnText, { color: primaryColor }]}>+5</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.quickBtn, styles.quickBtnLarge, { borderColor: primaryColor }]}
-            onPress={() => quickAdjust(10)}
-            activeOpacity={0.7}
-          >
-            <Text style={[styles.quickBtnText, { color: primaryColor }]}>+10</Text>
-          </TouchableOpacity>
-        </View>
+      {/* Quick Adjust */}
+      <View style={styles.quickButtonsRow}>
+        <TouchableOpacity
+          style={[styles.quickBtn, { borderColor: primaryColor }]}
+          onPress={() => quickAdjust(-5)}
+          activeOpacity={0.7}
+        >
+          <Text style={[styles.quickBtnText, { color: primaryColor }]}>-5</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.quickBtn, { borderColor: primaryColor }]}
+          onPress={() => quickAdjust(-1)}
+          activeOpacity={0.7}
+        >
+          <Text style={[styles.quickBtnText, { color: primaryColor }]}>-1</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.quickBtn, { borderColor: primaryColor }]}
+          onPress={() => quickAdjust(1)}
+          activeOpacity={0.7}
+        >
+          <Text style={[styles.quickBtnText, { color: primaryColor }]}>+1</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.quickBtn, { borderColor: primaryColor }]}
+          onPress={() => quickAdjust(5)}
+          activeOpacity={0.7}
+        >
+          <Text style={[styles.quickBtnText, { color: primaryColor }]}>+5</Text>
+        </TouchableOpacity>
       </View>
 
       {/* Quick Age Selection */}
       <View style={styles.quickAgesContainer}>
         <Text style={styles.quickAgesTitle}>{t('quickSelect') || 'Hızlı Seçim'}</Text>
         <View style={styles.quickAgesRow}>
-          {[18, 25, 30, 35, 40, 50, 60].map((age) => (
+          {[18, 25, 30, 40, 50].map((age) => (
             <TouchableOpacity
               key={age}
               style={[
@@ -372,198 +306,116 @@ export default function PremiumAgePicker({
   );
 }
 
-function adjustColor(color: string, amount: number): string {
-  const hex = color.replace('#', '');
-  const r = Math.max(0, Math.min(255, parseInt(hex.substr(0, 2), 16) + amount));
-  const g = Math.max(0, Math.min(255, parseInt(hex.substr(2, 2), 16) + amount));
-  const b = Math.max(0, Math.min(255, parseInt(hex.substr(4, 2), 16) + amount));
-  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
-}
-
-const DIAL_SIZE = SCREEN_WIDTH - 80;
-
 const styles = StyleSheet.create({
   wrapper: {
-    width: SCREEN_WIDTH - 48,
+    width: SCREEN_WIDTH - 64,
     alignItems: 'center',
   },
-  valueDisplayWrapper: {
-    marginBottom: 24,
-    position: 'relative',
-  },
-  glowEffect: {
-    position: 'absolute',
-    top: -10,
-    left: -10,
-    right: -10,
-    bottom: -10,
-    borderRadius: 28,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 25,
-    elevation: 12,
-  },
-  valueGradient: {
-    paddingHorizontal: 20,
+  valueContainer: {
+    paddingHorizontal: 32,
     paddingVertical: 16,
-    borderRadius: 24,
-    flexDirection: 'row',
+    borderRadius: 20,
+    marginBottom: 24,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    minWidth: 280,
-  },
-  emojiContainer: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: 'rgba(255,255,255,0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
+    minWidth: 200,
   },
   emojiText: {
-    fontSize: 28,
+    fontSize: 32,
+    marginBottom: 8,
   },
-  valueContent: {
-    alignItems: 'center',
+  valueRow: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
   },
   valueText: {
-    fontSize: 52,
+    fontSize: 56,
     fontWeight: 'bold',
     color: '#FFFFFF',
   },
   unitText: {
-    fontSize: 16,
+    fontSize: 20,
     fontWeight: '600',
     color: '#FFFFFF',
+    marginLeft: 8,
     opacity: 0.9,
   },
   categoryBadge: {
-    paddingHorizontal: 12,
+    backgroundColor: 'rgba(255,255,255,0.25)',
+    paddingHorizontal: 16,
     paddingVertical: 6,
-    borderRadius: 12,
+    borderRadius: 20,
+    marginTop: 8,
   },
   categoryText: {
-    fontSize: 11,
-    fontWeight: '700',
+    fontSize: 14,
+    fontWeight: '600',
     color: '#FFFFFF',
   },
-  dialWrapper: {
-    marginBottom: 20,
-  },
-  dialContainer: {
-    width: DIAL_SIZE,
-    height: DIAL_SIZE,
-    borderRadius: DIAL_SIZE / 2,
-    backgroundColor: Colors.white,
-    borderWidth: 4,
-    elevation: 8,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 12,
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'relative',
-  },
-  dialContent: {
+  pickerContainer: {
     width: '100%',
-    height: '100%',
+    backgroundColor: Colors.white,
+    borderRadius: 20,
+    overflow: 'hidden',
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+  },
+  pickerContent: {
+    width: '100%',
+  },
+  pickerItem: {
+    height: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  dialMark: {
+  pickerItemText: {
+    fontSize: 28,
+    fontWeight: '600',
+  },
+  selectionIndicator: {
     position: 'absolute',
-    top: 10,
-    width: 2,
-    alignItems: 'center',
-  },
-  markLine: {
-    width: 2,
-    height: 12,
-    backgroundColor: Colors.lightText + '40',
-    borderRadius: 1,
-  },
-  markLineMedium: {
-    height: 18,
-    width: 3,
-    backgroundColor: Colors.darkText + '50',
-  },
-  markLineLong: {
-    height: 24,
-    width: 4,
-    borderRadius: 2,
-  },
-  markLabel: {
-    fontSize: 12,
-    fontWeight: '700',
-    marginTop: 4,
-  },
-  centerIndicator: {
-    position: 'absolute',
-    top: -5,
-    alignItems: 'center',
-  },
-  indicatorArrow: {
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderLeftWidth: 12,
-    borderRightWidth: 12,
-    borderBottomWidth: 20,
-    borderLeftColor: 'transparent',
-    borderRightColor: 'transparent',
-  },
-  indicatorDot: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    marginTop: 4,
-  },
-  innerCircle: {
-    position: 'absolute',
-    width: DIAL_SIZE - 100,
-    height: DIAL_SIZE - 100,
-    borderRadius: (DIAL_SIZE - 100) / 2,
+    top: '50%',
+    left: 16,
+    right: 16,
+    height: 50,
+    marginTop: -25,
     borderWidth: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.background,
+    borderRadius: 12,
+    backgroundColor: 'transparent',
   },
-  swipeHint: {
-    fontSize: 14,
-    color: Colors.lightText,
-    fontWeight: '500',
+  gradientTop: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
   },
-  quickButtonsContainer: {
-    marginBottom: 16,
+  gradientBottom: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   quickButtonsRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 6,
-    flexWrap: 'wrap',
+    gap: 12,
+    marginTop: 20,
   },
   quickBtn: {
-    paddingHorizontal: 12,
-    paddingVertical: 8,
+    paddingHorizontal: 20,
+    paddingVertical: 12,
     borderRadius: 12,
     borderWidth: 2,
     backgroundColor: Colors.white,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
-  },
-  quickBtnLarge: {
-    paddingHorizontal: 16,
   },
   quickBtnText: {
-    fontSize: 13,
+    fontSize: 16,
     fontWeight: '700',
   },
   quickAgesContainer: {
+    marginTop: 24,
     width: '100%',
   },
   quickAgesTitle: {
@@ -571,25 +423,24 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: Colors.lightText,
     textAlign: 'center',
-    marginBottom: 10,
+    marginBottom: 12,
   },
   quickAgesRow: {
     flexDirection: 'row',
     justifyContent: 'center',
-    gap: 8,
-    flexWrap: 'wrap',
+    gap: 10,
   },
   quickAgeBtn: {
-    paddingHorizontal: 14,
+    paddingHorizontal: 16,
     paddingVertical: 10,
-    borderRadius: 14,
+    borderRadius: 12,
     borderWidth: 2,
     backgroundColor: Colors.white,
-    minWidth: 44,
+    minWidth: 50,
     alignItems: 'center',
   },
   quickAgeBtnText: {
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '700',
   },
 });
