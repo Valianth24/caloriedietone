@@ -256,26 +256,40 @@ export default function WaterDetailScreen() {
           </View>
         </View>
 
-        {/* Glass Count */}
+        {/* Glass Count - Sınırsız */}
         <View style={styles.glassSection}>
           <View style={styles.glassGrid}>
-            {[...Array(Math.min(8, Math.ceil(goal / 250)))].map((_, index) => (
+            {/* Damla sayısı = içilen bardak sayısı */}
+            {[...Array(Math.min(glassCount, 12))].map((_, index) => (
               <View key={index} style={styles.glassItem}>
                 <Ionicons
                   name="water"
-                  size={32}
-                  color={index < glassCount ? Colors.teal : '#E0E0E0'}
+                  size={28}
+                  color={Colors.teal}
                 />
               </View>
             ))}
+            {glassCount > 12 && (
+              <View style={styles.moreGlasses}>
+                <Text style={styles.moreGlassesText}>+{glassCount - 12}</Text>
+              </View>
+            )}
           </View>
           <Text style={styles.glassLabel}>
-            {glassCount} / {Math.ceil(goal / 250)} Bardak
+            {glassCount} Bardak ({(todayWater / 1000).toFixed(1)}L)
           </Text>
         </View>
 
-        {/* Quick Add Buttons */}
+        {/* Quick Add/Remove Buttons */}
         <View style={styles.quickAddSection}>
+          <TouchableOpacity
+            style={[styles.removeButton, (loading || todayWater <= 0) && styles.buttonDisabled]}
+            onPress={() => handleRemoveWater(250)}
+            disabled={loading || todayWater <= 0}
+          >
+            <Ionicons name="remove" size={20} color={Colors.white} />
+            <Text style={styles.quickAddText}>250ml</Text>
+          </TouchableOpacity>
           <TouchableOpacity
             style={[styles.quickAddButton, loading && styles.buttonDisabled]}
             onPress={() => handleAddWater(250)}
