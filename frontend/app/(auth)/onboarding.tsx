@@ -1495,6 +1495,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 10,
   },
+  // Premium picker styles
+  premiumPickerHeader: {
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  premiumPickerContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 8,
+  },
 });
 
 
