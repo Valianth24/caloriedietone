@@ -452,7 +452,7 @@ export default function OnboardingScreen() {
     );
   }
 
-  // Age Step - Enhanced with EnhancedAgePicker
+  // Age Step - Premium with PremiumAgePicker
   if (step === 'age') {
     return (
       <SafeAreaView style={styles.container}>
@@ -470,14 +470,14 @@ export default function OnboardingScreen() {
               <Text style={styles.backBtnText}>←</Text>
             </TouchableOpacity>
             
-            <View style={styles.advancedPickerHeader}>
+            <View style={styles.premiumPickerHeader}>
               <Text style={styles.stepEmoji}>🎂</Text>
               <Text style={styles.stepTitle}>{t('howOldAreYou')}</Text>
               <Text style={styles.stepSubtitle}>{t('ageHelpsCalculate')}</Text>
             </View>
             
-            <View style={styles.agePickerContainer}>
-              <EnhancedAgePicker
+            <View style={styles.premiumPickerContainer}>
+              <PremiumAgePicker
                 minAge={10}
                 maxAge={100}
                 initialAge={parseInt(formData.age) || 25}
