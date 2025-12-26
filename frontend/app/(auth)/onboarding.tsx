@@ -501,7 +501,7 @@ export default function OnboardingScreen() {
     );
   }
 
-  // Height Step - Enhanced with EnhancedRulerPicker
+  // Height Step - Premium with PremiumHeightPicker
   if (step === 'height') {
     return (
       <SafeAreaView style={styles.container}>
@@ -519,21 +519,20 @@ export default function OnboardingScreen() {
               <Text style={styles.backBtnText}>←</Text>
             </TouchableOpacity>
             
-            <View style={styles.advancedPickerHeader}>
+            <View style={styles.premiumPickerHeader}>
               <Text style={styles.stepEmoji}>📏</Text>
               <Text style={styles.stepTitle}>{t('whatIsYourHeight')}</Text>
               <Text style={styles.stepSubtitle}>{t('heightHelpsCalculate')}</Text>
             </View>
             
-            <View style={styles.advancedRulerContainer}>
-              <EnhancedRulerPicker
+            <View style={styles.premiumPickerContainer}>
+              <PremiumHeightPicker
                 min={100}
                 max={250}
                 step={1}
                 initialValue={parseInt(formData.height) || 170}
                 unit="cm"
                 onValueChange={(value) => setFormData({ ...formData, height: value.toString() })}
-                height={260}
                 primaryColor={Colors.primary}
               />
             </View>
