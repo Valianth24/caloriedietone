@@ -546,7 +546,6 @@ const resources = {
       networkError: 'Bağlantı hatası. İnternet bağlantınızı kontrol edin.',
       sessionExpired: 'Oturum süresi doldu. Lütfen tekrar giriş yapın.',
       calculationError: 'Hesaplama hatası. Lütfen tekrar deneyin.',
-      warning: 'Uyarı',
       minCalorieWarning: 'Sağlık açısından günlük kalori hedefi 1600\'den düşük olmamalıdır. Hedef 1600 olarak ayarlandı.',
       underweight: 'Zayıf',
       normal: 'Normal',
