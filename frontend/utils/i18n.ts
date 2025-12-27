@@ -142,6 +142,16 @@ const resources = {
       obese: 'Obese',
       ideal: 'Ideal',
       maintain: 'Maintain',
+      years: 'years',
+      whatAreYourGoals: 'What are your goals?',
+      selectMultipleGoals: 'Select one or more goals',
+      buildMuscle: 'Build Muscle',
+      gainLeanMass: 'Gain lean muscle mass',
+      burnFat: 'Burn fat and lose weight',
+      bulkUp: 'Increase overall weight',
+      gainWeight: 'Gain Weight',
+      bodyRecompInfo: 'Body recomposition: Lose fat while building muscle. Requires moderate calorie deficit with high protein.',
+      leanBulkInfo: 'Lean bulk: Build muscle with minimal fat gain. Moderate calorie surplus with high protein.',
       
       // Dashboard
       hello: 'Hello',
