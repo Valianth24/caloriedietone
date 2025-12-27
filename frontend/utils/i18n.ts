@@ -665,6 +665,10 @@ const resources = {
       average: 'Ortalama',
       calorie: 'Kalori',
       
+      // Food Photo Card
+      takePhotoOfYourMeal: 'Yemeğinizin Fotoğrafını Çekin',
+      toCalculateCalories: 'kalori hesaplamak için',
+      
       vitamins: 'Vitaminler',
       vitaminTracking: 'Vitamin Takibi',
       addVitamin: 'Vitamin Ekle',
