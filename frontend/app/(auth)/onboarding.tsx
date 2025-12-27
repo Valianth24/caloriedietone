@@ -1501,6 +1501,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 8,
   },
+  // Simple Input styles
+  simpleInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 40,
+    gap: 12,
+  },
+  simpleInput: {
+    fontSize: 56,
+    fontWeight: 'bold',
+    color: Colors.darkText,
+    textAlign: 'center',
+    minWidth: 150,
+    backgroundColor: Colors.white,
+    borderRadius: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 24,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  simpleInputUnit: {
+    fontSize: 24,
+    color: Colors.lightText,
+    fontWeight: '600',
+  },
 });
 
 
