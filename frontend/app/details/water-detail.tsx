@@ -99,40 +99,40 @@ export default function WaterDetailScreen() {
           const waterNotifications = scheduled.filter(n => n.content?.title?.includes('Su'));
           
           Alert.alert(
-            'Başarılı', 
+            t('success'), 
             reminderEnabled 
-              ? `Hatırlatıcı ayarları kaydedildi! ${waterNotifications.length} bildirim planlandı.` 
-              : 'Hatırlatıcılar kapatıldı.'
+              ? `${t('reminderSaved')} ${waterNotifications.length} ${t('notifications')}` 
+              : t('remindersTurnedOff')
           );
         } catch (timeoutError) {
           // Still show success - settings are saved
           Alert.alert(
-            'Başarılı', 
+            t('success'), 
             reminderEnabled 
-              ? 'Ayarlar kaydedildi. Bildirimler arka planda ayarlanıyor.' 
-              : 'Hatırlatıcılar kapatıldı.'
+              ? t('settingsSavedBackground')
+              : t('remindersTurnedOff')
           );
         }
       } else {
         await clearReminderNotifications('water');
-        Alert.alert('Bildirim İzni', 'Bildirim izni verilmedi. Ayarlardan açabilirsiniz.');
+        Alert.alert(t('notificationPermissionTitle'), t('notificationPermissionDenied'));
       }
 
       setShowReminderModal(false);
     } catch (error) {
       console.error('Error saving reminder settings:', error);
-      Alert.alert('Ayarlar kaydedildi.');
+      Alert.alert(t('settingsSaved'));
       setShowReminderModal(false);
     }
   };
 
   const handleTestNotification = async () => {
     const success = await sendTestNotification(
-      '💧 Test Bildirimi',
-      'Bu bir test bildirimidir. Ses ve titreşim çalışıyor mu?'
+      `💧 ${t('waterReminder')}`,
+      t('drinkWaterBody')
     );
     if (success) {
-      Alert.alert('Gönderildi', 'Test bildirimi gönderildi!');
+      Alert.alert(t('success'), t('reminderSaved'));
     }
   };
 
@@ -142,10 +142,10 @@ export default function WaterDetailScreen() {
         setReminderTimes([...reminderTimes, newReminderTime].sort());
         setNewReminderTime('');
       } else {
-        alert('Bu saat zaten ekli!');
+        alert(t('timeAlreadyAdded'));
       }
     } else {
-      alert('Geçerli bir saat girin (örn: 14:30)');
+      alert(t('enterValidTime'));
     }
   };
 
