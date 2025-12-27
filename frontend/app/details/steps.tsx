@@ -356,4 +356,29 @@ const styles = StyleSheet.create({
     marginTop: 12,
     fontStyle: 'italic',
   },
+  lastUpdateText: {
+    fontSize: 12,
+    color: Colors.lightText,
+    marginTop: 12,
+  },
+  realTimeIndicator: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 12,
+    paddingTop: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#E0E0E0',
+  },
+  liveDot: {
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    backgroundColor: Colors.success,
+  },
+  realTimeText: {
+    fontSize: 12,
+    color: Colors.success,
+    fontWeight: '500',
+  },
 });
