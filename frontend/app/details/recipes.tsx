@@ -223,7 +223,7 @@ export default function RecipesScreen() {
           ) : (
             <TouchableOpacity
               style={styles.getPremiumButton}
-              onPress={() => router.push('/premium')}
+              onPress={() => router.push('/(tabs)/diets')}
             >
               <Text style={styles.getPremiumText}>Premium</Text>
             </TouchableOpacity>
