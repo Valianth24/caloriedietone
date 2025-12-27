@@ -154,8 +154,8 @@ export default function DashboardScreen() {
           enabled: waterReminderEnabled,
           times: waterReminderTimes,
           content: {
-            title: alarmStyle ? '💧 SU İÇME ZAMANI!' : 'Su Hatırlatıcısı',
-            body: 'Sağlığınız için su içmeyi unutmayın!',
+            title: alarmStyle ? `💧 ${t('drinkWaterTime')}` : t('waterReminder'),
+            body: t('drinkWaterBody'),
             sound: alarmStyle ? 'default' : undefined,
           },
         });
@@ -165,29 +165,29 @@ export default function DashboardScreen() {
           enabled: vitaminReminderEnabled,
           times: vitaminReminderTimes,
           content: {
-            title: alarmStyle ? '💊 VİTAMİN ZAMANI!' : 'Vitamin Hatırlatıcısı',
-            body: 'Vitaminlerinizi almayı unutmayın!',
+            title: alarmStyle ? `💊 ${t('vitaminTime')}` : t('vitaminReminderTitle'),
+            body: t('vitaminBody'),
             sound: alarmStyle ? 'default' : undefined,
           },
         });
 
-        alert('Hatırlatıcılar kaydedildi!');
+        alert(t('reminderSaved'));
       } else {
         await clearReminderNotifications('water');
         await clearReminderNotifications('vitamin');
-        alert('Bildirim izni verilmedi. Ayarlardan açabilirsiniz.');
+        alert(t('notificationPermissionDenied'));
       }
 
       setShowNotificationModal(false);
     } catch (error) {
       console.error('Error saving notification settings:', error);
-      alert('Hata: Hatırlatıcılar kaydedilemedi.');
+      alert(t('reminderSaveError'));
     }
   };
 
   const addReminderTimeForType = () => {
     if (!newReminderTime || !/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/.test(newReminderTime)) {
-      alert('Geçerli bir saat girin (örn: 14:30)');
+      alert(t('enterValidTime'));
       return;
     }
 
