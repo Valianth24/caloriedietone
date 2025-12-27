@@ -18,7 +18,7 @@ export default function WaterCard({ current, goal }: WaterCardProps) {
   // TR: 200ml, EN: 250ml per glass
   const glassSize = i18n.language === 'tr' ? 200 : 250;
   const glassCount = Math.floor(current / glassSize);
-  const totalGlasses = Math.ceil(goal / glassSize);
+  const progress = Math.min((current / goal) * 100, 100);
 
   return (
     <TouchableOpacity 
@@ -28,30 +28,28 @@ export default function WaterCard({ current, goal }: WaterCardProps) {
     >
       <Text style={styles.title}>{t('waterTracking')}</Text>
 
-      <View style={styles.glassContainer}>
-        {/* Damla sayısı bardak sayısına eşit - sınırsız */}
-        {[...Array(Math.min(glassCount, 10))].map((_, index) => (
-          <Ionicons
-            key={index}
-            name="water"
-            size={24}
-            color={Colors.teal}
-          />
-        ))}
-        {glassCount > 10 && (
-          <Text style={styles.moreText}>+{glassCount - 10}</Text>
-        )}
+      {/* Progress Bar - İçtikçe doluyor */}
+      <View style={styles.progressContainer}>
+        <View style={styles.progressBarBg}>
+          <View style={[styles.progressBarFill, { width: `${progress}%` }]} />
+        </View>
+        <Text style={styles.progressPercent}>{Math.round(progress)}%</Text>
+      </View>
+
+      {/* Su damlası ikonu */}
+      <View style={styles.waterIconContainer}>
+        <Ionicons name="water" size={40} color={Colors.teal} />
       </View>
 
       <Text style={styles.amount} numberOfLines={1}>
-        {glassCount} / {totalGlasses} {t('glass')}
-      </Text>
-      <Text style={styles.amountMl}>
         {(current / 1000).toFixed(1)} / {(goal / 1000).toFixed(1)} L
+      </Text>
+      <Text style={styles.glassText}>
+        {glassCount} {t('glass')}
       </Text>
 
       <View style={styles.detailButton}>
-        <Ionicons name="add-circle" size={20} color={Colors.teal} />
+        <Ionicons name="add-circle" size={18} color={Colors.teal} />
         <Text style={styles.detailButtonText}>{t('addWater') || 'Su Ekle'}</Text>
       </View>
     </TouchableOpacity>
@@ -78,30 +76,44 @@ const styles = StyleSheet.create({
     color: Colors.darkText,
     alignSelf: 'flex-start',
   },
-  glassContainer: {
+  progressContainer: {
+    width: '100%',
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    gap: 4,
-    marginVertical: 8,
-    maxWidth: '100%',
+    alignItems: 'center',
+    gap: 8,
+    marginTop: 12,
   },
-  moreText: {
-    fontSize: 14,
-    fontWeight: 'bold',
+  progressBarBg: {
+    flex: 1,
+    height: 12,
+    backgroundColor: '#E8F5E9',
+    borderRadius: 6,
+    overflow: 'hidden',
+  },
+  progressBarFill: {
+    height: '100%',
+    backgroundColor: Colors.teal,
+    borderRadius: 6,
+  },
+  progressPercent: {
+    fontSize: 12,
+    fontWeight: '600',
     color: Colors.teal,
-    marginLeft: 4,
+    minWidth: 36,
+    textAlign: 'right',
+  },
+  waterIconContainer: {
+    marginVertical: 8,
   },
   amount: {
-    fontSize: 14,
+    fontSize: 18,
     fontWeight: 'bold',
     color: Colors.darkText,
   },
-  amountMl: {
+  glassText: {
     fontSize: 12,
     color: Colors.lightText,
-    marginTop: 2,
-    marginBottom: 12,
+    marginBottom: 8,
   },
   detailButton: {
     flexDirection: 'row',
