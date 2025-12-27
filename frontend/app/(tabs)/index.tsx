@@ -696,11 +696,11 @@ export default function DashboardScreen() {
             if (result && setUser) {
               setUser({ ...user, ...result, is_premium: true });
             }
-            alert('🎉 Premium aktif oldu! Tüm özellikler açıldı!');
+            alert(`🎉 ${t('premiumActivated')}`);
             setShowPremiumModal(false);
           } catch (error) {
             console.error('Premium activation error:', error);
-            alert('Hata oluştu. Lütfen tekrar deneyin.');
+            alert(t('errorOccurredTryAgain'));
           }
         }}
       />
