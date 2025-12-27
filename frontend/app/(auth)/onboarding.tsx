@@ -1287,6 +1287,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 2,
     borderColor: 'transparent',
+    position: 'relative',
   },
   goalCardSelected: {
     borderColor: Colors.primary,
@@ -1308,6 +1309,23 @@ const styles = StyleSheet.create({
   goalDesc: {
     fontSize: 14,
     color: Colors.lightText,
+  },
+  // Goal checkmark - positioned absolutely to avoid overlap
+  goalCheckMark: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  goalCheckMarkText: {
+    color: '#FFFFFF',
+    fontSize: 14,
+    fontWeight: 'bold',
   },
   // Result styles
   resultHeader: {
