@@ -808,6 +808,7 @@ const resources = {
       settingsSavedBackground: 'Ayarlar kaydedildi. Bildirimler arka planda ayarlanıyor.',
       notificationPermissionDenied: 'Bildirim izni verilmedi. Ayarlardan açabilirsiniz.',
       notificationPermissionTitle: 'Bildirim İzni',
+      premiumActivated: 'Premium aktif oldu! Tüm özellikler açıldı!',
       dietActivated: 'Diyet aktifleştirildi! Öğünleriniz planlandı.',
       fillVitaminFields: 'Vitamin adı ve zamanını doldurun.',
       timeAlreadyAdded: 'Bu saat zaten ekli!',
