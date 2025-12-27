@@ -293,7 +293,7 @@ export default function RecipesScreen() {
         {!isPremium && (
           <TouchableOpacity
             style={styles.premiumCta}
-            onPress={() => router.push('/premium')}
+            onPress={() => router.push('/(tabs)/diets')}
           >
             <Ionicons name="diamond-outline" size={24} color={Colors.premium} />
             <View style={styles.premiumCtaContent}>
