@@ -3001,7 +3001,12 @@ Return ONLY valid JSON with this exact structure:
 
 Create all 7 days with different, varied, and delicious meals. Use Turkish cuisine and ingredients available in Turkey."""
 
-        client = openai.OpenAI(api_key=api_key)
+        # Check if using Emergent LLM key
+        base_url = None
+        if api_key and api_key.startswith("sk-emergent"):
+            base_url = "https://emergent-api.onrender.com/v1"
+        
+        client = openai.OpenAI(api_key=api_key, base_url=base_url)
         response = client.chat.completions.create(
             model=VISION_MODEL_PRIMARY,
             messages=[{"role": "user", "content": prompt}],
