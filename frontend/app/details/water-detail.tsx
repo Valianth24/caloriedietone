@@ -12,6 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { LogBox } from 'react-native';
 import { clearReminderNotifications, requestNotificationPermission, syncReminderNotifications, sendTestNotification, getScheduledNotifications } from '../../utils/notifications';
+import Svg, { Circle } from 'react-native-svg';
 
 const screenWidth = Dimensions.get('window').width;
 
