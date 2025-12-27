@@ -234,24 +234,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  // Google Login using expo-auth-session for proper redirect handling
+  // Google Login using expo-web-browser for proper redirect handling
   const login = async () => {
     try {
-      // Create redirect URL using AuthSession for proper deep linking
+      // Create redirect URL using Linking for proper deep linking
       let redirectUrl: string;
       
       if (Platform.OS === 'web') {
         // For web, use current origin
         redirectUrl = typeof window !== 'undefined' ? `${window.location.origin}/auth` : '';
       } else {
-        // For mobile (Android/iOS), use AuthSession.makeRedirectUri
+        // For mobile (Android/iOS), use Linking.createURL
         // This generates the correct URL format for the platform
-        redirectUrl = AuthSession.makeRedirectUri({
-          scheme: APP_SCHEME,
-          path: 'auth',
-        });
+        redirectUrl = Linking.createURL('auth');
         
-        // Fallback to manual construction if AuthSession fails
+        // Fallback to manual construction if needed
         if (!redirectUrl || redirectUrl.includes('localhost')) {
           redirectUrl = `${APP_SCHEME}://auth`;
         }
