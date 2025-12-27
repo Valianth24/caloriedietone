@@ -60,7 +60,7 @@ export default function DietDetailScreen() {
 
   const handleActivateDiet = () => {
     // Burada diyet aktifleştirme API çağrısı yapılacak
-    alert('Diyet aktifleştirildi! Öğünleriniz planlandı.');
+    alert(t('dietActivated'));
     router.back();
   };
 
