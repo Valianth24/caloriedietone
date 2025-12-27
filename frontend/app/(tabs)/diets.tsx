@@ -9,69 +9,58 @@ import { useStore } from '../../store/useStore';
 import PremiumPaywall from '../../components/PremiumPaywall';
 import AdvancedDietForm from '../../components/AdvancedDietForm';
 import { activatePremium } from '../../utils/api';
+import { allDiets, Diet } from '../../content/diets';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function DietsScreen() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const { user, setUser } = useStore();
   const [showAdvancedForm, setShowAdvancedForm] = useState(false);
   const [showPaywall, setShowPaywall] = useState(false);
+  const [hasActiveDiet, setHasActiveDiet] = useState(false);
+
+  const lang = i18n.language === 'tr' ? 'tr' : 'en';
 
   // Check premium and guest status
   const isPremium = user?.is_premium || false;
   const isGuest = user?.user_id?.startsWith('guest_') || false;
 
-  const premiumDiets = [
-    {
-      id: '1',
-      name: t('ketoDiet'),
-      description: t('ketoDesc'),
-      duration: `30 ${t('days')}`,
-      calories: 1800,
-      image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400',
-      isPremium: true,
-      category: t('weightLoss')
-    },
-    {
-      id: '2',
-      name: t('mediterraneanDiet'),
-      description: t('mediterraneanDesc'),
-      duration: `30 ${t('days')}`,
-      calories: 2000,
-      image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400',
-      isPremium: true,
-      category: t('balanced')
-    },
-    {
-      id: '3',
-      name: t('muscleDiet'),
-      description: t('muscleDesc'),
-      duration: `60 ${t('days')}`,
-      calories: 2500,
-      image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400',
-      isPremium: true,
-      category: t('muscleBuilding')
-    },
-    {
-      id: '4',
-      name: t('vegetarianDiet'),
-      description: t('vegetarianDesc'),
-      duration: `30 ${t('days')}`,
-      calories: 1900,
-      image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=400',
-      isPremium: true,
-      category: t('vegetarian')
-    },
-  ];
+  useEffect(() => {
+    checkActiveDiet();
+  }, []);
 
-  const handleDietClick = (diet: any) => {
+  const checkActiveDiet = async () => {
+    const data = await AsyncStorage.getItem('active_diet');
+    setHasActiveDiet(!!data);
+  };
+
+  const handleDietClick = (diet: Diet) => {
     if (diet.isPremium && !isPremium) {
       setShowPaywall(true);
     } else {
       router.push({
-        pathname: '/details/diet-detail',
-        params: { dietId: diet.id }
+        pathname: '/details/premium-diet-detail',
+        params: { id: diet.id }
       });
+    }
+  };
+
+  const getDifficultyColor = (difficulty: string) => {
+    switch (difficulty) {
+      case 'easy': return Colors.success;
+      case 'medium': return Colors.warning;
+      case 'hard': return Colors.error;
+      default: return Colors.primary;
+    }
+  };
+
+  const getDifficultyText = (difficulty: string) => {
+    switch (difficulty) {
+      case 'easy': return lang === 'tr' ? 'Kolay' : 'Easy';
+      case 'medium': return lang === 'tr' ? 'Orta' : 'Medium';
+      case 'hard': return lang === 'tr' ? 'Zor' : 'Hard';
+      default: return difficulty;
     }
   };
 
