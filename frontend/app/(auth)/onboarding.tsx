@@ -452,14 +452,13 @@ export default function OnboardingScreen() {
     );
   }
 
-  // Age Step - Premium with PremiumAgePicker
+  // Age Step - Basit TextInput
   if (step === 'age') {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView 
-          style={{ flex: 1 }} 
-          contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
-          showsVerticalScrollIndicator={false}
+        <KeyboardAvoidingView 
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={{ flex: 1 }}
         >
           <View style={styles.stepContainer}>
             <View style={styles.progressBar}>
@@ -470,20 +469,21 @@ export default function OnboardingScreen() {
               <Text style={styles.backBtnText}>←</Text>
             </TouchableOpacity>
             
-            <View style={styles.premiumPickerHeader}>
+            <View style={styles.stepContent}>
               <Text style={styles.stepEmoji}>🎂</Text>
               <Text style={styles.stepTitle}>{t('howOldAreYou')}</Text>
               <Text style={styles.stepSubtitle}>{t('ageHelpsCalculate')}</Text>
-            </View>
-            
-            <View style={styles.premiumPickerContainer}>
-              <PremiumAgePicker
-                minAge={10}
-                maxAge={100}
-                initialAge={parseInt(formData.age) || 25}
-                onAgeChange={(age) => setFormData({ ...formData, age: age.toString() })}
-                primaryColor={Colors.primary}
-              />
+              
+              <View style={styles.simpleInputContainer}>
+                <TextInput
+                  style={styles.simpleInput}
+                  value={formData.age}
+                  onChangeText={(text) => setFormData({ ...formData, age: text.replace(/[^0-9]/g, '') })}
+                  keyboardType="number-pad"
+                  maxLength={3}
+                />
+                <Text style={styles.simpleInputUnit}>{t('years') || 'yaş'}</Text>
+              </View>
             </View>
             
             <TouchableOpacity 
@@ -496,19 +496,18 @@ export default function OnboardingScreen() {
               </LinearGradient>
             </TouchableOpacity>
           </View>
-        </ScrollView>
+        </KeyboardAvoidingView>
       </SafeAreaView>
     );
   }
 
-  // Height Step - Premium with PremiumHeightPicker
+  // Height Step - Basit TextInput
   if (step === 'height') {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView 
-          style={{ flex: 1 }} 
-          contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
-          showsVerticalScrollIndicator={false}
+        <KeyboardAvoidingView 
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={{ flex: 1 }}
         >
           <View style={styles.stepContainer}>
             <View style={styles.progressBar}>
@@ -519,22 +518,21 @@ export default function OnboardingScreen() {
               <Text style={styles.backBtnText}>←</Text>
             </TouchableOpacity>
             
-            <View style={styles.premiumPickerHeader}>
+            <View style={styles.stepContent}>
               <Text style={styles.stepEmoji}>📏</Text>
               <Text style={styles.stepTitle}>{t('whatIsYourHeight')}</Text>
               <Text style={styles.stepSubtitle}>{t('heightHelpsCalculate')}</Text>
-            </View>
-            
-            <View style={styles.premiumPickerContainer}>
-              <PremiumHeightPicker
-                min={100}
-                max={250}
-                step={1}
-                initialValue={parseInt(formData.height) || 170}
-                unit="cm"
-                onValueChange={(value) => setFormData({ ...formData, height: value.toString() })}
-                primaryColor={Colors.primary}
-              />
+              
+              <View style={styles.simpleInputContainer}>
+                <TextInput
+                  style={styles.simpleInput}
+                  value={formData.height}
+                  onChangeText={(text) => setFormData({ ...formData, height: text.replace(/[^0-9]/g, '') })}
+                  keyboardType="number-pad"
+                  maxLength={3}
+                />
+                <Text style={styles.simpleInputUnit}>cm</Text>
+              </View>
             </View>
             
             <TouchableOpacity 
@@ -547,19 +545,18 @@ export default function OnboardingScreen() {
               </LinearGradient>
             </TouchableOpacity>
           </View>
-        </ScrollView>
+        </KeyboardAvoidingView>
       </SafeAreaView>
     );
   }
 
-  // Weight Step - Enhanced with EnhancedRulerPicker
+  // Weight Step - Basit TextInput
   if (step === 'weight') {
     return (
       <SafeAreaView style={styles.container}>
-        <ScrollView 
-          style={{ flex: 1 }} 
-          contentContainerStyle={{ flexGrow: 1, paddingBottom: 20 }}
-          showsVerticalScrollIndicator={false}
+        <KeyboardAvoidingView 
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={{ flex: 1 }}
         >
           <View style={styles.stepContainer}>
             <View style={styles.progressBar}>
@@ -570,23 +567,21 @@ export default function OnboardingScreen() {
               <Text style={styles.backBtnText}>←</Text>
             </TouchableOpacity>
             
-            <View style={styles.advancedPickerHeader}>
+            <View style={styles.stepContent}>
               <Text style={styles.stepEmoji}>⚖️</Text>
               <Text style={styles.stepTitle}>{t('whatIsYourWeight')}</Text>
               <Text style={styles.stepSubtitle}>{t('currentWeightHelps')}</Text>
-            </View>
-            
-            <View style={styles.advancedRulerContainer}>
-              <EnhancedRulerPicker
-                min={30}
-                max={200}
-                step={0.5}
-                initialValue={parseFloat(formData.weight) || 70}
-                unit="kg"
-                onValueChange={(value) => setFormData({ ...formData, weight: value.toString() })}
-                height={260}
-                primaryColor="#FF9800"
-              />
+              
+              <View style={styles.simpleInputContainer}>
+                <TextInput
+                  style={styles.simpleInput}
+                  value={formData.weight}
+                  onChangeText={(text) => setFormData({ ...formData, weight: text.replace(/[^0-9.]/g, '') })}
+                  keyboardType="decimal-pad"
+                  maxLength={5}
+                />
+                <Text style={styles.simpleInputUnit}>kg</Text>
+              </View>
             </View>
             
             <TouchableOpacity 
@@ -598,6 +593,11 @@ export default function OnboardingScreen() {
                 <Text style={styles.continueBtnText}>{t('continue')}</Text>
               </LinearGradient>
             </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    );
+  }
           </View>
         </ScrollView>
       </SafeAreaView>
