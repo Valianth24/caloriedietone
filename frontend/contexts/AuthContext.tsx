@@ -1,12 +1,14 @@
 import React, { createContext, useState, useEffect, useContext, ReactNode } from 'react';
 import { Platform, Alert } from 'react-native';
 import * as WebBrowser from 'expo-web-browser';
-import * as AuthSession from 'expo-auth-session';
 import * as Linking from 'expo-linking';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { exchangeSession, getMe, logout as apiLogout, setAuthToken, guestLogin, setOnAuthFailure } from '../utils/api';
 import { useStore } from '../store/useStore';
+
+// NOTE: Removed expo-auth-session import to fix ExpoCrypto native module error
+// Using Linking.createURL instead for redirect URI generation
 
 // CRITICAL: This must be called at module level for OAuth redirect to work
 // It checks if the current URL is an OAuth callback and completes the session
