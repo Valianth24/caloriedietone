@@ -24,6 +24,11 @@
       },
       "package": "com.caloriediet.app",
       "versionCode": 1,
+      "softwareKeyboardLayoutMode": "pan",
+      "navigationBar": {
+        "visible": "sticky",
+        "backgroundColor": "#FFFFFF00"
+      },
       "permissions": [
         "CAMERA",
         "READ_EXTERNAL_STORAGE",
