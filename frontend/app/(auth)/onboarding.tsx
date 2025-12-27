@@ -598,11 +598,6 @@ export default function OnboardingScreen() {
       </SafeAreaView>
     );
   }
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    );
-  }
 
   // Target Weight Step
   if (step === 'targetWeight') {
