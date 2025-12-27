@@ -502,18 +502,17 @@ const styles = StyleSheet.create({
     color: Colors.darkText,
     marginBottom: 20,
   },
-  circularProgress: {
+  circularProgressWrapper: {
     width: 180,
     height: 180,
-    borderRadius: 90,
-    borderWidth: 12,
-    borderColor: Colors.teal,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.white,
+    position: 'relative',
   },
   circularInner: {
+    position: 'absolute',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   circularText: {
     fontSize: 14,
