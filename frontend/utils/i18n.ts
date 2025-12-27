@@ -362,6 +362,7 @@ const resources = {
       settingsSavedBackground: 'Settings saved. Notifications are being set up in background.',
       notificationPermissionDenied: 'Notification permission denied. You can enable it in settings.',
       notificationPermissionTitle: 'Notification Permission',
+      premiumActivated: 'Premium activated! All features are now unlocked!',
       dietActivated: 'Diet activated! Your meals are planned.',
       fillVitaminFields: 'Please fill in vitamin name and time.',
       timeAlreadyAdded: 'This time is already added!',
