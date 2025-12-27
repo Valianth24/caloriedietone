@@ -526,6 +526,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 4,
   },
+  checkbox: {
+    width: 28,
+    height: 28,
+    borderRadius: 6,
+    borderWidth: 2,
+    borderColor: '#D0D0D0',
+    backgroundColor: Colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  checkboxChecked: {
+    backgroundColor: Colors.success,
+    borderColor: Colors.success,
+  },
   vitaminStatus: {
     fontSize: 12,
     fontWeight: '600',
