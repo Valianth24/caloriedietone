@@ -168,6 +168,25 @@ export default function DietsScreen() {
           )}
         </TouchableOpacity>
 
+        {/* Active Diet Banner */}
+        {hasActiveDiet && (
+          <TouchableOpacity 
+            style={styles.activeDietBanner}
+            onPress={() => router.push('/details/active-diet')}
+          >
+            <Ionicons name="fitness" size={24} color={Colors.white} />
+            <View style={styles.activeDietText}>
+              <Text style={styles.activeDietTitle}>
+                {lang === 'tr' ? 'Aktif Diyet Programınız Var!' : 'You Have an Active Diet!'}
+              </Text>
+              <Text style={styles.activeDietSubtitle}>
+                {lang === 'tr' ? 'Devam etmek için tıklayın' : 'Tap to continue'}
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={24} color={Colors.white} />
+          </TouchableOpacity>
+        )}
+
         {/* Premium Diets Section */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
@@ -182,17 +201,16 @@ export default function DietsScreen() {
           <Text style={styles.sectionSubtitle}>{t('premiumDietsSubtitle')}</Text>
           
           <View style={styles.dietGrid}>
-            {premiumDiets.map((diet) => (
+            {allDiets.map((diet) => (
               <TouchableOpacity
                 key={diet.id}
-                style={[styles.dietCard, !isPremium && styles.dietCardLocked]}
+                style={[styles.dietCard, !isPremium && diet.isPremium && styles.dietCardLocked]}
                 onPress={() => handleDietClick(diet)}
               >
-                <Image
-                  source={{ uri: diet.image }}
-                  style={styles.dietImage}
-                />
-                {!isPremium && (
+                <View style={styles.dietEmojiContainer}>
+                  <Text style={styles.dietEmoji}>{diet.emoji}</Text>
+                </View>
+                {!isPremium && diet.isPremium && (
                   <View style={styles.lockOverlay}>
                     <Ionicons name="lock-closed" size={32} color={Colors.white} />
                   </View>
@@ -202,18 +220,19 @@ export default function DietsScreen() {
                   <Text style={styles.premiumText}>Premium</Text>
                 </View>
                 <View style={styles.dietInfo}>
-                  <Text style={styles.dietName}>{diet.name}</Text>
+                  <Text style={styles.dietName}>{diet.name[lang]}</Text>
                   <Text style={styles.dietDescription} numberOfLines={2}>
-                    {diet.description}
+                    {diet.description[lang].substring(0, 80)}...
                   </Text>
                   <View style={styles.dietMeta}>
                     <View style={styles.metaItem}>
                       <Ionicons name="calendar-outline" size={14} color={Colors.lightText} />
-                      <Text style={styles.metaText}>{diet.duration}</Text>
+                      <Text style={styles.metaText}>{diet.duration} {lang === 'tr' ? 'gün' : 'days'}</Text>
                     </View>
-                    <View style={styles.metaItem}>
-                      <Ionicons name="flame-outline" size={14} color={Colors.lightText} />
-                      <Text style={styles.metaText}>{diet.calories} kcal</Text>
+                    <View style={[styles.difficultyBadge, { backgroundColor: getDifficultyColor(diet.difficulty) + '20' }]}>
+                      <Text style={[styles.difficultyText, { color: getDifficultyColor(diet.difficulty) }]}>
+                        {getDifficultyText(diet.difficulty)}
+                      </Text>
                     </View>
                   </View>
                 </View>
