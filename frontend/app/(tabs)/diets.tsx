@@ -404,12 +404,22 @@ const styles = StyleSheet.create({
     height: 180,
     resizeMode: 'cover',
   },
+  dietEmojiContainer: {
+    width: '100%',
+    height: 120,
+    backgroundColor: Colors.primary + '10',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  dietEmoji: {
+    fontSize: 56,
+  },
   lockOverlay: {
     position: 'absolute',
     top: 0,
     left: 0,
     right: 0,
-    bottom: 0,
+    height: 120,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
     justifyContent: 'center',
     alignItems: 'center',
@@ -432,6 +442,37 @@ const styles = StyleSheet.create({
     color: Colors.white,
     fontSize: 11,
     fontWeight: 'bold',
+  },
+  difficultyBadge: {
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 8,
+  },
+  difficultyText: {
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  activeDietBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.success,
+    padding: 16,
+    borderRadius: 16,
+    marginBottom: 24,
+    gap: 12,
+  },
+  activeDietText: {
+    flex: 1,
+  },
+  activeDietTitle: {
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  activeDietSubtitle: {
+    color: Colors.white,
+    fontSize: 13,
+    opacity: 0.9,
   },
   dietInfo: {
     padding: 16,
