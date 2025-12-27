@@ -804,6 +804,8 @@ const resources = {
       vitaminBody: 'Vitaminlerinizi almayı unutmayın!',
       everyMorning: 'Her Sabah',
       everyEvening: 'Her Akşam',
+      taken: 'Alındı',
+      notTaken: 'Alınmadı',
       notifications: 'bildirim',
       waterReminder: 'Su Hatırlatıcısı',
       drinkWaterBody: 'Su içme zamanı! Sağlıklı kalın.',
