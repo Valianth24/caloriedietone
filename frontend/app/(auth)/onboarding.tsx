@@ -218,25 +218,39 @@ export default function OnboardingScreen() {
     const age = parseInt(formData.age);
     const targetWeight = parseFloat(formData.targetWeight);
     
-    const bmr = calculateBMR(weight, heightVal, age, formData.gender);
-    const tdee = calculateTDEE(bmr, formData.activity_level);
+    // Yeni bilimsel hesaplama modülünü kullan
+    const userData: UserData = {
+      weight,
+      height: heightVal,
+      age,
+      gender: formData.gender as 'male' | 'female',
+      activityLevel: activityLevelMap[formData.activity_level] || 'moderate',
+      goal: goalMap[formData.goal] || 'maintain',
+    };
     
-    // Kullanıcının seçtiği goal'u kullan - override etme!
-    const selectedGoal = formData.goal;
-    
-    const targetCalories = calculateTargetCalories(tdee, selectedGoal);
-    const idealWeight = calculateIdealWeight(heightVal, formData.gender);
-    const weeksToGoal = calculateWeeksToGoal(weight, targetWeight, selectedGoal);
+    const nutritionResults = calculateNutrition(userData);
+    const idealWeightRange = calculateIdealWeight(heightVal, formData.gender as 'male' | 'female');
+    const weeksToGoal = Math.ceil(Math.abs(weight - targetWeight) / 0.5);
     const bmi = weight / ((heightVal / 100) ** 2);
     
+    // Makro değerlerini kaydet
     setCalculations({
-      bmr: Math.round(bmr),
-      tdee,
-      targetCalories,
-      idealWeight,
+      bmr: nutritionResults.bmr,
+      tdee: nutritionResults.tdee,
+      targetCalories: nutritionResults.targetCalories,
+      idealWeight: idealWeightRange.ideal,
       weeksToGoal,
       bmi: Math.round(bmi * 10) / 10,
     });
+    
+    // Form data'ya makroları ve su hedefini ekle
+    setFormData(prev => ({
+      ...prev,
+      waterGoal: nutritionResults.waterGoal,
+      macros: nutritionResults.macros,
+      fiber: nutritionResults.fiber,
+      maxSugar: nutritionResults.sugar,
+    }));
   };
 
   const handleSubmit = async () => {
