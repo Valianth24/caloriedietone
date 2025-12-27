@@ -204,18 +204,30 @@ export const syncReminderNotifications = async ({ type, enabled, times, content 
             }, 5000);
 
             try {
-              // Simple trigger format that works in Expo Go
+              // Use proper daily trigger format for scheduled notifications
+              const trigger: any = {
+                hour,
+                minute,
+                repeats: true,
+              };
+              
+              // For Android, need to specify channelId
+              if (Platform.OS === 'android') {
+                trigger.channelId = REMINDER_CHANNEL_ID;
+              }
+              
               const id = await Notifications.scheduleNotificationAsync({
                 content: {
                   title: content.title,
                   body: content.body,
                   sound: true,
+                  priority: 'max',
+                  ...(Platform.OS === 'android' && {
+                    vibrate: [0, 250, 250, 250],
+                    channelId: REMINDER_CHANNEL_ID,
+                  }),
                 },
-                trigger: {
-                  hour,
-                  minute,
-                  repeats: true,
-                },
+                trigger,
               });
               clearTimeout(timeoutId);
               resolve(id);
