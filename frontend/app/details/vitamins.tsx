@@ -244,18 +244,22 @@ export default function VitaminsScreen() {
                   </View>
                 </View>
                 <View style={styles.vitaminRight}>
-                  <Ionicons
-                    name={vitamin.is_taken ? 'checkmark-circle' : 'close-circle'}
-                    size={32}
-                    color={vitamin.is_taken ? Colors.success : Colors.error}
-                  />
+                  {/* Checkbox tasarımı - boş kutu veya tik */}
+                  <View style={[
+                    styles.checkbox,
+                    vitamin.is_taken && styles.checkboxChecked
+                  ]}>
+                    {vitamin.is_taken && (
+                      <Ionicons name="checkmark" size={20} color={Colors.white} />
+                    )}
+                  </View>
                   <Text
                     style={[
                       styles.vitaminStatus,
                       { color: vitamin.is_taken ? Colors.success : Colors.lightText },
                     ]}
                   >
-                    {vitamin.is_taken ? 'Alındı' : 'Alınmadı'}
+                    {vitamin.is_taken ? t('taken') || 'Alındı' : t('notTaken') || 'Alınmadı'}
                   </Text>
                 </View>
               </TouchableOpacity>
