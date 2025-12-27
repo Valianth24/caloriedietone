@@ -127,7 +127,7 @@ export default function VitaminsScreen() {
     const trimmedTime = newVitaminTime.trim();
 
     if (!trimmedName || !trimmedTime) {
-      alert('Vitamin adı ve zamanını doldurun.');
+      alert(t('fillVitaminFields'));
       return;
     }
     try {
@@ -135,7 +135,7 @@ export default function VitaminsScreen() {
       await loadVitamins(false);
       setShowAddModal(false);
       setNewVitaminName('');
-      setNewVitaminTime('Her Sabah');
+      setNewVitaminTime(t('everyMorning') || 'Her Sabah');
     } catch (error) {
       console.error('Error adding vitamin:', error);
     }
@@ -158,8 +158,8 @@ export default function VitaminsScreen() {
           enabled: reminderEnabled,
           times: reminderTimes,
           content: {
-            title: alarmStyle ? '🔔 VITAMIN ZAMANI!' : 'Vitamin Hatırlatıcı',
-            body: 'Vitaminlerinizi almayı unutmayın!',
+            title: alarmStyle ? `🔔 ${t('vitaminTime')}` : t('vitaminReminderTitle'),
+            body: t('vitaminBody'),
             sound: alarmStyle ? 'default' : undefined,
           },
         });
@@ -171,20 +171,20 @@ export default function VitaminsScreen() {
 
         try {
           await Promise.race([syncPromise, timeoutPromise]);
-          alert(reminderEnabled ? 'Hatırlatıcılar kaydedildi!' : 'Hatırlatıcılar kapatıldı.');
+          alert(reminderEnabled ? t('reminderSaved') : t('remindersTurnedOff'));
         } catch (timeoutError) {
           // Still show success - settings are saved
-          alert(reminderEnabled ? 'Ayarlar kaydedildi. Bildirimler arka planda ayarlanıyor.' : 'Hatırlatıcılar kapatıldı.');
+          alert(reminderEnabled ? t('settingsSavedBackground') : t('remindersTurnedOff'));
         }
       } else {
         await clearReminderNotifications('vitamin');
-        alert('Bildirim izni verilmedi. Ayarlardan açabilirsiniz.');
+        alert(t('notificationPermissionDenied'));
       }
 
       setShowReminderModal(false);
     } catch (error) {
       console.error('Error saving reminders:', error);
-      alert('Ayarlar kaydedildi.');
+      alert(t('settingsSaved'));
       setShowReminderModal(false);
     }
   };
