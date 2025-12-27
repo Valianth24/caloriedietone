@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import React, { useEffect, useState, useRef } from 'react';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert, AppState, AppStateStatus } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getTodaySteps, syncSteps } from '../../utils/api';
 import { Colors } from '../../constants/Colors';
@@ -18,11 +18,34 @@ export default function StepsDetailScreen() {
   const { user } = useStore();
   const [todaySteps, setTodaySteps] = useState(0);
   const [isPedometerAvailable, setIsPedometerAvailable] = useState('checking');
+  const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
+  const subscriptionRef = useRef<any>(null);
+  const appStateRef = useRef(AppState.currentState);
 
   useEffect(() => {
     loadData();
-    subscribeToPedometer();
+    initPedometer();
+
+    // Listen for app state changes to refresh when coming back to foreground
+    const subscription = AppState.addEventListener('change', handleAppStateChange);
+
+    return () => {
+      // Cleanup subscription on unmount
+      if (subscriptionRef.current) {
+        subscriptionRef.current.remove();
+      }
+      subscription.remove();
+    };
   }, []);
+
+  const handleAppStateChange = async (nextAppState: AppStateStatus) => {
+    if (appStateRef.current.match(/inactive|background/) && nextAppState === 'active') {
+      // App has come to foreground - refresh steps
+      console.log('[Steps] App came to foreground, refreshing...');
+      await refreshStepsFromPedometer();
+    }
+    appStateRef.current = nextAppState;
+  };
 
   const loadData = async () => {
     try {
@@ -34,36 +57,74 @@ export default function StepsDetailScreen() {
     }
   };
 
-  const subscribeToPedometer = async () => {
-    const available = await Pedometer.isAvailableAsync();
-    setIsPedometerAvailable(String(available));
+  const initPedometer = async () => {
+    try {
+      const available = await Pedometer.isAvailableAsync();
+      setIsPedometerAvailable(String(available));
+      console.log('[Steps] Pedometer available:', available);
 
-    if (available) {
+      if (available) {
+        await refreshStepsFromPedometer();
+        startRealtimeTracking();
+      }
+    } catch (error) {
+      console.error('[Steps] Pedometer init error:', error);
+      setIsPedometerAvailable('false');
+    }
+  };
+
+  const refreshStepsFromPedometer = async () => {
+    try {
       const end = new Date();
       const start = new Date();
       start.setHours(0, 0, 0, 0);
 
-      try {
-        const pastStepCount = await Pedometer.getStepCountAsync(start, end);
-        if (pastStepCount) {
-          setTodaySteps(pastStepCount.steps);
-          await syncSteps(pastStepCount.steps, 'pedometer');
-        }
-      } catch (error) {
-        console.error('Error reading pedometer:', error);
+      const pastStepCount = await Pedometer.getStepCountAsync(start, end);
+      if (pastStepCount && pastStepCount.steps > 0) {
+        console.log('[Steps] Got historical steps:', pastStepCount.steps);
+        setTodaySteps(pastStepCount.steps);
+        setLastUpdate(new Date());
+        await syncSteps(pastStepCount.steps, 'pedometer');
       }
-
-      return Pedometer.watchStepCount(result => {
-        setTodaySteps(result.steps);
-        syncSteps(result.steps, 'pedometer');
-      });
+    } catch (error) {
+      console.error('[Steps] Error reading historical steps:', error);
     }
+  };
+
+  const startRealtimeTracking = () => {
+    // Remove existing subscription if any
+    if (subscriptionRef.current) {
+      subscriptionRef.current.remove();
+    }
+
+    // Start watching for step updates
+    subscriptionRef.current = Pedometer.watchStepCount(result => {
+      console.log('[Steps] Real-time step update:', result.steps);
+      // watchStepCount returns steps since subscription started
+      // We need to add to the base count
+      setTodaySteps(prev => {
+        const newTotal = prev + result.steps;
+        // Sync to backend
+        syncSteps(newTotal, 'pedometer').catch(console.error);
+        return newTotal;
+      });
+      setLastUpdate(new Date());
+    });
+    
+    console.log('[Steps] Real-time tracking started');
+  };
+
+  const manualRefresh = async () => {
+    console.log('[Steps] Manual refresh triggered');
+    await refreshStepsFromPedometer();
+    Alert.alert(t('success') || 'Başarılı', t('stepsUpdated') || 'Adımlar güncellendi');
   };
 
   const goal = user?.step_goal || 10000;
   const percentage = goal > 0 ? Math.min((todaySteps / goal) * 100, 100) : 0;
   const caloriesBurned = Math.floor(todaySteps * 0.04);
   const distance = (todaySteps * 0.0008).toFixed(2); // km
+  const activeMinutes = Math.floor(todaySteps / 100);
 
   const radius = 100;
   const strokeWidth = 15;
