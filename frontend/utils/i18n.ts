@@ -832,6 +832,12 @@ const resources = {
       
       notifications: 'Bildirimler',
       
+      // Hesap
+      deleteAccount: 'Hesabı Sil',
+      deleteAccountConfirm: 'Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz ve tüm verileriniz kalıcı olarak silinecektir.',
+      accountDeleted: 'Hesabınız başarıyla silindi.',
+      deleteAccountError: 'Hesap silinemedi. Lütfen tekrar deneyin.',
+      
       today: 'Bugün',
     }
   },
