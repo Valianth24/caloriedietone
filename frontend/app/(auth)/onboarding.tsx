@@ -783,8 +783,8 @@ export default function OnboardingScreen() {
                 onPress={() => toggleGoal('lose_weight')}
               >
                 {isGoalSelected('lose_weight') && (
-                  <View style={styles.checkMark}>
-                    <Text style={styles.checkMarkText}>✓</Text>
+                  <View style={styles.goalCheckMark}>
+                    <Text style={styles.goalCheckMarkText}>✓</Text>
                   </View>
                 )}
                 <Text style={styles.goalEmoji}>📉</Text>
@@ -800,8 +800,8 @@ export default function OnboardingScreen() {
                 onPress={() => toggleGoal('build_muscle')}
               >
                 {isGoalSelected('build_muscle') && (
-                  <View style={styles.checkMark}>
-                    <Text style={styles.checkMarkText}>✓</Text>
+                  <View style={styles.goalCheckMark}>
+                    <Text style={styles.goalCheckMarkText}>✓</Text>
                   </View>
                 )}
                 <Text style={styles.goalEmoji}>💪</Text>
@@ -817,8 +817,8 @@ export default function OnboardingScreen() {
                 onPress={() => toggleGoal('gain_weight')}
               >
                 {isGoalSelected('gain_weight') && (
-                  <View style={styles.checkMark}>
-                    <Text style={styles.checkMarkText}>✓</Text>
+                  <View style={styles.goalCheckMark}>
+                    <Text style={styles.goalCheckMarkText}>✓</Text>
                   </View>
                 )}
                 <Text style={styles.goalEmoji}>📈</Text>
@@ -834,8 +834,8 @@ export default function OnboardingScreen() {
                 onPress={() => toggleGoal('maintain')}
               >
                 {isGoalSelected('maintain') && (
-                  <View style={styles.checkMark}>
-                    <Text style={styles.checkMarkText}>✓</Text>
+                  <View style={styles.goalCheckMark}>
+                    <Text style={styles.goalCheckMarkText}>✓</Text>
                   </View>
                 )}
                 <Text style={styles.goalEmoji}>⚖️</Text>
