@@ -1595,7 +1595,12 @@ Her yiyeceği tespit et ve besin değerlerini tahmin et. Porsiyon büyüklüğü
 Kesin JSON formatında yanıt ver."""
 
     try:
-        client = openai.AsyncOpenAI(api_key=api_key)
+        # Check if using Emergent LLM key
+        base_url = None
+        if api_key and api_key.startswith("sk-emergent"):
+            base_url = "https://emergent-api.onrender.com/v1"
+        
+        client = openai.AsyncOpenAI(api_key=api_key, base_url=base_url)
         
         # GPT-5 models have different parameter requirements
         is_gpt5 = model.startswith("gpt-5")
