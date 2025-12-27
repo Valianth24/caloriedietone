@@ -2883,6 +2883,303 @@ class GeneratePersonalDietRequest(BaseModel):
     goal: str = "balanced"
     duration_days: int = 30
 
+class StartDietRequest(BaseModel):
+    """Request model for starting a diet."""
+    diet_id: str
+    start_date: Optional[str] = None  # ISO format, defaults to today
+
+@api_router.post("/diet/generate-weekly")
+async def generate_weekly_diet(
+    request: GeneratePersonalDietRequest,
+    current_user: Optional[User] = Depends(get_current_user)
+):
+    """Generate detailed 7-day diet plan with full meal details (Premium feature)."""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    if not current_user.is_premium:
+        raise HTTPException(status_code=403, detail="Premium subscription required")
+    
+    api_key = get_openai_api_key()
+    if not api_key:
+        raise HTTPException(status_code=500, detail="OpenAI API key not configured")
+    
+    try:
+        prompt = f"""Create a detailed 7-day diet plan in JSON format. Be very specific with ingredients and portions.
+
+Name: {request.name}
+Target Calories: {request.target_calories} kcal/day
+Goal: {request.goal}
+Preferences: {', '.join(request.preferences) if request.preferences else 'None'}
+Restrictions: {', '.join(request.restrictions) if request.restrictions else 'None'}
+
+Return ONLY valid JSON with this exact structure:
+{{
+  "name": "{request.name}",
+  "description": "Brief description of the diet plan",
+  "target_calories": {request.target_calories},
+  "goal": "{request.goal}",
+  "duration_days": 7,
+  "macros": {{"protein": 30, "carbs": 40, "fat": 30}},
+  "days": [
+    {{
+      "day": 1,
+      "day_name": "Pazartesi",
+      "total_calories": 1800,
+      "breakfast": {{
+        "name": "Meal name",
+        "description": "Detailed description with ingredients",
+        "calories": 400,
+        "protein": 20,
+        "carbs": 40,
+        "fat": 15,
+        "ingredients": ["2 yumurta", "1 dilim tam buğday ekmeği", "50g peynir"],
+        "preparation": "Brief preparation instructions"
+      }},
+      "morning_snack": {{
+        "name": "Snack name",
+        "description": "Description",
+        "calories": 150,
+        "protein": 5,
+        "carbs": 20,
+        "fat": 5,
+        "ingredients": ["1 elma", "10 badem"]
+      }},
+      "lunch": {{
+        "name": "Meal name",
+        "description": "Description with ingredients",
+        "calories": 500,
+        "protein": 30,
+        "carbs": 50,
+        "fat": 20,
+        "ingredients": ["150g tavuk göğsü", "200g bulgur pilavı", "salata"],
+        "preparation": "Preparation instructions"
+      }},
+      "afternoon_snack": {{
+        "name": "Snack name",
+        "description": "Description",
+        "calories": 150,
+        "protein": 10,
+        "carbs": 15,
+        "fat": 5,
+        "ingredients": ["1 kase yoğurt", "1 yemek kaşığı bal"]
+      }},
+      "dinner": {{
+        "name": "Meal name",
+        "description": "Description with ingredients",
+        "calories": 500,
+        "protein": 25,
+        "carbs": 45,
+        "fat": 20,
+        "ingredients": ["200g balık", "sebze", "zeytinyağı"],
+        "preparation": "Preparation instructions"
+      }},
+      "evening_snack": {{
+        "name": "Light snack",
+        "description": "Description",
+        "calories": 100,
+        "protein": 5,
+        "carbs": 10,
+        "fat": 5,
+        "ingredients": ["1 bardak süt"]
+      }}
+    }}
+  ],
+  "shopping_list": ["yumurta", "tam buğday ekmeği", "tavuk göğsü", "sebzeler"],
+  "tips": ["Bol su için", "Öğün atlamayın", "Yavaş yiyin"]
+}}
+
+Create all 7 days with different, varied, and delicious meals. Use Turkish cuisine and ingredients available in Turkey."""
+
+        client = openai.OpenAI(api_key=api_key)
+        response = client.chat.completions.create(
+            model=VISION_MODEL_PRIMARY,
+            messages=[{"role": "user", "content": prompt}],
+            max_completion_tokens=8000,
+            response_format={"type": "json_object"}
+        )
+        
+        result_text = response.choices[0].message.content
+        diet_plan = parse_llm_json_response(result_text)
+        
+        # Add metadata
+        diet_plan["diet_id"] = f"weekly_{uuid.uuid4().hex[:12]}"
+        diet_plan["user_id"] = current_user.user_id
+        diet_plan["created_at"] = now_utc().isoformat()
+        diet_plan["is_active"] = False
+        diet_plan["type"] = "weekly"
+        
+        # Save to database
+        await mongo_db.personal_diets.insert_one(diet_plan)
+        
+        return {"message": "Weekly diet plan created", "diet": diet_plan}
+        
+    except Exception as e:
+        logger.error(f"Weekly diet generation error: {e}")
+        raise HTTPException(status_code=500, detail=f"Generation failed: {str(e)}")
+
+
+@api_router.post("/diet/start")
+async def start_diet(
+    request: StartDietRequest,
+    current_user: Optional[User] = Depends(get_current_user)
+):
+    """Start a 30-day diet program from a diet plan."""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    # Find the diet plan
+    diet = await mongo_db.personal_diets.find_one({
+        "diet_id": request.diet_id,
+        "user_id": current_user.user_id
+    })
+    
+    if not diet:
+        raise HTTPException(status_code=404, detail="Diet not found")
+    
+    # Calculate start date
+    if request.start_date:
+        start_date = datetime.fromisoformat(request.start_date.replace('Z', '+00:00'))
+    else:
+        start_date = now_utc()
+    
+    # Create 30-day program by cycling through 7-day plan
+    days_in_plan = len(diet.get("days", []))
+    if days_in_plan == 0:
+        raise HTTPException(status_code=400, detail="Diet has no days")
+    
+    program_days = []
+    for i in range(30):
+        day_index = i % days_in_plan
+        day_data = diet["days"][day_index].copy()
+        day_data["program_day"] = i + 1
+        day_data["date"] = (start_date + timedelta(days=i)).strftime("%Y-%m-%d")
+        day_data["completed"] = False
+        day_data["unlocked"] = i == 0  # Only first day is unlocked
+        program_days.append(day_data)
+    
+    # Create active diet program
+    active_diet = {
+        "program_id": f"program_{uuid.uuid4().hex[:12]}",
+        "diet_id": request.diet_id,
+        "user_id": current_user.user_id,
+        "name": diet.get("name", "Kişisel Diyet"),
+        "description": diet.get("description", ""),
+        "target_calories": diet.get("target_calories", 2000),
+        "start_date": start_date.isoformat(),
+        "end_date": (start_date + timedelta(days=29)).isoformat(),
+        "current_day": 1,
+        "total_days": 30,
+        "days": program_days,
+        "is_active": True,
+        "created_at": now_utc().isoformat()
+    }
+    
+    # Deactivate any existing active programs
+    await mongo_db.active_diets.update_many(
+        {"user_id": current_user.user_id, "is_active": True},
+        {"$set": {"is_active": False}}
+    )
+    
+    # Save new active diet
+    await mongo_db.active_diets.insert_one(active_diet)
+    
+    return {"message": "Diet program started", "program": active_diet}
+
+
+@api_router.get("/diet/active")
+async def get_active_diet(current_user: Optional[User] = Depends(get_current_user)):
+    """Get user's active diet program."""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    program = await mongo_db.active_diets.find_one({
+        "user_id": current_user.user_id,
+        "is_active": True
+    })
+    
+    if not program:
+        return {"program": None}
+    
+    # Remove MongoDB _id
+    if "_id" in program:
+        del program["_id"]
+    
+    return {"program": program}
+
+
+@api_router.get("/diet/program/{program_id}/day/{day_number}")
+async def get_diet_day(
+    program_id: str,
+    day_number: int,
+    current_user: Optional[User] = Depends(get_current_user)
+):
+    """Get specific day details from active diet program."""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    program = await mongo_db.active_diets.find_one({
+        "program_id": program_id,
+        "user_id": current_user.user_id
+    })
+    
+    if not program:
+        raise HTTPException(status_code=404, detail="Program not found")
+    
+    if day_number < 1 or day_number > len(program.get("days", [])):
+        raise HTTPException(status_code=400, detail="Invalid day number")
+    
+    day_data = program["days"][day_number - 1]
+    
+    # Check if day is unlocked
+    if not day_data.get("unlocked", False) and day_number > 1:
+        # Check if previous day is completed
+        prev_day = program["days"][day_number - 2]
+        if not prev_day.get("completed", False):
+            raise HTTPException(status_code=403, detail="Previous day must be completed first")
+    
+    return {"day": day_data, "program_name": program.get("name")}
+
+
+@api_router.post("/diet/program/{program_id}/day/{day_number}/complete")
+async def complete_diet_day(
+    program_id: str,
+    day_number: int,
+    current_user: Optional[User] = Depends(get_current_user)
+):
+    """Mark a day as completed and unlock next day."""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    program = await mongo_db.active_diets.find_one({
+        "program_id": program_id,
+        "user_id": current_user.user_id
+    })
+    
+    if not program:
+        raise HTTPException(status_code=404, detail="Program not found")
+    
+    if day_number < 1 or day_number > len(program.get("days", [])):
+        raise HTTPException(status_code=400, detail="Invalid day number")
+    
+    # Mark day as completed
+    update_fields = {
+        f"days.{day_number - 1}.completed": True,
+        "current_day": day_number + 1 if day_number < 30 else 30
+    }
+    
+    # Unlock next day if exists
+    if day_number < 30:
+        update_fields[f"days.{day_number}.unlocked"] = True
+    
+    await mongo_db.active_diets.update_one(
+        {"program_id": program_id},
+        {"$set": update_fields}
+    )
+    
+    return {"message": f"Day {day_number} completed", "next_day": day_number + 1 if day_number < 30 else None}
+
+
 @api_router.post("/diet/generate-personal")
 async def generate_personal_diet(
     request: GeneratePersonalDietRequest,
