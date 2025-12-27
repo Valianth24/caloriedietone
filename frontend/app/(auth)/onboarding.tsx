@@ -79,17 +79,7 @@ const calculateTargetCalories = (tdee: number, goal: string): number => {
   return Math.max(targetCalories, MIN_DAILY_CALORIES);
 };
 
-const calculateIdealWeight = (height: number, gender: string): number => {
-  const heightInMeters = height / 100;
-  const idealBMI = gender === 'male' ? 22.5 : 21.5;
-  return Math.round(heightInMeters * heightInMeters * idealBMI);
-};
-
-const calculateWeeksToGoal = (currentWeight: number, targetWeight: number, goal: string): number => {
-  const diff = Math.abs(currentWeight - targetWeight);
-  const weeklyRate = goal === 'loseFast' || goal === 'gainFast' ? 0.75 : 0.5;
-  return Math.ceil(diff / weeklyRate);
-};
+// calculateIdealWeight ve calculateWeeksToGoal artık nutritionCalculator.ts'den import ediliyor
 
 type OnboardingStep = 'language' | 'welcome' | 'gender' | 'age' | 'height' | 'weight' | 'targetWeight' | 'activityLevel' | 'goal' | 'result';
 
