@@ -274,6 +274,7 @@ export default function OnboardingScreen() {
         daily_calorie_goal: calculations.targetCalories,
         bmr: calculations.bmr,
         tdee: calculations.tdee,
+        water_goal: (formData as any).waterGoal || 2500,  // Hesaplanan su hedefi
       };
       
       console.log('[Onboarding] Submitting profile data:', profileData);
