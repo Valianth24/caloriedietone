@@ -350,6 +350,8 @@ const resources = {
       vitaminBody: 'Don\'t forget to take your vitamins!',
       everyMorning: 'Every Morning',
       everyEvening: 'Every Evening',
+      taken: 'Taken',
+      notTaken: 'Not taken',
       notifications: 'notifications',
       waterReminder: 'Water Reminder',
       drinkWaterBody: 'Time to drink water! Stay hydrated.',
