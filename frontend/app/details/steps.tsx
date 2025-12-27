@@ -137,16 +137,16 @@ export default function StepsDetailScreen() {
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <Ionicons name="chevron-back" size={28} color={Colors.darkText} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Adım Takibi</Text>
-        <TouchableOpacity style={styles.menuButton}>
-          <Ionicons name="ellipsis-vertical" size={24} color={Colors.darkText} />
+        <Text style={styles.headerTitle}>{t('stepTracking') || 'Adım Takibi'}</Text>
+        <TouchableOpacity style={styles.menuButton} onPress={manualRefresh}>
+          <Ionicons name="refresh" size={24} color={Colors.primary} />
         </TouchableOpacity>
       </View>
 
       <ScrollView contentContainerStyle={styles.content}>
         {/* Circular Progress */}
         <View style={styles.progressSection}>
-          <Text style={styles.goalTitle}>Günlük Hedef: {goal.toLocaleString()} Adım</Text>
+          <Text style={styles.goalTitle}>{t('dailyGoal') || 'Günlük Hedef'}: {goal.toLocaleString()} {t('steps') || 'Adım'}</Text>
           <View style={styles.circularProgress}>
             <Svg width={radius * 2 + strokeWidth} height={radius * 2 + strokeWidth}>
               <Circle
@@ -172,10 +172,15 @@ export default function StepsDetailScreen() {
             </Svg>
             <View style={styles.progressText}>
               <Text style={styles.stepCount}>{todaySteps.toLocaleString()}</Text>
-              <Text style={styles.stepLabel}>adım</Text>
+              <Text style={styles.stepLabel}>{t('steps') || 'adım'}</Text>
               <Text style={styles.percentage}>{percentage.toFixed(0)}%</Text>
             </View>
           </View>
+          {lastUpdate && (
+            <Text style={styles.lastUpdateText}>
+              {t('lastUpdate') || 'Son güncelleme'}: {lastUpdate.toLocaleTimeString('tr-TR')}
+            </Text>
+          )}
         </View>
 
         {/* Stats Cards */}
@@ -183,7 +188,7 @@ export default function StepsDetailScreen() {
           <View style={styles.statCard}>
             <Ionicons name="flame" size={32} color={Colors.error} />
             <Text style={styles.statValue}>{caloriesBurned}</Text>
-            <Text style={styles.statLabel}>Kalori</Text>
+            <Text style={styles.statLabel}>{t('calorie') || 'Kalori'}</Text>
           </View>
           <View style={styles.statCard}>
             <Ionicons name="location" size={32} color={Colors.primary} />
@@ -192,8 +197,8 @@ export default function StepsDetailScreen() {
           </View>
           <View style={styles.statCard}>
             <Ionicons name="time" size={32} color={Colors.warning} />
-            <Text style={styles.statValue}>{Math.floor(todaySteps / 100)}</Text>
-            <Text style={styles.statLabel}>dakika</Text>
+            <Text style={styles.statValue}>{activeMinutes}</Text>
+            <Text style={styles.statLabel}>{t('minutes') || 'dakika'}</Text>
           </View>
         </View>
 
@@ -202,15 +207,25 @@ export default function StepsDetailScreen() {
           <View style={styles.infoRow}>
             <Ionicons name="phone-portrait" size={24} color={Colors.primary} />
             <View style={styles.infoText}>
-              <Text style={styles.infoTitle}>Pedometer</Text>
+              <Text style={styles.infoTitle}>{t('pedometer') || 'Pedometer'}</Text>
               <Text style={styles.infoSubtitle}>
-                {isPedometerAvailable === 'true' ? 'Aktif' : 'Kullanılamıyor'}
+                {isPedometerAvailable === 'true' 
+                  ? (t('active') || 'Aktif') 
+                  : isPedometerAvailable === 'checking' 
+                    ? (t('checking') || 'Kontrol ediliyor...') 
+                    : (t('notAvailable') || 'Kullanılamıyor')}
               </Text>
             </View>
           </View>
+          {isPedometerAvailable === 'true' && (
+            <View style={styles.realTimeIndicator}>
+              <View style={styles.liveDot} />
+              <Text style={styles.realTimeText}>{t('realTimeTracking') || 'Gerçek zamanlı takip aktif'}</Text>
+            </View>
+          )}
           {isPedometerAvailable === 'false' && (
             <Text style={styles.infoNote}>
-              Adım sayıcı telefonunuzda desteklenmiyor. Manuel veri girişi yapabilirsiniz.
+              {t('pedometerNotSupported') || 'Adım sayıcı telefonunuzda desteklenmiyor. Manuel veri girişi yapabilirsiniz.'}
             </Text>
           )}
         </View>
