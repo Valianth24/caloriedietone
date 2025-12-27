@@ -17,7 +17,7 @@ export default function PersonalDietScreen() {
     name: '',
     target_calories: '2000',
     goal: 'balanced',
-    duration_days: '30',
+    duration_days: '7',  // Default to 7-day (weekly) diet
     preferences: [] as string[],
     restrictions: [] as string[]
   });
