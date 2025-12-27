@@ -425,6 +425,12 @@ const resources = {
       // Notifications
       notifications: 'Notifications',
       
+      // Account
+      deleteAccount: 'Delete Account',
+      deleteAccountConfirm: 'Are you sure you want to delete your account? This action cannot be undone and all your data will be permanently deleted.',
+      accountDeleted: 'Your account has been successfully deleted.',
+      deleteAccountError: 'Failed to delete account. Please try again.',
+      
       // Date/Time
       today: 'Today',
     }
