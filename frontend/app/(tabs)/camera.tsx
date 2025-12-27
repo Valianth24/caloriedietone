@@ -232,10 +232,10 @@ export default function CameraScreen() {
         Alert.alert(
           t('error'), 
           errorMessage.includes('not configured') 
-            ? 'OpenAI API anahtarı yapılandırılmamış. Lütfen yöneticiyle iletişime geçin.'
+            ? t('openaiNotConfigured')
             : errorMessage.includes('rate limit')
-            ? 'API limiti aşıldı. Lütfen biraz bekleyin.'
-            : `Analiz hatası: ${errorMessage}`
+            ? t('apiRateLimitExceeded')
+            : `${t('analysisError')}: ${errorMessage}`
         );
         return;
       }
