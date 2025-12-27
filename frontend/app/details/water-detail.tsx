@@ -227,6 +227,13 @@ export default function WaterDetailScreen() {
 
   const goal = user?.water_goal || 2500;
   const glassCount = Math.floor(todayWater / 250);
+  
+  // Circular progress calculation
+  const radius = 75;
+  const strokeWidth = 12;
+  const circumference = 2 * Math.PI * radius;
+  const percentage = Math.min((todayWater / goal) * 100, 100);
+  const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
@@ -244,10 +251,34 @@ export default function WaterDetailScreen() {
       </View>
 
       <ScrollView style={styles.content}>
-        {/* Today's Goal */}
+        {/* Today's Goal - SVG Circular Progress */}
         <View style={styles.goalSection}>
           <Text style={styles.goalTitle}>Bugünkü Hedefiniz</Text>
-          <View style={styles.circularProgress}>
+          <View style={styles.circularProgressWrapper}>
+            <Svg width={radius * 2 + strokeWidth} height={radius * 2 + strokeWidth}>
+              {/* Background Circle */}
+              <Circle
+                cx={radius + strokeWidth / 2}
+                cy={radius + strokeWidth / 2}
+                r={radius}
+                stroke="#E0E0E0"
+                strokeWidth={strokeWidth}
+                fill="none"
+              />
+              {/* Progress Circle */}
+              <Circle
+                cx={radius + strokeWidth / 2}
+                cy={radius + strokeWidth / 2}
+                r={radius}
+                stroke={Colors.teal}
+                strokeWidth={strokeWidth}
+                fill="none"
+                strokeDasharray={circumference}
+                strokeDashoffset={strokeDashoffset}
+                strokeLinecap="round"
+                transform={`rotate(-90 ${radius + strokeWidth / 2} ${radius + strokeWidth / 2})`}
+              />
+            </Svg>
             <View style={styles.circularInner}>
               <Ionicons name="water" size={32} color={Colors.teal} />
               <Text style={styles.circularText}>Bugün</Text>
