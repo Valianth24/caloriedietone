@@ -1454,7 +1454,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     marginBottom: 30,
   },
-  checkMark: {
+  checkMarkIcon: {
     position: 'absolute',
     top: 10,
     right: 10,
