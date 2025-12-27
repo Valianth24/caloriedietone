@@ -22,31 +22,25 @@ import { useAuth } from '../../contexts/AuthContext';
 import { LinearGradient } from 'expo-linear-gradient';
 import EnhancedRulerPicker from '../../components/EnhancedRulerPicker';
 import EnhancedAgePicker from '../../components/EnhancedAgePicker';
+import { calculateNutrition, calculateIdealWeight, UserData } from '../../utils/nutritionCalculator';
 
 const { width } = Dimensions.get('window');
 
-// BMR ve TDEE hesaplama fonksiyonları (Mifflin-St Jeor formülü)
-const calculateBMR = (weight: number, height: number, age: number, gender: string): number => {
-  if (gender === 'male') {
-    return 10 * weight + 6.25 * height - 5 * age + 5;
-  } else {
-    return 10 * weight + 6.25 * height - 5 * age - 161;
-  }
+// Aktivite seviyesi map
+const activityLevelMap: Record<string, UserData['activityLevel']> = {
+  sedentary: 'sedentary',
+  light: 'light',
+  moderate: 'moderate',
+  active: 'very_active',
+  veryActive: 'extreme',
 };
 
-const getActivityMultiplier = (level: string): number => {
-  switch (level) {
-    case 'sedentary': return 1.2;
-    case 'light': return 1.375;
-    case 'moderate': return 1.55;
-    case 'active': return 1.725;
-    case 'veryActive': return 1.9;
-    default: return 1.55;
-  }
-};
-
-const calculateTDEE = (bmr: number, activityLevel: string): number => {
-  return Math.round(bmr * getActivityMultiplier(activityLevel));
+// Hedef map
+const goalMap: Record<string, UserData['goal']> = {
+  lose_weight: 'lose_weight',
+  build_muscle: 'build_muscle',
+  gain_weight: 'gain_weight',
+  maintain: 'maintain',
 };
 
 // Minimum kalori sınırı - sağlık açısından önemli
