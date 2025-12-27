@@ -135,7 +135,6 @@ const resources = {
       networkError: 'Network error. Please check your internet connection.',
       sessionExpired: 'Session expired. Please login again.',
       calculationError: 'Calculation error. Please try again.',
-      warning: 'Warning',
       minCalorieWarning: 'For health reasons, daily calorie goal should not be less than 1600. Goal has been set to 1600.',
       underweight: 'Underweight',
       normal: 'Normal',
