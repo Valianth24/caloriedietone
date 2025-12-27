@@ -2839,8 +2839,13 @@ async def analyze_food_image(
 
 Be accurate with calories and macros. Use Turkish names if locale is tr-TR."""
 
+        # Check if using Emergent LLM key
+        base_url = None
+        if api_key and api_key.startswith("sk-emergent"):
+            base_url = "https://emergent-api.onrender.com/v1"
+        
         # Call GPT-5 nano
-        client = openai.OpenAI(api_key=api_key)
+        client = openai.OpenAI(api_key=api_key, base_url=base_url)
         response = client.chat.completions.create(
             model=VISION_MODEL_PRIMARY,
             messages=[
