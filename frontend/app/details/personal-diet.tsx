@@ -75,7 +75,12 @@ export default function PersonalDietScreen() {
       setLoading(true);
       const token = await AsyncStorage.getItem('session_token');
 
-      const response = await fetch(`${backendUrl}/api/diet/generate-personal`, {
+      // Use weekly endpoint for 7-day detailed diet
+      const endpoint = formData.duration_days === '7' 
+        ? `${backendUrl}/api/diet/generate-weekly`
+        : `${backendUrl}/api/diet/generate-personal`;
+
+      const response = await fetch(endpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -98,8 +103,8 @@ export default function PersonalDietScreen() {
       }
 
       Alert.alert(
-        t('success') || 'Başarılı',
-        t('dietCreatedSuccessfully') || 'Diyet başarıyla oluşturuldu!',
+        '🎉 ' + (t('success') || 'Başarılı'),
+        t('dietCreatedSuccessfully') || 'Diyet başarıyla oluşturuldu! Detaylı 7 günlük plan hazır.',
         [
           {
             text: t('viewDiet') || 'Görüntüle',
