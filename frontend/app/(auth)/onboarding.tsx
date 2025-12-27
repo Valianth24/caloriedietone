@@ -622,7 +622,6 @@ export default function OnboardingScreen() {
                 <TextInput
                   style={styles.bigInput}
                   keyboardType="decimal-pad"
-                  placeholder={String(idealWeight)}
                   placeholderTextColor={Colors.lightText}
                   value={formData.targetWeight}
                   onChangeText={(text) => setFormData({ ...formData, targetWeight: text.replace(/[^0-9.]/g, '') })}
