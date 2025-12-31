@@ -204,27 +204,35 @@ export const syncReminderNotifications = async ({ type, enabled, times, content 
             }, 5000);
 
             try {
-              // Use proper daily trigger format for scheduled notifications
-              const trigger: any = {
-                hour,
-                minute,
-                repeats: true,
-              };
+              // Calculate seconds until next occurrence
+              const now = new Date();
+              const targetDate = new Date();
+              targetDate.setHours(hour, minute, 0, 0);
               
-              // For Android, need to specify channelId
-              if (Platform.OS === 'android') {
-                trigger.channelId = REMINDER_CHANNEL_ID;
+              // If the time has passed today, schedule for tomorrow
+              if (targetDate <= now) {
+                targetDate.setDate(targetDate.getDate() + 1);
               }
+              
+              const secondsUntilTrigger = Math.floor((targetDate.getTime() - now.getTime()) / 1000);
+              
+              console.log(`[Notifications] Scheduling ${type} at ${time} - seconds until: ${secondsUntilTrigger}`);
+              
+              // Use seconds-based trigger for more reliable scheduling
+              const trigger: Notifications.NotificationTriggerInput = {
+                seconds: secondsUntilTrigger,
+                repeats: false, // Will be rescheduled after firing
+              };
               
               const id = await Notifications.scheduleNotificationAsync({
                 content: {
                   title: content.title,
                   body: content.body,
                   sound: true,
-                  priority: 'max',
                   ...(Platform.OS === 'android' && {
                     vibrate: [0, 250, 250, 250],
                     channelId: REMINDER_CHANNEL_ID,
+                    priority: Notifications.AndroidNotificationPriority.MAX,
                   }),
                 },
                 trigger,
