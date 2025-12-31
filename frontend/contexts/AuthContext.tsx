@@ -141,6 +141,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     };
   }, []);
 
+  // Track processed session IDs to prevent duplicate processing (race condition fix)
+  const processedSessionIds = React.useRef<Set<string>>(new Set());
+  
   const handleAuthRedirect = async (url: string) => {
     try {
       console.log('[Auth] Handling redirect URL:', url);
@@ -178,6 +181,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           console.log('[Auth] Already authenticated, skipping duplicate redirect');
           return;
         }
+        
+        // Skip if this session_id was already processed (race condition fix)
+        if (processedSessionIds.current.has(sessionId)) {
+          console.log('[Auth] Session ID already being processed, skipping duplicate');
+          return;
+        }
+        
+        // Mark this session_id as being processed
+        processedSessionIds.current.add(sessionId);
         
         setIsLoading(true);
         
@@ -217,11 +229,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
           }
         } catch (exchangeError: any) {
           console.error('[Auth] Session exchange failed:', exchangeError);
-          // Don't show error if we're already authenticated (duplicate callback)
-          if (!isAuthenticated) {
-            // Silent fail - user might still be logged in from previous attempt
-            console.log('[Auth] Exchange failed but may have succeeded earlier');
-          }
+          // Silent fail - user might still be logged in from previous attempt
+          console.log('[Auth] Exchange failed but may have succeeded earlier');
+        } finally {
+          // Clear processed session ID after a delay to allow for legitimate retries
+          setTimeout(() => {
+            processedSessionIds.current.delete(sessionId);
+          }, 5000);
         }
         
         setIsLoading(false);
