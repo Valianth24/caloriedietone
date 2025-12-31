@@ -334,7 +334,7 @@ export default function ProfileScreen() {
               />
             </View>
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>Water Goal (ml)</Text>
+              <Text style={styles.label}>{t('waterGoal')} (ml)</Text>
               <TextInput
                 style={[styles.input, !editing && styles.inputDisabled]}
                 value={formData.water_goal}
@@ -344,7 +344,7 @@ export default function ProfileScreen() {
               />
             </View>
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>Step Goal</Text>
+              <Text style={styles.label}>{t('stepGoal')}</Text>
               <TextInput
                 style={[styles.input, !editing && styles.inputDisabled]}
                 value={formData.step_goal}
@@ -358,7 +358,7 @@ export default function ProfileScreen() {
 
         {/* Settings */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Settings</Text>
+          <Text style={styles.sectionTitle}>{t('settings')}</Text>
           <View style={styles.card}>
             <TouchableOpacity style={styles.settingItem} onPress={() => setShowLanguageModal(true)}>
               <View style={styles.settingLeft}>
