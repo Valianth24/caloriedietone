@@ -235,7 +235,7 @@ export default function ProfileScreen() {
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>{t('updateProfile')}</Text>
             <TouchableOpacity onPress={() => (editing ? handleSave() : setEditing(true))}>
-              <Text style={styles.editButton}>{editing ? t('save') : 'Edit'}</Text>
+              <Text style={styles.editButton}>{editing ? t('save') : t('edit')}</Text>
             </TouchableOpacity>
           </View>
 
