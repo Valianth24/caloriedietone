@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Dimensions, Modal, TextInput, Switch, Platform, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getWeeklyWater, getTodayWater, addWater } from '../../utils/api';
@@ -13,6 +13,7 @@ import Constants from 'expo-constants';
 import { LogBox } from 'react-native';
 import { clearReminderNotifications, requestNotificationPermission, syncReminderNotifications, sendTestNotification, getScheduledNotifications } from '../../utils/notifications';
 import Svg, { Circle } from 'react-native-svg';
+import { calculateWaterGoal, UserData } from '../../utils/nutritionCalculator';
 
 const screenWidth = Dimensions.get('window').width;
 
