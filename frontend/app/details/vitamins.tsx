@@ -142,11 +142,13 @@ export default function VitaminsScreen() {
       return;
     }
     try {
-      await addVitamin(trimmedName, trimmedTime);
-      await loadVitamins(false);
+      // Önce modal'ı kapat - titreme önleme
       setShowAddModal(false);
       setNewVitaminName('');
       setNewVitaminTime(t('everyMorning') || 'Her Sabah');
+      
+      await addVitamin(trimmedName, trimmedTime);
+      await loadVitamins(false, false);
     } catch (error) {
       console.error('Error adding vitamin:', error);
     }
