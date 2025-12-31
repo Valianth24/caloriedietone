@@ -76,9 +76,9 @@ export default function VitaminsScreen() {
     }
   };
 
-  const loadVitamins = async (isInitial: boolean = false) => {
+  const loadVitamins = async (isInitial: boolean = false, showLoading: boolean = true) => {
     try {
-      setLoading(true);
+      if (showLoading) setLoading(true);
       const userVitamins = await getUserVitamins() as Vitamin[] | null;
       
       // Only create default vitamins on first load, not on every refresh
@@ -100,23 +100,34 @@ export default function VitaminsScreen() {
       console.error('Error loading vitamins:', error);
       setVitamins([]);
     } finally {
-      setLoading(false);
+      if (showLoading) setLoading(false);
     }
   };
 
   const handleToggle = async (vitaminId: string) => {
     try {
+      // Optimistic update - titreme önleme
+      setVitamins(prev => prev.map(v => 
+        v.vitamin_id === vitaminId ? { ...v, is_taken: !v.is_taken } : v
+      ));
+      
       await toggleVitamin(vitaminId);
-      await loadVitamins(false);
+      // Sessiz güncelleme - loading gösterme
+      await loadVitamins(false, false);
     } catch (error) {
       console.error('Error toggling vitamin:', error);
+      // Hata durumunda geri al
+      await loadVitamins(false, false);
     }
   };
 
   const handleDeleteVitamin = async (vitaminId: string) => {
     try {
+      // Optimistic update
+      setVitamins(prev => prev.filter(v => v.vitamin_id !== vitaminId));
+      
       await deleteVitamin(vitaminId);
-      await loadVitamins(false);
+      await loadVitamins(false, false);
     } catch (error) {
       console.error('Error deleting vitamin:', error);
     }
