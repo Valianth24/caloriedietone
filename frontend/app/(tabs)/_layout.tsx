@@ -4,26 +4,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useEffect } from 'react';
-import * as NavigationBar from 'expo-navigation-bar';
 
 export default function TabLayout() {
   const { t } = useTranslation();
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
 
-  // Edge-to-Edge: Android navigation bar'ı şeffaf yap
-  useEffect(() => {
-    if (Platform.OS === 'android') {
-      // Navigation bar'ı şeffaf yap (edge-to-edge)
-      NavigationBar.setBackgroundColorAsync('transparent');
-      NavigationBar.setPositionAsync('absolute');
-      // Buton rengini içeriğe göre ayarla (light = koyu butonlar)
-      NavigationBar.setButtonStyleAsync('dark');
-    }
-  }, []);
-
-  // Dinamik bottom padding - cihaza göre otomatik ayarlanır
+  // Edge-to-edge için dinamik bottom padding - SDK 54'te otomatik
   const bottomPadding = Platform.OS === 'android' 
     ? Math.max(insets.bottom, 12) // Android için minimum 12
     : insets.bottom;
