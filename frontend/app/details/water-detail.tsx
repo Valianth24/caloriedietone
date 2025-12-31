@@ -226,7 +226,33 @@ export default function WaterDetailScreen() {
       ? weeklyWater.reduce((sum, item) => sum + item.amount, 0) / weeklyWater.length / 1000
       : 0;
 
-  const goal = user?.water_goal || 2500;
+  // Dinamik su hedefi hesaplama
+  const goal = useMemo(() => {
+    if (user?.water_goal && user.water_goal > 0) {
+      return user.water_goal;
+    }
+    
+    if (user?.weight && user?.gender && user?.activity_level) {
+      const activityMap: Record<string, UserData['activityLevel']> = {
+        sedentary: 'sedentary',
+        light: 'light',
+        moderate: 'moderate',
+        active: 'very_active',
+        veryActive: 'extreme',
+      };
+      
+      const userData: Partial<UserData> = {
+        weight: user.weight,
+        gender: user.gender as 'male' | 'female',
+        activityLevel: activityMap[user.activity_level] || 'moderate',
+      };
+      
+      return calculateWaterGoal(userData as UserData);
+    }
+    
+    return 2500;
+  }, [user?.water_goal, user?.weight, user?.gender, user?.activity_level]);
+  
   const glassCount = Math.floor(todayWater / 250);
   
   // Circular progress calculation
