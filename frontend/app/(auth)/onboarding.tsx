@@ -467,7 +467,6 @@ export default function OnboardingScreen() {
             </TouchableOpacity>
             
             <View style={styles.stepContent}>
-              <Text style={styles.stepEmoji}>🎂</Text>
               <Text style={styles.stepTitle}>{t('howOldAreYou')}</Text>
               <Text style={styles.stepSubtitle}>{t('ageHelpsCalculate')}</Text>
               
