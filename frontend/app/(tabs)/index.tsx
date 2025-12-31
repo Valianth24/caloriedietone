@@ -380,7 +380,7 @@ export default function DashboardScreen() {
             <View style={styles.gridItemHalf}>
               <WaterCard
                 current={waterData?.total_amount || 0}
-                goal={user?.water_goal || 2500}
+                goal={dynamicWaterGoal}
               />
             </View>
             <View style={styles.gridItemHalf}>
