@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { ScrollView, View, Text, StyleSheet, Dimensions, RefreshControl } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getWeeklyWater, getTodayWater, getTodaySteps } from '../../utils/api';
@@ -8,6 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { LineChart, BarChart } from 'react-native-gifted-charts';
 import { useStore } from '../../store/useStore';
+import { calculateWaterGoal, UserData } from '../../utils/nutritionCalculator';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -19,6 +20,33 @@ export default function TrackingScreen() {
   const [todayWater, setTodayWater] = useState(0);
   const [todaySteps, setTodaySteps] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
+
+  // Dinamik su hedefi hesaplama
+  const waterGoal = useMemo(() => {
+    if (user?.water_goal && user.water_goal > 0) {
+      return user.water_goal;
+    }
+    
+    if (user?.weight && user?.gender && user?.activity_level) {
+      const activityMap: Record<string, UserData['activityLevel']> = {
+        sedentary: 'sedentary',
+        light: 'light',
+        moderate: 'moderate',
+        active: 'very_active',
+        veryActive: 'extreme',
+      };
+      
+      const userData: Partial<UserData> = {
+        weight: user.weight,
+        gender: user.gender as 'male' | 'female',
+        activityLevel: activityMap[user.activity_level] || 'moderate',
+      };
+      
+      return calculateWaterGoal(userData as UserData);
+    }
+    
+    return 2500;
+  }, [user?.water_goal, user?.weight, user?.gender, user?.activity_level]);
 
   useEffect(() => {
     loadData();
