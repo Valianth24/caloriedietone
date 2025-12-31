@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { ScrollView, View, Text, StyleSheet, RefreshControl, Image, Modal, TouchableOpacity, FlatList, TextInput, Switch } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useStore } from '../../store/useStore';
@@ -20,6 +20,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import Constants from 'expo-constants';
 import { LogBox } from 'react-native';
 import { clearReminderNotifications, requestNotificationPermission, syncReminderNotifications } from '../../utils/notifications';
+import { calculateWaterGoal, UserData } from '../../utils/nutritionCalculator';
 
 // Expo Go'da remote push notification uyarılarını gizle
 LogBox.ignoreLogs([
