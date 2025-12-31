@@ -563,7 +563,6 @@ export default function OnboardingScreen() {
             </TouchableOpacity>
             
             <View style={styles.stepContent}>
-              <Text style={styles.stepEmoji}>⚖️</Text>
               <Text style={styles.stepTitle}>{t('whatIsYourWeight')}</Text>
               <Text style={styles.stepSubtitle}>{t('currentWeightHelps')}</Text>
               
