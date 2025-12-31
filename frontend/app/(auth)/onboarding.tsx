@@ -598,7 +598,8 @@ export default function OnboardingScreen() {
 
   // Target Weight Step
   if (step === 'targetWeight') {
-    const idealWeight = calculateIdealWeight(parseFloat(formData.height) || 170, formData.gender);
+    const idealWeightData = calculateIdealWeight(parseFloat(formData.height) || 170, formData.gender as 'male' | 'female');
+    const idealWeight = idealWeightData.ideal;
     
     return (
       <SafeAreaView style={styles.container}>
