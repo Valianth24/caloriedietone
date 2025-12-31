@@ -41,12 +41,36 @@ export default function DashboardScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [recentMeals, setRecentMeals] = useState<any[]>([]);
   
-  // Sync premium status with ThemeContext
-  useEffect(() => {
-    if (user?.is_premium !== undefined) {
-      setIsPremium(user.is_premium);
+  // Su hedefini kullanıcı verilerine göre dinamik hesapla
+  const dynamicWaterGoal = useMemo(() => {
+    // Eğer user'da water_goal varsa onu kullan
+    if (user?.water_goal && user.water_goal > 0) {
+      return user.water_goal;
     }
-  }, [user?.is_premium, setIsPremium]);
+    
+    // User verisi varsa dinamik hesapla
+    if (user?.weight && user?.gender && user?.activity_level) {
+      // Activity level mapping
+      const activityMap: Record<string, UserData['activityLevel']> = {
+        sedentary: 'sedentary',
+        light: 'light',
+        moderate: 'moderate',
+        active: 'very_active',
+        veryActive: 'extreme',
+      };
+      
+      const userData: Partial<UserData> = {
+        weight: user.weight,
+        gender: user.gender as 'male' | 'female',
+        activityLevel: activityMap[user.activity_level] || 'moderate',
+      };
+      
+      return calculateWaterGoal(userData as UserData);
+    }
+    
+    // Varsayılan değer (onboarding yapılmamışsa)
+    return 2500;
+  }, [user?.water_goal, user?.weight, user?.gender, user?.activity_level]);
   
   // Fast Add Modal
   const [showAddModal, setShowAddModal] = useState(false);
