@@ -305,11 +305,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         
         if (result.type === 'success' && result.url) {
           console.log('[Auth] Success URL received:', result.url);
+          // Only handle redirect from browser result - deep link listener will be filtered by processedSessionIds
           await handleAuthRedirect(result.url);
         } else if (result.type === 'cancel') {
           console.log('[Auth] User cancelled login');
         } else if (result.type === 'dismiss') {
-          console.log('[Auth] Browser dismissed without completing');
+          console.log('[Auth] Browser dismissed - checking if login succeeded via deep link');
+          // Don't do anything - if successful, the deep link listener already handled it
         }
       }
     } catch (error: any) {
