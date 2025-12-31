@@ -72,6 +72,13 @@ export default function DashboardScreen() {
     return 2500;
   }, [user?.water_goal, user?.weight, user?.gender, user?.activity_level]);
   
+  // Sync premium status with ThemeContext
+  useEffect(() => {
+    if (user?.is_premium !== undefined) {
+      setIsPremium(user.is_premium);
+    }
+  }, [user?.is_premium, setIsPremium]);
+  
   // Fast Add Modal
   const [showAddModal, setShowAddModal] = useState(false);
   const [selectedMealType, setSelectedMealType] = useState('lunch');
