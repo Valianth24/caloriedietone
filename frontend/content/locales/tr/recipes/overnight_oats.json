@@ -1,79 +1,59 @@
 {
   "name": "Gece Yulafı",
-  "description": "TODO: Gece Yulafı açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
+  "description": "Gece buzdolabında hazırlanan, sabah hazır bekleyen pratik ve sağlıklı kahvaltı. Lif ve protein deposu.",
+  "prepTime": "10 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "10 dakika + 4 saat bekleme",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Yulaf ezmesi", "amount": "1", "unit": "su bardağı", "note": "iri yaprak (rolled oats)"},
+    {"name": "Süt", "amount": "1", "unit": "su bardağı", "note": "badem veya normal süt"},
+    {"name": "Yunan yoğurdu", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Chia tohumu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Bal veya akçaağaç şurubu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Vanilya özü", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tarçın", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tutam"},
+    {"name": "Yaban mersini", "amount": "1/2", "unit": "su bardağı", "note": "üzeri için"},
+    {"name": "Badem", "amount": "2", "unit": "yemek kaşığı", "note": "dilimlenmiş"},
+    {"name": "Fıstık ezmesi", "amount": "1", "unit": "yemek kaşığı", "note": "isteğe bağlı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "İki adet kavanoz veya derin kase hazırlayın. Mason kavanozları taşımak için idealdir.", "duration": "30 saniye"},
+    {"step": 2, "instruction": "Her kavanoza eşit miktarda yulaf ezmesi koyun (yarımşar su bardağı).", "duration": "30 saniye"},
+    {"step": 3, "instruction": "Chia tohumlarını ekleyin ve karıştırın.", "tip": "Chia tohumu sıvıyı emerek kremamsı kıvam sağlar.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Yunan yoğurdunu ekleyin. Yoğurt hem protein ekler hem de kremamsılık katar.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Bal veya akçaağaç şurubu, vanilya özü, tarçın ve tuzu ekleyin.", "tip": "Tuz, tatlılığı dengeler ve lezzeti ortaya çıkarır.", "duration": "30 saniye"},
+    {"step": 6, "instruction": "Sütü ekleyin. Kaşık veya çatal ile iyice karıştırın.", "tip": "Tüm malzemeler eşit dağılmalı, topaklanma olmamalı.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "İlk 5 dakika içinde bir kez daha karıştırın. Bu, chia tohumlarının topaklanmasını önler.", "tip": "Bu adım çok önemli - atlamayın.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Kavanozların kapaklarını kapatın veya streç film ile örtün.", "duration": "20 saniye"},
+    {"step": 9, "instruction": "Buzdolabına koyun. En az 4 saat, ideal olarak gece boyu (8-12 saat) bekletin.", "tip": "Ne kadar uzun bekletirseniz kıvam o kadar iyi olur.", "duration": "4+ saat"},
+    {"step": 10, "instruction": "Sabah buzdolabından çıkarın ve karıştırın. Kıvamı kontrol edin.", "duration": "30 saniye"},
+    {"step": 11, "instruction": "Çok kalın ise 1-2 yemek kaşığı süt ekleyip karıştırın.", "tip": "İdeal kıvam yoğurt gibi olmalı.", "duration": "30 saniye"},
+    {"step": 12, "instruction": "Üzerine yaban mersini, badem dilimleri ve isteğe bağlı fıstık ezmesi ekleyerek servis edin.", "tip": "Taze meyveleri son anda ekleyin - ıslanmasın.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 340,
+    "protein": 16,
+    "carbs": 48,
+    "fat": 10,
+    "fiber": 8,
+    "sugar": 18,
+    "sodium": 120
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Hafta başı 5 porsiyon hazırlayın - her sabah hazır kahvaltı.",
+    "Yulaf ezmesi mutlaka 'rolled oats' olmalı - hızlı pişen yulaf çok yumuşar.",
+    "Soğuk tüketilir ama isterseniz mikrodalga ile 1 dakika ısıtabilirsiniz.",
+    "Protein tozu ekleyerek protein miktarını artırabilirsiniz.",
+    "Vegan yapmak için bitkisel yoğurt ve süt kullanın."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında kapaklı kapta 5 güne kadar saklanabilir. Meyveleri taze ekleyin.",
+  "servingSuggestion": "Soğuk olarak doğrudan kavanozdan yiyin veya kaseye aktarın. İş yerine götürmek için idealdir.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Çikolatalı: 1 yk kakao tozu ve çikolata parçacıkları ekleyin.",
+    "Tropik: Hindistan cevizi sütü, mango ve ananas kullanın.",
+    "Elmalı turta: Rendelenmiş elma, tarçın ve ceviz ekleyin.",
+    "Fıstık ezmeli muzlu: Muz dilimleri ve fıstık ezmesi ile servis edin."
   ]
 }

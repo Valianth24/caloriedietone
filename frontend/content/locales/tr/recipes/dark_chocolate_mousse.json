@@ -1,79 +1,57 @@
 {
-  "name": "Bitter Çikolatalı Mus",
-  "description": "TODO: Bitter Çikolatalı Mus açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "name": "Bitter Çikolata Mus",
+  "description": "Avokado bazlı sağlıklı çikolata musu. Kremamsı, yoğun çikolata tadı, rafine şeker içermez.",
+  "prepTime": "10 dakika",
+  "cookTime": "5 dakika",
+  "totalTime": "15 dakika + 2 saat soğutma",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Olgun avokado", "amount": "2", "unit": "adet", "note": "yumuşak olmalı"},
+    {"name": "Bitter çikolata", "amount": "100", "unit": "g", "note": "%70 kakao, doğranmış"},
+    {"name": "Kakao tozu", "amount": "1/4", "unit": "su bardağı", "note": "işlenmemiş (raw) tercih edin"},
+    {"name": "Akçaağaç şurubu", "amount": "3", "unit": "yemek kaşığı", "note": "veya bal"},
+    {"name": "Badem sütü", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Vanilya özü", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tutam", "note": "çikolata tadını güçlendirir"},
+    {"name": "Çilek veya frambuaz", "amount": "1/2", "unit": "su bardağı", "note": "süsleme için"},
+    {"name": "Taze nane", "amount": "4", "unit": "yaprak", "note": "süsleme için"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Bitter çikolatayı benmari usulü eritin: Tencereye su koyup kaynatın, üzerine ısıya dayanıklı kase oturtun, çikolatayı kaseye koyup karıştırarak eritin.", "tip": "Çikolataya su değmemeli - tek damla bile çikolatayı bozar.", "duration": "5 dakika"},
+    {"step": 2, "instruction": "Eritilmiş çikolatayı ateşten alın ve 5 dakika ılınması için bekletin.", "tip": "Çok sıcak çikolata avokadoyu 'pişirebilir' - tadı bozulur.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Avokadoları ortadan ikiye bölün, çekirdeklerini çıkarın. İçlerini kaşıkla mutfak robotuna alın.", "tip": "Avokado tamamen olgun olmalı - sert avokado pürüzsüz olmaz.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Kakao tozunu avokadoların üzerine ekleyin.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Akçaağaç şurubu, badem sütü, vanilya özü ve tuzu ekleyin.", "duration": "30 saniye"},
+    {"step": 6, "instruction": "Ilımış çikolatayı ekleyin.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Mutfak robotunu yüksek hızda 2-3 dakika çalıştırın. Kenarları spatula ile kazıyın.", "tip": "Tamamen pürüzsüz ve kremamsı olana kadar çalıştırın - sabırlı olun.", "duration": "3 dakika"},
+    {"step": 8, "instruction": "Tadına bakın. Gerekirse daha fazla akçaağaç şurubu ekleyin.", "tip": "Çikolata kalitesine göre tatlılık ayarı değişir.", "duration": "30 saniye"},
+    {"step": 9, "instruction": "Musu servis kaselerine veya bardaklara bölüştürün.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Üzerlerini streç film ile kapatın. Film doğrudan musun yüzeyine değmeli - kabuk oluşmasın.", "tip": "Film yüzeye temas etmezse üstü kabuk bağlar.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Buzdolabında en az 2 saat, ideal olarak 4 saat soğutun.", "tip": "Gece boyunca bekletmek kıvamı mükemmelleştirir.", "duration": "2+ saat"},
+    {"step": 12, "instruction": "Servis öncesi buzdolabından çıkarın. Taze meyve ve nane yaprağı ile süsleyerek servis edin.", "tip": "Servis öncesi 10 dakika oda sıcaklığında bekletin - kıvam yumuşar.", "duration": "2 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 285,
+    "protein": 4,
+    "carbs": 28,
+    "fat": 20,
+    "fiber": 8,
+    "sugar": 14,
+    "sodium": 35
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Avokado tadı çikolata tarafından tamamen maskelenir - fark etmezsiniz!",
+    "Avokado sağlıklı yağlar ve lif sağlar - suçluluk duymadan tatlı.",
+    "Çikolata kalitesi çok önemli - en az %70 kakao kullanın.",
+    "Vegan, glutensiz ve rafine şeker içermez.",
+    "Misafirlere avokadolu olduğunu söylemeyin - tahmin bile edemezler!"
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında kapalı kapta 3 gün saklanabilir. Dondurmak tavsiye edilmez.",
+  "servingSuggestion": "Küçük kahve fincanları veya şık cam bardaklarda servis edin. Üzerine hindistan cevizi kreması, çilek veya frambuaz ekleyin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Portakallı: 1 tatlı kaşığı portakal kabuğu rendesi ekleyin.",
+    "Naneli: 1/4 tatlı kaşığı nane özü ekleyin.",
+    "Fıstık ezmeli: 2 yemek kaşığı fıstık ezmesi ekleyin.",
+    "Espressolu: 1 tatlı kaşığı espresso tozu ekleyin - mocha tadı."
   ]
 }

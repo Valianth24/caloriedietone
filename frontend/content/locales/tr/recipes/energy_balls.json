@@ -1,79 +1,59 @@
 {
   "name": "Enerji Topları",
-  "description": "TODO: Enerji Topları açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Pişirme gerektirmeyen, hurma ve yulafla hazırlanan doğal enerji kaynağı atıştırmalık. Spor öncesi ve sonrası ideal.",
+  "prepTime": "15 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "15 dakika + 1 saat soğutma",
+  "servings": 16,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Medjool hurma", "amount": "12", "unit": "adet", "note": "çekirdekleri çıkarılmış"},
+    {"name": "Yulaf ezmesi", "amount": "1", "unit": "su bardağı"},
+    {"name": "Fıstık ezmesi", "amount": "1/2", "unit": "su bardağı", "note": "doğal, şekersiz"},
+    {"name": "Bitter çikolata parçacıkları", "amount": "1/4", "unit": "su bardağı"},
+    {"name": "Keten tohumu", "amount": "2", "unit": "yemek kaşığı", "note": "öğütülmüş"},
+    {"name": "Chia tohumu", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Bal", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Vanilya özü", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tarçın", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tutam"},
+    {"name": "Hindistan cevizi rendesi", "amount": "2", "unit": "yemek kaşığı", "note": "kaplama için, isteğe bağlı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Hurmaların çekirdeklerini çıkarın. Çok sertlerse 10 dakika sıcak suda bekletin ve süzün.", "tip": "Yumuşak hurma daha kolay işlenir ve daha yapışkan hamur verir.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Hurmaları mutfak robotuna koyun. 15-20 kez pulse yaparak yapışkan bir macun haline getirin.", "tip": "Tamamen pürüzsüz olması gerekmiyor - biraz doku kalabilir.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Yulaf ezmesini ekleyin ve 5-6 kez pulse yapın.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Fıstık ezmesi, bal ve vanilya özünü ekleyin. Tekrar pulse yapın.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Keten tohumu, chia tohumu, tarçın ve tuzu ekleyin. Karışım birbirine yapışana kadar çalıştırın.", "tip": "Elinizle bastırdığınızda dağılmadan bir arada durmalı.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Çikolata parçacıklarını ekleyin ve spatula ile elle karıştırın veya 2-3 pulse yapın.", "tip": "Çikolatayı çok parçalamayın - dokulu kalması güzel.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Karışımı test edin: Bir parça alıp yuvarlayın. Dağılıyorsa 1 yemek kaşığı su ekleyin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Ellerinizi hafif ıslatın (yapışmayı önler). 1.5 yemek kaşığı kadar karışım alın.", "duration": "30 saniye"},
+    {"step": 9, "instruction": "Avuçlarınız arasında sıkıca bastırarak top şeklinde yuvarlayın.", "tip": "Toplar ceviz büyüklüğünde olmalı - yaklaşık 2.5 cm çap.", "duration": "5 dakika"},
+    {"step": 10, "instruction": "İsterseniz hindistan cevizi rendesine yuvarlayarak kaplama yapın.", "duration": "2 dakika"},
+    {"step": 11, "instruction": "Topları yağlı kağıt serili tepsiye dizin.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Buzdolabında en az 1 saat bekletin. Sertleştikten sonra hava geçirmez kaba alın.", "tip": "Soğuk halde daha lezzetli ve sıkı kıvamlı olurlar.", "duration": "1+ saat"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 105,
+    "protein": 3,
+    "carbs": 14,
+    "fat": 5,
+    "fiber": 2,
+    "sugar": 9,
+    "sodium": 25
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Hurma doğal şeker kaynağıdır - rafine şeker eklemeden tatlılık sağlar.",
+    "Antrenman öncesi 30 dakika önce 2 adet tüketin - hızlı enerji.",
+    "Mutfak robotu yoksa hurmaları bıçakla çok ince kıyıp elle karıştırın.",
+    "Topların boyutunu eşit tutun - pişirme zamanı farklılık göstermesin.",
+    "Hafta başı hazırlayın - bütün hafta hazır atıştırmalık."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 2 hafta, dondurucuda 3 ay saklanabilir. Donmuş halde de yenebilir.",
+  "servingSuggestion": "Spor çantanızda, ofis çekmecenizde veya araba torpido gözünde bulundurun. Acil enerji ihtiyacı için birebir.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Çikolatalı: 2 yk kakao tozu ekleyin.",
+    "Tropik: Kuru mango ve hindistan cevizi kullanın.",
+    "Badem ezmeli: Fıstık ezmesi yerine badem ezmesi.",
+    "Protein takviyeli: 2 yk protein tozu ekleyin."
   ]
 }

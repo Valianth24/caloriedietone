@@ -1,79 +1,64 @@
 {
   "name": "Domates Fesleğen Çorbası",
-  "description": "TODO: Domates Fesleğen Çorbası açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "İtalyan mutfağının klasiği, fırında kavrulmuş domateslerle hazırlanan aromatik ve kremamsı çorba.",
+  "prepTime": "15 dakika",
+  "cookTime": "55 dakika",
+  "totalTime": "70 dakika",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Olgun domates", "amount": "1.5", "unit": "kg", "note": "Roma veya salkım domates"},
+    {"name": "Soğan", "amount": "2", "unit": "adet", "note": "iri doğranmış"},
+    {"name": "Sarımsak", "amount": "6", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Havuç", "amount": "1", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Sebze veya tavuk suyu", "amount": "3", "unit": "su bardağı"},
+    {"name": "Sızma zeytinyağı", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Taze fesleğen", "amount": "1", "unit": "demet", "note": "yaklaşık 1 su bardağı yaprak"},
+    {"name": "Balzamik sirke", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Taze kekik", "amount": "4", "unit": "dal"},
+    {"name": "Domates salçası", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Toz şeker", "amount": "1", "unit": "tatlı kaşığı", "note": "asitliği dengelemek için"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Krema", "amount": "1/4", "unit": "su bardağı", "note": "isteğe bağlı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Fırını 220°C'ye önceden ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Domatesleri yıkayıp ortadan ikiye kesin. Büyük fırın tepsisine kesik yüzleri yukarı bakacak şekilde dizin.", "tip": "Domateslerin çok sıkışık olmamasına dikkat edin - kavrulması için boşluk lazım.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Doğranmış soğan ve havucu domateslerin arasına serpiştirin.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "3 yemek kaşığı zeytinyağını sebzelerin üzerine gezdirin. Tuz ve karabiber serpin.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Fırına verin ve 45-50 dakika, domatesler yumuşayıp hafif karamelize olana kadar kavurun.", "tip": "Yarı sürede tepsinin yerini değiştirin - eşit kavrulma için.", "duration": "50 dakika"},
+    {"step": 6, "instruction": "Büyük bir tencerede kalan zeytinyağını orta ateşte ısıtın. Sarımsağı ekleyip 1 dakika kavurun.", "tip": "Sarımsak yanmamalı - acılaşır.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Domates salçasını ekleyin, 1 dakika kavurun. Kokusu açılsın.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Fırından çıkan kavrulmuş sebzeleri tüm sularıyla birlikte tencereye aktarın.", "tip": "Tepside kalan karamelize suları kazıyın - lezzet deposu!", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Sebze suyunu, balzamik sirkeyi ve kekik dallarını ekleyin. Kaynatın.", "duration": "3 dakika"},
+    {"step": 10, "instruction": "Ateşi kısın, 15-20 dakika ara sıra karıştırarak pişirin.", "duration": "20 dakika"},
+    {"step": 11, "instruction": "Kekik dallarını çıkarın. Fesleğen yapraklarının çoğunu (süsleme için birkaç yaprak ayırın) ekleyin.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "El blenderı ile tamamen pürüzsüz olana kadar çekin. Veya blenderda porsiyonlar halinde çekin.", "tip": "Sıcak sıvıyı blendlarken dikkatli olun - kapağı hafif açık tutun.", "duration": "3 dakika"},
+    {"step": 13, "instruction": "Şekeri ekleyin ve tadına bakın. Tuz ve karabiber ayarlayın.", "tip": "Domates asidik olabilir - şeker dengeyi sağlar.", "duration": "1 dakika"},
+    {"step": 14, "instruction": "İsterseniz kremayı ekleyip karıştırın. Taze fesleğen ile süsleyerek servis edin.", "duration": "2 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 165,
+    "protein": 4,
+    "carbs": 22,
+    "fat": 8,
+    "fiber": 5,
+    "sugar": 14,
+    "sodium": 420
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "En lezzetlisi yaz aylarında taze, olgun domateslerle yapılır.",
+    "Fırında kavurma domateslerin doğal şekerini ortaya çıkarır.",
+    "Vegan yapmak için kremayı atlayın veya hindistan cevizi kreması kullanın.",
+    "Çorba ertesi gün daha lezzetli olur - tatlar oturur.",
+    "Kışın konserve domates de kullanabilirsiniz ama kavurma adımı atlanır."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 4-5 gün, dondurucuda 3 ay saklanabilir.",
+  "servingSuggestion": "Izgara peynirli sandviç (grilled cheese) ile mükemmel uyum. Üzerine zeytinyağı ve taze fesleğen gezdirerek servis edin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Kremalı versiyon: 1/2 su bardağı krema ekleyin.",
+    "Baharatlı: Pul biber veya cayenne ekleyin.",
+    "Akdeniz: Zeytin ve kapari ekleyin.",
+    "Hindistan cevizli: Krema yerine hindistan cevizi sütü - vegan ve egzotik."
   ]
 }
