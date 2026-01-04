@@ -1,0 +1,53 @@
+{
+  "name": "Lean Beef Burrito Bowl",
+  "description": "Mexican flavors with lean ground beef, beans, and fresh toppings. High fiber and protein.",
+  "prepTime": "15 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "35 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Lean ground beef", "amount": "350", "unit": "g", "note": "5% fat"},
+    {"name": "Brown rice", "amount": "1", "unit": "cup"},
+    {"name": "Black beans", "amount": "1", "unit": "cup", "note": "cooked"},
+    {"name": "Corn", "amount": "1/2", "unit": "cup"},
+    {"name": "Tomato", "amount": "2", "unit": "pieces", "note": "diced"},
+    {"name": "Lettuce", "amount": "2", "unit": "cups", "note": "shredded"},
+    {"name": "Avocado", "amount": "1", "unit": "piece"},
+    {"name": "Greek yogurt", "amount": "4", "unit": "tablespoons"},
+    {"name": "Lime", "amount": "1", "unit": "piece"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Paprika", "amount": "1", "unit": "teaspoon"},
+    {"name": "Garlic powder", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook rice with 2.5 cups water for 25 minutes.", "duration": "28 minutes"},
+    {"step": 2, "instruction": "Mix spices: cumin, paprika, garlic powder, salt.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Brown ground beef over medium heat. Add spices.", "duration": "10 minutes"},
+    {"step": 4, "instruction": "Add black beans and corn, heat for 2 minutes.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Slice avocado.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Divide rice into bowls.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Top with beef mixture, lettuce, tomato, and avocado.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Add yogurt and lime juice.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 545,
+    "protein": 40,
+    "carbs": 52,
+    "fat": 16,
+    "fiber": 12,
+    "sugar": 6,
+    "sodium": 680
+  },
+  "tips": [
+    "Choosing lean beef reduces calories.",
+    "Black beans add extra fiber and protein.",
+    "Great for meal prep - keeps for 4 days."
+  ],
+  "storageInfo": "Store without avocado and yogurt for up to 4 days.",
+  "servingSuggestion": "Serve with tortilla chips.",
+  "variations": [
+    "Turkey makes an even leaner option.",
+    "Skip rice for a keto version."
+  ]
+}

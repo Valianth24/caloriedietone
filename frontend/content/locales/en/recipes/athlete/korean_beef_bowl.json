@@ -1,0 +1,53 @@
+{
+  "name": "Korean Beef Bowl",
+  "description": "Sweet and spicy Korean-style ground beef served over rice with vegetables and a runny egg.",
+  "prepTime": "15 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Lean ground beef", "amount": "350", "unit": "g"},
+    {"name": "Jasmine rice", "amount": "1", "unit": "cup"},
+    {"name": "Soy sauce", "amount": "3", "unit": "tablespoons"},
+    {"name": "Brown sugar", "amount": "2", "unit": "tablespoons"},
+    {"name": "Sesame oil", "amount": "1", "unit": "tablespoon"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Ginger", "amount": "1", "unit": "teaspoon"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "grated"},
+    {"name": "Eggs", "amount": "2", "unit": "pieces"},
+    {"name": "Green onion", "amount": "3", "unit": "stalks"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"},
+    {"name": "Sriracha", "amount": "", "unit": "", "note": "optional"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook rice with 2 cups water.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Make Korean sauce: Mix soy sauce, brown sugar, sesame oil, garlic, and ginger.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Brown ground beef in a pan over medium-high heat.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Add sauce to beef, cook until caramelized, 3-4 minutes.", "tip": "Sauce should become slightly sticky.", "duration": "4 minutes"},
+    {"step": 5, "instruction": "In a separate pan, fry eggs sunny-side up.", "tip": "Yolk should be runny.", "duration": "4 minutes"},
+    {"step": 6, "instruction": "Divide rice into bowls.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Top with Korean beef, cucumber, carrot, and egg.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Garnish with green onion, sesame seeds, and sriracha.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 510,
+    "protein": 36,
+    "carbs": 52,
+    "fat": 18,
+    "fiber": 3,
+    "sugar": 12,
+    "sodium": 890
+  },
+  "tips": [
+    "Breaking the egg yolk creates a creamy sauce when mixed.",
+    "Adding kimchi gives authentic Korean flavor.",
+    "Great for meal prep - make eggs fresh."
+  ],
+  "storageInfo": "Store without egg for up to 4 days refrigerated.",
+  "servingSuggestion": "Serve with kimchi and pickles.",
+  "variations": [
+    "Pork or chicken can be substituted.",
+    "Tofu makes a vegetarian alternative."
+  ]
+}

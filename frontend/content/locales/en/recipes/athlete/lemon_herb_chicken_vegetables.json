@@ -1,0 +1,57 @@
+{
+  "name": "Lemon Herb Chicken & Vegetables",
+  "description": "Chicken marinated with fresh herbs and lemon, baked with seasonal vegetables. Healthy and delicious.",
+  "prepTime": "15 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "50 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "400", "unit": "g"},
+    {"name": "Zucchini", "amount": "1", "unit": "piece", "note": "cubed"},
+    {"name": "Eggplant", "amount": "1", "unit": "piece", "note": "cubed"},
+    {"name": "Cherry tomatoes", "amount": "200", "unit": "g"},
+    {"name": "Red onion", "amount": "1", "unit": "piece", "note": "wedges"},
+    {"name": "Lemon", "amount": "2", "unit": "pieces", "note": "1 juiced, 1 sliced"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh rosemary", "amount": "2", "unit": "sprigs"},
+    {"name": "Fresh thyme", "amount": "4", "unit": "sprigs"},
+    {"name": "Dried oregano", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Preheat oven to 200°C (400°F).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Make marinade: Mix lemon juice, 2 tbsp olive oil, minced garlic, dried oregano, salt, and pepper.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Coat chicken breast in marinade thoroughly.", "tip": "Marinate for at least 15 minutes, overnight is best.", "duration": "15 minutes"},
+    {"step": 4, "instruction": "Spread zucchini, eggplant, tomatoes, and onion on a large baking sheet.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Drizzle remaining olive oil over vegetables, season with salt and pepper. Toss to coat.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Place marinated chicken on top of vegetables.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Arrange lemon slices and fresh herbs on top of chicken.", "tip": "Lemon slices can be used decoratively when serving.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Roast for 35-40 minutes. Internal temp should reach 74°C (165°F).", "duration": "40 minutes"},
+    {"step": 9, "instruction": "During cooking, spoon pan juices over chicken and vegetables.", "tip": "Do this at 15 and 25 minute marks.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Remove from oven, rest 5 minutes, and serve.", "duration": "5 minutes"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 44,
+    "carbs": 22,
+    "fat": 14,
+    "fiber": 6,
+    "sugar": 8,
+    "sodium": 520
+  },
+  "tips": [
+    "One-pan cooking minimizes cleanup.",
+    "Vegetables can be swapped based on season.",
+    "Perfect recipe for low-carb diets.",
+    "Dried herbs can replace fresh (use half the amount)."
+  ],
+  "storageInfo": "Refrigerate in sealed container for 3-4 days.",
+  "servingSuggestion": "Serve with brown rice or bulgur pilaf.",
+  "variations": [
+    "Add artichoke hearts for extra vegetables.",
+    "Add olives and capers for Mediterranean flavor.",
+    "Fish can be prepared the same way."
+  ]
+}

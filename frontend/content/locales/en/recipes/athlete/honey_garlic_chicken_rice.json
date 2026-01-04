@@ -1,0 +1,55 @@
+{
+  "name": "Honey Garlic Chicken & Rice",
+  "description": "Sweet and savory caramelized chicken in honey garlic sauce. A perfectly balanced main dish served with rice.",
+  "prepTime": "10 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "35 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken thigh fillet", "amount": "400", "unit": "g", "note": "cubed"},
+    {"name": "Rice", "amount": "1", "unit": "cup", "note": "basmati or jasmine"},
+    {"name": "Honey", "amount": "3", "unit": "tablespoons"},
+    {"name": "Soy sauce", "amount": "3", "unit": "tablespoons", "note": "low sodium"},
+    {"name": "Garlic", "amount": "5", "unit": "cloves", "note": "finely minced"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Chicken broth", "amount": "1/4", "unit": "cup"},
+    {"name": "Cornstarch", "amount": "1", "unit": "teaspoon"},
+    {"name": "Fresh broccoli", "amount": "200", "unit": "g", "note": "florets"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"},
+    {"name": "Green onion", "amount": "2", "unit": "stalks", "note": "chopped"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Rinse rice and cook with 2 cups water for 15 minutes.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Make sauce: Mix honey, soy sauce, chicken broth, and cornstarch.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Heat olive oil in a large pan over medium-high heat.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Add chicken pieces. Brown all sides for 2-3 minutes each.", "tip": "Arrange in single layer, don't stack.", "duration": "8 minutes"},
+    {"step": 5, "instruction": "Add minced garlic, stir for 30 seconds. Watch it doesn't burn.", "tip": "Garlic burns quickly, stir constantly.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Pour sauce over chicken. Stir until it boils.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "When sauce thickens and coats the chicken, reduce heat. Cook 2-3 more minutes.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Steam or blanch broccoli separately for 3-4 minutes. Keep it crisp.", "duration": "4 minutes"},
+    {"step": 9, "instruction": "Plate rice, top with honey garlic chicken and broccoli.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Garnish with sesame seeds and green onion.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 510,
+    "protein": 40,
+    "carbs": 58,
+    "fat": 12,
+    "fiber": 3,
+    "sugar": 18,
+    "sodium": 680
+  },
+  "tips": [
+    "Honey is a natural energy source, ideal before workouts.",
+    "Add garlic after chicken to prevent burning.",
+    "For thicker sauce, increase cornstarch.",
+    "Great for meal prep - keeps well for 4 days."
+  ],
+  "storageInfo": "Store in airtight container for up to 4 days. Add water when reheating.",
+  "servingSuggestion": "Serve with steamed vegetables. Eat 2 hours before training.",
+  "variations": [
+    "Maple syrup can replace honey.",
+    "Add red pepper flakes for a spicy version.",
+    "Use quinoa instead of rice for more protein."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "name": "Lentil Vegetable Curry",
+  "description": "Red lentils cooked with Indian spices. Plant-based protein and fiber powerhouse.",
+  "prepTime": "10 minutes",
+  "cookTime": "30 minutes",
+  "totalTime": "40 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Red lentils", "amount": "1.5", "unit": "cups"},
+    {"name": "Coconut milk", "amount": "400", "unit": "ml"},
+    {"name": "Vegetable broth", "amount": "2", "unit": "cups"},
+    {"name": "Tomato paste", "amount": "2", "unit": "tablespoons"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves"},
+    {"name": "Ginger", "amount": "2", "unit": "cm", "note": "grated"},
+    {"name": "Spinach", "amount": "200", "unit": "g"},
+    {"name": "Curry powder", "amount": "2", "unit": "tablespoons"},
+    {"name": "Garam masala", "amount": "1", "unit": "teaspoon"},
+    {"name": "Turmeric", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Fresh cilantro", "amount": "2", "unit": "tablespoons", "note": "for serving"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Rinse and drain lentils.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Heat olive oil in a deep pot.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Sauté onion until softened, about 5 minutes.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Add garlic and ginger, cook for 1 minute.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add all spices (curry, garam masala, turmeric), cook for 30 seconds.", "tip": "Don't burn the spices.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Add tomato paste and stir for 1 minute.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Add lentils, coconut milk, and vegetable broth.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Bring to boil, then simmer for 20 minutes until lentils are soft.", "tip": "Stir occasionally to prevent sticking.", "duration": "20 minutes"},
+    {"step": 9, "instruction": "Add spinach, stir until wilted.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Season with salt, garnish with cilantro.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 385,
+    "protein": 24,
+    "carbs": 52,
+    "fat": 10,
+    "fiber": 16,
+    "sugar": 6,
+    "sodium": 580
+  },
+  "tips": [
+    "Lentils are both protein and fiber rich.",
+    "Turmeric has anti-inflammatory properties.",
+    "Makes large batches and freezes well.",
+    "Budget-friendly high protein recipe."
+  ],
+  "storageInfo": "Refrigerate for 5 days, freeze for up to 3 months.",
+  "servingSuggestion": "Serve with basmati rice or naan bread.",
+  "variations": [
+    "Green lentils give more texture.",
+    "Add potato cubes.",
+    "Add green chilies for more heat."
+  ]
+}

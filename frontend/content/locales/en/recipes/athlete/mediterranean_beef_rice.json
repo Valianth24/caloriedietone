@@ -1,0 +1,38 @@
+{
+  "name": "Mediterranean Beef Rice",
+  "description": "Lean ground beef with spiced rice and Mediterranean vegetables. A complete one-pot meal.",
+  "prepTime": "15 minutes",
+  "cookTime": "30 minutes",
+  "totalTime": "45 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Lean ground beef", "amount": "400", "unit": "g"},
+    {"name": "Basmati rice", "amount": "1.5", "unit": "cups"},
+    {"name": "Chicken broth", "amount": "3", "unit": "cups"},
+    {"name": "Onion", "amount": "1", "unit": "piece"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves"},
+    {"name": "Tomato", "amount": "2", "unit": "pieces"},
+    {"name": "Spinach", "amount": "100", "unit": "g"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Cinnamon", "amount": "1/4", "unit": "teaspoon"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Pine nuts", "amount": "2", "unit": "tablespoons"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Rinse and drain rice.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Brown ground beef in a deep pan, drain excess fat.", "duration": "8 minutes"},
+    {"step": 3, "instruction": "Add onion and garlic, sauté.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Add spices and tomatoes.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Add rice, toast for 1 minute.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Pour in chicken broth, bring to boil.", "duration": "3 minutes"},
+    {"step": 7, "instruction": "Simmer on low heat for 15-18 minutes.", "duration": "18 minutes"},
+    {"step": 8, "instruction": "Stir in spinach, let rest for 2 minutes.", "duration": "4 minutes"},
+    {"step": 9, "instruction": "Garnish with pine nuts.", "duration": "1 minute"}
+  ],
+  "nutrition": {"calories": 495, "protein": 38, "carbs": 48, "fat": 16, "fiber": 4, "sugar": 4, "sodium": 620},
+  "tips": ["One-pot meal with meat and rice - easy cleanup.", "Pine nuts add extra protein and crunch."],
+  "storageInfo": "Refrigerate for up to 4 days.",
+  "servingSuggestion": "Serve with yogurt and salad.",
+  "variations": ["Lamb can also be used.", "Add dried apricots for sweetness."]
+}
