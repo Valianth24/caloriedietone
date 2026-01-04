@@ -27,6 +27,9 @@ import {
   RecipeId,
   RECIPE_CATEGORIES,
   CATEGORY_LABELS,
+  getAllAthleteRecipeMetadata,
+  ATHLETE_RECIPE_NAMES,
+  ATHLETE_RECIPE_NUTRITION,
 } from '../../content/recipes';
 import type { RecipeMetadata, RecipeCategory } from '../../types/recipe';
 
