@@ -1,79 +1,64 @@
 {
   "name": "Tomato Basil Soup",
-  "description": "TODO: Tomato Basil Soup description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Classic Italian roasted tomato soup with fresh basil. Aromatic, creamy, and comforting.",
+  "prepTime": "15 minutes",
+  "cookTime": "55 minutes",
+  "totalTime": "70 minutes",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Ripe tomatoes", "amount": "1.5", "unit": "kg", "note": "Roma or vine tomatoes"},
+    {"name": "Onion", "amount": "2", "unit": "pieces", "note": "roughly chopped"},
+    {"name": "Garlic", "amount": "6", "unit": "cloves", "note": "minced"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Vegetable or chicken broth", "amount": "3", "unit": "cups"},
+    {"name": "Extra virgin olive oil", "amount": "4", "unit": "tbsp"},
+    {"name": "Fresh basil", "amount": "1", "unit": "bunch", "note": "about 1 cup leaves"},
+    {"name": "Balsamic vinegar", "amount": "1", "unit": "tbsp"},
+    {"name": "Fresh thyme", "amount": "4", "unit": "sprigs"},
+    {"name": "Tomato paste", "amount": "2", "unit": "tbsp"},
+    {"name": "Sugar", "amount": "1", "unit": "tsp", "note": "to balance acidity"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"},
+    {"name": "Heavy cream", "amount": "1/4", "unit": "cup", "note": "optional"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Preheat oven to 425°F (220°C).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Wash tomatoes and cut in half. Place cut-side up on a large baking sheet.", "tip": "Don't crowd them - they need space to roast properly.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Scatter chopped onions and carrots around the tomatoes.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Drizzle 3 tbsp olive oil over vegetables. Season with salt and pepper.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Roast for 45-50 minutes until tomatoes are soft and slightly caramelized.", "tip": "Rotate pan halfway for even roasting.", "duration": "50 minutes"},
+    {"step": 6, "instruction": "Heat remaining olive oil in a large pot over medium heat. Add garlic, cook 1 minute.", "tip": "Don't burn garlic - it becomes bitter.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Add tomato paste, cook 1 minute until fragrant.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Transfer roasted vegetables and all juices to the pot.", "tip": "Scrape up caramelized bits from pan - that's flavor gold!", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Add broth, balsamic vinegar, and thyme sprigs. Bring to boil.", "duration": "3 minutes"},
+    {"step": 10, "instruction": "Reduce heat, simmer 15-20 minutes, stirring occasionally.", "duration": "20 minutes"},
+    {"step": 11, "instruction": "Remove thyme sprigs. Add most basil leaves (save some for garnish).", "duration": "1 minute"},
+    {"step": 12, "instruction": "Blend until completely smooth with immersion blender or regular blender.", "tip": "Be careful blending hot liquids - leave lid slightly open.", "duration": "3 minutes"},
+    {"step": 13, "instruction": "Add sugar and taste. Adjust salt and pepper as needed.", "tip": "Sugar balances tomato acidity.", "duration": "1 minute"},
+    {"step": 14, "instruction": "Stir in cream if using. Garnish with fresh basil and serve.", "duration": "2 minutes"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 165,
+    "protein": 4,
+    "carbs": 22,
+    "fat": 8,
+    "fiber": 5,
+    "sugar": 14,
+    "sodium": 420
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Best made with fresh, ripe summer tomatoes.",
+    "Roasting brings out tomatoes' natural sweetness.",
+    "For vegan, skip cream or use coconut cream.",
+    "Soup tastes even better the next day - flavors meld.",
+    "In winter, canned San Marzano tomatoes work well."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate 4-5 days, freeze 3 months.",
+  "servingSuggestion": "Pairs perfectly with grilled cheese sandwich. Drizzle with olive oil and fresh basil.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Creamy: Add 1/2 cup heavy cream.",
+    "Spicy: Add red pepper flakes or cayenne.",
+    "Mediterranean: Add olives and capers.",
+    "Coconut: Replace cream with coconut milk - vegan and exotic."
   ]
 }

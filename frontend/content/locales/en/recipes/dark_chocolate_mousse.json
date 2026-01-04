@@ -1,79 +1,57 @@
 {
   "name": "Dark Chocolate Mousse",
-  "description": "TODO: Dark Chocolate Mousse description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Healthy avocado-based chocolate mousse. Creamy, rich chocolate flavor without refined sugar or dairy.",
+  "prepTime": "10 minutes",
+  "cookTime": "5 minutes",
+  "totalTime": "15 minutes + 2 hours chilling",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Ripe avocados", "amount": "2", "unit": "pieces", "note": "must be soft"},
+    {"name": "Dark chocolate", "amount": "100", "unit": "g", "note": "70% cacao, chopped"},
+    {"name": "Cocoa powder", "amount": "1/4", "unit": "cup", "note": "unsweetened, raw preferred"},
+    {"name": "Maple syrup", "amount": "3", "unit": "tbsp", "note": "or honey"},
+    {"name": "Almond milk", "amount": "3", "unit": "tbsp"},
+    {"name": "Vanilla extract", "amount": "1", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "pinch", "note": "enhances chocolate flavor"},
+    {"name": "Strawberries or raspberries", "amount": "1/2", "unit": "cup", "note": "for garnish"},
+    {"name": "Fresh mint", "amount": "4", "unit": "leaves", "note": "for garnish"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Melt dark chocolate using double boiler: Bring water to simmer in pot, place heat-safe bowl on top, add chocolate and stir until melted.", "tip": "No water should touch chocolate - even one drop will ruin it.", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Remove melted chocolate from heat. Let cool for 5 minutes.", "tip": "Too-hot chocolate will 'cook' avocado and change the taste.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Cut avocados in half, remove pits. Scoop flesh into food processor.", "tip": "Avocados must be completely ripe - firm ones won't blend smooth.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Add cocoa powder on top of avocados.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Add maple syrup, almond milk, vanilla extract, and salt.", "duration": "30 seconds"},
+    {"step": 6, "instruction": "Add cooled melted chocolate.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Process on high for 2-3 minutes. Scrape sides with spatula.", "tip": "Process until completely smooth and creamy - be patient.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Taste and add more maple syrup if needed.", "tip": "Sweetness varies by chocolate quality.", "duration": "30 seconds"},
+    {"step": 9, "instruction": "Divide mousse among serving cups or ramekins.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Cover with plastic wrap directly touching surface - prevents skin forming.", "tip": "If wrap doesn't touch surface, a crust will form on top.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Refrigerate at least 2 hours, ideally 4 hours.", "tip": "Overnight chilling makes texture perfect.", "duration": "2+ hours"},
+    {"step": 12, "instruction": "Before serving, remove from fridge. Garnish with berries and mint.", "tip": "Let sit at room temperature 10 minutes before serving - texture softens.", "duration": "2 minutes"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 285,
+    "protein": 4,
+    "carbs": 28,
+    "fat": 20,
+    "fiber": 8,
+    "sugar": 14,
+    "sodium": 35
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Avocado taste is completely masked by chocolate - you won't notice it!",
+    "Avocado provides healthy fats and fiber - guilt-free dessert.",
+    "Chocolate quality matters - use at least 70% cacao.",
+    "Vegan, gluten-free, and refined sugar-free.",
+    "Don't tell guests it has avocado - they'll never guess!"
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate covered for 3 days. Freezing not recommended.",
+  "servingSuggestion": "Serve in small espresso cups or elegant glass cups. Top with coconut cream, berries, or strawberries.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Orange: Add 1 tsp orange zest.",
+    "Mint: Add 1/4 tsp peppermint extract.",
+    "Peanut butter: Add 2 tbsp peanut butter.",
+    "Espresso: Add 1 tsp espresso powder for mocha flavor."
   ]
 }

@@ -1,79 +1,59 @@
 {
   "name": "Energy Balls",
-  "description": "TODO: Energy Balls description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "No-bake energy bites made with dates, oats, and nut butter. Natural energy source for pre or post workout.",
+  "prepTime": "15 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "15 minutes + 1 hour chilling",
+  "servings": 16,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Medjool dates", "amount": "12", "unit": "pieces", "note": "pitted"},
+    {"name": "Rolled oats", "amount": "1", "unit": "cup"},
+    {"name": "Peanut butter", "amount": "1/2", "unit": "cup", "note": "natural, unsweetened"},
+    {"name": "Dark chocolate chips", "amount": "1/4", "unit": "cup"},
+    {"name": "Ground flaxseed", "amount": "2", "unit": "tbsp"},
+    {"name": "Chia seeds", "amount": "1", "unit": "tbsp"},
+    {"name": "Honey", "amount": "1", "unit": "tbsp"},
+    {"name": "Vanilla extract", "amount": "1", "unit": "tsp"},
+    {"name": "Cinnamon", "amount": "1/2", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "pinch"},
+    {"name": "Shredded coconut", "amount": "2", "unit": "tbsp", "note": "for coating, optional"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Remove pits from dates. If dates are hard, soak in hot water for 10 minutes, then drain.", "tip": "Soft dates are easier to process and create a stickier dough.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Add dates to food processor. Pulse 15-20 times until they form a sticky paste.", "tip": "Doesn't need to be completely smooth - some texture is fine.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Add rolled oats and pulse 5-6 times.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Add peanut butter, honey, and vanilla extract. Pulse again.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Add flaxseed, chia seeds, cinnamon, and salt. Process until mixture sticks together when pressed.", "tip": "Should hold together when pinched.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Add chocolate chips. Mix by hand with spatula or pulse 2-3 times.", "tip": "Don't over-process - keep chocolate chunks visible.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Test mixture: Take a small piece and roll. If it crumbles, add 1 tbsp water.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Wet your hands slightly (prevents sticking). Scoop about 1.5 tbsp of mixture.", "duration": "30 seconds"},
+    {"step": 9, "instruction": "Roll firmly between palms to form balls about 1 inch in diameter.", "tip": "Balls should be walnut-sized - about 2.5cm diameter.", "duration": "5 minutes"},
+    {"step": 10, "instruction": "Optional: Roll balls in shredded coconut for coating.", "duration": "2 minutes"},
+    {"step": 11, "instruction": "Place balls on parchment-lined tray.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Refrigerate for at least 1 hour until firm. Transfer to airtight container.", "tip": "They taste better cold and have firmer texture.", "duration": "1+ hour"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 105,
+    "protein": 3,
+    "carbs": 14,
+    "fat": 5,
+    "fiber": 2,
+    "sugar": 9,
+    "sodium": 25
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Dates are a natural sugar source - no refined sugar needed.",
+    "Eat 2 balls 30 minutes before workout for quick energy.",
+    "No food processor? Finely chop dates and mix by hand.",
+    "Keep balls uniform in size for consistent nutrition.",
+    "Prep on Sunday for ready snacks all week."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate for 2 weeks, freeze for 3 months. Can be eaten frozen.",
+  "servingSuggestion": "Keep in gym bag, office drawer, or car. Perfect for emergency energy needs.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Chocolate: Add 2 tbsp cocoa powder.",
+    "Tropical: Use dried mango and coconut.",
+    "Almond butter: Replace peanut butter with almond butter.",
+    "Protein boost: Add 2 tbsp protein powder."
   ]
 }

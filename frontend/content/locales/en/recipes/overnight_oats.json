@@ -1,79 +1,59 @@
 {
   "name": "Overnight Oats",
-  "description": "TODO: Overnight Oats description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
+  "description": "No-cook breakfast prepared the night before. Creamy, customizable, and packed with fiber and protein.",
+  "prepTime": "10 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "10 minutes + 4 hours soaking",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Rolled oats", "amount": "1", "unit": "cup", "note": "old-fashioned, not instant"},
+    {"name": "Milk", "amount": "1", "unit": "cup", "note": "almond or regular"},
+    {"name": "Greek yogurt", "amount": "1/2", "unit": "cup"},
+    {"name": "Chia seeds", "amount": "2", "unit": "tbsp"},
+    {"name": "Honey or maple syrup", "amount": "2", "unit": "tbsp"},
+    {"name": "Vanilla extract", "amount": "1/2", "unit": "tsp"},
+    {"name": "Cinnamon", "amount": "1/4", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "pinch"},
+    {"name": "Blueberries", "amount": "1/2", "unit": "cup", "note": "for topping"},
+    {"name": "Sliced almonds", "amount": "2", "unit": "tbsp"},
+    {"name": "Peanut butter", "amount": "1", "unit": "tbsp", "note": "optional"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Prepare two jars or deep bowls. Mason jars are ideal for portability.", "duration": "30 seconds"},
+    {"step": 2, "instruction": "Divide oats equally between the containers (1/2 cup each).", "duration": "30 seconds"},
+    {"step": 3, "instruction": "Add chia seeds and stir to combine.", "tip": "Chia seeds absorb liquid and create a creamy texture.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Add Greek yogurt. This adds protein and creaminess.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Add honey or maple syrup, vanilla extract, cinnamon, and salt.", "tip": "Salt balances sweetness and enhances flavor.", "duration": "30 seconds"},
+    {"step": 6, "instruction": "Pour in milk. Stir or shake thoroughly with a fork.", "tip": "Make sure everything is evenly distributed - no clumps.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Stir again within the first 5 minutes. This prevents chia seeds from clumping.", "tip": "This step is crucial - don't skip it.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Cover jars with lids or plastic wrap.", "duration": "20 seconds"},
+    {"step": 9, "instruction": "Refrigerate for at least 4 hours, ideally overnight (8-12 hours).", "tip": "The longer it sits, the better the texture.", "duration": "4+ hours"},
+    {"step": 10, "instruction": "In the morning, remove from fridge and stir. Check consistency.", "duration": "30 seconds"},
+    {"step": 11, "instruction": "If too thick, add 1-2 tbsp milk and stir.", "tip": "Ideal consistency is like thick yogurt.", "duration": "30 seconds"},
+    {"step": 12, "instruction": "Top with blueberries, almond slices, and optional peanut butter. Serve.", "tip": "Add toppings just before eating so they stay fresh.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 340,
+    "protein": 16,
+    "carbs": 48,
+    "fat": 10,
+    "fiber": 8,
+    "sugar": 18,
+    "sodium": 120
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Prep 5 portions on Sunday for ready breakfasts all week.",
+    "Use old-fashioned rolled oats - instant oats get too mushy.",
+    "Eat cold or microwave for 1 minute if you prefer warm.",
+    "Add protein powder to boost protein content.",
+    "For vegan version, use plant-based yogurt and milk."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate in sealed container for up to 5 days. Add toppings fresh.",
+  "servingSuggestion": "Eat cold directly from the jar or transfer to a bowl. Perfect for taking to work.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Chocolate: Add 1 tbsp cocoa powder and chocolate chips.",
+    "Tropical: Use coconut milk, mango, and pineapple.",
+    "Apple pie: Add diced apple, extra cinnamon, and walnuts.",
+    "PB&J: Peanut butter and strawberry jam swirl."
   ]
 }

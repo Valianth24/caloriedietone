@@ -1,79 +1,58 @@
 {
   "name": "Protein Pancakes",
-  "description": "TODO: Protein Pancakes description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
+  "description": "Fluffy, high-protein pancakes made with oats, banana, and protein powder. Perfect athlete-friendly breakfast.",
+  "prepTime": "10 minutes",
+  "cookTime": "12 minutes",
+  "totalTime": "22 minutes",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Rolled oats", "amount": "1", "unit": "cup", "note": "blended into flour"},
+    {"name": "Protein powder", "amount": "1/2", "unit": "cup", "note": "vanilla or chocolate"},
+    {"name": "Ripe banana", "amount": "1", "unit": "piece", "note": "well mashed"},
+    {"name": "Eggs", "amount": "2", "unit": "pieces"},
+    {"name": "Milk", "amount": "1/2", "unit": "cup", "note": "almond milk works too"},
+    {"name": "Coconut flour", "amount": "1", "unit": "tbsp"},
+    {"name": "Baking powder", "amount": "1", "unit": "tsp"},
+    {"name": "Cinnamon", "amount": "1", "unit": "tsp"},
+    {"name": "Vanilla extract", "amount": "1/2", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "pinch"},
+    {"name": "Coconut oil", "amount": "1", "unit": "tsp", "note": "for cooking"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Blend rolled oats in a blender for 15-20 seconds until flour-like consistency.", "tip": "You can also use store-bought oat flour.", "duration": "30 seconds"},
+    {"step": 2, "instruction": "In a large bowl, combine oat flour, protein powder, coconut flour, baking powder, cinnamon, and salt. Mix well.", "duration": "1 minute"},
+    {"step": 3, "instruction": "In a separate bowl, mash the banana thoroughly. Add eggs and whisk together.", "tip": "Riper bananas with brown spots are sweeter.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Add milk and vanilla extract to the wet mixture. Whisk until combined.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Pour wet ingredients into dry ingredients. Fold gently with a spatula.", "tip": "Don't overmix - a few lumps are fine. Overmixing makes pancakes tough.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Let batter rest for 5 minutes. It will thicken slightly.", "tip": "Don't skip this step - it makes a big difference.", "duration": "5 minutes"},
+    {"step": 7, "instruction": "Heat a non-stick pan over medium heat. Add a tiny amount of coconut oil.", "tip": "Pan shouldn't be too hot - pancakes will burn outside and stay raw inside.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Pour about 1/4 cup batter per pancake. Wait for it to spread naturally.", "tip": "Smaller pancakes are easier to flip and cook more evenly.", "duration": "30 seconds"},
+    {"step": 9, "instruction": "Cook until bubbles form on surface and edges look set (1.5-2 minutes). Flip.", "tip": "When bubbles start popping, it's time to flip.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Cook the other side for 1-1.5 minutes until golden brown.", "duration": "1.5 minutes"},
+    {"step": 11, "instruction": "Keep cooked pancakes warm in a 170°F oven or under foil.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Repeat with remaining batter. Serve with fresh berries, nut butter, or a drizzle of honey.", "tip": "Top with Greek yogurt for extra protein.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 385,
+    "protein": 32,
+    "carbs": 42,
+    "fat": 10,
+    "fiber": 6,
+    "sugar": 12,
+    "sodium": 320
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Adjust liquid based on your protein powder brand - some absorb more.",
+    "Best consumed within 30 minutes post-workout for muscle recovery.",
+    "Use certified gluten-free oats for a gluten-free version.",
+    "If batter is too thick, add 1-2 tbsp more milk.",
+    "Chocolate protein powder + banana combo is a kid favorite."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate for 3 days, freeze for 2 months. Reheat in toaster or pan.",
+  "servingSuggestion": "Serve with fresh strawberries, blueberries, sliced banana, and a spoonful of peanut butter.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Chocolate version: Add 2 tbsp cocoa powder.",
+    "Banana walnut: Add 1/4 cup chopped walnuts to batter.",
+    "Cottage cheese: Blend 1/2 cup cottage cheese into wet ingredients."
   ]
 }
