@@ -1,79 +1,66 @@
 {
   "name": "Kinoa Salatası",
-  "description": "TODO: Kinoa Salatası açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Renkli sebzeler ve taze otlarla hazırlanan, protein ve lif açısından zengin sağlıklı tahıl salatası.",
+  "prepTime": "15 dakika",
+  "cookTime": "18 dakika",
+  "totalTime": "33 dakika",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Kinoa", "amount": "1.5", "unit": "su bardağı"},
+    {"name": "Su", "amount": "3", "unit": "su bardağı"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Kiraz domates", "amount": "200", "unit": "g", "note": "dörde bölünmüş"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Kırmızı soğan", "amount": "1/2", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Taze maydanoz", "amount": "1/2", "unit": "su bardağı", "note": "ince kıyılmış"},
+    {"name": "Taze nane", "amount": "1/4", "unit": "su bardağı", "note": "ince kıyılmış"},
+    {"name": "Sızma zeytinyağı", "amount": "1/4", "unit": "su bardağı"},
+    {"name": "Limon suyu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Limon kabuğu rendesi", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak", "amount": "2", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Kimyon", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Feta peyniri", "amount": "100", "unit": "g", "note": "ufalanmış, isteğe bağlı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Kinoayı ince gözenekli süzgeçte bol soğuk su altında 2 dakika yıkayın.", "tip": "Yıkamak kinoandaki acı saponin tabakasını giderir.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Orta boy tencereye kinoayı ve suyu koyun. Kaynatın.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Kaynayınca ateşi kısın, kapağı kapatın. 15 dakika suyunu çekene kadar pişirin.", "tip": "Pişerken kapağı açmayın - buhar kaçmasın.", "duration": "15 dakika"},
+    {"step": 4, "instruction": "Ateşi kapatın, 5 dakika kapalı bekletin. Sonra çatalla kabartın.", "tip": "Çatalla kabartmak tanelerin ayrılmasını sağlar.", "duration": "5 dakika"},
+    {"step": 5, "instruction": "Kinoayı geniş bir tepsiye yayın ve soğumaya bırakın. Veya buzdolabında hızlı soğutun.", "tip": "Sıcak kinoa sebzeleri pişirir - mutlaka soğutun.", "duration": "15 dakika"},
+    {"step": 6, "instruction": "Sos için: Zeytinyağı, limon suyu, limon rendesi, sarımsak, kimyon, tuz ve karabiberi çırpın.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Tüm sebzeleri doğrayın. Büyük bir salata kabına koyun.", "duration": "5 dakika"},
+    {"step": 8, "instruction": "Kıyılmış taze otları (maydanoz ve nane) sebzelere ekleyin.", "tip": "Taze otlar bu salatanın yıldızıdır - bol kullanın.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Soğumuş kinoayı sebze karışımına ekleyin.", "duration": "1 dakika"},
+    {"step": 10, "instruction": "Sosu karışımın üzerine dökün.", "duration": "30 saniye"},
+    {"step": 11, "instruction": "Spatula veya kaşıkla yavaşça katlayarak karıştırın.", "tip": "Sert karıştırmayın - sebzeler ezilir.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Tadına bakın, gerekirse tuz veya limon ayarlayın.", "duration": "30 saniye"},
+    {"step": 13, "instruction": "İsterseniz üzerine feta peyniri ufalayın.", "duration": "1 dakika"},
+    {"step": 14, "instruction": "Hemen servis edin veya tatların oturması için 30 dakika buzdolabında bekletin.", "tip": "Dinlenmiş salata daha lezzetli olur.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 245,
+    "protein": 8,
+    "carbs": 32,
+    "fat": 10,
+    "fiber": 5,
+    "sugar": 4,
+    "sodium": 420
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Kinoa tam protein kaynağıdır - 9 temel amino asit içerir.",
+    "Meal prep için ideal - 4 gün buzdolabında dayanır.",
+    "Soğuk veya oda sıcaklığında servis edilebilir.",
+    "Glutensiz bir tahıldır - çölyak hastaları için uygundur.",
+    "Tabbule salatasından ilham alınmıştır - modern versiyon."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında hava geçirmez kapta 4-5 gün saklanabilir.",
+  "servingSuggestion": "Yanında ızgara et veya balık ile ana yemek, veya tek başına hafif öğün olarak servis edin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Akdeniz: Zeytin, kurutulmuş domates ve enginar ekleyin.",
+    "Meksika: Siyah fasulye, mısır ve avokado ekleyin.",
+    "Asya: Edamame, susam ve soya-zencefil sosu kullanın.",
+    "Proteinli: Nohut veya tavuk ekleyin."
   ]
 }

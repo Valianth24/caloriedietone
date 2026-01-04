@@ -1,79 +1,65 @@
 {
   "name": "Sebzeli Omlet",
-  "description": "TODO: Sebzeli Omlet açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
+  "description": "Renkli sebzelerle dolu, protein açısından zengin, hafif ve besleyici kahvaltı. 15 dakikada sofrada.",
+  "prepTime": "10 dakika",
+  "cookTime": "8 dakika",
+  "totalTime": "18 dakika",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Yumurta", "amount": "4", "unit": "adet"},
+    {"name": "Süt", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Kırmızı biber", "amount": "1/2", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Yeşil biber", "amount": "1/2", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Mantar", "amount": "4", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Ispanak", "amount": "1", "unit": "avuç", "note": "taze"},
+    {"name": "Kiraz domates", "amount": "6", "unit": "adet", "note": "ikiye bölünmüş"},
+    {"name": "Yeşil soğan", "amount": "2", "unit": "dal", "note": "doğranmış"},
+    {"name": "Beyaz peynir", "amount": "50", "unit": "g", "note": "ufalanmış veya rendelenmiş"},
+    {"name": "Zeytinyağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tereyağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı pul biber", "amount": "1/4", "unit": "tatlı kaşığı", "note": "isteğe bağlı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Tüm sebzeleri yıkayıp doğrayın. Hepsini ayrı kaplara koyun - hızlı pişirmek için hazır olmalı.", "tip": "Fransızlar buna 'mise en place' der - her şey yerli yerinde.", "duration": "5 dakika"},
+    {"step": 2, "instruction": "Yumurtaları derin bir kaseye kırın. Süt, tuz ve karabiberi ekleyin.", "duration": "30 saniye"},
+    {"step": 3, "instruction": "Çatal veya çırpıcı ile 30 saniye hızlıca çırpın. Sarı ve beyaz tam karışmalı.", "tip": "Fazla çırpmayın - hafif köpüklü olmalı.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Yapışmaz tavayı (20-22 cm) orta ateşte ısıtın. Zeytinyağını ekleyin.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Biberleri ve mantarları ekleyin. 2-3 dakika, hafif yumuşayana kadar soteleyin.", "tip": "Sebzeler biraz çıtır kalmalı - tamamen yumuşatmayın.", "duration": "3 dakika"},
+    {"step": 6, "instruction": "Ispanağı ekleyin ve solduruncaya kadar karıştırın (30 saniye).", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Sotelenmiş sebzeleri bir tabağa alın. Tavayı kağıt havlu ile silin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Aynı tavayı orta-kısık ateşe alın. Tereyağını eritin.", "tip": "Omlet için ateş çok yüksek olmamalı - dışı yanar içi çiğ kalır.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Çırpılmış yumurtaları tavaya dökün. 10 saniye dokunmayın.", "duration": "10 saniye"},
+    {"step": 10, "instruction": "Spatula ile kenarları yavaşça merkeze doğru itin. Tava yı yatırarak pişmemiş yumurtanın kenarlara akmasını sağlayın.", "tip": "Bu teknik omletin kat kat olmasını sağlar.", "duration": "1.5 dakika"},
+    {"step": 11, "instruction": "Üst yüzey hala hafif ıslakken (ama akıcı değil) sebzeleri omletin bir yarısına yerleştirin.", "duration": "30 saniye"},
+    {"step": 12, "instruction": "Peyniri sebzelerin üzerine serpin.", "duration": "20 saniye"},
+    {"step": 13, "instruction": "Spatula ile boş tarafı sebzeli tarafın üzerine katlayın.", "tip": "Yarım ay şeklinde olmalı.", "duration": "30 saniye"},
+    {"step": 14, "instruction": "1 dakika daha kısık ateşte bekletin. Peynir erimeli.", "duration": "1 dakika"},
+    {"step": 15, "instruction": "Tabağa kaydırın. Domatesleri, yeşil soğanı ve pul biberi üzerine serpin. Hemen servis edin.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 285,
+    "protein": 20,
+    "carbs": 10,
+    "fat": 18,
+    "fiber": 3,
+    "sugar": 5,
+    "sodium": 520
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Omlet içi nemli (baveuse) kalmalı - Fransız usulü.",
+    "Yapışmaz tava kullanmak çok önemli - normal tava yapışır.",
+    "Yumurtaları buzdolabından 10 dakika önce çıkarın - oda sıcaklığında daha iyi pişer.",
+    "Sebze seçimini mevsimine ve zevkinize göre değiştirin.",
+    "Düşük karbonhidrat diyeti için mükemmel kahvaltı."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "En taze haliyle tüketin. Omlet bekletilmez - hemen yenmeli.",
+  "servingSuggestion": "Yanında tam buğday tost, taze meyve veya salata ile servis edin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Peynirli: Sadece rendelenmiş kaşar veya cheddar ile.",
+    "İspanyol tortilla: Patates ve soğanla kalın omlet.",
+    "Akdeniz: Zeytin, kurutulmuş domates ve feta ile.",
+    "Protein odaklı: 2 bütün yumurta + 3 yumurta beyazı kullanın."
   ]
 }

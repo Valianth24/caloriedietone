@@ -1,79 +1,60 @@
 {
   "name": "Fırında Morina",
-  "description": "TODO: Fırında Morina açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Limon ve otlarla marine edilmiş, fırında mükemmel pişen yağsız beyaz etli balık. 20 dakikada hazır.",
+  "prepTime": "10 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "25 dakika",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Morina fileto", "amount": "4", "unit": "adet", "note": "180g her biri"},
+    {"name": "Limon", "amount": "2", "unit": "adet", "note": "1 sıkılmış, 1 dilimlenmiş"},
+    {"name": "Sızma zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ince dilimlenmiş"},
+    {"name": "Taze maydanoz", "amount": "1/4", "unit": "su bardağı", "note": "ince kıyılmış"},
+    {"name": "Taze kekik", "amount": "1", "unit": "yemek kaşığı", "note": "veya 1 tk kuru"},
+    {"name": "Tatlı kırmızı toz biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Deniz tuzu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tereyağı", "amount": "2", "unit": "yemek kaşığı", "note": "küp küp doğranmış"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Fırını 200°C'ye önceden ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Morina filetolarını buzdolabından 10 dakika önce çıkarın. Kağıt havlu ile her iki tarafını kurulayarak nem alın.", "tip": "Kuru balık daha iyi kavrulur ve yapışmaz.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Orta boy fırın tepsisini yağlı kağıt ile kaplayın veya hafifçe yağlayın.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Balıkları tepsiye yerleştirin. Aralarında en az 2 cm boşluk bırakın.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Her filetonun üzerine eşit miktarda zeytinyağı gezdirin.", "duration": "30 saniye"},
+    {"step": 6, "instruction": "Limon suyunu balıkların üzerine sıkın.", "tip": "Limon suyu hem lezzet katar hem de balığın beyaz kalmasını sağlar.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Dilimlenmiş sarımsağı balıkların üzerine dağıtın.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Tuz, karabiber ve kırmızı toz biberi eşit şekilde serpin.", "duration": "30 saniye"},
+    {"step": 9, "instruction": "Limon dilimlerini balıkların üzerine yerleştirin.", "tip": "Limon dilimleri hem lezzet hem görsel güzellik katar.", "duration": "30 saniye"},
+    {"step": 10, "instruction": "Tereyağı küplerini balıkların üzerine dağıtın.", "tip": "Tereyağı pişerken eriyerek doğal sos oluşturur.", "duration": "30 saniye"},
+    {"step": 11, "instruction": "Kekik yapraklarını serpin.", "duration": "20 saniye"},
+    {"step": 12, "instruction": "Fırının orta rafına yerleştirin. 12-15 dakika pişirin.", "tip": "Balık opak beyaza dönmeli ve çatalla kolayca ayrılmalı. Fazla pişirmeyin!", "duration": "15 dakika"},
+    {"step": 13, "instruction": "Fırından çıkarın. Tepside oluşan sosları kaşıkla balıkların üzerine gezdirin.", "duration": "1 dakika"},
+    {"step": 14, "instruction": "Taze maydanoz serpin ve hemen servis edin.", "duration": "30 saniye"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 245,
+    "protein": 38,
+    "carbs": 4,
+    "fat": 9,
+    "fiber": 1,
+    "sugar": 1,
+    "sodium": 480
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Morina en yağsız beyaz etli balıklardandır - diyet için mükemmel.",
+    "Balık iç sıcaklığı 63°C olmalı - et termometresi kullanın.",
+    "Dondurulmuş morina kullanıyorsanız tamamen çözüldüğünden emin olun.",
+    "Her fileto farklı kalınlıkta olabilir - ince olanları erken çıkarın.",
+    "Bu yöntem levrek, mezgit veya tilapia için de kullanılabilir."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 2 gün saklanabilir. En taze haliyle servis edin.",
+  "servingSuggestion": "Yanında buğulanmış sebzeler, kinoa veya haşlanmış patates ile servis edin. Tepsi sosunu ekmekle toplamak harika!",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Akdeniz: Kiraz domates, zeytin ve kapari ekleyin.",
+    "Baharatlı: Cajun baharatları ile kaplayın.",
+    "Pesto: Zeytinyağı yerine pesto sürün.",
+    "Parmesan kabuklu: Üzerine rendelenmiş parmesan ve galeta unu serpin."
   ]
 }

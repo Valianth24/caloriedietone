@@ -1,79 +1,65 @@
 {
   "name": "Hindi Köfte",
-  "description": "TODO: Hindi Köfte açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "İtalyan otları ve parmesanla hazırlanan, fırında pişen sağlıklı ve sulu hindi köfteler. Düşük yağlı, yüksek proteinli.",
+  "prepTime": "20 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "45 dakika",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Hindi kıyma", "amount": "700", "unit": "g", "note": "%93 yağsız"},
+    {"name": "Panko galeta unu", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Parmesan", "amount": "1/2", "unit": "su bardağı", "note": "rendelenmiş"},
+    {"name": "Yumurta", "amount": "1", "unit": "adet", "note": "çırpılmış"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "rendelenmiş veya çok ince kıyılmış"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Kabak", "amount": "1", "unit": "adet", "note": "küçük, rendelenmiş ve sıkılmış"},
+    {"name": "Taze maydanoz", "amount": "1/4", "unit": "su bardağı", "note": "ince kıyılmış"},
+    {"name": "Kuru kekik", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kuru fesleğen", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Rezene tohumu", "amount": "1/2", "unit": "tatlı kaşığı", "note": "isteğe bağlı, İtalyan tadı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı pul biber", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Fırını 200°C'ye önceden ısıtın. Büyük fırın tepsisini yağlı kağıt ile kaplayın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Kabağı rendeleyip temiz mutfak bezine veya kağıt havluya alın. Sıkıca sıkarak fazla suyunu alın.", "tip": "Kabak suyu alınmazsa köfteler çok ıslak olur ve dağılır.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Soğanı rendeleyip aynı şekilde fazla suyunu sıkın. Veya blenderda sarımsakla birlikte püre yapın.", "tip": "Blendlanmış soğan köftelere eşit dağılır ve nemlendirici etki yapar.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Büyük bir karıştırma kabına hindi kıymayı koyun.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Çırpılmış yumurtayı ekleyin.", "duration": "30 saniye"},
+    {"step": 6, "instruction": "Panko, parmesan, soğan-sarımsak karışımı ve sıkılmış kabağı ekleyin.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Tüm baharatları ve kıyılmış maydanozu ekleyin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Ellerinizle malzemeleri hafifçe karıştırın. FAZLA YOĞURMAYIN - sert köfte olur.", "tip": "Sadece malzemeler birleşene kadar karıştırın, yoğurmayın.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Ellerinizi hafif ıslatın. Yaklaşık 2.5 cm çapında (golf topu büyüklüğünde) köfteler yuvarlayın.", "tip": "Eşit boyut eşit pişme sağlar - dondurma kepçesi kullanabilirsiniz.", "duration": "8 dakika"},
+    {"step": 10, "instruction": "Köfteleri hazırlanan tepsiye dizin. Aralarında 2 cm boşluk bırakın.", "duration": "2 dakika"},
+    {"step": 11, "instruction": "Köftelerin üzerlerine fırça ile zeytinyağı sürün.", "tip": "Yağ dışının kızarıp güzel renk almasını sağlar.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Fırına verin ve 20-25 dakika pişirin. Yarı sürede çevirin.", "tip": "İç sıcaklık 74°C olmalı - et termometresi kullanın.", "duration": "25 dakika"},
+    {"step": 13, "instruction": "Kızarmış ve içi pişmiş köfteleri fırından çıkarın. 3 dakika dinlendirin.", "duration": "3 dakika"},
+    {"step": 14, "instruction": "Marinara sosu, yoğurt sosu veya tzatziki ile servis edin.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 225,
+    "protein": 28,
+    "carbs": 10,
+    "fat": 8,
+    "fiber": 1,
+    "sugar": 2,
+    "sodium": 520
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Hindi kıyma dana kıymadan %40 daha az yağlıdır.",
+    "Kabak eklemek yağsız kıyma kurumasın diye nemlendirici görevi görür.",
+    "Köfteler önceden şekillendirip buzdolabında 1 gün bekletilebilir.",
+    "Dondurucuda çiğ veya pişmiş olarak 3 ay saklanabilir.",
+    "Fırında pişirmek tavada kızartmadan çok daha az yağ kullanımı sağlar."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 4 gün, dondurucuda 3 ay saklanabilir. Isıtırken sosla birlikte ısıtın - kurumaz.",
+  "servingSuggestion": "Marinara sosu ve spagetti ile klasik İtalyan, veya pita ekmeği ve tzatziki ile Akdeniz tarzı servis edin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Ispanaklı: 1/2 su bardağı kıyılmış ıspanak ekleyin.",
+    "Feta peynirli: İçine feta peyniri küpleri saklayın.",
+    "Asya tarzı: Zencefil, soya sosu ve susam ekleyin.",
+    "Meksika: Kimyon, koriş ve jalapeño ekleyin."
   ]
 }

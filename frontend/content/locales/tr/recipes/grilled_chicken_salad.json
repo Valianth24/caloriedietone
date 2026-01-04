@@ -1,79 +1,66 @@
 {
-  "name": "Izgara Tavuklu Salata",
-  "description": "TODO: Izgara Tavuklu Salata açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "name": "Izgara Tavuk Salatası",
+  "description": "Taze yeşillikler üzerinde ızgara tavuk dilimleri, renkli sebzeler ve ev yapımı sos. Doyurucu ve sağlıklı ana yemek salatası.",
+  "prepTime": "20 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "35 dakika",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Tavuk göğsü", "amount": "500", "unit": "g", "note": "2 büyük parça"},
+    {"name": "Karışık yeşillik", "amount": "200", "unit": "g", "note": "roka, marul, ıspanak"},
+    {"name": "Kiraz domates", "amount": "200", "unit": "g", "note": "ikiye bölünmüş"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Kırmızı soğan", "amount": "1/2", "unit": "adet", "note": "ince halka"},
+    {"name": "Avokado", "amount": "1", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Mısır", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Zeytinyağı", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Limon suyu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Bal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Dijon hardal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak", "amount": "1", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Kuru kekik", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Tavuk göğsünü buzdolabından 15 dakika önce çıkarın. Oda sıcaklığına gelmesi eşit pişmeyi sağlar.", "duration": "15 dakika"},
+    {"step": 2, "instruction": "Marinasyon: 2 yk zeytinyağı, kekik, yarım tuz ve karabiberi karıştırın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Tavuk göğslerini streche film arasına koyup tokmakla eşit kalınlığa (2 cm) getirin.", "tip": "Eşit kalınlık eşit pişme demektir.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Tavukları marinasyonla kaplayın. En az 10 dakika bekletin.", "tip": "Uzun marine daha iyi tat verir - 2 saate kadar buzdolabında bekletebilirsiniz.", "duration": "10 dakika"},
+    {"step": 5, "instruction": "Izgara tava veya mangalı orta-yüksek ateşte ısıtın.", "duration": "3 dakika"},
+    {"step": 6, "instruction": "Tavukları ızgaraya koyun. Her tarafı 6-7 dakika pişirin.", "tip": "Sık çevirmeyin - güzel ızgara çizgileri için sabredin.", "duration": "14 dakika"},
+    {"step": 7, "instruction": "Tavuk iç sıcaklığı 74°C olmalı. Termometre ile kontrol edin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Pişen tavukları kesme tahtasına alın. 5 dakika dinlendirin.", "tip": "Dinlendirme suların ete dağılmasını sağlar - atlamayın!", "duration": "5 dakika"},
+    {"step": 9, "instruction": "Sos için: Kalan 2 yk zeytinyağı, limon suyu, bal, hardal, sarımsak ve kalan tuz-karabiberi kavanozda çalkalayın veya çırpın.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Büyük servis kabına yeşillikleri yerleştirin.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Üzerine salatalık, domates, soğan ve mısırı dağıtın.", "duration": "2 dakika"},
+    {"step": 12, "instruction": "Avokadoyu dilimleyin ve salatanın üzerine yerleştirin.", "tip": "Avokado kararmasın diye son anda dilimleyin.", "duration": "1 dakika"},
+    {"step": 13, "instruction": "Dinlenmiş tavuğu çapraz dilimler halinde kesin.", "duration": "1 dakika"},
+    {"step": 14, "instruction": "Tavuk dilimlerini salatanın üzerine yerleştirin.", "duration": "1 dakika"},
+    {"step": 15, "instruction": "Sosu salatanın üzerine gezdirin ve hemen servis edin.", "tip": "Sos ayrı servis edilebilir - herkes istediği kadar kullanır.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 385,
+    "protein": 32,
+    "carbs": 18,
+    "fat": 22,
+    "fiber": 6,
+    "sugar": 6,
+    "sodium": 520
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Tavuk göğsü en yağsız protein kaynaklarından biridir.",
+    "Avokado sağlıklı yağlar ve lif sağlar.",
+    "Tavukları önceden hazırlayıp buzdolabında saklayabilirsiniz - meal prep.",
+    "Sos ayrı kapta 1 hafta saklanabilir.",
+    "Kışın ılık olarak da servis edilebilir."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Sos ve tavuk ayrı tutularak buzdolabında 3 gün saklanabilir. Avokado taze eklenmeli.",
+  "servingSuggestion": "Tek başına ana yemek olarak veya crusty ekmek eşliğinde servis edin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Sezar tarzı: Kruton ve parmesan ekleyin, sezar sosu kullanın.",
+    "Yunan tarzı: Feta peyniri, zeytin ve kapari ekleyin.",
+    "Güneybatı: Siyah fasulye, mısır ve ranch sosu kullanın.",
+    "Asya tarzı: Susam sosu, edamame ve mandarin dilimi ekleyin."
   ]
 }
