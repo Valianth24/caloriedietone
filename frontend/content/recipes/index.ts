@@ -163,6 +163,16 @@ export {
   getRecipesByTag,
 };
 
+// Athlete Recipes exports
+export {
+  athleteRecipeMetadata,
+  ATHLETE_RECIPE_IDS,
+  getAllAthleteRecipeMetadata,
+  ATHLETE_RECIPE_NAMES,
+  ATHLETE_RECIPE_NUTRITION,
+};
+
 export type { RecipeId } from './metadata';
+export type { AthleteRecipeId } from './athleteRecipes';
 export type { RecipeContent, RecipeCategory, RecipeMetadata, Ingredient, InstructionStep, NutritionInfo } from '../../types/recipe';
 export { RECIPE_CATEGORIES, CATEGORY_LABELS, DIFFICULTY_LABELS, TAG_LABELS } from '../../types/recipe';
