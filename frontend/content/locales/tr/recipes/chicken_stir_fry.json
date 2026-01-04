@@ -1,79 +1,62 @@
 {
   "name": "Tavuklu Stir Fry",
-  "description": "TODO: Tavuklu Stir Fry açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Renkli sebzeler ve lezzetli sosla hazırlanan hızlı Asya tarzı tavuk yemeği. 25 dakikada sofrada.",
+  "prepTime": "15 dakika",
+  "cookTime": "12 dakika",
+  "totalTime": "27 dakika",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Tavuk göğsü", "amount": "500", "unit": "g", "note": "ince şeritler halinde"},
+    {"name": "Brokoli", "amount": "200", "unit": "g", "note": "çiçeklerine ayrılmış"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet", "note": "şerit"},
+    {"name": "Sarı biber", "amount": "1", "unit": "adet", "note": "şerit"},
+    {"name": "Havuç", "amount": "2", "unit": "adet", "note": "ince şerit"},
+    {"name": "Mantar", "amount": "150", "unit": "g", "note": "dilimlenmiş"},
+    {"name": "Soya sosu", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Bitkisel yağ", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ince dilim"},
+    {"name": "Zencefil", "amount": "2", "unit": "cm", "note": "rendelenmiş"},
+    {"name": "Nişasta", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tavuk suyu", "amount": "1/4", "unit": "su bardağı"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Yeşil soğan", "amount": "3", "unit": "dal"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Tavuk şeritlerine 1 yk soya sosu ve nişastayı ekleyip karıştırın. 10 dakika marine edin.", "tip": "Nişasta tavuğu yumuşacık yapar.", "duration": "12 dakika"},
+    {"step": 2, "instruction": "Sos için: Kalan soya sosu, susam yağı ve tavuk suyunu karıştırın. Kenara alın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Tüm sebzeleri hazırlayın ve ayrı kaplara koyun.", "tip": "Stir fry hızlıdır, her şey hazır olmalı.", "duration": "8 dakika"},
+    {"step": 4, "instruction": "Wok veya geniş tavayı çok yüksek ateşte ısıtın. Hafif duman çıkana kadar bekleyin.", "tip": "Yüksek ateş stir fry'nin sırrıdır.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Yağın yarısını ekleyin. Tavukları tek katman halinde dizip 2 dakika dokunmayın.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Tavukları çevirin, 1-2 dakika daha pişirin. Tabaka alın.", "tip": "Tavuk hafif pembe kalsa bile sorun yok, tekrar pişecek.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Kalan yağı ekleyin. Brokoli ve havuç gibi sert sebzeleri ekleyip 2 dakika soteleyin.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Biber ve mantar ekleyin, 1 dakika daha pişirin.", "tip": "Sebzeler çıtır kalmalı - fazla pişirmeyin.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Sarımsak ve zencefili ekleyin, 30 saniye kavurun.", "tip": "Sarımsak yanmamalı.", "duration": "30 saniye"},
+    {"step": 10, "instruction": "Tavukları geri ekleyin.", "duration": "30 saniye"},
+    {"step": 11, "instruction": "Hazırladığınız sosu dökün, 1 dakika karıştırarak sos koyulaşana kadar pişirin.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Ateşten alın, susam ve yeşil soğan serpin. Hemen servis edin.", "duration": "30 saniye"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 320,
+    "protein": 32,
+    "carbs": 18,
+    "fat": 14,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 780
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Yüksek ateş ve kısa süreli pişirme (wok hei) lezzeti artırır.",
+    "Malzemeleri önceden hazırlayın - her şey çok hızlı olacak.",
+    "Sebzeleri kalabalık etmeyin, iki seferde yapın gerekirse.",
+    "Pirincu yanında veya noodle ile servis edin.",
+    "Daha az sodyum için az tuzlu soya sosu kullanın."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 3 gün saklanabilir. Isıtırken tavada kısa süre çevirin.",
+  "servingSuggestion": "Sıcak pilav veya noodle üzerine servis edin. Sriracha veya acı sos ile sunabilirsiniz.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Sığır eti veya karides ile de yapılabilir.",
+    "Tofu ile vegan versiyon yapılabilir.",
+    "Teriyaki sosu ekleyerek farklı bir tat elde edebilirsiniz."
   ]
 }

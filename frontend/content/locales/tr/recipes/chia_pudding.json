@@ -1,79 +1,54 @@
 {
   "name": "Chia Puding",
-  "description": "TODO: Chia Puding açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
+  "description": "Gece buzdolabında hazırlanan, sağlıklı ve doyurucu kahvaltılık. Omega-3 ve lif deposu.",
+  "prepTime": "10 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "10 dakika + 4 saat bekleme",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Chia tohumu", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Badem sütü", "amount": "1.5", "unit": "su bardağı", "note": "şekersiz"},
+    {"name": "Yunan yoğurdu", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Bal veya akçaağaç şurubu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Vanilya özü", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Yaban mersini", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Muz", "amount": "1", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Granola", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Badem", "amount": "8", "unit": "adet", "note": "dilimlenmiş"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Orta boy bir kaseye chia tohumu, badem sütü, yoğurt, bal ve vanilya özünü koyun.", "duration": "1 dakika"},
+    {"step": 2, "instruction": "Bir çatal veya çırpıcı ile iyice karıştırın. Chia tohumları topaklanmamalı.", "tip": "İlk 5 dakika içinde birkaç kez karıştırın - topaklanmayı önler.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Karışımı iki kavanoz veya bardak kaseye bölün.", "tip": "Mason kavanozları taşımak için idealdir.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Kapaklarını kapatın veya streche film ile örtün.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Buzdolabına koyun. En az 4 saat, ideal olarak gece boyu bekletin.", "tip": "Chia tohumları sıvıyı emerek jel kıvamına gelir.", "duration": "4+ saat"},
+    {"step": 6, "instruction": "Servis öncesi pudingleri buzdolabından çıkarın ve karıştırın.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Kıvamı kontrol edin - çok kalın ise biraz süt ekleyip karıştırın.", "tip": "İdeal kıvam yoğurt gibi olmalı.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Üzerine yaban mersini, muz dilimleri ve badem yerleştirin.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Granola serpin ve hemen servis edin.", "tip": "Granola ıslanmaması için son anda ekleyin.", "duration": "30 saniye"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 285,
+    "protein": 12,
+    "carbs": 38,
+    "fat": 10,
+    "fiber": 12,
+    "sugar": 18,
+    "sodium": 85
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Chia tohumu omega-3, lif ve protein açısından zengindir.",
+    "Hafta başı 5 porsiyon hazırlayın - her sabah hazır kahvaltı.",
+    "Sıvı-chia oranı: 1 yk chia için yaklaşık 3 yk sıvı.",
+    "Yoğurt kıvamı kremamsılaştırır ve protein ekler.",
+    "Vegan yapmak için yoğurdu çıkarın, hindistan cevizi sütü kullanın."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında hava geçirmez kapta 5 güne kadar saklanabilir. Meyveleri taze ekleyin.",
+  "servingSuggestion": "Kahvaltıda, öğle atıştırmalığı veya tren öncesi enerji kaynağı olarak tüketin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Çikolatalı versiyon için 1 yk kakao tozu ekleyin.",
+    "Tropik versiyon için hindistan cevizi sütü, mango ve ananas kullanın.",
+    "Protein tozu ekleyerek antrenman sonrası atıştırmalık yapın.",
+    "Fıstık ezmesi ekleyerek daha doyurucu hale getirin."
   ]
 }

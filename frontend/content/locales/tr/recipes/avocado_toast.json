@@ -1,113 +1,55 @@
 {
   "name": "Avokadolu Tost",
-  "description": "TODO: Sağlıklı yağlar ve protein açısından zengin, doyurucu bir kahvaltı.",
-  "prepTime": "TODO: 10 dakika",
-  "cookTime": "TODO: 5 dakika",
-  "totalTime": "TODO: 15 dakika",
+  "description": "Sağlıklı yağlar ve protein açısından zengin, doyurucu bir kahvaltı. Güne enerji dolu başlayın.",
+  "prepTime": "10 dakika",
+  "cookTime": "5 dakika",
+  "totalTime": "15 dakika",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO: Tam buğday ekmeği",
-      "amount": "TODO: 2",
-      "unit": "dilim",
-      "note": "TODO: tost ekmeği de olabilir"
-    },
-    {
-      "name": "TODO: Olgun avokado",
-      "amount": "TODO: 1",
-      "unit": "adet",
-      "note": "TODO: yumuşak olmalı"
-    },
-    {
-      "name": "TODO: Yumurta",
-      "amount": "TODO: 2",
-      "unit": "adet",
-      "note": "TODO: isteğe bağlı"
-    },
-    {
-      "name": "TODO: Limon suyu",
-      "amount": "TODO: 1",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO: Tuz",
-      "amount": "TODO: 1",
-      "unit": "tutam"
-    },
-    {
-      "name": "TODO: Karabiber",
-      "amount": "TODO: 1",
-      "unit": "tutam"
-    },
-    {
-      "name": "TODO: Kırmızı pul biber",
-      "amount": "TODO: 1/2",
-      "unit": "çay kaşığı",
-      "note": "TODO: isteğe bağlı"
-    },
-    {
-      "name": "TODO: Kiraz domates",
-      "amount": "TODO: 4-5",
-      "unit": "adet",
-      "note": "TODO: ikiye bölünmüş"
-    }
+    {"name": "Tam buğday ekmeği", "amount": "4", "unit": "dilim", "note": "kalın dilim"},
+    {"name": "Olgun avokado", "amount": "2", "unit": "adet", "note": "yumuşak olmalı"},
+    {"name": "Yumurta", "amount": "2", "unit": "adet", "note": "isteğe bağlı"},
+    {"name": "Limon suyu", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Deniz tuzu", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı pul biber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Kiraz domates", "amount": "8", "unit": "adet", "note": "ikiye bölünmüş"},
+    {"name": "Zeytinyağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Taze fesleğen", "amount": "4", "unit": "yaprak", "note": "süs için"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO: Ekmek dilimlerini tost makinesinde veya tavada kıtır kıtır kızartın.",
-      "duration": "TODO: 2-3 dakika"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO: Avokadoyu ikiye bölün, çekirdeğini çıkarın ve kaşıkla içini bir kaseye alın.",
-      "tip": "TODO: Olgunluğunu kontrol edin - parmakla bastırınca hafifçe çökmelidir."
-    },
-    {
-      "step": 3,
-      "instruction": "TODO: Avokadonun üzerine limon suyu, tuz ve karabiberi ekleyip çatalla ezin.",
-      "tip": "TODO: Tamamen pürüzsüz yapmayın, hafif parçalı kalması lezzetli olur."
-    },
-    {
-      "step": 4,
-      "instruction": "TODO: Yumurtaları isteğe göre haşlayın veya tavada pişirin.",
-      "duration": "TODO: 3-4 dakika"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO: Kızarmış ekmeklerin üzerine avokado karışımını yayın.",
-      "tip": "TODO: Eşit şekilde dağıtın."
-    },
-    {
-      "step": 6,
-      "instruction": "TODO: Üzerine yumurtayı yerleştirin, kiraz domatesleri ekleyin.",
-      "tip": "TODO: Yumurtanın sarısı akıcı kalırsa daha lezzetli olur."
-    },
-    {
-      "step": 7,
-      "instruction": "TODO: Pul biber serpin ve hemen servis edin.",
-      "tip": "TODO: Soğumadan tüketin."
-    }
+    {"step": 1, "instruction": "Ekmek dilimlerini tost makinesinde veya tavada her iki tarafını kıtır kıtır kızartın.", "tip": "Kızarmış ekmek avokado nemini emmez.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Avokadoları ortadan ikiye bölün, çekirdeklerini çıkarın ve kaşıkla içlerini bir kaseye alın.", "tip": "Olgunluk testi: Parmakla bastırınca hafifçe çöküyorsa hazırdır.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Hemen limon suyunu ekleyin. Tuz ve karabiberi ekleyip çatalla ezin.", "tip": "Tamamen pürüzsüz yapmayın, hafif parçalı kalması dokuyu güzel yapar.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Yumurtaları hazırlayın: Tavaya bir damla yağ dökün, yumurtaları kırıp sahanda pişirin.", "tip": "Sarısı akıcı kalması daha lezzetlidir.", "duration": "4 dakika"},
+    {"step": 5, "instruction": "Kızarmış ekmekleri servis tabağına alın. Üzerine avokado karışımını eşit şekilde yayın.", "tip": "Ekmeğin her yerine ulaşsın.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Her ekmeğin üzerine bir yumurta yerleştirin.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Kiraz domatesleri ekmeklerin yanına veya üzerine yerleştirin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Pul biber serpin, zeytinyağı gezdirin.", "duration": "20 saniye"},
+    {"step": 9, "instruction": "Taze fesleğen yaprakları ile süsleyin ve hemen servis edin.", "tip": "Soğumadan tüketin - avokado oksitlenebilir.", "duration": "30 saniye"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 380,
+    "protein": 14,
+    "carbs": 32,
+    "fat": 24,
+    "fiber": 10,
+    "sugar": 4,
+    "sodium": 480
   },
   "tips": [
-    "TODO: Avokado kararmaması için limon suyunu hemen ekleyin.",
-    "TODO: Tam buğday ekmeği tercih edin - lif açısından zengindir.",
-    "TODO: Üzerine çiya tohumu veya susam ekleyebilirsiniz.",
-    "TODO: Feta peyniri ile de çok yakışır.",
-    "TODO: Kahvaltıda veya hafif öğle yemeği olarak tüketilebilir."
+    "Avokado kararmasın diye limon suyunu hemen ekleyin.",
+    "Tam buğday ekmeği tercih edin - lif açısından zengindir.",
+    "Üzerine chia tohumu veya susam ekleyebilirsiniz.",
+    "Feta peyniri ile de çok yakışır.",
+    "Kahvaltıda veya hafif öğle yemeği olarak tüketilebilir."
   ],
-  "storageInfo": "TODO: Avokado karardığı için taze tüketilmeli. Hazırlandıktan sonra bekletilmemeli.",
-  "servingSuggestion": "TODO: Yanında taze sıkılmış portakal suyu veya yeşil çay ile servis edin.",
+  "storageInfo": "Avokado karardığı için taze tüketilmeli. Hazırlandıktan sonra bekletilmemeli.",
+  "servingSuggestion": "Yanında taze sıkılmış portakal suyu veya yeşil çay ile servis edin.",
   "variations": [
-    "TODO: Füme somon ekleyerek daha doyurucu hale getirebilirsiniz.",
-    "TODO: Vegan versiyon için yumurtayı çıkarın, tofu ekleyin.",
-    "TODO: Meksika stili için jalapeno ve kişniş ekleyin."
+    "Füme somon ekleyerek daha doyurucu hale getirebilirsiniz.",
+    "Vegan versiyon için yumurtayı çıkarın, cherry domates ve mikro yeşillik ekleyin.",
+    "Meksika stili için jalapeno ve kişniş ekleyin.",
+    "Haşlanmış yumurta ile de yapılabilir."
   ]
 }
