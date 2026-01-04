@@ -1,6 +1,6 @@
 import { Pedometer } from 'expo-sensors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform } from 'react-native';
+import { Platform, PermissionsAndroid, Alert } from 'react-native';
 
 interface StepData {
   steps: number;
@@ -15,9 +15,17 @@ class PedometerService {
   private isAvailable: boolean = false;
   private syncInterval: any = null;
   private listeners: Set<(steps: number) => void> = new Set();
+  private baseSteps: number = 0; // Track base steps from history
 
   async initialize() {
     console.log('[Pedometer] Initializing...');
+    
+    // Request permissions first (especially for Android 10+)
+    const permissionGranted = await this.requestPermissions();
+    if (!permissionGranted) {
+      console.log('[Pedometer] Permission denied');
+      return false;
+    }
     
     // Check if pedometer is available
     const available = await Pedometer.isAvailableAsync();
@@ -28,26 +36,84 @@ class PedometerService {
       return false;
     }
 
-    // Request permissions (iOS only)
-    if (Platform.OS === 'ios') {
-      const { status } = await Pedometer.requestPermissionsAsync();
-      if (status !== 'granted') {
-        console.log('[Pedometer] Permission denied');
-        return false;
-      }
-    }
-
     // Load today's steps from storage
     await this.loadTodaySteps();
 
+    // Get historical steps first, then start listening
+    await this.getHistoricalSteps();
+    
     // Start listening to step count updates
     this.startListening();
 
     // Sync steps every 5 minutes
     this.startSyncInterval();
 
-    console.log('[Pedometer] Initialized successfully');
+    console.log('[Pedometer] Initialized successfully with', this.stepCount, 'steps');
     return true;
+  }
+  
+  private async requestPermissions(): Promise<boolean> {
+    // iOS - request from Pedometer directly
+    if (Platform.OS === 'ios') {
+      try {
+        const { status } = await Pedometer.requestPermissionsAsync();
+        return status === 'granted';
+      } catch (error) {
+        console.error('[Pedometer] iOS permission error:', error);
+        return false;
+      }
+    }
+    
+    // Android 10+ (API 29+) requires ACTIVITY_RECOGNITION permission at runtime
+    if (Platform.OS === 'android' && Platform.Version >= 29) {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACTIVITY_RECOGNITION,
+          {
+            title: 'Adım Sayacı İzni',
+            message: 'Adımlarınızı takip edebilmemiz için fiziksel aktivite iznine ihtiyacımız var.',
+            buttonNeutral: 'Daha Sonra Sor',
+            buttonNegative: 'İptal',
+            buttonPositive: 'Tamam',
+          }
+        );
+        
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('[Pedometer] Android ACTIVITY_RECOGNITION permission granted');
+          return true;
+        } else {
+          console.log('[Pedometer] Android ACTIVITY_RECOGNITION permission denied');
+          return false;
+        }
+      } catch (err) {
+        console.error('[Pedometer] Android permission request error:', err);
+        return false;
+      }
+    }
+    
+    // Android < 10 doesn't need runtime permission
+    return true;
+  }
+  
+  private async getHistoricalSteps() {
+    try {
+      const end = new Date();
+      const start = new Date();
+      start.setHours(0, 0, 0, 0);
+      
+      const result = await Pedometer.getStepCountAsync(start, end);
+      if (result && result.steps > 0) {
+        this.baseSteps = result.steps;
+        if (result.steps > this.stepCount) {
+          this.stepCount = result.steps;
+          await this.saveTodaySteps();
+          this.notifyListeners();
+        }
+        console.log('[Pedometer] Historical steps loaded:', this.stepCount);
+      }
+    } catch (error) {
+      console.error('[Pedometer] Error getting historical steps:', error);
+    }
   }
 
   private async loadTodaySteps() {
