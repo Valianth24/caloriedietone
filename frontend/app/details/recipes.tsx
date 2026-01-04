@@ -416,9 +416,13 @@ export default function RecipesScreen() {
         {/* Recipe Grid */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
-            {selectedCategory === 'all'
-              ? (locale === 'tr' ? 'Tüm Tarifler' : 'All Recipes')
-              : getCategoryLabel(selectedCategory, locale)}
+            {selectedCollection
+              ? (locale === 'tr' 
+                  ? RECIPE_COLLECTIONS[selectedCollection].labelTr 
+                  : RECIPE_COLLECTIONS[selectedCollection].labelEn)
+              : selectedCategory === 'all'
+                ? (locale === 'tr' ? 'Tüm Tarifler' : 'All Recipes')
+                : getCategoryLabel(selectedCategory, locale)}
             {' '}({recipes.length})
           </Text>
           
