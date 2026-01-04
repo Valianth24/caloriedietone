@@ -226,6 +226,12 @@ export const getFoodDatabase = async (lang: string = 'tr') => {
   return apiRequest(`/food/database?lang=${lang}`);
 };
 
+export const deleteMeal = async (mealId: string) => {
+  return apiRequest(`/food/meal/${mealId}`, {
+    method: 'DELETE',
+  });
+};
+
 // Water
 export const addWater = async (amount: number) => {
   return apiRequest('/water/add', {
