@@ -157,37 +157,26 @@ class PedometerService {
       this.subscription.remove();
     }
 
-    // Get steps from midnight to now
-    const start = new Date();
-    start.setHours(0, 0, 0, 0);
-    const end = new Date();
-
+    // watchStepCount returns steps since subscription started
+    // We need to add these to our base steps
     this.subscription = Pedometer.watchStepCount((result) => {
-      // Update step count
-      this.stepCount = result.steps;
+      // Calculate total: base steps from history + new steps since subscription
+      const newTotal = this.baseSteps + result.steps;
       
-      // Save to storage
-      this.saveTodaySteps();
-      
-      // Notify listeners
-      this.notifyListeners();
-      
-      console.log('[Pedometer] Steps updated:', this.stepCount);
+      if (newTotal > this.stepCount) {
+        this.stepCount = newTotal;
+        
+        // Save to storage
+        this.saveTodaySteps();
+        
+        // Notify listeners
+        this.notifyListeners();
+        
+        console.log('[Pedometer] Steps updated:', this.stepCount, '(base:', this.baseSteps, '+ new:', result.steps, ')');
+      }
     });
-
-    // Also get historical steps for today
-    Pedometer.getStepCountAsync(start, end)
-      .then((result) => {
-        if (result.steps > this.stepCount) {
-          this.stepCount = result.steps;
-          this.saveTodaySteps();
-          this.notifyListeners();
-          console.log('[Pedometer] Historical steps loaded:', this.stepCount);
-        }
-      })
-      .catch((error) => {
-        console.error('[Pedometer] Error getting historical steps:', error);
-      });
+    
+    console.log('[Pedometer] Real-time step tracking started');
   }
 
   private startSyncInterval() {
