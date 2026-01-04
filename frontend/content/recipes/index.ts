@@ -312,6 +312,8 @@ export {
   getAllAthleteRecipeMetadata,
   ATHLETE_RECIPE_NAMES,
   ATHLETE_RECIPE_NUTRITION,
+  getAthleteRecipeMetadata,
+  loadAthleteRecipeContent,
 };
 
 export type { RecipeId } from './metadata';
