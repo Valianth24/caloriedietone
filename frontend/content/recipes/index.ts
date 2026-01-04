@@ -5,7 +5,7 @@
 
 import { RecipeContent, RecipeCategory, RECIPE_CATEGORIES, CATEGORY_LABELS, DIFFICULTY_LABELS, TAG_LABELS } from '../../types/recipe';
 import { recipeMetadata, RECIPE_IDS, RecipeId, getRecipeMetadata, getAllRecipeMetadata, getRecipesByCategory, getFeaturedRecipes, getRecipesByTag } from './metadata';
-import { athleteRecipeMetadata, ATHLETE_RECIPE_IDS, AthleteRecipeId, getAllAthleteRecipeMetadata, ATHLETE_RECIPE_NAMES, ATHLETE_RECIPE_NUTRITION } from './athleteRecipes';
+import { athleteRecipeMetadata, ATHLETE_RECIPE_IDS, AthleteRecipeId, getAllAthleteRecipeMetadata, ATHLETE_RECIPE_NAMES, ATHLETE_RECIPE_NUTRITION, getAthleteRecipeMetadata } from './athleteRecipes';
 
 // Lazy load recipe content to avoid bundling all recipes
 const recipeContentLoaders: Record<string, Record<RecipeId, () => Promise<RecipeContent>>> = {
