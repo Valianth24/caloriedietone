@@ -1,79 +1,51 @@
 {
   "name": "Yoğurtlu Parfait",
-  "description": "TODO: Yoğurtlu Parfait açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
+  "description": "Katmanlı Yunan yoğurdu, taze meyveler, granola ve bal ile hazırlanan sağlıklı ve doyurucu bir atıştırmalık.",
+  "prepTime": "5 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "5 dakika",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Yunan yoğurdu", "amount": "400", "unit": "g", "note": "%2 yağlı tercih edin"},
+    {"name": "Granola", "amount": "1/2", "unit": "su bardağı", "note": "düşük şekerli"},
+    {"name": "Yaban mersini", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Çilek", "amount": "6", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Muz", "amount": "1", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Bal", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Chia tohumu", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Badem", "amount": "10", "unit": "adet", "note": "ince dilimlenmiş"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Çilekleri yıkayıp dilimleyin, muzu soyup dilimleyin.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Uzun bardak veya kavanozlara yoğurdun 1/3'ünü koyun. Her bardağa eşit paylaştırın.", "tip": "Şeffaf bardak kullanmak katmanları göstermenizi sağlar.", "duration": "30 saniye"},
+    {"step": 3, "instruction": "Yoğurt üzerine meyvelerin yarısını ekleyin - çilek ve yaban mersini.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Meyvelerin üzerine granolanın yarısını serpin.", "tip": "Granola ıslanmaması için tüketmeden hemen önce ekleyebilirsiniz.", "duration": "20 saniye"},
+    {"step": 5, "instruction": "Üzerine kalan yoğurdun yarısını ekleyin.", "duration": "30 saniye"},
+    {"step": 6, "instruction": "Muz dilimlerini ve kalan meyveleri yerleştirin.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Kalan granola, badem dilimleri ve chia tohumunu serpin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Üzerine balı gezdirin ve hemen servis edin.", "tip": "Bal yerine akçaağaç şurubu da kullanabilirsiniz.", "duration": "20 saniye"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 320,
+    "protein": 18,
+    "carbs": 42,
+    "fat": 10,
+    "fiber": 5,
+    "sugar": 28,
+    "sodium": 85
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Yunan yoğurdu normal yoğurttan 2 kat daha fazla protein içerir.",
+    "Granolayı son anda ekleyin ki çıtırlığını korusun.",
+    "Mevsimine göre farklı meyveler kullanabilirsiniz.",
+    "Kavanozda hazırlayıp iş yerine götürebilirsiniz - granolayı ayrı taşıyın.",
+    "Daha az şeker için bal miktarını azaltın veya çıkarın."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Granola hariç buzdolabında bir gece önceden hazırlanabilir. Granola taze eklenmelidir.",
+  "servingSuggestion": "Kahvaltıda, antrenman öncesi veya öğleden sonra atıştırmalık olarak servis edin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Protein tozu ekleyerek protein miktarını artırabilirsiniz.",
+    "Tropik versiyon için mango, ananas ve hindistan cevizi rendesi kullanın.",
+    "Çikolata severler için kakao nibs ekleyebilirsiniz."
   ]
 }

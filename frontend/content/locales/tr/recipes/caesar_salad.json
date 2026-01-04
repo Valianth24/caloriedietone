@@ -1,79 +1,58 @@
 {
   "name": "Sezar Salata",
-  "description": "TODO: Sezar Salata açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Çıtır kruton, parmesan ve kremamsı sos ile hazırlanan klasik restoran kalitesinde salata.",
+  "prepTime": "20 dakika",
+  "cookTime": "10 dakika",
+  "totalTime": "30 dakika",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Marul (romaine)", "amount": "2", "unit": "adet", "note": "büyük, yıkanmış"},
+    {"name": "Parmesan peyniri", "amount": "80", "unit": "g", "note": "rendelenmiş"},
+    {"name": "Beyaz ekmek", "amount": "4", "unit": "dilim", "note": "kruton için, bayat ideal"},
+    {"name": "Zeytinyağı", "amount": "6", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş"},
+    {"name": "Mayonez", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Dijon hardal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Limon suyu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Worcestershire sosu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Ançüez fileto", "amount": "4", "unit": "adet", "note": "isteğe bağlı, ezilmiş"},
+    {"name": "Tuz", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/4", "unit": "tatlı kaşığı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Fırını 190°C'ye ısıtın. Ekmeklerin kabuklarını kesin ve 2cm küpler halinde doğrayın.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Ekmek küplerini fırın tepsisine yayın. 2 yemek kaşığı zeytinyağı gezdirin ve karıştırın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "1 diş sarımsağı ezin ve ekmeklerin üzerine serpin. Tuz ekleyin.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Fırında 8-10 dakika, altın rengi ve çıtır olana kadar pişirin. Ara sıra karıştırın.", "tip": "Krutonlar soğudukça daha da sertleşir, hafif yumuşak çıkarın.", "duration": "10 dakika"},
+    {"step": 5, "instruction": "Sos için: Kalan 3 diş sarımsağı çok ince kıyın veya ezin.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Bir kasede mayonez, hardal, limon suyu, worcestershire sosu, ezilmiş sarımsak ve isteğe bağlı ançüezi karıştırın.", "tip": "Ançüez kullanmasanız bile worcestershire sosu hafif balık aroması katar.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Kalan zeytinyağını yavaş yavaş ekleyerek çırpın. Tuz ve karabiber ile tatlandırın.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Marul yapraklarını yıkayıp kurulayın. Elle ısırmalık parçalara ayırın.", "tip": "Bıçakla kesmeyin, elle parçalamak marul kenarlarının kararmasını önler.", "duration": "3 dakika"},
+    {"step": 9, "instruction": "Büyük bir salata kasesine marulları koyun. Sosun yarısını ekleyin ve karıştırın.", "duration": "1 dakika"},
+    {"step": 10, "instruction": "Krutonların yarısını ve parmesan'ın yarısını ekleyin, hafifçe karıştırın.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Tabağa alın, üzerine kalan kruton, parmesan ve biraz daha sos gezdirin.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 385,
+    "protein": 12,
+    "carbs": 22,
+    "fat": 28,
+    "fiber": 3,
+    "sugar": 3,
+    "sodium": 780
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Krutonları bir gün önceden yapıp hava geçirmez kapta saklayabilirsiniz.",
+    "Daha sağlıklı versiyon için mayonez yerine Yunan yoğurdu kullanın.",
+    "Izgara tavuk ekleyerek tam bir öğün haline getirin.",
+    "Parmesan'ı ince dilimler halinde rendeleyin, yapraklar şeklinde daha şık görünür.",
+    "Sos buzdolabında 1 hafta saklanabilir."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Soslanmamış salata buzdolabında 1 gün saklanabilir. Sos ve kruton ayrı tutulmalı.",
+  "servingSuggestion": "Izgara et veya tavuk yanında veya ana yemek olarak servis edin. Yanında sarımsaklı ekmek mükemmel.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Izgara tavuk veya karides ekleyerek protein artırabilirsiniz.",
+    "Lahana ile 'Sezar Slaw' yapabilirsiniz - daha uzun dayanır.",
+    "Kale (karalahana) ile modern versiyon yapılabilir."
   ]
 }

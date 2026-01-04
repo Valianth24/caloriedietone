@@ -1,79 +1,61 @@
 {
   "name": "Mercimek Çorbası",
-  "description": "TODO: Mercimek Çorbası açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Türk mutfağının vazgeçilmezi, kremamsı kıvamda kırmızı mercimek çorbası. Protein ve lif deposu.",
+  "prepTime": "15 dakika",
+  "cookTime": "35 dakika",
+  "totalTime": "50 dakika",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Kırmızı mercimek", "amount": "1.5", "unit": "su bardağı", "note": "yıkanmış"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "doğranmış"},
+    {"name": "Havuç", "amount": "1", "unit": "adet", "note": "doğranmış"},
+    {"name": "Patates", "amount": "1", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Sarımsak", "amount": "2", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Su veya tavuk suyu", "amount": "1.5", "unit": "litre"},
+    {"name": "Tereyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Domates salçası", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Pul biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kuru nane", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Limon", "amount": "1", "unit": "adet", "note": "servis için"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Mercimekleri bol su ile yıkayın, su berraklaşana kadar durulayın. Süzün.", "tip": "Yıkamak köpürmeyi azaltır.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Büyük bir tencerede 1 yemek kaşığı tereyağı ve zeytinyağını ısıtın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Soğanı ekleyin, 5 dakika yumuşayana kadar kavurun.", "tip": "Soğanlar şeffaf olmalı, karartmayın.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Havuç, patates ve sarımsağı ekleyin. 2 dakika kavurun.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Domates salçasını ekleyin, 1 dakika kavurun. Salça kokusu uçsun.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Mercimekleri ekleyin, karıştırın.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Sıcak su veya tavuk suyunu ekleyin. Kaynatın.", "tip": "Soğuk su eklemek pişirme süresini uzatır.", "duration": "5 dakika"},
+    {"step": 8, "instruction": "Ateşi kısın, kapağı hafif aralık bırakarak 25-30 dakika, mercimekler dağılana kadar pişirin.", "tip": "Ara sıra karıştırın, dipte yapmasın.", "duration": "30 dakika"},
+    {"step": 9, "instruction": "Çorbayı blender ile pürüzsüz hale getirin. Dikkat: Sıcak sıvı blendlanırken kapağı hafif açık tutun.", "tip": "El blender'ı daha pratiktir ve tencerede direkt yapılır.", "duration": "3 dakika"},
+    {"step": 10, "instruction": "Tuz ile tatlandırın. Kıvamı kontrol edin - çok koyu ise biraz su ekleyin.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Soslu tereyağı için: Küçük bir tavada kalan tereyağını eritin. Pul biber, nane ve kiymonu ekleyin, 30 saniye kavurun.", "tip": "Tereyağı kahverengileşmemeli.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Çorbayı kaselere dökün, soslu tereyağı gezdirin. Limon dilimi ile servis edin.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 215,
+    "protein": 12,
+    "carbs": 32,
+    "fat": 5,
+    "fiber": 8,
+    "sugar": 3,
+    "sodium": 620
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Mercimek bitkisel protein ve demir kaynağıdır.",
+    "Limon suyu demirin emilimini artırır - mutlaka sıkın.",
+    "Çorba dinlendikçe koyulaşır, ısıtırken su ekleyin.",
+    "Kuru nane ve pul biber olmadan eksik kalır - atlamamayın.",
+    "Vegan yapmak için tereyağı yerine zeytinyağı kullanın."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 5 gün, dondurucuda 3 ay saklanabilir. Isıtırken su ekleyin.",
+  "servingSuggestion": "Sıcak olarak, yanında crusty ekmek ve limon dilimi ile servis edin. Soğuk günlerin vazgeçilmezi.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Domates ekleyerek 'Ezogelin çorbası' yapabilirsiniz.",
+    "Zerdeçal ekleyerek anti-enflamatuar özellik katabilirsiniz.",
+    "Hindistan cevizi sütü ekleyerek kremalı versiyon yapabilirsiniz."
   ]
 }
