@@ -235,6 +235,149 @@ export default function MealsDetailScreen() {
 
         <View style={{ height: 100 }} />
       </ScrollView>
+      
+      {/* Floating Action Button - Add Meal */}
+      <TouchableOpacity
+        style={styles.fab}
+        onPress={() => setShowAddModal(true)}
+        activeOpacity={0.8}
+      >
+        <Ionicons name="add" size={32} color={Colors.white} />
+      </TouchableOpacity>
+      
+      {/* Add Meal Options Modal */}
+      <Modal visible={showAddModal} transparent animationType="fade">
+        <TouchableOpacity 
+          style={styles.modalOverlay} 
+          activeOpacity={1} 
+          onPress={() => setShowAddModal(false)}
+        >
+          <View style={styles.addOptionsContainer}>
+            <Text style={styles.addOptionsTitle}>{t('addMeal') || 'Öğün Ekle'}</Text>
+            <Text style={styles.addOptionsSubtitle}>{t('howToAddMeal') || 'Nasıl eklemek istersiniz?'}</Text>
+            
+            {/* Meal Type Selection */}
+            <Text style={styles.mealTypeLabel}>{t('selectMealType') || 'Öğün Tipi Seçin'}</Text>
+            <View style={styles.mealTypeRow}>
+              {[
+                { key: 'breakfast', icon: 'sunny', label: t('breakfast') || 'Kahvaltı' },
+                { key: 'lunch', icon: 'restaurant', label: t('lunch') || 'Öğle' },
+                { key: 'dinner', icon: 'moon', label: t('dinner') || 'Akşam' },
+                { key: 'snack', icon: 'cafe', label: t('snack') || 'Atıştırma' },
+              ].map((type) => (
+                <TouchableOpacity
+                  key={type.key}
+                  style={[
+                    styles.mealTypeCard,
+                    selectedMealType === type.key && styles.mealTypeCardActive,
+                  ]}
+                  onPress={() => setSelectedMealType(type.key)}
+                >
+                  <Ionicons
+                    name={type.icon as any}
+                    size={24}
+                    color={selectedMealType === type.key ? Colors.white : Colors.primary}
+                  />
+                  <Text
+                    style={[
+                      styles.mealTypeText,
+                      selectedMealType === type.key && styles.mealTypeTextActive,
+                    ]}
+                    numberOfLines={1}
+                  >
+                    {type.label}
+                  </Text>
+                </TouchableOpacity>
+              ))}
+            </View>
+            
+            {/* Add Options */}
+            <TouchableOpacity style={styles.addOptionButton} onPress={handleAddFromList}>
+              <View style={styles.addOptionIconContainer}>
+                <Ionicons name="list" size={28} color={Colors.primary} />
+              </View>
+              <View style={styles.addOptionTextContainer}>
+                <Text style={styles.addOptionTitle}>{t('selectFromList') || 'Listeden Seç'}</Text>
+                <Text style={styles.addOptionDesc}>{t('selectFromListDesc') || '80+ hazır yemek seçeneği'}</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
+            </TouchableOpacity>
+            
+            <TouchableOpacity style={styles.addOptionButton} onPress={handleAddFromCamera}>
+              <View style={[styles.addOptionIconContainer, { backgroundColor: Colors.teal + '20' }]}>
+                <Ionicons name="camera" size={28} color={Colors.teal} />
+              </View>
+              <View style={styles.addOptionTextContainer}>
+                <Text style={styles.addOptionTitle}>{t('calculateWithPhoto') || 'Fotoğraf ile Hesapla'}</Text>
+                <Text style={styles.addOptionDesc}>{t('calculateWithPhotoDesc') || 'AI ile otomatik kalori tahmini'}</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
+            </TouchableOpacity>
+            
+            <TouchableOpacity 
+              style={styles.cancelButton} 
+              onPress={() => setShowAddModal(false)}
+            >
+              <Text style={styles.cancelButtonText}>{t('cancel') || 'Vazgeç'}</Text>
+            </TouchableOpacity>
+          </View>
+        </TouchableOpacity>
+      </Modal>
+      
+      {/* Food List Modal */}
+      <Modal visible={showFoodListModal} animationType="slide">
+        <SafeAreaView style={styles.foodListModal} edges={['top']}>
+          <View style={styles.foodListHeader}>
+            <TouchableOpacity onPress={() => setShowFoodListModal(false)} style={styles.backButton}>
+              <Ionicons name="close" size={28} color={Colors.darkText} />
+            </TouchableOpacity>
+            <Text style={styles.headerTitle}>{t('selectFood') || 'Yiyecek Seç'}</Text>
+            <View style={{ width: 40 }} />
+          </View>
+          
+          <View style={styles.searchContainer}>
+            <Ionicons name="search" size={20} color={Colors.lightText} style={styles.searchIcon} />
+            <TextInput
+              style={styles.searchInput}
+              placeholder={t('searchFood') || 'Yiyecek ara...'}
+              value={searchQuery}
+              onChangeText={setSearchQuery}
+              placeholderTextColor={Colors.lightText}
+            />
+            {searchQuery.length > 0 && (
+              <TouchableOpacity onPress={() => setSearchQuery('')}>
+                <Ionicons name="close-circle" size={20} color={Colors.lightText} />
+              </TouchableOpacity>
+            )}
+          </View>
+          
+          <FlatList
+            data={filteredFoods}
+            keyExtractor={(item) => item.food_id}
+            contentContainerStyle={styles.foodListContent}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.foodListItem}
+                onPress={() => handleSelectFood(item)}
+              >
+                <View style={styles.foodListItemInfo}>
+                  <Text style={styles.foodListItemName}>{item.name}</Text>
+                  <Text style={styles.foodListItemMacros}>
+                    {item.calories} kcal • P: {item.protein}g • K: {item.carbs}g • Y: {item.fat}g
+                  </Text>
+                </View>
+                <Ionicons name="add-circle" size={28} color={Colors.primary} />
+              </TouchableOpacity>
+            )}
+            ListEmptyComponent={
+              <View style={styles.emptyList}>
+                <Ionicons name="search-outline" size={48} color={Colors.lightText} />
+                <Text style={styles.emptyListText}>{t('noFoodFound') || 'Yiyecek bulunamadı'}</Text>
+              </View>
+            }
+          />
+        </SafeAreaView>
+      </Modal>
     </SafeAreaView>
   );
 }
