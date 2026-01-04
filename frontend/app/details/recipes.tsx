@@ -46,7 +46,7 @@ const RECIPE_COLLECTIONS = {
     color: '#E53935',
     descTr: 'Yüksek protein, kas yapıcı tarifler',
     descEn: 'High protein muscle building recipes',
-    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.tags.includes('high_protein')),
+    filter: (_recipes: RecipeMetadata[]) => getAllAthleteRecipeMetadata(), // Use dedicated athlete recipes
   },
   traditional: {
     id: 'traditional',
