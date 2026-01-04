@@ -114,6 +114,7 @@ export default function StepsDetailScreen() {
       const pastStepCount = await Pedometer.getStepCountAsync(start, end);
       if (pastStepCount && pastStepCount.steps > 0) {
         console.log('[Steps] Got historical steps:', pastStepCount.steps);
+        baseStepsRef.current = pastStepCount.steps;
         setTodaySteps(pastStepCount.steps);
         setLastUpdate(new Date());
         await syncSteps(pastStepCount.steps, 'pedometer');
@@ -130,20 +131,20 @@ export default function StepsDetailScreen() {
     }
 
     // Start watching for step updates
+    // watchStepCount returns steps since subscription started
     subscriptionRef.current = Pedometer.watchStepCount(result => {
-      console.log('[Steps] Real-time step update:', result.steps);
-      // watchStepCount returns steps since subscription started
-      // We need to add to the base count
-      setTodaySteps(prev => {
-        const newTotal = prev + result.steps;
-        // Sync to backend
-        syncSteps(newTotal, 'pedometer').catch(console.error);
-        return newTotal;
-      });
+      console.log('[Steps] Real-time step update: +', result.steps);
+      // Calculate total: base steps from history + new steps since subscription
+      const newTotal = baseStepsRef.current + result.steps;
+      setTodaySteps(newTotal);
       setLastUpdate(new Date());
+      // Sync to backend periodically (not on every step to avoid spam)
+      if (result.steps % 10 === 0) {
+        syncSteps(newTotal, 'pedometer').catch(console.error);
+      }
     });
     
-    console.log('[Steps] Real-time tracking started');
+    console.log('[Steps] Real-time tracking started with base:', baseStepsRef.current);
   };
 
   const manualRefresh = async () => {
