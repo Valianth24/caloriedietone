@@ -1,0 +1,36 @@
+{
+  "name": "Tavuklu Kinoa Dolma Biber",
+  "description": "Kıyılmış tavuk ve kinoa ile doldurulmuş renkli biberler. Fırında pişirilmiş sağlıklı ana yemek.",
+  "prepTime": "20 dakika",
+  "cookTime": "35 dakika",
+  "totalTime": "55 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Büyük biber", "amount": "4", "unit": "adet", "note": "kırmızı veya sarı"},
+    {"name": "Tavuk kıyma", "amount": "400", "unit": "g"},
+    {"name": "Pişmiş kinoa", "amount": "1", "unit": "su bardağı"},
+    {"name": "Domates", "amount": "2", "unit": "adet", "note": "küp"},
+    {"name": "Soğan", "amount": "1", "unit": "adet"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Ispanak", "amount": "100", "unit": "g"},
+    {"name": "Mozarella", "amount": "100", "unit": "g"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Fırını 190°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Biberlerin başlarını kesin, içlerini temizleyin.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Tavada soğanı soteleyin, tavuk kıymayı ekleyip kavurun.", "duration": "8 dakika"},
+    {"step": 4, "instruction": "Sarımsak, domates ve baharatları ekleyin.", "duration": "3 dakika"},
+    {"step": 5, "instruction": "Kinoa ve ıspanağı ekleyip karıştırın.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Karışımı biberlerin içine doldurun.", "duration": "5 dakika"},
+    {"step": 7, "instruction": "Fırın kabına yerleştirin, üzerine peynir serpin.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "30-35 dakika fırınlayın.", "duration": "35 dakika"}
+  ],
+  "nutrition": {"calories": 420, "protein": 36, "carbs": 38, "fat": 14, "fiber": 6, "sugar": 8, "sodium": 580},
+  "tips": ["Biberleri önceden 5 dakika haşlamak pişirme süresini kısaltır.", "Meal prep için idealdir."],
+  "storageInfo": "Buzdolabında 4 gün saklanabilir.",
+  "servingSuggestion": "Yanında salata ile servis edin.",
+  "variations": ["Sığır kıyma ile de yapılabilir.", "Vegan için beyaz fasulye kullanın."]
+}

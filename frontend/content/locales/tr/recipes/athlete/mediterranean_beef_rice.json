@@ -1,0 +1,38 @@
+{
+  "name": "Akdeniz Usulü Etli Pilav",
+  "description": "Yağsız dana kıyma, baharatlı pirinç ve Akdeniz sebzeleri. Tek kapta hazır.",
+  "prepTime": "15 dakika",
+  "cookTime": "30 dakika",
+  "totalTime": "45 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Yağsız dana kıyma", "amount": "400", "unit": "g"},
+    {"name": "Basmati pirinç", "amount": "1.5", "unit": "su bardağı"},
+    {"name": "Tavuk suyu", "amount": "3", "unit": "su bardağı"},
+    {"name": "Soğan", "amount": "1", "unit": "adet"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Domates", "amount": "2", "unit": "adet"},
+    {"name": "Ispanak", "amount": "100", "unit": "g"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tarçın", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Fıstık", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pirinci yıkayıp süzün.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Derin tavada kıymayı kavurun, yağını süzün.", "duration": "8 dakika"},
+    {"step": 3, "instruction": "Soğan ve sarımsak ekleyip soteleyin.", "duration": "3 dakika"},
+    {"step": 4, "instruction": "Baharatlar ve domates ekleyin.", "duration": "3 dakika"},
+    {"step": 5, "instruction": "Pirincı ekleyin, 1 dakika kavurun.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Tavuk suyunu ekleyin, kaynatın.", "duration": "3 dakika"},
+    {"step": 7, "instruction": "Kısık ateşte 15-18 dakika pişirin.", "duration": "18 dakika"},
+    {"step": 8, "instruction": "Ispanak ekleyip karıştırın, 2 dakika dinlendirin.", "duration": "4 dakika"},
+    {"step": 9, "instruction": "Fıstık ile süsleyip servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 495, "protein": 38, "carbs": 48, "fat": 16, "fiber": 4, "sugar": 4, "sodium": 620},
+  "tips": ["Tek kapta hem et hem pirinç - kolay temizlik.", "Fıstık ekstra protein ve çıtırlık sağlar."],
+  "storageInfo": "Buzdolabında 4 gün saklanabilir.",
+  "servingSuggestion": "Yoğurt ve salata ile servis edin.",
+  "variations": ["Kuzu kıyma ile de yapılabilir.", "Kuru kayısı eklenebilir."]
+}

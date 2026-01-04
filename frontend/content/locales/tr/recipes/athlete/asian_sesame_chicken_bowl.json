@@ -1,0 +1,35 @@
+{
+  "name": "Asya Usulü Susamlı Tavuk Bowl",
+  "description": "Susam soslu tavuk, pirinç ve taze sebzeler. Hızlı hazırlanan Asya lezzetleri.",
+  "prepTime": "15 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tavuk göğsü", "amount": "400", "unit": "g", "note": "kuşbaşı"},
+    {"name": "Jasmine pirinç", "amount": "1", "unit": "su bardağı"},
+    {"name": "Soya sosu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Bal", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Pirinç sirkesi", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "2", "unit": "diş"},
+    {"name": "Edamame", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet"},
+    {"name": "Havuç", "amount": "1", "unit": "adet"},
+    {"name": "Susam", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Yeşil soğan", "amount": "2", "unit": "dal"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pirinci pişirin.", "duration": "18 dakika"},
+    {"step": 2, "instruction": "Susam sosu: Soya sosu, bal, susam yağı, sirke ve sarımsağı karıştırın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Tavukları yağda her tarafını 6-7 dakika kızartın.", "duration": "14 dakika"},
+    {"step": 4, "instruction": "Sosun yarısını tavuk üzerine dökün, 2 dakika daha pişirin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Kaselere pirinç, tavuk, edamame ve doğranmış sebzeleri yerleştirin.", "duration": "3 dakika"},
+    {"step": 6, "instruction": "Kalan sos, susam ve yeşil soğan ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 505, "protein": 40, "carbs": 50, "fat": 16, "fiber": 4, "sugar": 12, "sodium": 780},
+  "tips": ["Susam yağı karakteristik Asya tadı verir.", "Edamame ekstra bitkisel protein sağlar."],
+  "storageInfo": "Buzdolabında 3 gün saklanabilir.",
+  "servingSuggestion": "Sıcak veya soğuk servis edilebilir.",
+  "variations": ["Somon ile de yapılabilir.", "Tofu ile vegan versiyon."]
+}

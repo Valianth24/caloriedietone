@@ -1,0 +1,37 @@
+{
+  "name": "Cajun Tavuklu Makarna",
+  "description": "Baharatlı Cajun soslu tavuk parçaları ve kremamsı makarna. Louisiana lezzetleri.",
+  "prepTime": "15 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "40 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Tavuk göğsü", "amount": "500", "unit": "g", "note": "kuşbaşı"},
+    {"name": "Penne makarna", "amount": "300", "unit": "g"},
+    {"name": "Krema", "amount": "200", "unit": "ml"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet"},
+    {"name": "Soğan", "amount": "1", "unit": "adet"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Cajun baharatı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Parmesan", "amount": "50", "unit": "g"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Maydanoz", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Makarnayi tuzlu suda al dente pişirin, süzün.", "duration": "12 dakika"},
+    {"step": 2, "instruction": "Tavuk parçalarını Cajun baharatı ile kaplayın.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Tavada yağ ile tavukları altın olana kadar kızartın.", "duration": "8 dakika"},
+    {"step": 4, "instruction": "Tavukları kenara alın, soğan ve biberi soteleyin.", "duration": "4 dakika"},
+    {"step": 5, "instruction": "Sarımsağı ekleyin, 30 saniye kavurun.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Kremayı ekleyip hafif kaynamaya bırakın.", "duration": "3 dakika"},
+    {"step": 7, "instruction": "Parmesan ekleyip karıştırın.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Makarna ve tavukları sosla karıştırın.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Maydanoz ile süsleyip servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 540, "protein": 38, "carbs": 55, "fat": 18, "fiber": 3, "sugar": 4, "sodium": 820},
+  "tips": ["Cajun baharatı evde yapılabilir: paprika, cayenne, sarımsak tozu, soğan tozu, kekik.", "Krema yerine hindistan cevizi sütü kullanabilirsiniz."],
+  "storageInfo": "Buzdolabında 3 gün saklanabilir.",
+  "servingSuggestion": "Yeşil salata ile servis edin.",
+  "variations": ["Karides ile de yapılabilir.", "Ispanak eklenebilir."]
+}

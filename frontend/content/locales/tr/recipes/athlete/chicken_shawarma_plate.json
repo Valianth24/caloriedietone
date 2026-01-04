@@ -1,0 +1,41 @@
+{
+  "name": "Tavuk Şavarma Tabağı",
+  "description": "Orta Doğu baharatları ile marine edilmiş tavuk, humus ve taze sebzeler ile.",
+  "prepTime": "20 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "40 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Tavuk but fileto", "amount": "600", "unit": "g"},
+    {"name": "Yoğurt", "amount": "100", "unit": "g"},
+    {"name": "Kimyon", "amount": "2", "unit": "tatlı kaşığı"},
+    {"name": "Paprika", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Zerdeçal", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tarçın", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş"},
+    {"name": "Limon", "amount": "1", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Humus", "amount": "200", "unit": "g"},
+    {"name": "Marul", "amount": "2", "unit": "su bardağı"},
+    {"name": "Domates", "amount": "2", "unit": "adet"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet"},
+    {"name": "Kırmızı soğan", "amount": "1/2", "unit": "adet"},
+    {"name": "Turşu", "amount": "4", "unit": "adet"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marine: Yoğurt, tüm baharatlar, sarımsak, limon suyu ve 2 yk zeytinyağını karıştırın.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Tavukları marinasyona yatırın. En az 30 dakika, ideal olarak 4 saat bekletin.", "duration": "30 dakika"},
+    {"step": 3, "instruction": "Izgara tavayı yüksek ateşte ısıtın.", "duration": "3 dakika"},
+    {"step": 4, "instruction": "Tavukları her tarafını 7-8 dakika ızgarayın.", "duration": "16 dakika"},
+    {"step": 5, "instruction": "5 dakika dinlendirip dilimleyin.", "duration": "7 dakika"},
+    {"step": 6, "instruction": "Sebzeleri doğrayın.", "duration": "5 dakika"},
+    {"step": 7, "instruction": "Tabağa humus, marul, sebzeler ve dilimlenmiş tavuk yerleştirin.", "duration": "3 dakika"},
+    {"step": 8, "instruction": "Turşu ve limon dilimleri ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 490, "protein": 42, "carbs": 42, "fat": 18, "fiber": 8, "sugar": 6, "sodium": 720},
+  "tips": ["Şavarma baharatları evde hazırlanabilir.", "Uzun marine süresi tavuğu çok yumuşak yapar.", "Pita ekmeği ile wrap yapılabilir."],
+  "storageInfo": "Tavuk buzdolabında 3 gün saklanabilir.",
+  "servingSuggestion": "Pita ekmeği ve tahin sosu ile servis edin.",
+  "variations": ["Kuzu eti ile de yapılabilir.", "Falafel eklenebilir."]
+}

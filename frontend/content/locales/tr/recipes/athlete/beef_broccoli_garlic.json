@@ -1,0 +1,34 @@
+{
+  "name": "Sarımsaklı Et & Brokoli",
+  "description": "Klasik Asya kombinasyonu - yumuşacık et şeritleri ve çıtır brokoli. Düşük karbonhidrat.",
+  "prepTime": "15 dakika",
+  "cookTime": "12 dakika",
+  "totalTime": "27 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Sığır biftek", "amount": "350", "unit": "g", "note": "ince şeritler"},
+    {"name": "Brokoli", "amount": "400", "unit": "g"},
+    {"name": "Sarımsak", "amount": "6", "unit": "diş"},
+    {"name": "Soya sosu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Istiridye sosu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Bitkisel yağ", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Nişasta", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Su", "amount": "1/4", "unit": "su bardağı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Et şeritlerine nişasta serpin, karıştırın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Sos: Soya sosu, ıstiridye sosu, su ve susam yağını karıştırın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Brokoliyi küçük parçalara ayırın.", "duration": "3 dakika"},
+    {"step": 4, "instruction": "Wok'u çok yüksek ateşte ısıtın, yağ ekleyin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Etleri hızla 2-3 dakika kızartın, kenara alın.", "duration": "3 dakika"},
+    {"step": 6, "instruction": "Brokoliyi 2 dakika soteleyin, 2 yk su ekleyip kapağı kapatın.", "duration": "3 dakika"},
+    {"step": 7, "instruction": "Sarımsağı ekleyin, 30 saniye kavurun.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Etleri geri ekleyin, sosu dökün, 1 dakika karıştırın.", "duration": "2 dakika"}
+  ],
+  "nutrition": {"calories": 385, "protein": 40, "carbs": 20, "fat": 16, "fiber": 5, "sugar": 4, "sodium": 880},
+  "tips": ["Düşük karbonhidrat, yüksek protein - keto uyumlu.", "Yüksek ateş ve hızlı pişirme etin yumuşaklığını korur."],
+  "storageInfo": "Buzdolabında 2 gün saklanabilir.",
+  "servingSuggestion": "Pilavsiz veya karnabahar pilavı ile servis edin.",
+  "variations": ["Tavuk ile de yapılabilir.", "Mantar eklenebilir."]
+}
