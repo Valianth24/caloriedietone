@@ -1591,19 +1591,25 @@ Her yiyeceği tespit et ve besin değerlerini tahmin et. Porsiyon büyüklüğü
 Kesin JSON formatında yanıt ver."""
 
     try:
-        # Check if using Emergent LLM key - needs special handling
+        # Determine API endpoint based on key type
         base_url = None
         if api_key and api_key.startswith("sk-emergent"):
             # Emergent keys need to go through Emergent proxy
             base_url = "https://integrations.emergentagent.com/llm"
             logger.info(f"Using Emergent proxy: {base_url}")
+        else:
+            # Real OpenAI key - use default OpenAI endpoint
+            logger.info("Using direct OpenAI API")
         
         client = openai.AsyncOpenAI(api_key=api_key, base_url=base_url)
         
         # Prepare image URL
         image_url = f"data:image/jpeg;base64,{resized_base64}"
         
-        # Build request parameters - GPT-4o compatible
+        # GPT-5 models have different parameter requirements
+        is_gpt5 = model.startswith("gpt-5")
+        
+        # Build request parameters
         request_params = {
             "model": model,
             "messages": [
@@ -1622,9 +1628,15 @@ Kesin JSON formatında yanıt ver."""
                     ]
                 }
             ],
-            "max_tokens": 1500,
             "response_format": {"type": "json_object"}
         }
+        
+        # GPT-5 uses max_completion_tokens, GPT-4 uses max_tokens
+        if is_gpt5:
+            request_params["max_completion_tokens"] = 1500
+        else:
+            request_params["max_tokens"] = 1500
+            request_params["temperature"] = 0.3
         
         logger.info(f"Sending request to OpenAI with model: {model}")
         response = await client.chat.completions.create(**request_params)
