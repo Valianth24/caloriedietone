@@ -1526,7 +1526,7 @@ def resize_image_base64(base64_str: str, max_size: int = 1280) -> str:
         return base64_str
 
 async def call_openai_vision(image_base64: str, locale: str = "tr-TR", use_fallback: bool = False) -> Dict[str, Any]:
-    """Call OpenAI Vision API to analyze food image."""
+    """Call OpenAI Vision API to analyze food image using emergentintegrations."""
     
     api_key = get_openai_api_key()
     if not api_key:
@@ -1543,11 +1543,9 @@ async def call_openai_vision(image_base64: str, locale: str = "tr-TR", use_fallb
     # Resize image to reduce costs
     resized_base64 = resize_image_base64(image_base64)
     
-    # Prepare image URL
-    if not resized_base64.startswith("data:"):
-        image_url = f"data:image/jpeg;base64,{resized_base64}"
-    else:
-        image_url = resized_base64
+    # Remove data URL prefix if present
+    if resized_base64.startswith("data:"):
+        resized_base64 = resized_base64.split(",", 1)[1]
     
     # System prompt for structured food analysis
     system_prompt = """Sen bir yemek ve besin analiz uzmanısın. Fotoğraftaki yiyecekleri analiz et ve JSON formatında yanıt ver.
@@ -1593,12 +1591,46 @@ Her yiyeceği tespit et ve besin değerlerini tahmin et. Porsiyon büyüklüğü
 Kesin JSON formatında yanıt ver."""
 
     try:
-        # Check if using Emergent LLM key
-        base_url = None
-        if api_key and api_key.startswith("sk-emergent"):
-            base_url = "https://emergent-api.onrender.com/v1"
-        
-        client = openai.AsyncOpenAI(api_key=api_key, base_url=base_url)
+        # Use emergentintegrations for image analysis
+        if LlmChat is not None and ImageContent is not None:
+            logger.info("Using emergentintegrations for vision analysis")
+            
+            # Create chat instance
+            chat = LlmChat(
+                api_key=api_key,
+                session_id=f"food_analysis_{uuid.uuid4().hex[:8]}",
+                system_message=system_prompt
+            ).with_model("openai", model).with_max_tokens(1500)
+            
+            # Create image content
+            image_content = ImageContent(image_base64=resized_base64)
+            
+            # Create user message with image
+            user_message = UserMessage(
+                text=user_prompt,
+                file_contents=[image_content]
+            )
+            
+            # Send message and get response
+            response_text = await chat.send_message(user_message)
+            logger.info(f"Got response from emergentintegrations, length: {len(response_text)}")
+            
+            # Parse JSON from response
+            result = json.loads(response_text)
+            logger.info(f"Vision analysis complete. Model: {model}, Items found: {len(result.get('items', []))}")
+            return result
+        else:
+            # Fallback to direct OpenAI SDK
+            logger.info("Using direct OpenAI SDK for vision analysis")
+            
+            # Prepare image URL
+            image_url = f"data:image/jpeg;base64,{resized_base64}"
+            
+            base_url = None
+            if api_key and api_key.startswith("sk-emergent"):
+                base_url = "https://emergent-api.onrender.com/v1"
+            
+            client = openai.AsyncOpenAI(api_key=api_key, base_url=base_url)
         
         # GPT-5 models have different parameter requirements
         is_gpt5 = model.startswith("gpt-5")
