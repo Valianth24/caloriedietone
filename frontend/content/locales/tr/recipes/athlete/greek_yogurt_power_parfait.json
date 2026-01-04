@@ -1,0 +1,49 @@
+{
+  "name": "Yunan Yoğurdu Power Parfait",
+  "description": "Katmanlı Yunan yoğurdu, taze meyveler, granola ve bal ile. Hızlı ve besleyici kahvaltı.",
+  "prepTime": "5 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "5 dakika",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Yunan yoğurdu", "amount": "250", "unit": "g", "note": "%2 yağlı"},
+    {"name": "Yaban mersini", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Çilek", "amount": "5", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Muz", "amount": "1/2", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Granola", "amount": "1/4", "unit": "su bardağı", "note": "düşük şekerli"},
+    {"name": "Bal", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Chia tohumu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Badem", "amount": "8", "unit": "adet", "note": "doğranmış"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Uzun bir bardak veya kavanoza yoğurdun yarısını koyun.", "duration": "30 saniye"},
+    {"step": 2, "instruction": "Üzerine meyvelerin yarısını ekleyin.", "duration": "30 saniye"},
+    {"step": 3, "instruction": "Granolanın yarısını serpin.", "duration": "20 saniye"},
+    {"step": 4, "instruction": "Kalan yoğurdu ekleyin.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Kalan meyveler, granola ve bademleri üsüne dizin.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Chia tohumu serpin.", "duration": "10 saniye"},
+    {"step": 7, "instruction": "Bal gezdirip servis edin.", "duration": "20 saniye"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 32,
+    "carbs": 42,
+    "fat": 10,
+    "fiber": 5,
+    "sugar": 28,
+    "sodium": 120
+  },
+  "tips": [
+    "Yunan yoğurdu normal yoğurttan 2 kat daha fazla protein içerir.",
+    "Antrenman öncesi veya sonrası mükemmel atıştırmalık.",
+    "Granolada şeker miktarını kontrol edin.",
+    "Kavanozda hazırlayıp taşıyabilirsiniz."
+  ],
+  "storageInfo": "Granola hariç gece önceden hazırlanabilir. Granola taze ekleyin.",
+  "servingSuggestion": "Kahvaltıda veya antrenman sonrası atıştırmalık olarak.",
+  "variations": [
+    "Protein tozu ekleyerek protein miktarını artırabilirsiniz.",
+    "Mango ve hindistan cevizi ile tropik versiyon yapılabilir.",
+    "Fıstık ezmesi ekleyerek sağlıklı yağ artırılabilir."
+  ]
+}

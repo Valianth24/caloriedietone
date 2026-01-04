@@ -1,0 +1,58 @@
+{
+  "name": "Sebzeli Mercimek Köri",
+  "description": "Hint baharatları ile pisırilen kırmızı mercimek. Bitkisel protein ve lif deposu.",
+  "prepTime": "10 dakika",
+  "cookTime": "30 dakika",
+  "totalTime": "40 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Kırmızı mercimek", "amount": "1.5", "unit": "su bardağı"},
+    {"name": "Hindistan cevizi sütü", "amount": "400", "unit": "ml"},
+    {"name": "Sebze suyu", "amount": "2", "unit": "su bardağı"},
+    {"name": "Domates salçası", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "doğranmış"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş"},
+    {"name": "Zencefil", "amount": "2", "unit": "cm", "note": "rendelenmiş"},
+    {"name": "Ispanak", "amount": "200", "unit": "g"},
+    {"name": "Köri tozu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Garam masala", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Zerdeçal", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Taze koriş", "amount": "2", "unit": "yemek kaşığı", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Mercimekleri yıkayıp süzün.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Derin bir tencerede zeytinyağını ısıtın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Soğanı yumuşayana kadar 5 dakika soteleyin.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Sarımsak ve zencefili ekleyin, 1 dakika kavurun.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Tüm baharatları (köri, garam masala, zerdeçal) ekleyin, 30 saniye kavurun.", "tip": "Baharatlar yanmamalı.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Domates salçasını ekleyip 1 dakika karıştırın.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Mercimek, hindistan cevizi sütü ve sebze suyunu ekleyin.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Kaynatın, sonra kısık ateşte 20 dakika mercimek yumuşayana kadar pişirin.", "tip": "Ara sıra karıştırın, dipte yapmasın.", "duration": "20 dakika"},
+    {"step": 9, "instruction": "Ispanağı ekleyin, solukulana kadar karıştırın.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Tuz ayarlayın, koriş ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 385,
+    "protein": 24,
+    "carbs": 52,
+    "fat": 10,
+    "fiber": 16,
+    "sugar": 6,
+    "sodium": 580
+  },
+  "tips": [
+    "Mercimek hem protein hem lif kaynağıdır.",
+    "Zerdeçal anti-inflamatuar özelliklere sahiptir.",
+    "Büyük miktarda yapıp dondurulabilir.",
+    "Bütçe dostu yüksek protein tarifi."
+  ],
+  "storageInfo": "Buzdolabında 5 gün, dondurucuda 3 ay saklanabilir.",
+  "servingSuggestion": "Basmati pirinç veya naan ekmeği ile servis edin.",
+  "variations": [
+    "Yeşil mercimek ile daha dokulu yapılabilir.",
+    "Patates küpleri eklenebilir.",
+    "Daha acılı için yeşil biber ekleyin."
+  ]
+}

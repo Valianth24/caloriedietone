@@ -1,0 +1,56 @@
+{
+  "name": "Tofu & Sebze Stir Fry",
+  "description": "Vegan yüksek proteinli Asya tarzı yemek. Tofu ve renkli sebzeler ile.",
+  "prepTime": "20 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "35 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Sert tofu", "amount": "400", "unit": "g", "note": "preslenerek kurutulmuş"},
+    {"name": "Brokoli", "amount": "200", "unit": "g"},
+    {"name": "Havuç", "amount": "1", "unit": "adet", "note": "şerit"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet"},
+    {"name": "Mantar", "amount": "150", "unit": "g"},
+    {"name": "Soya sosu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Bitkisel yağ", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Zencefil", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Nişasta", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Tofuyu temiz bez veya kağıt havlu ile sararak 15 dakika presleyin.", "tip": "Üzerine ağır bir şey koyun, su çıksın.", "duration": "15 dakika"},
+    {"step": 2, "instruction": "Preslenen tofuyu küpler halinde kesin.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Nişasta ile kaplayın.", "tip": "Nişasta çıtırlık sağlar.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Wok'ta bitkisel yağı yüksek ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Tofu küplerini her tarafı altın olana kadar 5-6 dakika kızartın.", "tip": "Fazla karıştırmayın.", "duration": "6 dakika"},
+    {"step": 6, "instruction": "Tofuyu kenara alın. Sebzeleri 3-4 dakika soteleyin.", "duration": "4 dakika"},
+    {"step": 7, "instruction": "Sarımsak ve zencefili ekleyin, 30 saniye kavurun.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Soya sosu ve susam yağını ekleyin.", "duration": "30 saniye"},
+    {"step": 9, "instruction": "Tofuyu geri ekleyin, her şeyi karıştırın.", "duration": "1 dakika"},
+    {"step": 10, "instruction": "Susam serpin, esmer pirinç ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 340,
+    "protein": 24,
+    "carbs": 28,
+    "fat": 16,
+    "fiber": 6,
+    "sugar": 8,
+    "sodium": 780
+  },
+  "tips": [
+    "Tofu tam protein kaynağıdır - 9 temel amino asit.",
+    "Presleme adımını atlama - çıtırlık için şart.",
+    "Vegan sporcular için ideal protein kaynağı.",
+    "Tempeh ile de yapılabilir."
+  ],
+  "storageInfo": "Buzdolabında 3 gün saklanabilir. Çıtırlık azalabilir.",
+  "servingSuggestion": "Esmer pirinç veya noodle ile servis edin.",
+  "variations": [
+    "Tempeh ile daha fazla protein alınabilir.",
+    "Teriyaki sos ile tatlandırılabilir.",
+    "Edamame eklenebilir."
+  ]
+}

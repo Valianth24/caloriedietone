@@ -1,0 +1,57 @@
+{
+  "name": "Nohutlu Kinoa Power Bowl",
+  "description": "Tamamen bitkisel protein kaynağı. Nohut ve kinoa kombinasyonu tam protein sağlar.",
+  "prepTime": "15 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "35 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Nohut", "amount": "1.5", "unit": "su bardağı", "note": "haşlanmış veya konserve"},
+    {"name": "Kinoa", "amount": "1", "unit": "su bardağı"},
+    {"name": "Ispanak", "amount": "100", "unit": "g"},
+    {"name": "Kiraz domates", "amount": "10", "unit": "adet"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet"},
+    {"name": "Kırmızı soğan", "amount": "1/4", "unit": "adet"},
+    {"name": "Avokado", "amount": "1", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Limon suyu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tahin", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Kimyon", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Kinoayı yıkayıp 2 su bardağı su ile pişirin.", "duration": "18 dakika"},
+    {"step": 2, "instruction": "Tahin sosu: Tahin, limon suyu, 2 yk su ve tuzu karıştırın.", "tip": "Kıvam için su ekleyin.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Konserve nohut kullanıyorsanız yıkayıp süzün.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Tavada 1 yk zeytinyağı ile nohutları 5 dakika kavurun.", "tip": "Hafif çıtır olmalı.", "duration": "5 dakika"},
+    {"step": 5, "instruction": "Kimyon ve tuz ekleyip karıştırın.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Sebzeleri doğrayın: domates, salatalık, soğan.", "duration": "5 dakika"},
+    {"step": 7, "instruction": "Avokadoyu dilimleyin.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Kaselere ıspanak ve kinoa koyun.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Üzerine baharatlı nohut, sebzeler ve avokado yerleştirin.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Tahin sosu gezdirin, susam serpin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 22,
+    "carbs": 58,
+    "fat": 12,
+    "fiber": 14,
+    "sugar": 6,
+    "sodium": 480
+  },
+  "tips": [
+    "Nohut + kinoa = tam protein (9 temel amino asit).",
+    "Vegan sporcular için mükemmel öğün.",
+    "Yüksek lif içeriği tokluk sağlar.",
+    "Meal prep için idealdir."
+  ],
+  "storageInfo": "Avokado hariç buzdolabında 4 gün saklanabilir.",
+  "servingSuggestion": "Pita ekmeği veya lavaş ile servis edin.",
+  "variations": [
+    "Mercimek ekleyerek protein artırılabilir.",
+    "Sıcak sos ekleyerek baharatlı yapılabilir.",
+    "Lor peyniri ile vejetaryen versiyon."
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "name": "Edamame Kinoa Salatası",
+  "description": "Soğuk servis edilen, Asya esintili vegan salata. Edamame ve kinoa ile tam protein.",
+  "prepTime": "15 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Kinoa", "amount": "1", "unit": "su bardağı"},
+    {"name": "Edamame", "amount": "1", "unit": "su bardağı", "note": "kabukları soyulmuş"},
+    {"name": "Kırmızı lahana", "amount": "1", "unit": "su bardağı", "note": "ince kıyılmış"},
+    {"name": "Havuç", "amount": "1", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet", "note": "küp"},
+    {"name": "Yeşil soğan", "amount": "3", "unit": "dal"},
+    {"name": "Soya sosu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Pirinç sirkesi", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Zeytinyağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Bal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Taze koriş", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Kinoayı yıkayıp 2 su bardağı su ile pişirin.", "duration": "18 dakika"},
+    {"step": 2, "instruction": "Kinoayı soğutun veya soğuk su ile durulayın.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Edamame'yi paket talimatına göre haşlayın ve soğutun.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Sos için: Soya sosu, pirinç sirkesi, susam yağı, zeytinyağı ve balı çırpın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Büyük bir kasede kinoayı ve tüm sebzeleri karıştırın.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Edamame ekleyin.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Sosu gezdirip iyice karıştırın.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Susam ve koriş ile süsleyip servis edin.", "duration": "30 saniye"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 22,
+    "carbs": 42,
+    "fat": 14,
+    "fiber": 8,
+    "sugar": 8,
+    "sodium": 620
+  },
+  "tips": [
+    "Edamame genç soya fasulyesidir - tam protein.",
+    "Soğuk servis edilir - yaz ayları için ideal.",
+    "Meal prep için mükemmel - 4 gün taze kalır.",
+    "Taşınabilir öğün olarak harika."
+  ],
+  "storageInfo": "Buzdolabında 4 gün saklanabilir. Sos ayrı tutulursa daha taze kalır.",
+  "servingSuggestion": "Tek başına veya ızgara tofu ile servis edin.",
+  "variations": [
+    "Mango küpleri ekleyerek tropik tad katabilirsiniz.",
+    "Fıstık ekleyerek ekstra çıtırlık ve protein sağlayabilirsiniz.",
+    "Tavuk veya karides ekleyerek protein artırılabilir."
+  ]
+}

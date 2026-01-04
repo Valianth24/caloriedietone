@@ -1,0 +1,54 @@
+{
+  "name": "Siyah Fasulye Pilav Bowl",
+  "description": "Latin Amerika esintili, siyah fasulye ve pirinç kombinasyonu. Tam protein ve yüksek lif.",
+  "prepTime": "10 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "35 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Siyah fasulye", "amount": "1.5", "unit": "su bardağı", "note": "haşlanmış veya konserve"},
+    {"name": "Esmer pirinç", "amount": "1", "unit": "su bardağı"},
+    {"name": "Mısır", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet", "note": "küp"},
+    {"name": "Domates", "amount": "2", "unit": "adet", "note": "küp"},
+    {"name": "Soğan", "amount": "1", "unit": "adet"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Koriş", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Lime", "amount": "1", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Esmer pirinci 2.5 su bardağı su ile pişirin.", "duration": "25 dakika"},
+    {"step": 2, "instruction": "Tavada zeytinyağı ile soğanı soteleyin.", "duration": "4 dakika"},
+    {"step": 3, "instruction": "Sarımsak ve biberi ekleyin, 2 dakika pişirin.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Süzülmüş fasulye ve mısırı ekleyin.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Kimyon ve tuzu ekleyip 5 dakika ısıtın.", "duration": "5 dakika"},
+    {"step": 6, "instruction": "Kaselere pirinci koyun.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Üzerine fasulye karışımı ve taze domates ekleyin.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Lime suyu sıkın, koriş serpin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 440,
+    "protein": 22,
+    "carbs": 68,
+    "fat": 8,
+    "fiber": 18,
+    "sugar": 6,
+    "sodium": 520
+  },
+  "tips": [
+    "Siyah fasulye + pirinç = tam protein kaynağı.",
+    "En bütçe dostu yüksek protein tariflerinden.",
+    "Büyük miktarda hazırlayıp dondurulabilir.",
+    "Yüksek lif tokluk hissi verir."
+  ],
+  "storageInfo": "Buzdolabında 5 gün saklanabilir.",
+  "servingSuggestion": "Avokado ve yoğurt ile servis edin.",
+  "variations": [
+    "Kırmızı fasulye ile de yapılabilir.",
+    "Jalapeño ekleyerek acılı yapılabilir.",
+    "Tavuk veya kıyma eklenebilir."
+  ]
+}
