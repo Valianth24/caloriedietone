@@ -1,79 +1,66 @@
 {
   "name": "Quinoa Bowl",
-  "description": "TODO: Quinoa Bowl description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Single-bowl meal full of colorful vegetables, protein, and healthy fats. Visual feast and nutrition combined.",
+  "prepTime": "20 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "40 minutes",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Quinoa", "amount": "1", "unit": "cup"},
+    {"name": "Water", "amount": "2", "unit": "cups"},
+    {"name": "Chickpeas", "amount": "1", "unit": "can", "note": "400g, drained"},
+    {"name": "Sweet potatoes", "amount": "2", "unit": "pieces", "note": "cubed"},
+    {"name": "Avocado", "amount": "2", "unit": "pieces", "note": "sliced"},
+    {"name": "Red cabbage", "amount": "1", "unit": "cup", "note": "shredded"},
+    {"name": "Carrots", "amount": "2", "unit": "pieces", "note": "shredded"},
+    {"name": "Edamame", "amount": "1", "unit": "cup", "note": "cooked"},
+    {"name": "Olive oil", "amount": "3", "unit": "tbsp"},
+    {"name": "Tahini", "amount": "3", "unit": "tbsp"},
+    {"name": "Lemon juice", "amount": "2", "unit": "tbsp"},
+    {"name": "Soy sauce", "amount": "1", "unit": "tbsp"},
+    {"name": "Honey", "amount": "1", "unit": "tbsp"},
+    {"name": "Cumin", "amount": "1", "unit": "tsp"},
+    {"name": "Smoked paprika", "amount": "1", "unit": "tsp"},
+    {"name": "Sesame seeds", "amount": "2", "unit": "tbsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Preheat oven to 400°F (200°C).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Rinse quinoa under cold water. Add to pot with 2 cups water and bring to boil.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Once boiling, reduce heat, cover, and simmer 15 minutes. Then rest 5 minutes covered.", "duration": "20 minutes"},
+    {"step": 4, "instruction": "Cube sweet potatoes. Spread on baking sheet, toss with 1 tbsp oil, cumin, and salt.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Spread drained chickpeas on same sheet or another. Toss with 1 tbsp oil and smoked paprika.", "tip": "Pat chickpeas dry with paper towel for crispiness.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Roast 20-25 minutes, stirring halfway.", "tip": "Chickpeas should be slightly crispy, potatoes golden.", "duration": "25 minutes"},
+    {"step": 7, "instruction": "Make tahini sauce: Mix tahini, lemon juice, soy sauce, honey, and 2 tbsp water.", "tip": "If sauce is too thick, add more water until drizzle-able.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Shred red cabbage and carrots.", "duration": "3 minutes"},
+    {"step": 9, "instruction": "Slice avocados.", "tip": "Slice at last minute - browns quickly.", "duration": "1 minute"},
+    {"step": 10, "instruction": "Build bowls: Spread quinoa as base in wide bowls.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Arrange vegetables in sections: sweet potato, chickpeas, cabbage, carrot, edamame, avocado.", "tip": "Place colors next to each other for rainbow effect.", "duration": "3 minutes"},
+    {"step": 12, "instruction": "Drizzle tahini sauce on top and sprinkle sesame seeds.", "duration": "1 minute"},
+    {"step": 13, "instruction": "Serve immediately.", "tip": "Mix everything together while eating - all flavors combine.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 485,
+    "protein": 16,
+    "carbs": 58,
+    "fat": 22,
+    "fiber": 14,
+    "sugar": 10,
+    "sodium": 520
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Also known as Buddha bowl, poke bowl, or nourish bowl.",
+    "Prep ingredients ahead and store in fridge - meal prep friendly.",
+    "Swap vegetables based on season and preference.",
+    "Add chicken, salmon, or tofu for more protein.",
+    "Can use peanut sauce instead of tahini."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Store ingredients in separate containers 3-4 days. Add avocado and sauce fresh.",
+  "servingSuggestion": "Serve in wide, deep bowls for Instagram-worthy presentation. Top with sesame and microgreens.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Protein boost: Add grilled chicken or salmon on top.",
+    "Vegan: Use coconut aminos instead of tahini.",
+    "Mexican: Add black beans, corn, and salsa.",
+    "Asian: Add edamame, wakame, and ginger-sesame dressing."
   ]
 }

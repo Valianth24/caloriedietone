@@ -1,79 +1,55 @@
 {
   "name": "Avocado Toast",
-  "description": "TODO: Avocado Toast description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
+  "description": "Healthy fats and protein-rich satisfying breakfast. Start your day energized.",
+  "prepTime": "10 minutes",
+  "cookTime": "5 minutes",
+  "totalTime": "15 minutes",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Whole wheat bread", "amount": "4", "unit": "slices", "note": "thick slices"},
+    {"name": "Ripe avocado", "amount": "2", "unit": "pieces", "note": "must be soft"},
+    {"name": "Eggs", "amount": "2", "unit": "pieces", "note": "optional"},
+    {"name": "Lemon juice", "amount": "1", "unit": "tbsp"},
+    {"name": "Sea salt", "amount": "1/2", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/4", "unit": "tsp"},
+    {"name": "Red pepper flakes", "amount": "1/2", "unit": "tsp"},
+    {"name": "Cherry tomatoes", "amount": "8", "unit": "pieces", "note": "halved"},
+    {"name": "Olive oil", "amount": "1", "unit": "tbsp"},
+    {"name": "Fresh basil", "amount": "4", "unit": "leaves", "note": "for garnish"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Toast bread slices in toaster or pan until crispy on both sides.", "tip": "Crispy bread won't absorb avocado moisture.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Cut avocados in half, remove pits, scoop flesh into bowl.", "tip": "Ripeness test: Press gently - should yield slightly.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Immediately add lemon juice. Add salt and pepper, mash with fork.", "tip": "Don't make completely smooth - some chunks add texture.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Prep eggs: Add drop of oil to pan, crack eggs and fry sunny-side up.", "tip": "Runny yolk is more delicious.", "duration": "4 minutes"},
+    {"step": 5, "instruction": "Place toasted bread on serving plates. Spread avocado mixture evenly on each.", "tip": "Cover entire surface.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Place one egg on top of each toast.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Arrange cherry tomatoes next to or on top of toast.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Sprinkle red pepper flakes, drizzle olive oil.", "duration": "20 seconds"},
+    {"step": 9, "instruction": "Garnish with fresh basil leaves and serve immediately.", "tip": "Eat before avocado browns.", "duration": "30 seconds"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 380,
+    "protein": 14,
+    "carbs": 32,
+    "fat": 24,
+    "fiber": 10,
+    "sugar": 4,
+    "sodium": 480
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Lemon juice prevents browning - add immediately.",
+    "Choose whole wheat bread - rich in fiber.",
+    "Can add chia seeds or sesame on top.",
+    "Feta cheese pairs wonderfully.",
+    "Works for breakfast or light lunch."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Avocado browns quickly - eat fresh. Don't store prepared.",
+  "servingSuggestion": "Serve with fresh squeezed orange juice or green tea.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Add smoked salmon for extra protein.",
+    "Vegan: Skip egg, add microgreens and cherry tomatoes.",
+    "Mexican style: Add jalapeño and cilantro.",
+    "Use poached egg instead of fried."
   ]
 }

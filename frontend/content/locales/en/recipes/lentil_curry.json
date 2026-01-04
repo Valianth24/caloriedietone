@@ -1,79 +1,65 @@
 {
   "name": "Lentil Curry",
-  "description": "TODO: Lentil Curry description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Creamy red lentil curry with Indian spices. Vegan, protein-rich, and incredibly flavorful.",
+  "prepTime": "15 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "50 minutes",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Red lentils", "amount": "1.5", "unit": "cups", "note": "rinsed"},
+    {"name": "Coconut milk", "amount": "1", "unit": "can", "note": "400ml, full-fat"},
+    {"name": "Crushed tomatoes", "amount": "1", "unit": "can", "note": "400g"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Ginger", "amount": "2", "unit": "cm", "note": "grated"},
+    {"name": "Vegetable broth", "amount": "1.5", "unit": "cups"},
+    {"name": "Olive oil", "amount": "2", "unit": "tbsp"},
+    {"name": "Curry powder", "amount": "2", "unit": "tbsp"},
+    {"name": "Cumin", "amount": "1", "unit": "tsp"},
+    {"name": "Turmeric", "amount": "1", "unit": "tsp"},
+    {"name": "Garam masala", "amount": "1", "unit": "tsp"},
+    {"name": "Red pepper flakes", "amount": "1/2", "unit": "tsp", "note": "optional"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Fresh spinach", "amount": "2", "unit": "handfuls", "note": "optional"},
+    {"name": "Fresh cilantro", "amount": "1/4", "unit": "cup", "note": "for serving"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Rinse lentils thoroughly under running water until water runs clear.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Heat olive oil in large, deep pot over medium heat.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Add onion and sauté 5 minutes until soft and lightly golden.", "tip": "Well-cooked onions form the base of curry flavor.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Add garlic and ginger, cook 1 minute until fragrant.", "tip": "Don't burn garlic - it becomes bitter.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add all spices (curry, cumin, turmeric, garam masala, pepper flakes).", "duration": "30 seconds"},
+    {"step": 6, "instruction": "Stir and cook 30-60 seconds until spices are fragrant.", "tip": "Cooking spices activates their flavors.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Add crushed tomatoes and cook 2-3 minutes until bubbling.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Add rinsed lentils and stir to combine.", "duration": "30 seconds"},
+    {"step": 9, "instruction": "Add vegetable broth and coconut milk. Bring to boil.", "duration": "3 minutes"},
+    {"step": 10, "instruction": "Reduce heat and simmer 25-30 minutes until lentils are soft and curry thickens.", "tip": "Stir occasionally to prevent sticking.", "duration": "30 minutes"},
+    {"step": 11, "instruction": "Add salt and taste. Adjust spices as needed.", "duration": "30 seconds"},
+    {"step": 12, "instruction": "If using, add spinach and stir 2 minutes until wilted.", "tip": "Spinach adds vitamins and minerals.", "duration": "2 minutes"},
+    {"step": 13, "instruction": "Ladle into bowls. Sprinkle fresh cilantro and serve.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 345,
+    "protein": 14,
+    "carbs": 42,
+    "fat": 14,
+    "fiber": 10,
+    "sugar": 8,
+    "sodium": 580
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Also known as daal - foundation of Indian cuisine.",
+    "Coconut milk adds creaminess and subtle sweetness.",
+    "Lentils are plant-based protein and iron source.",
+    "Tastes even better next day - flavors develop.",
+    "Freezes well for 3 months - perfect for meal prep."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate 5 days, freeze 3 months. Add water when reheating.",
+  "servingSuggestion": "Serve over basmati rice, with naan bread or chapati. Dollop yogurt on top.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Spinach version: Add 3 handfuls spinach - Palak Daal.",
+    "Green lentils: More earthy flavor, 10 minutes extra cooking.",
+    "With tadka: Top with butter-fried cumin and chili.",
+    "Protein boost: Add chicken or shrimp."
   ]
 }

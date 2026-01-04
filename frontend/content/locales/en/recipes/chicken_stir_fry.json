@@ -1,79 +1,62 @@
 {
   "name": "Chicken Stir Fry",
-  "description": "TODO: Chicken Stir Fry description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Quick Asian-style chicken with colorful vegetables and savory sauce. Ready in 25 minutes.",
+  "prepTime": "15 minutes",
+  "cookTime": "12 minutes",
+  "totalTime": "27 minutes",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Chicken breast", "amount": "500", "unit": "g", "note": "thin strips"},
+    {"name": "Broccoli", "amount": "200", "unit": "g", "note": "florets"},
+    {"name": "Red bell pepper", "amount": "1", "unit": "piece", "note": "strips"},
+    {"name": "Yellow bell pepper", "amount": "1", "unit": "piece", "note": "strips"},
+    {"name": "Carrots", "amount": "2", "unit": "pieces", "note": "julienne"},
+    {"name": "Mushrooms", "amount": "150", "unit": "g", "note": "sliced"},
+    {"name": "Soy sauce", "amount": "4", "unit": "tbsp"},
+    {"name": "Sesame oil", "amount": "1", "unit": "tbsp"},
+    {"name": "Vegetable oil", "amount": "2", "unit": "tbsp"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "sliced"},
+    {"name": "Ginger", "amount": "2", "unit": "cm", "note": "grated"},
+    {"name": "Cornstarch", "amount": "1", "unit": "tbsp"},
+    {"name": "Chicken broth", "amount": "1/4", "unit": "cup"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tbsp"},
+    {"name": "Green onions", "amount": "3", "unit": "stalks"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Toss chicken strips with 1 tbsp soy sauce and cornstarch. Marinate 10 minutes.", "tip": "Cornstarch tenderizes chicken.", "duration": "12 minutes"},
+    {"step": 2, "instruction": "Mix sauce: Remaining soy sauce, sesame oil, and chicken broth. Set aside.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Prep all vegetables and place in separate bowls.", "tip": "Stir fry is fast - everything must be ready.", "duration": "8 minutes"},
+    {"step": 4, "instruction": "Heat wok or large pan over very high heat. Wait until slightly smoking.", "tip": "High heat is the secret to stir fry.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Add half the oil. Add chicken in single layer, don't touch for 2 minutes.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Flip chicken, cook 1-2 more minutes. Remove to plate.", "tip": "Chicken can be slightly pink - it will cook again.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Add remaining oil. Add hard vegetables (broccoli, carrots) and stir fry 2 minutes.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Add peppers and mushrooms, cook 1 more minute.", "tip": "Vegetables should stay crisp - don't overcook.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Add garlic and ginger, stir fry 30 seconds.", "tip": "Garlic burns quickly.", "duration": "30 seconds"},
+    {"step": 10, "instruction": "Return chicken to wok.", "duration": "30 seconds"},
+    {"step": 11, "instruction": "Pour sauce over, stir fry 1 minute until sauce thickens and coats everything.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Remove from heat, sprinkle sesame seeds and green onions. Serve immediately.", "duration": "30 seconds"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 320,
+    "protein": 32,
+    "carbs": 18,
+    "fat": 14,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 780
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "High heat and short cooking (wok hei) intensifies flavor.",
+    "Have everything prepped before starting - it goes fast.",
+    "Don't crowd the pan - cook in batches if needed.",
+    "Serve over rice or noodles.",
+    "Use low-sodium soy sauce for less salt."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate 3 days. Reheat quickly in pan.",
+  "servingSuggestion": "Serve over hot rice or noodles. Add sriracha or chili sauce for heat.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Beef or shrimp version.",
+    "Tofu for vegan option.",
+    "Add teriyaki sauce for different flavor."
   ]
 }

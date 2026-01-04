@@ -1,79 +1,68 @@
 {
   "name": "Stuffed Peppers",
-  "description": "TODO: Stuffed Peppers description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Colorful bell peppers stuffed with seasoned meat and rice. Mediterranean cuisine classic.",
+  "prepTime": "25 minutes",
+  "cookTime": "50 minutes",
+  "totalTime": "75 minutes",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Bell peppers", "amount": "6", "unit": "pieces", "note": "mixed colors"},
+    {"name": "Lean ground beef", "amount": "400", "unit": "g"},
+    {"name": "Cooked rice", "amount": "1.5", "unit": "cups", "note": "or quinoa"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "finely diced"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Crushed tomatoes", "amount": "1", "unit": "can", "note": "400g"},
+    {"name": "Tomato paste", "amount": "2", "unit": "tbsp"},
+    {"name": "Shredded cheese", "amount": "1", "unit": "cup"},
+    {"name": "Fresh parsley", "amount": "1/4", "unit": "cup", "note": "chopped"},
+    {"name": "Olive oil", "amount": "2", "unit": "tbsp"},
+    {"name": "Dried oregano", "amount": "1", "unit": "tsp"},
+    {"name": "Cumin", "amount": "1", "unit": "tsp"},
+    {"name": "Paprika", "amount": "1", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"},
+    {"name": "Water or broth", "amount": "1/2", "unit": "cup"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Preheat oven to 375°F (190°C).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Cut tops off peppers and save as lids. Remove seeds and membranes inside.", "tip": "Make sure there are no holes in pepper bottoms.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Blanch peppers in boiling water for 5 minutes. Drain and place upside-down to dry.", "tip": "Pre-cooking ensures peppers cook evenly.", "duration": "7 minutes"},
+    {"step": 4, "instruction": "Heat olive oil in large pan over medium heat. Sauté onion 5 minutes.", "duration": "6 minutes"},
+    {"step": 5, "instruction": "Add garlic and cook 1 minute.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Add ground beef. Break apart with wooden spoon and cook 8-10 minutes until fully browned.", "tip": "Meat shouldn't clump - break into small pieces.", "duration": "10 minutes"},
+    {"step": 7, "instruction": "Add tomato paste and cook 1 minute.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Add half the crushed tomatoes. Add oregano, cumin, paprika, salt, and pepper.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Simmer on low 5 minutes.", "duration": "5 minutes"},
+    {"step": 10, "instruction": "Remove from heat. Stir in cooked rice, most of the parsley, and half the cheese.", "duration": "2 minutes"},
+    {"step": 11, "instruction": "Pour remaining crushed tomatoes into bottom of baking dish. Add water or broth.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Stand peppers upright in dish. Fill each with meat mixture.", "tip": "Don't pack too tight - filling expands.", "duration": "5 minutes"},
+    {"step": 13, "instruction": "Place pepper lids on top.", "duration": "1 minute"},
+    {"step": 14, "instruction": "Cover with foil. Bake 35 minutes.", "duration": "35 minutes"},
+    {"step": 15, "instruction": "Remove foil. Sprinkle remaining cheese on top. Bake 10-15 more minutes until cheese is melted and slightly golden.", "duration": "15 minutes"},
+    {"step": 16, "instruction": "Remove from oven. Rest 5 minutes. Garnish with remaining parsley and serve.", "duration": "6 minutes"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 365,
+    "protein": 24,
+    "carbs": 28,
+    "fat": 18,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 620
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Red, yellow, and orange peppers are sweeter than green.",
+    "Turkey or chicken ground meat is leaner option.",
+    "Quinoa instead of rice increases protein and fiber.",
+    "Same-sized peppers cook evenly.",
+    "For vegetarian, use lentils or mushrooms instead of meat."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate 4 days, freeze 3 months.",
+  "servingSuggestion": "Serve with yogurt sauce or tzatziki. Crusty bread soaks up the sauce!",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Mexican style: Use black beans, corn, and taco seasoning.",
+    "Mediterranean: Add feta cheese and olives.",
+    "Vegetarian: Use lentils or tofu instead of meat.",
+    "Low-carb: Use cauliflower rice instead of regular rice."
   ]
 }

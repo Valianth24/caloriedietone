@@ -1,79 +1,54 @@
 {
   "name": "Chia Pudding",
-  "description": "TODO: Chia Pudding description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
+  "description": "Overnight refrigerator pudding, healthy and filling. Omega-3 and fiber powerhouse.",
+  "prepTime": "10 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "10 minutes + 4 hours soaking",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Chia seeds", "amount": "4", "unit": "tbsp"},
+    {"name": "Almond milk", "amount": "1.5", "unit": "cups", "note": "unsweetened"},
+    {"name": "Greek yogurt", "amount": "4", "unit": "tbsp"},
+    {"name": "Honey or maple syrup", "amount": "2", "unit": "tbsp"},
+    {"name": "Vanilla extract", "amount": "1/2", "unit": "tsp"},
+    {"name": "Blueberries", "amount": "1/2", "unit": "cup"},
+    {"name": "Banana", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Granola", "amount": "2", "unit": "tbsp"},
+    {"name": "Almonds", "amount": "8", "unit": "pieces", "note": "sliced"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "In medium bowl, combine chia seeds, almond milk, yogurt, honey, and vanilla.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Whisk thoroughly with fork or whisk. Chia seeds shouldn't clump.", "tip": "Stir a few times within first 5 minutes - prevents clumping.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Divide mixture between two jars or deep bowls.", "tip": "Mason jars are ideal for transport.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Cover with lids or plastic wrap.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Refrigerate at least 4 hours, ideally overnight.", "tip": "Chia seeds absorb liquid and become gel-like.", "duration": "4+ hours"},
+    {"step": 6, "instruction": "Before serving, remove puddings from fridge and stir.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Check consistency - if too thick, add a bit more milk and stir.", "tip": "Ideal consistency is like thick yogurt.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Top with blueberries, banana slices, and almonds.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Sprinkle granola and serve immediately.", "tip": "Add granola at last moment to keep it crunchy.", "duration": "30 seconds"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 285,
+    "protein": 12,
+    "carbs": 38,
+    "fat": 10,
+    "fiber": 12,
+    "sugar": 18,
+    "sodium": 85
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Chia seeds are rich in omega-3, fiber, and protein.",
+    "Prep 5 portions at start of week - ready breakfast every morning.",
+    "Liquid to chia ratio: About 3 tbsp liquid per 1 tbsp chia.",
+    "Yogurt adds creaminess and protein.",
+    "For vegan, skip yogurt and use coconut milk."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate in airtight container up to 5 days. Add fruit fresh.",
+  "servingSuggestion": "Eat for breakfast, afternoon snack, or pre-workout energy.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Chocolate: Add 1 tbsp cocoa powder.",
+    "Tropical: Use coconut milk, mango, and pineapple.",
+    "Add protein powder for post-workout.",
+    "Add peanut butter for more satiety."
   ]
 }
