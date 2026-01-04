@@ -1595,12 +1595,12 @@ Kesin JSON formatında yanıt ver."""
         if LlmChat is not None and ImageContent is not None:
             logger.info("Using emergentintegrations for vision analysis")
             
-            # Create chat instance
+            # Create chat instance with model
             chat = LlmChat(
                 api_key=api_key,
                 session_id=f"food_analysis_{uuid.uuid4().hex[:8]}",
                 system_message=system_prompt
-            ).with_model("openai", model).with_max_tokens(1500)
+            ).with_model("openai", model)
             
             # Create image content
             image_content = ImageContent(image_base64=resized_base64)
