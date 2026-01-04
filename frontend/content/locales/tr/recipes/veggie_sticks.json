@@ -1,79 +1,54 @@
 {
   "name": "Sebze Çubukları",
-  "description": "TODO: Sebze Çubukları açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Renkli çiğ sebzelerle hazırlanan sağlıklı atıştırmalık. Humus veya yoğurt sosuyla mükemmel uyum.",
+  "prepTime": "15 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "15 dakika",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Havuç", "amount": "4", "unit": "adet", "note": "çubuk şeklinde"},
+    {"name": "Salatalık", "amount": "2", "unit": "adet", "note": "çubuk şeklinde"},
+    {"name": "Kırmızı biber", "amount": "2", "unit": "adet", "note": "şerit şeklinde"},
+    {"name": "Kereviz sapı", "amount": "4", "unit": "adet", "note": "çubuk şeklinde"},
+    {"name": "Kiraz domates", "amount": "200", "unit": "g"},
+    {"name": "Turp", "amount": "8", "unit": "adet", "note": "yarıya bölünmüş"},
+    {"name": "Brokoli", "amount": "1", "unit": "su bardağı", "note": "küçük çiçekler"},
+    {"name": "Humus", "amount": "1", "unit": "su bardağı", "note": "dıplama sosu"},
+    {"name": "Yoğurt sosu", "amount": "1/2", "unit": "su bardağı", "note": "alternatif sos"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Tüm sebzeleri soğuk su altında iyice yıkayın.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Havuçları soyun. Uzunlamasına dörtbölün, sonra 8-10 cm uzunluğunda çubuklar kesin.", "tip": "Eşit uzunlukta kesmek sunum için güzel görünür.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Salatalıkları uçlarını kesin. Çekirdekli kısmı isteğe bağlı çıkarın. Çubuk şeklinde kesin.", "tip": "İngiliz salatalığı daha az çekirdekli.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Kırmızı biberleri ikiye bölün, çekirdeklerini çıkarın. Şeritler halinde kesin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Kereviz saplarının yapraklı kısımlarını ayırın. Çubuk şeklinde kesin.", "tip": "Kereviz yaprakları salatalarda kullanılabilir.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Turpları yapraklarından ayırıp yarıya bölün.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Brokoli çiçeklerini saplarından ayırın - ısırmalık boyutta.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Geniş servis tabağının ortasına humusu koyun. Etrafına sebze çubuklarını renklerine göre dizin.", "tip": "Renkleri yanyana koyarak gökkuuşağı efekti yaratın.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Soğukta servis edin veya hazırlayıp buzdolabında bekletin.", "tip": "Sebzeler soğukta daha çıtır olur.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 145,
+    "protein": 6,
+    "carbs": 22,
+    "fat": 5,
+    "fiber": 8,
+    "sugar": 10,
+    "sodium": 280
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Çiğ sebzeler vitaminlerini en iyi şekilde korur.",
+    "Partilerde sağlıklı alternatif olarak sunulabilir.",
+    "Hafta başı kesin ve hava geçirmez kapta saklayın.",
+    "Düşük kalorili atıştırmalık - diyet dostudur.",
+    "Çocuklara sebze yedirmenin eğlenceli yolu."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Kesilmiş sebzeler buzdolabında nemli kağıt havluyla sarılı olarak 5 gün saklanabilir.",
+  "servingSuggestion": "Humus, yoğurt sosu, ranch sosu veya guacamole ile servis edin. Parti mezeleri arasında sağlıklı seçenek.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Baharatlı humus: Acılı humus ile servis edin.",
+    "Mevsimlik: Mevsimine göre farklı sebzeler kullanın.",
+    "Mini: Çocuklar için daha küçük parçalar kesin.",
+    "Izgara: Sebzeleri hafif ızgaralayıp ılık servis edin."
   ]
 }

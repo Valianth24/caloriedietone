@@ -1,79 +1,53 @@
 {
   "name": "Muzlu Dondurma",
-  "description": "TODO: Muzlu Dondurma açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
+  "description": "Sadece dondurulmuş muzlardan yapılan doğal, sağlıklı ve veganlave dondurma. Süt ürünü ve ek şeker içermez.",
+  "prepTime": "5 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "5 dakika + 2 saat dondurma",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Olgun muz", "amount": "4", "unit": "adet", "note": "dondurulmuş, dilimlenmiş"},
+    {"name": "Vanilya özü", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Badem sütü", "amount": "2", "unit": "yemek kaşığı", "note": "kıvam için"},
+    {"name": "Fıstık ezmesi", "amount": "2", "unit": "yemek kaşığı", "note": "isteğe bağlı"},
+    {"name": "Bitter çikolata parçacıkları", "amount": "2", "unit": "yemek kaşığı", "note": "süsleme için"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "ÖN HAZIRLYK: Muzları soyun, yaklaşık 2 cm kalınlığında dilimleyin.", "tip": "Benekli, olgun muzlar daha tatlıdır.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Muz dilimlerini yağlı kağıt serili tepsiye tek katman halinde dizin.", "tip": "Üst üste koymayın - birbirine yapışır.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Dondurucuda en az 2 saat, ideal olarak gece boyu dondurun.", "tip": "Tamamen donmuş olmalı - yumuşak kalırsa kremamsı olmaz.", "duration": "2+ saat"},
+    {"step": 4, "instruction": "Donmuş muz dilimlerini güçlü bir mutfak robotuna veya güçlü blendere koyun.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Vanilya özünü ekleyin.", "duration": "10 saniye"},
+    {"step": 6, "instruction": "Pulse yaparak başlayın. Muz parçalanmaya başlayacak.", "tip": "Önce parçalı-kırıntılı olacak - sabredin!", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Kenarları spatula ile kazıyın. Tekrar çalıştırın.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Makine zorlanıyorsa 1-2 yk badem sütü ekleyin.", "tip": "Çok fazla sıvı eklemeyin - smoothie olur.", "duration": "30 saniye"},
+    {"step": 9, "instruction": "Sürekli çalıştırın. Birden kremamsı ve dondurma kıvamına gelecek!", "tip": "Bu sihirli andır - parçalıdan birden kremaya dönüşür.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "İsterseniz fıstık ezmesini ekleyip kısaca karıştırın.", "duration": "30 saniye"},
+    {"step": 11, "instruction": "Hemen yumuşak dondurma kıvamında servis edin. Veya daha sert için 30 dakika dondurucuya koyun.", "tip": "Hemen yemek en lezzetlisi - bekletince sertleşir.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Kaselere koyun, çikolata parçacıkları serpin.", "duration": "30 saniye"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 215,
+    "protein": 3,
+    "carbs": 52,
+    "fat": 2,
+    "fiber": 6,
+    "sugar": 28,
+    "sodium": 5
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "'Nice cream' olarak da bilinen bu tarif gerçek dondurmaya en yakın vegan alternatiftir.",
+    "Olgun muzlar doğal olarak tatlıdır - ek şeker gerekmez.",
+    "Blender ne kadar güçlü olursa sonuç o kadar kremamsı olur.",
+    "Muzları hafta başı dilimleyip dondurarak hazır tutun.",
+    "Muz potasyum açısından zengindir."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Hemen tüketmek en iyisi. Dondurucuda saklanırsa servis öncesi 10-15 dakika oda sıcaklığında bekletin.",
+  "servingSuggestion": "Kase içinde granola, taze meyve ve fıstık ezmesiyle servis edin. Tatlı krizlerinde suçluluk duymadan yiyin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Çikolatalı: 2 yk kakao tozu ekleyin.",
+    "Fıstık ezmeli: 3 yk fıstık ezmesi ekleyin.",
+    "Çilekli: 1/2 su bardağı dondurulmuş çilek ekleyin.",
+    "Cookie dough: Çikolata parçacıkları ve vanilya."
   ]
 }

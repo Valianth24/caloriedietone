@@ -1,79 +1,52 @@
 {
   "name": "Tropik Smoothie",
-  "description": "TODO: Tropik Smoothie açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
+  "description": "Mango, ananas ve hindistan cevizi ile hazırlanan tropikal tatil tadında smoothie. Ferahlatıcı ve canlandırıcı.",
+  "prepTime": "5 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "5 dakika",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Mango", "amount": "1", "unit": "adet", "note": "olgun, dilimlenmiş"},
+    {"name": "Ananas", "amount": "1", "unit": "su bardağı", "note": "taze veya dondurulmuş"},
+    {"name": "Muz", "amount": "1", "unit": "adet", "note": "dondurulmuş"},
+    {"name": "Hindistan cevizi sütü", "amount": "1", "unit": "su bardağı"},
+    {"name": "Portakal suyu", "amount": "1/2", "unit": "su bardağı", "note": "taze sıkılmış"},
+    {"name": "Yunan yoğurdu", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Hindistan cevizi rendesi", "amount": "1", "unit": "yemek kaşığı", "note": "süsleme için"},
+    {"name": "Buz küpü", "amount": "4-5", "unit": "adet"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Mangoyu ikiye kesin, çekirdeği çıkarın, kabuğu soyup parçalayın.", "tip": "Olgun mango tatlı ve kremamsıdır.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Tüm meyveleri blender'ın haznesine koyun.", "duration": "30 saniye"},
+    {"step": 3, "instruction": "Hindistan cevizi sütü ve portakal suyunu ekleyin.", "duration": "15 saniye"},
+    {"step": 4, "instruction": "Yunan yoğurdunu ekleyin.", "tip": "Yoğurt protein ve kremamsılık katar.", "duration": "15 saniye"},
+    {"step": 5, "instruction": "Buz küplerini ekleyin.", "duration": "15 saniye"},
+    {"step": 6, "instruction": "Yüksek hızda 1-2 dakika blendlayın. Tamamen pürüzsüz olmalı.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Kıvamı kontrol edin. Çok kalınsa portakal suyu ekleyin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Uzun bardaklara dökün. Üzerine hindistan cevizi rendesi serpin.", "tip": "Ananas veya mango dilimi ile süsleyin.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 245,
+    "protein": 8,
+    "carbs": 48,
+    "fat": 6,
+    "fiber": 5,
+    "sugar": 38,
+    "sodium": 45
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Mango A vitamini ve C vitamini açısından zengindir.",
+    "Ananas bromelain içerir - sindirimi destekler.",
+    "Hindistan cevizi sütü sağlıklı yağlar sağlar.",
+    "Sıcak yaz günlerinde soğuk içmek için mükemmel.",
+    "Dondurulmuş tropik meyve karışımları kullanabilirsiniz."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "En taze haliyle tüketin. Buzdolabında maksimum 24 saat.",
+  "servingSuggestion": "Plaj partilerinde, yaz kahvaltılarında veya tatlı yerine servis edin.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Piña Colada: Hindistan cevizi kreması ekleyin.",
+    "Yeşil tropik: 1 avuç ıspanak ekleyin.",
+    "Proteinli: Vanilya protein tozu ekleyin.",
+    "Acılı: 1 parça taze zencefil ekleyin - antienflamatuar."
   ]
 }

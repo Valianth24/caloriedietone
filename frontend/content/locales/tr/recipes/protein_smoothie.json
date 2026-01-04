@@ -1,79 +1,52 @@
 {
-  "name": "Protein Smoothie",
-  "description": "TODO: Protein Smoothie açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "name": "Proteinli Smoothie",
+  "description": "Antrenman sonrası kas onarımı için mükemmel yüksek proteinli içecek. Doyurucu ve lezzetli.",
+  "prepTime": "5 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "5 dakika",
+  "servings": 1,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Protein tozu", "amount": "1", "unit": "kepçe", "note": "30g, vanilya veya çikolata"},
+    {"name": "Muz", "amount": "1", "unit": "adet", "note": "dondurulmuş ideal"},
+    {"name": "Fıstık ezmesi", "amount": "1", "unit": "yemek kaşığı", "note": "doğal"},
+    {"name": "Yulaf ezmesi", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Badem sütü", "amount": "1", "unit": "su bardağı"},
+    {"name": "Yunan yoğurdu", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Bal", "amount": "1", "unit": "tatlı kaşığı", "note": "isteğe bağlı"},
+    {"name": "Buz küpü", "amount": "3-4", "unit": "adet"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Tüm sıvıları blender'ın tabanına koyun - badem sütü ve yoğurt.", "tip": "Sıvıyı alta koymak blendlemeyi kolaylaştırır.", "duration": "15 saniye"},
+    {"step": 2, "instruction": "Protein tozunu ekleyin.", "duration": "10 saniye"},
+    {"step": 3, "instruction": "Muzu parçalara ayırıp ekleyin.", "tip": "Dondurulmuş muz shake'i soğuk ve kremamsı yapar.", "duration": "20 saniye"},
+    {"step": 4, "instruction": "Fıstık ezmesini ekleyin.", "tip": "Fıstık ezmesi sağlıklı yağlar ve ekstra protein sağlar.", "duration": "10 saniye"},
+    {"step": 5, "instruction": "Yulaf ezmesi ve isteğe bağlı balı ekleyin.", "duration": "10 saniye"},
+    {"step": 6, "instruction": "Buz küplerini ekleyin.", "duration": "10 saniye"},
+    {"step": 7, "instruction": "Yüksek hızda 1-2 dakika, tamamen pürüzsüz olana kadar blendlayın.", "tip": "Yulaf tanecikleri kalmamalı - uzun blendlayın.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Shaker veya bardağa dökün ve hemen için.", "tip": "Antrenman sonrası 30 dakika içinde tüketmek idealdir.", "duration": "30 saniye"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 420,
+    "protein": 38,
+    "carbs": 45,
+    "fat": 12,
+    "fiber": 6,
+    "sugar": 22,
+    "sodium": 180
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Antrenman sonrası protein alımı kas onarımı ve büyümesi için kritiktir.",
+    "Protein tozu markasına göre sıvı miktarını ayarlayın.",
+    "Sabah kahvaltısı yerine de geçebilir.",
+    "Muz kompleks karbonhidrat ve potasyum sağlar.",
+    "Kas kazanmak isteyenler için kalori artırılabilir."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Hemen tüketin - bekletilmesi önerilmez.",
+  "servingSuggestion": "Antrenman sonrası 30-60 dakika içinde için. Shaker veya spor bardağında taşıyabilirsiniz.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Çikolatalı: Çikolata protein tozu + 1 yk kakao tozu.",
+    "Kahveli: 1 shot espresso veya 1 tk kahve tozu ekleyin.",
+    "Berry: Muz yerine karışık meyveler.",
+    "Yeşil: 1 avuç ıspanak ekleyin - tadı değişmez."
   ]
 }
