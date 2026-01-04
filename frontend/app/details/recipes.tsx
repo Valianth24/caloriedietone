@@ -167,6 +167,46 @@ export default function RecipesScreen() {
 
   const categories = getAllCategories(locale);
 
+  // Collection Card Renderer
+  const renderCollectionCard = (collectionId: CollectionId) => {
+    const collection = RECIPE_COLLECTIONS[collectionId];
+    const collectionRecipes = collection.filter(allRecipes);
+    const isSelected = selectedCollection === collectionId;
+    
+    return (
+      <TouchableOpacity
+        key={collectionId}
+        style={[
+          styles.collectionCard,
+          { borderColor: collection.color },
+          isSelected && { backgroundColor: collection.color + '20', borderWidth: 2 },
+        ]}
+        onPress={() => handleCollectionPress(collectionId)}
+        activeOpacity={0.7}
+      >
+        <View style={[styles.collectionIconContainer, { backgroundColor: collection.color + '20' }]}>
+          <Ionicons name={collection.icon as any} size={28} color={collection.color} />
+        </View>
+        <Text style={styles.collectionTitle}>
+          {locale === 'tr' ? collection.labelTr : collection.labelEn}
+        </Text>
+        <Text style={styles.collectionDesc} numberOfLines={2}>
+          {locale === 'tr' ? collection.descTr : collection.descEn}
+        </Text>
+        <View style={styles.collectionCount}>
+          <Text style={[styles.collectionCountText, { color: collection.color }]}>
+            {collectionRecipes.length} {locale === 'tr' ? 'tarif' : 'recipes'}
+          </Text>
+        </View>
+        {isSelected && (
+          <View style={[styles.selectedBadge, { backgroundColor: collection.color }]}>
+            <Ionicons name="checkmark" size={12} color="#fff" />
+          </View>
+        )}
+      </TouchableOpacity>
+    );
+  };
+
   const renderCategoryItem = ({ item }: { item: { id: RecipeCategory | 'all'; label: string; icon: string; color: string; count: number } }) => (
     <TouchableOpacity
       style={[
