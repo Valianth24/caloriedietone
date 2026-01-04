@@ -1,0 +1,55 @@
+{
+  "name": "Edamame Quinoa Salad",
+  "description": "Cold Asian-inspired vegan salad. Edamame and quinoa provide complete plant-based protein.",
+  "prepTime": "15 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Quinoa", "amount": "1", "unit": "cup"},
+    {"name": "Edamame", "amount": "1", "unit": "cup", "note": "shelled"},
+    {"name": "Red cabbage", "amount": "1", "unit": "cup", "note": "finely shredded"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "grated"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Green onion", "amount": "3", "unit": "stalks"},
+    {"name": "Soy sauce", "amount": "2", "unit": "tablespoons"},
+    {"name": "Rice vinegar", "amount": "2", "unit": "tablespoons"},
+    {"name": "Sesame oil", "amount": "1", "unit": "tablespoon"},
+    {"name": "Olive oil", "amount": "1", "unit": "tablespoon"},
+    {"name": "Honey", "amount": "1", "unit": "teaspoon"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"},
+    {"name": "Fresh cilantro", "amount": "2", "unit": "tablespoons"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook quinoa in 2 cups water for 18 minutes.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Cool quinoa or rinse with cold water.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Cook edamame according to package directions and cool.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Make dressing: Whisk soy sauce, rice vinegar, sesame oil, olive oil, and honey.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "In a large bowl, combine quinoa and all vegetables.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Add edamame.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Drizzle dressing and toss to combine.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Garnish with sesame seeds and cilantro.", "duration": "30 seconds"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 22,
+    "carbs": 42,
+    "fat": 14,
+    "fiber": 8,
+    "sugar": 8,
+    "sodium": 620
+  },
+  "tips": [
+    "Edamame are young soybeans - complete protein.",
+    "Served cold - perfect for summer months.",
+    "Great for meal prep - stays fresh for 4 days.",
+    "Perfect as a portable lunch."
+  ],
+  "storageInfo": "Refrigerate for up to 4 days. Store dressing separately for best freshness.",
+  "servingSuggestion": "Serve on its own or with grilled tofu.",
+  "variations": [
+    "Add mango cubes for a tropical twist.",
+    "Add peanuts for extra crunch and protein.",
+    "Add chicken or shrimp for more protein."
+  ]
+}

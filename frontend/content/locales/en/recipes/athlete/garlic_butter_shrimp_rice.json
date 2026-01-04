@@ -1,0 +1,35 @@
+{
+  "name": "Garlic Butter Shrimp with Rice",
+  "description": "Classic shrimp recipe ready in 10 minutes. Delicious with garlic and lemon.",
+  "prepTime": "8 minutes",
+  "cookTime": "12 minutes",
+  "totalTime": "20 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Large shrimp", "amount": "400", "unit": "g", "note": "peeled and deveined"},
+    {"name": "Rice", "amount": "1", "unit": "cup"},
+    {"name": "Butter", "amount": "3", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "5", "unit": "cloves", "note": "thinly sliced"},
+    {"name": "Lemon juice", "amount": "2", "unit": "tablespoons"},
+    {"name": "White wine", "amount": "1/4", "unit": "cup", "note": "or chicken broth"},
+    {"name": "Red pepper flakes", "amount": "1/4", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Fresh parsley", "amount": "2", "unit": "tablespoons"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook rice with 2 cups water.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Pat shrimp dry with paper towels.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Melt 2 tbsp butter in a pan.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Cook shrimp for 2 minutes per side, remove and set aside.", "duration": "4 minutes"},
+    {"step": 5, "instruction": "Add remaining butter and garlic, sauté for 30 seconds.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Add white wine and reduce by half.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Add lemon juice and red pepper flakes.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Return shrimp to the pan, coat with sauce.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Serve over rice with parsley garnish.", "duration": "1 minute"}
+  ],
+  "nutrition": {"calories": 465, "protein": 36, "carbs": 52, "fat": 14, "fiber": 1, "sugar": 1, "sodium": 680},
+  "tips": ["Don't overcook shrimp - they become rubbery.", "Chicken broth can replace white wine."],
+  "storageInfo": "Best served fresh.",
+  "servingSuggestion": "Serve with crusty bread to soak up the sauce.",
+  "variations": ["Lobster tail makes a more luxurious version.", "Can also be served over pasta."]
+}

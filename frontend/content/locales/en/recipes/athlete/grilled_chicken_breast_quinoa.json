@@ -1,0 +1,54 @@
+{
+  "name": "Grilled Chicken Breast with Quinoa",
+  "description": "Perfectly seasoned grilled chicken breast served with fluffy quinoa. The classic athlete's meal with high-quality protein.",
+  "prepTime": "15 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "40 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "400", "unit": "g"},
+    {"name": "Quinoa", "amount": "1", "unit": "cup"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Lemon", "amount": "1", "unit": "piece"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh rosemary", "amount": "2", "unit": "sprigs"},
+    {"name": "Fresh thyme", "amount": "4", "unit": "sprigs"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Broccoli", "amount": "200", "unit": "g", "note": "for serving"},
+    {"name": "Cherry tomatoes", "amount": "150", "unit": "g", "note": "for serving"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Rinse quinoa and cook with 2 cups water for 15-18 minutes.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Make marinade: Mix 2 tbsp olive oil, lemon juice, minced garlic, rosemary, thyme, salt, and pepper.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Butterfly chicken breasts or pound to even thickness for even cooking.", "tip": "Even thickness ensures uniform cooking.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Coat chicken thoroughly in marinade. Rest for 10-15 minutes.", "tip": "Longer marinating = more flavor.", "duration": "15 minutes"},
+    {"step": 5, "instruction": "Heat grill or grill pan over medium-high heat.", "duration": "3 minutes"},
+    {"step": 6, "instruction": "Grill chicken for 6-7 minutes per side. Internal temp should reach 74°C (165°F).", "tip": "Don't press the chicken - it releases juices.", "duration": "14 minutes"},
+    {"step": 7, "instruction": "Rest chicken for 5 minutes before slicing.", "duration": "5 minutes"},
+    {"step": 8, "instruction": "Steam broccoli and halve cherry tomatoes.", "duration": "5 minutes"},
+    {"step": 9, "instruction": "Fluff quinoa with a fork. Serve with sliced chicken, broccoli, and tomatoes.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Drizzle with remaining olive oil and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 450,
+    "protein": 48,
+    "carbs": 32,
+    "fat": 14,
+    "fiber": 5,
+    "sugar": 3,
+    "sodium": 520
+  },
+  "tips": [
+    "Chicken breast is the leanest protein source.",
+    "Quinoa contains all 9 essential amino acids - complete protein.",
+    "Perfect for meal prep - slice and store for 4 days.",
+    "Resting the meat allows juices to redistribute."
+  ],
+  "storageInfo": "Refrigerate in an airtight container for up to 4 days. Slice when ready to serve.",
+  "servingSuggestion": "Serve with lemon wedges and a green salad.",
+  "variations": [
+    "Turkey breast can be substituted.",
+    "Use brown rice or bulgur instead of quinoa."
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Grilled Salmon & Asparagus",
+  "description": "Omega-3 rich salmon fillet with grilled asparagus. Perfect for heart and muscle health.",
+  "prepTime": "10 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "25 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Salmon fillet", "amount": "2", "unit": "pieces", "note": "180g each"},
+    {"name": "Asparagus", "amount": "300", "unit": "g", "note": "thick stalks"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Lemon", "amount": "1", "unit": "piece"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh dill", "amount": "2", "unit": "tablespoons", "note": "chopped"},
+    {"name": "Sea salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Remove salmon from refrigerator 15 minutes before cooking.", "duration": "15 minutes"},
+    {"step": 2, "instruction": "Snap off tough ends of asparagus.", "tip": "They naturally break at the tender point.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Coat salmon and asparagus with olive oil, salt, and pepper.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Heat grill pan over medium-high heat.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Place salmon skin-side down on the grill.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Cook for 4-5 minutes without touching, then flip.", "tip": "Skin should be crispy - don't force it if it sticks.", "duration": "5 minutes"},
+    {"step": 7, "instruction": "Cook the other side for 3-4 minutes. Center should remain slightly pink.", "duration": "4 minutes"},
+    {"step": 8, "instruction": "Add asparagus to grill, cook for 3-4 minutes, turning occasionally.", "duration": "4 minutes"},
+    {"step": 9, "instruction": "Transfer salmon to plates, rest for 2 minutes.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Squeeze lemon juice over, garnish with dill, and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 42,
+    "carbs": 12,
+    "fat": 24,
+    "fiber": 4,
+    "sugar": 4,
+    "sodium": 480
+  },
+  "tips": [
+    "Salmon is one of the richest sources of omega-3 fatty acids.",
+    "Asparagus contains vitamin K and folate.",
+    "Low carb and high protein - keto-friendly.",
+    "Internal temperature for medium salmon should be 52-54°C (125-130°F)."
+  ],
+  "storageInfo": "Cooked salmon can be refrigerated for 2 days.",
+  "servingSuggestion": "Serve with quinoa or brown rice.",
+  "variations": [
+    "Trout or sea bass can be substituted.",
+    "Broccoli can replace asparagus."
+  ]
+}

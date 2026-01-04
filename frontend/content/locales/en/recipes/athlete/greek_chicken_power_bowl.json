@@ -1,0 +1,59 @@
+{
+  "name": "Greek Chicken Power Bowl",
+  "description": "Mediterranean flavors packed into a protein-rich bowl. Featuring tzatziki sauce, feta cheese, and olives.",
+  "prepTime": "20 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "40 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "400", "unit": "g"},
+    {"name": "Quinoa", "amount": "1", "unit": "cup"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Cherry tomatoes", "amount": "150", "unit": "g", "note": "halved"},
+    {"name": "Red onion", "amount": "1/2", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Feta cheese", "amount": "80", "unit": "g", "note": "crumbled"},
+    {"name": "Kalamata olives", "amount": "10", "unit": "pieces"},
+    {"name": "Greek yogurt", "amount": "150", "unit": "g"},
+    {"name": "Lemon juice", "amount": "2", "unit": "tablespoons"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves", "note": "minced"},
+    {"name": "Dried oregano", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"},
+    {"name": "Fresh mint", "amount": "1", "unit": "tablespoon", "note": "chopped"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Rinse quinoa and cook with 2 cups water for 15 minutes.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Make marinade: Mix 1 tbsp olive oil, 1 tbsp lemon juice, oregano, salt, and pepper.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Marinate chicken breast for 10 minutes.", "duration": "10 minutes"},
+    {"step": 4, "instruction": "Make tzatziki: Mix yogurt, minced garlic, remaining lemon juice, 1 tbsp olive oil, and mint.", "tip": "Strained yogurt gives the best consistency.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Heat a grill pan over medium-high heat.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Grill chicken for 6-7 minutes per side. Internal temp should reach 74°C (165°F).", "duration": "14 minutes"},
+    {"step": 7, "instruction": "Rest chicken for 5 minutes, then slice into strips.", "duration": "7 minutes"},
+    {"step": 8, "instruction": "Fluff cooked quinoa and divide into bowls.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Arrange cucumber, tomatoes, onion, and olives on the quinoa.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Add sliced chicken and crumble feta over top.", "duration": "2 minutes"},
+    {"step": 11, "instruction": "Drizzle with tzatziki and remaining olive oil.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 485,
+    "protein": 44,
+    "carbs": 40,
+    "fat": 16,
+    "fiber": 5,
+    "sugar": 6,
+    "sodium": 680
+  },
+  "tips": [
+    "Mediterranean diet is ideal for heart health.",
+    "Feta cheese is a good source of calcium.",
+    "Perfect for meal prep - store sauce separately for up to 4 days.",
+    "Bowls can be prepared ahead and taken to work."
+  ],
+  "storageInfo": "Store sauce separately. Keeps for 4 days refrigerated.",
+  "servingSuggestion": "Serve with pita bread or whole wheat lavash.",
+  "variations": [
+    "Lamb skewers can be used instead of chicken.",
+    "Use falafel and plant-based yogurt for a vegan version.",
+    "Add grilled peppers for extra vegetables."
+  ]
+}

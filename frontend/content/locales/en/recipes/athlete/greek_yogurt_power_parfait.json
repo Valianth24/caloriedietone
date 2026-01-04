@@ -1,0 +1,49 @@
+{
+  "name": "Greek Yogurt Power Parfait",
+  "description": "Layered Greek yogurt with fresh fruits, granola, and honey. Quick and nourishing breakfast.",
+  "prepTime": "5 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "5 minutes",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Greek yogurt", "amount": "250", "unit": "g", "note": "2% fat"},
+    {"name": "Blueberries", "amount": "1/2", "unit": "cup"},
+    {"name": "Strawberries", "amount": "5", "unit": "pieces", "note": "sliced"},
+    {"name": "Banana", "amount": "1/2", "unit": "piece", "note": "sliced"},
+    {"name": "Granola", "amount": "1/4", "unit": "cup", "note": "low sugar"},
+    {"name": "Honey", "amount": "1", "unit": "tablespoon"},
+    {"name": "Chia seeds", "amount": "1", "unit": "teaspoon"},
+    {"name": "Almonds", "amount": "8", "unit": "pieces", "note": "chopped"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Add half the yogurt to a tall glass or jar.", "duration": "30 seconds"},
+    {"step": 2, "instruction": "Layer half the fruits on top.", "duration": "30 seconds"},
+    {"step": 3, "instruction": "Sprinkle half the granola.", "duration": "20 seconds"},
+    {"step": 4, "instruction": "Add remaining yogurt.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Top with remaining fruits, granola, and almonds.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Sprinkle chia seeds.", "duration": "10 seconds"},
+    {"step": 7, "instruction": "Drizzle honey and serve.", "duration": "20 seconds"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 32,
+    "carbs": 42,
+    "fat": 10,
+    "fiber": 5,
+    "sugar": 28,
+    "sodium": 120
+  },
+  "tips": [
+    "Greek yogurt has twice the protein of regular yogurt.",
+    "Perfect snack before or after workouts.",
+    "Check granola for sugar content.",
+    "Prepare in a jar for portable breakfasts."
+  ],
+  "storageInfo": "Can be prepared the night before without granola. Add granola fresh to maintain crunch.",
+  "servingSuggestion": "Enjoy for breakfast or as a post-workout snack.",
+  "variations": [
+    "Add protein powder to increase protein content.",
+    "Make a tropical version with mango and coconut.",
+    "Add peanut butter for healthy fats."
+  ]
+}
