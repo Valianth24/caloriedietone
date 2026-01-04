@@ -1,0 +1,49 @@
+{
+  "name": "Garlic Shrimp & Zucchini",
+  "description": "Ready in 15 minutes, low calorie but protein-packed quick meal.",
+  "prepTime": "8 minutes",
+  "cookTime": "10 minutes",
+  "totalTime": "18 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Large shrimp", "amount": "400", "unit": "g", "note": "peeled and deveined"},
+    {"name": "Zucchini", "amount": "2", "unit": "pieces", "note": "spiralized into noodles"},
+    {"name": "Garlic", "amount": "5", "unit": "cloves", "note": "thinly sliced"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Butter", "amount": "1", "unit": "tablespoon"},
+    {"name": "Lemon juice", "amount": "2", "unit": "tablespoons"},
+    {"name": "Red pepper flakes", "amount": "1/4", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Fresh parsley", "amount": "2", "unit": "tablespoons"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pat shrimp dry with paper towels, season with salt.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Heat olive oil in a large pan over high heat.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Arrange shrimp in a single layer. Don't touch for 2 minutes.", "tip": "Don't overcrowd, cook in batches if needed.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Flip shrimp, cook 1 more minute. Remove to a plate.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add butter and garlic to the same pan. Sauté 30 seconds.", "tip": "Don't burn the garlic.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Add zucchini noodles, toss for 2 minutes.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Return shrimp to pan, add lemon juice and pepper flakes.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Toss everything together, garnish with parsley.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 295,
+    "protein": 34,
+    "carbs": 14,
+    "fat": 12,
+    "fiber": 3,
+    "sugar": 6,
+    "sodium": 620
+  },
+  "tips": [
+    "Shrimp is a very low-calorie protein source.",
+    "Zucchini noodles replace pasta - keto friendly.",
+    "One of the quickest athlete meals."
+  ],
+  "storageInfo": "Best served fresh. Can be refrigerated for 1 day.",
+  "servingSuggestion": "Serve with crusty bread.",
+  "variations": [
+    "Add pasta for a more filling meal.",
+    "Add tomatoes for marinara style."
+  ]
+}

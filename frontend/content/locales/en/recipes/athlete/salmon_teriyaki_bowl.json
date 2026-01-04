@@ -1,0 +1,56 @@
+{
+  "name": "Salmon Teriyaki Bowl",
+  "description": "Japanese-style teriyaki glazed salmon. Rich in omega-3 with a perfect sweet-savory balance.",
+  "prepTime": "15 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "35 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Salmon fillet", "amount": "2", "unit": "pieces", "note": "180g each"},
+    {"name": "Jasmine rice", "amount": "1", "unit": "cup"},
+    {"name": "Soy sauce", "amount": "4", "unit": "tablespoons"},
+    {"name": "Mirin", "amount": "2", "unit": "tablespoons", "note": "sweet rice wine"},
+    {"name": "Honey", "amount": "1", "unit": "tablespoon"},
+    {"name": "Rice vinegar", "amount": "1", "unit": "tablespoon"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves", "note": "minced"},
+    {"name": "Ginger", "amount": "1", "unit": "teaspoon", "note": "grated"},
+    {"name": "Edamame", "amount": "1/2", "unit": "cup"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Avocado", "amount": "1/2", "unit": "piece"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"},
+    {"name": "Vegetable oil", "amount": "1", "unit": "tablespoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook rice with 2 cups water for 15-18 minutes.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Make teriyaki sauce: Whisk soy sauce, mirin, honey, rice vinegar, garlic, and ginger.", "tip": "Sauce can be made ahead and stored for 2 weeks.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Pat salmon dry with paper towels. Season lightly with salt.", "tip": "Dry salmon sears better.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Heat oil in a pan over medium-high heat.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Place salmon skin-side up. Cook for 3-4 minutes.", "duration": "4 minutes"},
+    {"step": 6, "instruction": "Flip and cook skin-side down for 2 minutes.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Pour half the teriyaki sauce over salmon. Cook until glazed, about 2 minutes.", "tip": "Spoon sauce over salmon as it cooks.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Cook edamame according to package directions.", "duration": "3 minutes"},
+    {"step": 9, "instruction": "Divide rice into bowls. Arrange salmon, edamame, cucumber, and avocado.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Drizzle remaining sauce, sprinkle sesame seeds.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 540,
+    "protein": 42,
+    "carbs": 48,
+    "fat": 20,
+    "fiber": 4,
+    "sugar": 10,
+    "sodium": 920
+  },
+  "tips": [
+    "Salmon is rich in omega-3 fatty acids for brain and heart health.",
+    "Mirin can be replaced with rice wine + honey.",
+    "Sauce burns easily - watch carefully.",
+    "Perfect for meal prep - keeps for 3 days."
+  ],
+  "storageInfo": "Store salmon and rice together for up to 3 days. Add fresh avocado when serving.",
+  "servingSuggestion": "Serve with pickled ginger and wasabi.",
+  "variations": [
+    "Chicken thigh also works great.",
+    "Add sriracha mayo for spicy version."
+  ]
+}

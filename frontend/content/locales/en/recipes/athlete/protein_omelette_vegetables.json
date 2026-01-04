@@ -1,0 +1,54 @@
+{
+  "name": "Protein Vegetable Omelette",
+  "description": "Egg white-heavy omelette packed with vegetables. Low calorie, high protein breakfast.",
+  "prepTime": "8 minutes",
+  "cookTime": "8 minutes",
+  "totalTime": "16 minutes",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Egg whites", "amount": "4", "unit": "pieces"},
+    {"name": "Whole egg", "amount": "1", "unit": "piece"},
+    {"name": "Spinach", "amount": "1", "unit": "handful", "note": "chopped"},
+    {"name": "Mushrooms", "amount": "4", "unit": "pieces", "note": "sliced"},
+    {"name": "Tomato", "amount": "1/2", "unit": "piece", "note": "diced"},
+    {"name": "Red bell pepper", "amount": "1/4", "unit": "piece", "note": "diced"},
+    {"name": "Green onion", "amount": "1", "unit": "stalk"},
+    {"name": "Low-fat white cheese", "amount": "30", "unit": "g", "note": "crumbled"},
+    {"name": "Olive oil", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Whisk egg whites and whole egg in a bowl.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Season with salt and pepper.", "duration": "30 seconds"},
+    {"step": 3, "instruction": "Heat olive oil in a non-stick pan over medium heat.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Sauté mushrooms and peppers for 2 minutes.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Add spinach, cook until wilted.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Remove vegetables and set aside.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Pour egg mixture into the pan, spread evenly.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "As edges set, pull them in with spatula to let uncooked egg flow to edges.", "tip": "Let raw egg flow to the sides.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Place vegetables, tomato, and cheese on one half.", "duration": "30 seconds"},
+    {"step": 10, "instruction": "Fold the other half over. Cook 1 more minute.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Garnish with green onion and serve.", "duration": "30 seconds"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 28,
+    "carbs": 12,
+    "fat": 18,
+    "fiber": 3,
+    "sugar": 5,
+    "sodium": 520
+  },
+  "tips": [
+    "Egg whites are pure protein with no fat.",
+    "Adding 1 whole egg provides omega-3 and choline.",
+    "Ideal breakfast before morning workouts.",
+    "Vegetables can be varied - try zucchini or broccoli."
+  ],
+  "storageInfo": "Best served fresh. Cannot be made ahead.",
+  "servingSuggestion": "Serve with whole wheat toast or fresh fruit.",
+  "variations": [
+    "Different cheeses can be used - cottage cheese, mozzarella.",
+    "Meat lovers can add turkey ham."
+  ]
+}

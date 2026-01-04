@@ -1,0 +1,53 @@
+{
+  "name": "Steak & Sweet Potato",
+  "description": "Perfectly cooked steak with caramelized sweet potatoes. An athlete favorite.",
+  "prepTime": "10 minutes",
+  "cookTime": "30 minutes",
+  "totalTime": "40 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Sirloin steak", "amount": "2", "unit": "pieces", "note": "200g each"},
+    {"name": "Sweet potato", "amount": "2", "unit": "medium pieces"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Butter", "amount": "2", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves"},
+    {"name": "Fresh rosemary", "amount": "2", "unit": "sprigs"},
+    {"name": "Fresh thyme", "amount": "4", "unit": "sprigs"},
+    {"name": "Sea salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Spinach", "amount": "200", "unit": "g", "note": "for garnish"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Remove steaks from refrigerator 30 minutes before cooking.", "tip": "Room temperature meat cooks more evenly.", "duration": "30 minutes"},
+    {"step": 2, "instruction": "Preheat oven to 220°C (425°F).", "duration": "10 minutes"},
+    {"step": 3, "instruction": "Wash and cube sweet potatoes.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Toss potatoes with 1 tbsp olive oil and salt. Spread on baking sheet.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Roast for 25-30 minutes until golden.", "duration": "30 minutes"},
+    {"step": 6, "instruction": "Season both sides of steaks with salt and pepper.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Heat cast iron skillet over very high heat. Add oil.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Sear steaks to desired doneness: Medium-rare 3 min per side, Medium 4 min per side.", "tip": "Don't flip constantly - patience creates a great crust.", "duration": "8 minutes"},
+    {"step": 9, "instruction": "In the last minute, add butter, garlic, and herbs. Baste the steak.", "duration": "1 minute"},
+    {"step": 10, "instruction": "Rest steaks for 5 minutes.", "tip": "Resting allows juices to redistribute.", "duration": "5 minutes"},
+    {"step": 11, "instruction": "Lightly sauté spinach, serve with steak and potatoes.", "duration": "3 minutes"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 45,
+    "carbs": 42,
+    "fat": 18,
+    "fiber": 6,
+    "sugar": 8,
+    "sodium": 520
+  },
+  "tips": [
+    "Beef is rich in creatine and iron.",
+    "Sweet potato provides complex carbohydrates.",
+    "Cast iron pan gives the best crust."
+  ],
+  "storageInfo": "Cooked steak can be refrigerated for 2-3 days.",
+  "servingSuggestion": "Serve with mushroom sauce or fresh salad.",
+  "variations": [
+    "Ribeye can be used instead of sirloin.",
+    "Regular mashed potatoes can replace sweet potato."
+  ]
+}

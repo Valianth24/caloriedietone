@@ -1,0 +1,35 @@
+{
+  "name": "Mediterranean Sea Bass",
+  "description": "Sea bass baked with olive oil, lemon, and herbs. Light and healthy.",
+  "prepTime": "10 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Sea bass fillet", "amount": "2", "unit": "pieces", "note": "180g each"},
+    {"name": "Cherry tomatoes", "amount": "200", "unit": "g"},
+    {"name": "Olives", "amount": "10", "unit": "pieces"},
+    {"name": "Capers", "amount": "1", "unit": "tablespoon"},
+    {"name": "Lemon", "amount": "1", "unit": "piece"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves"},
+    {"name": "Fresh thyme", "amount": "2", "unit": "sprigs"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"},
+    {"name": "Fresh parsley", "amount": "2", "unit": "tablespoons"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Preheat oven to 200°C (400°F).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Place tomatoes, olives, and capers in a baking dish.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Drizzle with 2 tbsp olive oil.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Place fish fillets on top.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add garlic, salt, pepper, and lemon slices.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Drizzle remaining olive oil, add thyme sprigs.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Bake for 15-20 minutes.", "duration": "20 minutes"},
+    {"step": 8, "instruction": "Garnish with parsley and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {"calories": 380, "protein": 38, "carbs": 16, "fat": 18, "fiber": 3, "sugar": 6, "sodium": 580},
+  "tips": ["Sea bass is a lean white fish.", "A classic Mediterranean diet recipe."],
+  "storageInfo": "Best served fresh.",
+  "servingSuggestion": "Serve with quinoa or bulgur pilaf.",
+  "variations": ["Cod or sea bream can be substituted."]
+}

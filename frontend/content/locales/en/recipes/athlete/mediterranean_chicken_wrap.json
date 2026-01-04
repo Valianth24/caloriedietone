@@ -1,0 +1,57 @@
+{
+  "name": "Mediterranean Chicken Wrap",
+  "description": "Grilled chicken with hummus, fresh vegetables, and feta cheese wrapped in whole wheat bread. Healthy and satisfying.",
+  "prepTime": "15 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "300", "unit": "g"},
+    {"name": "Whole wheat tortilla", "amount": "2", "unit": "large pieces"},
+    {"name": "Hummus", "amount": "4", "unit": "tablespoons"},
+    {"name": "Feta cheese", "amount": "60", "unit": "g", "note": "crumbled"},
+    {"name": "Tomato", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Red onion", "amount": "1/4", "unit": "piece", "note": "thin rings"},
+    {"name": "Lettuce", "amount": "4", "unit": "leaves"},
+    {"name": "Black olives", "amount": "8", "unit": "pieces", "note": "sliced"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Lemon juice", "amount": "1", "unit": "tablespoon"},
+    {"name": "Dried oregano", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marinate chicken with olive oil, lemon juice, oregano, salt, and pepper. Rest for 10 minutes.", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Heat grill pan over medium-high heat. Grill chicken for 6-7 minutes per side.", "tip": "Internal temp should reach 74°C (165°F).", "duration": "14 minutes"},
+    {"step": 3, "instruction": "Rest chicken for 5 minutes, then slice into thin strips.", "duration": "7 minutes"},
+    {"step": 4, "instruction": "Lay tortillas flat. Spread 2 tbsp hummus on each.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Layer lettuce leaves on top of hummus.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Arrange sliced chicken down the center.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Add tomato, cucumber, red onion, and olives on top.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Sprinkle feta cheese over filling.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Fold bottom of tortilla up, then roll sides in tightly.", "tip": "Keep it tight so filling doesn't fall out.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Cut diagonally with a sharp knife and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 38,
+    "carbs": 42,
+    "fat": 16,
+    "fiber": 6,
+    "sugar": 4,
+    "sodium": 720
+  },
+  "tips": [
+    "Wraps can be made ahead and refrigerated.",
+    "Warming the tortilla makes rolling easier.",
+    "Add egg whites for more protein.",
+    "Portable meal - stays good in gym bag for 4 hours."
+  ],
+  "storageInfo": "Wrap in foil and refrigerate for up to 2 days. Bring to room temperature before eating.",
+  "servingSuggestion": "Serve with fresh fruit or yogurt. Perfect for lunch.",
+  "variations": [
+    "Turkey breast can be substituted.",
+    "Use falafel and plant-based yogurt for a vegan version.",
+    "Try gluten-free tortillas for a gluten-free option."
+  ]
+}
