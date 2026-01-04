@@ -1,0 +1,60 @@
+{
+  "name": "Chicken Fajita Bowl",
+  "description": "Mexican-inspired bowl with colorful peppers and spiced chicken. A protein-packed, vibrant meal.",
+  "prepTime": "15 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "35 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "400", "unit": "g", "note": "sliced into strips"},
+    {"name": "Brown rice", "amount": "1", "unit": "cup"},
+    {"name": "Red bell pepper", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Yellow bell pepper", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Black beans", "amount": "1", "unit": "cup", "note": "cooked"},
+    {"name": "Corn", "amount": "1/2", "unit": "cup"},
+    {"name": "Avocado", "amount": "1", "unit": "piece"},
+    {"name": "Greek yogurt", "amount": "4", "unit": "tablespoons"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Paprika", "amount": "1", "unit": "teaspoon"},
+    {"name": "Garlic powder", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Lime", "amount": "1", "unit": "piece"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Rinse brown rice and cook with 2.5 cups water for 20-25 minutes.", "duration": "25 minutes"},
+    {"step": 2, "instruction": "Mix fajita seasoning: cumin, paprika, garlic powder, and salt.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Coat chicken strips thoroughly with the seasoning.", "tip": "Slice chicken thin and even for quick cooking.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Heat olive oil in a large pan over high heat.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Add seasoned chicken to the pan. Cook for 5-6 minutes, stirring occasionally.", "duration": "6 minutes"},
+    {"step": 6, "instruction": "Remove chicken and set aside. Add peppers and onion to the same pan.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Sauté vegetables for 4-5 minutes. Keep them slightly crisp.", "tip": "Don't overcook - colors should stay vibrant.", "duration": "5 minutes"},
+    {"step": 8, "instruction": "Cut avocado in half and slice.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Divide rice into bowls.", "duration": "1 minute"},
+    {"step": 10, "instruction": "Top with chicken, sautéed peppers, black beans, corn, and avocado.", "duration": "2 minutes"},
+    {"step": 11, "instruction": "Add yogurt and lime wedges. Serve hot.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 465,
+    "protein": 42,
+    "carbs": 38,
+    "fat": 15,
+    "fiber": 10,
+    "sugar": 5,
+    "sodium": 620
+  },
+  "tips": [
+    "Black beans add extra fiber and protein.",
+    "Store-bought fajita seasoning works, but homemade is healthier.",
+    "Bowls can be prepped ahead and refrigerated.",
+    "For keto, skip the rice and double the vegetables."
+  ],
+  "storageInfo": "Store avocado and yogurt separately. Keeps for 3-4 days refrigerated.",
+  "servingSuggestion": "Serve with tortilla chips or warm tortillas on the side.",
+  "variations": [
+    "Beef or shrimp also work great.",
+    "Add jalapeño for extra heat.",
+    "Use tofu for a vegetarian version."
+  ]
+}

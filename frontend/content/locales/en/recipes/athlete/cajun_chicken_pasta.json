@@ -1,0 +1,55 @@
+{
+  "name": "Cajun Chicken Pasta",
+  "description": "Creamy pasta with spicy Cajun-seasoned chicken, bell peppers, and a light cream sauce. Restaurant-quality at home.",
+  "prepTime": "15 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "40 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "500", "unit": "g", "note": "sliced into strips"},
+    {"name": "Penne pasta", "amount": "300", "unit": "g", "note": "whole wheat preferred"},
+    {"name": "Bell pepper", "amount": "1", "unit": "large", "note": "sliced"},
+    {"name": "Onion", "amount": "1", "unit": "medium", "note": "sliced"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Cajun seasoning", "amount": "2", "unit": "tablespoons"},
+    {"name": "Heavy cream", "amount": "1/2", "unit": "cup"},
+    {"name": "Chicken broth", "amount": "1/2", "unit": "cup"},
+    {"name": "Parmesan cheese", "amount": "1/2", "unit": "cup", "note": "grated"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"},
+    {"name": "Fresh parsley", "amount": "2", "unit": "tablespoons", "note": "chopped"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook pasta according to package directions. Reserve 1/2 cup pasta water before draining.", "duration": "12 minutes"},
+    {"step": 2, "instruction": "Season chicken strips with Cajun seasoning, salt, and pepper.", "tip": "Coat evenly for best flavor.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Heat olive oil in a large skillet over medium-high heat.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Cook chicken for 6-7 minutes until golden and cooked through. Remove and set aside.", "duration": "7 minutes"},
+    {"step": 5, "instruction": "In the same pan, sauté bell pepper and onion for 4-5 minutes.", "duration": "5 minutes"},
+    {"step": 6, "instruction": "Add garlic and cook for 30 seconds.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Pour in cream and chicken broth. Bring to a simmer.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Add Parmesan and stir until melted and smooth.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Return chicken to the pan. Add cooked pasta and toss.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Add pasta water if needed to thin the sauce. Garnish with parsley.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 42,
+    "carbs": 48,
+    "fat": 16,
+    "fiber": 4,
+    "sugar": 4,
+    "sodium": 720
+  },
+  "tips": [
+    "Whole wheat pasta adds fiber and nutrients.",
+    "Make your own Cajun seasoning for less sodium.",
+    "Great for meal prep - reheats well.",
+    "Add spinach for extra greens."
+  ],
+  "storageInfo": "Refrigerate for up to 4 days. Add a splash of cream when reheating.",
+  "servingSuggestion": "Serve with garlic bread and a side salad.",
+  "variations": [
+    "Shrimp makes an excellent alternative.",
+    "Use light cream or milk for a lighter version."
+  ]
+}

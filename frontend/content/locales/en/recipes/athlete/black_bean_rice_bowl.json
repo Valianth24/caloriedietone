@@ -1,0 +1,54 @@
+{
+  "name": "Black Bean Rice Bowl",
+  "description": "Latin American-inspired vegetarian bowl loaded with protein-rich black beans, rice, and fresh toppings.",
+  "prepTime": "10 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Black beans", "amount": "1.5", "unit": "cups", "note": "cooked or canned, drained"},
+    {"name": "Brown rice", "amount": "1", "unit": "cup"},
+    {"name": "Corn", "amount": "1/2", "unit": "cup"},
+    {"name": "Tomato", "amount": "1", "unit": "large", "note": "diced"},
+    {"name": "Avocado", "amount": "1", "unit": "piece"},
+    {"name": "Red onion", "amount": "1/4", "unit": "medium", "note": "diced"},
+    {"name": "Fresh cilantro", "amount": "3", "unit": "tablespoons", "note": "chopped"},
+    {"name": "Lime", "amount": "1", "unit": "piece"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Salt", "amount": "1/2", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook brown rice according to package directions.", "duration": "25 minutes"},
+    {"step": 2, "instruction": "Heat olive oil in a pan. Sauté garlic for 30 seconds.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Add black beans and cumin. Heat through for 3-4 minutes.", "duration": "4 minutes"},
+    {"step": 4, "instruction": "Season with salt and half the lime juice.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Prepare fresh salsa: Mix tomato, red onion, cilantro, and remaining lime juice.", "duration": "3 minutes"},
+    {"step": 6, "instruction": "Slice or cube the avocado.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Divide rice into bowls.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Top with seasoned black beans, corn, salsa, and avocado.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Garnish with extra cilantro and lime wedges.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 18,
+    "carbs": 62,
+    "fat": 14,
+    "fiber": 16,
+    "sugar": 4,
+    "sodium": 380
+  },
+  "tips": [
+    "Black beans are an excellent plant-based protein source.",
+    "High in fiber for digestive health.",
+    "Budget-friendly and nutritious.",
+    "Add jalapeño for extra heat."
+  ],
+  "storageInfo": "Store beans and rice separately from fresh toppings. Keeps for 4 days.",
+  "servingSuggestion": "Top with Greek yogurt or sour cream and tortilla chips.",
+  "variations": [
+    "Add grilled chicken for extra protein.",
+    "Use cauliflower rice for low-carb version."
+  ]
+}

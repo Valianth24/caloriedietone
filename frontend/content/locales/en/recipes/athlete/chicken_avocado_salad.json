@@ -1,0 +1,53 @@
+{
+  "name": "Chicken Avocado Salad",
+  "description": "Fresh and filling salad with grilled chicken, creamy avocado, and a tangy lime dressing. Low-carb and satisfying.",
+  "prepTime": "15 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "300", "unit": "g"},
+    {"name": "Mixed greens", "amount": "4", "unit": "cups"},
+    {"name": "Avocado", "amount": "1", "unit": "large", "note": "sliced"},
+    {"name": "Cherry tomatoes", "amount": "150", "unit": "g", "note": "halved"},
+    {"name": "Cucumber", "amount": "1", "unit": "medium", "note": "sliced"},
+    {"name": "Red onion", "amount": "1/4", "unit": "small", "note": "thinly sliced"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Lime juice", "amount": "2", "unit": "tablespoons"},
+    {"name": "Honey", "amount": "1", "unit": "teaspoon"},
+    {"name": "Garlic", "amount": "1", "unit": "clove", "note": "minced"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"},
+    {"name": "Fresh cilantro", "amount": "2", "unit": "tablespoons", "note": "optional"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Season chicken breast with salt, pepper, and 1 tablespoon olive oil.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Preheat a grill pan over medium-high heat.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Grill chicken for 6-7 minutes per side until cooked through.", "tip": "Internal temperature should reach 74°C (165°F).", "duration": "14 minutes"},
+    {"step": 4, "instruction": "Let chicken rest for 5 minutes, then slice.", "duration": "7 minutes"},
+    {"step": 5, "instruction": "Prepare dressing: Whisk remaining olive oil, lime juice, honey, and garlic.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Arrange mixed greens on plates or in bowls.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Top with sliced chicken, avocado, tomatoes, cucumber, and onion.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Drizzle with dressing and garnish with cilantro.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 35,
+    "carbs": 18,
+    "fat": 26,
+    "fiber": 8,
+    "sugar": 6,
+    "sodium": 320
+  },
+  "tips": [
+    "Avocado provides healthy monounsaturated fats.",
+    "Great for low-carb or keto diets.",
+    "Add feta cheese or corn for variety.",
+    "Add hard-boiled egg for extra protein."
+  ],
+  "storageInfo": "Best served fresh. Store dressing separately if making ahead.",
+  "servingSuggestion": "Serve with crusty bread or tortilla chips.",
+  "variations": [
+    "Shrimp or salmon work great as alternatives.",
+    "Add black beans for extra fiber and protein."
+  ]
+}

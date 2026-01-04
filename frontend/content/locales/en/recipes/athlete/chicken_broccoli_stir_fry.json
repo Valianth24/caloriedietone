@@ -1,0 +1,56 @@
+{
+  "name": "Chicken Broccoli Stir-Fry",
+  "description": "Quick and easy Asian-inspired low-carb meal. Ready in just 20 minutes with tender chicken and crisp broccoli.",
+  "prepTime": "10 minutes",
+  "cookTime": "12 minutes",
+  "totalTime": "22 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "400", "unit": "g", "note": "thin strips"},
+    {"name": "Broccoli", "amount": "300", "unit": "g", "note": "cut into florets"},
+    {"name": "Soy sauce", "amount": "3", "unit": "tablespoons", "note": "low sodium"},
+    {"name": "Sesame oil", "amount": "1", "unit": "tablespoon"},
+    {"name": "Vegetable oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "thinly sliced"},
+    {"name": "Fresh ginger", "amount": "1", "unit": "tablespoon", "note": "grated"},
+    {"name": "Chicken broth", "amount": "1/4", "unit": "cup"},
+    {"name": "Cornstarch", "amount": "1", "unit": "teaspoon"},
+    {"name": "Red pepper flakes", "amount": "1/4", "unit": "teaspoon", "note": "optional"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"},
+    {"name": "Green onion", "amount": "2", "unit": "stalks", "note": "chopped"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Prepare sauce: Mix soy sauce, chicken broth, sesame oil, and cornstarch in a bowl. Set aside.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Heat wok or large pan over high heat. Add vegetable oil.", "tip": "Wok should be very hot - heat until slightly smoking.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Add half the chicken strips. Don't stir for 1 minute, then stir-fry for 2 minutes.", "tip": "Don't overcrowd, cook in two batches.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Remove cooked chicken, repeat with remaining chicken.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "After removing all chicken, add broccoli to the pan.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Add 2 tablespoons water and cover. Steam for 2 minutes.", "tip": "Broccoli should stay bright green and slightly crisp.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Add garlic and ginger, cook for 30 seconds.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Return chicken to the pan.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Pour sauce over. Stir until sauce thickens, 1-2 minutes.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Remove from heat. Garnish with sesame seeds, green onion, and optional pepper flakes.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 395,
+    "protein": 42,
+    "carbs": 24,
+    "fat": 14,
+    "fiber": 5,
+    "sugar": 4,
+    "sodium": 780
+  },
+  "tips": [
+    "High heat and quick cooking (wok hei) enhances flavor.",
+    "Broccoli is rich in vitamin C and fiber.",
+    "Skip the rice for a low-carb meal.",
+    "Ready in under 20 minutes - perfect for busy days."
+  ],
+  "storageInfo": "Refrigerate for up to 3 days. Reheat briefly in a pan.",
+  "servingSuggestion": "Serve over brown rice or cauliflower rice.",
+  "variations": [
+    "Beef or shrimp also work great.",
+    "Add mushrooms, carrots, and snap peas for more vegetables.",
+    "Try teriyaki sauce for a different flavor profile."
+  ]
+}
