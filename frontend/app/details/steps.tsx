@@ -59,6 +59,37 @@ export default function StepsDetailScreen() {
 
   const initPedometer = async () => {
     try {
+      // Request Android ACTIVITY_RECOGNITION permission for Android 10+
+      if (Platform.OS === 'android' && Platform.Version >= 29) {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACTIVITY_RECOGNITION,
+          {
+            title: t('stepPermissionTitle') || 'Adım Sayacı İzni',
+            message: t('stepPermissionMessage') || 'Adımlarınızı takip edebilmemiz için fiziksel aktivite iznine ihtiyacımız var.',
+            buttonNeutral: t('askLater') || 'Daha Sonra Sor',
+            buttonNegative: t('cancel') || 'İptal',
+            buttonPositive: t('ok') || 'Tamam',
+          }
+        );
+        
+        if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
+          console.log('[Steps] Android ACTIVITY_RECOGNITION permission denied');
+          setIsPedometerAvailable('false');
+          return;
+        }
+        console.log('[Steps] Android ACTIVITY_RECOGNITION permission granted');
+      }
+      
+      // iOS permission request
+      if (Platform.OS === 'ios') {
+        const { status } = await Pedometer.requestPermissionsAsync();
+        if (status !== 'granted') {
+          console.log('[Steps] iOS motion permission denied');
+          setIsPedometerAvailable('false');
+          return;
+        }
+      }
+      
       const available = await Pedometer.isAvailableAsync();
       setIsPedometerAvailable(String(available));
       console.log('[Steps] Pedometer available:', available);
