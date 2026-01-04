@@ -1,0 +1,32 @@
+{
+  "name": "Yüksek Proteinli Kahvaltı Wrap",
+  "description": "Tam tahıllı lavatta yumurta, hindi jambon ve sebzeler. Taşınabilir kahvaltı.",
+  "prepTime": "10 dakika",
+  "cookTime": "8 dakika",
+  "totalTime": "18 dakika",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Tam tahıllı tortilla", "amount": "1", "unit": "adet"},
+    {"name": "Yumurta", "amount": "2", "unit": "adet"},
+    {"name": "Hindi jambon", "amount": "2", "unit": "dilim"},
+    {"name": "Ispanak", "amount": "1", "unit": "avuç"},
+    {"name": "Düşük yağlı peynir", "amount": "30", "unit": "g"},
+    {"name": "Avokado", "amount": "1/4", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "1", "unit": "çay kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Yumurtaları çırpın, baharatlayın.", "duration": "1 dakika"},
+    {"step": 2, "instruction": "Tavada yağı ısıtın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Yumurtaları pişirin.", "duration": "3 dakika"},
+    {"step": 4, "instruction": "Hindi jambonu ısıtın.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Tortillayı hafİfçe ısıtın.", "duration": "30 saniye"},
+    {"step": 6, "instruction": "Ispanak, yumurta, jambon, peynir ve avokado koyun.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Sıkıca sarın.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 420, "protein": 32, "carbs": 38, "fat": 16, "fiber": 5, "sugar": 2, "sodium": 680},
+  "tips": ["Taşınabilir kahvaltı - işe giderken yenebilir.", "Protein ve karbonhidrat dengeli."],
+  "storageInfo": "Folyoya sarılı olarak 1 gün saklanabilir.",
+  "servingSuggestion": "Kahve veya taze meyve suyu ile.",
+  "variations": ["Vegan için tofu scramble kullanılabilir."]
+}

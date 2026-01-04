@@ -1,0 +1,32 @@
+{
+  "name": "High Protein Breakfast Wrap",
+  "description": "Whole wheat wrap with eggs, turkey ham, and vegetables. Portable breakfast.",
+  "prepTime": "10 minutes",
+  "cookTime": "8 minutes",
+  "totalTime": "18 minutes",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Whole wheat tortilla", "amount": "1", "unit": "piece"},
+    {"name": "Eggs", "amount": "2", "unit": "pieces"},
+    {"name": "Turkey ham", "amount": "2", "unit": "slices"},
+    {"name": "Spinach", "amount": "1", "unit": "handful"},
+    {"name": "Low-fat cheese", "amount": "30", "unit": "g"},
+    {"name": "Avocado", "amount": "1/4", "unit": "piece"},
+    {"name": "Olive oil", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Whisk eggs and season.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Heat oil in pan.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Cook eggs.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Warm turkey ham.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Lightly warm tortilla.", "duration": "30 seconds"},
+    {"step": 6, "instruction": "Add spinach, eggs, ham, cheese, and avocado.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Roll tightly.", "duration": "1 minute"}
+  ],
+  "nutrition": {"calories": 420, "protein": 32, "carbs": 38, "fat": 16, "fiber": 5, "sugar": 2, "sodium": 680},
+  "tips": ["Portable breakfast - eat on the go.", "Balanced protein and carbs."],
+  "storageInfo": "Wrapped in foil, keeps for 1 day.",
+  "servingSuggestion": "Pair with coffee or fresh juice.",
+  "variations": ["Use tofu scramble for vegan option."]
+}

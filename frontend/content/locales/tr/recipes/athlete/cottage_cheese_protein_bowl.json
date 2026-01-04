@@ -1,0 +1,29 @@
+{
+  "name": "Lor Peynirli Protein Bowl",
+  "description": "Yüksek proteinli kahvaltı veya ara öğün. Lor peyniri meyveler ve tohumlarla.",
+  "prepTime": "5 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "5 dakika",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Lor peyniri", "amount": "250", "unit": "g"},
+    {"name": "Yaban mersini", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Muz", "amount": "1/2", "unit": "adet"},
+    {"name": "Bal", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Chia tohumu", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Badem", "amount": "10", "unit": "adet"},
+    {"name": "Tarçın", "amount": "1/4", "unit": "çay kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Lor peynirini kâseye alın.", "duration": "1 dakika"},
+    {"step": 2, "instruction": "Meyveleri üzerine dizin.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Bal gezdirin.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Tohum ve bademlerle süsleyin.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Tarçın serpin.", "duration": "30 saniye"}
+  ],
+  "nutrition": {"calories": 295, "protein": 30, "carbs": 28, "fat": 8, "fiber": 4, "sugar": 18, "sodium": 320},
+  "tips": ["Lor peyniri düşük yağlı yüksek proteindir.", "Pişirme gerektirmeyen hızlı öğün."],
+  "storageInfo": "Hemen tüketilmelidir.",
+  "servingSuggestion": "Kahvaltı veya antrenman sonrası için idealdir.",
+  "variations": ["Yunan yoğurdu ile de yapılabilir."]
+}

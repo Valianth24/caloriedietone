@@ -1,0 +1,31 @@
+{
+  "name": "Egg White Vegetable Scramble",
+  "description": "Pure protein breakfast. Egg whites with colorful vegetables.",
+  "prepTime": "8 minutes",
+  "cookTime": "6 minutes",
+  "totalTime": "14 minutes",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Egg whites", "amount": "5", "unit": "pieces"},
+    {"name": "Spinach", "amount": "1", "unit": "handful"},
+    {"name": "Tomato", "amount": "1/2", "unit": "piece"},
+    {"name": "Red bell pepper", "amount": "1/4", "unit": "piece"},
+    {"name": "Mushrooms", "amount": "3", "unit": "pieces"},
+    {"name": "Green onion", "amount": "1", "unit": "stalk"},
+    {"name": "Olive oil", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Chop vegetables.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Heat oil in pan.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Sauté mushrooms and peppers for 2 minutes.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Add spinach.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Pour in egg whites and scramble.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Garnish with tomato and green onion.", "duration": "1 minute"}
+  ],
+  "nutrition": {"calories": 220, "protein": 26, "carbs": 10, "fat": 8, "fiber": 3, "sugar": 4, "sodium": 380},
+  "tips": ["Egg whites are pure protein - no fat.", "Lowest calorie breakfast option."],
+  "storageInfo": "Best served fresh.",
+  "servingSuggestion": "Serve with whole grain toast.",
+  "variations": ["Add 1 whole egg for more flavor."]
+}

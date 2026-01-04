@@ -1,0 +1,29 @@
+{
+  "name": "Cottage Cheese Protein Bowl",
+  "description": "High-protein breakfast or snack. Cottage cheese with fruits and seeds.",
+  "prepTime": "5 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "5 minutes",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Cottage cheese", "amount": "250", "unit": "g"},
+    {"name": "Blueberries", "amount": "1/2", "unit": "cup"},
+    {"name": "Banana", "amount": "1/2", "unit": "piece"},
+    {"name": "Honey", "amount": "1", "unit": "tablespoon"},
+    {"name": "Chia seeds", "amount": "1", "unit": "tablespoon"},
+    {"name": "Almonds", "amount": "10", "unit": "pieces"},
+    {"name": "Cinnamon", "amount": "1/4", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Place cottage cheese in a bowl.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Arrange fruits on top.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Drizzle with honey.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Top with seeds and almonds.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Sprinkle with cinnamon.", "duration": "30 seconds"}
+  ],
+  "nutrition": {"calories": 295, "protein": 30, "carbs": 28, "fat": 8, "fiber": 4, "sugar": 18, "sodium": 320},
+  "tips": ["Cottage cheese is low-fat high-protein.", "No-cook quick meal."],
+  "storageInfo": "Best served immediately.",
+  "servingSuggestion": "Ideal for breakfast or post-workout.",
+  "variations": ["Can also be made with Greek yogurt."]
+}

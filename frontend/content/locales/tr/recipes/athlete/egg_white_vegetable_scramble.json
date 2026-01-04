@@ -1,0 +1,31 @@
+{
+  "name": "Yumurta Akı & Sebze Karışımı",
+  "description": "Saf protein kahvaltısı. Yumurta akları renkli sebzelerle.",
+  "prepTime": "8 dakika",
+  "cookTime": "6 dakika",
+  "totalTime": "14 dakika",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Yumurta akı", "amount": "5", "unit": "adet"},
+    {"name": "Ispanak", "amount": "1", "unit": "avuç"},
+    {"name": "Domates", "amount": "1/2", "unit": "adet"},
+    {"name": "Kırmızı biber", "amount": "1/4", "unit": "adet"},
+    {"name": "Mantar", "amount": "3", "unit": "adet"},
+    {"name": "Yeşil soğan", "amount": "1", "unit": "sap"},
+    {"name": "Zeytinyağı", "amount": "1", "unit": "çay kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Sebzeleri doğrayın.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Tavada yağı ısıtın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Mantar ve biberleri 2 dakika soteleyin.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Ispanağı ekleyin.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Yumurta aklarını ekleyin ve karıştırın.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Domates ve yeşil soğanla süsleyin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 220, "protein": 26, "carbs": 10, "fat": 8, "fiber": 3, "sugar": 4, "sodium": 380},
+  "tips": ["Yumurta akı saf protein - yağsız.", "En düşük kalorili kahvaltı."],
+  "storageInfo": "Taze servis edilmelidir.",
+  "servingSuggestion": "Tam tahıllı ekmek ile servis edin.",
+  "variations": ["1 bütün yumurta eklenebilir."]
+}
