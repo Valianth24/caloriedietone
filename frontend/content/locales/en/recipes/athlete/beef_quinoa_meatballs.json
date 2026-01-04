@@ -1,0 +1,54 @@
+{
+  "name": "Beef Quinoa Meatballs",
+  "description": "Lean beef meatballs made with quinoa instead of breadcrumbs. High in protein with complete amino acids.",
+  "prepTime": "20 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "45 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Lean ground beef", "amount": "500", "unit": "g", "note": "90% lean"},
+    {"name": "Cooked quinoa", "amount": "1", "unit": "cup"},
+    {"name": "Egg", "amount": "1", "unit": "large"},
+    {"name": "Onion", "amount": "1/2", "unit": "medium", "note": "grated"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh parsley", "amount": "3", "unit": "tablespoons", "note": "chopped"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Paprika", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Crushed tomatoes", "amount": "400", "unit": "g", "note": "canned"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Preheat oven to 200°C (400°F). Line a baking sheet with parchment paper.", "duration": "10 minutes"},
+    {"step": 2, "instruction": "In a large bowl, combine ground beef, cooked quinoa, egg, onion, garlic, parsley, and spices.", "tip": "Mix gently to avoid tough meatballs.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Mix with your hands until just combined. Don't overwork.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Form into 20 equal-sized meatballs.", "tip": "Wet hands prevent sticking.", "duration": "5 minutes"},
+    {"step": 5, "instruction": "Arrange meatballs on the baking sheet. Brush with olive oil.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Bake for 15 minutes until browned.", "duration": "15 minutes"},
+    {"step": 7, "instruction": "Heat crushed tomatoes in a large pan.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Add baked meatballs to the sauce. Simmer for 10 minutes.", "duration": "10 minutes"},
+    {"step": 9, "instruction": "Garnish with fresh parsley and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 36,
+    "carbs": 22,
+    "fat": 16,
+    "fiber": 3,
+    "sugar": 5,
+    "sodium": 620
+  },
+  "tips": [
+    "Quinoa adds complete protein and fiber.",
+    "Baking instead of frying reduces fat.",
+    "Freezer-friendly - freeze for up to 3 months.",
+    "Great for meal prep and batch cooking."
+  ],
+  "storageInfo": "Refrigerate for up to 4 days, or freeze for up to 3 months.",
+  "servingSuggestion": "Serve over zucchini noodles, whole wheat pasta, or with a salad.",
+  "variations": [
+    "Turkey or chicken can be used instead of beef.",
+    "Add feta cheese for a Greek twist."
+  ]
+}

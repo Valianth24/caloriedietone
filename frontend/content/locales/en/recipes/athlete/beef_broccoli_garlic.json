@@ -1,0 +1,53 @@
+{
+  "name": "Garlic Beef & Broccoli",
+  "description": "Chinese restaurant-style garlic beef and broccoli. Quick 20-minute dinner packed with protein and vegetables.",
+  "prepTime": "10 minutes",
+  "cookTime": "12 minutes",
+  "totalTime": "22 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Beef sirloin", "amount": "400", "unit": "g", "note": "thinly sliced against the grain"},
+    {"name": "Broccoli", "amount": "300", "unit": "g", "note": "cut into florets"},
+    {"name": "Garlic", "amount": "5", "unit": "cloves", "note": "minced"},
+    {"name": "Soy sauce", "amount": "3", "unit": "tablespoons"},
+    {"name": "Oyster sauce", "amount": "2", "unit": "tablespoons"},
+    {"name": "Beef broth", "amount": "1/4", "unit": "cup"},
+    {"name": "Cornstarch", "amount": "2", "unit": "tablespoons", "note": "divided"},
+    {"name": "Vegetable oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Sesame oil", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Toss beef slices with 1 tablespoon cornstarch, salt, and pepper.", "tip": "Cornstarch helps tenderize the meat.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Prepare the sauce: Mix soy sauce, oyster sauce, beef broth, remaining cornstarch, and sesame oil.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Heat a wok over high heat. Add oil and heat until smoking.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Add beef in a single layer. Cook without stirring for 1 minute, then stir-fry for 2 minutes.", "tip": "Cook in batches if needed.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Remove beef and set aside.", "duration": "30 seconds"},
+    {"step": 6, "instruction": "Add broccoli to the wok with 2 tablespoons water. Cover and steam for 2 minutes.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Add garlic and stir-fry for 30 seconds.", "tip": "Don't burn the garlic.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Return beef to the wok. Pour sauce over and toss.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Cook until sauce thickens, about 1-2 minutes.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Serve hot over rice or on its own.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 40,
+    "carbs": 22,
+    "fat": 18,
+    "fiber": 4,
+    "sugar": 4,
+    "sodium": 920
+  },
+  "tips": [
+    "Slicing beef against the grain ensures tender bites.",
+    "High heat and quick cooking (wok hei) creates the best flavor.",
+    "Broccoli is rich in vitamin C and fiber.",
+    "Perfect for keto when served without rice."
+  ],
+  "storageInfo": "Store in the refrigerator for up to 3 days. Reheat in a pan to maintain texture.",
+  "servingSuggestion": "Serve over jasmine rice or cauliflower rice for low-carb option.",
+  "variations": [
+    "Chicken or shrimp can be substituted.",
+    "Add bell peppers and snap peas for more vegetables."
+  ]
+}

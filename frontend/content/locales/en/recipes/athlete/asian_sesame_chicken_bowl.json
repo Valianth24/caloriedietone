@@ -1,0 +1,57 @@
+{
+  "name": "Asian Sesame Chicken Bowl",
+  "description": "Tender chicken coated in a sesame sauce, served with brown rice and fresh vegetables. A perfectly balanced meal with Asian flavors.",
+  "prepTime": "15 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "35 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken thigh fillet", "amount": "400", "unit": "g", "note": "cubed"},
+    {"name": "Brown rice", "amount": "1", "unit": "cup"},
+    {"name": "Soy sauce", "amount": "3", "unit": "tablespoons", "note": "low sodium preferred"},
+    {"name": "Sesame oil", "amount": "1", "unit": "tablespoon"},
+    {"name": "Rice vinegar", "amount": "1", "unit": "tablespoon"},
+    {"name": "Honey", "amount": "2", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh ginger", "amount": "1", "unit": "tablespoon", "note": "grated"},
+    {"name": "Cornstarch", "amount": "1", "unit": "tablespoon"},
+    {"name": "Edamame", "amount": "1", "unit": "cup", "note": "shelled"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "thin strips"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Sesame seeds", "amount": "2", "unit": "tablespoons"},
+    {"name": "Green onion", "amount": "2", "unit": "stalks", "note": "sliced"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Rinse the brown rice. Add to a pot with 2.5 cups of water, bring to boil, then simmer for 20-25 minutes.", "duration": "25 minutes"},
+    {"step": 2, "instruction": "Prepare the sauce: Mix soy sauce, sesame oil, rice vinegar, honey, and cornstarch in a bowl.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Season the chicken with salt and pepper. Coat with 1 tablespoon of cornstarch.", "tip": "Cornstarch creates a thin, crispy coating.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Heat a large pan or wok over high heat. Add a thin layer of oil.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Cook the chicken pieces for 5-6 minutes until golden on all sides.", "tip": "Don't overcrowd the pan.", "duration": "6 minutes"},
+    {"step": 6, "instruction": "Add garlic and ginger, sauté for 30 seconds.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Pour the sauce over the chicken, stir until sauce thickens.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Cook the edamame according to package directions.", "duration": "5 minutes"},
+    {"step": 9, "instruction": "Divide the rice into bowls. Arrange chicken, edamame, carrots, and cucumber on top.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Garnish with sesame seeds and green onion. Serve hot.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 42,
+    "carbs": 52,
+    "fat": 14,
+    "fiber": 6,
+    "sugar": 12,
+    "sodium": 820
+  },
+  "tips": [
+    "For low sodium, use reduced-sodium soy sauce.",
+    "Brown rice provides more fiber and minerals than white rice.",
+    "Can be stored in the fridge for 4 days - perfect for meal prep.",
+    "Add sriracha or chili flakes for a spicy kick."
+  ],
+  "storageInfo": "Store in an airtight container in the refrigerator for up to 4 days. Reheat with a splash of water.",
+  "servingSuggestion": "Serve with pickled ginger or kimchi on the side. Great for post-workout meals.",
+  "variations": [
+    "Can also be made with salmon.",
+    "Tofu makes a great vegan alternative."
+  ]
+}

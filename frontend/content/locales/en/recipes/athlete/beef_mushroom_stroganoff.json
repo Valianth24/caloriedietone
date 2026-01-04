@@ -1,0 +1,55 @@
+{
+  "name": "Beef Mushroom Stroganoff",
+  "description": "Creamy mushroom sauce with tender beef strips. A classic comfort dish made healthier with Greek yogurt.",
+  "prepTime": "15 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "40 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Beef sirloin", "amount": "500", "unit": "g", "note": "cut into strips"},
+    {"name": "Mushrooms", "amount": "300", "unit": "g", "note": "sliced"},
+    {"name": "Onion", "amount": "1", "unit": "large", "note": "diced"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Greek yogurt", "amount": "200", "unit": "g"},
+    {"name": "Beef broth", "amount": "1", "unit": "cup"},
+    {"name": "Dijon mustard", "amount": "1", "unit": "tablespoon"},
+    {"name": "Worcestershire sauce", "amount": "1", "unit": "tablespoon"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Flour", "amount": "2", "unit": "tablespoons"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"},
+    {"name": "Fresh parsley", "amount": "2", "unit": "tablespoons", "note": "chopped"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Season beef strips with salt and pepper. Dust with flour.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Heat olive oil in a large pan over high heat.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Sear beef strips in batches until browned. Set aside.", "tip": "Don't overcrowd the pan for best browning.", "duration": "6 minutes"},
+    {"step": 4, "instruction": "In the same pan, sauté onion until softened, about 4 minutes.", "duration": "4 minutes"},
+    {"step": 5, "instruction": "Add mushrooms and cook until golden, about 5 minutes.", "tip": "Let mushrooms brown without stirring initially.", "duration": "5 minutes"},
+    {"step": 6, "instruction": "Add garlic and cook for 30 seconds.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Pour in beef broth, mustard, and Worcestershire sauce. Simmer for 5 minutes.", "duration": "5 minutes"},
+    {"step": 8, "instruction": "Return beef to the pan. Reduce heat to low.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Remove from heat. Stir in Greek yogurt until smooth.", "tip": "Adding yogurt off heat prevents curdling.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Garnish with parsley and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 395,
+    "protein": 38,
+    "carbs": 18,
+    "fat": 18,
+    "fiber": 2,
+    "sugar": 6,
+    "sodium": 580
+  },
+  "tips": [
+    "Greek yogurt is a lighter alternative to sour cream.",
+    "Beef provides iron and B12 for energy.",
+    "Can be made ahead and reheated gently.",
+    "For extra creaminess, add a splash of heavy cream."
+  ],
+  "storageInfo": "Refrigerate for up to 3 days. Reheat gently over low heat.",
+  "servingSuggestion": "Serve over egg noodles, rice, or mashed potatoes.",
+  "variations": [
+    "Can be made with chicken as well.",
+    "Add cream for a richer version."
+  ]
+}

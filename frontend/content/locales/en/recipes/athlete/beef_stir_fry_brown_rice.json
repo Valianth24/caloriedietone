@@ -1,0 +1,53 @@
+{
+  "name": "Beef Stir-Fry with Brown Rice",
+  "description": "Quick and colorful beef stir-fry loaded with vegetables. Served over nutritious brown rice for sustained energy.",
+  "prepTime": "15 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "35 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Beef sirloin", "amount": "350", "unit": "g", "note": "thinly sliced"},
+    {"name": "Brown rice", "amount": "1", "unit": "cup"},
+    {"name": "Bell pepper", "amount": "2", "unit": "pieces", "note": "mixed colors, sliced"},
+    {"name": "Snap peas", "amount": "100", "unit": "g"},
+    {"name": "Carrot", "amount": "1", "unit": "large", "note": "julienned"},
+    {"name": "Soy sauce", "amount": "3", "unit": "tablespoons"},
+    {"name": "Oyster sauce", "amount": "1", "unit": "tablespoon"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Ginger", "amount": "1", "unit": "tablespoon", "note": "grated"},
+    {"name": "Vegetable oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook brown rice according to package directions (about 25 minutes).", "duration": "25 minutes"},
+    {"step": 2, "instruction": "Mix soy sauce and oyster sauce in a small bowl.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Heat a wok over high heat. Add oil.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Stir-fry beef for 2-3 minutes until browned. Remove and set aside.", "tip": "Work in batches for best results.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Add more oil if needed. Stir-fry vegetables for 3-4 minutes.", "tip": "Keep vegetables crisp-tender.", "duration": "4 minutes"},
+    {"step": 6, "instruction": "Add garlic and ginger, cook for 30 seconds.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Return beef to the wok. Add sauce.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Toss everything together for 1-2 minutes.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Serve over brown rice, sprinkled with sesame seeds.", "duration": "2 minutes"}
+  ],
+  "nutrition": {
+    "calories": 495,
+    "protein": 38,
+    "carbs": 48,
+    "fat": 16,
+    "fiber": 6,
+    "sugar": 8,
+    "sodium": 880
+  },
+  "tips": [
+    "Brown rice has more fiber and nutrients than white rice.",
+    "Slice beef against the grain for tenderness.",
+    "Great for meal prep - keeps well for 4 days.",
+    "Add chili flakes for extra heat."
+  ],
+  "storageInfo": "Store in the refrigerator for up to 4 days. Reheat in a pan.",
+  "servingSuggestion": "Serve with sriracha or chili sauce on the side.",
+  "variations": [
+    "Chicken or tofu can be substituted.",
+    "Use cauliflower rice for a low-carb option."
+  ]
+}

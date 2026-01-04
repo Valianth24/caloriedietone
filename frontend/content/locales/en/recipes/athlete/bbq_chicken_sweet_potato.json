@@ -1,0 +1,54 @@
+{
+  "name": "BBQ Chicken & Sweet Potato",
+  "description": "Juicy chicken coated in homemade BBQ sauce, paired with caramelized sweet potatoes. A high-protein, balanced meal.",
+  "prepTime": "15 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "50 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken thigh fillet", "amount": "400", "unit": "g"},
+    {"name": "Sweet potato", "amount": "2", "unit": "medium", "note": "cubed"},
+    {"name": "Tomato paste", "amount": "3", "unit": "tablespoons"},
+    {"name": "Apple cider vinegar", "amount": "2", "unit": "tablespoons"},
+    {"name": "Honey", "amount": "2", "unit": "tablespoons"},
+    {"name": "Smoked paprika", "amount": "1", "unit": "teaspoon"},
+    {"name": "Garlic powder", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Onion powder", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Broccoli", "amount": "200", "unit": "g", "note": "for serving"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Preheat oven to 200°C (400°F).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Prepare the BBQ sauce: Mix tomato paste, apple cider vinegar, honey, paprika, garlic powder, and onion powder.", "tip": "Homemade sauce is lower in sugar and salt.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Toss sweet potato cubes with 1 tablespoon olive oil, salt, and pepper.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Spread sweet potatoes on a baking sheet. Roast for 15 minutes.", "duration": "15 minutes"},
+    {"step": 5, "instruction": "Meanwhile, season chicken with salt and pepper.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Heat remaining oil in a pan over medium-high heat. Sear chicken for 3 minutes per side.", "duration": "6 minutes"},
+    {"step": 7, "instruction": "Brush BBQ sauce over chicken. Add to the baking sheet with sweet potatoes.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Roast for another 15-20 minutes until chicken is cooked through and sauce caramelizes.", "tip": "Internal temperature should reach 74°C (165°F).", "duration": "20 minutes"},
+    {"step": 9, "instruction": "Steam or blanch broccoli for 3-4 minutes.", "duration": "4 minutes"},
+    {"step": 10, "instruction": "Serve chicken with sweet potatoes and broccoli.", "duration": "2 minutes"}
+  ],
+  "nutrition": {
+    "calories": 485,
+    "protein": 38,
+    "carbs": 48,
+    "fat": 14,
+    "fiber": 6,
+    "sugar": 18,
+    "sodium": 620
+  },
+  "tips": [
+    "Sweet potatoes provide complex carbs with a low glycemic index.",
+    "Perfect for carb-loading before endurance training.",
+    "Meal prep friendly - stores well for 4 days.",
+    "Double the BBQ sauce recipe and store for future use."
+  ],
+  "storageInfo": "Refrigerate in an airtight container for up to 4 days. Reheat in the oven for best results.",
+  "servingSuggestion": "Pair with a fresh green salad or coleslaw.",
+  "variations": [
+    "Chicken breast can also be used but reduce cooking time."
+  ]
+}
