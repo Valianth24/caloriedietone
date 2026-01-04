@@ -109,22 +109,28 @@ export default function RecipesScreen() {
   const locale = i18n.language?.startsWith('tr') ? 'tr' : 'en';
 
   const [selectedCategory, setSelectedCategory] = useState<RecipeCategory | 'all'>('all');
+  const [selectedCollection, setSelectedCollection] = useState<CollectionId | null>(null);
   const [recipes, setRecipes] = useState<RecipeMetadata[]>([]);
   const [featuredRecipes, setFeaturedRecipes] = useState<RecipeMetadata[]>([]);
   const [loading, setLoading] = useState(true);
   const [showPaywall, setShowPaywall] = useState(false);
 
   const isPremium = user?.is_premium || false;
+  const allRecipes = getAllRecipeMetadata();
 
   useEffect(() => {
     loadRecipes();
-  }, [selectedCategory]);
+  }, [selectedCategory, selectedCollection]);
 
   const loadRecipes = () => {
     setLoading(true);
     try {
-      if (selectedCategory === 'all') {
-        setRecipes(getAllRecipeMetadata());
+      if (selectedCollection) {
+        // Collection seçiliyse, collection filtresini uygula
+        const collection = RECIPE_COLLECTIONS[selectedCollection];
+        setRecipes(collection.filter(allRecipes));
+      } else if (selectedCategory === 'all') {
+        setRecipes(allRecipes);
       } else {
         setRecipes(getRecipesByCategory(selectedCategory));
       }
@@ -133,6 +139,17 @@ export default function RecipesScreen() {
       console.error('Error loading recipes:', error);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleCollectionPress = (collectionId: CollectionId) => {
+    if (selectedCollection === collectionId) {
+      // Aynı koleksiyona tıklanırsa kapat
+      setSelectedCollection(null);
+      setSelectedCategory('all');
+    } else {
+      setSelectedCollection(collectionId);
+      setSelectedCategory('all');
     }
   };
 
