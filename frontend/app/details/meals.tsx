@@ -101,6 +101,46 @@ export default function MealsDetailScreen() {
     { key: 'dinner', label: t('dinner') },
     { key: 'snack', label: t('snack') },
   ];
+  
+  const filteredFoods = foodDatabase.filter(food =>
+    food.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+  
+  const handleAddFromList = () => {
+    setShowAddModal(false);
+    setShowFoodListModal(true);
+  };
+  
+  const handleAddFromCamera = () => {
+    setShowAddModal(false);
+    router.push('/(tabs)/camera');
+  };
+  
+  const handleSelectFood = (food: any) => {
+    setShowFoodListModal(false);
+    router.push({
+      pathname: '/details/meal-detail',
+      params: {
+        food_id: food.food_id,
+        name: food.name,
+        calories: food.calories,
+        protein: food.protein,
+        carbs: food.carbs,
+        fat: food.fat,
+        meal_type: selectedMealType,
+      },
+    });
+  };
+  
+  const handleDeleteMeal = async (mealId: string) => {
+    try {
+      await deleteMeal(mealId);
+      triggerRefresh();
+      loadData();
+    } catch (error) {
+      console.error('Error deleting meal:', error);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
