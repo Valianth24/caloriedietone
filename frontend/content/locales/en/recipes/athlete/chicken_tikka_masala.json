@@ -1,0 +1,60 @@
+{
+  "name": "Chicken Tikka Masala",
+  "description": "An Indian cuisine classic - creamy, spiced tomato sauce with tender chicken. High in protein and incredibly flavorful.",
+  "prepTime": "20 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "55 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "600", "unit": "g", "note": "cubed"},
+    {"name": "Greek yogurt", "amount": "200", "unit": "g", "note": "strained"},
+    {"name": "Tomato paste", "amount": "3", "unit": "tablespoons"},
+    {"name": "Crushed tomatoes", "amount": "400", "unit": "g", "note": "canned"},
+    {"name": "Onion", "amount": "2", "unit": "pieces", "note": "finely diced"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh ginger", "amount": "2", "unit": "cm", "note": "grated"},
+    {"name": "Garam masala", "amount": "2", "unit": "teaspoons"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Paprika", "amount": "1", "unit": "teaspoon"},
+    {"name": "Turmeric", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Heavy cream", "amount": "100", "unit": "ml", "note": "or coconut milk"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Fresh cilantro", "amount": "1", "unit": "bunch", "note": "for serving"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Make marinade: Mix yogurt, 1 tsp garam masala, turmeric, and salt.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Coat chicken pieces in marinade. Rest for at least 30 minutes, ideally 2 hours.", "tip": "Overnight marinating gives the best results.", "duration": "30 minutes"},
+    {"step": 3, "instruction": "Preheat oven to 220°C (425°F). Spread marinated chicken on a baking sheet and roast for 15 minutes.", "tip": "Light charring enhances flavor.", "duration": "15 minutes"},
+    {"step": 4, "instruction": "Heat olive oil in a deep pan. Sauté onions until softened, about 8 minutes.", "duration": "8 minutes"},
+    {"step": 5, "instruction": "Add garlic and ginger, cook for 1 minute.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Add remaining garam masala, cumin, and paprika. Cook for 30 seconds.", "tip": "Don't burn the spices.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Add tomato paste and crushed tomatoes. Bring to a boil.", "duration": "5 minutes"},
+    {"step": 8, "instruction": "Simmer sauce on low heat for 10 minutes until it reduces to a purée consistency.", "duration": "10 minutes"},
+    {"step": 9, "instruction": "Add roasted chicken to the sauce. Stir to combine.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Add cream and simmer for another 5 minutes.", "duration": "5 minutes"},
+    {"step": 11, "instruction": "Garnish with fresh cilantro and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 38,
+    "carbs": 45,
+    "fat": 20,
+    "fiber": 4,
+    "sugar": 10,
+    "sodium": 680
+  },
+  "tips": [
+    "Use coconut milk instead of cream for a healthier version.",
+    "Yogurt marinade improves protein digestibility.",
+    "Make your own garam masala to control salt content.",
+    "Perfect for meal prep - flavor improves after a day."
+  ],
+  "storageInfo": "Refrigerate for up to 4 days, freeze for up to 2 months.",
+  "servingSuggestion": "Serve with basmati rice or naan bread.",
+  "variations": [
+    "Shrimp or paneer work for a vegetarian version.",
+    "Add green chilies for extra heat.",
+    "Use low-fat yogurt to reduce calories."
+  ]
+}

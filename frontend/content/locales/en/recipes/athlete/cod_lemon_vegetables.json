@@ -1,0 +1,50 @@
+{
+  "name": "Lemon Cod with Vegetables",
+  "description": "Lean, high-protein white fish. Easy and delicious baked together with vegetables.",
+  "prepTime": "10 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Cod fillet", "amount": "2", "unit": "pieces", "note": "180g each"},
+    {"name": "Zucchini", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Cherry tomatoes", "amount": "200", "unit": "g"},
+    {"name": "Broccoli", "amount": "200", "unit": "g"},
+    {"name": "Lemon", "amount": "1", "unit": "piece"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves"},
+    {"name": "Fresh thyme", "amount": "1", "unit": "tablespoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Preheat oven to 200°C (400°F).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Spread vegetables on a baking sheet, drizzle with olive oil.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Season with salt, pepper, and garlic. Roast for 10 minutes.", "duration": "10 minutes"},
+    {"step": 4, "instruction": "Pat cod fillets dry with paper towels.", "tip": "Dry fish cooks better.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Season fish with salt, pepper, and lemon juice.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Place fish on top of the vegetables.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Arrange lemon slices on top of the fish.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Roast for another 10-12 minutes. Fish should flake easily with a fork.", "duration": "12 minutes"},
+    {"step": 9, "instruction": "Sprinkle with fresh thyme and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 38,
+    "carbs": 18,
+    "fat": 10,
+    "fiber": 5,
+    "sugar": 6,
+    "sodium": 420
+  },
+  "tips": [
+    "Cod is one of the leanest white fish options.",
+    "High protein, low calorie - ideal for dieting.",
+    "One-pan cooking minimizes cleanup."
+  ],
+  "storageInfo": "Refrigerate for up to 2 days.",
+  "servingSuggestion": "Serve with quinoa or brown rice.",
+  "variations": [
+    "Tilapia or halibut can be substituted.",
+    "Add capers and olives for a Mediterranean twist."
+  ]
+}

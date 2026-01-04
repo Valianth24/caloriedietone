@@ -1,0 +1,36 @@
+{
+  "name": "Chicken Quinoa Stuffed Peppers",
+  "description": "Colorful bell peppers stuffed with minced chicken and quinoa. A healthy, oven-baked main dish.",
+  "prepTime": "20 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "55 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Large bell peppers", "amount": "4", "unit": "pieces", "note": "red or yellow"},
+    {"name": "Ground chicken", "amount": "400", "unit": "g"},
+    {"name": "Cooked quinoa", "amount": "1", "unit": "cup"},
+    {"name": "Tomato", "amount": "2", "unit": "pieces", "note": "diced"},
+    {"name": "Onion", "amount": "1", "unit": "piece"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves"},
+    {"name": "Spinach", "amount": "100", "unit": "g"},
+    {"name": "Mozzarella", "amount": "100", "unit": "g"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Preheat oven to 190°C (375°F).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Cut tops off peppers and remove seeds and membranes.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Sauté onion in a pan. Add ground chicken and cook until browned.", "duration": "8 minutes"},
+    {"step": 4, "instruction": "Add garlic, tomatoes, and spices.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Stir in quinoa and spinach until combined.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Stuff the pepper cavities with the mixture.", "duration": "5 minutes"},
+    {"step": 7, "instruction": "Place in a baking dish and top with cheese.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Bake for 30-35 minutes until peppers are tender.", "duration": "35 minutes"}
+  ],
+  "nutrition": {"calories": 420, "protein": 36, "carbs": 38, "fat": 14, "fiber": 6, "sugar": 8, "sodium": 580},
+  "tips": ["Parboiling peppers for 5 minutes reduces baking time.", "Great for meal prep."],
+  "storageInfo": "Refrigerate for up to 4 days.",
+  "servingSuggestion": "Serve with a side salad.",
+  "variations": ["Ground beef also works well.", "Use white beans for a vegetarian version."]
+}

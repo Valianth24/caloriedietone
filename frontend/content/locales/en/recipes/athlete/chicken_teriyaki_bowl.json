@@ -1,0 +1,56 @@
+{
+  "name": "Teriyaki Chicken Bowl",
+  "description": "Japanese-inspired sweet and savory teriyaki chicken. Served over rice with vegetables for a satisfying meal.",
+  "prepTime": "15 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "35 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chicken thigh fillet", "amount": "400", "unit": "g", "note": "cubed"},
+    {"name": "Jasmine rice", "amount": "1", "unit": "cup"},
+    {"name": "Soy sauce", "amount": "4", "unit": "tablespoons", "note": "low sodium preferred"},
+    {"name": "Honey", "amount": "2", "unit": "tablespoons"},
+    {"name": "Rice vinegar", "amount": "1", "unit": "tablespoon"},
+    {"name": "Sesame oil", "amount": "1", "unit": "teaspoon"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves", "note": "grated"},
+    {"name": "Fresh ginger", "amount": "1", "unit": "teaspoon", "note": "grated"},
+    {"name": "Cornstarch", "amount": "1", "unit": "teaspoon"},
+    {"name": "Broccoli", "amount": "200", "unit": "g", "note": "florets"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "julienned"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"},
+    {"name": "Green onion", "amount": "2", "unit": "stalks", "note": "sliced"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Rinse rice and cook with 2 cups water. Simmer for 15 minutes.", "duration": "20 minutes"},
+    {"step": 2, "instruction": "Make teriyaki sauce: Mix soy sauce, honey, rice vinegar, sesame oil, garlic, and ginger.", "tip": "Sauce can be made ahead and stored for 1 week.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Dissolve cornstarch in 2 tbsp water and add to sauce. Mix well.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Heat a large pan or wok over high heat. Add 1 tbsp oil.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Add chicken pieces. Don't stir for 3 minutes, then flip.", "tip": "Don't overcrowd the pan - cook in batches if needed.", "duration": "6 minutes"},
+    {"step": 6, "instruction": "When chicken is golden, add broccoli and carrots. Stir-fry for 3 minutes.", "duration": "3 minutes"},
+    {"step": 7, "instruction": "Pour teriyaki sauce into the pan. Stir for 2-3 minutes until sauce thickens.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Divide rice into bowls. Top with teriyaki chicken and vegetables.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Garnish with sesame seeds and green onion. Serve hot.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 42,
+    "carbs": 55,
+    "fat": 14,
+    "fiber": 4,
+    "sugar": 12,
+    "sodium": 850
+  },
+  "tips": [
+    "Use low-sodium soy sauce to reduce sodium.",
+    "Don't overcook vegetables - keep them crisp-tender.",
+    "Perfect for meal prep - keeps well for 3-4 days.",
+    "Add a soft-boiled egg for extra protein."
+  ],
+  "storageInfo": "Store in an airtight container for up to 4 days. Add a splash of water when reheating.",
+  "servingSuggestion": "Serve with pickled cabbage (kimchi) or cucumber salad.",
+  "variations": [
+    "Beef or shrimp can be substituted.",
+    "Use cauliflower rice for a low-carb version.",
+    "Add sriracha for extra heat."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "Chicken Shawarma Plate",
+  "description": "Middle Eastern spiced chicken marinated in yogurt, served with hummus and fresh vegetables.",
+  "prepTime": "20 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "40 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Chicken thigh fillet", "amount": "600", "unit": "g"},
+    {"name": "Greek yogurt", "amount": "100", "unit": "g"},
+    {"name": "Cumin", "amount": "2", "unit": "teaspoons"},
+    {"name": "Paprika", "amount": "1", "unit": "teaspoon"},
+    {"name": "Turmeric", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Cinnamon", "amount": "1/4", "unit": "teaspoon"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves"},
+    {"name": "Lemon", "amount": "1", "unit": "piece"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Hummus", "amount": "200", "unit": "g"},
+    {"name": "Lettuce", "amount": "2", "unit": "cups"},
+    {"name": "Tomato", "amount": "2", "unit": "pieces"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece"},
+    {"name": "Red onion", "amount": "1/2", "unit": "piece"},
+    {"name": "Pickles", "amount": "4", "unit": "pieces"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Make marinade: Mix yogurt, all spices, garlic, lemon juice, and 2 tbsp olive oil.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Coat chicken in marinade. Rest for at least 30 minutes, ideally 4 hours.", "duration": "30 minutes"},
+    {"step": 3, "instruction": "Heat a grill pan over high heat.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Grill chicken for 7-8 minutes per side.", "duration": "16 minutes"},
+    {"step": 5, "instruction": "Rest for 5 minutes, then slice.", "duration": "7 minutes"},
+    {"step": 6, "instruction": "Chop vegetables.", "duration": "5 minutes"},
+    {"step": 7, "instruction": "Arrange hummus, lettuce, vegetables, and sliced chicken on plates.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Serve with pickles and lemon wedges.", "duration": "1 minute"}
+  ],
+  "nutrition": {"calories": 490, "protein": 42, "carbs": 42, "fat": 18, "fiber": 8, "sugar": 6, "sodium": 720},
+  "tips": ["Shawarma spices can be made at home.", "Longer marinating makes chicken extra tender.", "Can be wrapped in pita bread."],
+  "storageInfo": "Chicken can be refrigerated for 3 days.",
+  "servingSuggestion": "Serve with pita bread and tahini sauce.",
+  "variations": ["Lamb also works great.", "Add falafel for extra protein."]
+}

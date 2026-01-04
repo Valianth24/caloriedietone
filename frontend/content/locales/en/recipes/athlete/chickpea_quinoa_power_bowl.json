@@ -1,0 +1,56 @@
+{
+  "name": "Chickpea Quinoa Power Bowl",
+  "description": "Plant-based protein powerhouse with chickpeas and quinoa. Vegan, filling, and nutritious.",
+  "prepTime": "15 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "40 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Chickpeas", "amount": "1.5", "unit": "cups", "note": "cooked or canned, drained"},
+    {"name": "Quinoa", "amount": "1", "unit": "cup"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Cherry tomatoes", "amount": "150", "unit": "g", "note": "halved"},
+    {"name": "Red onion", "amount": "1/4", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Spinach", "amount": "100", "unit": "g"},
+    {"name": "Avocado", "amount": "1", "unit": "piece"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Lemon juice", "amount": "2", "unit": "tablespoons"},
+    {"name": "Tahini", "amount": "2", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "1", "unit": "clove"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Paprika", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1/2", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook quinoa in 2 cups water for 15-18 minutes.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Preheat oven to 200°C (400°F).", "duration": "10 minutes"},
+    {"step": 3, "instruction": "Toss chickpeas with 1 tbsp olive oil, cumin, paprika, and salt.", "tip": "Dry chickpeas well for crispier results.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Spread on a baking sheet and roast for 20-25 minutes until crispy.", "duration": "25 minutes"},
+    {"step": 5, "instruction": "Make tahini dressing: Whisk tahini, lemon juice, remaining olive oil, garlic, and 2 tbsp water.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Fluff cooked quinoa with a fork.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Divide quinoa into bowls. Add spinach.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Top with roasted chickpeas, cucumber, tomatoes, onion, and avocado.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Drizzle with tahini dressing and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 20,
+    "carbs": 58,
+    "fat": 20,
+    "fiber": 14,
+    "sugar": 6,
+    "sodium": 420
+  },
+  "tips": [
+    "Chickpeas combined with quinoa provide complete protein.",
+    "Roasted chickpeas add satisfying crunch.",
+    "Perfect for meal prep - keeps well for 4 days.",
+    "Add cottage cheese for extra protein."
+  ],
+  "storageInfo": "Store dressing separately. Refrigerate for up to 4 days.",
+  "servingSuggestion": "Serve warm or cold - great for lunch boxes.",
+  "variations": [
+    "Add grilled chicken for extra protein.",
+    "Swap tahini for hummus."
+  ]
+}
