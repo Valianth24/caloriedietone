@@ -1,0 +1,32 @@
+{
+  "name": "Sebzeli Hindi Köfte",
+  "description": "Yağsız hindi kıymasından sebzeli köfteler. Fırında pişirilmiş sağlıklı alternatif.",
+  "prepTime": "20 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "45 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Hindi kıyma", "amount": "500", "unit": "g"},
+    {"name": "Kabak", "amount": "1", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Havuç", "amount": "1", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Yumurta", "amount": "1", "unit": "adet"},
+    {"name": "Galeta unu", "amount": "1/4", "unit": "su bardağı"},
+    {"name": "Sarımsak", "amount": "2", "unit": "diş"},
+    {"name": "Tuz", "amount": "1", "unit": "çay kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "çay kaşığı"},
+    {"name": "Zeytinyağı", "amount": "1", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Fırını 200°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Tüm malzemeleri büyük bir kapta karıştırın.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "20 eşit köfte şekillendirin.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Yağlı fırın tepsisine dizin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "20-25 dakika pişirin.", "duration": "25 dakika"}
+  ],
+  "nutrition": {"calories": 380, "protein": 38, "carbs": 28, "fat": 14, "fiber": 3, "sugar": 4, "sodium": 520},
+  "tips": ["Hindi kıyma tavuktan daha yağsızdır.", "Sebzeler köfteleri nemli tutar."],
+  "storageInfo": "Buzdolabında 4 gün, dondurucuda 2 ay saklanır.",
+  "servingSuggestion": "Domates sosu ve salata ile servis edin.",
+  "variations": ["Tavuk kıyma da kullanılabilir."]
+}

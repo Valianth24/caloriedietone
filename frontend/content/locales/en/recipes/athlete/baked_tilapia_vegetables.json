@@ -1,0 +1,32 @@
+{
+  "name": "Baked Tilapia & Vegetables",
+  "description": "Lean white fish baked with vegetables. A light and nutritious main dish.",
+  "prepTime": "10 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tilapia fillet", "amount": "2", "unit": "pieces", "note": "about 180g each"},
+    {"name": "Zucchini", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Cherry tomatoes", "amount": "200", "unit": "g"},
+    {"name": "Broccoli", "amount": "150", "unit": "g"},
+    {"name": "Lemon", "amount": "1", "unit": "piece"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves"},
+    {"name": "Dried oregano", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Preheat oven to 200°C (400°F).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Spread vegetables on a baking sheet.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Toss with olive oil and seasonings.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Place fish fillets on top of vegetables.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add lemon juice and garlic.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Bake for 15-18 minutes.", "duration": "18 minutes"}
+  ],
+  "nutrition": {"calories": 310, "protein": 36, "carbs": 20, "fat": 10, "fiber": 4, "sugar": 5, "sodium": 380},
+  "tips": ["Tilapia is a very lean fish.", "One-pan meal - easy cleanup."],
+  "storageInfo": "Refrigerate for up to 2 days.",
+  "servingSuggestion": "Serve with quinoa or rice pilaf.",
+  "variations": ["Sea bass or cod can be substituted."]
+}

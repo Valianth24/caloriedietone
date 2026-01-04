@@ -1,0 +1,32 @@
+{
+  "name": "Salmon Avocado Bowl",
+  "description": "Fresh salmon with creamy avocado and vegetables in a nourishing bowl.",
+  "prepTime": "15 minutes",
+  "cookTime": "10 minutes",
+  "totalTime": "25 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Salmon fillet", "amount": "2", "unit": "pieces", "note": "about 150g each"},
+    {"name": "Avocado", "amount": "1", "unit": "piece"},
+    {"name": "Rice", "amount": "1", "unit": "cup"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece"},
+    {"name": "Edamame", "amount": "1/2", "unit": "cup"},
+    {"name": "Soy sauce", "amount": "2", "unit": "tablespoons"},
+    {"name": "Sesame oil", "amount": "1", "unit": "teaspoon"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"},
+    {"name": "Salt", "amount": "1/2", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook rice according to package directions.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Season salmon with salt.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Sear on high heat 3-4 minutes per side.", "duration": "8 minutes"},
+    {"step": 4, "instruction": "Slice avocado.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Assemble bowls: rice, salmon, avocado, cucumber, edamame.", "duration": "3 minutes"},
+    {"step": 6, "instruction": "Drizzle with soy sauce and garnish with sesame.", "duration": "1 minute"}
+  ],
+  "nutrition": {"calories": 480, "protein": 38, "carbs": 28, "fat": 26, "fiber": 6, "sugar": 2, "sodium": 620},
+  "tips": ["Salmon is rich in omega-3 fatty acids.", "Avocado provides healthy fats."],
+  "storageInfo": "Best served fresh.",
+  "servingSuggestion": "Serve with wasabi and soy sauce.",
+  "variations": ["Tuna or trout can be substituted."]
+}

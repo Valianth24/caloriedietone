@@ -1,0 +1,32 @@
+{
+  "name": "Somon Avokado Bowl",
+  "description": "Taze somon, kremamsı avokado ve sebzelerle dolu besleyici bowl.",
+  "prepTime": "15 dakika",
+  "cookTime": "10 dakika",
+  "totalTime": "25 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Somon fileto", "amount": "2", "unit": "adet", "note": "150g civarı"},
+    {"name": "Avokado", "amount": "1", "unit": "adet"},
+    {"name": "Pirinç", "amount": "1", "unit": "su bardağı"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet"},
+    {"name": "Edamame", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Soya sosu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "1", "unit": "çay kaşığı"},
+    {"name": "Susam tohumu", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1/2", "unit": "çay kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pirinci pişirin.", "duration": "18 dakika"},
+    {"step": 2, "instruction": "Somonu tuzlayın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Yüksek ateşte her yüzünü 3-4 dakika pişirin.", "duration": "8 dakika"},
+    {"step": 4, "instruction": "Avokadoyu dilimleyin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Bowl'ları hazırlayın: pirinç, somon, avokado, salatalık, edamame.", "duration": "3 dakika"},
+    {"step": 6, "instruction": "Soya sosu ve susam ile süsleyin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 480, "protein": 38, "carbs": 28, "fat": 26, "fiber": 6, "sugar": 2, "sodium": 620},
+  "tips": ["Somon omega-3 açısından zengindir.", "Avokado sağlıklı yağ kaynağıdır."],
+  "storageInfo": "Taze tüketilmesi önerilir.",
+  "servingSuggestion": "Wasabi ve soya sosu ile servis edin.",
+  "variations": ["Ton balığı veya alabalık kullanılabilir."]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Turkey Vegetable Meatballs",
+  "description": "Lean turkey meatballs packed with vegetables. Baked for a healthier alternative.",
+  "prepTime": "20 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "45 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Ground turkey", "amount": "500", "unit": "g"},
+    {"name": "Zucchini", "amount": "1", "unit": "piece", "note": "grated"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "grated"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "finely diced"},
+    {"name": "Egg", "amount": "1", "unit": "piece"},
+    {"name": "Breadcrumbs", "amount": "1/4", "unit": "cup"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Olive oil", "amount": "1", "unit": "tablespoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Preheat oven to 200°C (400°F).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Combine all ingredients in a large bowl.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Shape into 20 equal meatballs.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Arrange on a greased baking sheet.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Bake for 20-25 minutes.", "duration": "25 minutes"}
+  ],
+  "nutrition": {"calories": 380, "protein": 38, "carbs": 28, "fat": 14, "fiber": 3, "sugar": 4, "sodium": 520},
+  "tips": ["Turkey is leaner than chicken.", "Vegetables keep meatballs moist."],
+  "storageInfo": "Refrigerate for 4 days, freeze for up to 2 months.",
+  "servingSuggestion": "Serve with tomato sauce and salad.",
+  "variations": ["Ground chicken can be substituted."]
+}

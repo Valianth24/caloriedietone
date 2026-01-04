@@ -1,0 +1,32 @@
+{
+  "name": "Fırında Tilapia & Sebzeler",
+  "description": "Yağsız beyaz balık fırında sebzelerle. Hafif ve besleyici bir ana yemek.",
+  "prepTime": "10 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tilapia fileto", "amount": "2", "unit": "adet", "note": "180g civarı"},
+    {"name": "Kabak", "amount": "1", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Kiraz domates", "amount": "200", "unit": "g"},
+    {"name": "Brokoli", "amount": "150", "unit": "g"},
+    {"name": "Limon", "amount": "1", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "2", "unit": "diş"},
+    {"name": "Kuru kekik", "amount": "1", "unit": "çay kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Fırını 200°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Sebzeleri fırın tepsisine yayın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Zeytinyağı ve baharatlarla harmanlayın.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Balık filetolarını sebzelerin üzerine yerleştirin.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Limon suyu ve sarımsak ekleyin.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "15-18 dakika pişirin.", "duration": "18 dakika"}
+  ],
+  "nutrition": {"calories": 310, "protein": 36, "carbs": 20, "fat": 10, "fiber": 4, "sugar": 5, "sodium": 380},
+  "tips": ["Tilapia çok yağsız bir balıktır.", "Tek tepsili yemek - temizlik kolay."],
+  "storageInfo": "Buzdolabında 2 gün saklanır.",
+  "servingSuggestion": "Kinoa veya pirinç pilavı ile servis edin.",
+  "variations": ["Levrek veya morina da kullanılabilir."]
+}
