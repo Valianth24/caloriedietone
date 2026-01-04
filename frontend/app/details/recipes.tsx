@@ -471,6 +471,11 @@ export default function RecipesScreen() {
 
 // Helper functions for recipe names
 const getRecipeNameTR = (id: string): string => {
+  // Check athlete recipes first
+  if (ATHLETE_RECIPE_NAMES[id as keyof typeof ATHLETE_RECIPE_NAMES]) {
+    return ATHLETE_RECIPE_NAMES[id as keyof typeof ATHLETE_RECIPE_NAMES].tr;
+  }
+  
   const names: Record<string, string> = {
     avocado_toast: 'Avokadolu Tost',
     protein_pancakes: 'Proteinli Pankek',
@@ -509,6 +514,11 @@ const getRecipeNameTR = (id: string): string => {
 };
 
 const getRecipeNameEN = (id: string): string => {
+  // Check athlete recipes first
+  if (ATHLETE_RECIPE_NAMES[id as keyof typeof ATHLETE_RECIPE_NAMES]) {
+    return ATHLETE_RECIPE_NAMES[id as keyof typeof ATHLETE_RECIPE_NAMES].en;
+  }
+  
   const names: Record<string, string> = {
     avocado_toast: 'Avocado Toast',
     protein_pancakes: 'Protein Pancakes',
