@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Modal, TextInput, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { getTodayMeals, getDailySummary } from '../../utils/api';
+import { getTodayMeals, getDailySummary, getFoodDatabase, addMeal, deleteMeal } from '../../utils/api';
 import { Colors } from '../../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useStore } from '../../store/useStore';
+import i18n from '../../utils/i18n';
 
 interface Meal {
   meal_id: string;
