@@ -1,79 +1,52 @@
 {
   "name": "Tropical Smoothie",
-  "description": "TODO: Tropical Smoothie description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
+  "description": "Vacation vibes with mango, pineapple, and coconut. Refreshing and invigorating.",
+  "prepTime": "5 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "5 minutes",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Mango", "amount": "1", "unit": "piece", "note": "ripe, cubed"},
+    {"name": "Pineapple", "amount": "1", "unit": "cup", "note": "fresh or frozen"},
+    {"name": "Banana", "amount": "1", "unit": "piece", "note": "frozen"},
+    {"name": "Coconut milk", "amount": "1", "unit": "cup"},
+    {"name": "Orange juice", "amount": "1/2", "unit": "cup", "note": "fresh squeezed"},
+    {"name": "Greek yogurt", "amount": "1/2", "unit": "cup"},
+    {"name": "Shredded coconut", "amount": "1", "unit": "tbsp", "note": "for garnish"},
+    {"name": "Ice cubes", "amount": "4-5", "unit": "pieces"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Cut mango in half, remove pit, peel and cube.", "tip": "Ripe mango is sweet and creamy.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Add all fruits to blender.", "duration": "30 seconds"},
+    {"step": 3, "instruction": "Pour in coconut milk and orange juice.", "duration": "15 seconds"},
+    {"step": 4, "instruction": "Add Greek yogurt.", "tip": "Yogurt adds protein and creaminess.", "duration": "15 seconds"},
+    {"step": 5, "instruction": "Add ice cubes.", "duration": "15 seconds"},
+    {"step": 6, "instruction": "Blend on high 1-2 minutes until completely smooth.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Check consistency. Add more orange juice if too thick.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Pour into tall glasses. Sprinkle shredded coconut on top.", "tip": "Garnish with pineapple or mango slice.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 245,
+    "protein": 8,
+    "carbs": 48,
+    "fat": 6,
+    "fiber": 5,
+    "sugar": 38,
+    "sodium": 45
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Mango is rich in vitamin A and vitamin C.",
+    "Pineapple contains bromelain - aids digestion.",
+    "Coconut milk provides healthy fats.",
+    "Perfect cold drink for hot summer days.",
+    "Can use frozen tropical fruit mix."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Best fresh. Can refrigerate 24 hours max.",
+  "servingSuggestion": "Serve at beach parties, summer breakfasts, or as dessert substitute.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Piña Colada: Add coconut cream.",
+    "Green tropical: Add 1 handful spinach.",
+    "Protein boost: Add vanilla protein powder.",
+    "Spicy kick: Add 1 piece fresh ginger - anti-inflammatory."
   ]
 }

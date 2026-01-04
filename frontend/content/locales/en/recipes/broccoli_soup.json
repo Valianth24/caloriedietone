@@ -1,79 +1,61 @@
 {
   "name": "Broccoli Soup",
-  "description": "TODO: Broccoli Soup description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Creamy and healthy broccoli soup. Low calorie but satisfying - even kids love it!",
+  "prepTime": "15 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "40 minutes",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Broccoli", "amount": "700", "unit": "g", "note": "florets and stems"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Potato", "amount": "1", "unit": "piece", "note": "medium, cubed"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Vegetable broth", "amount": "4", "unit": "cups"},
+    {"name": "Milk", "amount": "1", "unit": "cup", "note": "or cream"},
+    {"name": "Cheddar cheese", "amount": "1", "unit": "cup", "note": "shredded"},
+    {"name": "Butter", "amount": "2", "unit": "tbsp"},
+    {"name": "Olive oil", "amount": "1", "unit": "tbsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"},
+    {"name": "Nutmeg", "amount": "1/4", "unit": "tsp", "note": "optional"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Wash broccoli. Separate florets from stems. Peel tough outer skin from stems and cube.", "tip": "Stems are nutritious too - don't discard!", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Melt butter with olive oil in large pot over medium heat.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Add onion and sauté 5 minutes until soft.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Add garlic and cook 1 minute.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add broccoli stems and potato cubes. Sauté 2 minutes.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Add vegetable broth. Bring to boil.", "duration": "3 minutes"},
+    {"step": 7, "instruction": "Add broccoli florets. Once boiling, reduce heat.", "tip": "Save a few small florets for garnish.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Simmer 15-18 minutes until broccoli and potato are soft.", "tip": "Don't overcook - color fades.", "duration": "18 minutes"},
+    {"step": 9, "instruction": "Remove from heat. Blend until smooth with immersion blender.", "tip": "Leave slightly chunky if you prefer texture.", "duration": "3 minutes"},
+    {"step": 10, "instruction": "Add milk and stir. Check consistency - add more broth if too thick.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Return to low heat. Add most of the cheese and stir until melted.", "tip": "Don't boil - cheese will clump.", "duration": "2 minutes"},
+    {"step": 12, "instruction": "Season with salt, pepper, and nutmeg.", "duration": "30 seconds"},
+    {"step": 13, "instruction": "Ladle into bowls. Sprinkle remaining cheese on top. Add reserved broccoli florets.", "duration": "2 minutes"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 195,
+    "protein": 10,
+    "carbs": 18,
+    "fat": 10,
+    "fiber": 4,
+    "sugar": 4,
+    "sodium": 520
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Broccoli is rich in vitamin C, vitamin K, and fiber.",
+    "Potato adds natural thickness - no flour needed.",
+    "Use nutritional yeast instead of cheese for vegan version.",
+    "Great way to get kids to eat vegetables!",
+    "Frozen broccoli works too."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate 4 days, freeze 2 months.",
+  "servingSuggestion": "Serve with crusty bread or crispy croutons. Drizzle olive oil on top.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Cheesy: Add extra cheddar cheese.",
+    "Vegan: Use nutritional yeast and coconut milk.",
+    "With spinach: Replace half broccoli with spinach.",
+    "Spicy: Add red pepper flakes and jalapeño."
   ]
 }

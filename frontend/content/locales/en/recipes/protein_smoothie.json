@@ -1,79 +1,52 @@
 {
   "name": "Protein Smoothie",
-  "description": "TODO: Protein Smoothie description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "High-protein post-workout drink for muscle recovery. Filling and delicious.",
+  "prepTime": "5 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "5 minutes",
+  "servings": 1,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Protein powder", "amount": "1", "unit": "scoop", "note": "30g, vanilla or chocolate"},
+    {"name": "Banana", "amount": "1", "unit": "piece", "note": "frozen ideal"},
+    {"name": "Peanut butter", "amount": "1", "unit": "tbsp", "note": "natural"},
+    {"name": "Rolled oats", "amount": "2", "unit": "tbsp"},
+    {"name": "Almond milk", "amount": "1", "unit": "cup"},
+    {"name": "Greek yogurt", "amount": "1/2", "unit": "cup"},
+    {"name": "Honey", "amount": "1", "unit": "tsp", "note": "optional"},
+    {"name": "Ice cubes", "amount": "3-4", "unit": "pieces"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Add liquids to blender base first - almond milk and yogurt.", "tip": "Liquid at bottom helps blending.", "duration": "15 seconds"},
+    {"step": 2, "instruction": "Add protein powder.", "duration": "10 seconds"},
+    {"step": 3, "instruction": "Break banana into pieces and add.", "tip": "Frozen banana makes shake cold and creamy.", "duration": "20 seconds"},
+    {"step": 4, "instruction": "Add peanut butter.", "tip": "Peanut butter adds healthy fats and extra protein.", "duration": "10 seconds"},
+    {"step": 5, "instruction": "Add oats and optional honey.", "duration": "10 seconds"},
+    {"step": 6, "instruction": "Add ice cubes.", "duration": "10 seconds"},
+    {"step": 7, "instruction": "Blend on high 1-2 minutes until completely smooth.", "tip": "No oat particles should remain - blend longer.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Pour into shaker or glass and drink immediately.", "tip": "Ideal to consume within 30 minutes post-workout.", "duration": "30 seconds"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 420,
+    "protein": 38,
+    "carbs": 45,
+    "fat": 12,
+    "fiber": 6,
+    "sugar": 22,
+    "sodium": 180
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Post-workout protein intake is critical for muscle repair and growth.",
+    "Adjust liquid based on your protein powder brand.",
+    "Can replace breakfast too.",
+    "Banana provides complex carbs and potassium.",
+    "Increase calories for bulking goals."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Drink immediately - not recommended to store.",
+  "servingSuggestion": "Drink within 30-60 minutes after workout. Carry in shaker or sport bottle.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Chocolate: Chocolate protein powder + 1 tbsp cocoa.",
+    "Coffee: Add 1 shot espresso or 1 tsp coffee powder.",
+    "Berry: Use mixed berries instead of banana.",
+    "Green: Add 1 handful spinach - taste unchanged."
   ]
 }

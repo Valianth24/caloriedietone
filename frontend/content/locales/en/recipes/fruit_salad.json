@@ -1,79 +1,60 @@
 {
   "name": "Fruit Salad",
-  "description": "TODO: Fruit Salad description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Colorful fresh seasonal fruits with light honey-lemon dressing. Refreshing and vibrant.",
+  "prepTime": "20 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "20 minutes",
+  "servings": 8,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Strawberries", "amount": "300", "unit": "g", "note": "halved or quartered"},
+    {"name": "Blueberries", "amount": "200", "unit": "g"},
+    {"name": "Raspberries", "amount": "150", "unit": "g"},
+    {"name": "Mango", "amount": "1", "unit": "piece", "note": "cubed"},
+    {"name": "Kiwi", "amount": "3", "unit": "pieces", "note": "sliced"},
+    {"name": "Grapes", "amount": "200", "unit": "g", "note": "green or red, halved"},
+    {"name": "Pineapple", "amount": "1", "unit": "cup", "note": "cubed"},
+    {"name": "Oranges", "amount": "2", "unit": "pieces", "note": "segmented"},
+    {"name": "Honey", "amount": "3", "unit": "tbsp"},
+    {"name": "Lemon juice", "amount": "2", "unit": "tbsp"},
+    {"name": "Lemon zest", "amount": "1", "unit": "tsp"},
+    {"name": "Fresh mint", "amount": "2", "unit": "tbsp", "note": "finely chopped"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Gently wash all fruits under cold water.", "tip": "Fruits should be fresh and cold.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Hull strawberries. Halve or quarter depending on size.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Cut mango in half around the pit. Score flesh and scoop out cubes.", "tip": "Ripe mango is sweet and creamy.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Peel kiwis. Slice into half-moon shapes.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Halve grapes (optional - can leave whole).", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Peel oranges. Remove white pith and separate into segments.", "tip": "Save any juice that drips - add to dressing.", "duration": "3 minutes"},
+    {"step": 7, "instruction": "Place all prepared fruits in large serving bowl.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Make dressing: Whisk honey, lemon juice, and zest in small bowl.", "tip": "Microwave honey for a few seconds if too thick.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Pour dressing over fruits.", "duration": "30 seconds"},
+    {"step": 10, "instruction": "Gently fold with large spoon.", "tip": "Don't crush the fruits.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Sprinkle chopped mint leaves.", "tip": "Mint adds refreshing contrast.", "duration": "30 seconds"},
+    {"step": 12, "instruction": "Serve immediately or chill 30 minutes in refrigerator.", "tip": "Cold serving is more refreshing.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 145,
+    "protein": 2,
+    "carbs": 36,
+    "fat": 1,
+    "fiber": 5,
+    "sugar": 28,
+    "sodium": 5
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Use seasonal fruits for freshest and most economical choice.",
+    "Don't add banana - it browns quickly and changes texture.",
+    "Citrus acid prevents other fruits from browning.",
+    "Perfect for parties - easy but impressive.",
+    "Serve for breakfast, dessert, or as side dish."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate covered 1-2 days. Fruits release more juice daily.",
+  "servingSuggestion": "Serve with yogurt, ice cream, or alone. Brunch table essential.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Tropical: Mango, pineapple, papaya, and coconut.",
+    "Red berries: Only red fruits - strawberries, raspberries, cherries.",
+    "Chocolate drizzle: Top with chocolate sauce.",
+    "With granola: Add granola for breakfast version."
   ]
 }

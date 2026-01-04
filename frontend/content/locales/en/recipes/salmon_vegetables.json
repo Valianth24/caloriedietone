@@ -1,79 +1,61 @@
 {
   "name": "Salmon with Vegetables",
-  "description": "TODO: Salmon with Vegetables description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Sheet pan salmon and seasonal vegetables. Healthy, practical, and elegant one-pan meal.",
+  "prepTime": "15 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "40 minutes",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Salmon fillets", "amount": "4", "unit": "pieces", "note": "180g each"},
+    {"name": "Broccoli", "amount": "300", "unit": "g", "note": "florets"},
+    {"name": "Asparagus", "amount": "200", "unit": "g", "note": "trimmed"},
+    {"name": "Cherry tomatoes", "amount": "200", "unit": "g"},
+    {"name": "Zucchini", "amount": "2", "unit": "pieces", "note": "half-moon slices"},
+    {"name": "Lemon", "amount": "2", "unit": "pieces"},
+    {"name": "Olive oil", "amount": "4", "unit": "tbsp"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh dill", "amount": "3", "unit": "tbsp", "note": "chopped"},
+    {"name": "Honey", "amount": "1", "unit": "tbsp"},
+    {"name": "Dijon mustard", "amount": "1", "unit": "tbsp"},
+    {"name": "Sea salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Preheat oven to 400°F (200°C). Line large baking sheet with parchment paper.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Make marinade: In small bowl, combine 2 tbsp olive oil, juice of 1 lemon, honey, mustard, and half the garlic.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Place salmon in center of sheet. Brush with half the marinade.", "tip": "If skin-on, place skin side down.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Place all vegetables in large bowl.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add remaining olive oil, garlic, salt, and pepper to vegetables. Toss to coat.", "tip": "All vegetables should be coated with oil.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Arrange vegetables around salmon in single layer.", "tip": "Vegetables shouldn't overlap - they'll steam instead of roast.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Slice remaining lemon and place on top of salmon.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Bake 20-25 minutes.", "tip": "Salmon internal temp should reach 145°F. Center can be slightly pink.", "duration": "25 minutes"},
+    {"step": 9, "instruction": "Check if vegetables are roasted. If needed, add 5 more minutes.", "duration": "5 minutes"},
+    {"step": 10, "instruction": "Remove from oven. Drizzle remaining marinade over hot salmon.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Squeeze remaining lemon juice over vegetables.", "duration": "30 seconds"},
+    {"step": 12, "instruction": "Sprinkle fresh dill and serve immediately.", "tip": "Use pan juices too - flavor gold!", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 425,
+    "protein": 38,
+    "carbs": 18,
+    "fat": 24,
+    "fiber": 6,
+    "sugar": 8,
+    "sodium": 480
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Salmon is one of the richest sources of omega-3 fatty acids.",
+    "Sheet pan dinner - easy one-pan cooking.",
+    "Cut vegetables to similar sizes for even cooking.",
+    "Choose sustainably sourced salmon.",
+    "If using frozen salmon, thaw completely first."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate 2 days. Salmon is best fresh.",
+  "servingSuggestion": "Complete meal on its own. Add quinoa or brown rice if desired.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Mediterranean: Add olives, capers, and sun-dried tomatoes.",
+    "Asian style: Use teriyaki sauce and sesame seeds.",
+    "Cajun: Coat with Cajun spices.",
+    "Winter version: Use butternut squash and Brussels sprouts."
   ]
 }
