@@ -81,6 +81,114 @@ const recipeContentLoaders: Record<string, Record<RecipeId, () => Promise<Recipe
 
 const DEFAULT_LOCALE = 'en';
 
+// Athlete Recipe Content Loaders
+const athleteRecipeContentLoaders: Record<string, Record<AthleteRecipeId, () => Promise<RecipeContent>>> = {
+  tr: {
+    grilled_chicken_breast_quinoa: () => import('../locales/tr/recipes/athlete/grilled_chicken_breast_quinoa.json').then(m => m.default as RecipeContent),
+    chicken_teriyaki_bowl: () => import('../locales/tr/recipes/athlete/chicken_teriyaki_bowl.json').then(m => m.default as RecipeContent),
+    mediterranean_chicken_wrap: () => import('../locales/tr/recipes/athlete/mediterranean_chicken_wrap.json').then(m => m.default as RecipeContent),
+    chicken_avocado_salad: () => import('../locales/tr/recipes/athlete/chicken_avocado_salad.json').then(m => m.default as RecipeContent),
+    honey_garlic_chicken_rice: () => import('../locales/tr/recipes/athlete/honey_garlic_chicken_rice.json').then(m => m.default as RecipeContent),
+    chicken_fajita_bowl: () => import('../locales/tr/recipes/athlete/chicken_fajita_bowl.json').then(m => m.default as RecipeContent),
+    lemon_herb_chicken_vegetables: () => import('../locales/tr/recipes/athlete/lemon_herb_chicken_vegetables.json').then(m => m.default as RecipeContent),
+    chicken_tikka_masala: () => import('../locales/tr/recipes/athlete/chicken_tikka_masala.json').then(m => m.default as RecipeContent),
+    bbq_chicken_sweet_potato: () => import('../locales/tr/recipes/athlete/bbq_chicken_sweet_potato.json').then(m => m.default as RecipeContent),
+    greek_chicken_power_bowl: () => import('../locales/tr/recipes/athlete/greek_chicken_power_bowl.json').then(m => m.default as RecipeContent),
+    chicken_broccoli_stir_fry: () => import('../locales/tr/recipes/athlete/chicken_broccoli_stir_fry.json').then(m => m.default as RecipeContent),
+    cajun_chicken_pasta: () => import('../locales/tr/recipes/athlete/cajun_chicken_pasta.json').then(m => m.default as RecipeContent),
+    chicken_quinoa_stuffed_peppers: () => import('../locales/tr/recipes/athlete/chicken_quinoa_stuffed_peppers.json').then(m => m.default as RecipeContent),
+    asian_sesame_chicken_bowl: () => import('../locales/tr/recipes/athlete/asian_sesame_chicken_bowl.json').then(m => m.default as RecipeContent),
+    chicken_shawarma_plate: () => import('../locales/tr/recipes/athlete/chicken_shawarma_plate.json').then(m => m.default as RecipeContent),
+    beef_stir_fry_brown_rice: () => import('../locales/tr/recipes/athlete/beef_stir_fry_brown_rice.json').then(m => m.default as RecipeContent),
+    lean_beef_burrito_bowl: () => import('../locales/tr/recipes/athlete/lean_beef_burrito_bowl.json').then(m => m.default as RecipeContent),
+    beef_vegetable_kebabs: () => import('../locales/tr/recipes/athlete/beef_vegetable_kebabs.json').then(m => m.default as RecipeContent),
+    korean_beef_bowl: () => import('../locales/tr/recipes/athlete/korean_beef_bowl.json').then(m => m.default as RecipeContent),
+    beef_quinoa_meatballs: () => import('../locales/tr/recipes/athlete/beef_quinoa_meatballs.json').then(m => m.default as RecipeContent),
+    steak_sweet_potato_meal: () => import('../locales/tr/recipes/athlete/steak_sweet_potato_meal.json').then(m => m.default as RecipeContent),
+    beef_broccoli_garlic: () => import('../locales/tr/recipes/athlete/beef_broccoli_garlic.json').then(m => m.default as RecipeContent),
+    mediterranean_beef_rice: () => import('../locales/tr/recipes/athlete/mediterranean_beef_rice.json').then(m => m.default as RecipeContent),
+    beef_mushroom_stroganoff: () => import('../locales/tr/recipes/athlete/beef_mushroom_stroganoff.json').then(m => m.default as RecipeContent),
+    tex_mex_beef_skillet: () => import('../locales/tr/recipes/athlete/tex_mex_beef_skillet.json').then(m => m.default as RecipeContent),
+    grilled_salmon_asparagus: () => import('../locales/tr/recipes/athlete/grilled_salmon_asparagus.json').then(m => m.default as RecipeContent),
+    tuna_quinoa_salad: () => import('../locales/tr/recipes/athlete/tuna_quinoa_salad.json').then(m => m.default as RecipeContent),
+    cod_lemon_vegetables: () => import('../locales/tr/recipes/athlete/cod_lemon_vegetables.json').then(m => m.default as RecipeContent),
+    shrimp_garlic_zucchini: () => import('../locales/tr/recipes/athlete/shrimp_garlic_zucchini.json').then(m => m.default as RecipeContent),
+    salmon_teriyaki_bowl: () => import('../locales/tr/recipes/athlete/salmon_teriyaki_bowl.json').then(m => m.default as RecipeContent),
+    mediterranean_sea_bass: () => import('../locales/tr/recipes/athlete/mediterranean_sea_bass.json').then(m => m.default as RecipeContent),
+    tuna_steak_sweet_potato: () => import('../locales/tr/recipes/athlete/tuna_steak_sweet_potato.json').then(m => m.default as RecipeContent),
+    garlic_butter_shrimp_rice: () => import('../locales/tr/recipes/athlete/garlic_butter_shrimp_rice.json').then(m => m.default as RecipeContent),
+    baked_tilapia_vegetables: () => import('../locales/tr/recipes/athlete/baked_tilapia_vegetables.json').then(m => m.default as RecipeContent),
+    salmon_avocado_bowl: () => import('../locales/tr/recipes/athlete/salmon_avocado_bowl.json').then(m => m.default as RecipeContent),
+    turkey_quinoa_power_bowl: () => import('../locales/tr/recipes/athlete/turkey_quinoa_power_bowl.json').then(m => m.default as RecipeContent),
+    turkey_vegetable_meatballs: () => import('../locales/tr/recipes/athlete/turkey_vegetable_meatballs.json').then(m => m.default as RecipeContent),
+    turkey_taco_lettuce_wraps: () => import('../locales/tr/recipes/athlete/turkey_taco_lettuce_wraps.json').then(m => m.default as RecipeContent),
+    herb_roasted_turkey_breast: () => import('../locales/tr/recipes/athlete/herb_roasted_turkey_breast.json').then(m => m.default as RecipeContent),
+    turkey_spinach_pasta: () => import('../locales/tr/recipes/athlete/turkey_spinach_pasta.json').then(m => m.default as RecipeContent),
+    protein_omelette_vegetables: () => import('../locales/tr/recipes/athlete/protein_omelette_vegetables.json').then(m => m.default as RecipeContent),
+    greek_yogurt_power_parfait: () => import('../locales/tr/recipes/athlete/greek_yogurt_power_parfait.json').then(m => m.default as RecipeContent),
+    cottage_cheese_protein_bowl: () => import('../locales/tr/recipes/athlete/cottage_cheese_protein_bowl.json').then(m => m.default as RecipeContent),
+    egg_white_vegetable_scramble: () => import('../locales/tr/recipes/athlete/egg_white_vegetable_scramble.json').then(m => m.default as RecipeContent),
+    high_protein_breakfast_wrap: () => import('../locales/tr/recipes/athlete/high_protein_breakfast_wrap.json').then(m => m.default as RecipeContent),
+    chickpea_quinoa_power_bowl: () => import('../locales/tr/recipes/athlete/chickpea_quinoa_power_bowl.json').then(m => m.default as RecipeContent),
+    lentil_vegetable_curry: () => import('../locales/tr/recipes/athlete/lentil_vegetable_curry.json').then(m => m.default as RecipeContent),
+    black_bean_rice_bowl: () => import('../locales/tr/recipes/athlete/black_bean_rice_bowl.json').then(m => m.default as RecipeContent),
+    tofu_stir_fry_vegetables: () => import('../locales/tr/recipes/athlete/tofu_stir_fry_vegetables.json').then(m => m.default as RecipeContent),
+    edamame_quinoa_salad: () => import('../locales/tr/recipes/athlete/edamame_quinoa_salad.json').then(m => m.default as RecipeContent),
+  },
+  en: {
+    grilled_chicken_breast_quinoa: () => import('../locales/en/recipes/athlete/grilled_chicken_breast_quinoa.json').then(m => m.default as RecipeContent),
+    chicken_teriyaki_bowl: () => import('../locales/en/recipes/athlete/chicken_teriyaki_bowl.json').then(m => m.default as RecipeContent),
+    mediterranean_chicken_wrap: () => import('../locales/en/recipes/athlete/mediterranean_chicken_wrap.json').then(m => m.default as RecipeContent),
+    chicken_avocado_salad: () => import('../locales/en/recipes/athlete/chicken_avocado_salad.json').then(m => m.default as RecipeContent),
+    honey_garlic_chicken_rice: () => import('../locales/en/recipes/athlete/honey_garlic_chicken_rice.json').then(m => m.default as RecipeContent),
+    chicken_fajita_bowl: () => import('../locales/en/recipes/athlete/chicken_fajita_bowl.json').then(m => m.default as RecipeContent),
+    lemon_herb_chicken_vegetables: () => import('../locales/en/recipes/athlete/lemon_herb_chicken_vegetables.json').then(m => m.default as RecipeContent),
+    chicken_tikka_masala: () => import('../locales/en/recipes/athlete/chicken_tikka_masala.json').then(m => m.default as RecipeContent),
+    bbq_chicken_sweet_potato: () => import('../locales/en/recipes/athlete/bbq_chicken_sweet_potato.json').then(m => m.default as RecipeContent),
+    greek_chicken_power_bowl: () => import('../locales/en/recipes/athlete/greek_chicken_power_bowl.json').then(m => m.default as RecipeContent),
+    chicken_broccoli_stir_fry: () => import('../locales/en/recipes/athlete/chicken_broccoli_stir_fry.json').then(m => m.default as RecipeContent),
+    cajun_chicken_pasta: () => import('../locales/en/recipes/athlete/cajun_chicken_pasta.json').then(m => m.default as RecipeContent),
+    chicken_quinoa_stuffed_peppers: () => import('../locales/en/recipes/athlete/chicken_quinoa_stuffed_peppers.json').then(m => m.default as RecipeContent),
+    asian_sesame_chicken_bowl: () => import('../locales/en/recipes/athlete/asian_sesame_chicken_bowl.json').then(m => m.default as RecipeContent),
+    chicken_shawarma_plate: () => import('../locales/en/recipes/athlete/chicken_shawarma_plate.json').then(m => m.default as RecipeContent),
+    beef_stir_fry_brown_rice: () => import('../locales/en/recipes/athlete/beef_stir_fry_brown_rice.json').then(m => m.default as RecipeContent),
+    lean_beef_burrito_bowl: () => import('../locales/en/recipes/athlete/lean_beef_burrito_bowl.json').then(m => m.default as RecipeContent),
+    beef_vegetable_kebabs: () => import('../locales/en/recipes/athlete/beef_vegetable_kebabs.json').then(m => m.default as RecipeContent),
+    korean_beef_bowl: () => import('../locales/en/recipes/athlete/korean_beef_bowl.json').then(m => m.default as RecipeContent),
+    beef_quinoa_meatballs: () => import('../locales/en/recipes/athlete/beef_quinoa_meatballs.json').then(m => m.default as RecipeContent),
+    steak_sweet_potato_meal: () => import('../locales/en/recipes/athlete/steak_sweet_potato_meal.json').then(m => m.default as RecipeContent),
+    beef_broccoli_garlic: () => import('../locales/en/recipes/athlete/beef_broccoli_garlic.json').then(m => m.default as RecipeContent),
+    mediterranean_beef_rice: () => import('../locales/en/recipes/athlete/mediterranean_beef_rice.json').then(m => m.default as RecipeContent),
+    beef_mushroom_stroganoff: () => import('../locales/en/recipes/athlete/beef_mushroom_stroganoff.json').then(m => m.default as RecipeContent),
+    tex_mex_beef_skillet: () => import('../locales/en/recipes/athlete/tex_mex_beef_skillet.json').then(m => m.default as RecipeContent),
+    grilled_salmon_asparagus: () => import('../locales/en/recipes/athlete/grilled_salmon_asparagus.json').then(m => m.default as RecipeContent),
+    tuna_quinoa_salad: () => import('../locales/en/recipes/athlete/tuna_quinoa_salad.json').then(m => m.default as RecipeContent),
+    cod_lemon_vegetables: () => import('../locales/en/recipes/athlete/cod_lemon_vegetables.json').then(m => m.default as RecipeContent),
+    shrimp_garlic_zucchini: () => import('../locales/en/recipes/athlete/shrimp_garlic_zucchini.json').then(m => m.default as RecipeContent),
+    salmon_teriyaki_bowl: () => import('../locales/en/recipes/athlete/salmon_teriyaki_bowl.json').then(m => m.default as RecipeContent),
+    mediterranean_sea_bass: () => import('../locales/en/recipes/athlete/mediterranean_sea_bass.json').then(m => m.default as RecipeContent),
+    tuna_steak_sweet_potato: () => import('../locales/en/recipes/athlete/tuna_steak_sweet_potato.json').then(m => m.default as RecipeContent),
+    garlic_butter_shrimp_rice: () => import('../locales/en/recipes/athlete/garlic_butter_shrimp_rice.json').then(m => m.default as RecipeContent),
+    baked_tilapia_vegetables: () => import('../locales/en/recipes/athlete/baked_tilapia_vegetables.json').then(m => m.default as RecipeContent),
+    salmon_avocado_bowl: () => import('../locales/en/recipes/athlete/salmon_avocado_bowl.json').then(m => m.default as RecipeContent),
+    turkey_quinoa_power_bowl: () => import('../locales/en/recipes/athlete/turkey_quinoa_power_bowl.json').then(m => m.default as RecipeContent),
+    turkey_vegetable_meatballs: () => import('../locales/en/recipes/athlete/turkey_vegetable_meatballs.json').then(m => m.default as RecipeContent),
+    turkey_taco_lettuce_wraps: () => import('../locales/en/recipes/athlete/turkey_taco_lettuce_wraps.json').then(m => m.default as RecipeContent),
+    herb_roasted_turkey_breast: () => import('../locales/en/recipes/athlete/herb_roasted_turkey_breast.json').then(m => m.default as RecipeContent),
+    turkey_spinach_pasta: () => import('../locales/en/recipes/athlete/turkey_spinach_pasta.json').then(m => m.default as RecipeContent),
+    protein_omelette_vegetables: () => import('../locales/en/recipes/athlete/protein_omelette_vegetables.json').then(m => m.default as RecipeContent),
+    greek_yogurt_power_parfait: () => import('../locales/en/recipes/athlete/greek_yogurt_power_parfait.json').then(m => m.default as RecipeContent),
+    cottage_cheese_protein_bowl: () => import('../locales/en/recipes/athlete/cottage_cheese_protein_bowl.json').then(m => m.default as RecipeContent),
+    egg_white_vegetable_scramble: () => import('../locales/en/recipes/athlete/egg_white_vegetable_scramble.json').then(m => m.default as RecipeContent),
+    high_protein_breakfast_wrap: () => import('../locales/en/recipes/athlete/high_protein_breakfast_wrap.json').then(m => m.default as RecipeContent),
+    chickpea_quinoa_power_bowl: () => import('../locales/en/recipes/athlete/chickpea_quinoa_power_bowl.json').then(m => m.default as RecipeContent),
+    lentil_vegetable_curry: () => import('../locales/en/recipes/athlete/lentil_vegetable_curry.json').then(m => m.default as RecipeContent),
+    black_bean_rice_bowl: () => import('../locales/en/recipes/athlete/black_bean_rice_bowl.json').then(m => m.default as RecipeContent),
+    tofu_stir_fry_vegetables: () => import('../locales/en/recipes/athlete/tofu_stir_fry_vegetables.json').then(m => m.default as RecipeContent),
+    edamame_quinoa_salad: () => import('../locales/en/recipes/athlete/edamame_quinoa_salad.json').then(m => m.default as RecipeContent),
+  },
+};
+
 /**
  * Load recipe content for a specific recipe and locale
  */
@@ -105,11 +213,45 @@ export const loadRecipeContent = async (recipeId: RecipeId, locale: string = 'tr
 };
 
 /**
+ * Load athlete recipe content for a specific recipe and locale
+ */
+export const loadAthleteRecipeContent = async (recipeId: AthleteRecipeId, locale: string = 'tr'): Promise<RecipeContent | null> => {
+  try {
+    // Try requested locale
+    if (athleteRecipeContentLoaders[locale]?.[recipeId]) {
+      return await athleteRecipeContentLoaders[locale][recipeId]();
+    }
+    
+    // Fallback to default
+    if (athleteRecipeContentLoaders[DEFAULT_LOCALE]?.[recipeId]) {
+      console.warn(`[AthleteRecipeLoader] Locale '${locale}' not found for ${recipeId}, falling back to ${DEFAULT_LOCALE}`);
+      return await athleteRecipeContentLoaders[DEFAULT_LOCALE][recipeId]();
+    }
+    
+    return null;
+  } catch (error) {
+    console.error(`[AthleteRecipeLoader] Error loading recipe ${recipeId}:`, error);
+    return null;
+  }
+};
+
+/**
  * Get full recipe (metadata + content)
  */
-export const loadRecipe = async (recipeId: RecipeId, locale: string = 'tr') => {
-  const metadata = getRecipeMetadata(recipeId);
-  const content = await loadRecipeContent(recipeId, locale);
+export const loadRecipe = async (recipeId: RecipeId | AthleteRecipeId, locale: string = 'tr') => {
+  // First check if it's an athlete recipe
+  const athleteMetadata = getAthleteRecipeMetadata(recipeId as AthleteRecipeId);
+  if (athleteMetadata) {
+    const content = await loadAthleteRecipeContent(recipeId as AthleteRecipeId, locale);
+    if (!content) {
+      return null;
+    }
+    return { metadata: athleteMetadata, content };
+  }
+  
+  // Otherwise check regular recipes
+  const metadata = getRecipeMetadata(recipeId as RecipeId);
+  const content = await loadRecipeContent(recipeId as RecipeId, locale);
   
   if (!metadata || !content) {
     return null;
