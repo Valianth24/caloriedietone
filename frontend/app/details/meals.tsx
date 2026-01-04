@@ -24,14 +24,40 @@ interface Meal {
 export default function MealsDetailScreen() {
   const { t } = useTranslation();
   const router = useRouter();
-  const { user, refreshData } = useStore();
+  const { user, refreshData, triggerRefresh } = useStore();
   const [meals, setMeals] = useState<Meal[]>([]);
   const [summary, setSummary] = useState({ total_calories: 0, total_protein: 0, total_carbs: 0, total_fat: 0 });
   const [loading, setLoading] = useState(true);
+  
+  // Add Food Modal States
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showFoodListModal, setShowFoodListModal] = useState(false);
+  const [selectedMealType, setSelectedMealType] = useState('lunch');
+  const [foodDatabase, setFoodDatabase] = useState<any[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     loadData();
   }, [refreshData]);
+  
+  // Load food database when food list modal opens
+  useEffect(() => {
+    if (showFoodListModal) {
+      loadFoodDatabase();
+    }
+  }, [showFoodListModal]);
+  
+  const loadFoodDatabase = async () => {
+    try {
+      const lang = i18n.language;
+      const foods = await getFoodDatabase(lang);
+      if (Array.isArray(foods)) {
+        setFoodDatabase(foods);
+      }
+    } catch (error) {
+      console.error('Error loading food database:', error);
+    }
+  };
 
   const loadData = async () => {
     try {
