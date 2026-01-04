@@ -1,79 +1,68 @@
 {
   "name": "Dolma Biber",
-  "description": "TODO: Dolma Biber açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Renkli biberler içinde besinli kıymalı pirinç dolması. Akdeniz mutfağının klasik tarifi.",
+  "prepTime": "25 dakika",
+  "cookTime": "50 dakika",
+  "totalTime": "75 dakika",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Dolmalık biber", "amount": "6", "unit": "adet", "note": "karışık renk"},
+    {"name": "Yağsız dana kıyma", "amount": "400", "unit": "g"},
+    {"name": "Pişmiş pirinç", "amount": "1.5", "unit": "su bardağı", "note": "veya kinoa"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Domates püresi", "amount": "1", "unit": "kutu", "note": "400g"},
+    {"name": "Domates salçası", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Rendelenmiş kaşar", "amount": "1", "unit": "su bardağı"},
+    {"name": "Taze maydanoz", "amount": "1/4", "unit": "su bardağı", "note": "kıyılmış"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Kuru kekik", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tatlı kırmızı biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Su veya et suyu", "amount": "1/2", "unit": "su bardağı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Fırını 190°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Biberlerin tepelerini kesin ve kapak olarak saklayın. İçlerindeki çekirdek ve zarları çıkarın.", "tip": "Biberlerin dibinde delik olmadığından emin olun.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Biberleri 5 dakika kaynar suda haşlayın. Süzün ve baş aşağı kurumaya bırakın.", "tip": "Ön pişirme biberlerin düzgün pişmesini sağlar.", "duration": "7 dakika"},
+    {"step": 4, "instruction": "Geniş tavada zeytinyağını orta ateşte ısıtın. Soğanı 5 dakika kavurun.", "duration": "6 dakika"},
+    {"step": 5, "instruction": "Sarımsağı ekleyin, 1 dakika kavurun.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Kıymayı ekleyin. Tahta kaşıkla parçalayarak 8-10 dakika, tamamen pişene kadar kavurun.", "tip": "Kıyma küme küme olmamalı - iyice parçalayın.", "duration": "10 dakika"},
+    {"step": 7, "instruction": "Domates salçasını ekleyin, 1 dakika kavurun.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Domates püresinin yarısını ekleyin. Kekik, kimyon, kırmızı biber, tuz ve karabiberi ekleyin.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "5 dakika kısık ateşte pişirin.", "duration": "5 dakika"},
+    {"step": 10, "instruction": "Ateşten alın. Pişmiş pirinci, maydanozun çoğunu ve peynirin yarısını ekleyip karıştırın.", "duration": "2 dakika"},
+    {"step": 11, "instruction": "Fırın kabının dibine kalan domates püresini dökün. Su veya et suyunu ekleyin.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Biberleri fırın kabına dik olarak yerleştirin. Her birini iç harçla doldurun.", "tip": "Dolguyu sıkıştırmayın - pişerken şişer.", "duration": "5 dakika"},
+    {"step": 13, "instruction": "Biber kapaklarını yerleştirin.", "duration": "1 dakika"},
+    {"step": 14, "instruction": "Alumünyum folyo ile örtün. 35 dakika fırınlayın.", "duration": "35 dakika"},
+    {"step": 15, "instruction": "Folyoyu kaldırın. Kalan peyniri üzerine serpin. 10-15 dakika daha, peynir eriyip hafif kızarana kadar fırınlayın.", "duration": "15 dakika"},
+    {"step": 16, "instruction": "Fırından çıkarın. 5 dakika dinlendirin. Kalan maydanoz ile servis edin.", "duration": "6 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 365,
+    "protein": 24,
+    "carbs": 28,
+    "fat": 18,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 620
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Kırmızı, sarı ve turuncu biberler yeşilden daha tatlıdır.",
+    "Hindi veya tavuk kıyma ile daha yağsız versiyon yapılabilir.",
+    "Pirinç yerine kinoa kullanmak protein ve lifi artırır.",
+    "Biberlerin eşit boyutta olması eşit pişmeyi sağlar.",
+    "Vejetaryen versiyon için kıyma yerine mercimek veya mantar kullanın."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 4 gün, dondurucuda 3 ay saklanabilir.",
+  "servingSuggestion": "Yanında cacik veya yoğurt ile servis edin. Crusty ekmek sosu toplamak için harika.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Meksika tarzı: Siyah fasulye, mısır ve taco baharatları kullanın.",
+    "Akdeniz: Feta peyniri ve zeytin ekleyin.",
+    "Vejetaryen: Kıyma yerine mercimek veya tofu kullanın.",
+    "Düşük karbonhidrat: Pirinç yerine karnabahar pirinç kullanın."
   ]
 }

@@ -1,79 +1,61 @@
 {
-  "name": "Sebzeli Somon",
-  "description": "TODO: Sebzeli Somon açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "name": "Somonlu Sebzeler",
+  "description": "Tek tepside hazırlanan lezzetli somon ve mevsim sebzeleri. Sağlıklı, pratik ve şık.",
+  "prepTime": "15 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "40 dakika",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Somon fileto", "amount": "4", "unit": "adet", "note": "180g her biri"},
+    {"name": "Brokoli", "amount": "300", "unit": "g", "note": "çiçeklerine ayrılmış"},
+    {"name": "Kuşkonmaz", "amount": "200", "unit": "g", "note": "alt kısımları kesilmiş"},
+    {"name": "Kiraz domates", "amount": "200", "unit": "g"},
+    {"name": "Kabak", "amount": "2", "unit": "adet", "note": "yarım ay dilim"},
+    {"name": "Limon", "amount": "2", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Taze dereotu", "amount": "3", "unit": "yemek kaşığı", "note": "kıyılmış"},
+    {"name": "Bal", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Dijon hardal", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Deniz tuzu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Fırını 200°C'ye ısıtın. Büyük fırın tepsisini yağlı kağıt ile kaplayın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Marinasyon: Küçük kapta 2 yk zeytinyağı, 1 limonun suyu, bal, hardal ve sarımsağın yarısını karıştırın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Somonları tepsinin ortasına yerleştirin. Marinasyonun yarısını üzerine sürün.", "tip": "Somon derisi varsa deri tarafı alta gelsin.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Tüm sebzeleri büyük bir kaseye alın.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Kalan zeytinyağı, sarımsak, tuz ve karabiberi sebzelere ekleyip karıştırın.", "tip": "Tüm sebzeler yağla kaplanmalı.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Sebzeleri somonların etrafına tek katman halinde yayın.", "tip": "Sebzeler üst üste yığılmamalı - kavrulma yerine buharda pişer.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Diğer limonun yarısını dilimleyin ve somonların üzerine yerleştirin.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Fırına verin. 20-25 dakika pişirin.", "tip": "Somon iç sıcaklığı 63°C olmalı. Ortası hafif pembemsi kalabilir.", "duration": "25 dakika"},
+    {"step": 9, "instruction": "Sebzelerin kızarıp kızarmadığını kontrol edin. Gerekirse 5 dakika daha verin.", "duration": "5 dakika"},
+    {"step": 10, "instruction": "Fırından çıkarın. Kalan marinasyonu sıcak somonların üzerine gezdirin.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Kalan limonun suyunu sebzelerin üzerine sıkın.", "duration": "30 saniye"},
+    {"step": 12, "instruction": "Taze dereotu serpin ve hemen servis edin.", "tip": "Tepside oluşan sosları da kullanın - lezzet deposu!", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 425,
+    "protein": 38,
+    "carbs": 18,
+    "fat": 24,
+    "fiber": 6,
+    "sugar": 8,
+    "sodium": 480
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Somon omega-3 yağ asitleri açısından en zengin gıdalardandır.",
+    "Sheet pan dinner - tek tepside kolay yemek.",
+    "Sebzeleri somonla aynı boyutta doğrayın - eşit pişme.",
+    "Sürdürülebilir avcılık sertifikalı somon tercih edin.",
+    "Dondurulmuş somon kullanıyorsanız tamamen çözülüğünden emin olun."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 2 gün saklanabilir. Somon en taze haliyle tüketilmeli.",
+  "servingSuggestion": "Tek başına tam bir öğün. Yanında kinoa veya esmer pirinç ekleyebilirsiniz.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Akdeniz: Zeytin, kapari ve kurutulmuş domates ekleyin.",
+    "Asya tarzı: Teriyaki sosu ve susam kullanın.",
+    "Baharatlı: Cajun baharatları ile kaplayın.",
+    "Kış versiyonu: Balkabaklı, Brüksel lahanası kullanın."
   ]
 }

@@ -1,79 +1,65 @@
 {
-  "name": "Mercimekli Köri",
-  "description": "TODO: Mercimekli Köri açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "name": "Mercimek Köri",
+  "description": "Hint baharatlarıyla hazırlanan kremamsı kırmızı mercimek yemeği. Vegan, protein zengini ve inanılmaz lezzetli.",
+  "prepTime": "15 dakika",
+  "cookTime": "35 dakika",
+  "totalTime": "50 dakika",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Kırmızı mercimek", "amount": "1.5", "unit": "su bardağı", "note": "yıkanmış"},
+    {"name": "Hindistan cevizi sütü", "amount": "1", "unit": "kutu", "note": "400ml, tam yağlı"},
+    {"name": "Domates püresi", "amount": "1", "unit": "kutu", "note": "400g"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "doğranmış"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Zencefil", "amount": "2", "unit": "cm", "note": "rendelenmiş"},
+    {"name": "Sebze suyu", "amount": "1.5", "unit": "su bardağı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Köri tozu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Zerdeçal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Garam masala", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı pul biber", "amount": "1/2", "unit": "tatlı kaşığı", "note": "isteğe göre"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Ispanak", "amount": "2", "unit": "avuç", "note": "taze, isteğe bağlı"},
+    {"name": "Taze kişniş", "amount": "1/4", "unit": "su bardağı", "note": "servis için"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Mercimekleri bol su altında yıkayın, su berraklaşana kadar durulayın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Büyük ve derin bir tencerede zeytinyağını orta ateşte ısıtın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Soğanı ekleyin, 5 dakika yumuşayana ve hafif altın rengine dönene kadar kavurun.", "tip": "Soğanları iyi kavurmak körinin tabanını oluşturur.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Sarımsak ve zencefili ekleyin, 1 dakika kavurun. Kokusu açılsın.", "tip": "Sarımsak yanmamalı - acılaşır.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Tüm baharatları (köri, kimyon, zerdeçal, garam masala, pul biber) ekleyin.", "duration": "30 saniye"},
+    {"step": 6, "instruction": "30-60 saniye karıştırarak kavurun. Baharatların kokusu yayılsın.", "tip": "Baharatları kavurmak aromaları aktive eder.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Domates püresini ekleyin, 2-3 dakika kıtırdayıncaya kadar pişirin.", "duration": "3 dakika"},
+    {"step": 8, "instruction": "Yıkanmış mercimekleri ekleyin ve karıştırın.", "duration": "30 saniye"},
+    {"step": 9, "instruction": "Sebze suyunu ve hindistan cevizi sütünü ekleyin. Kaynatın.", "duration": "3 dakika"},
+    {"step": 10, "instruction": "Kaynayınca ateşi kısın. 25-30 dakika, mercimekler yumuşayana ve köri koyulaşana kadar pişirin.", "tip": "Ara sıra karıştırın - dipte yapmasın.", "duration": "30 dakika"},
+    {"step": 11, "instruction": "Tuzu ekleyin ve tadına bakın. Gerekirse baharat ayarlayın.", "duration": "30 saniye"},
+    {"step": 12, "instruction": "İsterseniz ıspanağı ekleyin, 2 dakika solduruncaya kadar karıştırın.", "tip": "Ispanak vitamin ve mineral katar.", "duration": "2 dakika"},
+    {"step": 13, "instruction": "Kaselere dökün. Taze kişniş serpin ve hemen servis edin.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 345,
+    "protein": 14,
+    "carbs": 42,
+    "fat": 14,
+    "fiber": 10,
+    "sugar": 8,
+    "sodium": 580
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Daal (dal) olarak da bilinen bu yemek Hint mutfağının temelidir.",
+    "Hindistan cevizi sütü kremamsılık ve hafif tatlılık katar.",
+    "Mercimek bitkisel protein ve demir kaynağıdır.",
+    "Ertesi gün daha lezzetli olur - tatlar oturur.",
+    "Dondurucuda 3 ay saklanabilir - meal prep için ideal."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 5 gün, dondurucuda 3 ay saklanabilir. Isıtırken biraz su ekleyin.",
+  "servingSuggestion": "Basmati pirinc, naan ekmeği veya chapati ile servis edin. Üzerine yoğurt damlatın.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Ispanaklı: 3 avuç ıspanak ekleyin - Palak Daal.",
+    "Yeşil mercimekli: Daha toprak lezzeti, 10 dakika fazla pişirme.",
+    "Tadka ile: Eritilmiş tereyağında kimyon ve kırmızı biber kavurup üzerine dökün.",
+    "Proteinli: Tavuk veya karides ekleyebilirsiniz."
   ]
 }

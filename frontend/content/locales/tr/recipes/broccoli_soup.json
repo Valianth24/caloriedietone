@@ -1,79 +1,61 @@
 {
   "name": "Brokoli Çorbası",
-  "description": "TODO: Brokoli Çorbası açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Kremalı ve sağlıklı brokoli çorbası. Düşük kalorili ama doyurucu, çocukların bile sevdiği lezzet.",
+  "prepTime": "15 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "40 dakika",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Brokoli", "amount": "700", "unit": "g", "note": "çiçekleri ve sapları"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "doğranmış"},
+    {"name": "Patates", "amount": "1", "unit": "adet", "note": "orta boy, küp"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Sebze suyu", "amount": "4", "unit": "su bardağı"},
+    {"name": "Süt", "amount": "1", "unit": "su bardağı", "note": "veya krema"},
+    {"name": "Cheddar peyniri", "amount": "1", "unit": "su bardağı", "note": "rendelenmiş"},
+    {"name": "Tereyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Zeytinyağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Hint cevizi", "amount": "1/4", "unit": "tatlı kaşığı", "note": "isteğe bağlı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Brokoliyi yıkayın. Çiçekleri saplarından ayırın. Sapların dış kabuklarını soyup küp kesin.", "tip": "Saplar da çok besleyici - atmayın!", "duration": "5 dakika"},
+    {"step": 2, "instruction": "Büyük bir tencerede tereyağı ve zeytinyağını orta ateşte eritin.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Soğanı ekleyin, 5 dakika yumuşayana kadar kavurun.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Sarımsağı ekleyin, 1 dakika kavurun.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Brokoli saplarını ve patates küplerini ekleyin. 2 dakika soteleyin.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Sebze suyunu ekleyin. Kaynatın.", "duration": "3 dakika"},
+    {"step": 7, "instruction": "Brokoli çiçeklerini ekleyin. Kaynayınca ateşi kısın.", "tip": "Süsleme için birkaç küçük çiçek ayırın.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "15-18 dakika, brokoli ve patates yumuşayana kadar pişirin.", "tip": "Fazla pişirmeyin - renk solar.", "duration": "18 dakika"},
+    {"step": 9, "instruction": "Ateşten alın. El blenderı ile tamamen pürüzsüz olana kadar çekin.", "tip": "Hafif dokulu seviyorsanız tamamen çekmeyin.", "duration": "3 dakika"},
+    {"step": 10, "instruction": "Sütü ekleyin ve karıştırın. Kıvamı kontrol edin - daha sulu isterseniz sebze suyu ekleyin.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Kısık ateşe alın. Peynirin çoğunu ekleyip eritin.", "tip": "Kaynatmayın - peynir topaklanır.", "duration": "2 dakika"},
+    {"step": 12, "instruction": "Tuz, karabiber ve hint cevizi ile tatlandırın.", "duration": "30 saniye"},
+    {"step": 13, "instruction": "Kaselere dökün. Üzerine kalan peyniri serpin. Sakladığınız brokoli çiçeklerini ekleyerek servis edin.", "duration": "2 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 195,
+    "protein": 10,
+    "carbs": 18,
+    "fat": 10,
+    "fiber": 4,
+    "sugar": 4,
+    "sodium": 520
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Brokoli C vitamini, K vitamini ve lif açısından zengindir.",
+    "Patates çorbaya doğal yoğunluk katar - un gerekmez.",
+    "Peynir yerine besin mayasi vegan versiyon için uygundur.",
+    "Çocuklara sebze yedirmenin harika bir yolu!",
+    "Dondurulmuş brokoli de kullanılabilir."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında 4 gün, dondurucuda 2 ay saklanabilir.",
+  "servingSuggestion": "Crusty ekmek veya çitir krutonlarla servis edin. Üzerine zeytinyağı damlatın.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Cheddarlı: Ekstra cheddar peyniri ile.",
+    "Vegan: Peynir yerine besin mayası, süt yerine hindistan cevizi sütü.",
+    "Ispanaklı: Yarısını ıspanakla değiştirin.",
+    "Baharatlı: Kırmızı pul biber ve jalapeño ekleyin."
   ]
 }

@@ -1,79 +1,60 @@
 {
   "name": "Meyve Salatası",
-  "description": "TODO: Meyve Salatası açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Taze mevsim meyveleriyle hazırlanan renkli ve canlandırıcı salata. Hafif bal-limon sosuyla.",
+  "prepTime": "20 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "20 dakika",
+  "servings": 8,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Çilek", "amount": "300", "unit": "g", "note": "ikiye veya dörde bölünmüş"},
+    {"name": "Yaban mersini", "amount": "200", "unit": "g"},
+    {"name": "Ahududu", "amount": "150", "unit": "g"},
+    {"name": "Mango", "amount": "1", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Kivi", "amount": "3", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Üzüm", "amount": "200", "unit": "g", "note": "yeşil veya kırmızı, ikiye bölünmüş"},
+    {"name": "Ananas", "amount": "1", "unit": "su bardağı", "note": "küp doğranmış"},
+    {"name": "Portakal", "amount": "2", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Bal", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Limon suyu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Limon kabuğu rendesi", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Taze nane", "amount": "2", "unit": "yemek kaşığı", "note": "ince kıyılmış"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Tüm meyveleri soğuk su altında nazikçe yıkayın.", "tip": "Meyveler taze ve soğuk olmalı.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Çileklerin saplarını koparın. Büyüklüklerine göre ikiye veya dörde bölün.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Mangoyu ikiye kesin. Çekirdeği etrafından kesin. Kabuğu soyup küp doğrayın.", "tip": "Olgun mango kolayca kesilir ve tatlıdır.", "duration": "3 dakika"},
+    {"step": 4, "instruction": "Kivilerin kabuklarını soyun. Yarım ay dilimleri halinde kesin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Üzümleri ikiye bölün (isteğe bağlı - bütün de kalabilir).", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Portakalları soyun. Beyaz zarı temizleyip dilimlere ayırın.", "tip": "Portakal dilimlerken oluşan suyu saklayın - sosa ekleyin.", "duration": "3 dakika"},
+    {"step": 7, "instruction": "Büyük servis kabına tüm meyveleri koyun.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Sos için: Küçük bir kapta balı, limon suyunu ve limon rendesini karıştırın.", "tip": "Bal kalınsa birkaç saniye mikrodalgada ısıtın.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Sosu meyvelerin üzerine dökün.", "duration": "30 saniye"},
+    {"step": 10, "instruction": "Büyük kaşıkla nazikçe katlayarak karıştırın.", "tip": "Meyveleri ezmemeye dikkat edin.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Kıyılmış nane yapraklarını serpin.", "tip": "Nane ferahlatıcı bir kontrast sağlar.", "duration": "30 saniye"},
+    {"step": 12, "instruction": "Hemen servis edin veya 30 dakika buzdolabında soğutun.", "tip": "Soğuk servis daha ferahlatıcıdır.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 145,
+    "protein": 2,
+    "carbs": 36,
+    "fat": 1,
+    "fiber": 5,
+    "sugar": 28,
+    "sodium": 5
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Mevsim meyvelerini kullanmak en taze ve ekonomik seçimdir.",
+    "Muz eklemeyin - çabuk kararr ve kıvamı değiştir.",
+    "Narenciye asidi diğer meyvelerin kararmasını önler.",
+    "Parti için ideal - kolay ama etkileyici.",
+    "Kahvaltı, tatlı veya yan yemek olarak servis edilebilir."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Buzdolabında kapalı kapta 1-2 gün saklanabilir. Her gün daha fazla su salınır.",
+  "servingSuggestion": "Yoğurtla, dondurmayla veya tek başına servis edin. Brünç masa larının vazgeçilmezi.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Tropik: Mango, ananas, papaya ve hindistan cevizi.",
+    "Kırmızı meyveler: Sadece kırmızı meyveler - çilek, ahududu, vişne.",
+    "Çikolatalı: Üzerine çikolata sos gezdirin.",
+    "Granola ile: Üzerine granola serpip kahvaltılık yapın."
   ]
 }

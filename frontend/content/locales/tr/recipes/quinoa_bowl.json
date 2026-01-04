@@ -1,79 +1,66 @@
 {
   "name": "Kinoa Bowl",
-  "description": "TODO: Kinoa Bowl açıklaması (1-2 cümle).",
-  "prepTime": "TODO: X dakika",
-  "cookTime": "TODO: X dakika",
-  "totalTime": "TODO: X dakika",
-  "servings": 2,
+  "description": "Renkli sebzeler, protein ve sağlıklı yağlarla dolu tek kap yemek. Görsel şölen ve beslenme bir arada.",
+  "prepTime": "20 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "40 dakika",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "adet",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "su bardağı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "yemek kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "çay kaşığı"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Kinoa", "amount": "1", "unit": "su bardağı"},
+    {"name": "Su", "amount": "2", "unit": "su bardağı"},
+    {"name": "Nohut", "amount": "1", "unit": "kutu", "note": "400g, süzülmüş"},
+    {"name": "Tatlı patates", "amount": "2", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Avokado", "amount": "2", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Kırmızı lahana", "amount": "1", "unit": "su bardağı", "note": "ince kıyılmış"},
+    {"name": "Havuç", "amount": "2", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Edamame", "amount": "1", "unit": "su bardağı", "note": "haşlanmış"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Tahin", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Limon suyu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Soya sosu", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Bal", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tütsülenmiş kırmızı biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Susam", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Fırını 200°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Kinoayı bol su altında yıkayın. Tencereye alıp 2 su bardağı su ile kaynatın.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Kaynayınca ateşi kısın, kapaklı 15 dakika pişirin. Sonra 5 dakika dinlendirin.", "duration": "20 dakika"},
+    {"step": 4, "instruction": "Tatlı patatesleri küp kesin. Fırın tepsisine yayın, 1 yk zeytinyağı, kimyon, tuz serpin.", "duration": "3 dakika"},
+    {"step": 5, "instruction": "Süzülmüş nohutları ayrı tepsi veya aynı tepsinin diğer köşesine yayın. 1 yk zeytinyağı ve tütsülenmiş biber serpin.", "tip": "Nohutları kağıt havlu ile kurulayın - çıtır olur.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "20-25 dakika fırınlayın. Yarı sürede karıştırın.", "tip": "Nohutlar hafif çıtır, patatesler altın rengi olmalı.", "duration": "25 dakika"},
+    {"step": 7, "instruction": "Tahin sosu: Tahin, limon suyu, soya sosu, bal ve 2 yk su karıştırın.", "tip": "Sos kalınsa biraz daha su ekleyin - akıcı olmalı.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Kırmızı lahanayı ince kıyın, havuçları rendeleyin.", "duration": "3 dakika"},
+    {"step": 9, "instruction": "Avokadoları dilimleyin.", "tip": "Son anda dilimleyin - kararmasın.", "duration": "1 dakika"},
+    {"step": 10, "instruction": "Bowl'ları oluşturun: Geniş kaselerin tabanına kinoa yayın.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Kinoanın üzerine bölümler halinde sebzeleri yerleştirin: Tatlı patates, nohut, lahana, havuç, edamame, avokado.", "tip": "Renkleri yan yana koyarak görsel şölen yaratın.", "duration": "3 dakika"},
+    {"step": 12, "instruction": "Üzerine tahin sosunu gezdirin ve susam serpin.", "duration": "1 dakika"},
+    {"step": 13, "instruction": "Hemen servis edin.", "tip": "Karıştırarak yiyin - tüm tatlar birleşsin.", "duration": "1 dakika"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 485,
+    "protein": 16,
+    "carbs": 58,
+    "fat": 22,
+    "fiber": 14,
+    "sugar": 10,
+    "sodium": 520
   },
   "tips": [
-    "TODO: İpucu 1",
-    "TODO: İpucu 2",
-    "TODO: İpucu 3"
+    "Buddha bowl, poke bowl veya nourish bowl olarak da bilinir.",
+    "Malzemeleri önceden hazırlayıp buzdolabında saklayın - meal prep.",
+    "Sebzeleri mevsimine ve zevkinize göre değiştirin.",
+    "Protein için tavuk, somon veya tofu ekleyebilirsiniz.",
+    "Tahin sosu yerine yer fıstığı sosu da kullanabilirsiniz."
   ],
-  "storageInfo": "TODO: Saklama bilgisi",
-  "servingSuggestion": "TODO: Servis önerisi",
+  "storageInfo": "Malzemeler ayrı kutularda 3-4 gün saklanabilir. Avokado ve sos taze eklenmeli.",
+  "servingSuggestion": "Geniş, derin kaselerde Instagram'a yakışır şekilde servis edin. Üzeri çatlak susam ve mikro yeşilliklerle tamamlayın.",
   "variations": [
-    "TODO: Varyasyon 1",
-    "TODO: Varyasyon 2"
+    "Proteinli: Üzerine ızgara tavuk veya somon ekleyin.",
+    "Vegan: Tahin yerine hindistan cevizi amino sosu.",
+    "Meksika: Siyah fasulye, mısır ve salsa ekleyin.",
+    "Asya: Edamame, wakame ve zencefil-susam sosu kullanın."
   ]
 }
