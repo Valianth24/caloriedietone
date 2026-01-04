@@ -126,11 +126,14 @@ class PedometerService {
         const data: StepData = JSON.parse(storedData);
         if (data.date === today) {
           this.stepCount = data.steps;
+          this.baseSteps = data.steps; // Use stored as base
           console.log('[Pedometer] Loaded stored steps:', this.stepCount);
         } else {
           // New day, reset
           this.stepCount = 0;
+          this.baseSteps = 0;
           await this.saveTodaySteps();
+          console.log('[Pedometer] New day - reset steps');
         }
       }
     } catch (error) {
