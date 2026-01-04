@@ -1,79 +1,51 @@
 {
   "name": "Greek Yogurt Parfait",
-  "description": "TODO: Greek Yogurt Parfait description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
+  "description": "Layered Greek yogurt with fresh fruits, granola, and honey. Healthy and filling breakfast or snack.",
+  "prepTime": "5 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "5 minutes",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Greek yogurt", "amount": "400", "unit": "g", "note": "2% fat preferred"},
+    {"name": "Granola", "amount": "1/2", "unit": "cup", "note": "low-sugar"},
+    {"name": "Blueberries", "amount": "1/2", "unit": "cup"},
+    {"name": "Strawberries", "amount": "6", "unit": "pieces", "note": "sliced"},
+    {"name": "Banana", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Honey", "amount": "2", "unit": "tbsp"},
+    {"name": "Chia seeds", "amount": "1", "unit": "tbsp"},
+    {"name": "Almonds", "amount": "10", "unit": "pieces", "note": "sliced"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Wash strawberries and slice. Slice banana.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "In tall glasses or jars, add 1/3 of yogurt. Divide equally between containers.", "tip": "Clear glasses show off the beautiful layers.", "duration": "30 seconds"},
+    {"step": 3, "instruction": "Add half the berries - strawberries and blueberries on yogurt layer.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Sprinkle half the granola over fruit.", "tip": "Add granola just before eating to keep it crunchy.", "duration": "20 seconds"},
+    {"step": 5, "instruction": "Add half of remaining yogurt on top.", "duration": "30 seconds"},
+    {"step": 6, "instruction": "Place banana slices and remaining fruit.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Add remaining granola, almond slices, and chia seeds.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Drizzle honey on top and serve immediately.", "tip": "Can substitute maple syrup for honey.", "duration": "20 seconds"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 320,
+    "protein": 18,
+    "carbs": 42,
+    "fat": 10,
+    "fiber": 5,
+    "sugar": 28,
+    "sodium": 85
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Greek yogurt has 2x more protein than regular yogurt.",
+    "Add granola at the last moment to maintain crunch.",
+    "Use seasonal fruits for variety.",
+    "Can prepare in jar and take to work - keep granola separate.",
+    "Reduce or skip honey for less sugar."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Can be prepped night before without granola. Add granola fresh.",
+  "servingSuggestion": "Serve for breakfast, pre-workout, or afternoon snack.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Add protein powder to boost protein content.",
+    "Tropical version: Use mango, pineapple, and coconut flakes.",
+    "Chocolate lovers: Add cocoa nibs."
   ]
 }

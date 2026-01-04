@@ -1,79 +1,53 @@
 {
   "name": "Green Smoothie",
-  "description": "TODO: Green Smoothie description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
+  "description": "Energy-boosting vitamin smoothie with spinach, banana, and tropical fruits. Tastes great despite the green color!",
+  "prepTime": "5 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "5 minutes",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Fresh spinach", "amount": "2", "unit": "cups", "note": "baby spinach preferred"},
+    {"name": "Banana", "amount": "1", "unit": "piece", "note": "ripe, frozen ideal"},
+    {"name": "Pineapple", "amount": "1", "unit": "cup", "note": "fresh or frozen"},
+    {"name": "Mango", "amount": "1/2", "unit": "cup", "note": "fresh or frozen"},
+    {"name": "Almond milk", "amount": "1.5", "unit": "cups", "note": "unsweetened"},
+    {"name": "Chia seeds", "amount": "1", "unit": "tbsp"},
+    {"name": "Honey or dates", "amount": "1", "unit": "tbsp", "note": "optional"},
+    {"name": "Fresh ginger", "amount": "1", "unit": "cm", "note": "optional"},
+    {"name": "Ice cubes", "amount": "4-5", "unit": "pieces", "note": "if using fresh fruit"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Add spinach to blender. Pour in almond milk.", "tip": "Blending greens with liquid first yields smoother result.", "duration": "30 seconds"},
+    {"step": 2, "instruction": "Blend on high 30 seconds. Spinach should be completely broken down.", "tip": "No green bits should remain.", "duration": "30 seconds"},
+    {"step": 3, "instruction": "Peel and break banana into pieces, add to blender.", "tip": "Frozen banana makes smoothie cold and creamy.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Add pineapple and mango pieces.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Add chia seeds and optional ginger.", "duration": "20 seconds"},
+    {"step": 6, "instruction": "Add ice cubes if using fresh fruit.", "duration": "20 seconds"},
+    {"step": 7, "instruction": "Blend on high 1-2 minutes until completely smooth.", "tip": "Check consistency - add more milk if too thick.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Taste and add honey if needed. Pour into glasses and serve immediately.", "tip": "Letting it sit causes oxidation and darker color.", "duration": "30 seconds"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 195,
+    "protein": 4,
+    "carbs": 42,
+    "fat": 3,
+    "fiber": 6,
+    "sugar": 28,
+    "sodium": 65
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Spinach taste is masked by tropical fruits - even non-veggie-lovers enjoy it.",
+    "Frozen fruit is economical and eliminates need for ice.",
+    "Add protein powder for breakfast replacement.",
+    "Pre-portion spinach in bags and freeze for easy prep.",
+    "Green color may look scary but taste is amazing!"
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Best fresh. Can refrigerate 24 hours max - shake before drinking.",
+  "servingSuggestion": "Drink for breakfast, pre-workout, or as afternoon energy boost.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Use kale instead of spinach - more nutrients.",
+    "Add avocado for creamier texture and healthy fats.",
+    "Add peanut butter for protein and flavor.",
+    "Add cocoa powder for chocolate green smoothie."
   ]
 }

@@ -1,79 +1,61 @@
 {
   "name": "Chicken Vegetable Soup",
-  "description": "TODO: Chicken Vegetable Soup description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Healing homemade chicken broth with plenty of vegetables. Comforting and nutritious, perfect for cold days.",
+  "prepTime": "20 minutes",
+  "cookTime": "45 minutes",
+  "totalTime": "65 minutes",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Chicken breast", "amount": "500", "unit": "g", "note": "bone-in preferred"},
+    {"name": "Carrots", "amount": "3", "unit": "pieces", "note": "diced"},
+    {"name": "Potatoes", "amount": "2", "unit": "pieces", "note": "diced"},
+    {"name": "Celery stalks", "amount": "3", "unit": "pieces", "note": "chopped"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "finely diced"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Water", "amount": "2", "unit": "liters"},
+    {"name": "Bay leaves", "amount": "2", "unit": "pieces"},
+    {"name": "Fresh thyme", "amount": "4", "unit": "sprigs"},
+    {"name": "Fresh parsley", "amount": "1/2", "unit": "bunch", "note": "chopped"},
+    {"name": "Olive oil", "amount": "2", "unit": "tbsp"},
+    {"name": "Salt", "amount": "1", "unit": "tbsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"},
+    {"name": "Egg noodles", "amount": "1/2", "unit": "cup", "note": "optional"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Heat olive oil in large pot over medium heat. Add onion and sauté 5 minutes until soft.", "tip": "Onions should be translucent but not caramelized.", "duration": "6 minutes"},
+    {"step": 2, "instruction": "Add garlic, carrots, and celery. Cook 3 minutes, stirring.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Add chicken breast whole to pot.", "tip": "Bone-in chicken makes richer broth.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Add water, bay leaves, and thyme sprigs.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Bring to boil, then reduce heat. Partially cover and simmer 25-30 minutes until chicken is cooked.", "tip": "Skim foam with spoon for clear broth.", "duration": "30 minutes"},
+    {"step": 6, "instruction": "Remove chicken from pot and let cool slightly on plate.", "duration": "5 minutes"},
+    {"step": 7, "instruction": "Add potato cubes to soup. Cook 10 minutes.", "duration": "10 minutes"},
+    {"step": 8, "instruction": "Shred chicken with two forks. Remove skin and bones.", "tip": "Easier to shred while still warm.", "duration": "5 minutes"},
+    {"step": 9, "instruction": "Add optional noodles and cook 5 minutes.", "duration": "5 minutes"},
+    {"step": 10, "instruction": "Add shredded chicken back to soup.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Season with salt and pepper. Remove bay leaves and thyme sprigs.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Sprinkle fresh parsley and serve hot.", "tip": "Squeeze of lemon enhances flavor.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 245,
+    "protein": 26,
+    "carbs": 18,
+    "fat": 8,
+    "fiber": 3,
+    "sugar": 4,
+    "sodium": 680
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Chicken broth boosts immune system and helps with colds.",
+    "For richer broth, don't remove chicken bones - cook extra hour.",
+    "Soup tastes even better the next day - flavors meld.",
+    "Cut vegetables same size for even cooking.",
+    "Dried herbs work too - use half the amount."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate 4-5 days, freeze 3 months. Noodle version doesn't freeze well.",
+  "servingSuggestion": "Serve hot with crusty bread. Perfect healing food when sick.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Add pasta or rice for more filling soup.",
+    "Add turmeric and ginger for 'golden soup' - anti-inflammatory.",
+    "Make avgolemono with lemon and egg."
   ]
 }

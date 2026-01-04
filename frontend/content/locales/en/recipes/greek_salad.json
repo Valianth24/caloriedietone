@@ -1,79 +1,54 @@
 {
   "name": "Greek Salad",
-  "description": "TODO: Greek Salad description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Classic Mediterranean salad with fresh vegetables, feta cheese, and olives. Light but satisfying.",
+  "prepTime": "15 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "15 minutes",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Tomatoes", "amount": "4", "unit": "large", "note": "wedged"},
+    {"name": "Cucumber", "amount": "2", "unit": "pieces", "note": "thickly sliced"},
+    {"name": "Green bell pepper", "amount": "1", "unit": "piece", "note": "rings"},
+    {"name": "Red onion", "amount": "1", "unit": "piece", "note": "thin rings"},
+    {"name": "Kalamata olives", "amount": "20", "unit": "pieces", "note": "pitted"},
+    {"name": "Feta cheese", "amount": "200", "unit": "g", "note": "block"},
+    {"name": "Extra virgin olive oil", "amount": "4", "unit": "tbsp"},
+    {"name": "Red wine vinegar", "amount": "2", "unit": "tbsp"},
+    {"name": "Dried oregano", "amount": "1", "unit": "tsp"},
+    {"name": "Sea salt", "amount": "1/2", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/4", "unit": "tsp"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Wash tomatoes and cut into large wedges. Place on wide salad platter.", "tip": "Tomatoes should be ripe but firm.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Wash cucumbers, keep skin on. Cut into thick half-moon slices. Add to platter.", "tip": "English cucumber has fewer seeds.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Wash green pepper, remove seeds, slice into rings. Add to salad.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Peel red onion and slice into thin rings. Scatter over vegetables.", "tip": "Soak in cold water 5 minutes to reduce sharpness.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Scatter olives over the salad.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Place feta block whole in center of salad.", "tip": "Traditionally feta is not crumbled - served as block.", "duration": "1 minute"},
+    {"step": 7, "instruction": "For dressing: Whisk olive oil, vinegar, oregano, salt, and pepper in small bowl.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Drizzle dressing over salad. Mix when serving or let everyone mix their own.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 285,
+    "protein": 8,
+    "carbs": 14,
+    "fat": 22,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 680
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Authentic Greek salad has no lettuce.",
+    "Feta cheese is a calcium and protein source.",
+    "Best served at room temperature.",
+    "Olive oil quality directly affects salad taste - use extra virgin.",
+    "Serve with crusty bread to soak up dressing."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Store undressed for 1 day in fridge. Keep dressing separate.",
+  "servingSuggestion": "Serve as side dish or light meal on its own. Pita bread pairs perfectly.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Add grilled chicken or shrimp for protein.",
+    "Add capers for extra flavor.",
+    "Vegan version: Use tofu feta."
   ]
 }

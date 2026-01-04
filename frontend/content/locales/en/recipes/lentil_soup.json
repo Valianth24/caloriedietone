@@ -1,79 +1,61 @@
 {
   "name": "Lentil Soup",
-  "description": "TODO: Lentil Soup description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Classic Turkish red lentil soup with a creamy texture. Protein and fiber rich comfort food.",
+  "prepTime": "15 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "50 minutes",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Red lentils", "amount": "1.5", "unit": "cups", "note": "rinsed"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "chopped"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "chopped"},
+    {"name": "Potato", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves", "note": "minced"},
+    {"name": "Water or chicken broth", "amount": "1.5", "unit": "liters"},
+    {"name": "Butter", "amount": "2", "unit": "tbsp"},
+    {"name": "Olive oil", "amount": "2", "unit": "tbsp"},
+    {"name": "Tomato paste", "amount": "1", "unit": "tbsp"},
+    {"name": "Cumin", "amount": "1", "unit": "tsp"},
+    {"name": "Red pepper flakes", "amount": "1", "unit": "tsp"},
+    {"name": "Dried mint", "amount": "1/2", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "tbsp"},
+    {"name": "Lemon", "amount": "1", "unit": "piece", "note": "for serving"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Rinse lentils thoroughly under running water until water runs clear.", "tip": "Rinsing reduces foam while cooking.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Heat 1 tbsp butter and olive oil in large pot over medium heat.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Add onion and sauté 5 minutes until soft.", "tip": "Onions should be translucent, not browned.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Add carrot, potato, and garlic. Cook 2 minutes.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Add tomato paste and cook 1 minute until fragrant.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Add lentils and stir to combine.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Add hot water or broth. Bring to boil.", "tip": "Cold water extends cooking time.", "duration": "5 minutes"},
+    {"step": 8, "instruction": "Reduce heat, partially cover, simmer 25-30 minutes until lentils are falling apart.", "tip": "Stir occasionally to prevent sticking.", "duration": "30 minutes"},
+    {"step": 9, "instruction": "Blend soup until smooth with immersion blender or regular blender.", "tip": "Be careful with hot liquids - leave lid slightly open.", "duration": "3 minutes"},
+    {"step": 10, "instruction": "Season with salt. Adjust consistency - add water if too thick.", "duration": "1 minute"},
+    {"step": 11, "instruction": "For topping: Melt remaining butter in small pan. Add pepper flakes, mint, and cumin. Cook 30 seconds.", "tip": "Butter shouldn't brown.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Ladle soup into bowls, drizzle spiced butter on top. Serve with lemon wedges.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 215,
+    "protein": 12,
+    "carbs": 32,
+    "fat": 5,
+    "fiber": 8,
+    "sugar": 3,
+    "sodium": 620
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Lentils are plant-based protein and iron source.",
+    "Lemon juice improves iron absorption - always squeeze some.",
+    "Soup thickens as it sits - add water when reheating.",
+    "Dried mint and pepper flakes are essential - don't skip.",
+    "For vegan, replace butter with olive oil."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate 5 days, freeze 3 months. Add water when reheating.",
+  "servingSuggestion": "Serve hot with crusty bread and lemon wedges. Cold weather essential.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Add tomatoes for 'Ezogelin soup' style.",
+    "Add turmeric for anti-inflammatory boost.",
+    "Add coconut milk for creamy version."
   ]
 }
