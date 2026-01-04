@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert, AppState, AppStateStatus } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Dimensions, Alert, AppState, AppStateStatus, Platform, PermissionsAndroid } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getTodaySteps, syncSteps } from '../../utils/api';
 import { Colors } from '../../constants/Colors';
