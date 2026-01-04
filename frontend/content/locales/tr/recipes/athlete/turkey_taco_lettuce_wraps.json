@@ -1,0 +1,33 @@
+{
+  "name": "Hindi Taco Marul Sarma",
+  "description": "Düşük karbonhidratlı Meksika lezzetleri. Marul yapraklarında hindili taco.",
+  "prepTime": "15 dakika",
+  "cookTime": "12 dakika",
+  "totalTime": "27 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Hindi kıyma", "amount": "350", "unit": "g"},
+    {"name": "Marul yaprakları", "amount": "8", "unit": "adet", "note": "büyük yapraklar"},
+    {"name": "Domates", "amount": "2", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Avokado", "amount": "1", "unit": "adet"},
+    {"name": "Soğan", "amount": "1", "unit": "adet"},
+    {"name": "Kimyon", "amount": "1", "unit": "çay kaşığı"},
+    {"name": "Toz biber", "amount": "1/2", "unit": "çay kaşığı"},
+    {"name": "Sarımsak tozu", "amount": "1/2", "unit": "çay kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "çay kaşığı"},
+    {"name": "Yoğurt", "amount": "4", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Hindi kıymayı soğanla kavurun.", "duration": "8 dakika"},
+    {"step": 2, "instruction": "Baharatları ekleyin.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "2-3 dakika daha pişirin.", "duration": "3 dakika"},
+    {"step": 4, "instruction": "Marul yapraklarını hazırlayın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Et karışımını marul üzerine koyun.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Domates, avokado ve yoğurt ile süsleyin.", "duration": "2 dakika"}
+  ],
+  "nutrition": {"calories": 320, "protein": 36, "carbs": 14, "fat": 14, "fiber": 5, "sugar": 4, "sodium": 580},
+  "tips": ["Marul taco kabuğu yerine geçer - düşük karbonhidrat.", "Taze ve çıtır bir alternatif."],
+  "storageInfo": "Et hazır tutulabilir, sarma taze yapılmalı.",
+  "servingSuggestion": "Lime ve salsa ile servis edin.",
+  "variations": ["Sığır kıyma veya tavuk da kullanılabilir."]
+}

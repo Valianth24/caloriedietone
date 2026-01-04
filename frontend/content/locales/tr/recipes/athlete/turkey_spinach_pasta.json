@@ -1,0 +1,32 @@
+{
+  "name": "Hindili Ispanaklı Makarna",
+  "description": "Yağsız hindi kıyması ve taze ıspanaklı makarna. Hızlı ve besleyici.",
+  "prepTime": "10 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "30 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Hindi kıyma", "amount": "400", "unit": "g"},
+    {"name": "Tam buğday makarna", "amount": "300", "unit": "g"},
+    {"name": "Ispanak", "amount": "200", "unit": "g"},
+    {"name": "Soğan", "amount": "1", "unit": "adet"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Domates salçası", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Parmesan", "amount": "1/4", "unit": "su bardağı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Makarnayı haşlayın.", "duration": "12 dakika"},
+    {"step": 2, "instruction": "Hindi kıymayı soğanla kavurun.", "duration": "8 dakika"},
+    {"step": 3, "instruction": "Sarımsak ve salça ekleyin.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Ispanağı ekleyin, solduruncaya kadar karıştırın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Makarnayı sosla karıştırın.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Parmesan serpin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 485, "protein": 38, "carbs": 52, "fat": 14, "fiber": 6, "sugar": 4, "sodium": 520},
+  "tips": ["Tam buğday makarna daha fazla lif içerir.", "Ispanak demir açısından zengindir."],
+  "storageInfo": "Buzdolabında 3 gün saklanır.",
+  "servingSuggestion": "Taze salata ile servis edin.",
+  "variations": ["Tavuk kıyma da kullanılabilir."]
+}

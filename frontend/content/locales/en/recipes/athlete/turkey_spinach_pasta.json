@@ -1,0 +1,32 @@
+{
+  "name": "Turkey Spinach Pasta",
+  "description": "Lean ground turkey with fresh spinach pasta. Quick and nutritious.",
+  "prepTime": "10 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "30 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Ground turkey", "amount": "400", "unit": "g"},
+    {"name": "Whole wheat pasta", "amount": "300", "unit": "g"},
+    {"name": "Spinach", "amount": "200", "unit": "g"},
+    {"name": "Onion", "amount": "1", "unit": "piece"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves"},
+    {"name": "Tomato paste", "amount": "2", "unit": "tablespoons"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Parmesan", "amount": "1/4", "unit": "cup"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook pasta according to package.", "duration": "12 minutes"},
+    {"step": 2, "instruction": "Brown turkey with onion.", "duration": "8 minutes"},
+    {"step": 3, "instruction": "Add garlic and tomato paste.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Add spinach, stir until wilted.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Toss pasta with sauce.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Sprinkle with Parmesan.", "duration": "1 minute"}
+  ],
+  "nutrition": {"calories": 485, "protein": 38, "carbs": 52, "fat": 14, "fiber": 6, "sugar": 4, "sodium": 520},
+  "tips": ["Whole wheat pasta has more fiber.", "Spinach is rich in iron."],
+  "storageInfo": "Refrigerate for up to 3 days.",
+  "servingSuggestion": "Serve with fresh salad.",
+  "variations": ["Ground chicken can be substituted."]
+}
