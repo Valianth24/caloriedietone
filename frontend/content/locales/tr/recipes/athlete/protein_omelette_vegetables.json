@@ -1,0 +1,54 @@
+{
+  "name": "Proteinli Sebzeli Omlet",
+  "description": "Yumurta beyazı ağırlıklı, sebze dolu, düşük kalorili yüksek proteinli kahvaltı.",
+  "prepTime": "8 dakika",
+  "cookTime": "8 dakika",
+  "totalTime": "16 dakika",
+  "servings": 1,
+  "ingredients": [
+    {"name": "Yumurta beyazı", "amount": "4", "unit": "adet"},
+    {"name": "Bütün yumurta", "amount": "1", "unit": "adet"},
+    {"name": "Ispanak", "amount": "1", "unit": "avuç", "note": "doğranmış"},
+    {"name": "Mantar", "amount": "4", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Domates", "amount": "1/2", "unit": "adet", "note": "küp"},
+    {"name": "Kırmızı biber", "amount": "1/4", "unit": "adet", "note": "küp"},
+    {"name": "Yeşil soğan", "amount": "1", "unit": "dal"},
+    {"name": "Az yağlı beyaz peynir", "amount": "30", "unit": "g", "note": "ufalanmış"},
+    {"name": "Zeytinyağı", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Yumurta beyazları ve bütün yumurtayı bir kasede çırpın.", "duration": "1 dakika"},
+    {"step": 2, "instruction": "Tuz ve karabiber ekleyin.", "duration": "30 saniye"},
+    {"step": 3, "instruction": "Yapışmaz tavada yağı orta ateşte ısıtın.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Mantar ve biberleri 2 dakika soteleyin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Ispanak ekleyin, solduruncaya kadar karıştırın.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Sebzeleri kenara alın veya çıkarın.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Yumurta karışımını tavaya dökün, düz yayın.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Kenarları piştikçe spatula ile kenarlardın çekin.", "tip": "Pişmemiş kısım kenarlara aksın.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Yarısına sebzeler, domates ve peynir koyun.", "duration": "30 saniye"},
+    {"step": 10, "instruction": "Diğer yarısını katlayın, 1 dakika daha bekletin.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Yeşil soğan ile süsleyip servis edin.", "duration": "30 saniye"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 28,
+    "carbs": 12,
+    "fat": 18,
+    "fiber": 3,
+    "sugar": 5,
+    "sodium": 520
+  },
+  "tips": [
+    "Yumurta beyazı saf proteindir, yağ içermez.",
+    "1 bütün yumurta eklemek omega-3 ve kolin sağlar.",
+    "Sabah antrenmanı öncesi ideal kahvaltı.",
+    "Sebzeleri değiştirebilirsiniz - kabak, brokoli vb."
+  ],
+  "storageInfo": "En taze haliyle tüetin. Önceden hazırlanmaz.",
+  "servingSuggestion": "Yanında tam buğday tost veya meyve ile servis edin.",
+  "variations": [
+    "Farklı peynirler kullanabilirsiniz - lor, možzarella.",
+    "Et severler için hindi jambon eklenebilir."
+  ]
+}

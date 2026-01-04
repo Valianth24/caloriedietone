@@ -1,0 +1,50 @@
+{
+  "name": "Limonlu Morina & Sebzeler",
+  "description": "Yağsız, yüksek proteinli beyaz etli balık. Fırında sebzelerle birlikte kolay ve lezzetli.",
+  "prepTime": "10 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Morina fileto", "amount": "2", "unit": "adet", "note": "180g her biri"},
+    {"name": "Kabak", "amount": "1", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Kiraz domates", "amount": "200", "unit": "g"},
+    {"name": "Brokoli", "amount": "200", "unit": "g"},
+    {"name": "Limon", "amount": "1", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Taze kekik", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Fırını 200°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Sebzeleri fırın tepsisine yayın, zeytinyağı gezdirin.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Tuz, karabiber ve sarımsak serpin. 10 dakika fırınlayın.", "duration": "10 dakika"},
+    {"step": 4, "instruction": "Morina filetoları kağıt havlu ile kurulayın.", "tip": "Kuru balık daha iyi pişer.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Balıklara tuz, karabiber ve limon suyu sürün.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Sebzelerin üzerine balıkları yerleştirin.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Limon dilimlerini balıkların üzerine koyun.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "10-12 dakika daha fırınlayın. Balık çatalla kolayca ayrılmalı.", "duration": "12 dakika"},
+    {"step": 9, "instruction": "Taze kekik serpin ve servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 38,
+    "carbs": 18,
+    "fat": 10,
+    "fiber": 5,
+    "sugar": 6,
+    "sodium": 420
+  },
+  "tips": [
+    "Morina en yağsız beyaz etli balıklardandır.",
+    "Yüksek protein, düşük kalori - diyet için ideal.",
+    "Tek tepside pişirme bulaşığı minimuma indirir."
+  ],
+  "storageInfo": "Buzdolabında 2 gün saklanabilir.",
+  "servingSuggestion": "Yanında kinoa veya esmer pirinç ile servis edin.",
+  "variations": [
+    "Tilapia veya mezgit ile de yapılabilir.",
+    "Kapari ve zeytin ekleyerek Akdeniz tadı katabilirsiniz."
+  ]
+}

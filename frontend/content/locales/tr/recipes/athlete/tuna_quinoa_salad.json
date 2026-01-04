@@ -1,0 +1,52 @@
+{
+  "name": "Ton Balıklı Kinoa Salatası",
+  "description": "Taze veya konserve ton balığı ile yapılan, protein ve lif dolu sağlıklı salata.",
+  "prepTime": "15 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Ton balığı", "amount": "2", "unit": "kutu", "note": "suda, süzülmüş (160g)"},
+    {"name": "Kinoa", "amount": "1", "unit": "su bardağı"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet", "note": "küp"},
+    {"name": "Kiraz domates", "amount": "10", "unit": "adet", "note": "ikiye bölünmüş"},
+    {"name": "Kırmızı soğan", "amount": "1/4", "unit": "adet", "note": "ince"},
+    {"name": "Zeytin", "amount": "10", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Limon suyu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Dijon hardal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Taze maydanoz", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Kinoayı yıkayın, 2 su bardağı su ile pişirin.", "duration": "18 dakika"},
+    {"step": 2, "instruction": "Pişen kinoayı soğumaya bırakın veya soğuk su ile durulayın.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Sos için: Zeytinyağı, limon suyu, hardal ve tuzu çırpın.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Büyük bir kasede soğumuş kinoa ile sebzeleri karıştırın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Süzülmüş ton balığını ekleyin ve hafifçe karıştırın.", "tip": "Ton balığını çok parçalamayın.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Sosu gezdirin ve tekrar karıştırın.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Maydanoz ile süsleyip servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 385,
+    "protein": 38,
+    "carbs": 32,
+    "fat": 14,
+    "fiber": 5,
+    "sugar": 4,
+    "sodium": 580
+  },
+  "tips": [
+    "Ton balığı yağlı değil, suda olanı tercih edin - daha az kalori.",
+    "Meal prep için mükemmel - 3 gün buzdolabında dayanabilir.",
+    "Kinoa tam protein kaynağıdır.",
+    "Taze ton biftek ile daha lüks bir versiyon yapılabilir."
+  ],
+  "storageInfo": "Buzdolabında hava geçirmez kapta 3 gün saklanabilir.",
+  "servingSuggestion": "Tek başına veya tam buğday ekmek yanında servis edin.",
+  "variations": [
+    "Somon konservesi ile de yapılabilir.",
+    "Avokado ekleyerek sağlıklı yağ artırılabilir.",
+    "Fasulye eklenerek lif artırılabilir."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "name": "Sarımsaklı Karides & Kabak",
+  "description": "15 dakikada hazır, düşük kalorili ama protein dolu hızlı öğün.",
+  "prepTime": "8 dakika",
+  "cookTime": "10 dakika",
+  "totalTime": "18 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Büyük karides", "amount": "400", "unit": "g", "note": "temizlenmiş"},
+    {"name": "Kabak", "amount": "2", "unit": "adet", "note": "spiralizer ile şeritle"},
+    {"name": "Sarımsak", "amount": "5", "unit": "diş", "note": "ince dilim"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tereyağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Limon suyu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Kırmızı pul biber", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Taze maydanoz", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Karidesleri kağıt havlu ile kurulayın, tuzlayın.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Geniş tavada zeytinyağını yüksek ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Karidesleri tek katman halinde dizin. 2 dakika dokunmayın.", "tip": "Kalabalık etmeyin, iki seferde pişirin.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Karidesleri çevirin, 1 dakika daha pişirin. Tabaka alın.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Aynı tavaya tereyağı ve sarımsağı ekleyin. 30 saniye kavurun.", "tip": "Sarımsak yanmamalı.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Kabak şeritlerin ekleyin, 2 dakika soteleyin.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Karidesleri geri ekleyin, limon suyu ve pul biber serpin.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Her şeyi karıştırın, maydanoz ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 295,
+    "protein": 34,
+    "carbs": 14,
+    "fat": 12,
+    "fiber": 3,
+    "sugar": 6,
+    "sodium": 620
+  },
+  "tips": [
+    "Karides çok düşük kalorili protein kaynağıdır.",
+    "Kabak şeritleri makarna yerine geçer - keto uyumlu.",
+    "En hızlı sporcu yemeklerinden biri."
+  ],
+  "storageInfo": "En taze haliyle tüketin. Buzdolabında 1 gün saklanabilir.",
+  "servingSuggestion": "Yanında crusty ekmek ile servis edin.",
+  "variations": [
+    "Makarna ekleyerek daha doyurucu yapılabilir.",
+    "Domates ekleyerek marinara tarzı yapılabilir."
+  ]
+}

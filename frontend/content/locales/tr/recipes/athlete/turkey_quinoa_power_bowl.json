@@ -1,0 +1,53 @@
+{
+  "name": "Hindi Kinoa Power Bowl",
+  "description": "Yağsız hindi göğsü, kinoa ve renkli sebzeler ile hazırlanan doyurucu bowl.",
+  "prepTime": "15 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "40 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Hindi göğsü", "amount": "400", "unit": "g"},
+    {"name": "Kinoa", "amount": "1", "unit": "su bardağı"},
+    {"name": "Brokoli", "amount": "150", "unit": "g"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet"},
+    {"name": "Havuc", "amount": "1", "unit": "adet", "note": "ince dilim"},
+    {"name": "Avokado", "amount": "1", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Limon suyu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Bal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak tozu", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Kinoayı yıkayıp 2 su bardağı su ile pişirin.", "duration": "18 dakika"},
+    {"step": 2, "instruction": "Hindi göğsünü tuz, karabiber ve sarımsak tozu ile baharatlayın.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Tavada zeytinyağı ile orta ateşte her iki tarafını 7-8 dakika pişirin.", "duration": "16 dakika"},
+    {"step": 4, "instruction": "Hindi göğsünü 5 dakika dinlendirip dilimleyin.", "duration": "7 dakika"},
+    {"step": 5, "instruction": "Brokoli ve havucu buharda veya kaynar suda 3-4 dakika haşlayın.", "duration": "4 dakika"},
+    {"step": 6, "instruction": "Sos: Limon suyu, 1 yk zeytinyağı ve balı çırpın.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Kaselere kinoayı paylaştırın.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Üzerine hindi, sebzeler ve dilimlenmiş avokado yerleştirin.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Sosu gezdirin, susam serpin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 465,
+    "protein": 42,
+    "carbs": 42,
+    "fat": 14,
+    "fiber": 8,
+    "sugar": 6,
+    "sodium": 480
+  },
+  "tips": [
+    "Hindi göğsü en yağsız kümes hayvanı proteinidir.",
+    "Kinoa 9 temel amino asidi içeren tam proteindir.",
+    "Meal prep için ideal."
+  ],
+  "storageInfo": "Avokado hariç buzdolabında 4 gün saklanabilir.",
+  "servingSuggestion": "Sıcak veya soğuk servis edilebilir.",
+  "variations": [
+    "Tavuk göğsü ile de yapılabilir.",
+    "Kinoa yerine bulgur kullanabilirsiniz."
+  ]
+}
