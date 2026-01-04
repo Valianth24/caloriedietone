@@ -393,23 +393,25 @@ export default function RecipesScreen() {
           </View>
         )}
 
-        {/* Categories */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>
-            {locale === 'tr' ? 'Kategoriler' : 'Categories'}
-          </Text>
-          <FlatList
-            horizontal
-            data={[
-              { id: 'all', label: locale === 'tr' ? 'Tümü' : 'All', icon: 'grid-outline', color: Colors.primary, count: getAllRecipeMetadata().length },
-              ...categories,
-            ]}
-            renderItem={renderCategoryItem}
-            keyExtractor={(item) => item.id}
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.categoriesList}
-          />
-        </View>
+        {/* Categories - Sadece koleksiyon seçili değilse göster */}
+        {!selectedCollection && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>
+              {locale === 'tr' ? 'Kategoriler' : 'Categories'}
+            </Text>
+            <FlatList
+              horizontal
+              data={[
+                { id: 'all', label: locale === 'tr' ? 'Tümü' : 'All', icon: 'grid-outline', color: Colors.primary, count: getAllRecipeMetadata().length },
+                ...categories,
+              ]}
+              renderItem={renderCategoryItem}
+              keyExtractor={(item) => item.id}
+              showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.categoriesList}
+            />
+          </View>
+        )}
 
         {/* Recipe Grid */}
         <View style={styles.section}>
