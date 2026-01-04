@@ -1,79 +1,60 @@
 {
   "name": "Baked Cod",
-  "description": "TODO: Baked Cod description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Lemon and herb marinated cod fillets, perfectly baked in the oven. Lean, healthy, and ready in 20 minutes.",
+  "prepTime": "10 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "25 minutes",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Cod fillets", "amount": "4", "unit": "pieces", "note": "180g each"},
+    {"name": "Lemon", "amount": "2", "unit": "pieces", "note": "1 juiced, 1 sliced"},
+    {"name": "Extra virgin olive oil", "amount": "3", "unit": "tbsp"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "thinly sliced"},
+    {"name": "Fresh parsley", "amount": "1/4", "unit": "cup", "note": "finely chopped"},
+    {"name": "Fresh thyme", "amount": "1", "unit": "tbsp", "note": "or 1 tsp dried"},
+    {"name": "Paprika", "amount": "1", "unit": "tsp"},
+    {"name": "Sea salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"},
+    {"name": "Butter", "amount": "2", "unit": "tbsp", "note": "cubed"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Preheat oven to 400°F (200°C).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Remove cod from fridge 10 minutes early. Pat both sides dry with paper towels.", "tip": "Dry fish sears better and doesn't stick.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Line baking dish with parchment paper or lightly grease.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Place fish in dish with at least 2cm space between fillets.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Drizzle olive oil evenly over each fillet.", "duration": "30 seconds"},
+    {"step": 6, "instruction": "Squeeze lemon juice over fish.", "tip": "Lemon adds flavor and keeps fish white.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Distribute sliced garlic over fillets.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Sprinkle salt, pepper, and paprika evenly.", "duration": "30 seconds"},
+    {"step": 9, "instruction": "Place lemon slices on top of fish.", "tip": "Lemon slices add both flavor and visual appeal.", "duration": "30 seconds"},
+    {"step": 10, "instruction": "Distribute butter cubes over fish.", "tip": "Butter melts to create natural sauce.", "duration": "30 seconds"},
+    {"step": 11, "instruction": "Sprinkle thyme leaves.", "duration": "20 seconds"},
+    {"step": 12, "instruction": "Bake on middle rack for 12-15 minutes.", "tip": "Fish should be opaque white and flake easily. Don't overcook!", "duration": "15 minutes"},
+    {"step": 13, "instruction": "Remove from oven. Spoon pan juices over fish.", "duration": "1 minute"},
+    {"step": 14, "instruction": "Sprinkle fresh parsley and serve immediately.", "duration": "30 seconds"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 245,
+    "protein": 38,
+    "carbs": 4,
+    "fat": 9,
+    "fiber": 1,
+    "sugar": 1,
+    "sodium": 480
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Cod is one of the leanest white fish - perfect for diets.",
+    "Internal temperature should reach 145°F - use meat thermometer.",
+    "If using frozen cod, thaw completely first.",
+    "Different fillets may vary in thickness - remove thinner ones early.",
+    "This method works for sea bass, tilapia, or any white fish."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate for 2 days. Best served fresh.",
+  "servingSuggestion": "Serve with steamed vegetables, quinoa, or mashed potatoes. Use bread to soak up pan juices!",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Mediterranean: Add cherry tomatoes, olives, and capers.",
+    "Cajun: Coat with Cajun spices.",
+    "Pesto: Spread pesto instead of olive oil.",
+    "Parmesan crusted: Top with parmesan and breadcrumbs."
   ]
 }

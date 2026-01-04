@@ -1,79 +1,60 @@
 {
   "name": "Tuna Salad",
-  "description": "TODO: Tuna Salad description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Light and nutritious classic tuna salad, packed with protein. Perfect for lunch or sandwiches.",
+  "prepTime": "15 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "15 minutes",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Canned tuna", "amount": "2", "unit": "cans", "note": "in water, drained (320g total)"},
+    {"name": "Celery stalks", "amount": "2", "unit": "pieces", "note": "finely chopped"},
+    {"name": "Red onion", "amount": "1/4", "unit": "piece", "note": "finely diced"},
+    {"name": "Pickles", "amount": "3", "unit": "pieces", "note": "small dice"},
+    {"name": "Mayonnaise", "amount": "1/4", "unit": "cup"},
+    {"name": "Greek yogurt", "amount": "2", "unit": "tbsp", "note": "for lighter version"},
+    {"name": "Dijon mustard", "amount": "1", "unit": "tsp"},
+    {"name": "Lemon juice", "amount": "1", "unit": "tbsp"},
+    {"name": "Fresh dill", "amount": "1", "unit": "tbsp", "note": "chopped"},
+    {"name": "Salt", "amount": "1/4", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/4", "unit": "tsp"},
+    {"name": "Capers", "amount": "1", "unit": "tbsp", "note": "optional"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Open tuna cans and drain liquid thoroughly. Transfer to a bowl.", "tip": "Choose tuna in water - less calories than oil-packed.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Break up tuna with fork into rough chunks. Don't mash completely - some texture is nice.", "tip": "Larger pieces give the salad character.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Finely chop celery stalks. Add to tuna bowl.", "tip": "Celery adds crunch and freshness.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Finely dice red onion. To reduce sharpness, soak in cold water for 5 minutes, then drain.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Dice pickles into small cubes. Add to tuna mixture.", "tip": "Pickles are the secret hero - add sweet-sour balance.", "duration": "1 minute"},
+    {"step": 6, "instruction": "In a separate small bowl, mix dressing: mayonnaise, yogurt, mustard, and lemon juice.", "tip": "Adding yogurt reduces mayo and makes it lighter.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Add dressing to tuna mixture. Gently fold with spatula or spoon.", "tip": "Don't over-mix - keep tuna chunks intact.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Add salt and pepper, stir to combine.", "duration": "30 seconds"},
+    {"step": 9, "instruction": "Add capers if using - they add Mediterranean flavor.", "duration": "20 seconds"},
+    {"step": 10, "instruction": "Add chopped dill and give final stir.", "duration": "30 seconds"},
+    {"step": 11, "instruction": "Taste and adjust lemon or salt as needed.", "tip": "Lemon brightens tuna flavor.", "duration": "30 seconds"},
+    {"step": 12, "instruction": "Serve immediately or refrigerate 30 minutes for flavors to meld.", "tip": "Rested salad tastes better.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 195,
+    "protein": 22,
+    "carbs": 6,
+    "fat": 9,
+    "fiber": 1,
+    "sugar": 2,
+    "sodium": 480
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Tuna is high-quality protein and omega-3 source.",
+    "For healthier version, replace all mayo with yogurt.",
+    "Ideal for meal prep - keeps 3 days refrigerated.",
+    "Choose sustainably caught tuna when possible.",
+    "Perfect for low-carb diets."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate in airtight container for 3 days.",
+  "servingSuggestion": "Serve on whole wheat bread, in lettuce wraps, or on crackers.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Avocado: Add mashed avocado, reduce mayo.",
+    "Mediterranean: Add olives, sun-dried tomatoes, and feta.",
+    "Asian style: Add soy sauce, sesame oil, and green onion.",
+    "Apple walnut: Add diced apple and chopped walnuts."
   ]
 }

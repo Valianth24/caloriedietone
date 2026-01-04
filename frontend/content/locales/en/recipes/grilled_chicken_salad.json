@@ -1,79 +1,66 @@
 {
   "name": "Grilled Chicken Salad",
-  "description": "TODO: Grilled Chicken Salad description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Fresh greens topped with grilled chicken, colorful vegetables, and homemade dressing. Satisfying and healthy main course salad.",
+  "prepTime": "20 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "35 minutes",
+  "servings": 4,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Chicken breast", "amount": "500", "unit": "g", "note": "2 large pieces"},
+    {"name": "Mixed greens", "amount": "200", "unit": "g", "note": "arugula, lettuce, spinach"},
+    {"name": "Cherry tomatoes", "amount": "200", "unit": "g", "note": "halved"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Red onion", "amount": "1/2", "unit": "piece", "note": "thin rings"},
+    {"name": "Avocado", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Corn", "amount": "1/2", "unit": "cup"},
+    {"name": "Olive oil", "amount": "4", "unit": "tbsp"},
+    {"name": "Lemon juice", "amount": "2", "unit": "tbsp"},
+    {"name": "Honey", "amount": "1", "unit": "tsp"},
+    {"name": "Dijon mustard", "amount": "1", "unit": "tsp"},
+    {"name": "Garlic", "amount": "1", "unit": "clove", "note": "minced"},
+    {"name": "Dried oregano", "amount": "1", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Remove chicken from fridge 15 minutes before cooking. Room temperature ensures even cooking.", "duration": "15 minutes"},
+    {"step": 2, "instruction": "Make marinade: Combine 2 tbsp olive oil, oregano, half the salt and pepper.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Place chicken between plastic wrap and pound to even thickness (about 2cm).", "tip": "Even thickness means even cooking.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Coat chicken with marinade. Let sit at least 10 minutes.", "tip": "Longer marinating = better flavor. Can marinate up to 2 hours in fridge.", "duration": "10 minutes"},
+    {"step": 5, "instruction": "Heat grill pan or outdoor grill to medium-high heat.", "duration": "3 minutes"},
+    {"step": 6, "instruction": "Grill chicken 6-7 minutes per side.", "tip": "Don't flip frequently - wait for nice grill marks.", "duration": "14 minutes"},
+    {"step": 7, "instruction": "Chicken is done when internal temp reaches 165°F. Check with thermometer.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Transfer chicken to cutting board. Rest 5 minutes.", "tip": "Resting redistributes juices - don't skip!", "duration": "5 minutes"},
+    {"step": 9, "instruction": "Make dressing: Shake or whisk remaining 2 tbsp olive oil, lemon juice, honey, mustard, garlic, and remaining salt/pepper in jar.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Place mixed greens in large serving bowl.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Arrange cucumber, tomatoes, onion, and corn on top.", "duration": "2 minutes"},
+    {"step": 12, "instruction": "Slice avocado and place on salad.", "tip": "Slice at last minute - avocado browns quickly.", "duration": "1 minute"},
+    {"step": 13, "instruction": "Slice rested chicken diagonally.", "duration": "1 minute"},
+    {"step": 14, "instruction": "Arrange chicken slices on top of salad.", "duration": "1 minute"},
+    {"step": 15, "instruction": "Drizzle dressing over salad and serve immediately.", "tip": "Dressing can be served on the side - everyone uses what they want.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 385,
+    "protein": 32,
+    "carbs": 18,
+    "fat": 22,
+    "fiber": 6,
+    "sugar": 6,
+    "sodium": 520
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Chicken breast is one of the leanest protein sources.",
+    "Avocado adds healthy fats and fiber.",
+    "Chicken can be prepped ahead and stored in fridge - meal prep friendly.",
+    "Dressing keeps 1 week separately in fridge.",
+    "Can also be served warm in winter."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Store dressing and chicken separately, refrigerate 3 days. Add avocado fresh.",
+  "servingSuggestion": "Serve as complete meal on its own, or with crusty bread on the side.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Caesar style: Add croutons and parmesan, use Caesar dressing.",
+    "Greek style: Add feta cheese, olives, and capers.",
+    "Southwest: Add black beans, corn, and ranch dressing.",
+    "Asian style: Add sesame dressing, edamame, and mandarin slices."
   ]
 }

@@ -1,79 +1,66 @@
 {
   "name": "Quinoa Salad",
-  "description": "TODO: Quinoa Salad description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
-  "servings": 2,
+  "description": "Colorful vegetables and fresh herbs with protein-rich quinoa. Healthy grain salad full of fiber and nutrients.",
+  "prepTime": "15 minutes",
+  "cookTime": "18 minutes",
+  "totalTime": "33 minutes",
+  "servings": 6,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Quinoa", "amount": "1.5", "unit": "cups"},
+    {"name": "Water", "amount": "3", "unit": "cups"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Cherry tomatoes", "amount": "200", "unit": "g", "note": "quartered"},
+    {"name": "Red bell pepper", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Red onion", "amount": "1/2", "unit": "piece", "note": "finely diced"},
+    {"name": "Fresh parsley", "amount": "1/2", "unit": "cup", "note": "finely chopped"},
+    {"name": "Fresh mint", "amount": "1/4", "unit": "cup", "note": "finely chopped"},
+    {"name": "Extra virgin olive oil", "amount": "1/4", "unit": "cup"},
+    {"name": "Lemon juice", "amount": "3", "unit": "tbsp"},
+    {"name": "Lemon zest", "amount": "1", "unit": "tsp"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves", "note": "minced"},
+    {"name": "Cumin", "amount": "1/2", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"},
+    {"name": "Feta cheese", "amount": "100", "unit": "g", "note": "crumbled, optional"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Rinse quinoa thoroughly under cold running water in fine mesh strainer for 2 minutes.", "tip": "Rinsing removes bitter saponin coating.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Add quinoa and water to medium pot. Bring to boil.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Once boiling, reduce heat, cover, and simmer 15 minutes until water is absorbed.", "tip": "Don't lift lid while cooking - steam escapes.", "duration": "15 minutes"},
+    {"step": 4, "instruction": "Turn off heat, keep covered for 5 minutes. Then fluff with fork.", "tip": "Fluffing separates the grains.", "duration": "5 minutes"},
+    {"step": 5, "instruction": "Spread quinoa on large tray to cool. Or quick-cool in refrigerator.", "tip": "Hot quinoa will cook vegetables - must cool first.", "duration": "15 minutes"},
+    {"step": 6, "instruction": "Make dressing: Whisk olive oil, lemon juice, zest, garlic, cumin, salt, and pepper.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Chop all vegetables. Place in large salad bowl.", "duration": "5 minutes"},
+    {"step": 8, "instruction": "Add chopped fresh herbs (parsley and mint) to vegetables.", "tip": "Fresh herbs are the star of this salad - use generously.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Add cooled quinoa to vegetable mixture.", "duration": "1 minute"},
+    {"step": 10, "instruction": "Pour dressing over the mixture.", "duration": "30 seconds"},
+    {"step": 11, "instruction": "Gently fold with spatula or spoon.", "tip": "Don't stir vigorously - vegetables will get crushed.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Taste and adjust salt or lemon as needed.", "duration": "30 seconds"},
+    {"step": 13, "instruction": "Crumble feta on top if using.", "duration": "1 minute"},
+    {"step": 14, "instruction": "Serve immediately or refrigerate 30 minutes for flavors to meld.", "tip": "Rested salad has better flavor.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 245,
+    "protein": 8,
+    "carbs": 32,
+    "fat": 10,
+    "fiber": 5,
+    "sugar": 4,
+    "sodium": 420
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Quinoa is a complete protein - contains all 9 essential amino acids.",
+    "Ideal for meal prep - keeps 4-5 days refrigerated.",
+    "Serve cold or at room temperature.",
+    "Naturally gluten-free grain - safe for celiac.",
+    "Inspired by tabbouleh - modern version."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Refrigerate in airtight container for 4-5 days.",
+  "servingSuggestion": "Serve alongside grilled meat or fish as side, or alone as light meal.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Mediterranean: Add olives, sun-dried tomatoes, and artichokes.",
+    "Mexican: Add black beans, corn, and avocado.",
+    "Asian: Add edamame, sesame, and ginger-soy dressing.",
+    "Protein boost: Add chickpeas or grilled chicken."
   ]
 }

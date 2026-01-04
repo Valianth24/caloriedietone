@@ -1,79 +1,65 @@
 {
   "name": "Veggie Omelette",
-  "description": "TODO: Veggie Omelette description (1-2 sentences).",
-  "prepTime": "TODO: X minutes",
-  "cookTime": "TODO: X minutes",
-  "totalTime": "TODO: X minutes",
+  "description": "Colorful vegetable-filled omelette, rich in protein. Light, nutritious breakfast ready in 15 minutes.",
+  "prepTime": "10 minutes",
+  "cookTime": "8 minutes",
+  "totalTime": "18 minutes",
   "servings": 2,
   "ingredients": [
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "piece",
-      "note": "TODO"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "cup"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tbsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "tsp"
-    },
-    {
-      "name": "TODO",
-      "amount": "TODO",
-      "unit": "gr"
-    }
+    {"name": "Eggs", "amount": "4", "unit": "pieces"},
+    {"name": "Milk", "amount": "2", "unit": "tbsp"},
+    {"name": "Red bell pepper", "amount": "1/2", "unit": "piece", "note": "diced"},
+    {"name": "Green bell pepper", "amount": "1/2", "unit": "piece", "note": "diced"},
+    {"name": "Mushrooms", "amount": "4", "unit": "pieces", "note": "sliced"},
+    {"name": "Fresh spinach", "amount": "1", "unit": "handful"},
+    {"name": "Cherry tomatoes", "amount": "6", "unit": "pieces", "note": "halved"},
+    {"name": "Green onion", "amount": "2", "unit": "stalks", "note": "chopped"},
+    {"name": "Feta cheese", "amount": "50", "unit": "g", "note": "crumbled or grated"},
+    {"name": "Olive oil", "amount": "1", "unit": "tbsp"},
+    {"name": "Butter", "amount": "1", "unit": "tbsp"},
+    {"name": "Salt", "amount": "1/2", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/4", "unit": "tsp"},
+    {"name": "Red pepper flakes", "amount": "1/4", "unit": "tsp", "note": "optional"}
   ],
   "instructions": [
-    {
-      "step": 1,
-      "instruction": "TODO",
-      "tip": "TODO",
-      "duration": "TODO"
-    },
-    {
-      "step": 2,
-      "instruction": "TODO",
-      "tip": "TODO"
-    },
-    {
-      "step": 3,
-      "instruction": "TODO"
-    },
-    {
-      "step": 4,
-      "instruction": "TODO"
-    },
-    {
-      "step": 5,
-      "instruction": "TODO"
-    }
+    {"step": 1, "instruction": "Wash and prep all vegetables. Place in separate bowls - cooking happens fast.", "tip": "French call this 'mise en place' - everything in its place.", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Crack eggs into a deep bowl. Add milk, salt, and pepper.", "duration": "30 seconds"},
+    {"step": 3, "instruction": "Whisk vigorously for 30 seconds with fork or whisk. Yolks and whites should be fully combined.", "tip": "Don't overwhisk - just until slightly frothy.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Heat non-stick pan (8-9 inch) over medium heat. Add olive oil.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add peppers and mushrooms. Sauté 2-3 minutes until slightly softened.", "tip": "Vegetables should stay slightly crisp - don't overcook.", "duration": "3 minutes"},
+    {"step": 6, "instruction": "Add spinach and stir until wilted (30 seconds).", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Transfer sautéed vegetables to a plate. Wipe pan with paper towel.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Return pan to medium-low heat. Add butter and let it melt.", "tip": "Heat shouldn't be too high for omelette - outside burns, inside stays raw.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Pour beaten eggs into pan. Don't touch for 10 seconds.", "duration": "10 seconds"},
+    {"step": 10, "instruction": "Gently push edges toward center with spatula. Tilt pan to let uncooked egg flow to edges.", "tip": "This technique creates layers.", "duration": "1.5 minutes"},
+    {"step": 11, "instruction": "When top surface is still slightly wet (not runny), add vegetables to one half of omelette.", "duration": "30 seconds"},
+    {"step": 12, "instruction": "Sprinkle cheese over vegetables.", "duration": "20 seconds"},
+    {"step": 13, "instruction": "Fold empty half over the vegetable side using spatula.", "tip": "Should be half-moon shaped.", "duration": "30 seconds"},
+    {"step": 14, "instruction": "Cook 1 more minute on low heat. Cheese should melt.", "duration": "1 minute"},
+    {"step": 15, "instruction": "Slide onto plate. Top with tomatoes, green onion, and pepper flakes. Serve immediately.", "duration": "1 minute"}
   ],
   "nutrition": {
-    "calories": 0,
-    "protein": 0,
-    "carbs": 0,
-    "fat": 0,
-    "fiber": 0
+    "calories": 285,
+    "protein": 20,
+    "carbs": 10,
+    "fat": 18,
+    "fiber": 3,
+    "sugar": 5,
+    "sodium": 520
   },
   "tips": [
-    "TODO: Tip 1",
-    "TODO: Tip 2",
-    "TODO: Tip 3"
+    "Omelette interior should be creamy (baveuse) - French style.",
+    "Non-stick pan is essential - regular pans stick.",
+    "Take eggs out of fridge 10 minutes early - room temp cooks better.",
+    "Customize vegetables based on season and preference.",
+    "Perfect low-carb diet breakfast."
   ],
-  "storageInfo": "TODO: Storage info",
-  "servingSuggestion": "TODO: Serving suggestion",
+  "storageInfo": "Best eaten fresh. Omelettes don't keep well - eat immediately.",
+  "servingSuggestion": "Serve with whole wheat toast, fresh fruit, or side salad.",
   "variations": [
-    "TODO: Variation 1",
-    "TODO: Variation 2"
+    "Cheese: Just use grated cheddar or gruyere.",
+    "Spanish tortilla: Thick omelette with potatoes and onions.",
+    "Mediterranean: Olives, sun-dried tomatoes, and feta.",
+    "Protein-focused: Use 2 whole eggs + 3 egg whites."
   ]
 }
