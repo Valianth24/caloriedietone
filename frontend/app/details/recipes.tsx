@@ -359,8 +359,25 @@ export default function RecipesScreen() {
       </View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
+        {/* Recipe Collections - Özel Koleksiyonlar */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>
+            {locale === 'tr' ? 'Tarif Koleksiyonları' : 'Recipe Collections'}
+          </Text>
+          <Text style={styles.sectionSubtitle}>
+            {locale === 'tr' ? 'Özel seçilmiş tarif grupları' : 'Specially curated recipe groups'}
+          </Text>
+          <ScrollView 
+            horizontal 
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.collectionsRow}
+          >
+            {(Object.keys(RECIPE_COLLECTIONS) as CollectionId[]).map(renderCollectionCard)}
+          </ScrollView>
+        </View>
+
         {/* Featured Recipes */}
-        {featuredRecipes.length > 0 && (
+        {featuredRecipes.length > 0 && !selectedCollection && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>
               {locale === 'tr' ? 'Öne Çıkan Tarifler' : 'Featured Recipes'}
