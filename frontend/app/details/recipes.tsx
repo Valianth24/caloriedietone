@@ -20,6 +20,7 @@ import {
   getAllRecipeMetadata,
   getRecipesByCategory,
   getFeaturedRecipes,
+  getRecipesByTag,
   getAllCategories,
   getCategoryLabel,
   getDifficultyLabel,
@@ -31,6 +32,75 @@ import type { RecipeMetadata, RecipeCategory } from '../../types/recipe';
 
 const { width } = Dimensions.get('window');
 const CARD_WIDTH = (width - 48) / 2;
+
+// Özel Koleksiyonlar (Collections)
+const RECIPE_COLLECTIONS = {
+  athlete: {
+    id: 'athlete',
+    labelTr: 'Sporcu Tarifleri',
+    labelEn: 'Athlete Recipes',
+    icon: 'barbell-outline',
+    color: '#E53935',
+    descTr: 'Yüksek protein, kas yapıcı tarifler',
+    descEn: 'High protein muscle building recipes',
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.tags.includes('high_protein')),
+  },
+  traditional: {
+    id: 'traditional',
+    labelTr: 'Yöresel Tarifler',
+    labelEn: 'Traditional Recipes',
+    icon: 'home-outline',
+    color: '#8D6E63',
+    descTr: 'Türk mutfağından lezzetler',
+    descEn: 'Flavors from Turkish cuisine',
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => 
+      ['lentil_soup', 'stuffed_peppers', 'lentil_curry', 'hummus'].includes(r.id) ||
+      r.tags.includes('mediterranean')
+    ),
+  },
+  dessert: {
+    id: 'dessert',
+    labelTr: 'Tatlı Tarifleri',
+    labelEn: 'Dessert Recipes',
+    icon: 'ice-cream-outline',
+    color: '#EC407A',
+    descTr: 'Sağlıklı ve lezzetli tatlılar',
+    descEn: 'Healthy and delicious desserts',
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.category === 'dessert'),
+  },
+  quick: {
+    id: 'quick',
+    labelTr: 'Hızlı Tarifler',
+    labelEn: 'Quick Recipes',
+    icon: 'flash-outline',
+    color: '#FF9800',
+    descTr: '30 dakika altında hazır',
+    descEn: 'Ready in under 30 minutes',
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.tags.includes('quick')),
+  },
+  vegan: {
+    id: 'vegan',
+    labelTr: 'Vegan Tarifler',
+    labelEn: 'Vegan Recipes',
+    icon: 'leaf-outline',
+    color: '#4CAF50',
+    descTr: 'Tamamen bitkisel tarifler',
+    descEn: 'Fully plant-based recipes',
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.tags.includes('vegan')),
+  },
+  lowcarb: {
+    id: 'lowcarb',
+    labelTr: 'Düşük Karbonhidrat',
+    labelEn: 'Low Carb',
+    icon: 'analytics-outline',
+    color: '#2196F3',
+    descTr: 'Keto ve düşük karbonhidrat',
+    descEn: 'Keto and low carb friendly',
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.tags.includes('low_carb') || r.tags.includes('keto')),
+  },
+};
+
+type CollectionId = keyof typeof RECIPE_COLLECTIONS;
 
 export default function RecipesScreen() {
   const { t, i18n } = useTranslation();
