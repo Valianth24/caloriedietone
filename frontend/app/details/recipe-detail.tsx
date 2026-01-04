@@ -38,7 +38,7 @@ export default function RecipeDetailScreen() {
 
   useEffect(() => {
     loadRecipeData();
-  }, [recipeId]);
+  }, [recipeId, locale]);
 
   const loadRecipeData = async () => {
     setLoading(true);
