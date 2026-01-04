@@ -1,0 +1,60 @@
+{
+  "name": "Tavuk Fajita Bowl",
+  "description": "Meksika esintili, renkli biberler ve baharatlı tavuk ile hazırlanan protein deposu bir bowl.",
+  "prepTime": "15 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "35 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tavuk göğsü", "amount": "400", "unit": "g", "note": "şeritler halinde"},
+    {"name": "Esmer pirinç", "amount": "1", "unit": "su bardağı"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet", "note": "şerit"},
+    {"name": "Sarı biber", "amount": "1", "unit": "adet", "note": "şerit"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "şerit"},
+    {"name": "Siyah fasulye", "amount": "1", "unit": "su bardağı", "note": "haşlanmış"},
+    {"name": "Mısır", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Avokado", "amount": "1", "unit": "adet"},
+    {"name": "Yoğurt", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak tozu", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Lime", "amount": "1", "unit": "adet"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Esmer pirinci yıkayın, 2.5 su bardağı su ile kaynatın. Kısık ateşte 20-25 dakika pişirin.", "duration": "25 dakika"},
+    {"step": 2, "instruction": "Fajita baharatlarını karıştırın: Kimyon, kırmızı biber, sarımsak tozu ve tuz.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Tavuk şeritlerine baharatları iyice yedirin.", "tip": "Tavukları ince ve eşit kesmeniz pişirmeyi kolaylaştırır.", "duration": "3 dakika"},
+    {"step": 4, "instruction": "Geniş bir tavada zeytinyağını yüksek ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Baharatlı tavukları tavaya alın. 5-6 dakika, ara sıra karıştırarak pişirin.", "duration": "6 dakika"},
+    {"step": 6, "instruction": "Tavukları kenara alın. Aynı tavaya biberleri ve soğanı ekleyin.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Sebzeleri 4-5 dakika soteleyin. Biraz çıtır kalmalı.", "tip": "Sebzeleri çok pişirmeyin, renkleri canlı kalmalı.", "duration": "5 dakika"},
+    {"step": 8, "instruction": "Avokadoyu ikiye bölüp dilimleyin.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Servis kaselerine pirinci bölüştürün.", "duration": "1 dakika"},
+    {"step": 10, "instruction": "Üzerine tavuk, sotelenmiş biberler, siyah fasulye, mısır ve avokado ekleyin.", "duration": "2 dakika"},
+    {"step": 11, "instruction": "Yoğurt ve lime dilimleri ile süsleyin. Sıcak servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 465,
+    "protein": 42,
+    "carbs": 38,
+    "fat": 15,
+    "fiber": 10,
+    "sugar": 5,
+    "sodium": 620
+  },
+  "tips": [
+    "Siyah fasulye ekstra lif ve protein sağlar.",
+    "Hazır fajita baharatı kullanabilirsiniz ama ev yapımı daha sağlıklı.",
+    "Bowl'u önceden hazırlayıp buzdolabında saklayabilirsiniz.",
+    "Keto versiyonu için pirinci çıkarın, sebzeleri artırın."
+  ],
+  "storageInfo": "Avokado ve yoğurt hariç buzdolabında 3-4 gün saklanabilir.",
+  "servingSuggestion": "Yanında mısır cipsi veya tortilla ile servis edebilirsiniz.",
+  "variations": [
+    "Sığır eti veya karides ile de yapılabilir.",
+    "Acı severler için jalapeno ekleyin.",
+    "Vegan versiyon için tavuk yerine tofu kullanın."
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "Tavuk Brokoli Stir Fry",
+  "description": "Hızlı ve kolay, Asya esintili düşük karbonhidratlı yemek. 20 dakikada hazır.",
+  "prepTime": "10 dakika",
+  "cookTime": "12 dakika",
+  "totalTime": "22 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tavuk göğsü", "amount": "400", "unit": "g", "note": "ince şeritler"},
+    {"name": "Brokoli", "amount": "300", "unit": "g", "note": "küçük çiçeklere ayrılmış"},
+    {"name": "Soya sosu", "amount": "3", "unit": "yemek kaşığı", "note": "az tuzlu"},
+    {"name": "Susam yağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Bitkisel yağ", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş", "note": "ince dilimlenmiş"},
+    {"name": "Taze zencefil", "amount": "1", "unit": "yemek kaşığı", "note": "rendelenmiş"},
+    {"name": "Tavuk suyu", "amount": "1/4", "unit": "su bardağı"},
+    {"name": "Nişasta", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı pul biber", "amount": "1/4", "unit": "tatlı kaşığı", "note": "isteğe bağlı"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Yeşil soğan", "amount": "2", "unit": "dal", "note": "doğranmış"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Sos için: Soya sosu, tavuk suyu, susam yağı ve nişastayı bir kasede karıştırın. Kenara ayırın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Wok veya geniş tavayı yüksek ateşte ısıtın. Bitkisel yağ ekleyin.", "tip": "Wok çok sıcak olmalı, hafif duman çıkana kadar ısıtın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Tavuk şeritlerin yarısını ekleyin. Karıştırmadan 1 dakika bekleyin, sonra hızla karıştırarak 2 dakika pişirin.", "tip": "Kalabalık etmeyin, iki seferde pişirin.", "duration": "3 dakika"},
+    {"step": 4, "instruction": "Pişen tavukları kenara alın, kalan tavukları aynı şekilde pişirin.", "duration": "3 dakika"},
+    {"step": 5, "instruction": "Tüm tavukları kenara aldıktan sonra brokolileri tavaya ekleyin.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "2 yemek kaşığı su ekleyin ve kapağı kapatın. 2 dakika buharlayın.", "tip": "Brokoli parlak yeşil ve biraz çıtır kalmalı.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Sarımsak ve zencefili ekleyin, 30 saniye kavurun.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Tavukları tavaya geri ekleyin.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Hazırladığınız sosu dökün. Sos koyulaşana kadar 1-2 dakika karıştırın.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Ateşten alın. Susam, yeşil soğan ve isteğe göre pul biber ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 395,
+    "protein": 42,
+    "carbs": 24,
+    "fat": 14,
+    "fiber": 5,
+    "sugar": 4,
+    "sodium": 780
+  },
+  "tips": [
+    "Yüksek ateş ve kısa süre pişirme (wok hei) lezzeti artırır.",
+    "Brokoli C vitamini ve lif kaynağıdır.",
+    "Düşük karbonhidrat diyeti için pilavsiz servis edin.",
+    "20 dakikadan kısa sürede hazır - yoğun günler için ideal."
+  ],
+  "storageInfo": "Buzdolabında 3 gün saklanabilir. Isıtırken tavada kısa süre çevirin.",
+  "servingSuggestion": "Yanında esmer pirinç veya karnabahar pilavı ile servis edin.",
+  "variations": [
+    "Sığır eti veya karides ile de yapılabilir.",
+    "Mantar, havuc ve şeker bezelyesi ekleyebilirsiniz.",
+    "Teriyaki sosu ile farklı bir tat elde edebilirsiniz."
+  ]
+}

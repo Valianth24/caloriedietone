@@ -1,0 +1,60 @@
+{
+  "name": "Tavuk Tikka Masala",
+  "description": "Hint mutfağının vazgeçilmezi, kremamsı ve baharatlı domates soslu tavuk. Yüksek protein içerikli.",
+  "prepTime": "20 dakika",
+  "cookTime": "35 dakika",
+  "totalTime": "55 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Tavuk göğsü", "amount": "600", "unit": "g", "note": "kuşbaşı"},
+    {"name": "Yoğurt", "amount": "200", "unit": "g", "note": "süzme"},
+    {"name": "Domates salçası", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Ezilmiş domates", "amount": "400", "unit": "g", "note": "konserve"},
+    {"name": "Soğan", "amount": "2", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Taze zencefil", "amount": "2", "unit": "cm", "note": "rendelenmiş"},
+    {"name": "Garam masala", "amount": "2", "unit": "tatlı kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı toz biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Zerdeçal", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Krema", "amount": "100", "unit": "ml", "note": "veya hindistan cevizi sütü"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Taze koriş", "amount": "1", "unit": "demet", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marine için: Yoğurt, 1 tatlı kaşığı garam masala, zerdeçal ve tuzu karıştırın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Tavuk parçalarını bu karışıma yatırın. En az 30 dakika, ideal olarak 2 saat marine edin.", "tip": "Gece boyu marine etmek en iyi sonucu verir.", "duration": "30 dakika"},
+    {"step": 3, "instruction": "Fırını 220°C'ye ısıtın. Marine edilmiş tavukları tepsiye dizip 15 dakika pişirin.", "tip": "Hafif karamelize olması tadı artırır.", "duration": "15 dakika"},
+    {"step": 4, "instruction": "Derin bir tavada zeytinyağını ısıtın. Soğanları yumuşayana kadar soteleyin.", "duration": "8 dakika"},
+    {"step": 5, "instruction": "Sarımsak ve zencefili ekleyin, 1 dakika kavurun.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Kalan garam masala, kimyon ve kırmızı biberi ekleyin. 30 saniye kavurun.", "tip": "Baharatları yakmamaya dikkat edin.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Domates salçası ve ezilmiş domatesi ekleyin. Kaynayana kadar pişirin.", "duration": "5 dakika"},
+    {"step": 8, "instruction": "Sosun kısık ateşte 10 dakika püre haline gelene kadar pişmesini bekleyin.", "duration": "10 dakika"},
+    {"step": 9, "instruction": "Fırından çıkan tavukları sosa ekleyin. Karıştırın.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Kremayı ekleyin ve 5 dakika daha kısık ateşte pişirin.", "duration": "5 dakika"},
+    {"step": 11, "instruction": "Taze koriş ile süsleyip servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 38,
+    "carbs": 45,
+    "fat": 20,
+    "fiber": 4,
+    "sugar": 10,
+    "sodium": 680
+  },
+  "tips": [
+    "Sağlıklı versiyon için krema yerine hindistan cevizi sütü kullanın.",
+    "Yoğurt marinasyonu proteinin sindirilebilirliğini artırır.",
+    "Garam masalaı ev yapımı yaparak tuz oranını kontrol edebilirsiniz.",
+    "Meal prep için mükemmel - lezzeti bir gün bekledikten sonra artar."
+  ],
+  "storageInfo": "Buzdolabında 4 gün, dondurucuda 2 ay saklanabilir.",
+  "servingSuggestion": "Basmati pirinç veya naan ekmek ile servis edin.",
+  "variations": [
+    "Karides veya paneer ile vegütaryen versiyonu yapılabilir.",
+    "Daha acılı isteğinize göre yeşil biber ekleyin.",
+    "Düşük yağlı yoğurt kullanarak kaloriyi azaltabilirsiniz."
+  ]
+}

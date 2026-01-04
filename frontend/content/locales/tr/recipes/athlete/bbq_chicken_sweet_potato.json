@@ -1,0 +1,57 @@
+{
+  "name": "BBQ Tavuk & Tatlı Patates",
+  "description": "Ev yapımı BBQ soslu ızgara tavuk ve karamelize tatlı patates. Antrenman sonrası mükemmel.",
+  "prepTime": "15 dakika",
+  "cookTime": "40 dakika",
+  "totalTime": "55 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tavuk but", "amount": "4", "unit": "adet", "note": "kemikli, derisiz"},
+    {"name": "Tatlı patates", "amount": "2", "unit": "adet", "note": "büyük"},
+    {"name": "Domates salçası", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Elma sirkesi", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Bal", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Hardal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak tozu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Soğan tozu", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tütsülenmiş kırmızı biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Taze maydanoz", "amount": "2", "unit": "yemek kaşığı", "note": "doğranmış"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Fırını 200°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "BBQ sosu hazırlayın: Domates salçası, elma sirkesi, bal, hardal, sarımsak ve soğan tozu, tütsülenmiş biberi karıştırın.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Tavukların her tarafını tuzlayın ve BBQ sosunun yarısıyla kaplayın.", "tip": "Sosun yarısını sürme için ayırın.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Tatlı patatesleri iyice yıkayın ve çatal ile birkaç yerinden delin.", "tip": "Bu buharın çıkmasını sağlar.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Patatesleri zeytinyağı ile ovalayın ve tuzlayın.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Büyük bir fırın tepsisine patatesleri ve tavukları yerleştirin.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Fırına verin, 25 dakika pişirin.", "duration": "25 dakika"},
+    {"step": 8, "instruction": "Tavukları çıkarın, kalan BBQ sosu ile fırçalayın.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Fırına geri koyun ve 15 dakika daha pişirin. Tavuk iç sıcaklığı 74°C olmalı.", "duration": "15 dakika"},
+    {"step": 10, "instruction": "Tatlı patatesleri ortadan ikiye bölün, içini çatalla kabartın.", "duration": "2 dakika"},
+    {"step": 11, "instruction": "Tavuk ve patatesi tabağa alın, maydanoz ile süsleyin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 495,
+    "protein": 40,
+    "carbs": 52,
+    "fat": 12,
+    "fiber": 6,
+    "sugar": 18,
+    "sodium": 720
+  },
+  "tips": [
+    "Tatlı patates kompleks karbonhidrat içerir, enerji depolarını doldurur.",
+    "Ev yapımı BBQ sosu şeker oranını kontrol etmenizi sağlar.",
+    "Kemikli tavuk but daha sulu kalır.",
+    "Antrenman sonrası 1 saat içinde tüketin."
+  ],
+  "storageInfo": "Buzdolabında 3-4 gün saklanabilir. Isıtırken üzerine biraz su serpin.",
+  "servingSuggestion": "Yanında cole slaw veya yeşil salata ile servis edin.",
+  "variations": [
+    "Bal yerine akçaağaç şurubu kullanabilirsiniz.",
+    "Daha acılı için cayenne biberi ekleyin.",
+    "Tavuk göğsü ile de yapılabilir ama pişirme süresini kısaltın."
+  ]
+}
