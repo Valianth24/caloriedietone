@@ -21,6 +21,7 @@ export default function StepsDetailScreen() {
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
   const subscriptionRef = useRef<any>(null);
   const appStateRef = useRef(AppState.currentState);
+  const baseStepsRef = useRef(0); // Track base steps from history
 
   useEffect(() => {
     loadData();
