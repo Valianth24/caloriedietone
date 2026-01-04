@@ -1,0 +1,53 @@
+{
+  "name": "Kore Usulü Et Bowl",
+  "description": "Tatlı-baharatlı Kore soslu kıyma, pirincın üzerinde sebzeler ve yumurta ile servis edilir.",
+  "prepTime": "15 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Yağsız dana kıyma", "amount": "350", "unit": "g"},
+    {"name": "Jasmine pirinç", "amount": "1", "unit": "su bardağı"},
+    {"name": "Soya sosu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Esmer şeker", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Zencefil", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet", "note": "ince dilim"},
+    {"name": "Havuç", "amount": "1", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Yumurta", "amount": "2", "unit": "adet"},
+    {"name": "Yeşil soğan", "amount": "3", "unit": "dal"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Sriracha", "amount": "", "unit": "", "note": "isteğe bağlı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pirinci 2 su bardağı su ile pişirin.", "duration": "18 dakika"},
+    {"step": 2, "instruction": "Kore sosu: Soya sosu, esmer şeker, susam yağı, sarımsak ve zencefili karıştırın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Kıymayı tavada orta-yüksek ateşte kavurun.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Sosu kıymaya ekleyin, 3-4 dakika karamelize olana kadar pişirin.", "tip": "Sos hafif yapışkan kıvama gelmeli.", "duration": "4 dakika"},
+    {"step": 5, "instruction": "Ayrı bir tavada yumurtaları sahanda pişirin.", "tip": "Sarısı akıcı kalmalı.", "duration": "4 dakika"},
+    {"step": 6, "instruction": "Kaselere pirinci dökün.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Üzerine Kore soslu kıyma, salatalık, havuç ve yumurta yerleştirin.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Yeşil soğan, susam ve sriracha ile süsleyin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 510,
+    "protein": 36,
+    "carbs": 52,
+    "fat": 18,
+    "fiber": 3,
+    "sugar": 12,
+    "sodium": 890
+  },
+  "tips": [
+    "Yumurta sarısını karıştırınca kremamsı bir sos oluşur.",
+    "Kimchi eklemek otantik Kore tadı katar.",
+    "Meal prep için harika - yumurtayı taze yapın."
+  ],
+  "storageInfo": "Yumurta hariç buzdolabında 4 gün saklanabilir.",
+  "servingSuggestion": "Yanında kimchi ve turşu ile servis edin.",
+  "variations": [
+    "Domuz kıyma veya tavuk kıyma kullanabilirsiniz.",
+    "Tofu ile vejetaryen versiyonu yapılabilir."
+  ]
+}

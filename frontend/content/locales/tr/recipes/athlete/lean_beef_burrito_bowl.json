@@ -1,0 +1,53 @@
+{
+  "name": "Yağsız Et Burrito Bowl",
+  "description": "Meksika lezzetleri ile dolu, yağsız kıyma, fasulye ve taze malzemelerle. Yüksek lif ve protein.",
+  "prepTime": "15 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "35 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Yağsız dana kıyma", "amount": "350", "unit": "g", "note": "%5 yağlı"},
+    {"name": "Esmer pirinç", "amount": "1", "unit": "su bardağı"},
+    {"name": "Siyah fasulye", "amount": "1", "unit": "su bardağı", "note": "haşlanmış"},
+    {"name": "Mısır", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Domates", "amount": "2", "unit": "adet", "note": "küp"},
+    {"name": "Marul", "amount": "2", "unit": "su bardağı", "note": "doğranmış"},
+    {"name": "Avokado", "amount": "1", "unit": "adet"},
+    {"name": "Yoğurt", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Lime", "amount": "1", "unit": "adet"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak tozu", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pirinci hazırlayın: 2.5 su bardağı su ile 25 dakika pişirin.", "duration": "28 dakika"},
+    {"step": 2, "instruction": "Baharatları karıştırın: kimyon, kırmızı biber, sarımsak tozu, tuz.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Tavada kıymayı orta ateşte kızartın. Baharatları ekleyin.", "duration": "10 dakika"},
+    {"step": 4, "instruction": "Siyah fasulye ve mısırı ekleyip 2 dakika ısıtın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Avokadoyu dilimleyin.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Kaselere pirincı bölüştürün.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Üzerine kıymalı karışım, marul, domates ve avokado yerleştirin.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Yoğurt ve lime suyu ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 545,
+    "protein": 40,
+    "carbs": 52,
+    "fat": 16,
+    "fiber": 12,
+    "sugar": 6,
+    "sodium": 680
+  },
+  "tips": [
+    "Yağsız kıyma seçimi kaloriyi düşürür.",
+    "Siyah fasulye ekstra lif ve protein sağlar.",
+    "Meal prep için ideal - 4 gün saklanabilir."
+  ],
+  "storageInfo": "Avokado ve yoğurt hariç buzdolabında 4 gün saklanabilir.",
+  "servingSuggestion": "Yanında mısır cipsi ile servis edebilirsiniz.",
+  "variations": [
+    "Hindi kıyma ile daha az yağlı yapılabilir.",
+    "Keto versiyonu için pirinci çıkarın."
+  ]
+}

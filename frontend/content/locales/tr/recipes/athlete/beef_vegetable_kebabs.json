@@ -1,0 +1,52 @@
+{
+  "name": "Etli Sebze Kebabı",
+  "description": "Marine edilmiş biftek küpleri ve renkli sebzeler ile ızgarada pişirilmiş protein zengini kebap.",
+  "prepTime": "20 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "35 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Biftek (bonfile/kontrfile)", "amount": "500", "unit": "g", "note": "3cm küpler"},
+    {"name": "Kabak", "amount": "2", "unit": "adet", "note": "kalın dilim"},
+    {"name": "Kırmızı biber", "amount": "2", "unit": "adet"},
+    {"name": "Sarı biber", "amount": "1", "unit": "adet"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "büyük dilimler"},
+    {"name": "Kiraz domates", "amount": "12", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Balzamik sirke", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Biberiye", "amount": "2", "unit": "dal"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marinasyon: Zeytinyağı, balzamik, ezilmiş sarımsak, biberiye, tuz ve karabiberi karıştırın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Et küplerini marinasyona yatırın. En az 30 dakika bekletin.", "tip": "2 saat marine etmek daha iyi sonuç verir.", "duration": "30 dakika"},
+    {"step": 3, "instruction": "Ahşap şişleri 30 dakika suda bekletin.", "duration": "30 dakika"},
+    {"step": 4, "instruction": "Sebzeleri uygun boyutlarda kesin.", "duration": "5 dakika"},
+    {"step": 5, "instruction": "Şişlere sırayla et, biber, soğan, kabak, domates dizin.", "tip": "Eşit boyut ve aralık, eşit pişme sağlar.", "duration": "8 dakika"},
+    {"step": 6, "instruction": "Izgarayı yüksek ateşte ısıtın.", "duration": "5 dakika"},
+    {"step": 7, "instruction": "Kebapları ızgaraya yerleştirin. Her tarafı 3-4 dakika pişirin.", "duration": "12 dakika"},
+    {"step": 8, "instruction": "Medium-rare için iç sıcaklık 55°C, medium için 60°C olmalı.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "5 dakika dinlendirip servis edin.", "duration": "5 dakika"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 42,
+    "carbs": 18,
+    "fat": 16,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 420
+  },
+  "tips": [
+    "Düşük karbonhidrat ve yüksek protein kombinasyonu.",
+    "Ahşap şişleri ıslatmak yanmayı önler.",
+    "Pişirdikten sonra dinlendirmek suların dağılmasını sağlar."
+  ],
+  "storageInfo": "Buzdolabında 2 gün saklanabilir. Isıtırken kurutmayın.",
+  "servingSuggestion": "Yanında humus, tabbule salatası ve pita ekmeği ile servis edin.",
+  "variations": [
+    "Tavuk veya kuzu ile de yapılabilir.",
+    "Mantar ve patlican ekleyebilirsiniz."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "name": "Biftek & Tatlı Patates",
+  "description": "Mükemmel pişirilmiş biftek ve fırında karamelize tatlı patates. Sporcu favorisi.",
+  "prepTime": "10 dakika",
+  "cookTime": "30 dakika",
+  "totalTime": "40 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Bonfile biftek", "amount": "2", "unit": "adet", "note": "200g her biri"},
+    {"name": "Tatlı patates", "amount": "2", "unit": "adet", "note": "orta boy"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Tereyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Taze biberiye", "amount": "2", "unit": "dal"},
+    {"name": "Taze kekik", "amount": "4", "unit": "dal"},
+    {"name": "Deniz tuzu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Ispanak", "amount": "200", "unit": "g", "note": "garnitür için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Bifekleri buzdolabından 30 dakika önce çıkarın.", "tip": "Oda sıcaklığındaki et eşit pişer.", "duration": "30 dakika"},
+    {"step": 2, "instruction": "Fırını 220°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 3, "instruction": "Tatlı patatesleri yıkayın, küp şeklinde kesin.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Patatesleri 1 yemek kaşığı zeytinyağı, tuz ile kaplayıp fırına verin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "25-30 dakika, kızarıncaya kadar fırınlayın.", "duration": "30 dakika"},
+    {"step": 6, "instruction": "Bifekleri her iki tarafına tuz ve karabiber sürün.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Dökme demir tavayı çok yüksek ateşte ısıtın. Yağ ekleyin.", "duration": "3 dakika"},
+    {"step": 8, "instruction": "Bifekleri tavaya koyun. İstenilen pişkinliğe göre her tarafı pişirin: Medium-rare 3dk, Medium 4dk.", "tip": "Et sürekli çevirmeyin, güzel kabuk için sabırlı olun.", "duration": "8 dakika"},
+    {"step": 9, "instruction": "Son dakikada tereyağı, sarımsak ve otları ekleyip kaşıkla etin üzerine gezdirin.", "duration": "1 dakika"},
+    {"step": 10, "instruction": "Bifekleri 5 dakika dinlendirin.", "tip": "Dinlendirme suların ete dağılmasını sağlar.", "duration": "5 dakika"},
+    {"step": 11, "instruction": "Ispanağı hafif soteleyin, biftek ve patates ile servis edin.", "duration": "3 dakika"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 45,
+    "carbs": 42,
+    "fat": 18,
+    "fiber": 6,
+    "sugar": 8,
+    "sodium": 520
+  },
+  "tips": [
+    "Sığır eti kreatin ve demir açısından zengindir.",
+    "Tatlı patates kompleks karbonhidrat sağlar.",
+    "Dökme demir tava en iyi kabuğu verir."
+  ],
+  "storageInfo": "Pişmiş biftek buzdolabında 2-3 gün saklanabilir.",
+  "servingSuggestion": "Yanında mantar sos veya taze salata ile servis edin.",
+  "variations": [
+    "Dana bonfile yerine antrikot kullanabilirsiniz.",
+    "Tatlı patates yerine normal patates püresi yapılabilir."
+  ]
+}

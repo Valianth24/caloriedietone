@@ -1,0 +1,53 @@
+{
+  "name": "Sığır Eti Stir Fry & Esmer Pirinç",
+  "description": "Yumuşacık sığır eti şeritleri, renkli sebzeler ve lezzetli sos. Kas yapımı için ideal.",
+  "prepTime": "15 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Bonfile veya kontrfile", "amount": "350", "unit": "g", "note": "ince şeritler"},
+    {"name": "Esmer pirinç", "amount": "1", "unit": "su bardağı"},
+    {"name": "Brokoli", "amount": "150", "unit": "g"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet"},
+    {"name": "Mantar", "amount": "100", "unit": "g"},
+    {"name": "Soya sosu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Istiridye sosu", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Zencefil", "amount": "1", "unit": "tatlı kaşığı", "note": "rendelenmiş"},
+    {"name": "Bitkisel yağ", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Nişasta", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Esmer pirinci 2.5 su bardağı su ile kaynatın. Kısık ateşte 25 dakika pişirin.", "duration": "30 dakika"},
+    {"step": 2, "instruction": "Et şeritlerine nişasta ve 1 yemek kaşığı soya sosu ekleyip karıştırın.", "tip": "Nişasta eti yumuşacık yapar.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Sos için: Kalan soya sosu, ıstiridye sosu ve 2 yemek kaşığı su karıştırın.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Wok'u çok yüksek ateşte ısıtın. Yağın yarısını ekleyin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Etleri tek katman halinde dizip 1 dakika dokunmayın. Çevirip 1 dakika daha pişirin.", "tip": "Et sık karıştırılırsa sertleir.", "duration": "3 dakika"},
+    {"step": 6, "instruction": "Etleri tabaka alın. Kalan yağı ekleyip sebzeleri 3 dakika soteleyin.", "duration": "3 dakika"},
+    {"step": 7, "instruction": "Sarımsak ve zencefili ekleyin, 30 saniye kavurun.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Etleri geri ekleyin, sosu dökün. 1 dakika karıştırın.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Pirincın üzerine stir fry'ı dökün, susam serpin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 38,
+    "carbs": 48,
+    "fat": 18,
+    "fiber": 4,
+    "sugar": 5,
+    "sodium": 820
+  },
+  "tips": [
+    "Sığır eti demir ve B12 vitamini kaynağıdır.",
+    "Etin liflere dik kesilmesi yumuşaklık sağlar.",
+    "Yüksek ateş ve kısa pişirme kritiktir."
+  ],
+  "storageInfo": "Buzdolabında 3 gün saklanabilir.",
+  "servingSuggestion": "Yanında buharlanmış Asya yeşillikleri ile servis edin.",
+  "variations": [
+    "Tavuk veya karides ile de yapılabilir.",
+    "Keto için pirinci çıkarın, sebzeleri artırın."
+  ]
+}

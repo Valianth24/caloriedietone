@@ -1,0 +1,51 @@
+{
+  "name": "Etli Kinoa Köfte",
+  "description": "Yağsız dana etiyle yapılan, kinoa ile zenginleştirilmiş sağlıklı köfteler.",
+  "prepTime": "20 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "45 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Yağsız dana kıyma", "amount": "500", "unit": "g"},
+    {"name": "Pişmiş kinoa", "amount": "1", "unit": "su bardağı"},
+    {"name": "Yumurta", "amount": "1", "unit": "adet"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Taze maydanoz", "amount": "1/2", "unit": "demet"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı pul biber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Fırını 200°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Büyük bir kasede kıyma, kinoa, yumurta, soğan ve sarımsağı karıştırın.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Doğranmış maydanoz ve tüm baharatları ekleyin.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Elinizi ıslatarak ceviz büyüklüğünde köfteler şekillendirin.", "tip": "Eşit boyut, eşit pişme sağlar.", "duration": "8 dakika"},
+    {"step": 5, "instruction": "Fırın tepsisine yağlı kağıt serin, köfteleri dizin.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Köftelerin üzerine zeytinyağı gezdirin.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Fırında 20-25 dakika, içi pişene kadar pişirin.", "tip": "İç sıcaklık 71°C olmalı.", "duration": "25 dakika"},
+    {"step": 8, "instruction": "Sıcak servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 440,
+    "protein": 38,
+    "carbs": 35,
+    "fat": 16,
+    "fiber": 4,
+    "sugar": 2,
+    "sodium": 580
+  },
+  "tips": [
+    "Kinoa tam protein kaynağıdır ve köfteleri nemli tutar.",
+    "Köfteler dondurulabilir - 2 ay saklanır.",
+    "Fırında pişirmek yağı azaltır."
+  ],
+  "storageInfo": "Buzdolabında 4 gün, dondurucuda 2 ay saklanabilir.",
+  "servingSuggestion": "Yanında yoğurt sosu ve salata ile servis edin.",
+  "variations": [
+    "Hindi kıyma ile daha az yağlı yapılabilir.",
+    "Bulgur ile de aynı şekilde yapılabilir."
+  ]
+}
