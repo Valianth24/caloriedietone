@@ -1,0 +1,52 @@
+{
+  "name": "Tuna Quinoa Salad",
+  "description": "Healthy salad with fresh or canned tuna. Packed with protein and fiber.",
+  "prepTime": "15 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tuna", "amount": "2", "unit": "cans", "note": "in water, drained (160g)"},
+    {"name": "Quinoa", "amount": "1", "unit": "cup"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "diced"},
+    {"name": "Cherry tomatoes", "amount": "10", "unit": "pieces", "note": "halved"},
+    {"name": "Red onion", "amount": "1/4", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Olives", "amount": "10", "unit": "pieces", "note": "sliced"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Lemon juice", "amount": "2", "unit": "tablespoons"},
+    {"name": "Dijon mustard", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Fresh parsley", "amount": "2", "unit": "tablespoons"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook quinoa in 2 cups water for 18 minutes.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Let quinoa cool or rinse with cold water.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Make dressing: Whisk olive oil, lemon juice, mustard, and salt.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "In a large bowl, combine cooled quinoa with vegetables.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Add drained tuna and gently toss.", "tip": "Don't break up tuna too much.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Drizzle dressing and toss again.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Garnish with parsley and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 385,
+    "protein": 38,
+    "carbs": 32,
+    "fat": 14,
+    "fiber": 5,
+    "sugar": 4,
+    "sodium": 580
+  },
+  "tips": [
+    "Choose tuna in water, not oil - fewer calories.",
+    "Perfect for meal prep - keeps for 3 days.",
+    "Quinoa is a complete protein source.",
+    "Fresh tuna steak makes a more luxurious version."
+  ],
+  "storageInfo": "Store in airtight container for up to 3 days.",
+  "servingSuggestion": "Serve on its own or with whole wheat bread.",
+  "variations": [
+    "Canned salmon also works.",
+    "Add avocado for healthy fats.",
+    "Add beans for extra fiber."
+  ]
+}

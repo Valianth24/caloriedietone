@@ -1,0 +1,53 @@
+{
+  "name": "Turkey Quinoa Power Bowl",
+  "description": "Lean turkey breast with quinoa and colorful vegetables. A satisfying bowl.",
+  "prepTime": "15 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "40 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Turkey breast", "amount": "400", "unit": "g"},
+    {"name": "Quinoa", "amount": "1", "unit": "cup"},
+    {"name": "Broccoli", "amount": "150", "unit": "g"},
+    {"name": "Red bell pepper", "amount": "1", "unit": "piece"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Avocado", "amount": "1", "unit": "piece"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Lemon juice", "amount": "2", "unit": "tablespoons"},
+    {"name": "Honey", "amount": "1", "unit": "teaspoon"},
+    {"name": "Garlic powder", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook quinoa in 2 cups water for 18 minutes.", "duration": "18 minutes"},
+    {"step": 2, "instruction": "Season turkey breast with salt, pepper, and garlic powder.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Cook in a pan with olive oil over medium heat, 7-8 minutes per side.", "duration": "16 minutes"},
+    {"step": 4, "instruction": "Rest turkey for 5 minutes, then slice.", "duration": "7 minutes"},
+    {"step": 5, "instruction": "Steam or blanch broccoli and carrots for 3-4 minutes.", "duration": "4 minutes"},
+    {"step": 6, "instruction": "Make dressing: Whisk lemon juice, 1 tbsp olive oil, and honey.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Divide quinoa into bowls.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Top with turkey, vegetables, and sliced avocado.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Drizzle dressing, sprinkle sesame seeds.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 465,
+    "protein": 42,
+    "carbs": 42,
+    "fat": 14,
+    "fiber": 8,
+    "sugar": 6,
+    "sodium": 480
+  },
+  "tips": [
+    "Turkey breast is the leanest poultry protein.",
+    "Quinoa contains all 9 essential amino acids - complete protein.",
+    "Perfect for meal prep."
+  ],
+  "storageInfo": "Store without avocado for up to 4 days.",
+  "servingSuggestion": "Serve warm or cold.",
+  "variations": [
+    "Chicken breast can be substituted.",
+    "Bulgur can replace quinoa."
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "name": "Tuna Steak & Sweet Potato",
+  "description": "Seared tuna steak with caramelized sweet potato. High protein, healthy carbohydrates.",
+  "prepTime": "10 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "30 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tuna steak", "amount": "2", "unit": "pieces", "note": "180g each"},
+    {"name": "Sweet potato", "amount": "2", "unit": "medium pieces"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Soy sauce", "amount": "2", "unit": "tablespoons"},
+    {"name": "Sesame oil", "amount": "1", "unit": "teaspoon"},
+    {"name": "Sesame seeds", "amount": "2", "unit": "tablespoons"},
+    {"name": "Salt and pepper", "amount": "", "unit": "", "note": "to taste"},
+    {"name": "Lemon", "amount": "1", "unit": "piece"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Preheat oven to 200°C (400°F).", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Cube sweet potatoes, toss with oil, and roast.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Roast for 20 minutes.", "duration": "20 minutes"},
+    {"step": 4, "instruction": "Brush tuna steaks with soy sauce and sesame oil.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Sear in very hot pan for 1-2 minutes per side.", "tip": "Center should stay pink.", "duration": "4 minutes"},
+    {"step": 6, "instruction": "Coat in sesame seeds.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Slice and serve with potatoes.", "duration": "2 minutes"}
+  ],
+  "nutrition": {"calories": 445, "protein": 42, "carbs": 38, "fat": 14, "fiber": 5, "sugar": 8, "sodium": 680},
+  "tips": ["Tuna steak should stay pink inside - overcooking makes it dry.", "Tuna is rich in protein and omega-3."],
+  "storageInfo": "Tuna is best served fresh.",
+  "servingSuggestion": "Serve with wasabi and soy sauce.",
+  "variations": ["Salmon steak also works."]
+}

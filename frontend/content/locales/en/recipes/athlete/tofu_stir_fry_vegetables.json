@@ -1,0 +1,56 @@
+{
+  "name": "Tofu & Vegetable Stir-Fry",
+  "description": "Vegan high-protein Asian-style dish. Tofu and colorful vegetables.",
+  "prepTime": "20 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "35 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Firm tofu", "amount": "400", "unit": "g", "note": "pressed and drained"},
+    {"name": "Broccoli", "amount": "200", "unit": "g"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "julienned"},
+    {"name": "Red bell pepper", "amount": "1", "unit": "piece"},
+    {"name": "Mushrooms", "amount": "150", "unit": "g"},
+    {"name": "Soy sauce", "amount": "3", "unit": "tablespoons"},
+    {"name": "Sesame oil", "amount": "1", "unit": "tablespoon"},
+    {"name": "Vegetable oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves"},
+    {"name": "Ginger", "amount": "1", "unit": "teaspoon"},
+    {"name": "Cornstarch", "amount": "1", "unit": "tablespoon"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tablespoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Wrap tofu in clean towel or paper towels and press for 15 minutes.", "tip": "Place something heavy on top to squeeze out water.", "duration": "15 minutes"},
+    {"step": 2, "instruction": "Cut pressed tofu into cubes.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Coat with cornstarch.", "tip": "Cornstarch creates crispiness.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Heat vegetable oil in wok over high heat.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Fry tofu cubes until golden on all sides, 5-6 minutes.", "tip": "Don't stir too much.", "duration": "6 minutes"},
+    {"step": 6, "instruction": "Remove tofu. Stir-fry vegetables for 3-4 minutes.", "duration": "4 minutes"},
+    {"step": 7, "instruction": "Add garlic and ginger, cook 30 seconds.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Add soy sauce and sesame oil.", "duration": "30 seconds"},
+    {"step": 9, "instruction": "Return tofu, toss everything together.", "duration": "1 minute"},
+    {"step": 10, "instruction": "Sprinkle sesame seeds, serve over brown rice.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 340,
+    "protein": 24,
+    "carbs": 28,
+    "fat": 16,
+    "fiber": 6,
+    "sugar": 8,
+    "sodium": 780
+  },
+  "tips": [
+    "Tofu is a complete protein source - contains all 9 essential amino acids.",
+    "Don't skip pressing step - essential for crispiness.",
+    "Ideal protein source for vegan athletes.",
+    "Tempeh can also be used."
+  ],
+  "storageInfo": "Refrigerate for up to 3 days. Crispiness may decrease.",
+  "servingSuggestion": "Serve over brown rice or noodles.",
+  "variations": [
+    "Tempeh gives even more protein.",
+    "Try with teriyaki sauce.",
+    "Add edamame."
+  ]
+}
