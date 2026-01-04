@@ -1,0 +1,56 @@
+{
+  "name": "Teriyaki Tavuk Bowl",
+  "description": "Japon mutfağından esinlenilmiş, tatlı-tuzlu teriyaki soslu tavuk. Pirinç ve sebzelerle doyurucu bir öğün.",
+  "prepTime": "15 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "35 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tavuk but fileto", "amount": "400", "unit": "g", "note": "kuşbaşı doğranmış"},
+    {"name": "Jasmine pirinç", "amount": "1", "unit": "su bardağı"},
+    {"name": "Soya sosu", "amount": "4", "unit": "yemek kaşığı", "note": "az tuzlu tercih edin"},
+    {"name": "Bal", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Pirinç sirkesi", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak", "amount": "2", "unit": "diş", "note": "rendelenmiş"},
+    {"name": "Taze zencefil", "amount": "1", "unit": "tatlı kaşığı", "note": "rendelenmiş"},
+    {"name": "Nişasta", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Brokoli", "amount": "200", "unit": "g", "note": "çiçeklerine ayrılmış"},
+    {"name": "Havuç", "amount": "1", "unit": "adet", "note": "ince şeritler halinde"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Yeşil soğan", "amount": "2", "unit": "dal", "note": "ince doğranmış"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pirinci yıkayın ve süzün. Tencereye alıp 2 su bardağı su ekleyin. Kaynatın, kısık ateşte 15 dakika pişirin.", "duration": "20 dakika"},
+    {"step": 2, "instruction": "Teriyaki sosu için: Soya sosu, bal, pirinç sirkesi, susam yağı, sarımsak ve zencefili karıştırın.", "tip": "Sos önceden hazırlanabilir, buzdolabında 1 hafta saklanır.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Nişastayı 2 yemek kaşığı su ile eritin ve sosa ekleyin. Karıştırın.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Geniş bir tavayı veya wok'u yüksek ateşte ısıtın. 1 yemek kaşığı yağ ekleyin.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Tavuk parçalarını tavaya ekleyin. Karıştırmadan 3 dakika bekleyin, sonra çevirin.", "tip": "Tavuğu kalabalık etmeyin, gerekirse iki seferde pişirin.", "duration": "6 dakika"},
+    {"step": 6, "instruction": "Tavuk altın rengini aldığında, brokoli ve havuçları ekleyin. 3 dakika soteleyin.", "duration": "3 dakika"},
+    {"step": 7, "instruction": "Hazırladığınız teriyaki sosunu tavaya dökün. Karıştırarak 2-3 dakika pişirin, sos koyulaşana kadar.", "duration": "3 dakika"},
+    {"step": 8, "instruction": "Pişen pirinci kaselere paylaştırın. Üzerine teriyaki tavuk ve sebzeleri yerleştirin.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Susam ve yeşil soğan ile süsleyin. Sıcak servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 42,
+    "carbs": 55,
+    "fat": 14,
+    "fiber": 4,
+    "sugar": 12,
+    "sodium": 850
+  },
+  "tips": [
+    "Daha az sodyum için az tuzlu soya sosu kullanın.",
+    "Sebzeleri çıtır tutmak için fazla pişirmeyin.",
+    "Meal prep için ideal - 3-4 gün buzdolabında saklanabilir.",
+    "Ekstra protein için haşlanmış yumurta ekleyebilirsiniz."
+  ],
+  "storageInfo": "Buzdolabında hava geçirmez kapta 4 gün saklanabilir. Isıtırken biraz su ekleyin.",
+  "servingSuggestion": "Yanında turşu lahana (kimchi) veya salatalık salatası ile servis edin.",
+  "variations": [
+    "Tavuk yerine sığır eti veya karides kullanabilirsiniz.",
+    "Pirinç yerine karnabahar pilavı ile düşük karbonhidrat versiyonu yapılabilir.",
+    "Acı için sriracha sos ekleyebilirsiniz."
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "name": "Akdeniz Tavuk Wrap",
+  "description": "Izgara tavuk, humus, taze sebzeler ve feta peyniri ile hazırlanan sağlıklı ve doyurucu wrap.",
+  "prepTime": "15 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Tavuk göğsü", "amount": "300", "unit": "g"},
+    {"name": "Tam buğday lavaş", "amount": "2", "unit": "adet", "note": "büyük boy"},
+    {"name": "Humus", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Feta peyniri", "amount": "60", "unit": "g", "note": "ufalanmış"},
+    {"name": "Domates", "amount": "1", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet", "note": "ince dilimlenmiş"},
+    {"name": "Kırmızı soğan", "amount": "1/4", "unit": "adet", "note": "ince halka"},
+    {"name": "Marul", "amount": "4", "unit": "yaprak"},
+    {"name": "Siyah zeytin", "amount": "8", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Limon suyu", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Kuru kekik", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Tavuk göğsünü zeytinyağı, limon suyu, kekik, tuz ve karabiberle marine edin. 10 dakika bekletin.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Izgara tavayı orta-yüksek ateşte ısıtın. Tavukları her iki tarafını 6-7 dakika pişirin.", "tip": "İç sıcaklık 74°C olmalı.", "duration": "14 dakika"},
+    {"step": 3, "instruction": "Pişen tavukları 5 dakika dinlendirin, sonra ince şeritler halinde dilimleyin.", "duration": "7 dakika"},
+    {"step": 4, "instruction": "Lavaşları düz bir zemine yayın. Her birine 2 yemek kaşığı humus sürün.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Humus üzerine marul yapraklarını yerleştirin.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Dilimlenmiş tavukları lavaşın ortasına dizin.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Domates, salatalık, kırmızı soğan ve zeytinleri tavukların üzerine ekleyin.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Feta peynirini üzerine serpin.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Lavaşın alt kısmını katlayın, sonra iki yanını içe doğru sarın. Sıkıca sarın.", "tip": "Sarma sırasında malzemelerin dökülmemesi için sıkı tutun.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Keskin bir bıçakla çapraz kesin ve servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 38,
+    "carbs": 42,
+    "fat": 16,
+    "fiber": 6,
+    "sugar": 4,
+    "sodium": 720
+  },
+  "tips": [
+    "Wrap'ı önceden hazırlayıp buzdolabında saklayabilirsiniz.",
+    "Lavaşı ısıtmak daha kolay sarmanızı sağlar.",
+    "Daha fazla protein için yumurta beyazı ekleyebilirsiniz.",
+    "Taşınabilir öğün olarak ideal - spor çantanızda 4 saat dayanır."
+  ],
+  "storageInfo": "Buzdolabında folyo ile sarılı 2 gün saklanabilir. Tüketmeden önce oda sıcaklığına getirin.",
+  "servingSuggestion": "Yanında taze meyve veya yoğurt ile servis edin. Öğle yemeği için mükemmel.",
+  "variations": [
+    "Hindi göğsü ile de yapılabilir.",
+    "Vegan versiyon için tavuk yerine falafel kullanın.",
+    "Glütensiz lavaş ile glütensiz yapılabilir."
+  ]
+}
