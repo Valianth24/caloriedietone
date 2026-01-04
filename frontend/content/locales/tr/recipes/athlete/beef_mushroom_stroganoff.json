@@ -1,0 +1,38 @@
+{
+  "name": "Mantarlı Et Stroganoff",
+  "description": "Kremamsı mantar soslu yumuşacık et parçaları. Rus mutfağının klasik tarifi.",
+  "prepTime": "15 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "40 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Bonfile", "amount": "500", "unit": "g", "note": "şeritler"},
+    {"name": "Mantar", "amount": "300", "unit": "g", "note": "dilimlenmiş"},
+    {"name": "Soğan", "amount": "1", "unit": "adet"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Et suyu", "amount": "1", "unit": "su bardağı"},
+    {"name": "Süzme yoğurt", "amount": "150", "unit": "g"},
+    {"name": "Dijon hardal", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tereyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Un", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"},
+    {"name": "Taze maydanoz", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Et şeritlerine tuz ve karabiber serpin.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Tavada tereyağının yarısını eritin, etleri hızla kavurun.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Etleri kenara alın.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Kalan tereyağ ile soğan ve mantarları soteleyin.", "duration": "8 dakika"},
+    {"step": 5, "instruction": "Sarımsağı ekleyin, 30 saniye kavurun.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Unu ekleyip 1 dakika karıştırın.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Et suyunu yavaş yavaş ekleyip karıştırın.", "duration": "3 dakika"},
+    {"step": 8, "instruction": "Hardal ekleyin, koyulaşana kadar pişirin.", "duration": "3 dakika"},
+    {"step": 9, "instruction": "Ateşi kısın, yoğurdu ekleyip karıştırın.", "tip": "Yoğurt kesilmesin diye ateş kısık olmalı.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Etleri geri ekleyin, maydanoz ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 480, "protein": 36, "carbs": 42, "fat": 20, "fiber": 2, "sugar": 4, "sodium": 620},
+  "tips": ["Yoğurt krema yerine geçerek kaloriyi azaltır.", "Etleri fazla pişirmeyin, sertleir."],
+  "storageInfo": "Buzdolabında 3 gün saklanabilir.",
+  "servingSuggestion": "Yumurta eritlesi veya pirinç ile servis edin.",
+  "variations": ["Tavuk ile de yapılabilir.", "Krema ile daha zengin yapılabilir."]
+}

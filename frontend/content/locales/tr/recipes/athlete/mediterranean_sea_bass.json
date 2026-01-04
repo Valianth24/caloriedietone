@@ -1,0 +1,35 @@
+{
+  "name": "Akdeniz Usulü Levrek",
+  "description": "Zeytinyalı, limon ve otlarla fırınlanmış levrek. Hafif ve sağlıklı.",
+  "prepTime": "10 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Levrek fileto", "amount": "2", "unit": "adet", "note": "180g her biri"},
+    {"name": "Kiraz domates", "amount": "200", "unit": "g"},
+    {"name": "Zeytin", "amount": "10", "unit": "adet"},
+    {"name": "Kapari", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Limon", "amount": "1", "unit": "adet"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş"},
+    {"name": "Taze kekik", "amount": "2", "unit": "dal"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"},
+    {"name": "Maydanoz", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Fırını 200°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Fırın kabına domates, zeytin ve kapari yerleştirin.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "2 yk zeytinyağı gezdirin.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Balık filetolarını üzerine koyun.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Sarımsak, tuz, karabiber ve limon dilimleri ekleyin.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Kalan zeytinyağını gezdirin, kekik dalları ekleyin.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "15-20 dakika fırınlayın.", "duration": "20 dakika"},
+    {"step": 8, "instruction": "Maydanoz ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 380, "protein": 38, "carbs": 16, "fat": 18, "fiber": 3, "sugar": 6, "sodium": 580},
+  "tips": ["Levrek yağsız beyaz etli balıktır.", "Akdeniz diyetinin klasik tarifi."],
+  "storageInfo": "En taze haliyle tüketin.",
+  "servingSuggestion": "Kinoa veya bulgur pilavı ile servis edin.",
+  "variations": ["Morina veya çipura ile de yapılabilir."]
+}

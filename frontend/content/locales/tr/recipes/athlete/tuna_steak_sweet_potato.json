@@ -1,0 +1,32 @@
+{
+  "name": "Ton Balığı Biftek & Tatlı Patates",
+  "description": "Izgara ton biftek ve karamelize tatlı patates. Yüksek protein, sağlıklı karbonhidrat.",
+  "prepTime": "10 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "30 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Ton biftek", "amount": "2", "unit": "adet", "note": "180g her biri"},
+    {"name": "Tatlı patates", "amount": "2", "unit": "adet", "note": "orta boy"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Soya sosu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Susam", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tuz ve karabiber", "amount": "", "unit": "", "note": "tadına göre"},
+    {"name": "Limon", "amount": "1", "unit": "adet"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Fırını 200°C'ye ısıtın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Tatlı patatesleri küp kesin, yağla kaplayıp fırına verin.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "20 dakika fırınlayın.", "duration": "20 dakika"},
+    {"step": 4, "instruction": "Ton bifteklere soya sosu ve susam yağı sürün.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Çok sıcak tavada her tarafı 1-2 dakika pişirin.", "tip": "İçi pembe kalmalı.", "duration": "4 dakika"},
+    {"step": 6, "instruction": "Susam kabına batırın.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Dilimleyip patates ile servis edin.", "duration": "2 dakika"}
+  ],
+  "nutrition": {"calories": 445, "protein": 42, "carbs": 38, "fat": 14, "fiber": 5, "sugar": 8, "sodium": 680},
+  "tips": ["Ton biftek içi pembe kalmalı - fazla pişince kurur.", "Ton balığı protein ve omega-3 kaynağı."],
+  "storageInfo": "Ton en taze haliyle tüketilmeli.",
+  "servingSuggestion": "Wasabi ve soya sosu ile servis edin.",
+  "variations": ["Somon biftek ile de yapılabilir."]
+}

@@ -1,0 +1,35 @@
+{
+  "name": "Tex-Mex Et Tava",
+  "description": "15 dakikada hazır tek tavalık Meksika lezzetleri. Yağsız kıyma ve sebzeler.",
+  "prepTime": "10 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "25 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Yağsız dana kıyma", "amount": "350", "unit": "g"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet"},
+    {"name": "Mısır", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Siyah fasulye", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Soğan", "amount": "1", "unit": "adet"},
+    {"name": "Sarımsak", "amount": "2", "unit": "diş"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı biber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Domates salçası", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Koriş", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Kıymayı tavada kavurun.", "duration": "6 dakika"},
+    {"step": 2, "instruction": "Soğan ve sarımsağı ekleyin.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Baharatları ekleyip karıştırın.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Biber, mısır ve fasulye ekleyin.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Domates salçası ve 1/4 su bardağı su ekleyin.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "5 dakika kısık ateşte pişirin.", "duration": "5 dakika"},
+    {"step": 7, "instruction": "Koriş ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 455, "protein": 38, "carbs": 35, "fat": 18, "fiber": 8, "sugar": 6, "sodium": 720},
+  "tips": ["Tek tavalık yemek - kolay temizlik.", "Siyah fasulye ekstra lif ve protein."],
+  "storageInfo": "Buzdolabında 4 gün saklanabilir.",
+  "servingSuggestion": "Pilav, tortilla veya salata üzerine servis edin.",
+  "variations": ["Tavuk veya hindi kıyma ile de yapılabilir.", "Acı için jalapeño ekleyin."]
+}

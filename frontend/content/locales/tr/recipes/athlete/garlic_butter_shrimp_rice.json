@@ -1,0 +1,35 @@
+{
+  "name": "Tereyağlı Sarımsaklı Karides Pilav",
+  "description": "10 dakikada hazır klasik karides tarifi. Sarımsak ve limon ile enfes.",
+  "prepTime": "8 dakika",
+  "cookTime": "12 dakika",
+  "totalTime": "20 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Büyük karides", "amount": "400", "unit": "g", "note": "temizlenmiş"},
+    {"name": "Pirinç", "amount": "1", "unit": "su bardağı"},
+    {"name": "Tereyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "5", "unit": "diş", "note": "ince dilim"},
+    {"name": "Limon suyu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Beyaz şarap", "amount": "1/4", "unit": "su bardağı", "note": "veya tavuk suyu"},
+    {"name": "Kırmızı pul biber", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Maydanoz", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pirinci 2 su bardağı su ile pişirin.", "duration": "18 dakika"},
+    {"step": 2, "instruction": "Karidesleri kağıt havlu ile kurulayın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Tavada tereyağının 2 yk'nı eritin.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Karidesleri 2 dakika her tarafını pişirin, kenara alın.", "duration": "4 dakika"},
+    {"step": 5, "instruction": "Kalan tereyağı ile sarımsağı 30 saniye kavurun.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Beyaz şarap ekleyin, yarıya düşürün.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Limon suyu ve pul biber ekleyin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Karidesleri geri ekleyin, sosla kaplatin.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Pilav üzerine döküp maydanoz ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {"calories": 465, "protein": 36, "carbs": 52, "fat": 14, "fiber": 1, "sugar": 1, "sodium": 680},
+  "tips": ["Karidesi fazla pişirmeyin, lastik gibi olur.", "Beyaz şarap yerine tavuk suyu kullanılabilir."],
+  "storageInfo": "En taze haliyle tüketin.",
+  "servingSuggestion": "Crusty ekmek ile sosu ekmek banın.",
+  "variations": ["İstakoz kuyruğu ile daha lüks yapılabilir.", "Makarna üzerine de servis edilebilir."]
+}
