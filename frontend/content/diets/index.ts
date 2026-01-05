@@ -80,10 +80,10 @@ export {
   japaneseDiet30,
   highProteinDiet30,
   volumetricsDiet30,
-  lowGIDiet30,
+  lowGiDiet30,
   intermittentFasting52Diet30,
   wfpbDiet30,
-  timeRestrictedEatingDiet30,
+  timeRestrictedEating30,
   flexitarianDiet30,
   pescatarianDiet30,
 };
