@@ -133,10 +133,10 @@ export default function DietsScreen() {
             <Ionicons name="fitness" size={24} color={Colors.white} />
             <View style={styles.activeDietText}>
               <Text style={styles.activeDietTitle}>
-                {lang === 'tr' ? 'Aktif Diyet Programınız Var!' : 'You Have an Active Diet!'}
+                {t('activeDietTitle')}
               </Text>
               <Text style={styles.activeDietSubtitle}>
-                {lang === 'tr' ? 'Devam etmek için tıklayın' : 'Tap to continue'}
+                {t('tapToContinue')}
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={24} color={Colors.white} />
