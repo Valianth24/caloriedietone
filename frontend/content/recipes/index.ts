@@ -312,9 +312,10 @@ export {
   getAllAthleteRecipeMetadata,
   ATHLETE_RECIPE_NAMES,
   ATHLETE_RECIPE_NUTRITION,
-  getAthleteRecipeMetadata,
-  loadAthleteRecipeContent,
 };
+
+// Re-export getAthleteRecipeMetadata with alias to avoid duplicate export
+export { getAthleteRecipeMetadata as getAthleteRecipeMeta } from './athleteRecipes';
 
 export type { RecipeId } from './metadata';
 export type { AthleteRecipeId } from './athleteRecipes';
