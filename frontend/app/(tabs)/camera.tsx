@@ -168,7 +168,7 @@ export default function CameraScreen() {
 
     // Direct camera capture without editing screen
     const result = await ImagePicker.launchCameraAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: ['images'],
       allowsEditing: false, // No editing - direct capture
       quality: 0.7, // Cost optimization: lower quality
       base64: true,
@@ -198,7 +198,7 @@ export default function CameraScreen() {
     }
 
     const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      mediaTypes: ['images'],
       allowsEditing: false, // No editing
       quality: 0.7,
       base64: true,
