@@ -369,10 +369,7 @@ export default function PremiumDietDetailScreen() {
             />
 
             <Text style={styles.selectedCount}>
-              {lang === 'tr' 
-                ? `${selectedDays.length} gün seçildi`
-                : `${selectedDays.length} days selected`
-              }
+              {selectedDays.length} {t('daysSelected')}
             </Text>
 
             <TouchableOpacity style={styles.confirmButton} onPress={handleConfirmStart}>
