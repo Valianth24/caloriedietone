@@ -1,29 +1,42 @@
 // 30 Günlük Diyet Planları - Ana Index Dosyası
 // Premium diyetlerin 30 günlük planları
+// Popülerlik sırasına göre dizilmiş
 
-// Mevcut Diyetler (4 adet)
+// 1. Yüksek Protein - Kas yapma + yağ yakma
+export * from './high-protein-diet-30';
+
+// 2. DASH - Tansiyon kontrolü
 export * from './dash-diet-30';
+
+// 3. MIND - Beyin sağlığı
 export * from './mind-diet-30';
+
+// 4. Aralıklı Oruç 5:2
+export * from './intermittent-fasting-5-2-30';
+
+// 5. Zaman Kısıtlı Beslenme (16:8)
+export * from './time-restricted-eating-30';
+
+// 6. Nordic - İskandinav diyeti
 export * from './nordic-diet-30';
+
+// 7. Japon Diyeti
 export * from './japanese-diet-30';
 
-// Yeni Eklenen Diyetler - Zayıflama & Kas Yapma Odaklı
-export * from './high-protein-diet-30';     // Kas yapma + yağ yakımı
-export * from './volumetrics-diet-30';      // Açlık çekmeden zayıflama
-export * from './low-gi-diet-30';           // Kan şekeri kontrolü + zayıflama
-export * from './intermittent-fasting-5-2-30';  // Yağ yakımı + otofaji
+// 8. Flexitarian - Esnek vejetaryen
+export * from './flexitarian-diet-30';
 
-// YENİ EKLENEN DİYETLER
-export * from './wfpb-diet-30';             // Tam Gıda Bitkisel Beslenme - Vitamin & Mineral odaklı
-export * from './time-restricted-eating-30'; // 16:8 Aralıklı Oruç - Yağ yakımı & Sirkadiyen ritim
-export * from './flexitarian-diet-30';       // Fleksiteryen - Esnek vejetaryen, sürdürülebilir zayıflama
-export * from './pescatarian-diet-30';       // Pesketaryen - Balık + sebze, Omega-3 odaklı yağ yakma
+// 9. Pescatarian - Balık + sebze
+export * from './pescatarian-diet-30';
 
-// Henüz Oluşturulmamış Diyetler (devam edilecek):
-// export * from './portfolio-diet-30';
-// export * from './tlc-diet-30';
-// export * from './diabetes-plate-diet-30';
+// 10. Volumetrics - Hacim diyeti
+export * from './volumetrics-diet-30';
 
-// Mevcut diyetlerin 30 günlük genişletilmiş versiyonları
-// keto, mediterranean, vegan, paleo, low-carb, intermittent-fasting
-// bunlar content/diets/ klasöründe zaten mevcut
+// 11. Low GI - Düşük glisemik
+export * from './low-gi-diet-30';
+
+// 12. WFPB - Tam gıda bitkisel
+export * from './wfpb-diet-30';
+
+// NOT: keto, mediterranean, vegan, paleo, low-carb, intermittent-fasting
+// bunlar content/diets/ ana klasöründe 7 günlük olarak mevcut
