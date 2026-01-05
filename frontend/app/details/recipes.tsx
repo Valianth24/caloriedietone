@@ -343,7 +343,7 @@ export default function RecipesScreen() {
           <Ionicons name="arrow-back" size={24} color={Colors.text} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>
-          {locale === 'tr' ? 'Tarifler' : 'Recipes'}
+          {t('recipes')}
         </Text>
         <View style={styles.headerRight}>
           {isPremium ? (
