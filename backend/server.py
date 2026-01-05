@@ -1712,10 +1712,11 @@ async def analyze_food(request_data: AnalyzeFoodRequest, current_user: Optional[
         raise HTTPException(status_code=503, detail="OpenAI API key not configured. Set OPENAI_KEY environment variable.")
     
     try:
-        # Call OpenAI Vision
+        # Call OpenAI Vision with optional context from user
         result = await call_openai_vision(
             image_base64=request_data.image_base64,
-            locale=request_data.locale
+            locale=request_data.locale,
+            context=request_data.context  # Pass user-provided context for better accuracy
         )
         
         # Transform to legacy response format for frontend compatibility
