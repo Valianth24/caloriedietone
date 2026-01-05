@@ -1503,6 +1503,8 @@ const resources = {
       premiumDietsSubtitle: 'Preparadas por nutricionistas especialistas',
       createCustomDiet: 'Criar Dieta Pessoal',
       createCustomDietSubtitle: 'Crie seu próprio plano de nutrição',
+      aiPersonalDiet: 'Dieta Pessoal IA',
+      aiPersonalDietDesc: 'Plano de dieta personalizado com IA',
       newDietPlan: 'Novo Plano de Dieta',
       setYourOwnMeals: 'Defina suas refeições e metas',
       unlockWithPremium: 'Desbloquear com Premium',
