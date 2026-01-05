@@ -242,7 +242,7 @@ export default function CameraScreen() {
       setAnalyzing(true);
       const token = await AsyncStorage.getItem('session_token');
       
-      // Use Food Analyze API
+      // Use Food Analyze API with optional context
       const response = await fetch(`${API_BASE_URL}/api/food/analyze`, {
         method: 'POST',
         headers: {
@@ -251,7 +251,8 @@ export default function CameraScreen() {
         },
         body: JSON.stringify({
           image_base64: base64,
-          locale: 'tr-TR',
+          locale: lang === 'tr' ? 'tr-TR' : 'en-US',
+          context: context, // User-provided food context for better accuracy
         }),
       });
 
