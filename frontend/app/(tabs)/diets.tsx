@@ -183,7 +183,7 @@ export default function DietsScreen() {
                   <View style={styles.dietMeta}>
                     <View style={styles.metaItem}>
                       <Ionicons name="calendar-outline" size={14} color={Colors.lightText} />
-                      <Text style={styles.metaText}>{diet.duration} {lang === 'tr' ? 'gün' : 'days'}</Text>
+                      <Text style={styles.metaText}>{diet.duration} {t('days')}</Text>
                     </View>
                     <View style={[styles.difficultyBadge, { backgroundColor: getDifficultyColor(diet.difficulty) + '20' }]}>
                       <Text style={[styles.difficultyText, { color: getDifficultyColor(diet.difficulty) }]}>
