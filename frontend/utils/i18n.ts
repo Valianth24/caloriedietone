@@ -522,6 +522,27 @@ const resources = {
       storage: 'Storage',
       servingSuggestion: 'Serving Suggestion',
       variations: 'Variations',
+      
+      // More Diet & Recipe
+      day: 'Day',
+      dailyCalories: 'Daily Calories',
+      meals: 'Meals',
+      foodInfoNotAdded: 'Food info not added yet',
+      completeDiet: 'Complete Diet',
+      completeDay: 'Complete Day',
+      recipes: 'Recipes',
+      recipeCollections: 'Recipe Collections',
+      curatedRecipeGroups: 'Specially curated recipe groups',
+      featuredRecipes: 'Featured Recipes',
+      featured: 'Featured',
+      categories: 'Categories',
+      all: 'All',
+      allRecipes: 'All Recipes',
+      accessAllRecipesWithPremium: 'Access All Recipes with Premium',
+      unlockPremiumRecipes: 'Unlock premium recipes and discover new flavors',
+      recipe: 'recipe',
+      selectDaysFromProgram: 'Select which days you want to follow from the program',
+      daysSelected: 'days selected',
     }
   },
   
