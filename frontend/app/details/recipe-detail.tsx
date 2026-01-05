@@ -283,7 +283,7 @@ export default function RecipeDetailScreen() {
           <View style={styles.tipsSection}>
             <Text style={styles.sectionTitle}>
               <Ionicons name="bulb-outline" size={18} color={Colors.primary} />
-              {'  '}{locale === 'tr' ? 'İpuçları' : 'Tips'}
+              {'  '}{t('tips')}
             </Text>
             {content.tips.map((tip, index) => (
               <View key={index} style={styles.tipItem}>
@@ -302,7 +302,7 @@ export default function RecipeDetailScreen() {
                 <Ionicons name="snow-outline" size={18} color={Colors.primary} />
                 <View style={styles.extraInfoContent}>
                   <Text style={styles.extraInfoLabel}>
-                    {locale === 'tr' ? 'Saklama' : 'Storage'}
+                    {t('storage')}
                   </Text>
                   <Text style={styles.extraInfoText}>{content.storageInfo}</Text>
                 </View>
@@ -313,7 +313,7 @@ export default function RecipeDetailScreen() {
                 <Ionicons name="restaurant-outline" size={18} color={Colors.primary} />
                 <View style={styles.extraInfoContent}>
                   <Text style={styles.extraInfoLabel}>
-                    {locale === 'tr' ? 'Servis Önerisi' : 'Serving Suggestion'}
+                    {t('servingSuggestion')}
                   </Text>
                   <Text style={styles.extraInfoText}>{content.servingSuggestion}</Text>
                 </View>
@@ -327,7 +327,7 @@ export default function RecipeDetailScreen() {
           <View style={styles.variationsSection}>
             <Text style={styles.sectionTitle}>
               <Ionicons name="shuffle-outline" size={18} color={Colors.primary} />
-              {'  '}{locale === 'tr' ? 'Varyasyonlar' : 'Variations'}
+              {'  '}{t('variations')}
             </Text>
             {content.variations.map((variation, index) => (
               <View key={index} style={styles.variationItem}>
