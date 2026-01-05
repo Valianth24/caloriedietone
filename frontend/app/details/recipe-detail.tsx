@@ -85,10 +85,10 @@ export default function RecipeDetailScreen() {
       <View style={styles.errorContainer}>
         <Ionicons name="alert-circle-outline" size={48} color={Colors.error} />
         <Text style={styles.errorText}>
-          {locale === 'tr' ? 'Tarif bulunamadı' : 'Recipe not found'}
+          {t('recipeNotFound')}
         </Text>
         <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
-          <Text style={styles.backBtnText}>{locale === 'tr' ? 'Geri Dön' : 'Go Back'}</Text>
+          <Text style={styles.backBtnText}>{t('goBack')}</Text>
         </TouchableOpacity>
       </View>
     );
