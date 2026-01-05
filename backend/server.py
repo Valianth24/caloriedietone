@@ -1526,7 +1526,7 @@ def resize_image_base64(base64_str: str, max_size: int = 1280) -> str:
         logger.warning(f"Image resize failed: {e}, using original")
         return base64_str
 
-async def call_openai_vision(image_base64: str, locale: str = "tr-TR", use_fallback: bool = False) -> Dict[str, Any]:
+async def call_openai_vision(image_base64: str, locale: str = "tr-TR", use_fallback: bool = False, context: str = "") -> Dict[str, Any]:
     """Call OpenAI Vision API to analyze food image using emergentintegrations."""
     
     api_key = get_openai_api_key()
@@ -1548,6 +1548,9 @@ async def call_openai_vision(image_base64: str, locale: str = "tr-TR", use_fallb
     if resized_base64.startswith("data:"):
         resized_base64 = resized_base64.split(",", 1)[1]
     
+    # Language-specific prompts
+    is_turkish = locale.startswith("tr")
+    
     # System prompt for structured food analysis
     system_prompt = """Sen bir yemek ve besin analiz uzmanısın. Fotoğraftaki yiyecekleri analiz et ve JSON formatında yanıt ver.
 
@@ -1556,13 +1559,13 @@ KURALLAR:
 2. Yemek tespit edemezsen items: [] olarak boş döndür
 3. Porsiyon tahmininde görsel ipuçlarını kullan (tabak boyutu, el referansı vb.)
 4. Güven skoru 0.0-1.0 arasında olmalı
-5. Türkçe yemek isimleri kullan
+5. """ + ("Türkçe yemek isimleri kullan" if is_turkish else "Use English food names") + """
 
 JSON ŞEMASI:
 {
   "items": [
     {
-      "name": "Yemek adı (Türkçe)",
+      "name": "Yemek adı",
       "quantity_estimate": {
         "grams": 150,
         "range_grams": [120, 180]
@@ -1586,7 +1589,12 @@ JSON ŞEMASI:
   "notes": "Önemli notlar"
 }"""
 
-    user_prompt = f"""Bu fotoğraftaki yiyecekleri analiz et. Locale: {locale}
+    # Build user prompt with optional context
+    context_text = ""
+    if context and context.strip():
+        context_text = f"\n\nKULLANICI BİLGİSİ: '{context}' - Bu bilgiyi yiyecekleri tanımlarken dikkate al."
+    
+    user_prompt = f"""Bu fotoğraftaki yiyecekleri analiz et. Locale: {locale}{context_text}
 
 Her yiyeceği tespit et ve besin değerlerini tahmin et. Porsiyon büyüklüğünü görsel ipuçlarından belirle.
 Kesin JSON formatında yanıt ver."""
