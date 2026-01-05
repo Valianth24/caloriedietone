@@ -225,14 +225,14 @@ export default function ActiveDietScreen() {
             <Ionicons name="flame" size={28} color={Colors.error} />
             <Text style={styles.caloriesValue}>{currentDayData.totalCalories}</Text>
             <Text style={styles.caloriesLabel}>
-              {lang === 'tr' ? 'Günlük Kalori' : 'Daily Calories'}
+              {t('dailyCalories')}
             </Text>
           </View>
         )}
 
         {/* Meals */}
         <Text style={styles.sectionTitle}>
-          <Ionicons name="restaurant" size={20} color={Colors.primary} /> {lang === 'tr' ? 'Öğünler' : 'Meals'}
+          <Ionicons name="restaurant" size={20} color={Colors.primary} /> {t('meals')}
         </Text>
 
         {currentDayData?.meals.map((meal, index) => (
@@ -273,7 +273,7 @@ export default function ActiveDietScreen() {
             {expandedMeal === meal.type && meal.foods.length === 0 && (
               <View style={styles.emptyFoods}>
                 <Text style={styles.emptyFoodsText}>
-                  {lang === 'tr' ? 'Yiyecek bilgisi henüz eklenmemiş' : 'Food info not added yet'}
+                  {t('foodInfoNotAdded')}
                 </Text>
               </View>
             )}
@@ -288,8 +288,8 @@ export default function ActiveDietScreen() {
           <Ionicons name="checkmark-circle" size={24} color={Colors.white} />
           <Text style={styles.completeButtonText}>
             {currentIndex === activeDiet.selectedDays.length - 1
-              ? (lang === 'tr' ? 'Diyeti Tamamla' : 'Complete Diet')
-              : (lang === 'tr' ? 'Günü Tamamla' : 'Complete Day')
+              ? t('completeDiet')
+              : t('completeDay')
             }
           </Text>
         </TouchableOpacity>
