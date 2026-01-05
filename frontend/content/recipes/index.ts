@@ -305,7 +305,7 @@ export {
   getRecipesByTag,
 };
 
-// Athlete Recipes exports
+// Athlete Recipes exports - no duplicate exports
 export {
   athleteRecipeMetadata,
   ATHLETE_RECIPE_IDS,
@@ -313,9 +313,6 @@ export {
   ATHLETE_RECIPE_NAMES,
   ATHLETE_RECIPE_NUTRITION,
 };
-
-// Re-export getAthleteRecipeMetadata with alias to avoid duplicate export
-export { getAthleteRecipeMetadata as getAthleteRecipeMeta } from './athleteRecipes';
 
 export type { RecipeId } from './metadata';
 export type { AthleteRecipeId } from './athleteRecipes';
