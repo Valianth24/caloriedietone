@@ -472,6 +472,56 @@ const resources = {
       
       // Date/Time
       today: 'Today',
+      
+      // Diet Detail Page
+      days: 'Days',
+      difficulty: 'Difficulty',
+      type: 'Type',
+      info: 'Info',
+      foods: 'Foods',
+      exercises: 'Exercises',
+      description: 'Description',
+      scientificInfo: 'Scientific Info',
+      benefits: 'Benefits',
+      warnings: 'Warnings',
+      expectedResults: 'Expected Results',
+      allowedFoods: 'Allowed Foods',
+      forbiddenFoods: 'Forbidden Foods',
+      recommendedExercises: 'Recommended Exercises',
+      startDiet: 'Start Diet',
+      selectDays: 'Select Days',
+      selectAll: 'Select All',
+      clear: 'Clear',
+      easy: 'Easy',
+      medium: 'Medium',
+      hard: 'Hard',
+      
+      // Active Diet
+      congratulations: 'Congratulations!',
+      dietCompleted: 'You completed the diet program!',
+      endDiet: 'End Diet',
+      endDietConfirm: 'Are you sure you want to end this diet?',
+      end: 'End',
+      noActiveDiet: 'No Active Diet',
+      goToDiets: 'Go to Diets',
+      progress: 'Progress',
+      activeDietTitle: 'You Have an Active Diet!',
+      tapToContinue: 'Tap to continue',
+      
+      // Recipe Detail
+      recipeNotFound: 'Recipe not found',
+      goBack: 'Go Back',
+      prep: 'Prep',
+      cook: 'Cook',
+      servings: 'Servings',
+      nutritionPerServing: 'Nutrition (per serving)',
+      calories: 'Calories',
+      ingredients: 'Ingredients',
+      instructions: 'Instructions',
+      tips: 'Tips',
+      storage: 'Storage',
+      servingSuggestion: 'Serving Suggestion',
+      variations: 'Variations',
     }
   },
   
