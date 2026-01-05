@@ -195,7 +195,7 @@ export default function ActiveDietScreen() {
           
           <View style={styles.dayInfo}>
             <Text style={styles.dayNumber}>
-              {lang === 'tr' ? 'Gün' : 'Day'} {activeDiet.currentDay}
+              {t('day')} {activeDiet.currentDay}
             </Text>
             {currentDayData && (
               <Text style={styles.dayTitle}>{currentDayData.title}</Text>
