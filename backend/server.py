@@ -1651,8 +1651,12 @@ Kesin JSON formatında yanıt ver."""
         response = await client.chat.completions.create(**request_params)
         
         # Parse response
-        content = response.choices[0].message.content
-        logger.info(f"Got response, length: {len(content)}")
+        content = response.choices[0].message.content or ""
+        logger.info(f"Got response, length: {len(content)}, content preview: {content[:200] if content else 'EMPTY'}")
+        
+        if not content or not content.strip():
+            logger.error("Empty response from OpenAI")
+            raise HTTPException(status_code=500, detail="Empty response from AI model")
         
         result = json.loads(content)
         logger.info(f"Vision analysis complete. Model: {model}, Items found: {len(result.get('items', []))}")
