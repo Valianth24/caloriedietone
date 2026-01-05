@@ -130,7 +130,7 @@ export default function ActiveDietScreen() {
         <View style={styles.emptyContainer}>
           <Ionicons name="restaurant-outline" size={64} color={Colors.lightText} />
           <Text style={styles.emptyTitle}>
-            {lang === 'tr' ? 'Aktif Diyet Yok' : 'No Active Diet'}
+            {t('noActiveDiet')}
           </Text>
           <Text style={styles.emptySubtitle}>
             {lang === 'tr' 
@@ -143,7 +143,7 @@ export default function ActiveDietScreen() {
             onPress={() => router.push('/(tabs)/diets')}
           >
             <Text style={styles.emptyButtonText}>
-              {lang === 'tr' ? 'Diyetlere Git' : 'Go to Diets'}
+              {t('goToDiets')}
             </Text>
           </TouchableOpacity>
         </View>
