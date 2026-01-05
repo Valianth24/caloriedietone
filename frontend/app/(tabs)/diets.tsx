@@ -207,43 +207,7 @@ export default function DietsScreen() {
             ))}
           </View>
         </View>
-
-        {/* Custom Diet Section */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Ionicons name="create" size={24} color={Colors.primary} />
-            <Text style={styles.sectionTitle}>{t('createCustomDiet')}</Text>
-            {!isPremium && (
-              <View style={styles.lockBadge}>
-                <Ionicons name="lock-closed" size={14} color={Colors.white} />
-              </View>
-            )}
-          </View>
-          <Text style={styles.sectionSubtitle}>{t('createCustomDietSubtitle')}</Text>
-          
-          <TouchableOpacity
-            style={[styles.customDietCard, !isPremium && styles.customDietCardLocked]}
-            onPress={() => isPremium ? setShowAdvancedForm(true) : setShowPaywall(true)}
-          >
-            <View style={styles.customDietContent}>
-              <View style={styles.iconCircle}>
-                <Ionicons name={isPremium ? 'add' : 'lock-closed'} size={32} color={isPremium ? Colors.primary : Colors.lightText} />
-              </View>
-              <Text style={styles.customDietTitle}>{t('newDietPlan')}</Text>
-              <Text style={styles.customDietSubtitle}>
-                {isPremium ? t('setYourOwnMeals') : t('unlockWithPremium')}
-              </Text>
-            </View>
-          </TouchableOpacity>
-        </View>
       </ScrollView>
-
-      {/* Advanced Diet Form */}
-      <AdvancedDietForm
-        visible={showAdvancedForm}
-        onClose={() => setShowAdvancedForm(false)}
-        onSubmit={handleCreateCustomDiet}
-      />
 
       {/* Premium Paywall */}
       <PremiumPaywall
