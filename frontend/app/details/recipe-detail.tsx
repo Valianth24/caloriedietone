@@ -131,25 +131,25 @@ export default function RecipeDetailScreen() {
           <View style={styles.quickInfo}>
             <View style={styles.infoItem}>
               <Ionicons name="time-outline" size={20} color={Colors.primary} />
-              <Text style={styles.infoLabel}>{locale === 'tr' ? 'Hazırlık' : 'Prep'}</Text>
+              <Text style={styles.infoLabel}>{t('prep')}</Text>
               <Text style={styles.infoValue}>{content.prepTime}</Text>
             </View>
             <View style={styles.infoDivider} />
             <View style={styles.infoItem}>
               <Ionicons name="flame-outline" size={20} color={Colors.primary} />
-              <Text style={styles.infoLabel}>{locale === 'tr' ? 'Pişirme' : 'Cook'}</Text>
+              <Text style={styles.infoLabel}>{t('cook')}</Text>
               <Text style={styles.infoValue}>{content.cookTime}</Text>
             </View>
             <View style={styles.infoDivider} />
             <View style={styles.infoItem}>
               <Ionicons name="people-outline" size={20} color={Colors.primary} />
-              <Text style={styles.infoLabel}>{locale === 'tr' ? 'Porsiyon' : 'Servings'}</Text>
+              <Text style={styles.infoLabel}>{t('servings')}</Text>
               <Text style={styles.infoValue}>{content.servings}</Text>
             </View>
             <View style={styles.infoDivider} />
             <View style={styles.infoItem}>
               <Ionicons name="speedometer-outline" size={20} color={Colors.primary} />
-              <Text style={styles.infoLabel}>{locale === 'tr' ? 'Zorluk' : 'Difficulty'}</Text>
+              <Text style={styles.infoLabel}>{t('difficulty')}</Text>
               <Text style={styles.infoValue}>{getDifficultyLabel(metadata.difficulty, locale)}</Text>
             </View>
           </View>
