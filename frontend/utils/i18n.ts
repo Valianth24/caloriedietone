@@ -2448,6 +2448,8 @@ const resources = {
       premiumDietsSubtitle: 'أعدها خبراء التغذية',
       createCustomDiet: 'إنشاء حمية شخصية',
       createCustomDietSubtitle: 'أنشئ خطة التغذية الخاصة بك',
+      aiPersonalDiet: 'حمية شخصية بالذكاء الاصطناعي',
+      aiPersonalDietDesc: 'خطة حمية مخصصة بالذكاء الاصطناعي',
       newDietPlan: 'خطة حمية جديدة',
       setYourOwnMeals: 'حدد وجباتك وأهدافك',
       unlockWithPremium: 'فتح مع Premium',
