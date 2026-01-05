@@ -186,7 +186,7 @@ export default function PremiumDietDetailScreen() {
             {/* Description */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
-                <Ionicons name="document-text" size={20} color={Colors.primary} /> {lang === 'tr' ? 'Açıklama' : 'Description'}
+                <Ionicons name="document-text" size={20} color={Colors.primary} /> {t('description')}
               </Text>
               <Text style={styles.sectionText}>{diet.description[lang]}</Text>
             </View>
@@ -194,7 +194,7 @@ export default function PremiumDietDetailScreen() {
             {/* Scientific Info */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
-                <Ionicons name="flask" size={20} color={Colors.primary} /> {lang === 'tr' ? 'Bilimsel Bilgi' : 'Scientific Info'}
+                <Ionicons name="flask" size={20} color={Colors.primary} /> {t('scientificInfo')}
               </Text>
               <Text style={styles.sectionText}>{diet.scientificInfo[lang]}</Text>
             </View>
@@ -202,7 +202,7 @@ export default function PremiumDietDetailScreen() {
             {/* Benefits */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
-                <Ionicons name="checkmark-circle" size={20} color={Colors.success} /> {lang === 'tr' ? 'Faydaları' : 'Benefits'}
+                <Ionicons name="checkmark-circle" size={20} color={Colors.success} /> {t('benefits')}
               </Text>
               {diet.benefits[lang].map((benefit, index) => (
                 <View key={index} style={styles.listItem}>
@@ -215,7 +215,7 @@ export default function PremiumDietDetailScreen() {
             {/* Warnings */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
-                <Ionicons name="warning" size={20} color={Colors.warning} /> {lang === 'tr' ? 'Dikkat Edilmesi Gerekenler' : 'Warnings'}
+                <Ionicons name="warning" size={20} color={Colors.warning} /> {t('warnings')}
               </Text>
               {diet.warnings[lang].map((warning, index) => (
                 <View key={index} style={styles.listItem}>
@@ -228,7 +228,7 @@ export default function PremiumDietDetailScreen() {
             {/* Expected Results */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
-                <Ionicons name="trending-up" size={20} color={Colors.primary} /> {lang === 'tr' ? 'Beklenen Sonuçlar' : 'Expected Results'}
+                <Ionicons name="trending-up" size={20} color={Colors.primary} /> {t('expectedResults')}
               </Text>
               <Text style={styles.sectionText}>{diet.expectedResults[lang]}</Text>
             </View>
@@ -240,7 +240,7 @@ export default function PremiumDietDetailScreen() {
             {/* Allowed Foods */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
-                <Ionicons name="checkmark-circle" size={20} color={Colors.success} /> {lang === 'tr' ? 'Yenebilecek Besinler' : 'Allowed Foods'}
+                <Ionicons name="checkmark-circle" size={20} color={Colors.success} /> {t('allowedFoods')}
               </Text>
               {diet.allowedFoods[lang].map((food, index) => (
                 <View key={index} style={styles.foodItem}>
@@ -252,7 +252,7 @@ export default function PremiumDietDetailScreen() {
             {/* Forbidden Foods */}
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
-                <Ionicons name="close-circle" size={20} color={Colors.error} /> {lang === 'tr' ? 'Yasak Besinler' : 'Forbidden Foods'}
+                <Ionicons name="close-circle" size={20} color={Colors.error} /> {t('forbiddenFoods')}
               </Text>
               {diet.forbiddenFoods[lang].map((food, index) => (
                 <View key={index} style={styles.foodItemForbidden}>
