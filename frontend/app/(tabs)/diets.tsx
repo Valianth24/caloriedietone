@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Modal, TextInput, Alert } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
@@ -7,7 +7,6 @@ import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../../store/useStore';
 import PremiumPaywall from '../../components/PremiumPaywall';
-import AdvancedDietForm from '../../components/AdvancedDietForm';
 import { activatePremium } from '../../utils/api';
 import { allDiets, Diet } from '../../content/diets';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -16,7 +15,6 @@ export default function DietsScreen() {
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const { user, setUser } = useStore();
-  const [showAdvancedForm, setShowAdvancedForm] = useState(false);
   const [showPaywall, setShowPaywall] = useState(false);
   const [hasActiveDiet, setHasActiveDiet] = useState(false);
 
