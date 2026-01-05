@@ -198,7 +198,7 @@ export default function RecipesScreen() {
         </Text>
         <View style={styles.collectionCount}>
           <Text style={[styles.collectionCountText, { color: collection.color }]}>
-            {collectionRecipes.length} {locale === 'tr' ? 'tarif' : 'recipes'}
+            {collectionRecipes.length} {t('recipe')}
           </Text>
         </View>
         {isSelected && (
