@@ -1042,6 +1042,27 @@ const resources = {
       storage: 'Saklama',
       servingSuggestion: 'Servis Önerisi',
       variations: 'Varyasyonlar',
+      
+      // Daha Fazla Diyet & Tarif
+      day: 'Gün',
+      dailyCalories: 'Günlük Kalori',
+      meals: 'Öğünler',
+      foodInfoNotAdded: 'Yiyecek bilgisi henüz eklenmemiş',
+      completeDiet: 'Diyeti Tamamla',
+      completeDay: 'Günü Tamamla',
+      recipes: 'Tarifler',
+      recipeCollections: 'Tarif Koleksiyonları',
+      curatedRecipeGroups: 'Özel seçilmiş tarif grupları',
+      featuredRecipes: 'Öne Çıkan Tarifler',
+      featured: 'Öne Çıkan',
+      categories: 'Kategoriler',
+      all: 'Tümü',
+      allRecipes: 'Tüm Tarifler',
+      accessAllRecipesWithPremium: 'Premium ile Tüm Tariflere Eriş',
+      unlockPremiumRecipes: 'Premium tariflerin kilidini açın ve yeni lezzetler keşfedin',
+      recipe: 'tarif',
+      selectDaysFromProgram: 'Programdan uygulamak istediğiniz günleri seçin',
+      daysSelected: 'gün seçildi',
     }
   },
   
