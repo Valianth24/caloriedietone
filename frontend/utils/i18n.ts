@@ -1818,6 +1818,8 @@ const resources = {
       premiumDietsSubtitle: 'Von Ernährungsexperten erstellt',
       createCustomDiet: 'Persönliche Diät erstellen',
       createCustomDietSubtitle: 'Erstellen Sie Ihren eigenen Ernährungsplan',
+      aiPersonalDiet: 'KI Persönliche Diät',
+      aiPersonalDietDesc: 'KI-gestützter personalisierter Ernährungsplan',
       newDietPlan: 'Neuer Diätplan',
       setYourOwnMeals: 'Legen Sie Ihre Mahlzeiten und Ziele fest',
       unlockWithPremium: 'Mit Premium freischalten',
