@@ -400,12 +400,12 @@ export default function RecipesScreen() {
         {!selectedCollection && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>
-              {locale === 'tr' ? 'Kategoriler' : 'Categories'}
+              {t('categories')}
             </Text>
             <FlatList
               horizontal
               data={[
-                { id: 'all', label: locale === 'tr' ? 'Tümü' : 'All', icon: 'grid-outline', color: Colors.primary, count: getAllRecipeMetadata().length },
+                { id: 'all', label: t('all'), icon: 'grid-outline', color: Colors.primary, count: getAllRecipeMetadata().length },
                 ...categories,
               ]}
               renderItem={renderCategoryItem}
