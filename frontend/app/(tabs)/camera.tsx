@@ -395,8 +395,11 @@ export default function CameraScreen() {
   const resetScreen = () => {
     setImage(null);
     setImageBase64(null);
+    setPendingBase64(null);
     setResult(null);
     setEditedItems([]);
+    setFoodContext('');
+    setShowContextModal(false);
   };
 
   const getConfidenceColor = (confidence: number) => {
