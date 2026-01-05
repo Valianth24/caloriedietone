@@ -135,39 +135,6 @@ export default function DietsScreen() {
           </View>
         )}
 
-        {/* AI Personal Diet Button */}
-        <TouchableOpacity
-          style={styles.aiDietButton}
-          onPress={() => {
-            if (!isPremium) {
-              setShowPaywall(true);
-            } else {
-              router.push('/details/personal-diet');
-            }
-          }}
-        >
-          <View style={styles.aiDietButtonContent}>
-            <View style={styles.aiDietIcon}>
-              <Ionicons name="sparkles" size={24} color="#FFFFFF" />
-            </View>
-            <View style={styles.aiDietText}>
-              <Text style={styles.aiDietTitle}>
-                {t('aiPersonalDiet')}
-              </Text>
-              <Text style={styles.aiDietSubtitle}>
-                {t('aiPersonalDietDesc')}
-              </Text>
-            </View>
-            <Ionicons name="chevron-forward" size={24} color="#FFFFFF" />
-          </View>
-          {!isPremium && (
-            <View style={styles.aiPremiumBadge}>
-              <Ionicons name="diamond" size={12} color="#FFFFFF" />
-              <Text style={styles.aiPremiumText}>Premium</Text>
-            </View>
-          )}
-        </TouchableOpacity>
-
         {/* Active Diet Banner */}
         {hasActiveDiet && (
           <TouchableOpacity 
