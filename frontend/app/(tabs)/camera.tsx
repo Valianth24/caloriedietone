@@ -162,25 +162,25 @@ export default function CameraScreen() {
     
     const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
     if (!permissionResult.granted) {
-      Alert.alert(t('error'), t('error'));
+      Alert.alert(t('error'), t('cameraPermissionRequired'));
       return;
     }
 
+    // Direct camera capture without editing screen
     const result = await ImagePicker.launchCameraAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
+      allowsEditing: false, // No editing - direct capture
       quality: 0.7, // Cost optimization: lower quality
       base64: true,
+      exif: false,
     });
 
     if (!result.canceled && result.assets[0].base64) {
       const base64 = result.assets[0].base64;
       setImage(`data:image/jpeg;base64,${base64}`);
-      setImageBase64(base64);
-      setResult(null);
-      setEditedItems([]);
-      analyzeImage(base64);
+      setPendingBase64(base64);
+      setFoodContext('');
+      setShowContextModal(true); // Show context input modal
     }
   };
 
@@ -193,14 +193,13 @@ export default function CameraScreen() {
     
     const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!permissionResult.granted) {
-      Alert.alert(t('error'), t('error'));
+      Alert.alert(t('error'), t('galleryPermissionRequired'));
       return;
     }
 
     const result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
-      aspect: [4, 3],
+      allowsEditing: false, // No editing
       quality: 0.7,
       base64: true,
     });
@@ -208,14 +207,37 @@ export default function CameraScreen() {
     if (!result.canceled && result.assets[0].base64) {
       const base64 = result.assets[0].base64;
       setImage(`data:image/jpeg;base64,${base64}`);
-      setImageBase64(base64);
-      setResult(null);
-      setEditedItems([]);
-      analyzeImage(base64);
+      setPendingBase64(base64);
+      setFoodContext('');
+      setShowContextModal(true); // Show context input modal
     }
   };
 
-  const analyzeImage = async (base64: string) => {
+  // Handle context modal submit
+  const handleContextSubmit = () => {
+    if (pendingBase64) {
+      setImageBase64(pendingBase64);
+      setShowContextModal(false);
+      setResult(null);
+      setEditedItems([]);
+      analyzeImage(pendingBase64, foodContext.trim());
+      setPendingBase64(null);
+    }
+  };
+
+  // Skip context and analyze directly
+  const handleSkipContext = () => {
+    if (pendingBase64) {
+      setImageBase64(pendingBase64);
+      setShowContextModal(false);
+      setResult(null);
+      setEditedItems([]);
+      analyzeImage(pendingBase64, '');
+      setPendingBase64(null);
+    }
+  };
+
+  const analyzeImage = async (base64: string, context: string = '') => {
     try {
       setAnalyzing(true);
       const token = await AsyncStorage.getItem('session_token');
