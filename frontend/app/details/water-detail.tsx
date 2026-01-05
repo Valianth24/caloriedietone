@@ -210,16 +210,6 @@ export default function WaterDetailScreen() {
     }
   };
 
-  const chartData = weeklyWater.map((item) => ({
-    value: item.amount / 1000,
-    label: new Date(item.date).toLocaleDateString('tr-TR', { weekday: 'short' }),
-    frontColor: Colors.teal,
-  }));
-
-  const lineChartData = weeklyWater.map((item) => ({
-    value: item.amount / 1000,
-  }));
-
   const avgWater =
     weeklyWater.length > 0
       ? weeklyWater.reduce((sum, item) => sum + item.amount, 0) / weeklyWater.length / 1000
