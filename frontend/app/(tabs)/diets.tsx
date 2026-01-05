@@ -62,15 +62,6 @@ export default function DietsScreen() {
     }
   };
 
-  const handleCreateCustomDiet = (dietData: any) => {
-    console.log('Diet Data:', dietData);
-    // TODO: Save to backend
-    alert(`"${dietData.name}" ${t('dietCreated')}\n\n` +
-          `${t('targetCalorie')}: ${dietData.targetCalories} kcal\n` +
-          `${t('protein')}: ${dietData.macros.protein}% | ${t('carbs')}: ${dietData.macros.carbs}% | ${t('fat')}: ${dietData.macros.fat}%`);
-    setShowAdvancedForm(false);
-  };
-
   const handleSubscribe = async () => {
     try {
       // NOTE: Guest check disabled for Play Store testing
