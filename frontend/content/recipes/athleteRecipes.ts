@@ -719,11 +719,6 @@ export const getFeaturedAthleteRecipes = (): RecipeMetadata[] => {
   return getAllAthleteRecipeMetadata().filter(r => r.featured);
 };
 
-// Get single athlete recipe metadata by ID
-export const getAthleteRecipeMetadata = (id: AthleteRecipeId): RecipeMetadata | null => {
-  return athleteRecipeMetadata[id] || null;
-};
-
 // Recipe Names
 export const ATHLETE_RECIPE_NAMES: Record<AthleteRecipeId, { tr: string; en: string }> = {
   // Chicken
