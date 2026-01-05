@@ -11,6 +11,9 @@ import {
   Alert,
   Dimensions,
   Animated,
+  Modal,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as ImagePicker from 'expo-image-picker';
@@ -59,7 +62,7 @@ type VisionResult = {
 };
 
 export default function CameraScreen() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const router = useRouter();
   const { triggerRefresh, user, setUser } = useStore();
   const [image, setImage] = useState<string | null>(null);
@@ -70,6 +73,13 @@ export default function CameraScreen() {
   const [saving, setSaving] = useState(false);
   const [showPaywall, setShowPaywall] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
+  
+  // New: Context input modal
+  const [showContextModal, setShowContextModal] = useState(false);
+  const [pendingBase64, setPendingBase64] = useState<string | null>(null);
+  const [foodContext, setFoodContext] = useState('');
+  
+  const lang = i18n.language === 'tr' ? 'tr' : 'en';
   
   // Scanning animation
   const scanLineAnim = useRef(new Animated.Value(0)).current;
