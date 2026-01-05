@@ -152,10 +152,10 @@ export default function DietsScreen() {
             </View>
             <View style={styles.aiDietText}>
               <Text style={styles.aiDietTitle}>
-                {t('createPersonalDiet') || 'AI Kişisel Diyet Oluştur'}
+                {t('aiPersonalDiet')}
               </Text>
               <Text style={styles.aiDietSubtitle}>
-                {t('aiDietDesc') || 'Yapay zeka ile size özel diyet planı'}
+                {t('aiPersonalDietDesc')}
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={24} color="#FFFFFF" />

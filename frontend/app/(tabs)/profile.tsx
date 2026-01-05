@@ -321,10 +321,10 @@ export default function ProfileScreen() {
 
         {/* Goals */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Daily Goals</Text>
+          <Text style={styles.sectionTitle}>{t('dailyGoals')}</Text>
           <View style={styles.card}>
             <View style={styles.inputGroup}>
-              <Text style={styles.label}>Calorie Goal (kcal)</Text>
+              <Text style={styles.label}>{t('calorieGoalKcal')}</Text>
               <TextInput
                 style={[styles.input, !editing && styles.inputDisabled]}
                 value={formData.daily_calorie_goal}
