@@ -761,6 +761,84 @@ export default function CameraScreen() {
         onClose={() => setShowPaywall(false)}
         onSubscribe={handleSubscribe}
       />
+
+      {/* Context Input Modal - Ask user for food description */}
+      <Modal
+        visible={showContextModal}
+        animationType="slide"
+        transparent={true}
+        onRequestClose={() => setShowContextModal(false)}
+      >
+        <KeyboardAvoidingView 
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          style={styles.modalOverlay}
+        >
+          <View style={styles.contextModalContent}>
+            {/* Preview Image */}
+            {image && (
+              <Image 
+                source={{ uri: image }} 
+                style={styles.contextPreviewImage} 
+                resizeMode="cover"
+              />
+            )}
+            
+            <View style={styles.contextModalBody}>
+              <Text style={styles.contextModalTitle}>
+                {lang === 'tr' ? 'İçerik Eklemek İster misiniz?' : 'Want to Add Context?'}
+              </Text>
+              <Text style={styles.contextModalSubtitle}>
+                {lang === 'tr' 
+                  ? 'Daha doğru sonuç için yemeğin adını veya içeriğini yazabilirsiniz (isteğe bağlı)'
+                  : 'For more accurate results, you can describe the food (optional)'}
+              </Text>
+              
+              <TextInput
+                style={styles.contextInput}
+                placeholder={lang === 'tr' ? 'Örn: Tavuklu pilav, mercimek çorbası...' : 'E.g: Chicken rice, lentil soup...'}
+                placeholderTextColor={Colors.lightText}
+                value={foodContext}
+                onChangeText={setFoodContext}
+                maxLength={100}
+                multiline={false}
+                autoCapitalize="none"
+              />
+              
+              <Text style={styles.contextHint}>
+                {lang === 'tr' ? '3-5 kelime yeterli' : '3-5 words are enough'}
+              </Text>
+              
+              <View style={styles.contextButtonsRow}>
+                <TouchableOpacity 
+                  style={styles.contextSkipButton}
+                  onPress={handleSkipContext}
+                >
+                  <Text style={styles.contextSkipButtonText}>
+                    {lang === 'tr' ? 'Atla' : 'Skip'}
+                  </Text>
+                </TouchableOpacity>
+                
+                <TouchableOpacity 
+                  style={styles.contextSubmitButton}
+                  onPress={handleContextSubmit}
+                >
+                  <LinearGradient
+                    colors={['#667eea', '#764ba2']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 0 }}
+                    style={styles.contextSubmitGradient}
+                  >
+                    <Ionicons name="search" size={20} color="#FFF" />
+                    <Text style={styles.contextSubmitButtonText}>
+                      {lang === 'tr' ? 'Analiz Et' : 'Analyze'}
+                    </Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </KeyboardAvoidingView>
+      </Modal>
     </SafeAreaView>
   );
 }
