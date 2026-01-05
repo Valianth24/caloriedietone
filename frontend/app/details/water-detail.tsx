@@ -5,7 +5,6 @@ import { getWeeklyWater, getTodayWater, addWater } from '../../utils/api';
 import { Colors } from '../../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
-import { LineChart, BarChart } from 'react-native-gifted-charts';
 import { useRouter } from 'expo-router';
 import { useStore } from '../../store/useStore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
