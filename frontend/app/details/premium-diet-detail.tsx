@@ -327,10 +327,7 @@ export default function PremiumDietDetailScreen() {
             </View>
 
             <Text style={styles.modalSubtitle}>
-              {lang === 'tr' 
-                ? `${diet.duration} günlük programdan uygulamak istediğiniz günleri seçin`
-                : `Select which days you want to follow from the ${diet.duration}-day program`
-              }
+              {t('selectDaysFromProgram')}
             </Text>
 
             {/* Quick Actions */}
