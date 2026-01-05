@@ -167,24 +167,24 @@ export default function RecipeDetailScreen() {
         {/* Nutrition Card */}
         <View style={styles.nutritionCard}>
           <Text style={styles.nutritionTitle}>
-            {locale === 'tr' ? 'Besin Değerleri (porsiyon başına)' : 'Nutrition (per serving)'}
+            {t('nutritionPerServing')}
           </Text>
           <View style={styles.nutritionGrid}>
             <View style={styles.nutritionItem}>
               <Text style={styles.nutritionValue}>{content.nutrition.calories || '—'}</Text>
-              <Text style={styles.nutritionLabel}>{locale === 'tr' ? 'Kalori' : 'Calories'}</Text>
+              <Text style={styles.nutritionLabel}>{t('calories')}</Text>
             </View>
             <View style={styles.nutritionItem}>
               <Text style={styles.nutritionValue}>{content.nutrition.protein || '—'}g</Text>
-              <Text style={styles.nutritionLabel}>{locale === 'tr' ? 'Protein' : 'Protein'}</Text>
+              <Text style={styles.nutritionLabel}>{t('protein')}</Text>
             </View>
             <View style={styles.nutritionItem}>
               <Text style={styles.nutritionValue}>{content.nutrition.carbs || '—'}g</Text>
-              <Text style={styles.nutritionLabel}>{locale === 'tr' ? 'Karb' : 'Carbs'}</Text>
+              <Text style={styles.nutritionLabel}>{t('carbs')}</Text>
             </View>
             <View style={styles.nutritionItem}>
               <Text style={styles.nutritionValue}>{content.nutrition.fat || '—'}g</Text>
-              <Text style={styles.nutritionLabel}>{locale === 'tr' ? 'Yağ' : 'Fat'}</Text>
+              <Text style={styles.nutritionLabel}>{t('fat')}</Text>
             </View>
           </View>
         </View>
@@ -201,7 +201,7 @@ export default function RecipeDetailScreen() {
               color={activeTab === 'ingredients' ? Colors.primary : Colors.lightText}
             />
             <Text style={[styles.tabText, activeTab === 'ingredients' && styles.activeTabText]}>
-              {locale === 'tr' ? 'Malzemeler' : 'Ingredients'}
+              {t('ingredients')}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
@@ -214,7 +214,7 @@ export default function RecipeDetailScreen() {
               color={activeTab === 'instructions' ? Colors.primary : Colors.lightText}
             />
             <Text style={[styles.tabText, activeTab === 'instructions' && styles.activeTabText]}>
-              {locale === 'tr' ? 'Yapılışı' : 'Instructions'}
+              {t('instructions')}
             </Text>
           </TouchableOpacity>
         </View>
