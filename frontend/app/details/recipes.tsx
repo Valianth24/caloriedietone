@@ -451,12 +451,10 @@ export default function RecipesScreen() {
             <Ionicons name="diamond-outline" size={24} color={Colors.premium} />
             <View style={styles.premiumCtaContent}>
               <Text style={styles.premiumCtaTitle}>
-                {locale === 'tr' ? 'Premium ile Tüm Tariflere Eriş' : 'Access All Recipes with Premium'}
+                {t('accessAllRecipesWithPremium')}
               </Text>
               <Text style={styles.premiumCtaSubtitle}>
-                {locale === 'tr'
-                  ? '30+ sağlıklı tarif, besin değerleri ve adım adım talimatlar'
-                  : '30+ healthy recipes, nutrition info and step-by-step instructions'}
+                {t('unlockPremiumRecipes')}
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={20} color={Colors.premium} />
