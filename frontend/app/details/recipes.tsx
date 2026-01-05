@@ -365,10 +365,10 @@ export default function RecipesScreen() {
         {/* Recipe Collections - Özel Koleksiyonlar */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
-            {locale === 'tr' ? 'Tarif Koleksiyonları' : 'Recipe Collections'}
+            {t('recipeCollections')}
           </Text>
           <Text style={styles.sectionSubtitle}>
-            {locale === 'tr' ? 'Özel seçilmiş tarif grupları' : 'Specially curated recipe groups'}
+            {t('curatedRecipeGroups')}
           </Text>
           <ScrollView 
             horizontal 
