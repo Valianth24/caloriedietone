@@ -105,9 +105,9 @@ export default function PremiumDietDetailScreen() {
 
   const getDifficultyText = (difficulty: string) => {
     switch (difficulty) {
-      case 'easy': return lang === 'tr' ? 'Kolay' : 'Easy';
-      case 'medium': return lang === 'tr' ? 'Orta' : 'Medium';
-      case 'hard': return lang === 'tr' ? 'Zor' : 'Hard';
+      case 'easy': return t('easy');
+      case 'medium': return t('medium');
+      case 'hard': return t('hard');
       default: return difficulty;
     }
   };
