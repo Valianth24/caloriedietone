@@ -132,19 +132,19 @@ export default function PremiumDietDetailScreen() {
             <View style={styles.infoItem}>
               <Ionicons name="calendar" size={24} color={Colors.primary} />
               <Text style={styles.infoValue}>{diet.duration}</Text>
-              <Text style={styles.infoLabel}>{lang === 'tr' ? 'Gün' : 'Days'}</Text>
+              <Text style={styles.infoLabel}>{t('days')}</Text>
             </View>
             <View style={styles.infoItem}>
               <Ionicons name="fitness" size={24} color={getDifficultyColor(diet.difficulty)} />
               <Text style={[styles.infoValue, { color: getDifficultyColor(diet.difficulty) }]}>
                 {getDifficultyText(diet.difficulty)}
               </Text>
-              <Text style={styles.infoLabel}>{lang === 'tr' ? 'Zorluk' : 'Difficulty'}</Text>
+              <Text style={styles.infoLabel}>{t('difficulty')}</Text>
             </View>
             <View style={styles.infoItem}>
               <Ionicons name="star" size={24} color={Colors.warning} />
               <Text style={styles.infoValue}>Premium</Text>
-              <Text style={styles.infoLabel}>{lang === 'tr' ? 'Tip' : 'Type'}</Text>
+              <Text style={styles.infoLabel}>{t('type')}</Text>
             </View>
           </View>
         </View>
@@ -157,7 +157,7 @@ export default function PremiumDietDetailScreen() {
           >
             <Ionicons name="information-circle" size={20} color={activeTab === 'info' ? Colors.white : Colors.primary} />
             <Text style={[styles.tabText, activeTab === 'info' && styles.tabTextActive]}>
-              {lang === 'tr' ? 'Bilgi' : 'Info'}
+              {t('info')}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity 
@@ -166,7 +166,7 @@ export default function PremiumDietDetailScreen() {
           >
             <Ionicons name="nutrition" size={20} color={activeTab === 'foods' ? Colors.white : Colors.primary} />
             <Text style={[styles.tabText, activeTab === 'foods' && styles.tabTextActive]}>
-              {lang === 'tr' ? 'Besinler' : 'Foods'}
+              {t('foods')}
             </Text>
           </TouchableOpacity>
           <TouchableOpacity 
@@ -175,7 +175,7 @@ export default function PremiumDietDetailScreen() {
           >
             <Ionicons name="barbell" size={20} color={activeTab === 'exercises' ? Colors.white : Colors.primary} />
             <Text style={[styles.tabText, activeTab === 'exercises' && styles.tabTextActive]}>
-              {lang === 'tr' ? 'Sporlar' : 'Exercises'}
+              {t('exercises')}
             </Text>
           </TouchableOpacity>
         </View>
