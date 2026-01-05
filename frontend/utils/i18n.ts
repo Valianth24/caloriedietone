@@ -413,6 +413,8 @@ const resources = {
       premiumDietsSubtitle: 'Prepared by expert dietitians',
       createCustomDiet: 'Create Personal Diet',
       createCustomDietSubtitle: 'Create your own nutrition plan',
+      aiPersonalDiet: 'AI Personal Diet',
+      aiPersonalDietDesc: 'AI-powered personalized diet plan',
       newDietPlan: 'New Diet Plan',
       setYourOwnMeals: 'Set your own meals and goals',
       unlockWithPremium: 'Unlock with Premium',
