@@ -383,7 +383,7 @@ export default function RecipesScreen() {
         {featuredRecipes.length > 0 && !selectedCollection && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>
-              {locale === 'tr' ? 'Öne Çıkan Tarifler' : 'Featured Recipes'}
+              {t('featuredRecipes')}
             </Text>
             <FlatList
               horizontal
