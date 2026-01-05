@@ -9,27 +9,25 @@
 // ENUMS & CONSTANTS
 // ============================================
 
+// Popülerlik ve ilgi çekicilik sırasına göre dizilmiş (en popüler üstte)
 export const DIET_IDS = [
-  'mediterranean',
-  'dash',
-  'mind',
-  'portfolio',
-  'tlc',
-  'nordic',
-  'japanese_style',
-  'vegetarian',
-  'vegan',
-  'wfpb',
-  'flexitarian',
-  'pescatarian',
-  'low_gi_gl',
-  'diabetes_plate_carb',
-  'low_carb',
-  'keto',
-  'high_protein_deficit',
-  'volumetrics',
-  'time_restricted_eating',
-  'intermittent_fasting_5_2',
+  'keto',                      // 1. En popüler - Hızlı kilo verme
+  'mediterranean',             // 2. Sağlıklı yaşam klasiği
+  'time_restricted_eating',    // 3. 16:8 Aralıklı oruç - Çok popüler
+  'intermittent_fasting_5_2',  // 4. 5:2 Aralıklı oruç
+  'low_carb',                  // 5. Düşük karbonhidrat
+  'high_protein_deficit',      // 6. Kas yapma + yağ yakma
+  'vegan',                     // 7. Bitkisel beslenme
+  'paleo',                     // 8. Paleo diyeti
+  'dash',                      // 9. Tansiyon için
+  'mind',                      // 10. Beyin sağlığı
+  'nordic',                    // 11. İskandinav diyeti
+  'japanese_style',            // 12. Japon diyeti
+  'flexitarian',               // 13. Esnek vejetaryen
+  'pescatarian',               // 14. Balık + sebze
+  'volumetrics',               // 15. Hacim diyeti
+  'low_gi_gl',                 // 16. Düşük glisemik
+  'wfpb',                      // 17. Tam gıda bitkisel
 ] as const;
 
 export type DietId = typeof DIET_IDS[number];
