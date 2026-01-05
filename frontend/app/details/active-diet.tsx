@@ -172,10 +172,10 @@ export default function ActiveDietScreen() {
         <View style={styles.progressCard}>
           <View style={styles.progressHeader}>
             <Text style={styles.progressTitle}>
-              {lang === 'tr' ? 'İlerleme' : 'Progress'}
+              {t('progress')}
             </Text>
             <Text style={styles.progressText}>
-              {currentIndex + 1} / {activeDiet.selectedDays.length} {lang === 'tr' ? 'Gün' : 'Days'}
+              {currentIndex + 1} / {activeDiet.selectedDays.length} {t('days')}
             </Text>
           </View>
           <View style={styles.progressBarContainer}>
