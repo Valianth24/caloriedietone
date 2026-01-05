@@ -896,6 +896,8 @@ const resources = {
       openaiNotConfigured: 'OpenAI API anahtarı yapılandırılmamış. Lütfen yöneticiyle iletişime geçin.',
       apiRateLimitExceeded: 'API limiti aşıldı. Lütfen biraz bekleyin.',
       analysisError: 'Analiz hatası',
+      cameraPermissionRequired: 'Fotoğraf çekmek için kamera izni gerekli.',
+      galleryPermissionRequired: 'Fotoğraf seçmek için galeri izni gerekli.',
       dietStarted: 'Diyet başarıyla başlatıldı!',
       selectAtLeastOneDay: 'Lütfen en az bir gün seçin',
       premiumRequired: 'Bu diyet için Premium üyelik gereklidir',
