@@ -1482,6 +1482,7 @@ class FoodAnalyzeResponse(BaseModel):
 class AnalyzeFoodRequest(BaseModel):
     image_base64: str
     locale: str = "tr-TR"
+    context: str = ""  # User-provided food description for better accuracy
 
 class AnalyzeFoodResponse(BaseModel):
     items: List[Dict[str, Any]] = []
