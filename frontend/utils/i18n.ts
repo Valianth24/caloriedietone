@@ -367,6 +367,8 @@ const resources = {
       openaiNotConfigured: 'OpenAI API key is not configured. Please contact support.',
       apiRateLimitExceeded: 'API rate limit exceeded. Please wait a moment.',
       analysisError: 'Analysis error',
+      cameraPermissionRequired: 'Camera permission is required to take photos.',
+      galleryPermissionRequired: 'Gallery permission is required to select photos.',
       dietStarted: 'Diet started successfully!',
       selectAtLeastOneDay: 'Please select at least one day',
       premiumRequired: 'Premium membership required for this diet',
