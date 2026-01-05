@@ -865,6 +865,8 @@ const resources = {
       premiumDietsSubtitle: 'Uzman diyetisyenler tarafından hazırlanmış',
       createCustomDiet: 'Kişisel Diyet Oluştur',
       createCustomDietSubtitle: 'Kendi beslenme planınızı oluşturun',
+      aiPersonalDiet: 'AI Kişisel Diyet',
+      aiPersonalDietDesc: 'Yapay zeka ile size özel diyet planı',
       newDietPlan: 'Yeni Diyet Planı',
       setYourOwnMeals: 'Kendi öğünlerinizi ve hedeflerinizi belirleyin',
       unlockWithPremium: 'Premium ile kilidi açın',
