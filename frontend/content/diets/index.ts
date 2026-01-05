@@ -62,7 +62,7 @@ export const getDietById = (id: string): Diet | undefined => {
 // Tipleri export et
 export * from './types';
 
-// Tek tek diyetleri export et
+// 7 günlük diyetleri export et
 export {
   ketoDiet,
   mediterraneanDiet,
@@ -70,4 +70,20 @@ export {
   lowCarbDiet,
   veganDiet,
   paleoDiet,
+};
+
+// 30 günlük diyetleri export et
+export {
+  dashDiet30,
+  mindDiet30,
+  nordicDiet30,
+  japaneseDiet30,
+  highProteinDiet30,
+  volumetricsDiet30,
+  lowGIDiet30,
+  intermittentFasting52Diet30,
+  wfpbDiet30,
+  timeRestrictedEatingDiet30,
+  flexitarianDiet30,
+  pescatarianDiet30,
 };
