@@ -424,7 +424,7 @@ export default function RecipesScreen() {
                   ? RECIPE_COLLECTIONS[selectedCollection].labelTr 
                   : RECIPE_COLLECTIONS[selectedCollection].labelEn)
               : selectedCategory === 'all'
-                ? (locale === 'tr' ? 'Tüm Tarifler' : 'All Recipes')
+                ? t('allRecipes')
                 : getCategoryLabel(selectedCategory, locale)}
             {' '}({recipes.length})
           </Text>
