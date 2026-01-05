@@ -16,12 +16,12 @@ export * from './intermittent-fasting-5-2-30';  // Yağ yakımı + otofaji
 // YENİ EKLENEN DİYETLER
 export * from './wfpb-diet-30';             // Tam Gıda Bitkisel Beslenme - Vitamin & Mineral odaklı
 export * from './time-restricted-eating-30'; // 16:8 Aralıklı Oruç - Yağ yakımı & Sirkadiyen ritim
+export * from './flexitarian-diet-30';       // Fleksiteryen - Esnek vejetaryen, sürdürülebilir zayıflama
+export * from './pescatarian-diet-30';       // Pesketaryen - Balık + sebze, Omega-3 odaklı yağ yakma
 
 // Henüz Oluşturulmamış Diyetler (devam edilecek):
 // export * from './portfolio-diet-30';
 // export * from './tlc-diet-30';
-// export * from './flexitarian-diet-30';
-// export * from './pescatarian-diet-30';
 // export * from './diabetes-plate-diet-30';
 
 // Mevcut diyetlerin 30 günlük genişletilmiş versiyonları
