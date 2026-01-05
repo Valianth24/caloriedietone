@@ -13,14 +13,16 @@ export * from './volumetrics-diet-30';      // Açlık çekmeden zayıflama
 export * from './low-gi-diet-30';           // Kan şekeri kontrolü + zayıflama
 export * from './intermittent-fasting-5-2-30';  // Yağ yakımı + otofaji
 
+// YENİ EKLENEN DİYETLER
+export * from './wfpb-diet-30';             // Tam Gıda Bitkisel Beslenme - Vitamin & Mineral odaklı
+export * from './time-restricted-eating-30'; // 16:8 Aralıklı Oruç - Yağ yakımı & Sirkadiyen ritim
+
 // Henüz Oluşturulmamış Diyetler (devam edilecek):
 // export * from './portfolio-diet-30';
 // export * from './tlc-diet-30';
 // export * from './flexitarian-diet-30';
 // export * from './pescatarian-diet-30';
-// export * from './wfpb-diet-30';
 // export * from './diabetes-plate-diet-30';
-// export * from './time-restricted-eating-30';
 
 // Mevcut diyetlerin 30 günlük genişletilmiş versiyonları
 // keto, mediterranean, vegan, paleo, low-carb, intermittent-fasting
