@@ -64,8 +64,8 @@ export default function ActiveDietScreen() {
       setCurrentDayData(dayData || null);
     } else {
       Alert.alert(
-        lang === 'tr' ? 'Tebrikler!' : 'Congratulations!',
-        lang === 'tr' ? 'Diyet programını tamamladınız!' : 'You completed the diet program!',
+        t('congratulations'),
+        t('dietCompleted'),
         [{ text: t('ok') }]
       );
     }
@@ -88,12 +88,12 @@ export default function ActiveDietScreen() {
 
   const handleEndDiet = () => {
     Alert.alert(
-      lang === 'tr' ? 'Diyeti Bitir' : 'End Diet',
-      lang === 'tr' ? 'Diyeti bitirmek istediğinizden emin misiniz?' : 'Are you sure you want to end this diet?',
+      t('endDiet'),
+      t('endDietConfirm'),
       [
         { text: t('cancel'), style: 'cancel' },
         { 
-          text: lang === 'tr' ? 'Bitir' : 'End',
+          text: t('end'),
           style: 'destructive',
           onPress: async () => {
             await AsyncStorage.removeItem('active_diet');
