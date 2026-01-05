@@ -1457,9 +1457,10 @@ def get_openai_api_key():
     return key if key else None
 
 # Model configuration for diet app
-# GPT-5 nano: Vision destekli, en hızlı ve en ucuz model
-# Input: $0.05/1M, Output: $0.40/1M
-VISION_MODEL_PRIMARY = os.getenv("OPENAI_MODEL", "gpt-5-nano")  # En ucuz vision model
+# GPT-4.1 nano: Vision destekli, EN UCUZ model
+# Input: $0.10/1M, Output: $0.40/1M
+# GPT-5 nano output multiplier nedeniyle daha pahalı
+VISION_MODEL_PRIMARY = os.getenv("OPENAI_MODEL", "gpt-4.1-nano")  # En ucuz vision model
 VISION_MODEL_FALLBACK = os.getenv("OPENAI_MODEL_FALLBACK", "gpt-4o-mini")  # Fallback model
 
 class FoodItem(BaseModel):
