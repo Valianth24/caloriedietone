@@ -17,10 +17,10 @@ import { nordicDiet30 } from './30-day-plans/nordic-diet-30';
 import { japaneseDiet30 } from './30-day-plans/japanese-diet-30';
 import { highProteinDiet30 } from './30-day-plans/high-protein-diet-30';
 import { volumetricsDiet30 } from './30-day-plans/volumetrics-diet-30';
-import { lowGIDiet30 } from './30-day-plans/low-gi-diet-30';
+import { lowGiDiet30 } from './30-day-plans/low-gi-diet-30';
 import { intermittentFasting52Diet30 } from './30-day-plans/intermittent-fasting-5-2-30';
 import { wfpbDiet30 } from './30-day-plans/wfpb-diet-30';
-import { timeRestrictedEatingDiet30 } from './30-day-plans/time-restricted-eating-30';
+import { timeRestrictedEating30 } from './30-day-plans/time-restricted-eating-30';
 import { flexitarianDiet30 } from './30-day-plans/flexitarian-diet-30';
 import { pescatarianDiet30 } from './30-day-plans/pescatarian-diet-30';
 
@@ -34,7 +34,7 @@ export const allDiets: Diet[] = [
   veganDiet,                    // 5. Vegan
   paleoDiet,                    // 6. Paleo
   // 30 günlük premium diyetler
-  timeRestrictedEatingDiet30,   // 7. Zaman Kısıtlı Beslenme
+  timeRestrictedEating30,       // 7. Zaman Kısıtlı Beslenme
   intermittentFasting52Diet30,  // 8. 5:2 Aralıklı Oruç
   highProteinDiet30,            // 9. Yüksek Protein
   dashDiet30,                   // 10. DASH - Tansiyon kontrolü
@@ -44,7 +44,7 @@ export const allDiets: Diet[] = [
   flexitarianDiet30,            // 14. Flexitarian
   pescatarianDiet30,            // 15. Pescatarian
   volumetricsDiet30,            // 16. Volumetrics
-  lowGIDiet30,                  // 17. Düşük Glisemik
+  lowGiDiet30,                  // 17. Düşük Glisemik
   wfpbDiet30,                   // 18. WFPB
 ];
 
