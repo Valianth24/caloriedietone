@@ -1617,63 +1617,33 @@ Kesin JSON formatında yanıt ver."""
         # Prepare image URL
         image_url = f"data:image/jpeg;base64,{resized_base64}"
         
-        # GPT-5 and GPT-4.1 models use new Responses API format
-        is_new_api = model.startswith("gpt-5") or model.startswith("gpt-4.1")
+        # Use Chat Completions API for all models (OpenAI SDK 1.x compatible)
+        logger.info(f"Using Chat Completions API for model: {model}")
         
-        if is_new_api:
-            # Use new Responses API format (input_text, input_image)
-            logger.info(f"Using Responses API format for model: {model}")
-            
-            response = await client.responses.create(
-                model=model,
-                input=[
-                    {"role": "system", "content": system_prompt},
-                    {
-                        "role": "user",
-                        "content": [
-                            {"type": "input_text", "text": user_prompt},
-                            {
-                                "type": "input_image",
-                                "image_url": image_url,
-                                "detail": "low"  # Cost optimization: low detail
+        request_params = {
+            "model": model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "text", "text": user_prompt},
+                        {
+                            "type": "image_url",
+                            "image_url": {
+                                "url": image_url,
+                                "detail": "low"  # Cost optimization
                             }
-                        ]
-                    }
-                ],
-                text={"format": {"type": "json_object"}}
-            )
-            
-            # Get response text from Responses API
-            content = response.output_text or ""
-        else:
-            # Legacy Chat Completions API format for older models
-            logger.info(f"Using Chat Completions API format for model: {model}")
-            
-            request_params = {
-                "model": model,
-                "messages": [
-                    {"role": "system", "content": system_prompt},
-                    {
-                        "role": "user",
-                        "content": [
-                            {"type": "text", "text": user_prompt},
-                            {
-                                "type": "image_url",
-                                "image_url": {
-                                    "url": image_url,
-                                    "detail": "low"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "response_format": {"type": "json_object"},
-                "max_tokens": 1500,
-                "temperature": 0.3
-            }
-            
-            response = await client.chat.completions.create(**request_params)
-            content = response.choices[0].message.content or ""
+                        }
+                    ]
+                }
+            ],
+            "response_format": {"type": "json_object"},
+            "max_tokens": 1500
+        }
+        
+        response = await client.chat.completions.create(**request_params)
+        content = response.choices[0].message.content or ""
         
         logger.info(f"Got response, length: {len(content)}, content preview: {content[:200] if content else 'EMPTY'}")
         
