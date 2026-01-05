@@ -310,7 +310,7 @@ export default function RecipesScreen() {
         <View style={styles.featuredBadgeContainer}>
           <Ionicons name="star" size={14} color="#FFD700" />
           <Text style={styles.featuredBadgeText2}>
-            {locale === 'tr' ? 'Öne Çıkan' : 'Featured'}
+            {t('featured')}
           </Text>
         </View>
         <Text style={styles.featuredName}>
