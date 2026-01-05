@@ -380,43 +380,6 @@ export default function WaterDetailScreen() {
           <Text style={styles.avgLabel}>Haftalık Ortalama</Text>
           <Text style={styles.circularValue}>{avgWater.toFixed(1)}L</Text>
         </View>
-
-        {/* Charts */}
-        <View style={styles.chartCard}>
-          <Text style={styles.chartTitle}>Haftalık Su Tüketimi</Text>
-          <BarChart
-            data={chartData}
-            width={screenWidth - 72}
-            height={180}
-            barWidth={32}
-            barBorderRadius={8}
-            yAxisThickness={0}
-            xAxisThickness={0}
-            hideRules
-            noOfSections={4}
-            maxValue={4}
-          />
-        </View>
-
-        <View style={styles.chartCard}>
-          <Text style={styles.chartTitle}>Trend</Text>
-          <LineChart
-            data={lineChartData}
-            width={screenWidth - 72}
-            height={150}
-            color={Colors.teal}
-            thickness={3}
-            startFillColor={Colors.teal}
-            endFillColor={Colors.background}
-            startOpacity={0.4}
-            endOpacity={0.1}
-            initialSpacing={0}
-            yAxisColor="transparent"
-            xAxisColor="transparent"
-            hideRules
-            hideDataPoints
-          />
-        </View>
       </ScrollView>
 
       {/* Reminder Modal */}
