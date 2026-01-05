@@ -267,7 +267,7 @@ export default function PremiumDietDetailScreen() {
           <View style={styles.tabContent}>
             <View style={styles.section}>
               <Text style={styles.sectionTitle}>
-                <Ionicons name="barbell" size={20} color={Colors.primary} /> {lang === 'tr' ? 'Önerilen Egzersizler' : 'Recommended Exercises'}
+                <Ionicons name="barbell" size={20} color={Colors.primary} /> {t('recommendedExercises')}
               </Text>
               {diet.exercises.map((exercise, index) => (
                 <View key={index} style={styles.exerciseCard}>
@@ -303,7 +303,7 @@ export default function PremiumDietDetailScreen() {
         <TouchableOpacity style={styles.startButton} onPress={handleStartDiet}>
           <Ionicons name="play" size={24} color={Colors.white} />
           <Text style={styles.startButtonText}>
-            {lang === 'tr' ? 'Diyete Başla' : 'Start Diet'}
+            {t('startDiet')}
           </Text>
         </TouchableOpacity>
       </View>
@@ -319,7 +319,7 @@ export default function PremiumDietDetailScreen() {
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
               <Text style={styles.modalTitle}>
-                {lang === 'tr' ? 'Günleri Seçin' : 'Select Days'}
+                {t('selectDays')}
               </Text>
               <TouchableOpacity onPress={() => setShowDaysModal(false)}>
                 <Ionicons name="close" size={28} color={Colors.darkText} />
@@ -337,12 +337,12 @@ export default function PremiumDietDetailScreen() {
             <View style={styles.quickActions}>
               <TouchableOpacity style={styles.quickButton} onPress={selectAllDays}>
                 <Text style={styles.quickButtonText}>
-                  {lang === 'tr' ? 'Tümünü Seç' : 'Select All'}
+                  {t('selectAll')}
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.quickButtonOutline} onPress={clearAllDays}>
                 <Text style={styles.quickButtonOutlineText}>
-                  {lang === 'tr' ? 'Temizle' : 'Clear'}
+                  {t('clear')}
                 </Text>
               </TouchableOpacity>
             </View>
@@ -380,7 +380,7 @@ export default function PremiumDietDetailScreen() {
 
             <TouchableOpacity style={styles.confirmButton} onPress={handleConfirmStart}>
               <Text style={styles.confirmButtonText}>
-                {lang === 'tr' ? 'Diyeti Başlat' : 'Start Diet'}
+                {t('startDiet')}
               </Text>
             </TouchableOpacity>
           </View>
