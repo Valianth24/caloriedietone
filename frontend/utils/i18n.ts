@@ -278,6 +278,7 @@ const resources = {
       photoCalcDesc: 'AI calculates calories',
       recentCalc: 'Recent Calculations',
       selectFromList: 'Select from List',
+      selectFromListDesc: 'Choose from food database',
       foods: 'foods',
       records: 'records',
       quickAdd: 'Quick Add',
@@ -290,6 +291,13 @@ const resources = {
       mealAddError: 'Could not add meal',
       noRecords: 'No records yet',
       mealAdded: 'Meal added!',
+      howToAddMeal: 'How to add meal',
+      calculateWithPhoto: 'Calculate with Photo',
+      calculateWithPhotoDesc: 'AI analyzes your meal photo',
+      selectFood: 'Select Food',
+      noFoodFound: 'No food found',
+      caloriesRange: 'Calorie Range',
+      manual: 'Manual',
       
       // Food Analysis / Camera
       foodAnalysis: 'Food Analysis',
