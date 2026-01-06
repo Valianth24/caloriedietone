@@ -89,8 +89,7 @@ export default function DietRecommendationModal({ visible, onClose, onSelectDiet
   const loadRecommendations = async () => {
     try {
       setLoading(true);
-      const { apiRequest } = require('../utils/api');
-      const response = await apiRequest(`/diets/recommend?lang=${lang}`) as any;
+      const response = await apiRequest<any>(`/diets/recommend?lang=${lang}`);
       
       if (response) {
         setRecommendations(response.recommendations || []);
