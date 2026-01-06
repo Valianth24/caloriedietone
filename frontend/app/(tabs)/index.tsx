@@ -773,6 +773,15 @@ export default function DashboardScreen() {
         }}
       />
 
+      {/* Diet Recommendation Modal - İlk girişte gösterilir */}
+      <DietRecommendationModal
+        visible={showDietRecommendation}
+        onClose={() => setShowDietRecommendation(false)}
+        onSelectDiet={(dietId) => {
+          console.log('Selected diet:', dietId);
+        }}
+      />
+
       {/* Floating Action Button */}
       <TouchableOpacity
         style={styles.fab}
