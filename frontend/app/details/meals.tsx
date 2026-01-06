@@ -113,7 +113,8 @@ export default function MealsDetailScreen() {
   
   const handleAddFromList = () => {
     setShowAddModal(false);
-    setShowFoodListModal(true);
+    // Alt bardaki + ile aynı listeye yönlendir
+    router.push('/(tabs)/meals');
   };
   
   const handleAddFromCamera = () => {
