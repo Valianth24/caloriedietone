@@ -32,10 +32,8 @@ export default function MealsDetailScreen() {
   
   // Add Food Modal States
   const [showAddModal, setShowAddModal] = useState(false);
-  const [showFoodListModal, setShowFoodListModal] = useState(false);
   const [showManualEntry, setShowManualEntry] = useState(false);
   const [selectedMealType, setSelectedMealType] = useState('lunch');
-  const [searchQuery, setSearchQuery] = useState('');
   
   // Manual Entry State
   const [manualFood, setManualFood] = useState({
