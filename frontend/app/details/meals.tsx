@@ -706,23 +706,6 @@ const styles = StyleSheet.create({
     color: Colors.lightText,
   },
   // FAB Styles
-  fab: {
-    position: 'absolute',
-    bottom: 24,
-    right: 24,
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: Colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
-    zIndex: 999,
-  },
   // Modal Styles
   modalOverlay: {
     flex: 1,
@@ -736,55 +719,23 @@ const styles = StyleSheet.create({
     padding: 24,
     paddingBottom: 40,
   },
-  addOptionsTitle: {
-    fontSize: 24,
+  selectedMealHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+    marginBottom: 4,
+  },
+  selectedMealTitle: {
+    fontSize: 22,
     fontWeight: 'bold',
     color: Colors.darkText,
-    textAlign: 'center',
-    marginBottom: 4,
   },
   addOptionsSubtitle: {
     fontSize: 14,
     color: Colors.lightText,
     textAlign: 'center',
     marginBottom: 20,
-  },
-  mealTypeLabel: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: Colors.darkText,
-    marginBottom: 12,
-  },
-  mealTypeRow: {
-    flexDirection: 'row',
-    gap: 6,
-    marginBottom: 24,
-  },
-  mealTypeCard: {
-    flex: 1,
-    backgroundColor: Colors.background,
-    borderRadius: 12,
-    paddingVertical: 10,
-    paddingHorizontal: 4,
-    alignItems: 'center',
-    borderWidth: 2,
-    borderColor: 'transparent',
-    minHeight: 70,
-    justifyContent: 'center',
-  },
-  mealTypeCardActive: {
-    backgroundColor: Colors.primary,
-    borderColor: Colors.primary,
-  },
-  mealTypeText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: Colors.darkText,
-    marginTop: 4,
-    textAlign: 'center',
-  },
-  mealTypeTextActive: {
-    color: Colors.white,
   },
   addOptionButton: {
     flexDirection: 'row',
