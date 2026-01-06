@@ -74,6 +74,7 @@ const DIFFICULTY_TEXT: Record<string, { tr: string; en: string; color: string }>
 export default function DietRecommendationModal({ visible, onClose, onSelectDiet }: Props) {
   const { t } = useTranslation();
   const router = useRouter();
+  const { user } = useStore();
   const [loading, setLoading] = useState(true);
   const [recommendations, setRecommendations] = useState<DietRecommendation[]>([]);
   const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
@@ -90,18 +91,130 @@ export default function DietRecommendationModal({ visible, onClose, onSelectDiet
   const loadRecommendations = async () => {
     try {
       setLoading(true);
-      const response = await apiRequest<any>(`/diets/recommend?lang=${lang}`);
       
-      if (response) {
-        setRecommendations(response.recommendations || []);
-        setUserProfile(response.user_profile || null);
-        setTopPick(response.top_pick || null);
+      // Kullanıcı bilgilerinden öneri oluştur
+      const weight = user?.weight || 70;
+      const height = user?.height || 170;
+      const targetWeight = user?.target_weight || weight;
+      const goal = user?.goal || 'maintain';
+      
+      // BMI hesapla
+      const heightM = height / 100;
+      const bmi = weight / (heightM * heightM);
+      const weightDiff = weight - targetWeight;
+      
+      // Hedef belirleme
+      let userGoal = 'maintain';
+      if (weightDiff > 5) {
+        userGoal = 'lose_weight';
+      } else if (weightDiff < -5) {
+        userGoal = 'gain_weight';
+      } else if (goal === 'build_muscle' || goal === 'muscle') {
+        userGoal = 'build_muscle';
       }
+      
+      // Profil bilgisi
+      setUserProfile({
+        bmi: Math.round(bmi * 10) / 10,
+        bmi_category: bmi >= 30 ? 'obez' : bmi >= 25 ? 'fazla kilolu' : bmi >= 18.5 ? 'normal' : 'zayıf',
+        weight_goal: userGoal,
+        weight_to_lose: weightDiff > 0 ? weightDiff : 0,
+        weight_to_gain: weightDiff < 0 ? Math.abs(weightDiff) : 0,
+      });
+      
+      // Frontend diyetlerini skorla
+      const scored = allDiets.map(diet => {
+        let score = 0;
+        const reasons: string[] = [];
+        
+        // Hedef uyumu - suitableFor alanına göre
+        const suitableGoals = getSuitableGoals(diet);
+        if (suitableGoals.includes(userGoal)) {
+          score += 50;
+          if (userGoal === 'lose_weight') {
+            reasons.push(lang === 'en' ? 'Matches your weight loss goal' : 'Kilo verme hedefinize uygun');
+          } else if (userGoal === 'build_muscle') {
+            reasons.push(lang === 'en' ? 'Matches your muscle building goal' : 'Kas yapma hedefinize uygun');
+          }
+        }
+        
+        // BMI uyumu
+        if (bmi >= 25 && (diet.id.includes('keto') || diet.id.includes('low-carb') || diet.id.includes('intermittent'))) {
+          score += 30;
+          reasons.push(lang === 'en' ? 'Recommended for your weight' : 'Kilonuz için önerilen');
+        } else if (bmi < 25) {
+          score += 20;
+        }
+        
+        // Zorluk seviyesi
+        if (diet.difficulty === 'easy') {
+          score += 15;
+          reasons.push(lang === 'en' ? 'Easy to start' : 'Başlaması kolay');
+        } else if (diet.difficulty === 'medium') {
+          score += 10;
+        }
+        
+        // Premium olmayan diyetlere bonus
+        if (!diet.isPremium) {
+          score += 10;
+          reasons.push(lang === 'en' ? 'Free access' : 'Ücretsiz erişim');
+        }
+        
+        return {
+          diet_id: diet.id,
+          name: diet.name[lang],
+          description: diet.description[lang].substring(0, 100) + '...',
+          duration_days: diet.duration,
+          category: diet.category || 'weight_loss',
+          difficulty: diet.difficulty,
+          macros: diet.macros,
+          is_premium: diet.isPremium,
+          score,
+          reasons: reasons.slice(0, 2),
+          match_percentage: Math.min(100, score),
+          emoji: diet.emoji,
+        };
+      });
+      
+      // Skora göre sırala
+      scored.sort((a, b) => b.score - a.score);
+      
+      const topDiets = scored.slice(0, 5);
+      setRecommendations(topDiets);
+      setTopPick(topDiets[0] || null);
+      
     } catch (error) {
       console.error('Error loading diet recommendations:', error);
     } finally {
       setLoading(false);
     }
+  };
+  
+  // Diyetin uygun olduğu hedefleri belirle
+  const getSuitableGoals = (diet: Diet): string[] => {
+    const goals: string[] = [];
+    const name = diet.name.en.toLowerCase();
+    const desc = diet.description.en.toLowerCase();
+    
+    if (name.includes('keto') || name.includes('low carb') || name.includes('fasting') || desc.includes('weight loss')) {
+      goals.push('lose_weight');
+    }
+    if (name.includes('protein') || name.includes('muscle') || desc.includes('muscle')) {
+      goals.push('build_muscle');
+    }
+    if (name.includes('mediterranean') || name.includes('balanced') || name.includes('mind')) {
+      goals.push('maintain');
+    }
+    if (name.includes('bulk') || desc.includes('gain weight')) {
+      goals.push('gain_weight');
+    }
+    
+    // Default olarak tüm diyetler kilo verme ve korumaya uygun
+    if (goals.length === 0) {
+      goals.push('lose_weight', 'maintain');
+    }
+    
+    return goals;
   };
 
   const handleSelectDiet = async (dietId: string) => {
