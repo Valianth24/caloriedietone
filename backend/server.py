@@ -3381,6 +3381,117 @@ async def get_recipe_categories(
 
 
 # -------------------------
+# WEIGHT TRACKING
+# -------------------------
+
+class WeightEntry(BaseModel):
+    weight: float
+    note: Optional[str] = None
+
+@api_router.post("/weight/log")
+async def log_weight(data: WeightEntry, current_user: Optional[User] = Depends(get_current_user)):
+    """Log a new weight entry."""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    require_mongo()
+    
+    # Validate weight
+    if data.weight < 20 or data.weight > 500:
+        raise HTTPException(status_code=400, detail="Weight must be between 20 and 500 kg")
+    
+    weight_doc = {
+        "user_id": current_user.user_id,
+        "weight": data.weight,
+        "note": data.note or "",
+        "date": today_str(),
+        "created_at": now_utc().isoformat(),
+    }
+    
+    # Upsert - only one entry per day
+    await mongo_db.weight_logs.update_one(
+        {"user_id": current_user.user_id, "date": today_str()},
+        {"$set": weight_doc},
+        upsert=True
+    )
+    
+    # Also update user's current weight
+    await store_update_user(current_user.user_id, {"weight": data.weight})
+    
+    return {"message": "Weight logged", "weight": data.weight, "date": today_str()}
+
+@api_router.get("/weight/history")
+async def get_weight_history(
+    days: int = 30,
+    current_user: Optional[User] = Depends(get_current_user)
+):
+    """Get weight history for the specified number of days."""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    if mongo_db is None:
+        return {"history": [], "stats": None}
+    
+    # Calculate date range
+    end_date = now_utc()
+    start_date = end_date - timedelta(days=days)
+    start_date_str = start_date.strftime("%Y-%m-%d")
+    
+    # Get weight entries
+    cursor = mongo_db.weight_logs.find(
+        {
+            "user_id": current_user.user_id,
+            "date": {"$gte": start_date_str}
+        },
+        {"_id": 0}
+    ).sort("date", 1)
+    
+    history = await cursor.to_list(length=days + 1)
+    
+    # Calculate stats
+    stats = None
+    if len(history) >= 2:
+        first_weight = history[0]["weight"]
+        last_weight = history[-1]["weight"]
+        change = last_weight - first_weight
+        
+        # Get user's target weight
+        user_doc = await store_get_user_by_id(current_user.user_id)
+        target_weight = user_doc.get("target_weight") if user_doc else None
+        
+        stats = {
+            "start_weight": first_weight,
+            "current_weight": last_weight,
+            "change": round(change, 1),
+            "change_percent": round((change / first_weight) * 100, 1) if first_weight > 0 else 0,
+            "target_weight": target_weight,
+            "remaining": round(last_weight - target_weight, 1) if target_weight else None,
+            "entries_count": len(history),
+            "period_days": days,
+        }
+    
+    return {"history": history, "stats": stats}
+
+@api_router.delete("/weight/entry/{date}")
+async def delete_weight_entry(date: str, current_user: Optional[User] = Depends(get_current_user)):
+    """Delete a weight entry for a specific date."""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    require_mongo()
+    
+    result = await mongo_db.weight_logs.delete_one({
+        "user_id": current_user.user_id,
+        "date": date
+    })
+    
+    if result.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Weight entry not found")
+    
+    return {"message": "Weight entry deleted", "date": date}
+
+
+# -------------------------
 # APP ROUTER
 # -------------------------
 app.include_router(api_router)
