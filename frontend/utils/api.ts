@@ -343,3 +343,21 @@ export const watchAd = async (adCount: number = 1) => {
     body: JSON.stringify({ ad_count: adCount }),
   });
 };
+
+// Weight Tracking
+export const logWeight = async (weight: number, note?: string) => {
+  return apiRequest('/weight/log', {
+    method: 'POST',
+    body: JSON.stringify({ weight, note }),
+  });
+};
+
+export const getWeightHistory = async (days: number = 30) => {
+  return apiRequest(`/weight/history?days=${days}`);
+};
+
+export const deleteWeightEntry = async (date: string) => {
+  return apiRequest(`/weight/entry/${date}`, {
+    method: 'DELETE',
+  });
+};
