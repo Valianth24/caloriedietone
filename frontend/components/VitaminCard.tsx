@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Colors } from '../constants/Colors';
 import { useTranslation } from 'react-i18next';
@@ -20,44 +20,59 @@ export default function VitaminCard() {
   const { refreshData } = useStore();
   const [vitamins, setVitamins] = useState<Vitamin[]>([]);
   const [loading, setLoading] = useState(true);
-  const [initialized, setInitialized] = useState(false);
+  const initializedRef = useRef(false);
+  const isMountedRef = useRef(true);
 
   const loadVitamins = async (isInitial: boolean = false) => {
+    if (!isMountedRef.current) return;
+    
     try {
-      setLoading(true);
+      if (isInitial) setLoading(true);
       const userVitamins = await getUserVitamins() as Vitamin[] | null;
       
-      // Only create default vitamins on first load, not on every refresh
-      if ((!userVitamins || !Array.isArray(userVitamins) || userVitamins.length === 0) && isInitial && !initialized) {
+      if (!isMountedRef.current) return;
+      
+      // Only create default vitamins on first load
+      if ((!userVitamins || !Array.isArray(userVitamins) || userVitamins.length === 0) && isInitial && !initializedRef.current) {
         const templates = await getVitaminTemplates() as Array<{name: string, default_time: string}> | null;
         if (templates && Array.isArray(templates)) {
           for (const template of templates) {
             await addVitamin(template.name, template.default_time);
           }
         }
+        if (!isMountedRef.current) return;
         const newUserVitamins = await getUserVitamins() as Vitamin[] | null;
-        setVitamins(Array.isArray(newUserVitamins) ? newUserVitamins : []);
-        setInitialized(true);
+        if (isMountedRef.current) {
+          setVitamins(Array.isArray(newUserVitamins) ? newUserVitamins : []);
+          initializedRef.current = true;
+        }
       } else {
-        setVitamins(Array.isArray(userVitamins) ? userVitamins : []);
-        if (isInitial) setInitialized(true);
+        if (isMountedRef.current) {
+          setVitamins(Array.isArray(userVitamins) ? userVitamins : []);
+          if (isInitial) initializedRef.current = true;
+        }
       }
     } catch (error) {
       console.error('Error loading vitamins:', error);
-      setVitamins([]);
+      if (isMountedRef.current) setVitamins([]);
     } finally {
-      setLoading(false);
+      if (isMountedRef.current && isInitial) setLoading(false);
     }
   };
 
   // Initial load
   useEffect(() => {
+    isMountedRef.current = true;
     loadVitamins(true);
+    
+    return () => {
+      isMountedRef.current = false;
+    };
   }, []);
 
   // Refresh when refreshData changes (but not on initial mount)
   useEffect(() => {
-    if (initialized) {
+    if (initializedRef.current) {
       loadVitamins(false);
     }
   }, [refreshData]);
