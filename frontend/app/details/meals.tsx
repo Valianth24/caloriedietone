@@ -235,14 +235,31 @@ export default function MealsDetailScreen() {
                   <Text style={styles.mealTypeIcon}>{getMealTypeIcon(key)}</Text>
                   <Text style={styles.sectionTitle}>{label}</Text>
                 </View>
-                <Text style={styles.sectionCalories}>{typeCalories} {t('kcal')}</Text>
+                <View style={styles.sectionRight}>
+                  <Text style={styles.sectionCalories}>{typeCalories} {t('kcal')}</Text>
+                  <TouchableOpacity
+                    style={styles.addMealBtn}
+                    onPress={() => {
+                      setSelectedMealType(key);
+                      setShowAddModal(true);
+                    }}
+                  >
+                    <Ionicons name="add" size={20} color={Colors.white} />
+                  </TouchableOpacity>
+                </View>
               </View>
 
               {typeMeals.length === 0 ? (
-                <View style={styles.emptyMeal}>
-                  <Ionicons name="restaurant-outline" size={24} color={Colors.lightText} />
+                <TouchableOpacity 
+                  style={styles.emptyMeal}
+                  onPress={() => {
+                    setSelectedMealType(key);
+                    setShowAddModal(true);
+                  }}
+                >
+                  <Ionicons name="add-circle-outline" size={28} color={Colors.lightText} />
                   <Text style={styles.emptyText}>{t('noMealsYet')}</Text>
-                </View>
+                </TouchableOpacity>
               ) : (
                 typeMeals.map(meal => (
                   <View key={meal.meal_id} style={styles.mealItem}>
