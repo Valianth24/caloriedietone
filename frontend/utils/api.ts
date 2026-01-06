@@ -361,3 +361,8 @@ export const deleteWeightEntry = async (date: string) => {
     method: 'DELETE',
   });
 };
+
+// Diet recommendations
+export const getDietRecommendations = async (lang: string = 'tr') => {
+  return apiRequest(`/diets/recommend?lang=${lang}`);
+};
