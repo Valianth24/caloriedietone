@@ -620,8 +620,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 8,
   },
-  mealTypeIcon: {
-    fontSize: 24,
+  sectionRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
   },
   sectionTitle: {
     fontSize: 18,
@@ -633,12 +635,28 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: Colors.primary,
   },
+  addMealBtn: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  mealTypeIcon: {
+    fontSize: 24,
+  },
   emptyMeal: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8,
-    paddingVertical: 20,
+    paddingVertical: 24,
+    backgroundColor: Colors.background,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#E8E8E8',
+    borderStyle: 'dashed',
   },
   emptyText: {
     fontSize: 14,
