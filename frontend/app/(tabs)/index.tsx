@@ -781,15 +781,6 @@ export default function DashboardScreen() {
           console.log('Selected diet:', dietId);
         }}
       />
-
-      {/* Floating Action Button */}
-      <TouchableOpacity
-        style={styles.fab}
-        onPress={() => setShowAddModal(true)}
-        activeOpacity={0.8}
-      >
-        <Ionicons name="add" size={32} color={Colors.white} />
-      </TouchableOpacity>
     </SafeAreaView>
   );
 }
