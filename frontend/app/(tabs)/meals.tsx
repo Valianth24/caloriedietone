@@ -12,18 +12,20 @@ import {
   Alert,
   Modal,
   Animated,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { LinearGradient } from 'expo-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
-import { searchFoods, FOOD_DATABASE, FoodItem } from '../../content/foodDatabase';
+import { searchFoods, FOOD_DATABASE, FoodItem, FOOD_COUNT } from '../../content/foodDatabase';
+import { addMeal } from '../../utils/api';
 
-const { width: screenWidth } = Dimensions.get('window');
+const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
 // Kategoriler - Profesyonel ikonlar
 const FOOD_CATEGORIES = [
@@ -55,22 +57,47 @@ type RecentFood = {
 export default function MealsScreen() {
   const { t } = useTranslation();
   const router = useRouter();
+  
+  // Action Sheet State
+  const [showActionSheet, setShowActionSheet] = useState(true);
+  const slideAnim = useRef(new Animated.Value(0)).current;
+  
+  // Food List State
+  const [showFoodList, setShowFoodList] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [recentFoods, setRecentFoods] = useState<RecentFood[]>([]);
   const [favorites, setFavorites] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
+  
+  // Quick Add Modal
   const [showQuickAdd, setShowQuickAdd] = useState(false);
   const [quickAddItem, setQuickAddItem] = useState<FoodItem | null>(null);
   const [portion, setPortion] = useState(1);
   
-  const searchInputRef = useRef<TextInput>(null);
+  // Manual Entry State
+  const [showManualEntry, setShowManualEntry] = useState(false);
+  const [manualFood, setManualFood] = useState({
+    name: '',
+    calories: '',
+    protein: '',
+    carbs: '',
+    fat: '',
+  });
   
+  const searchInputRef = useRef<TextInput>(null);
   const lang = i18n.language?.startsWith('en') ? 'en' : 'tr';
 
   useEffect(() => {
     loadRecentFoods();
     loadFavorites();
+    // Show action sheet with animation
+    Animated.spring(slideAnim, {
+      toValue: 1,
+      useNativeDriver: true,
+      tension: 65,
+      friction: 11,
+    }).start();
   }, []);
 
   const loadRecentFoods = async () => {
@@ -117,10 +144,33 @@ export default function MealsScreen() {
     return results;
   }, [searchQuery, selectedCategory, lang]);
 
+  const handleCloseActionSheet = () => {
+    Animated.timing(slideAnim, {
+      toValue: 0,
+      duration: 200,
+      useNativeDriver: true,
+    }).start(() => {
+      router.back();
+    });
+  };
+
+  const handleSelectFromList = () => {
+    setShowActionSheet(false);
+    setShowFoodList(true);
+  };
+
+  const handlePhotoCalc = () => {
+    router.push('/(tabs)/camera');
+  };
+
+  const handleManualEntry = () => {
+    setShowActionSheet(false);
+    setShowManualEntry(true);
+  };
+
   const addMealToDay = async (food: FoodItem, portionMultiplier: number = 1) => {
     try {
       setLoading(true);
-      const { addMeal } = require('../../utils/api');
       
       await addMeal({
         name: lang === 'en' ? food.name_en : food.name,
@@ -150,10 +200,47 @@ export default function MealsScreen() {
       setQuickAddItem(null);
       setPortion(1);
       
-      Alert.alert('Başarılı', `${lang === 'en' ? food.name_en : food.name} eklendi`);
+      Alert.alert(
+        lang === 'en' ? 'Success' : 'Başarılı', 
+        `${lang === 'en' ? food.name_en : food.name} ${lang === 'en' ? 'added' : 'eklendi'}`
+      );
       router.replace('/(tabs)');
     } catch (error: any) {
-      Alert.alert('Hata', error.message || 'Yemek eklenemedi');
+      Alert.alert(lang === 'en' ? 'Error' : 'Hata', error.message || (lang === 'en' ? 'Could not add meal' : 'Yemek eklenemedi'));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleManualAdd = async () => {
+    if (!manualFood.name || !manualFood.calories) {
+      Alert.alert(
+        lang === 'en' ? 'Error' : 'Hata',
+        lang === 'en' ? 'Please enter food name and calories' : 'Lütfen yemek adı ve kalori girin'
+      );
+      return;
+    }
+
+    try {
+      setLoading(true);
+      
+      await addMeal({
+        name: manualFood.name,
+        calories: parseInt(manualFood.calories) || 0,
+        protein: parseFloat(manualFood.protein) || 0,
+        carbs: parseFloat(manualFood.carbs) || 0,
+        fat: parseFloat(manualFood.fat) || 0,
+        image_base64: '',
+        meal_type: 'snack',
+      });
+
+      Alert.alert(
+        lang === 'en' ? 'Success' : 'Başarılı',
+        lang === 'en' ? 'Meal added' : 'Yemek eklendi'
+      );
+      router.replace('/(tabs)');
+    } catch (error: any) {
+      Alert.alert(lang === 'en' ? 'Error' : 'Hata', error.message);
     } finally {
       setLoading(false);
     }
@@ -174,10 +261,10 @@ export default function MealsScreen() {
     >
       <Ionicons 
         name={item.icon as any} 
-        size={16} 
+        size={14} 
         color={isSelected ? '#FFF' : item.color} 
       />
-      <Text style={[styles.categoryText, isSelected && styles.categoryTextActive]}>
+      <Text style={[styles.categoryText, isSelected && styles.categoryTextActive]} numberOfLines={1}>
         {lang === 'en' ? item.name_en : item.name}
       </Text>
     </TouchableOpacity>
@@ -214,19 +301,19 @@ export default function MealsScreen() {
             <View style={styles.macroItem}>
               <View style={[styles.macroDot, { backgroundColor: '#3b82f6' }]} />
               <Text style={styles.macroValue}>{item.protein}g</Text>
-              <Text style={styles.macroLabel}>protein</Text>
+              <Text style={styles.macroLabel}>P</Text>
             </View>
             <View style={styles.macroDivider} />
             <View style={styles.macroItem}>
               <View style={[styles.macroDot, { backgroundColor: '#f59e0b' }]} />
               <Text style={styles.macroValue}>{item.carbs}g</Text>
-              <Text style={styles.macroLabel}>karb</Text>
+              <Text style={styles.macroLabel}>K</Text>
             </View>
             <View style={styles.macroDivider} />
             <View style={styles.macroItem}>
               <View style={[styles.macroDot, { backgroundColor: '#ef4444' }]} />
               <Text style={styles.macroValue}>{item.fat}g</Text>
-              <Text style={styles.macroLabel}>yağ</Text>
+              <Text style={styles.macroLabel}>Y</Text>
             </View>
           </View>
         </View>
@@ -261,13 +348,11 @@ export default function MealsScreen() {
             activeOpacity={1} 
             onPress={() => setShowQuickAdd(false)} 
           />
-          <View style={styles.modalContent}>
-            {/* Handle bar */}
+          <View style={styles.quickAddContent}>
             <View style={styles.modalHandle} />
             
-            {/* Header */}
-            <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle} numberOfLines={2}>
+            <View style={styles.quickAddHeader}>
+              <Text style={styles.quickAddTitle} numberOfLines={2}>
                 {lang === 'en' ? quickAddItem.name_en : quickAddItem.name}
               </Text>
               <TouchableOpacity onPress={() => setShowQuickAdd(false)}>
@@ -275,11 +360,11 @@ export default function MealsScreen() {
               </TouchableOpacity>
             </View>
             
-            <Text style={styles.modalSubtitle}>1 porsiyon = {quickAddItem.calories} kcal</Text>
+            <Text style={styles.quickAddSubtitle}>1 {lang === 'en' ? 'portion' : 'porsiyon'} = {quickAddItem.calories} kcal</Text>
             
             {/* Portion Selector */}
             <View style={styles.portionContainer}>
-              <Text style={styles.portionTitle}>Porsiyon</Text>
+              <Text style={styles.portionTitle}>{lang === 'en' ? 'Portion' : 'Porsiyon'}</Text>
               <View style={styles.portionSelector}>
                 <TouchableOpacity 
                   style={styles.portionBtn}
@@ -329,11 +414,11 @@ export default function MealsScreen() {
                 </View>
                 <View style={styles.nutritionMacroItem}>
                   <Text style={[styles.nutritionMacroValue, { color: '#f59e0b' }]}>{carb}g</Text>
-                  <Text style={styles.nutritionMacroLabel}>Karbonhidrat</Text>
+                  <Text style={styles.nutritionMacroLabel}>{lang === 'en' ? 'Carbs' : 'Karb'}</Text>
                 </View>
                 <View style={styles.nutritionMacroItem}>
                   <Text style={[styles.nutritionMacroValue, { color: '#ef4444' }]}>{fat}g</Text>
-                  <Text style={styles.nutritionMacroLabel}>Yağ</Text>
+                  <Text style={styles.nutritionMacroLabel}>{lang === 'en' ? 'Fat' : 'Yağ'}</Text>
                 </View>
               </View>
             </View>
@@ -348,7 +433,7 @@ export default function MealsScreen() {
               {loading ? (
                 <ActivityIndicator color="#FFF" />
               ) : (
-                <Text style={styles.addButtonText}>Ekle</Text>
+                <Text style={styles.addButtonText}>{lang === 'en' ? 'Add' : 'Ekle'}</Text>
               )}
             </TouchableOpacity>
           </View>
@@ -364,12 +449,12 @@ export default function MealsScreen() {
     return (
       <View style={styles.recentSection}>
         <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>Son Eklenenler</Text>
+          <Text style={styles.sectionTitle}>{lang === 'en' ? 'Recent' : 'Son Eklenenler'}</Text>
           <TouchableOpacity onPress={() => {
             setRecentFoods([]);
             AsyncStorage.removeItem('recent_foods_v2');
           }}>
-            <Text style={styles.clearBtn}>Temizle</Text>
+            <Text style={styles.clearBtn}>{lang === 'en' ? 'Clear' : 'Temizle'}</Text>
           </TouchableOpacity>
         </View>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.recentScroll}>
@@ -399,6 +484,198 @@ export default function MealsScreen() {
     );
   };
 
+  // Action Sheet View
+  if (showActionSheet) {
+    return (
+      <View style={styles.actionSheetContainer}>
+        <TouchableOpacity 
+          style={styles.actionSheetBackdrop} 
+          activeOpacity={1} 
+          onPress={handleCloseActionSheet}
+        />
+        <Animated.View 
+          style={[
+            styles.actionSheetContent,
+            {
+              transform: [{
+                translateY: slideAnim.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [400, 0],
+                }),
+              }],
+            },
+          ]}
+        >
+          <View style={styles.modalHandle} />
+          
+          <Text style={styles.actionSheetTitle}>
+            {lang === 'en' ? 'Add Calorie' : 'Kalori Ekle'}
+          </Text>
+          <Text style={styles.actionSheetSubtitle}>
+            {lang === 'en' ? 'How would you like to add?' : 'Nasıl eklemek istersiniz?'}
+          </Text>
+          
+          {/* Option: Select from List */}
+          <TouchableOpacity style={styles.optionButton} onPress={handleSelectFromList}>
+            <View style={[styles.optionIcon, { backgroundColor: Colors.primary + '20' }]}>
+              <Ionicons name="list" size={28} color={Colors.primary} />
+            </View>
+            <View style={styles.optionTextContainer}>
+              <Text style={styles.optionTitle}>
+                {lang === 'en' ? 'Select from List' : 'Listeden Seç'}
+              </Text>
+              <Text style={styles.optionDesc}>
+                {FOOD_COUNT.toLocaleString()}+ {lang === 'en' ? 'food options' : 'yemek seçeneği'}
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
+          </TouchableOpacity>
+          
+          {/* Option: Photo */}
+          <TouchableOpacity style={styles.optionButton} onPress={handlePhotoCalc}>
+            <View style={[styles.optionIcon, { backgroundColor: Colors.teal + '20' }]}>
+              <Ionicons name="camera" size={28} color={Colors.teal} />
+            </View>
+            <View style={styles.optionTextContainer}>
+              <Text style={styles.optionTitle}>
+                {lang === 'en' ? 'Calculate with Photo' : 'Fotoğrafla Hesapla'}
+              </Text>
+              <Text style={styles.optionDesc}>
+                {lang === 'en' ? 'AI auto calorie estimation' : 'AI ile otomatik kalori tahmini'}
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
+          </TouchableOpacity>
+          
+          {/* Option: Manual Entry */}
+          <TouchableOpacity style={styles.optionButton} onPress={handleManualEntry}>
+            <View style={[styles.optionIcon, { backgroundColor: '#f59e0b20' }]}>
+              <Ionicons name="create" size={28} color="#f59e0b" />
+            </View>
+            <View style={styles.optionTextContainer}>
+              <Text style={styles.optionTitle}>
+                {lang === 'en' ? 'Manual Entry' : 'Manuel Giriş'}
+              </Text>
+              <Text style={styles.optionDesc}>
+                {lang === 'en' ? 'Enter calorie values manually' : 'Kalori değerlerini manuel girin'}
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
+          </TouchableOpacity>
+          
+          {/* Cancel */}
+          <TouchableOpacity style={styles.cancelButton} onPress={handleCloseActionSheet}>
+            <Text style={styles.cancelButtonText}>
+              {lang === 'en' ? 'Cancel' : 'Vazgeç'}
+            </Text>
+          </TouchableOpacity>
+        </Animated.View>
+      </View>
+    );
+  }
+
+  // Manual Entry View
+  if (showManualEntry) {
+    return (
+      <SafeAreaView style={styles.container} edges={['top']}>
+        <KeyboardAvoidingView 
+          style={{ flex: 1 }} 
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+        >
+          <View style={styles.header}>
+            <TouchableOpacity onPress={() => router.back()} style={styles.headerBtn}>
+              <Ionicons name="chevron-back" size={24} color={Colors.darkText} />
+            </TouchableOpacity>
+            <Text style={styles.headerTitle}>
+              {lang === 'en' ? 'Manual Entry' : 'Manuel Giriş'}
+            </Text>
+            <View style={styles.headerBtn} />
+          </View>
+          
+          <ScrollView style={styles.manualForm} showsVerticalScrollIndicator={false}>
+            <View style={styles.inputGroup}>
+              <Text style={styles.inputLabel}>
+                {lang === 'en' ? 'Food Name' : 'Yemek Adı'} *
+              </Text>
+              <TextInput
+                style={styles.textInput}
+                placeholder={lang === 'en' ? 'e.g. Homemade pasta' : 'örn. Ev yapımı makarna'}
+                value={manualFood.name}
+                onChangeText={(text) => setManualFood({ ...manualFood, name: text })}
+                placeholderTextColor="#999"
+              />
+            </View>
+            
+            <View style={styles.inputGroup}>
+              <Text style={styles.inputLabel}>
+                {lang === 'en' ? 'Calories' : 'Kalori'} (kcal) *
+              </Text>
+              <TextInput
+                style={styles.textInput}
+                placeholder="0"
+                value={manualFood.calories}
+                onChangeText={(text) => setManualFood({ ...manualFood, calories: text })}
+                keyboardType="numeric"
+                placeholderTextColor="#999"
+              />
+            </View>
+            
+            <View style={styles.inputRow}>
+              <View style={[styles.inputGroup, { flex: 1 }]}>
+                <Text style={styles.inputLabel}>Protein (g)</Text>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="0"
+                  value={manualFood.protein}
+                  onChangeText={(text) => setManualFood({ ...manualFood, protein: text })}
+                  keyboardType="numeric"
+                  placeholderTextColor="#999"
+                />
+              </View>
+              
+              <View style={[styles.inputGroup, { flex: 1, marginLeft: 12 }]}>
+                <Text style={styles.inputLabel}>{lang === 'en' ? 'Carbs' : 'Karb'} (g)</Text>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="0"
+                  value={manualFood.carbs}
+                  onChangeText={(text) => setManualFood({ ...manualFood, carbs: text })}
+                  keyboardType="numeric"
+                  placeholderTextColor="#999"
+                />
+              </View>
+              
+              <View style={[styles.inputGroup, { flex: 1, marginLeft: 12 }]}>
+                <Text style={styles.inputLabel}>{lang === 'en' ? 'Fat' : 'Yağ'} (g)</Text>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="0"
+                  value={manualFood.fat}
+                  onChangeText={(text) => setManualFood({ ...manualFood, fat: text })}
+                  keyboardType="numeric"
+                  placeholderTextColor="#999"
+                />
+              </View>
+            </View>
+            
+            <TouchableOpacity 
+              style={styles.addButton}
+              onPress={handleManualAdd}
+              disabled={loading}
+            >
+              {loading ? (
+                <ActivityIndicator color="#FFF" />
+              ) : (
+                <Text style={styles.addButtonText}>{lang === 'en' ? 'Add' : 'Ekle'}</Text>
+              )}
+            </TouchableOpacity>
+          </ScrollView>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    );
+  }
+
+  // Food List View
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
@@ -406,7 +683,9 @@ export default function MealsScreen() {
         <TouchableOpacity onPress={() => router.back()} style={styles.headerBtn}>
           <Ionicons name="chevron-back" size={24} color={Colors.darkText} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Yemek Ekle</Text>
+        <Text style={styles.headerTitle}>
+          {lang === 'en' ? 'Select Food' : 'Yemek Seç'}
+        </Text>
         <View style={styles.headerBtn} />
       </View>
       
@@ -417,7 +696,7 @@ export default function MealsScreen() {
           <TextInput
             ref={searchInputRef}
             style={styles.searchInput}
-            placeholder="Yemek ara..."
+            placeholder={lang === 'en' ? 'Search food...' : 'Yemek ara...'}
             placeholderTextColor="#999"
             value={searchQuery}
             onChangeText={setSearchQuery}
@@ -432,16 +711,17 @@ export default function MealsScreen() {
       </View>
       
       {/* Categories */}
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false}
-        style={styles.categoriesScroll}
-        contentContainerStyle={styles.categoriesContent}
-      >
-        {FOOD_CATEGORIES.map(cat => (
-          <CategoryChip key={cat.id} item={cat} isSelected={selectedCategory === cat.id} />
-        ))}
-      </ScrollView>
+      <View style={styles.categoriesWrapper}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.categoriesContent}
+        >
+          {FOOD_CATEGORIES.map(cat => (
+            <CategoryChip key={cat.id} item={cat} isSelected={selectedCategory === cat.id} />
+          ))}
+        </ScrollView>
+      </View>
       
       {/* Recent */}
       <RecentSection />
@@ -449,7 +729,7 @@ export default function MealsScreen() {
       {/* Results Count */}
       <View style={styles.resultsRow}>
         <Text style={styles.resultsText}>
-          {searchQuery ? `"${searchQuery}" için ` : ''}{filteredFoods.length} sonuç
+          {searchQuery ? `"${searchQuery}" ${lang === 'en' ? 'for' : 'için'} ` : ''}{filteredFoods.length} {lang === 'en' ? 'results' : 'sonuç'}
         </Text>
       </View>
       
@@ -465,7 +745,9 @@ export default function MealsScreen() {
         ListEmptyComponent={
           <View style={styles.emptyState}>
             <Ionicons name="search-outline" size={48} color="#ddd" />
-            <Text style={styles.emptyText}>Sonuç bulunamadı</Text>
+            <Text style={styles.emptyText}>
+              {lang === 'en' ? 'No results found' : 'Sonuç bulunamadı'}
+            </Text>
           </View>
         }
         renderItem={({ item }) => <FoodCard item={item} />}
@@ -484,6 +766,79 @@ export default function MealsScreen() {
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#FAFAFA' },
+  
+  // Action Sheet
+  actionSheetContainer: {
+    flex: 1,
+    backgroundColor: 'transparent',
+  },
+  actionSheetBackdrop: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+  },
+  actionSheetContent: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    backgroundColor: '#FFF',
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    paddingHorizontal: 20,
+    paddingBottom: 40,
+  },
+  actionSheetTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: Colors.darkText,
+    textAlign: 'center',
+    marginBottom: 4,
+  },
+  actionSheetSubtitle: {
+    fontSize: 14,
+    color: Colors.lightText,
+    textAlign: 'center',
+    marginBottom: 24,
+  },
+  optionButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F8F8F8',
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 12,
+  },
+  optionIcon: {
+    width: 56,
+    height: 56,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 16,
+  },
+  optionTextContainer: {
+    flex: 1,
+  },
+  optionTitle: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: Colors.darkText,
+    marginBottom: 4,
+  },
+  optionDesc: {
+    fontSize: 13,
+    color: Colors.lightText,
+  },
+  cancelButton: {
+    alignItems: 'center',
+    paddingVertical: 16,
+    marginTop: 8,
+  },
+  cancelButtonText: {
+    fontSize: 16,
+    color: Colors.lightText,
+    fontWeight: '600',
+  },
   
   // Header
   header: {
@@ -513,18 +868,29 @@ const styles = StyleSheet.create({
   searchInput: { flex: 1, fontSize: 16, color: Colors.darkText },
   
   // Categories
-  categoriesScroll: { backgroundColor: '#FFF', paddingBottom: 12 },
-  categoriesContent: { paddingHorizontal: 16, gap: 8 },
+  categoriesWrapper: {
+    backgroundColor: '#FFF',
+    paddingBottom: 12,
+  },
+  categoriesContent: { 
+    paddingHorizontal: 16, 
+    gap: 8,
+  },
   categoryChip: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 12,
+    paddingHorizontal: 10,
     paddingVertical: 8,
     borderRadius: 8,
     backgroundColor: '#F5F5F5',
-    gap: 6,
+    gap: 4,
+    minWidth: 60,
   },
-  categoryText: { fontSize: 13, fontWeight: '500', color: Colors.darkText },
+  categoryText: { 
+    fontSize: 12, 
+    fontWeight: '500', 
+    color: Colors.darkText,
+  },
   categoryTextActive: { color: '#FFF' },
   
   // Recent
@@ -593,30 +959,34 @@ const styles = StyleSheet.create({
   emptyState: { alignItems: 'center', paddingVertical: 60 },
   emptyText: { fontSize: 15, color: Colors.lightText, marginTop: 12 },
   
-  // Modal
-  modalOverlay: { flex: 1, justifyContent: 'flex-end' },
-  modalBackdrop: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.4)' },
-  modalContent: { 
-    backgroundColor: '#FFF', 
-    borderTopLeftRadius: 20, 
-    borderTopRightRadius: 20,
-    paddingHorizontal: 20,
-    paddingBottom: 34,
-  },
+  // Modal Handle
   modalHandle: { 
     width: 36, height: 4, borderRadius: 2, 
     backgroundColor: '#E0E0E0', 
     alignSelf: 'center', 
     marginTop: 12, marginBottom: 16 
   },
-  modalHeader: { 
+  
+  // Modal Overlay
+  modalOverlay: { flex: 1, justifyContent: 'flex-end' },
+  modalBackdrop: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.4)' },
+  
+  // Quick Add Modal
+  quickAddContent: { 
+    backgroundColor: '#FFF', 
+    borderTopLeftRadius: 20, 
+    borderTopRightRadius: 20,
+    paddingHorizontal: 20,
+    paddingBottom: 34,
+  },
+  quickAddHeader: { 
     flexDirection: 'row', 
     justifyContent: 'space-between', 
     alignItems: 'flex-start',
     marginBottom: 4,
   },
-  modalTitle: { fontSize: 18, fontWeight: '700', color: Colors.darkText, flex: 1, marginRight: 12 },
-  modalSubtitle: { fontSize: 13, color: Colors.lightText, marginBottom: 24 },
+  quickAddTitle: { fontSize: 18, fontWeight: '700', color: Colors.darkText, flex: 1, marginRight: 12 },
+  quickAddSubtitle: { fontSize: 13, color: Colors.lightText, marginBottom: 24 },
   
   // Portion
   portionContainer: { marginBottom: 24 },
@@ -666,6 +1036,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   addButtonText: { fontSize: 16, fontWeight: '600', color: '#FFF' },
+  
+  // Manual Entry Form
+  manualForm: {
+    padding: 16,
+  },
+  inputGroup: {
+    marginBottom: 16,
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.darkText,
+    marginBottom: 8,
+  },
+  textInput: {
+    backgroundColor: '#FFF',
+    borderRadius: 12,
+    padding: 16,
+    fontSize: 16,
+    color: Colors.darkText,
+    borderWidth: 1,
+    borderColor: '#E8E8E8',
+  },
+  inputRow: {
+    flexDirection: 'row',
+    marginBottom: 24,
+  },
   
   // Loading
   loadingOverlay: {
