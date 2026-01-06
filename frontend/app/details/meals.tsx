@@ -136,22 +136,6 @@ export default function MealsDetailScreen() {
     }
   };
   
-  const handleSelectFood = (food: any) => {
-    setShowFoodListModal(false);
-    router.push({
-      pathname: '/details/meal-detail',
-      params: {
-        food_id: food.food_id,
-        name: food.name,
-        calories: food.calories,
-        protein: food.protein,
-        carbs: food.carbs,
-        fat: food.fat,
-        meal_type: selectedMealType,
-      },
-    });
-  };
-  
   const handleDeleteMeal = async (mealId: string) => {
     try {
       await deleteMeal(mealId);
