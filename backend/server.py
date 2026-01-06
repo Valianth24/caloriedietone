@@ -3198,6 +3198,279 @@ async def get_diet_templates(
     return DIET_TEMPLATES
 
 
+# Genişletilmiş Diyet Şablonları
+EXTENDED_DIET_TEMPLATES = [
+    # Kilo Verme Diyetleri
+    {
+        "diet_id": "calorie_deficit_beginner",
+        "name": "Başlangıç Kalori Açığı",
+        "name_en": "Beginner Calorie Deficit",
+        "description": "Yeni başlayanlar için hafif kalori açığı ile sağlıklı kilo verme",
+        "description_en": "Healthy weight loss with mild calorie deficit for beginners",
+        "duration_days": 30,
+        "category": "weight_loss",
+        "difficulty": "easy",
+        "target_deficit": 300,
+        "macros": {"protein": 30, "carbs": 40, "fat": 30},
+        "suitable_for": ["lose_weight"],
+        "bmi_range": [25, 35],
+        "is_premium": False
+    },
+    {
+        "diet_id": "keto_30",
+        "name": "Ketojenik Diyet",
+        "name_en": "Ketogenic Diet",
+        "description": "Düşük karbonhidrat, yüksek yağ ile hızlı yağ yakımı",
+        "description_en": "Fast fat burning with low carb, high fat approach",
+        "duration_days": 30,
+        "category": "weight_loss",
+        "difficulty": "hard",
+        "target_deficit": 500,
+        "macros": {"protein": 25, "carbs": 5, "fat": 70},
+        "suitable_for": ["lose_weight"],
+        "bmi_range": [27, 40],
+        "is_premium": True
+    },
+    {
+        "diet_id": "intermittent_fasting",
+        "name": "Aralıklı Oruç (16:8)",
+        "name_en": "Intermittent Fasting (16:8)",
+        "description": "16 saat oruç, 8 saat yeme penceresi ile metabolizma hızlandırma",
+        "description_en": "Boost metabolism with 16 hour fast, 8 hour eating window",
+        "duration_days": 30,
+        "category": "weight_loss",
+        "difficulty": "medium",
+        "target_deficit": 400,
+        "macros": {"protein": 30, "carbs": 35, "fat": 35},
+        "suitable_for": ["lose_weight"],
+        "bmi_range": [24, 35],
+        "is_premium": False
+    },
+    {
+        "diet_id": "low_carb",
+        "name": "Düşük Karbonhidrat",
+        "name_en": "Low Carb Diet",
+        "description": "Karbonhidrat kısıtlaması ile dengeli kilo verme",
+        "description_en": "Balanced weight loss with carbohydrate restriction",
+        "duration_days": 30,
+        "category": "weight_loss",
+        "difficulty": "medium",
+        "target_deficit": 400,
+        "macros": {"protein": 35, "carbs": 20, "fat": 45},
+        "suitable_for": ["lose_weight"],
+        "bmi_range": [25, 35],
+        "is_premium": False
+    },
+    # Kas Yapma Diyetleri
+    {
+        "diet_id": "muscle_building",
+        "name": "Kas Yapma Programı",
+        "name_en": "Muscle Building Program",
+        "description": "Yüksek protein ile kas kütlesi artırma",
+        "description_en": "Increase muscle mass with high protein intake",
+        "duration_days": 60,
+        "category": "muscle_building",
+        "difficulty": "medium",
+        "target_surplus": 300,
+        "macros": {"protein": 35, "carbs": 45, "fat": 20},
+        "suitable_for": ["build_muscle", "gain_weight"],
+        "bmi_range": [18, 28],
+        "is_premium": True
+    },
+    {
+        "diet_id": "lean_bulk",
+        "name": "Temiz Hacim",
+        "name_en": "Lean Bulk",
+        "description": "Minimum yağ artışı ile kas yapma",
+        "description_en": "Build muscle with minimal fat gain",
+        "duration_days": 60,
+        "category": "muscle_building",
+        "difficulty": "hard",
+        "target_surplus": 200,
+        "macros": {"protein": 35, "carbs": 40, "fat": 25},
+        "suitable_for": ["build_muscle"],
+        "bmi_range": [20, 26],
+        "is_premium": True
+    },
+    # Dengeli Diyetler
+    {
+        "diet_id": "mediterranean",
+        "name": "Akdeniz Diyeti",
+        "name_en": "Mediterranean Diet",
+        "description": "Sürdürülebilir, kalp sağlığını destekleyen beslenme",
+        "description_en": "Sustainable nutrition supporting heart health",
+        "duration_days": 30,
+        "category": "balanced",
+        "difficulty": "easy",
+        "target_deficit": 0,
+        "macros": {"protein": 20, "carbs": 50, "fat": 30},
+        "suitable_for": ["maintain", "eat_healthy"],
+        "bmi_range": [18, 30],
+        "is_premium": False
+    },
+    {
+        "diet_id": "balanced_nutrition",
+        "name": "Dengeli Beslenme",
+        "name_en": "Balanced Nutrition",
+        "description": "Tüm besin gruplarından dengeli tüketim",
+        "description_en": "Balanced consumption from all food groups",
+        "duration_days": 30,
+        "category": "balanced",
+        "difficulty": "easy",
+        "target_deficit": 0,
+        "macros": {"protein": 25, "carbs": 45, "fat": 30},
+        "suitable_for": ["maintain", "eat_healthy"],
+        "bmi_range": [18, 30],
+        "is_premium": False
+    },
+    # Özel Diyetler
+    {
+        "diet_id": "high_protein",
+        "name": "Yüksek Protein",
+        "name_en": "High Protein Diet",
+        "description": "Protein ağırlıklı beslenme ile tokluk ve kas koruma",
+        "description_en": "Protein-focused nutrition for satiety and muscle preservation",
+        "duration_days": 30,
+        "category": "special",
+        "difficulty": "medium",
+        "target_deficit": 300,
+        "macros": {"protein": 40, "carbs": 30, "fat": 30},
+        "suitable_for": ["lose_weight", "build_muscle"],
+        "bmi_range": [22, 35],
+        "is_premium": False
+    },
+    {
+        "diet_id": "vegetarian",
+        "name": "Vejetaryen",
+        "name_en": "Vegetarian",
+        "description": "Et içermeyen dengeli beslenme programı",
+        "description_en": "Balanced meat-free nutrition program",
+        "duration_days": 30,
+        "category": "vegetarian",
+        "difficulty": "medium",
+        "target_deficit": 200,
+        "macros": {"protein": 20, "carbs": 55, "fat": 25},
+        "suitable_for": ["lose_weight", "maintain", "eat_healthy"],
+        "bmi_range": [18, 35],
+        "is_premium": False
+    },
+]
+
+
+@api_router.get("/diets/recommend")
+async def get_diet_recommendations(
+    lang: str = "tr",
+    current_user: Optional[User] = Depends(get_current_user)
+):
+    """Get personalized diet recommendations based on user profile."""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    # Kullanıcı verilerini al
+    user_doc = await store_get_user_by_id(current_user.user_id)
+    if not user_doc:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    weight = user_doc.get("weight", 70)
+    height = user_doc.get("height", 170)
+    target_weight = user_doc.get("target_weight", weight)
+    goal = user_doc.get("goal", "maintain")
+    activity_level = user_doc.get("activity_level", "moderate")
+    age = user_doc.get("age", 30)
+    gender = user_doc.get("gender", "male")
+    
+    # BMI hesapla
+    height_m = height / 100
+    bmi = weight / (height_m * height_m) if height_m > 0 else 25
+    
+    # Kilo farkı
+    weight_diff = weight - target_weight
+    
+    # Hedef belirleme
+    if weight_diff > 5:
+        user_goal = "lose_weight"
+    elif weight_diff < -5:
+        user_goal = "gain_weight"
+    elif goal in ["build_muscle", "muscle"]:
+        user_goal = "build_muscle"
+    else:
+        user_goal = "maintain"
+    
+    # Uygun diyetleri filtrele ve skorla
+    recommendations = []
+    
+    for diet in EXTENDED_DIET_TEMPLATES:
+        score = 0
+        reasons = []
+        
+        # Hedef uyumu
+        if user_goal in diet.get("suitable_for", []):
+            score += 50
+            if user_goal == "lose_weight":
+                reasons.append("Kilo verme hedefinize uygun" if lang == "tr" else "Matches your weight loss goal")
+            elif user_goal == "build_muscle":
+                reasons.append("Kas yapma hedefinize uygun" if lang == "tr" else "Matches your muscle building goal")
+            elif user_goal == "gain_weight":
+                reasons.append("Kilo alma hedefinize uygun" if lang == "tr" else "Matches your weight gain goal")
+            else:
+                reasons.append("Kilo koruma hedefinize uygun" if lang == "tr" else "Matches your maintenance goal")
+        
+        # BMI uyumu
+        bmi_range = diet.get("bmi_range", [18, 40])
+        if bmi_range[0] <= bmi <= bmi_range[1]:
+            score += 30
+            if bmi > 30:
+                reasons.append("Mevcut kilonuz için önerilen" if lang == "tr" else "Recommended for your current weight")
+        
+        # Zorluk seviyesi - yeni başlayanlar için kolay olanları öner
+        difficulty = diet.get("difficulty", "medium")
+        if difficulty == "easy":
+            score += 15
+            reasons.append("Başlaması kolay" if lang == "tr" else "Easy to start")
+        elif difficulty == "medium":
+            score += 10
+        
+        # Premium olmayan diyetlere bonus
+        if not diet.get("is_premium", False):
+            score += 10
+            reasons.append("Ücretsiz erişim" if lang == "tr" else "Free access")
+        
+        # Aktivite seviyesine göre
+        if activity_level in ["high", "very_high"] and diet["category"] == "muscle_building":
+            score += 10
+        
+        if score >= 40:  # Minimum skor eşiği
+            recommendations.append({
+                "diet_id": diet["diet_id"],
+                "name": diet["name_en"] if lang == "en" else diet["name"],
+                "description": diet["description_en"] if lang == "en" else diet["description"],
+                "duration_days": diet["duration_days"],
+                "category": diet["category"],
+                "difficulty": diet["difficulty"],
+                "macros": diet["macros"],
+                "is_premium": diet.get("is_premium", False),
+                "score": score,
+                "reasons": reasons[:2],  # En önemli 2 sebep
+                "match_percentage": min(100, score)
+            })
+    
+    # Skora göre sırala
+    recommendations.sort(key=lambda x: x["score"], reverse=True)
+    
+    # Kullanıcı bilgisi ile birlikte döndür
+    return {
+        "user_profile": {
+            "bmi": round(bmi, 1),
+            "bmi_category": "obez" if bmi >= 30 else "fazla kilolu" if bmi >= 25 else "normal" if bmi >= 18.5 else "zayıf",
+            "weight_goal": user_goal,
+            "weight_to_lose": max(0, weight_diff) if weight_diff > 0 else 0,
+            "weight_to_gain": abs(weight_diff) if weight_diff < 0 else 0,
+        },
+        "recommendations": recommendations[:5],  # En iyi 5 öneri
+        "top_pick": recommendations[0] if recommendations else None
+    }
+
+
 @api_router.get("/diets/{diet_id}")
 async def get_diet_detail(
     diet_id: str,
