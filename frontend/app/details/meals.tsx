@@ -298,43 +298,23 @@ export default function MealsDetailScreen() {
           onPress={() => setShowAddModal(false)}
         >
           <View style={styles.addOptionsContainer}>
-            <Text style={styles.addOptionsTitle}>{t('addMeal') || 'Öğün Ekle'}</Text>
-            <Text style={styles.addOptionsSubtitle}>{t('howToAddMeal') || 'Nasıl eklemek istersiniz?'}</Text>
-            
-            {/* Meal Type Selection */}
-            <Text style={styles.mealTypeLabel}>{t('selectMealType') || 'Öğün Tipi Seçin'}</Text>
-            <View style={styles.mealTypeRow}>
-              {[
-                { key: 'breakfast', icon: 'sunny', label: t('breakfast') || 'Kahvaltı' },
-                { key: 'lunch', icon: 'restaurant', label: t('lunch') || 'Öğle' },
-                { key: 'dinner', icon: 'moon', label: t('dinner') || 'Akşam' },
-                { key: 'snack', icon: 'cafe', label: t('snack') || 'Atıştırma' },
-              ].map((type) => (
-                <TouchableOpacity
-                  key={type.key}
-                  style={[
-                    styles.mealTypeCard,
-                    selectedMealType === type.key && styles.mealTypeCardActive,
-                  ]}
-                  onPress={() => setSelectedMealType(type.key)}
-                >
-                  <Ionicons
-                    name={type.icon as any}
-                    size={24}
-                    color={selectedMealType === type.key ? Colors.white : Colors.primary}
-                  />
-                  <Text
-                    style={[
-                      styles.mealTypeText,
-                      selectedMealType === type.key && styles.mealTypeTextActive,
-                    ]}
-                    numberOfLines={1}
-                  >
-                    {type.label}
-                  </Text>
-                </TouchableOpacity>
-              ))}
+            {/* Show selected meal type */}
+            <View style={styles.selectedMealHeader}>
+              <Ionicons 
+                name={getMealTypeIcon(selectedMealType) === '🌅' ? 'sunny' : 
+                      getMealTypeIcon(selectedMealType) === '☀️' ? 'restaurant' :
+                      getMealTypeIcon(selectedMealType) === '🌙' ? 'moon' : 'cafe'} 
+                size={24} 
+                color={Colors.primary} 
+              />
+              <Text style={styles.selectedMealTitle}>
+                {selectedMealType === 'breakfast' ? (lang === 'en' ? 'Breakfast' : 'Kahvaltı') :
+                 selectedMealType === 'lunch' ? (lang === 'en' ? 'Lunch' : 'Öğle Yemeği') :
+                 selectedMealType === 'dinner' ? (lang === 'en' ? 'Dinner' : 'Akşam Yemeği') :
+                 (lang === 'en' ? 'Snack' : 'Ara Öğün')}
+              </Text>
             </View>
+            <Text style={styles.addOptionsSubtitle}>{t('howToAddMeal') || 'Nasıl eklemek istersiniz?'}</Text>
             
             {/* Add Options */}
             <TouchableOpacity style={styles.addOptionButton} onPress={handleAddFromList}>
