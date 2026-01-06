@@ -232,6 +232,20 @@ const resources = {
       average: 'Average',
       calorie: 'Calorie',
       
+      // Weight Tracking
+      weightTracking: 'Weight Tracking',
+      startWeight: 'Start',
+      change: 'Change',
+      goalProgress: 'Goal Progress',
+      completed: 'completed',
+      toGo: 'to go',
+      toGain: 'to gain',
+      noWeightData: 'No weight data yet',
+      logFirstWeight: 'Log your first weight',
+      logWeight: 'Log Weight',
+      weightLogged: 'Weight logged successfully',
+      weightLogError: 'Failed to log weight',
+      
       // Food Photo Card
       takePhotoOfYourMeal: 'Take Photo of Your Meal',
       toCalculateCalories: 'to calculate calories',
