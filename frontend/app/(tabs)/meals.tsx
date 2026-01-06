@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useRef } from 'react';
+import React, { useEffect, useState, useMemo, useRef, useCallback } from 'react';
 import {
   View,
   Text,
@@ -18,7 +18,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { useRouter, useFocusEffect } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
@@ -54,16 +54,17 @@ type RecentFood = {
   timestamp: number;
 };
 
+type ScreenMode = 'actionSheet' | 'foodList' | 'manualEntry';
+
 export default function MealsScreen() {
   const { t } = useTranslation();
   const router = useRouter();
   
-  // Action Sheet State
-  const [showActionSheet, setShowActionSheet] = useState(true);
+  // Screen Mode - her zaman action sheet ile başla
+  const [screenMode, setScreenMode] = useState<ScreenMode>('actionSheet');
   const slideAnim = useRef(new Animated.Value(0)).current;
   
   // Food List State
-  const [showFoodList, setShowFoodList] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [recentFoods, setRecentFoods] = useState<RecentFood[]>([]);
@@ -76,7 +77,6 @@ export default function MealsScreen() {
   const [portion, setPortion] = useState(1);
   
   // Manual Entry State
-  const [showManualEntry, setShowManualEntry] = useState(false);
   const [manualFood, setManualFood] = useState({
     name: '',
     calories: '',
@@ -88,16 +88,32 @@ export default function MealsScreen() {
   const searchInputRef = useRef<TextInput>(null);
   const lang = i18n.language?.startsWith('en') ? 'en' : 'tr';
 
+  // Her sayfa odağa geldiğinde action sheet'i göster
+  useFocusEffect(
+    useCallback(() => {
+      // Reset to action sheet when screen comes into focus
+      setScreenMode('actionSheet');
+      setSearchQuery('');
+      setSelectedCategory('all');
+      
+      // Animate action sheet
+      slideAnim.setValue(0);
+      Animated.spring(slideAnim, {
+        toValue: 1,
+        useNativeDriver: true,
+        tension: 65,
+        friction: 11,
+      }).start();
+      
+      return () => {
+        // Cleanup when leaving
+      };
+    }, [])
+  );
+
   useEffect(() => {
     loadRecentFoods();
     loadFavorites();
-    // Show action sheet with animation
-    Animated.spring(slideAnim, {
-      toValue: 1,
-      useNativeDriver: true,
-      tension: 65,
-      friction: 11,
-    }).start();
   }, []);
 
   const loadRecentFoods = async () => {
@@ -122,23 +138,28 @@ export default function MealsScreen() {
     await AsyncStorage.setItem('favorite_foods_v2', JSON.stringify(newFavorites));
   };
 
+  // Filtreleme - TÜM 6000+ yemek gösterilsin
   const filteredFoods = useMemo(() => {
     let results: FoodItem[] = [];
     
     if (searchQuery.length >= 2) {
-      results = searchFoods(searchQuery, lang, 100);
+      // Arama yapılıyorsa - 200'e kadar sonuç göster
+      results = searchFoods(searchQuery, lang, 200);
     } else if (selectedCategory === 'popular') {
-      results = FOOD_DATABASE.slice(0, 30);
+      // Popüler - ilk 50
+      results = FOOD_DATABASE.slice(0, 50);
     } else if (selectedCategory !== 'all') {
+      // Kategori seçiliyse - o kategorideki tüm yemekler
       const category = FOOD_CATEGORIES.find(c => c.id === selectedCategory);
       if (category?.keywords) {
         results = FOOD_DATABASE.filter(food => {
           const name = lang === 'en' ? food.name_en.toLowerCase() : food.name.toLowerCase();
           return category.keywords!.some(kw => name.includes(kw.toLowerCase()));
-        }).slice(0, 80);
+        });
       }
     } else {
-      results = FOOD_DATABASE.slice(0, 50);
+      // "Tümü" seçiliyse - TÜM 6000+ yemek göster
+      results = FOOD_DATABASE;
     }
     
     return results;
@@ -155,8 +176,7 @@ export default function MealsScreen() {
   };
 
   const handleSelectFromList = () => {
-    setShowActionSheet(false);
-    setShowFoodList(true);
+    setScreenMode('foodList');
   };
 
   const handlePhotoCalc = () => {
@@ -164,8 +184,13 @@ export default function MealsScreen() {
   };
 
   const handleManualEntry = () => {
-    setShowActionSheet(false);
-    setShowManualEntry(true);
+    setScreenMode('manualEntry');
+  };
+
+  const handleBackToActionSheet = () => {
+    setScreenMode('actionSheet');
+    setSearchQuery('');
+    setSelectedCategory('all');
   };
 
   const addMealToDay = async (food: FoodItem, portionMultiplier: number = 1) => {
@@ -484,8 +509,10 @@ export default function MealsScreen() {
     );
   };
 
+  // ============= RENDER BASED ON SCREEN MODE =============
+
   // Action Sheet View
-  if (showActionSheet) {
+  if (screenMode === 'actionSheet') {
     return (
       <View style={styles.actionSheetContainer}>
         <TouchableOpacity 
@@ -575,7 +602,7 @@ export default function MealsScreen() {
   }
 
   // Manual Entry View
-  if (showManualEntry) {
+  if (screenMode === 'manualEntry') {
     return (
       <SafeAreaView style={styles.container} edges={['top']}>
         <KeyboardAvoidingView 
@@ -583,7 +610,7 @@ export default function MealsScreen() {
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
         >
           <View style={styles.header}>
-            <TouchableOpacity onPress={() => router.back()} style={styles.headerBtn}>
+            <TouchableOpacity onPress={handleBackToActionSheet} style={styles.headerBtn}>
               <Ionicons name="chevron-back" size={24} color={Colors.darkText} />
             </TouchableOpacity>
             <Text style={styles.headerTitle}>
@@ -680,7 +707,7 @@ export default function MealsScreen() {
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Header */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.headerBtn}>
+        <TouchableOpacity onPress={handleBackToActionSheet} style={styles.headerBtn}>
           <Ionicons name="chevron-back" size={24} color={Colors.darkText} />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>
@@ -729,7 +756,7 @@ export default function MealsScreen() {
       {/* Results Count */}
       <View style={styles.resultsRow}>
         <Text style={styles.resultsText}>
-          {searchQuery ? `"${searchQuery}" ${lang === 'en' ? 'for' : 'için'} ` : ''}{filteredFoods.length} {lang === 'en' ? 'results' : 'sonuç'}
+          {searchQuery ? `"${searchQuery}" ${lang === 'en' ? 'for' : 'için'} ` : ''}{filteredFoods.length.toLocaleString()} {lang === 'en' ? 'results' : 'sonuç'}
         </Text>
       </View>
       
@@ -739,9 +766,14 @@ export default function MealsScreen() {
         keyExtractor={(item) => item.food_id}
         contentContainerStyle={styles.listContent}
         showsVerticalScrollIndicator={false}
-        initialNumToRender={12}
-        maxToRenderPerBatch={8}
-        windowSize={8}
+        initialNumToRender={15}
+        maxToRenderPerBatch={10}
+        windowSize={10}
+        getItemLayout={(data, index) => ({
+          length: 90,
+          offset: 90 * index,
+          index,
+        })}
         ListEmptyComponent={
           <View style={styles.emptyState}>
             <Ionicons name="search-outline" size={48} color="#ddd" />
@@ -935,6 +967,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#F0F0F0',
+    height: 82,
   },
   cardContent: { flex: 1, marginRight: 12 },
   cardHeader: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 10 },
