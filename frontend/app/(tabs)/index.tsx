@@ -91,6 +91,9 @@ export default function DashboardScreen() {
   // Premium modal
   const [showPremiumModal, setShowPremiumModal] = useState(false);
   
+  // Diet recommendation modal
+  const [showDietRecommendation, setShowDietRecommendation] = useState(false);
+  
   // Notification settings modal
   const [showNotificationModal, setShowNotificationModal] = useState(false);
   const [waterReminderEnabled, setWaterReminderEnabled] = useState(false);
