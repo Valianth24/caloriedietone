@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 import {
   ScrollView,
   View,
@@ -47,17 +47,26 @@ export default function VitaminsScreen() {
   const [reminderEnabled, setReminderEnabled] = useState(false);
   const [reminderTimes, setReminderTimes] = useState<string[]>(['09:00', '21:00']);
   const [alarmStyle, setAlarmStyle] = useState(false);
-  const [initialized, setInitialized] = useState(false);
+  
+  // useRef to prevent re-renders and race conditions
+  const initializedRef = useRef(false);
+  const isMountedRef = useRef(true);
+  const isTogglingRef = useRef(false);
 
   // Initial load only
   useEffect(() => {
+    isMountedRef.current = true;
     loadVitamins(true);
     loadReminderSettings();
+    
+    return () => {
+      isMountedRef.current = false;
+    };
   }, []);
 
   // Refresh when refreshData changes (but not on initial mount)
   useEffect(() => {
-    if (initialized) {
+    if (initializedRef.current && !isTogglingRef.current) {
       loadVitamins(false);
     }
   }, [refreshData]);
@@ -68,72 +77,90 @@ export default function VitaminsScreen() {
       const times = await AsyncStorage.getItem('vitamin_reminder_times');
       const alarm = await AsyncStorage.getItem('vitamin_alarm_style');
       
-      if (enabled) setReminderEnabled(enabled === 'true');
-      if (times) setReminderTimes(JSON.parse(times));
-      if (alarm) setAlarmStyle(alarm === 'true');
+      if (isMountedRef.current) {
+        if (enabled) setReminderEnabled(enabled === 'true');
+        if (times) setReminderTimes(JSON.parse(times));
+        if (alarm) setAlarmStyle(alarm === 'true');
+      }
     } catch (error) {
       console.error('Error loading reminder settings:', error);
     }
   };
 
-  const loadVitamins = async (isInitial: boolean = false, showLoading: boolean = true) => {
+  const loadVitamins = useCallback(async (isInitial: boolean = false) => {
+    if (!isMountedRef.current) return;
+    
     try {
-      if (showLoading) setLoading(true);
+      if (isInitial) setLoading(true);
       const userVitamins = await getUserVitamins() as Vitamin[] | null;
       
-      // Only create default vitamins on first load, not on every refresh
-      if ((!userVitamins || !Array.isArray(userVitamins) || userVitamins.length === 0) && isInitial && !initialized) {
+      if (!isMountedRef.current) return;
+      
+      // Only create default vitamins on first load
+      if ((!userVitamins || !Array.isArray(userVitamins) || userVitamins.length === 0) && isInitial && !initializedRef.current) {
         const templates = await getVitaminTemplates() as Array<{name: string, default_time: string}> | null;
         if (templates && Array.isArray(templates)) {
           for (const template of templates) {
             await addVitamin(template.name, template.default_time);
           }
         }
+        if (!isMountedRef.current) return;
         const newUserVitamins = await getUserVitamins() as Vitamin[] | null;
-        setVitamins(Array.isArray(newUserVitamins) ? newUserVitamins : []);
-        setInitialized(true);
+        if (isMountedRef.current) {
+          setVitamins(Array.isArray(newUserVitamins) ? newUserVitamins : []);
+          initializedRef.current = true;
+        }
       } else {
-        setVitamins(Array.isArray(userVitamins) ? userVitamins : []);
-        if (isInitial) setInitialized(true);
+        if (isMountedRef.current) {
+          setVitamins(Array.isArray(userVitamins) ? userVitamins : []);
+          if (isInitial) initializedRef.current = true;
+        }
       }
     } catch (error) {
       console.error('Error loading vitamins:', error);
-      setVitamins([]);
+      if (isMountedRef.current) setVitamins([]);
     } finally {
-      if (showLoading) setLoading(false);
+      if (isMountedRef.current && isInitial) setLoading(false);
     }
-  };
+  }, []);
 
-  const handleToggle = async (vitaminId: string) => {
+  const handleToggle = useCallback(async (vitaminId: string) => {
+    if (isTogglingRef.current) return;
+    isTogglingRef.current = true;
+    
     try {
-      // Optimistic update - titreme önleme
+      // Optimistic update - immediately update UI
       setVitamins(prev => prev.map(v => 
         v.vitamin_id === vitaminId ? { ...v, is_taken: !v.is_taken } : v
       ));
       
       await toggleVitamin(vitaminId);
-      // Sessiz güncelleme - loading gösterme
-      await loadVitamins(false, false);
     } catch (error) {
       console.error('Error toggling vitamin:', error);
-      // Hata durumunda geri al
-      await loadVitamins(false, false);
+      // Revert on error
+      if (isMountedRef.current) {
+        setVitamins(prev => prev.map(v => 
+          v.vitamin_id === vitaminId ? { ...v, is_taken: !v.is_taken } : v
+        ));
+      }
+    } finally {
+      isTogglingRef.current = false;
     }
-  };
+  }, []);
 
-  const handleDeleteVitamin = async (vitaminId: string) => {
+  const handleDeleteVitamin = useCallback(async (vitaminId: string) => {
     try {
       // Optimistic update
       setVitamins(prev => prev.filter(v => v.vitamin_id !== vitaminId));
-      
       await deleteVitamin(vitaminId);
-      await loadVitamins(false, false);
     } catch (error) {
       console.error('Error deleting vitamin:', error);
+      // Reload on error
+      loadVitamins(false);
     }
-  };
+  }, [loadVitamins]);
 
-  const handleAddVitamin = async () => {
+  const handleAddVitamin = useCallback(async () => {
     const trimmedName = newVitaminName.trim();
     const trimmedTime = newVitaminTime.trim();
 
@@ -141,18 +168,25 @@ export default function VitaminsScreen() {
       alert(t('fillVitaminFields'));
       return;
     }
+    
+    // Close modal first to prevent flicker
+    setShowAddModal(false);
+    const savedName = trimmedName;
+    const savedTime = trimmedTime;
+    setNewVitaminName('');
+    setNewVitaminTime(t('everyMorning') || 'Her Sabah');
+    
     try {
-      // Önce modal'ı kapat - titreme önleme
-      setShowAddModal(false);
-      setNewVitaminName('');
-      setNewVitaminTime(t('everyMorning') || 'Her Sabah');
-      
-      await addVitamin(trimmedName, trimmedTime);
-      await loadVitamins(false, false);
+      await addVitamin(savedName, savedTime);
+      // Reload vitamins after adding
+      const userVitamins = await getUserVitamins() as Vitamin[] | null;
+      if (isMountedRef.current) {
+        setVitamins(Array.isArray(userVitamins) ? userVitamins : []);
+      }
     } catch (error) {
       console.error('Error adding vitamin:', error);
     }
-  };
+  }, [newVitaminName, newVitaminTime, t]);
 
   const handleSaveReminders = async () => {
     try {
@@ -186,7 +220,6 @@ export default function VitaminsScreen() {
           await Promise.race([syncPromise, timeoutPromise]);
           alert(reminderEnabled ? t('reminderSaved') : t('remindersTurnedOff'));
         } catch (timeoutError) {
-          // Still show success - settings are saved
           alert(reminderEnabled ? t('settingsSavedBackground') : t('remindersTurnedOff'));
         }
       } else {
