@@ -320,6 +320,17 @@ export default function ProfileScreen() {
           </View>
         </View>
 
+        {/* Weight Chart */}
+        <View style={styles.section}>
+          <WeightChart 
+            currentWeight={parseFloat(formData.weight) || undefined}
+            targetWeight={user?.target_weight}
+            onWeightUpdate={(newWeight) => {
+              setFormData({ ...formData, weight: newWeight.toString() });
+            }}
+          />
+        </View>
+
         {/* Goals */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>{t('dailyGoals')}</Text>
