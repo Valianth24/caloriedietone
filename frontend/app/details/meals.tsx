@@ -898,4 +898,42 @@ const styles = StyleSheet.create({
     color: Colors.lightText,
     marginTop: 12,
   },
+  // Manual Entry Styles
+  manualForm: {
+    padding: 16,
+  },
+  inputGroup: {
+    marginBottom: 16,
+  },
+  inputLabel: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.darkText,
+    marginBottom: 8,
+  },
+  textInput: {
+    backgroundColor: Colors.white,
+    borderRadius: 12,
+    padding: 16,
+    fontSize: 16,
+    color: Colors.darkText,
+    borderWidth: 1,
+    borderColor: '#E8E8E8',
+  },
+  inputRow: {
+    flexDirection: 'row',
+    marginBottom: 24,
+  },
+  manualAddButton: {
+    backgroundColor: Colors.primary,
+    borderRadius: 12,
+    paddingVertical: 16,
+    alignItems: 'center',
+    marginTop: 8,
+  },
+  manualAddButtonText: {
+    fontSize: 16,
+    fontWeight: '600',
+    color: Colors.white,
+  },
 });
