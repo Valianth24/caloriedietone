@@ -50,22 +50,6 @@ export default function MealsDetailScreen() {
     loadData();
   }, [refreshData]);
 
-  // Filter foods based on search query - using local database
-  const filteredFoods = useMemo(() => {
-    if (searchQuery.length >= 2) {
-      return searchFoods(searchQuery, lang, 100);
-    }
-    // Show first 50 foods by default
-    return FOOD_DATABASE.slice(0, 50).map(food => ({
-      food_id: food.food_id,
-      name: lang === 'en' ? food.name_en : food.name,
-      calories: food.calories,
-      protein: food.protein,
-      carbs: food.carbs,
-      fat: food.fat,
-    }));
-  }, [searchQuery, lang]);
-
   const loadData = async () => {
     try {
       const [mealsData, summaryData] = await Promise.all([
