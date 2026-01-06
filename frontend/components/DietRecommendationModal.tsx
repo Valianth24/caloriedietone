@@ -241,7 +241,7 @@ export default function DietRecommendationModal({ visible, onClose, onSelectDiet
           <View style={styles.loadingBox}>
             <ActivityIndicator size="large" color={Colors.primary} />
             <Text style={styles.loadingText}>
-              {lang === 'en' ? 'Analyzing your profile...' : 'Profiliniz analiz ediliyor...'}
+              {lang === 'en' ? 'Checking your profile...' : 'Profiliniz kontrol ediliyor...'}
             </Text>
           </View>
         ) : (
