@@ -121,6 +121,38 @@ export default function MealsDetailScreen() {
     router.push('/(tabs)/camera');
   };
   
+  const handleManualEntry = () => {
+    setShowAddModal(false);
+    setShowManualEntry(true);
+  };
+  
+  const handleManualAdd = async () => {
+    if (!manualFood.name || !manualFood.calories) {
+      alert(lang === 'en' ? 'Please enter food name and calories' : 'Lütfen yemek adı ve kalori girin');
+      return;
+    }
+
+    try {
+      await addMeal({
+        name: manualFood.name,
+        calories: parseInt(manualFood.calories) || 0,
+        protein: parseFloat(manualFood.protein) || 0,
+        carbs: parseFloat(manualFood.carbs) || 0,
+        fat: parseFloat(manualFood.fat) || 0,
+        image_base64: '',
+        meal_type: selectedMealType,
+      });
+
+      alert(lang === 'en' ? 'Meal added!' : 'Yemek eklendi!');
+      setShowManualEntry(false);
+      setManualFood({ name: '', calories: '', protein: '', carbs: '', fat: '' });
+      triggerRefresh();
+      loadData();
+    } catch (error: any) {
+      alert(error.message || (lang === 'en' ? 'Could not add meal' : 'Yemek eklenemedi'));
+    }
+  };
+  
   const handleSelectFood = (food: any) => {
     setShowFoodListModal(false);
     router.push({
