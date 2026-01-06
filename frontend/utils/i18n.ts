@@ -28,6 +28,8 @@ const resources = {
       next: 'Next',
       done: 'Done',
       or: 'or',
+      refreshFailed: 'Refresh failed',
+      stepsUpdated: 'Steps updated',
       
       // Language
       selectLanguage: 'Select Language',
