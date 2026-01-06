@@ -3705,6 +3705,12 @@ async def get_weight_history(
     if mongo_db is None:
         return {"history": [], "stats": None}
     
+    # Get user's profile data first
+    user_doc = await store_get_user_by_id(current_user.user_id)
+    profile_weight = user_doc.get("weight") if user_doc else None
+    target_weight = user_doc.get("target_weight") if user_doc else None
+    user_created_at = user_doc.get("created_at") if user_doc else None
+    
     # Calculate date range
     end_date = now_utc()
     start_date = end_date - timedelta(days=days)
@@ -3721,16 +3727,35 @@ async def get_weight_history(
     
     history = await cursor.to_list(length=days + 1)
     
-    # Calculate stats
+    # If no weight logs but user has a profile weight, add it as the initial entry
+    # This ensures the first weight entered during onboarding appears in the chart
+    if len(history) == 0 and profile_weight:
+        # Use user creation date or today as the initial entry date
+        initial_date = today_str()
+        if user_created_at:
+            try:
+                if isinstance(user_created_at, str):
+                    created_dt = datetime.fromisoformat(user_created_at.replace('Z', '+00:00'))
+                else:
+                    created_dt = user_created_at
+                initial_date = created_dt.strftime("%Y-%m-%d")
+            except:
+                pass
+        
+        history = [{
+            "user_id": current_user.user_id,
+            "weight": profile_weight,
+            "note": "İlk kilo / Initial weight",
+            "date": initial_date,
+            "from_profile": True  # Mark this as from profile
+        }]
+    
+    # Calculate stats - now works with 1 or more entries
     stats = None
-    if len(history) >= 2:
+    if len(history) >= 1:
         first_weight = history[0]["weight"]
         last_weight = history[-1]["weight"]
         change = last_weight - first_weight
-        
-        # Get user's target weight
-        user_doc = await store_get_user_by_id(current_user.user_id)
-        target_weight = user_doc.get("target_weight") if user_doc else None
         
         stats = {
             "start_weight": first_weight,
