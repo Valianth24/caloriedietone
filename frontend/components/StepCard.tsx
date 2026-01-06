@@ -41,10 +41,8 @@ export default function StepCard({ current, goal }: StepCardProps) {
     
     initPedometer();
     
-    return () => {
-      // Cleanup on unmount
-      pedometerService.stop();
-    };
+    // Don't stop the service on unmount - keep it running in background
+    // Service will be stopped on logout
   }, []);
   
   // Subscribe to step updates
