@@ -169,8 +169,8 @@ export default function DietsScreen() {
                 </Text>
                 <Text style={styles.recommendationSubtitle}>
                   {lang === 'en' 
-                    ? 'AI analyzes your profile and recommends the best diet for you' 
-                    : 'AI profilinizi analiz ederek size en uygun diyeti önerir'}
+                    ? 'We recommend the best diet based on your profile' 
+                    : 'Profilinize göre en uygun diyeti öneriyoruz'}
                 </Text>
               </View>
               <Ionicons name="chevron-forward" size={24} color="#FFF" />
@@ -179,15 +179,15 @@ export default function DietsScreen() {
             <View style={styles.recommendationBadges}>
               <View style={styles.recBadge}>
                 <Ionicons name="body" size={14} color="#FFF" />
-                <Text style={styles.recBadgeText}>{lang === 'en' ? 'BMI Analysis' : 'BMI Analizi'}</Text>
+                <Text style={styles.recBadgeText}>{lang === 'en' ? 'BMI' : 'BMI'}</Text>
               </View>
               <View style={styles.recBadge}>
                 <Ionicons name="trending-down" size={14} color="#FFF" />
-                <Text style={styles.recBadgeText}>{lang === 'en' ? 'Goal Match' : 'Hedef Uyumu'}</Text>
+                <Text style={styles.recBadgeText}>{lang === 'en' ? 'Goal' : 'Hedef'}</Text>
               </View>
               <View style={styles.recBadge}>
                 <Ionicons name="star" size={14} color="#FFF" />
-                <Text style={styles.recBadgeText}>{lang === 'en' ? 'Best Match' : 'En İyi Eşleşme'}</Text>
+                <Text style={styles.recBadgeText}>{lang === 'en' ? 'Best Match' : 'En Uygun'}</Text>
               </View>
             </View>
           </LinearGradient>
