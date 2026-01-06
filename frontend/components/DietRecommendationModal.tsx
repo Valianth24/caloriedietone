@@ -16,7 +16,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTranslation } from 'react-i18next';
 import { useRouter } from 'expo-router';
 import i18n from '../utils/i18n';
-import { apiRequest } from '../utils/api';
+import { useStore } from '../store/useStore';
+import { allDiets, Diet } from '../content/diets';
 
 const { width: screenWidth } = Dimensions.get('window');
 
