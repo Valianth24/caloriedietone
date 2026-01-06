@@ -78,6 +78,7 @@ export default function CameraScreen() {
   const [showContextModal, setShowContextModal] = useState(false);
   const [pendingBase64, setPendingBase64] = useState<string | null>(null);
   const [foodContext, setFoodContext] = useState('');
+  const [selectedMealType, setSelectedMealType] = useState('snack'); // Öğün seçimi için
   
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
   
