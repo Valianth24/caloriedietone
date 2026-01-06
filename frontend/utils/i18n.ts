@@ -1220,6 +1220,20 @@ const resources = {
       average: 'Promedio',
       calorie: 'Caloría',
       
+      // Weight Tracking - Spanish
+      weightTracking: 'Seguimiento de Peso',
+      startWeight: 'Inicio',
+      change: 'Cambio',
+      goalProgress: 'Progreso del Objetivo',
+      completed: 'completado',
+      toGo: 'restante',
+      toGain: 'por ganar',
+      noWeightData: 'Sin datos de peso',
+      logFirstWeight: 'Registra tu primer peso',
+      logWeight: 'Registrar Peso',
+      weightLogged: 'Peso registrado',
+      weightLogError: 'No se pudo registrar el peso',
+      
       vitamins: 'Vitaminas',
       vitaminTracking: 'Seguimiento de Vitaminas',
       addVitamin: 'Añadir Vitamina',
