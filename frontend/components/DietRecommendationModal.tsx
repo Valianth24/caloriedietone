@@ -113,8 +113,8 @@ export default function DietRecommendationModal({ visible, onClose, onSelectDiet
     
     // Diyet detay sayfasına yönlendir
     router.push({
-      pathname: '/details/diet-plan',
-      params: { diet_id: dietId }
+      pathname: '/details/premium-diet-detail',
+      params: { id: dietId }
     });
   };
 
