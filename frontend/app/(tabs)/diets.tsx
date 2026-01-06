@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Alert } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Alert, RefreshControl } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
@@ -7,16 +7,20 @@ import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useStore } from '../../store/useStore';
 import PremiumPaywall from '../../components/PremiumPaywall';
+import DietRecommendationModal from '../../components/DietRecommendationModal';
 import { activatePremium } from '../../utils/api';
 import { allDiets, Diet } from '../../content/diets';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function DietsScreen() {
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const { user, setUser } = useStore();
   const [showPaywall, setShowPaywall] = useState(false);
+  const [showDietRecommendation, setShowDietRecommendation] = useState(false);
   const [hasActiveDiet, setHasActiveDiet] = useState(false);
+  const [refreshing, setRefreshing] = useState(false);
 
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
 
@@ -31,6 +35,12 @@ export default function DietsScreen() {
   const checkActiveDiet = async () => {
     const data = await AsyncStorage.getItem('active_diet');
     setHasActiveDiet(!!data);
+  };
+
+  const onRefresh = async () => {
+    setRefreshing(true);
+    await checkActiveDiet();
+    setRefreshing(false);
   };
 
   const handleDietClick = (diet: Diet) => {
@@ -55,34 +65,40 @@ export default function DietsScreen() {
 
   const getDifficultyText = (difficulty: string) => {
     switch (difficulty) {
-      case 'easy': return t('easy');
-      case 'medium': return t('medium');
-      case 'hard': return t('hard');
+      case 'easy': return lang === 'en' ? 'Easy' : 'Kolay';
+      case 'medium': return lang === 'en' ? 'Medium' : 'Orta';
+      case 'hard': return lang === 'en' ? 'Hard' : 'Zor';
       default: return difficulty;
     }
   };
 
   const handleSubscribe = async () => {
     try {
-      // NOTE: Guest check disabled for Play Store testing
-      // Activate premium via API
       const updatedUser = await activatePremium() as any;
       
-      // Update local user state with premium status
       if (updatedUser && setUser) {
         setUser({ ...user, ...updatedUser, is_premium: true });
       }
       
       Alert.alert(
-        '🎉 ' + t('success'), 
-        t('premiumActivated') || 'Premium üyeliğiniz aktif edildi! Tüm özelliklere erişebilirsiniz.'
+        '🎉 ' + (lang === 'en' ? 'Success' : 'Başarılı'), 
+        lang === 'en' ? 'Premium activated! All features unlocked.' : 'Premium üyeliğiniz aktif edildi! Tüm özelliklere erişebilirsiniz.'
       );
       setShowPaywall(false);
       
     } catch (error: any) {
       console.error('Premium activation error:', error);
-      Alert.alert(t('error'), t('premiumActivationFailed') || 'Premium aktivasyonu başarısız. Lütfen tekrar deneyin.');
+      Alert.alert(
+        lang === 'en' ? 'Error' : 'Hata', 
+        lang === 'en' ? 'Premium activation failed. Please try again.' : 'Premium aktivasyonu başarısız. Lütfen tekrar deneyin.'
+      );
     }
+  };
+
+  const handleOpenRecommendation = async () => {
+    // Önceki gösterim kaydını sil ki her seferinde gösterilsin
+    await AsyncStorage.removeItem('diet_recommendation_shown');
+    setShowDietRecommendation(true);
   };
 
   return (
@@ -107,12 +123,17 @@ export default function DietsScreen() {
         </TouchableOpacity>
       </View>
 
-      <ScrollView contentContainerStyle={styles.scrollContent}>
+      <ScrollView 
+        contentContainerStyle={styles.scrollContent}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} colors={[Colors.primary]} />
+        }
+      >
         {/* Header */}
         <View style={styles.header}>
           <View>
-            <Text style={styles.title}>{t('diets')}</Text>
-            <Text style={styles.subtitle}>{t('dietsSubtitle')}</Text>
+            <Text style={styles.title}>{lang === 'en' ? 'Diets' : 'Diyetler'}</Text>
+            <Text style={styles.subtitle}>{lang === 'en' ? 'Nutrition plans just for you' : 'Size özel beslenme planları'}</Text>
           </View>
         </View>
 
@@ -120,9 +141,57 @@ export default function DietsScreen() {
         {isPremium && (
           <View style={styles.premiumBanner}>
             <Ionicons name="checkmark-circle" size={24} color={Colors.success} />
-            <Text style={styles.premiumBannerText}>{t('premiumMember')}</Text>
+            <Text style={styles.premiumBannerText}>
+              {lang === 'en' ? 'You are a Premium member! All features unlocked.' : 'Premium üyesiniz! Tüm özelliklere erişebilirsiniz.'}
+            </Text>
           </View>
         )}
+
+        {/* Personalized Diet Recommendation Button */}
+        <TouchableOpacity 
+          style={styles.recommendationCard}
+          onPress={handleOpenRecommendation}
+          activeOpacity={0.9}
+        >
+          <LinearGradient
+            colors={[Colors.primary, '#7c3aed']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.recommendationGradient}
+          >
+            <View style={styles.recommendationContent}>
+              <View style={styles.recommendationIcon}>
+                <Ionicons name="sparkles" size={28} color="#FFF" />
+              </View>
+              <View style={styles.recommendationText}>
+                <Text style={styles.recommendationTitle}>
+                  {lang === 'en' ? 'Personalized Diet' : 'Size Özel Diyet'}
+                </Text>
+                <Text style={styles.recommendationSubtitle}>
+                  {lang === 'en' 
+                    ? 'AI analyzes your profile and recommends the best diet for you' 
+                    : 'AI profilinizi analiz ederek size en uygun diyeti önerir'}
+                </Text>
+              </View>
+              <Ionicons name="chevron-forward" size={24} color="#FFF" />
+            </View>
+            
+            <View style={styles.recommendationBadges}>
+              <View style={styles.recBadge}>
+                <Ionicons name="body" size={14} color="#FFF" />
+                <Text style={styles.recBadgeText}>{lang === 'en' ? 'BMI Analysis' : 'BMI Analizi'}</Text>
+              </View>
+              <View style={styles.recBadge}>
+                <Ionicons name="trending-down" size={14} color="#FFF" />
+                <Text style={styles.recBadgeText}>{lang === 'en' ? 'Goal Match' : 'Hedef Uyumu'}</Text>
+              </View>
+              <View style={styles.recBadge}>
+                <Ionicons name="star" size={14} color="#FFF" />
+                <Text style={styles.recBadgeText}>{lang === 'en' ? 'Best Match' : 'En İyi Eşleşme'}</Text>
+              </View>
+            </View>
+          </LinearGradient>
+        </TouchableOpacity>
 
         {/* Active Diet Banner */}
         {hasActiveDiet && (
@@ -133,10 +202,10 @@ export default function DietsScreen() {
             <Ionicons name="fitness" size={24} color={Colors.white} />
             <View style={styles.activeDietText}>
               <Text style={styles.activeDietTitle}>
-                {t('activeDietTitle')}
+                {lang === 'en' ? 'Active Diet' : 'Aktif Diyetiniz'}
               </Text>
               <Text style={styles.activeDietSubtitle}>
-                {t('tapToContinue')}
+                {lang === 'en' ? 'Tap to continue' : 'Devam etmek için dokunun'}
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={24} color={Colors.white} />
@@ -147,14 +216,16 @@ export default function DietsScreen() {
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
             <Ionicons name="star" size={24} color={Colors.warning} />
-            <Text style={styles.sectionTitle}>{t('premiumDiets')}</Text>
+            <Text style={styles.sectionTitle}>{lang === 'en' ? 'Premium Diets' : 'Premium Diyetler'}</Text>
             {!isPremium && (
               <View style={styles.lockBadge}>
                 <Ionicons name="lock-closed" size={14} color={Colors.white} />
               </View>
             )}
           </View>
-          <Text style={styles.sectionSubtitle}>{t('premiumDietsSubtitle')}</Text>
+          <Text style={styles.sectionSubtitle}>
+            {lang === 'en' ? 'Prepared by expert dietitians' : 'Uzman diyetisyenler tarafından hazırlanmış'}
+          </Text>
           
           <View style={styles.dietGrid}>
             {allDiets.map((diet) => (
@@ -171,9 +242,9 @@ export default function DietsScreen() {
                     <Ionicons name="lock-closed" size={32} color={Colors.white} />
                   </View>
                 )}
-                <View style={styles.premiumBadge}>
+                <View style={styles.premiumDietBadge}>
                   <Ionicons name="star" size={12} color={Colors.white} />
-                  <Text style={styles.premiumText}>Premium</Text>
+                  <Text style={styles.premiumDietText}>Premium</Text>
                 </View>
                 <View style={styles.dietInfo}>
                   <Text style={styles.dietName}>{diet.name[lang]}</Text>
@@ -183,7 +254,7 @@ export default function DietsScreen() {
                   <View style={styles.dietMeta}>
                     <View style={styles.metaItem}>
                       <Ionicons name="calendar-outline" size={14} color={Colors.lightText} />
-                      <Text style={styles.metaText}>{diet.duration} {t('days')}</Text>
+                      <Text style={styles.metaText}>{diet.duration} {lang === 'en' ? 'days' : 'gün'}</Text>
                     </View>
                     <View style={[styles.difficultyBadge, { backgroundColor: getDifficultyColor(diet.difficulty) + '20' }]}>
                       <Text style={[styles.difficultyText, { color: getDifficultyColor(diet.difficulty) }]}>
@@ -203,6 +274,15 @@ export default function DietsScreen() {
         visible={showPaywall}
         onClose={() => setShowPaywall(false)}
         onSubscribe={handleSubscribe}
+      />
+
+      {/* Diet Recommendation Modal */}
+      <DietRecommendationModal
+        visible={showDietRecommendation}
+        onClose={() => setShowDietRecommendation(false)}
+        onSelectDiet={(dietId) => {
+          console.log('Selected diet:', dietId);
+        }}
       />
     </SafeAreaView>
   );
@@ -232,6 +312,7 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     padding: 16,
+    paddingBottom: 40,
   },
   header: {
     marginBottom: 16,
@@ -266,7 +347,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.success + '20',
     padding: 16,
     borderRadius: 12,
-    marginBottom: 24,
+    marginBottom: 16,
     gap: 12,
   },
   premiumBannerText: {
@@ -275,6 +356,69 @@ const styles = StyleSheet.create({
     color: Colors.success,
     fontWeight: '600',
   },
+  
+  // Recommendation Card
+  recommendationCard: {
+    marginBottom: 20,
+    borderRadius: 16,
+    overflow: 'hidden',
+    shadowColor: Colors.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 8,
+  },
+  recommendationGradient: {
+    padding: 20,
+  },
+  recommendationContent: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  recommendationIcon: {
+    width: 56,
+    height: 56,
+    borderRadius: 16,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 14,
+  },
+  recommendationText: {
+    flex: 1,
+  },
+  recommendationTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: '#FFF',
+    marginBottom: 4,
+  },
+  recommendationSubtitle: {
+    fontSize: 13,
+    color: 'rgba(255, 255, 255, 0.9)',
+    lineHeight: 18,
+  },
+  recommendationBadges: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+    marginTop: 16,
+  },
+  recBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 20,
+    gap: 5,
+  },
+  recBadgeText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: '#FFF',
+  },
+  
   section: {
     marginBottom: 32,
   },
@@ -319,11 +463,6 @@ const styles = StyleSheet.create({
   dietCardLocked: {
     opacity: 0.7,
   },
-  dietImage: {
-    width: '100%',
-    height: 180,
-    resizeMode: 'cover',
-  },
   dietEmojiContainer: {
     width: '100%',
     height: 120,
@@ -345,7 +484,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     zIndex: 1,
   },
-  premiumBadge: {
+  premiumDietBadge: {
     position: 'absolute',
     top: 12,
     right: 12,
@@ -358,7 +497,7 @@ const styles = StyleSheet.create({
     gap: 4,
     zIndex: 2,
   },
-  premiumText: {
+  premiumDietText: {
     color: Colors.white,
     fontSize: 11,
     fontWeight: 'bold',
@@ -378,7 +517,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.success,
     padding: 16,
     borderRadius: 16,
-    marginBottom: 24,
+    marginBottom: 20,
     gap: 12,
   },
   activeDietText: {
@@ -421,138 +560,4 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: Colors.lightText,
   },
-  customDietCard: {
-    backgroundColor: Colors.white,
-    borderRadius: 16,
-    padding: 24,
-    borderWidth: 2,
-    borderColor: Colors.primary,
-    borderStyle: 'dashed',
-  },
-  customDietCardLocked: {
-    borderColor: Colors.lightText,
-    opacity: 0.7,
-  },
-  customDietContent: {
-    alignItems: 'center',
-  },
-  iconCircle: {
-    width: 64,
-    height: 64,
-    borderRadius: 32,
-    backgroundColor: Colors.primary + '20',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 12,
-  },
-  customDietTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: Colors.darkText,
-    marginBottom: 4,
-  },
-  customDietSubtitle: {
-    fontSize: 14,
-    color: Colors.lightText,
-    textAlign: 'center',
-  },
-  modalContainer: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'flex-end',
-  },
-  modalContent: {
-    backgroundColor: Colors.white,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    padding: 24,
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  modalTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: Colors.darkText,
-  },
-  input: {
-    backgroundColor: Colors.background,
-    borderRadius: 12,
-    padding: 16,
-    fontSize: 16,
-    marginBottom: 16,
-  },
-  textArea: {
-    height: 100,
-    textAlignVertical: 'top',
-  },
-  createButton: {
-    backgroundColor: Colors.primary,
-    paddingVertical: 16,
-    borderRadius: 12,
-    alignItems: 'center',
-  },
-  createButtonText: {
-    color: Colors.white,
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  aiDietButton: {
-    backgroundColor: Colors.primary,
-    borderRadius: 16,
-    padding: 20,
-    marginHorizontal: 20,
-    marginBottom: 24,
-    shadowColor: Colors.primary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
-  },
-  aiDietButtonContent: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  aiDietIcon: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 15,
-  },
-  aiDietText: {
-    flex: 1,
-  },
-  aiDietTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#FFFFFF',
-    marginBottom: 4,
-  },
-  aiDietSubtitle: {
-    fontSize: 13,
-    color: 'rgba(255, 255, 255, 0.8)',
-  },
-  aiPremiumBadge: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    borderRadius: 12,
-    paddingHorizontal: 10,
-    paddingVertical: 4,
-    marginTop: 12,
-    alignSelf: 'flex-start',
-    gap: 4,
-  },
-  aiPremiumText: {
-    fontSize: 11,
-    fontWeight: '600',
-    color: '#FFFFFF',
-  },
 });
-
