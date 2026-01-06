@@ -287,17 +287,8 @@ export default function MealsDetailScreen() {
           );
         })}
 
-        <View style={{ height: 100 }} />
+        <View style={{ height: 40 }} />
       </ScrollView>
-      
-      {/* Floating Action Button - Add Meal */}
-      <TouchableOpacity
-        style={styles.fab}
-        onPress={() => setShowAddModal(true)}
-        activeOpacity={0.8}
-      >
-        <Ionicons name="add" size={32} color={Colors.white} />
-      </TouchableOpacity>
       
       {/* Add Meal Options Modal */}
       <Modal visible={showAddModal} transparent animationType="fade">
