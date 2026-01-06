@@ -351,6 +351,17 @@ export default function MealsDetailScreen() {
               <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
             </TouchableOpacity>
             
+            <TouchableOpacity style={styles.addOptionButton} onPress={handleManualEntry}>
+              <View style={[styles.addOptionIconContainer, { backgroundColor: '#f59e0b20' }]}>
+                <Ionicons name="create" size={28} color="#f59e0b" />
+              </View>
+              <View style={styles.addOptionTextContainer}>
+                <Text style={styles.addOptionTitle}>{lang === 'en' ? 'Manual Entry' : 'Manuel Giriş'}</Text>
+                <Text style={styles.addOptionDesc}>{lang === 'en' ? 'Enter calorie values manually' : 'Kalori değerlerini manuel girin'}</Text>
+              </View>
+              <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
+            </TouchableOpacity>
+            
             <TouchableOpacity 
               style={styles.cancelButton} 
               onPress={() => setShowAddModal(false)}
@@ -359,6 +370,93 @@ export default function MealsDetailScreen() {
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
+      </Modal>
+      
+      {/* Manual Entry Modal */}
+      <Modal visible={showManualEntry} animationType="slide">
+        <SafeAreaView style={styles.foodListModal} edges={['top']}>
+          <View style={styles.foodListHeader}>
+            <TouchableOpacity onPress={() => setShowManualEntry(false)} style={styles.backButton}>
+              <Ionicons name="close" size={28} color={Colors.darkText} />
+            </TouchableOpacity>
+            <Text style={styles.headerTitle}>{lang === 'en' ? 'Manual Entry' : 'Manuel Giriş'}</Text>
+            <View style={{ width: 40 }} />
+          </View>
+          
+          <ScrollView style={styles.manualForm} showsVerticalScrollIndicator={false}>
+            <View style={styles.inputGroup}>
+              <Text style={styles.inputLabel}>
+                {lang === 'en' ? 'Food Name' : 'Yemek Adı'} *
+              </Text>
+              <TextInput
+                style={styles.textInput}
+                placeholder={lang === 'en' ? 'e.g. Homemade pasta' : 'örn. Ev yapımı makarna'}
+                value={manualFood.name}
+                onChangeText={(text) => setManualFood({ ...manualFood, name: text })}
+                placeholderTextColor="#999"
+              />
+            </View>
+            
+            <View style={styles.inputGroup}>
+              <Text style={styles.inputLabel}>
+                {lang === 'en' ? 'Calories' : 'Kalori'} (kcal) *
+              </Text>
+              <TextInput
+                style={styles.textInput}
+                placeholder="0"
+                value={manualFood.calories}
+                onChangeText={(text) => setManualFood({ ...manualFood, calories: text })}
+                keyboardType="numeric"
+                placeholderTextColor="#999"
+              />
+            </View>
+            
+            <View style={styles.inputRow}>
+              <View style={[styles.inputGroup, { flex: 1 }]}>
+                <Text style={styles.inputLabel}>Protein (g)</Text>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="0"
+                  value={manualFood.protein}
+                  onChangeText={(text) => setManualFood({ ...manualFood, protein: text })}
+                  keyboardType="numeric"
+                  placeholderTextColor="#999"
+                />
+              </View>
+              
+              <View style={[styles.inputGroup, { flex: 1, marginLeft: 12 }]}>
+                <Text style={styles.inputLabel}>{lang === 'en' ? 'Carbs' : 'Karb'} (g)</Text>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="0"
+                  value={manualFood.carbs}
+                  onChangeText={(text) => setManualFood({ ...manualFood, carbs: text })}
+                  keyboardType="numeric"
+                  placeholderTextColor="#999"
+                />
+              </View>
+              
+              <View style={[styles.inputGroup, { flex: 1, marginLeft: 12 }]}>
+                <Text style={styles.inputLabel}>{lang === 'en' ? 'Fat' : 'Yağ'} (g)</Text>
+                <TextInput
+                  style={styles.textInput}
+                  placeholder="0"
+                  value={manualFood.fat}
+                  onChangeText={(text) => setManualFood({ ...manualFood, fat: text })}
+                  keyboardType="numeric"
+                  placeholderTextColor="#999"
+                />
+              </View>
+            </View>
+            
+            <TouchableOpacity 
+              style={styles.manualAddButton}
+              onPress={handleManualAdd}
+            >
+              <Text style={styles.manualAddButtonText}>{lang === 'en' ? 'Add' : 'Ekle'}</Text>
+            </TouchableOpacity>
+          </ScrollView>
+        </SafeAreaView>
       </Modal>
       
       {/* Food List Modal */}
