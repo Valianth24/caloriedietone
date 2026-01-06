@@ -396,6 +396,18 @@ export default function DashboardScreen() {
             <FoodPhotoCard />
           </View>
 
+          {/* Weight Chart - Kilo Takibi */}
+          <View style={styles.weightChartSection}>
+            <WeightChart 
+              currentWeight={user?.weight}
+              targetWeight={user?.target_weight}
+              onWeightUpdate={(newWeight) => {
+                // Refresh data after weight update
+                loadData();
+              }}
+            />
+          </View>
+
           {/* Personal Diets Section */}
           <View style={styles.personalDietsSection}>
             <View style={styles.personalDietsHeader}>
