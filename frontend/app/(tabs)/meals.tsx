@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
+import React, { useEffect, useState, useMemo, useCallback, useRef } from 'react';
 import {
   View,
   Text,
@@ -12,12 +12,15 @@ import {
   Alert,
   Modal,
   Animated,
+  Image,
+  Keyboard,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
+import { BlurView } from 'expo-blur';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from '../../utils/i18n';
 import { useTranslation } from 'react-i18next';
@@ -25,23 +28,55 @@ import { searchFoods, FOOD_DATABASE, FoodItem, getHighProteinFoods, getLowCalori
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
-// Kategoriler
+// Premium Kategoriler - Emoji ve Gradient ile
 const FOOD_CATEGORIES = [
-  { id: 'all', name: 'Tümü', name_en: 'All', icon: 'apps', color: '#667eea' },
-  { id: 'meat', name: 'Et & Tavuk', name_en: 'Meat & Poultry', icon: 'nutrition', color: '#e74c3c', keywords: ['tavuk', 'et', 'dana', 'kuzu', 'biftek', 'köfte', 'pirzola', 'kıyma', 'chicken', 'beef', 'lamb', 'meat'] },
-  { id: 'fish', name: 'Balık & Deniz', name_en: 'Fish & Seafood', icon: 'fish', color: '#3498db', keywords: ['balık', 'somon', 'ton', 'levrek', 'karides', 'fish', 'salmon', 'tuna', 'seafood'] },
-  { id: 'dairy', name: 'Süt Ürünleri', name_en: 'Dairy', icon: 'water', color: '#f1c40f', keywords: ['süt', 'yoğurt', 'peynir', 'ayran', 'kefir', 'milk', 'yogurt', 'cheese'] },
-  { id: 'grains', name: 'Tahıllar', name_en: 'Grains', icon: 'leaf', color: '#e67e22', keywords: ['ekmek', 'makarna', 'pirinç', 'pilav', 'bulgur', 'yulaf', 'bread', 'pasta', 'rice'] },
-  { id: 'veggies', name: 'Sebzeler', name_en: 'Vegetables', icon: 'leaf', color: '#27ae60', keywords: ['salata', 'domates', 'havuç', 'brokoli', 'ıspanak', 'kabak', 'patlıcan', 'salad', 'tomato', 'carrot'] },
-  { id: 'fruits', name: 'Meyveler', name_en: 'Fruits', icon: 'nutrition', color: '#9b59b6', keywords: ['elma', 'muz', 'portakal', 'çilek', 'karpuz', 'apple', 'banana', 'orange', 'strawberry'] },
-  { id: 'soup', name: 'Çorbalar', name_en: 'Soups', icon: 'cafe', color: '#1abc9c', keywords: ['çorba', 'mercimek', 'soup'] },
-  { id: 'fastfood', name: 'Fast Food', name_en: 'Fast Food', icon: 'fast-food', color: '#e74c3c', keywords: ['pizza', 'hamburger', 'döner', 'lahmacun', 'burger', 'kebab'] },
-  { id: 'dessert', name: 'Tatlılar', name_en: 'Desserts', icon: 'ice-cream', color: '#fd79a8', keywords: ['tatlı', 'baklava', 'dondurma', 'çikolata', 'kek', 'kurabiye', 'dessert', 'cake', 'chocolate', 'ice cream'] },
-  { id: 'drinks', name: 'İçecekler', name_en: 'Drinks', icon: 'wine', color: '#00cec9', keywords: ['kahve', 'çay', 'meyve suyu', 'kola', 'coffee', 'tea', 'juice', 'drink'] },
-  { id: 'nuts', name: 'Kuruyemiş', name_en: 'Nuts', icon: 'ellipse', color: '#fdcb6e', keywords: ['ceviz', 'badem', 'fındık', 'fıstık', 'walnut', 'almond', 'hazelnut', 'nut'] },
+  { id: 'all', name: 'Tümü', name_en: 'All', emoji: '🍽️', gradient: ['#667eea', '#764ba2'] },
+  { id: 'popular', name: 'Popüler', name_en: 'Popular', emoji: '⭐', gradient: ['#f093fb', '#f5576c'], keywords: ['tavuk', 'pilav', 'salata', 'yumurta', 'ekmek'] },
+  { id: 'meat', name: 'Et', name_en: 'Meat', emoji: '🥩', gradient: ['#eb3349', '#f45c43'], keywords: ['et', 'dana', 'kuzu', 'biftek', 'köfte', 'pirzola', 'kıyma', 'beef', 'lamb', 'steak'] },
+  { id: 'chicken', name: 'Tavuk', name_en: 'Chicken', emoji: '🍗', gradient: ['#ff9966', '#ff5e62'], keywords: ['tavuk', 'piliç', 'chicken', 'wings'] },
+  { id: 'fish', name: 'Balık', name_en: 'Fish', emoji: '🐟', gradient: ['#4facfe', '#00f2fe'], keywords: ['balık', 'somon', 'ton', 'levrek', 'karides', 'fish', 'salmon'] },
+  { id: 'veggies', name: 'Sebze', name_en: 'Veggies', emoji: '🥗', gradient: ['#11998e', '#38ef7d'], keywords: ['salata', 'domates', 'havuç', 'brokoli', 'ıspanak', 'kabak', 'patlıcan'] },
+  { id: 'fruits', name: 'Meyve', name_en: 'Fruits', emoji: '🍎', gradient: ['#ee0979', '#ff6a00'], keywords: ['elma', 'muz', 'portakal', 'çilek', 'karpuz', 'üzüm'] },
+  { id: 'dairy', name: 'Süt', name_en: 'Dairy', emoji: '🧀', gradient: ['#ffecd2', '#fcb69f'], keywords: ['süt', 'yoğurt', 'peynir', 'ayran', 'kefir', 'milk', 'cheese'] },
+  { id: 'grains', name: 'Tahıl', name_en: 'Grains', emoji: '🍞', gradient: ['#d4a574', '#c9a86c'], keywords: ['ekmek', 'makarna', 'pirinç', 'pilav', 'bulgur', 'yulaf'] },
+  { id: 'soup', name: 'Çorba', name_en: 'Soup', emoji: '🍲', gradient: ['#f7971e', '#ffd200'], keywords: ['çorba', 'mercimek', 'soup'] },
+  { id: 'fastfood', name: 'Fast Food', name_en: 'Fast Food', emoji: '🍔', gradient: ['#ff416c', '#ff4b2b'], keywords: ['pizza', 'hamburger', 'döner', 'lahmacun', 'burger'] },
+  { id: 'dessert', name: 'Tatlı', name_en: 'Dessert', emoji: '🍰', gradient: ['#a18cd1', '#fbc2eb'], keywords: ['tatlı', 'baklava', 'dondurma', 'çikolata', 'kek'] },
+  { id: 'drinks', name: 'İçecek', name_en: 'Drinks', emoji: '☕', gradient: ['#2c3e50', '#4ca1af'], keywords: ['kahve', 'çay', 'meyve suyu', 'kola', 'su'] },
+  { id: 'snacks', name: 'Atıştırma', name_en: 'Snacks', emoji: '🥜', gradient: ['#c79081', '#dfa579'], keywords: ['ceviz', 'badem', 'fındık', 'fıstık', 'çerez', 'kraker'] },
 ];
 
-type RecentScan = {
+// Food emoji mapping based on keywords
+const getFoodEmoji = (name: string): string => {
+  const n = name.toLowerCase();
+  if (n.includes('tavuk') || n.includes('chicken') || n.includes('piliç')) return '🍗';
+  if (n.includes('et') || n.includes('köfte') || n.includes('beef') || n.includes('biftek')) return '🥩';
+  if (n.includes('balık') || n.includes('fish') || n.includes('somon')) return '🐟';
+  if (n.includes('salata') || n.includes('salad')) return '🥗';
+  if (n.includes('çorba') || n.includes('soup')) return '🍲';
+  if (n.includes('makarna') || n.includes('pasta') || n.includes('spagetti')) return '🍝';
+  if (n.includes('pilav') || n.includes('pirinç') || n.includes('rice')) return '🍚';
+  if (n.includes('ekmek') || n.includes('bread') || n.includes('tost')) return '🍞';
+  if (n.includes('yumurta') || n.includes('egg') || n.includes('omlet')) return '🥚';
+  if (n.includes('pizza')) return '🍕';
+  if (n.includes('hamburger') || n.includes('burger')) return '🍔';
+  if (n.includes('döner') || n.includes('kebab') || n.includes('kebap')) return '🌯';
+  if (n.includes('süt') || n.includes('milk')) return '🥛';
+  if (n.includes('yoğurt') || n.includes('yogurt')) return '🥣';
+  if (n.includes('peynir') || n.includes('cheese')) return '🧀';
+  if (n.includes('elma') || n.includes('apple')) return '🍎';
+  if (n.includes('muz') || n.includes('banana')) return '🍌';
+  if (n.includes('portakal') || n.includes('orange')) return '🍊';
+  if (n.includes('kahve') || n.includes('coffee')) return '☕';
+  if (n.includes('çay') || n.includes('tea')) return '🍵';
+  if (n.includes('su') || n.includes('water')) return '💧';
+  if (n.includes('tatlı') || n.includes('pasta') || n.includes('kek') || n.includes('cake')) return '🍰';
+  if (n.includes('dondurma') || n.includes('ice cream')) return '🍦';
+  if (n.includes('çikolata') || n.includes('chocolate')) return '🍫';
+  return '🍽️';
+};
+
+type RecentFood = {
   id: string;
   name: string;
   calories: number;
@@ -55,29 +90,58 @@ export default function MealsScreen() {
   const { t } = useTranslation();
   const router = useRouter();
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeTab, setActiveTab] = useState<'main' | 'search' | 'recent'>('main');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [recentScans, setRecentScans] = useState<RecentScan[]>([]);
+  const [recentFoods, setRecentFoods] = useState<RecentFood[]>([]);
+  const [favorites, setFavorites] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [showQuickAdd, setShowQuickAdd] = useState(false);
   const [quickAddItem, setQuickAddItem] = useState<FoodItem | null>(null);
   const [portion, setPortion] = useState(1);
+  const [showSearch, setShowSearch] = useState(false);
+  
+  const searchInputRef = useRef<TextInput>(null);
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const searchAnim = useRef(new Animated.Value(0)).current;
   
   const lang = i18n.language?.startsWith('en') ? 'en' : 'tr';
 
   useEffect(() => {
-    loadRecentScans();
+    loadRecentFoods();
+    loadFavorites();
   }, []);
 
-  const loadRecentScans = async () => {
-    try {
-      const stored = await AsyncStorage.getItem('recent_food_scans');
-      if (stored) {
-        setRecentScans(JSON.parse(stored));
-      }
-    } catch (error) {
-      console.error('Error loading recent scans:', error);
+  useEffect(() => {
+    Animated.timing(searchAnim, {
+      toValue: showSearch ? 1 : 0,
+      duration: 300,
+      useNativeDriver: false,
+    }).start();
+    
+    if (showSearch) {
+      setTimeout(() => searchInputRef.current?.focus(), 100);
     }
+  }, [showSearch]);
+
+  const loadRecentFoods = async () => {
+    try {
+      const stored = await AsyncStorage.getItem('recent_foods_premium');
+      if (stored) setRecentFoods(JSON.parse(stored));
+    } catch (e) { console.error(e); }
+  };
+
+  const loadFavorites = async () => {
+    try {
+      const stored = await AsyncStorage.getItem('favorite_foods');
+      if (stored) setFavorites(JSON.parse(stored));
+    } catch (e) { console.error(e); }
+  };
+
+  const toggleFavorite = async (foodId: string) => {
+    const newFavorites = favorites.includes(foodId)
+      ? favorites.filter(id => id !== foodId)
+      : [...favorites, foodId];
+    setFavorites(newFavorites);
+    await AsyncStorage.setItem('favorite_foods', JSON.stringify(newFavorites));
   };
 
   // Filtrelenmiş yemekler
@@ -86,16 +150,18 @@ export default function MealsScreen() {
     
     if (searchQuery.length >= 2) {
       results = searchFoods(searchQuery, lang, 100);
+    } else if (selectedCategory === 'popular') {
+      // En popüler yemekler
+      results = FOOD_DATABASE.slice(0, 30);
     } else if (selectedCategory !== 'all') {
       const category = FOOD_CATEGORIES.find(c => c.id === selectedCategory);
       if (category?.keywords) {
         results = FOOD_DATABASE.filter(food => {
           const name = lang === 'en' ? food.name_en.toLowerCase() : food.name.toLowerCase();
           return category.keywords!.some(kw => name.includes(kw.toLowerCase()));
-        }).slice(0, 100);
+        }).slice(0, 80);
       }
     } else {
-      // Varsayılan: popüler yemekler
       results = FOOD_DATABASE.slice(0, 50);
     }
     
@@ -117,8 +183,8 @@ export default function MealsScreen() {
         meal_type: 'snack',
       });
 
-      // Son eklenenler listesine kaydet
-      const newRecent: RecentScan = {
+      // Son eklenenler
+      const newRecent: RecentFood = {
         id: food.food_id,
         name: lang === 'en' ? food.name_en : food.name,
         calories: Math.round(food.calories * portionMultiplier),
@@ -128,167 +194,223 @@ export default function MealsScreen() {
         timestamp: Date.now(),
       };
       
-      const updatedRecents = [newRecent, ...recentScans.filter(r => r.id !== food.food_id)].slice(0, 20);
-      setRecentScans(updatedRecents);
-      await AsyncStorage.setItem('recent_food_scans', JSON.stringify(updatedRecents));
+      const updatedRecents = [newRecent, ...recentFoods.filter(r => r.id !== food.food_id)].slice(0, 20);
+      setRecentFoods(updatedRecents);
+      await AsyncStorage.setItem('recent_foods_premium', JSON.stringify(updatedRecents));
 
-      Alert.alert(
-        t('success') || '✅ Başarılı', 
-        `${lang === 'en' ? food.name_en : food.name} ${t('added') || 'eklendi'}!`
-      );
       setShowQuickAdd(false);
       setQuickAddItem(null);
       setPortion(1);
+      
+      Alert.alert('✅', `${lang === 'en' ? food.name_en : food.name} eklendi!`);
       router.replace('/(tabs)');
     } catch (error: any) {
-      console.error('Add meal error:', error);
-      Alert.alert(t('error') || 'Hata', error.message || t('mealAddError') || 'Yemek eklenemedi');
+      Alert.alert(t('error') || 'Hata', error.message || 'Yemek eklenemedi');
     } finally {
       setLoading(false);
     }
   };
 
-  const openQuickAddModal = (food: FoodItem) => {
+  const openQuickAdd = (food: FoodItem) => {
     setQuickAddItem(food);
     setPortion(1);
     setShowQuickAdd(true);
   };
 
-  // Makro bar komponenti
-  const MacroBar = ({ protein, carbs, fat }: { protein: number; carbs: number; fat: number }) => {
-    const total = protein + carbs + fat;
-    if (total === 0) return null;
-    
-    return (
-      <View style={styles.macroBar}>
-        <View style={[styles.macroSegment, { flex: protein, backgroundColor: '#3498db' }]} />
-        <View style={[styles.macroSegment, { flex: carbs, backgroundColor: '#f1c40f' }]} />
-        <View style={[styles.macroSegment, { flex: fat, backgroundColor: '#e74c3c' }]} />
-      </View>
-    );
-  };
-
-  // Yemek kartı
-  const FoodCard = ({ item, onPress, onQuickAdd }: { item: FoodItem; onPress: () => void; onQuickAdd: () => void }) => (
-    <TouchableOpacity style={styles.premiumFoodCard} onPress={onPress} activeOpacity={0.7}>
-      <View style={styles.foodCardLeft}>
-        <View style={styles.foodEmoji}>
-          <Text style={styles.foodEmojiText}>🍽️</Text>
-        </View>
-        <View style={styles.foodCardInfo}>
-          <Text style={styles.foodCardName} numberOfLines={2}>
-            {lang === 'en' ? item.name_en : item.name}
-          </Text>
-          <View style={styles.macroRow}>
-            <Text style={styles.macroText}>
-              <Text style={{ color: '#3498db' }}>P:</Text> {item.protein}g  
-              <Text style={{ color: '#f1c40f' }}> K:</Text> {item.carbs}g  
-              <Text style={{ color: '#e74c3c' }}> Y:</Text> {item.fat}g
-            </Text>
-          </View>
-          <MacroBar protein={item.protein} carbs={item.carbs} fat={item.fat} />
-        </View>
-      </View>
-      <View style={styles.foodCardRight}>
-        <Text style={styles.caloriesBadge}>{item.calories}</Text>
-        <Text style={styles.kcalText}>kcal</Text>
-        <TouchableOpacity 
-          style={styles.quickAddBtn} 
-          onPress={(e) => { e.stopPropagation(); onQuickAdd(); }}
-          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+  // Premium Kategori Kartı
+  const CategoryCard = ({ item, isSelected }: { item: typeof FOOD_CATEGORIES[0]; isSelected: boolean }) => (
+    <TouchableOpacity
+      style={[styles.categoryCard, isSelected && styles.categoryCardSelected]}
+      onPress={() => { setSelectedCategory(item.id); setSearchQuery(''); }}
+      activeOpacity={0.7}
+    >
+      {isSelected ? (
+        <LinearGradient
+          colors={item.gradient as [string, string]}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.categoryGradient}
         >
-          <Ionicons name="add-circle" size={32} color={Colors.primary} />
-        </TouchableOpacity>
-      </View>
+          <Text style={styles.categoryEmoji}>{item.emoji}</Text>
+          <Text style={styles.categoryNameSelected}>{lang === 'en' ? item.name_en : item.name}</Text>
+        </LinearGradient>
+      ) : (
+        <View style={styles.categoryInner}>
+          <Text style={styles.categoryEmoji}>{item.emoji}</Text>
+          <Text style={styles.categoryName}>{lang === 'en' ? item.name_en : item.name}</Text>
+        </View>
+      )}
     </TouchableOpacity>
   );
 
-  // Hızlı Ekle Modal
+  // Premium Yemek Kartı
+  const PremiumFoodCard = ({ item }: { item: FoodItem }) => {
+    const isFav = favorites.includes(item.food_id);
+    const emoji = getFoodEmoji(lang === 'en' ? item.name_en : item.name);
+    
+    return (
+      <TouchableOpacity 
+        style={styles.premiumCard} 
+        onPress={() => openQuickAdd(item)}
+        activeOpacity={0.8}
+      >
+        <View style={styles.cardLeft}>
+          <View style={styles.emojiContainer}>
+            <Text style={styles.foodEmoji}>{emoji}</Text>
+          </View>
+          <View style={styles.cardInfo}>
+            <Text style={styles.cardName} numberOfLines={2}>
+              {lang === 'en' ? item.name_en : item.name}
+            </Text>
+            <View style={styles.macrosRow}>
+              <View style={styles.macroChip}>
+                <View style={[styles.macroDot, { backgroundColor: '#3498db' }]} />
+                <Text style={styles.macroText}>{item.protein}g</Text>
+              </View>
+              <View style={styles.macroChip}>
+                <View style={[styles.macroDot, { backgroundColor: '#f39c12' }]} />
+                <Text style={styles.macroText}>{item.carbs}g</Text>
+              </View>
+              <View style={styles.macroChip}>
+                <View style={[styles.macroDot, { backgroundColor: '#e74c3c' }]} />
+                <Text style={styles.macroText}>{item.fat}g</Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        
+        <View style={styles.cardRight}>
+          <TouchableOpacity 
+            style={styles.favButton}
+            onPress={() => toggleFavorite(item.food_id)}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          >
+            <Ionicons 
+              name={isFav ? 'heart' : 'heart-outline'} 
+              size={18} 
+              color={isFav ? '#e74c3c' : '#ccc'} 
+            />
+          </TouchableOpacity>
+          <LinearGradient
+            colors={['#667eea', '#764ba2']}
+            style={styles.caloriesBadge}
+          >
+            <Text style={styles.caloriesValue}>{item.calories}</Text>
+            <Text style={styles.caloriesUnit}>kcal</Text>
+          </LinearGradient>
+          <TouchableOpacity 
+            style={styles.addBtn}
+            onPress={() => openQuickAdd(item)}
+          >
+            <Ionicons name="add" size={20} color="#FFF" />
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
+  // Premium Quick Add Modal
   const QuickAddModal = () => {
     if (!quickAddItem) return null;
     
-    const adjustedCalories = Math.round(quickAddItem.calories * portion);
-    const adjustedProtein = Math.round(quickAddItem.protein * portion * 10) / 10;
-    const adjustedCarbs = Math.round(quickAddItem.carbs * portion * 10) / 10;
-    const adjustedFat = Math.round(quickAddItem.fat * portion * 10) / 10;
+    const cal = Math.round(quickAddItem.calories * portion);
+    const pro = Math.round(quickAddItem.protein * portion * 10) / 10;
+    const carb = Math.round(quickAddItem.carbs * portion * 10) / 10;
+    const fat = Math.round(quickAddItem.fat * portion * 10) / 10;
+    const emoji = getFoodEmoji(lang === 'en' ? quickAddItem.name_en : quickAddItem.name);
     
     return (
-      <Modal visible={showQuickAdd} transparent animationType="slide">
+      <Modal visible={showQuickAdd} transparent animationType="fade">
         <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
+          <TouchableOpacity style={styles.modalBackdrop} onPress={() => setShowQuickAdd(false)} />
+          <View style={styles.modalCard}>
+            {/* Header */}
             <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>
-                {lang === 'en' ? quickAddItem.name_en : quickAddItem.name}
-              </Text>
-              <TouchableOpacity onPress={() => setShowQuickAdd(false)}>
-                <Ionicons name="close-circle" size={28} color={Colors.lightText} />
+              <View style={styles.modalEmojiBox}>
+                <Text style={styles.modalEmoji}>{emoji}</Text>
+              </View>
+              <View style={styles.modalTitleBox}>
+                <Text style={styles.modalTitle} numberOfLines={2}>
+                  {lang === 'en' ? quickAddItem.name_en : quickAddItem.name}
+                </Text>
+                <Text style={styles.modalSubtitle}>1 porsiyon = {quickAddItem.calories} kcal</Text>
+              </View>
+              <TouchableOpacity onPress={() => setShowQuickAdd(false)} style={styles.modalClose}>
+                <Ionicons name="close" size={24} color="#999" />
               </TouchableOpacity>
             </View>
             
-            {/* Porsiyon Ayarı */}
+            {/* Portion Selector */}
             <View style={styles.portionSection}>
-              <Text style={styles.portionLabel}>{t('portion') || 'Porsiyon'}</Text>
-              <View style={styles.portionControls}>
+              <Text style={styles.portionLabel}>{t('portion') || 'Porsiyon Seç'}</Text>
+              <View style={styles.portionRow}>
                 <TouchableOpacity 
-                  style={styles.portionBtn} 
+                  style={styles.portionBtnLarge}
                   onPress={() => setPortion(Math.max(0.25, portion - 0.25))}
                 >
-                  <Ionicons name="remove" size={24} color={Colors.primary} />
+                  <Ionicons name="remove" size={28} color={Colors.primary} />
                 </TouchableOpacity>
+                
                 <View style={styles.portionDisplay}>
-                  <Text style={styles.portionValue}>{portion}x</Text>
+                  <Text style={styles.portionValue}>{portion}</Text>
+                  <Text style={styles.portionX}>×</Text>
                 </View>
+                
                 <TouchableOpacity 
-                  style={styles.portionBtn} 
+                  style={styles.portionBtnLarge}
                   onPress={() => setPortion(Math.min(5, portion + 0.25))}
                 >
-                  <Ionicons name="add" size={24} color={Colors.primary} />
+                  <Ionicons name="add" size={28} color={Colors.primary} />
                 </TouchableOpacity>
               </View>
               
-              {/* Hızlı Porsiyon Seçimleri */}
+              {/* Quick Portions */}
               <View style={styles.quickPortions}>
-                {[0.5, 1, 1.5, 2].map(p => (
-                  <TouchableOpacity 
-                    key={p} 
-                    style={[styles.quickPortionBtn, portion === p && styles.quickPortionBtnActive]}
+                {[0.5, 1, 1.5, 2, 3].map(p => (
+                  <TouchableOpacity
+                    key={p}
+                    style={[styles.quickPortionChip, portion === p && styles.quickPortionActive]}
                     onPress={() => setPortion(p)}
                   >
                     <Text style={[styles.quickPortionText, portion === p && styles.quickPortionTextActive]}>
-                      {p === 0.5 ? '½' : p === 1.5 ? '1½' : p}x
+                      {p === 0.5 ? '½' : p === 1.5 ? '1½' : p}
                     </Text>
                   </TouchableOpacity>
                 ))}
               </View>
             </View>
             
-            {/* Besin Değerleri */}
-            <View style={styles.nutritionGrid}>
-              <View style={[styles.nutritionItem, { backgroundColor: '#667eea15' }]}>
-                <Ionicons name="flame" size={20} color="#667eea" />
-                <Text style={styles.nutritionValue}>{adjustedCalories}</Text>
-                <Text style={styles.nutritionLabel}>kcal</Text>
+            {/* Nutrition Summary */}
+            <View style={styles.nutritionSummary}>
+              <View style={styles.nutritionMain}>
+                <LinearGradient
+                  colors={['#667eea', '#764ba2']}
+                  style={styles.calorieCircle}
+                >
+                  <Text style={styles.calorieNumber}>{cal}</Text>
+                  <Text style={styles.calorieLabel}>kcal</Text>
+                </LinearGradient>
               </View>
-              <View style={[styles.nutritionItem, { backgroundColor: '#3498db15' }]}>
-                <Text style={styles.nutritionIcon}>P</Text>
-                <Text style={styles.nutritionValue}>{adjustedProtein}g</Text>
-                <Text style={styles.nutritionLabel}>{t('protein') || 'Protein'}</Text>
-              </View>
-              <View style={[styles.nutritionItem, { backgroundColor: '#f1c40f15' }]}>
-                <Text style={styles.nutritionIcon}>K</Text>
-                <Text style={styles.nutritionValue}>{adjustedCarbs}g</Text>
-                <Text style={styles.nutritionLabel}>{t('carbs') || 'Karb'}</Text>
-              </View>
-              <View style={[styles.nutritionItem, { backgroundColor: '#e74c3c15' }]}>
-                <Text style={styles.nutritionIcon}>Y</Text>
-                <Text style={styles.nutritionValue}>{adjustedFat}g</Text>
-                <Text style={styles.nutritionLabel}>{t('fat') || 'Yağ'}</Text>
+              
+              <View style={styles.macroBoxes}>
+                <View style={[styles.macroBox, { borderLeftColor: '#3498db' }]}>
+                  <Text style={styles.macroBoxValue}>{pro}g</Text>
+                  <Text style={styles.macroBoxLabel}>Protein</Text>
+                </View>
+                <View style={[styles.macroBox, { borderLeftColor: '#f39c12' }]}>
+                  <Text style={styles.macroBoxValue}>{carb}g</Text>
+                  <Text style={styles.macroBoxLabel}>Karb</Text>
+                </View>
+                <View style={[styles.macroBox, { borderLeftColor: '#e74c3c' }]}>
+                  <Text style={styles.macroBoxValue}>{fat}g</Text>
+                  <Text style={styles.macroBoxLabel}>Yağ</Text>
+                </View>
               </View>
             </View>
             
-            {/* Ekle Butonu */}
+            {/* Add Button */}
             <TouchableOpacity 
-              style={styles.addButton}
+              style={styles.addMealBtn}
               onPress={() => addMealToDay(quickAddItem, portion)}
               disabled={loading}
             >
@@ -296,16 +418,14 @@ export default function MealsScreen() {
                 colors={['#667eea', '#764ba2']}
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 0 }}
-                style={styles.addButtonGradient}
+                style={styles.addMealGradient}
               >
                 {loading ? (
-                  <ActivityIndicator color="#FFF" />
+                  <ActivityIndicator color="#FFF" size="small" />
                 ) : (
                   <>
-                    <Ionicons name="add-circle" size={22} color="#FFF" />
-                    <Text style={styles.addButtonText}>
-                      {t('addMeal') || 'Yemeği Ekle'} ({adjustedCalories} kcal)
-                    </Text>
+                    <Ionicons name="add-circle" size={24} color="#FFF" />
+                    <Text style={styles.addMealText}>Bugüne Ekle</Text>
                   </>
                 )}
               </LinearGradient>
@@ -316,144 +436,26 @@ export default function MealsScreen() {
     );
   };
 
-  // Ana ekran
-  const renderMainOptions = () => (
-    <ScrollView style={styles.optionsContainer} showsVerticalScrollIndicator={false}>
-      <View style={styles.headerSection}>
-        <Text style={styles.mainHeaderTitle}>{t('addCalorie') || 'Kalori Ekle'}</Text>
-        <Text style={styles.headerSubtitle}>
-          {FOOD_DATABASE.length.toLocaleString()} {t('foodsAvailable') || 'yemek mevcut'}
-        </Text>
-      </View>
-
-      <View style={styles.optionCards}>
-        {/* Fotoğraf */}
-        <TouchableOpacity 
-          style={styles.optionCard}
-          onPress={() => router.push('/(tabs)/camera')}
-          activeOpacity={0.8}
-        >
-          <LinearGradient
-            colors={['#667eea', '#764ba2']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.optionGradient}
-          >
-            <View style={styles.optionIconContainer}>
-              <Ionicons name="camera" size={28} color="#FFF" />
-            </View>
-            <View style={styles.optionContent}>
-              <Text style={styles.optionTitle} numberOfLines={1}>{t('photoCalc') || 'Fotoğrafla Hesapla'}</Text>
-              <Text style={styles.optionDescription} numberOfLines={2}>{t('photoCalcDesc') || 'AI ile kalori hesapla'}</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={20} color="rgba(255,255,255,0.7)" />
-          </LinearGradient>
-        </TouchableOpacity>
-
-        {/* Son Hesaplananlar */}
-        <TouchableOpacity 
-          style={styles.optionCard}
-          onPress={() => setActiveTab('recent')}
-          activeOpacity={0.8}
-        >
-          <LinearGradient
-            colors={['#11998e', '#38ef7d']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.optionGradient}
-          >
-            <View style={styles.optionIconContainer}>
-              <Ionicons name="time" size={28} color="#FFF" />
-            </View>
-            <View style={styles.optionContent}>
-              <Text style={styles.optionTitle} numberOfLines={1}>{t('recentCalc') || 'Son Hesaplananlar'}</Text>
-              <Text style={styles.optionDescription} numberOfLines={1}>{recentScans.length} {t('records') || 'kayıt'}</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={20} color="rgba(255,255,255,0.7)" />
-          </LinearGradient>
-        </TouchableOpacity>
-
-        {/* Listeden Seç */}
-        <TouchableOpacity 
-          style={styles.optionCard}
-          onPress={() => setActiveTab('search')}
-          activeOpacity={0.8}
-        >
-          <LinearGradient
-            colors={['#f093fb', '#f5576c']}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.optionGradient}
-          >
-            <View style={styles.optionIconContainer}>
-              <Ionicons name="search" size={28} color="#FFF" />
-            </View>
-            <View style={styles.optionContent}>
-              <Text style={styles.optionTitle} numberOfLines={1}>{t('selectFromList') || 'Listeden Seç'}</Text>
-              <Text style={styles.optionDescription} numberOfLines={1}>{FOOD_DATABASE.length.toLocaleString()}+ {t('foods') || 'yemek'}</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={20} color="rgba(255,255,255,0.7)" />
-          </LinearGradient>
-        </TouchableOpacity>
-      </View>
-
-      {/* Hızlı Ekle */}
-      <View style={styles.quickAddSection}>
-        <Text style={styles.quickAddTitle}>{t('quickAdd') || 'Hızlı Ekle'}</Text>
-        <View style={styles.quickAddButtons}>
-          {[
-            { icon: 'water', label: t('water') || 'Su', color: Colors.teal, cal: 0 },
-            { icon: 'cafe', label: t('coffee') || 'Kahve', color: '#8B4513', cal: 5 },
-            { icon: 'nutrition', label: t('apple') || 'Elma', color: '#FF6B6B', cal: 52 },
-            { icon: 'pizza', label: t('snack') || 'Atıştırma', color: '#FFA500', cal: 150 },
-          ].map((item, index) => (
-            <TouchableOpacity 
-              key={index} 
-              style={styles.quickAddButton}
-              onPress={() => {
-                const quickFood: FoodItem = {
-                  food_id: `quick_${index}`,
-                  name: item.label,
-                  name_en: item.label,
-                  calories: item.cal,
-                  protein: 0, carbs: 0, fat: 0,
-                };
-                addMealToDay(quickFood, 1);
-              }}
-            >
-              <View style={[styles.quickAddIcon, { backgroundColor: item.color + '20' }]}>
-                <Ionicons name={item.icon as any} size={22} color={item.color} />
-              </View>
-              <Text style={styles.quickAddLabel} numberOfLines={1}>{item.label}</Text>
-            </TouchableOpacity>
-          ))}
+  // Son Eklenenler
+  const RecentSection = () => {
+    if (recentFoods.length === 0) return null;
+    
+    return (
+      <View style={styles.recentSection}>
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionTitle}>⏱️ Son Eklenenler</Text>
+          <TouchableOpacity onPress={() => {
+            setRecentFoods([]);
+            AsyncStorage.removeItem('recent_foods_premium');
+          }}>
+            <Text style={styles.clearText}>Temizle</Text>
+          </TouchableOpacity>
         </View>
-      </View>
-      <View style={{ height: 100 }} />
-    </ScrollView>
-  );
-
-  // Son Hesaplananlar
-  const renderRecentScans = () => (
-    <View style={styles.tabContent}>
-      <TouchableOpacity style={styles.backRow} onPress={() => setActiveTab('main')}>
-        <Ionicons name="arrow-back" size={22} color={Colors.darkText} />
-        <Text style={styles.backText}>{t('back') || 'Geri'}</Text>
-      </TouchableOpacity>
-
-      {recentScans.length === 0 ? (
-        <View style={styles.emptyState}>
-          <Ionicons name="time-outline" size={48} color={Colors.lightText} />
-          <Text style={styles.emptyText}>{t('noRecords') || 'Henüz kayıt yok'}</Text>
-        </View>
-      ) : (
-        <FlatList
-          data={recentScans}
-          keyExtractor={(item) => item.id + item.timestamp}
-          contentContainerStyle={styles.listContent}
-          renderItem={({ item }) => (
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {recentFoods.slice(0, 10).map((item, idx) => (
             <TouchableOpacity 
-              style={styles.premiumFoodCard} 
+              key={item.id + idx}
+              style={styles.recentCard}
               onPress={() => {
                 const food: FoodItem = {
                   food_id: item.id,
@@ -464,334 +466,352 @@ export default function MealsScreen() {
                   carbs: item.carbs,
                   fat: item.fat,
                 };
-                openQuickAddModal(food);
+                openQuickAdd(food);
               }}
             >
-              <View style={styles.foodCardLeft}>
-                <View style={styles.foodEmoji}>
-                  <Ionicons name="time" size={24} color={Colors.primary} />
-                </View>
-                <View style={styles.foodCardInfo}>
-                  <Text style={styles.foodCardName} numberOfLines={2}>{item.name}</Text>
-                  <View style={styles.macroRow}>
-                    <Text style={styles.macroText}>
-                      <Text style={{ color: '#3498db' }}>P:</Text> {item.protein}g  
-                      <Text style={{ color: '#f1c40f' }}> K:</Text> {item.carbs}g  
-                      <Text style={{ color: '#e74c3c' }}> Y:</Text> {item.fat}g
-                    </Text>
-                  </View>
-                </View>
-              </View>
-              <View style={styles.foodCardRight}>
-                <Text style={styles.caloriesBadge}>{item.calories}</Text>
-                <Text style={styles.kcalText}>kcal</Text>
-                <Ionicons name="add-circle" size={32} color={Colors.primary} />
-              </View>
+              <Text style={styles.recentEmoji}>{getFoodEmoji(item.name)}</Text>
+              <Text style={styles.recentName} numberOfLines={1}>{item.name}</Text>
+              <Text style={styles.recentCal}>{item.calories} kcal</Text>
             </TouchableOpacity>
-          )}
-        />
-      )}
-    </View>
-  );
+          ))}
+        </ScrollView>
+      </View>
+    );
+  };
 
-  // Premium Arama Ekranı
-  const renderSearchTab = () => (
-    <View style={styles.searchTabContainer}>
-      {/* Header */}
-      <View style={styles.searchHeader}>
-        <TouchableOpacity style={styles.backBtn} onPress={() => { setActiveTab('main'); setSearchQuery(''); setSelectedCategory('all'); }}>
+  return (
+    <SafeAreaView style={styles.container} edges={['top']}>
+      {/* Premium Header */}
+      <View style={styles.header}>
+        <TouchableOpacity onPress={() => router.back()} style={styles.backBtn}>
           <Ionicons name="arrow-back" size={24} color={Colors.darkText} />
         </TouchableOpacity>
         
-        {/* Arama Kutusu */}
-        <View style={styles.premiumSearchBox}>
-          <Ionicons name="search" size={20} color={Colors.primary} />
+        <View style={styles.headerCenter}>
+          <Text style={styles.headerTitle}>Yemek Ekle</Text>
+          <Text style={styles.headerSubtitle}>{FOOD_DATABASE.length.toLocaleString()} yemek</Text>
+        </View>
+        
+        <TouchableOpacity 
+          onPress={() => setShowSearch(!showSearch)} 
+          style={[styles.searchToggle, showSearch && styles.searchToggleActive]}
+        >
+          <Ionicons name={showSearch ? "close" : "search"} size={22} color={showSearch ? "#FFF" : Colors.primary} />
+        </TouchableOpacity>
+      </View>
+      
+      {/* Search Bar (Animated) */}
+      <Animated.View style={[
+        styles.searchContainer,
+        {
+          height: searchAnim.interpolate({ inputRange: [0, 1], outputRange: [0, 60] }),
+          opacity: searchAnim,
+          marginBottom: searchAnim.interpolate({ inputRange: [0, 1], outputRange: [0, 12] }),
+        }
+      ]}>
+        <View style={styles.searchBox}>
+          <Ionicons name="search" size={20} color={Colors.lightText} />
           <TextInput
-            style={styles.premiumSearchInput}
-            placeholder={t('searchFood') || 'Yemek ara... (6000+ yemek)'}
-            placeholderTextColor={Colors.lightText}
+            ref={searchInputRef}
+            style={styles.searchInput}
+            placeholder="Yemek ara... (örn: tavuk, pilav, salata)"
+            placeholderTextColor="#999"
             value={searchQuery}
             onChangeText={setSearchQuery}
-            autoFocus
             returnKeyType="search"
           />
           {searchQuery.length > 0 && (
             <TouchableOpacity onPress={() => setSearchQuery('')}>
-              <Ionicons name="close-circle" size={20} color={Colors.lightText} />
+              <Ionicons name="close-circle" size={20} color="#999" />
             </TouchableOpacity>
           )}
         </View>
-      </View>
+      </Animated.View>
       
       {/* Kategoriler */}
-      <ScrollView 
-        horizontal 
-        showsHorizontalScrollIndicator={false} 
-        style={styles.categoriesScroll}
-        contentContainerStyle={styles.categoriesContent}
-      >
-        {FOOD_CATEGORIES.map(cat => (
-          <TouchableOpacity
-            key={cat.id}
-            style={[
-              styles.categoryChip,
-              selectedCategory === cat.id && { backgroundColor: cat.color }
-            ]}
-            onPress={() => { setSelectedCategory(cat.id); setSearchQuery(''); }}
-          >
-            <Ionicons 
-              name={cat.icon as any} 
-              size={16} 
-              color={selectedCategory === cat.id ? '#FFF' : cat.color} 
-            />
-            <Text style={[
-              styles.categoryChipText,
-              selectedCategory === cat.id && { color: '#FFF' }
-            ]}>
-              {lang === 'en' ? cat.name_en : cat.name}
-            </Text>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
-      
-      {/* Sonuç Sayısı */}
-      <View style={styles.resultsHeader}>
-        <Text style={styles.resultsCount}>
-          {filteredFoods.length} {t('resultsFound') || 'sonuç bulundu'}
-        </Text>
-        {searchQuery.length > 0 && (
-          <Text style={styles.searchingFor}>"{searchQuery}"</Text>
-        )}
+      <View style={styles.categoriesContainer}>
+        <ScrollView 
+          horizontal 
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.categoriesScroll}
+        >
+          {FOOD_CATEGORIES.map(cat => (
+            <CategoryCard key={cat.id} item={cat} isSelected={selectedCategory === cat.id} />
+          ))}
+        </ScrollView>
       </View>
-
+      
+      {/* Son Eklenenler */}
+      <RecentSection />
+      
+      {/* Sonuç Bilgisi */}
+      <View style={styles.resultsInfo}>
+        <Text style={styles.resultsText}>
+          {searchQuery.length > 0 
+            ? `"${searchQuery}" için ${filteredFoods.length} sonuç`
+            : `${FOOD_CATEGORIES.find(c => c.id === selectedCategory)?.emoji || '🍽️'} ${filteredFoods.length} yemek`
+          }
+        </Text>
+      </View>
+      
       {/* Yemek Listesi */}
       <FlatList
         data={filteredFoods}
         keyExtractor={(item) => item.food_id}
-        contentContainerStyle={styles.foodListContent}
+        contentContainerStyle={styles.listContent}
         showsVerticalScrollIndicator={false}
         initialNumToRender={15}
         maxToRenderPerBatch={10}
         windowSize={10}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          { useNativeDriver: false }
+        )}
         ListEmptyComponent={
           <View style={styles.emptyState}>
-            <Ionicons name="search-outline" size={48} color={Colors.lightText} />
-            <Text style={styles.emptyText}>
-              {searchQuery.length > 0 
-                ? (t('noResults') || 'Sonuç bulunamadı') 
-                : (t('typeToSearch') || 'Aramak için yazın veya kategori seçin')}
-            </Text>
-            {searchQuery.length > 0 && (
-              <TouchableOpacity 
-                style={styles.clearSearchBtn}
-                onPress={() => setSearchQuery('')}
-              >
-                <Text style={styles.clearSearchText}>{t('clearSearch') || 'Aramayı Temizle'}</Text>
-              </TouchableOpacity>
-            )}
+            <Text style={styles.emptyEmoji}>🔍</Text>
+            <Text style={styles.emptyTitle}>Sonuç bulunamadı</Text>
+            <Text style={styles.emptyText}>Farklı kelimeler deneyin</Text>
           </View>
         }
-        renderItem={({ item }) => (
-          <FoodCard 
-            item={item} 
-            onPress={() => router.push({
-              pathname: '/details/meal-detail',
-              params: { 
-                food_id: item.food_id, 
-                name: lang === 'en' ? item.name_en : item.name, 
-                calories: item.calories, 
-                protein: item.protein, 
-                carbs: item.carbs, 
-                fat: item.fat 
-              },
-            })}
-            onQuickAdd={() => openQuickAddModal(item)}
-          />
-        )}
+        renderItem={({ item }) => <PremiumFoodCard item={item} />}
       />
-    </View>
-  );
-
-  return (
-    <SafeAreaView style={styles.container} edges={['top']}>
-      <View style={styles.header}>
-        <TouchableOpacity onPress={() => router.back()} style={styles.headerButton}>
-          <Ionicons name="close" size={26} color={Colors.darkText} />
-        </TouchableOpacity>
-        <Text style={styles.headerTitleText} numberOfLines={1}>
-          {activeTab === 'recent' ? (t('recentCalc') || 'Son Hesaplananlar') : 
-           activeTab === 'search' ? (t('searchFood') || 'Yemek Ara') : (t('addCalorie') || 'Kalori Ekle')}
-        </Text>
-        <View style={{ width: 40 }} />
-      </View>
-
+      
+      {/* Quick Add Modal */}
+      <QuickAddModal />
+      
       {loading && (
         <View style={styles.loadingOverlay}>
           <ActivityIndicator size="large" color={Colors.primary} />
         </View>
       )}
-
-      {activeTab === 'main' && renderMainOptions()}
-      {activeTab === 'recent' && renderRecentScans()}
-      {activeTab === 'search' && renderSearchTab()}
-      
-      <QuickAddModal />
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: Colors.white },
+  container: { flex: 1, backgroundColor: '#f8f9fa' },
+  
+  // Header
   header: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    backgroundColor: '#FFF',
     borderBottomWidth: 1,
-    borderBottomColor: '#F0F0F0',
+    borderBottomColor: '#f0f0f0',
   },
-  headerButton: { padding: 6 },
-  headerTitleText: { fontSize: 17, fontWeight: '600', color: Colors.darkText, flex: 1, textAlign: 'center' },
-  loadingOverlay: {
-    ...StyleSheet.absoluteFillObject,
-    backgroundColor: 'rgba(255,255,255,0.9)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 100,
-  },
-  
-  // Ana Ekran
-  optionsContainer: { flex: 1, paddingHorizontal: 16 },
-  headerSection: { alignItems: 'center', paddingVertical: 16 },
-  mainHeaderTitle: { fontSize: 24, fontWeight: 'bold', color: Colors.darkText, marginBottom: 4 },
-  headerSubtitle: { fontSize: 14, color: Colors.lightText, textAlign: 'center' },
-  optionCards: { gap: 12, marginBottom: 20 },
-  optionCard: { borderRadius: 16, overflow: 'hidden', elevation: 3, shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.1, shadowRadius: 4 },
-  optionGradient: { flexDirection: 'row', alignItems: 'center', paddingVertical: 16, paddingHorizontal: 16 },
-  optionIconContainer: { width: 48, height: 48, borderRadius: 24, backgroundColor: 'rgba(255,255,255,0.2)', justifyContent: 'center', alignItems: 'center', marginRight: 14 },
-  optionContent: { flex: 1 },
-  optionTitle: { fontSize: 17, fontWeight: '600', color: '#FFF', marginBottom: 3 },
-  optionDescription: { fontSize: 13, color: 'rgba(255,255,255,0.85)' },
-  
-  // Hızlı Ekle
-  quickAddSection: { marginTop: 8 },
-  quickAddTitle: { fontSize: 17, fontWeight: '600', color: Colors.darkText, marginBottom: 14 },
-  quickAddButtons: { flexDirection: 'row', justifyContent: 'space-between' },
-  quickAddButton: { alignItems: 'center', width: (screenWidth - 64) / 4 },
-  quickAddIcon: { width: 52, height: 52, borderRadius: 26, justifyContent: 'center', alignItems: 'center', marginBottom: 8 },
-  quickAddLabel: { fontSize: 12, color: Colors.darkText, fontWeight: '500', textAlign: 'center' },
-  
-  // Tab Content
-  tabContent: { flex: 1, padding: 16 },
-  backRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginBottom: 16 },
-  backText: { fontSize: 16, color: Colors.darkText, fontWeight: '500' },
-  emptyState: { alignItems: 'center', justifyContent: 'center', paddingVertical: 60 },
-  emptyText: { fontSize: 15, color: Colors.lightText, marginTop: 12, textAlign: 'center' },
-  listContent: { paddingBottom: 100 },
-  
-  // Premium Arama
-  searchTabContainer: { flex: 1 },
-  searchHeader: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 12, paddingVertical: 8, gap: 8 },
   backBtn: { padding: 4 },
-  premiumSearchBox: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#F5F5F5',
-    borderRadius: 12,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    gap: 8,
-    borderWidth: 1,
-    borderColor: '#E8E8E8',
+  headerCenter: { flex: 1, alignItems: 'center' },
+  headerTitle: { fontSize: 18, fontWeight: '700', color: Colors.darkText },
+  headerSubtitle: { fontSize: 12, color: Colors.lightText, marginTop: 2 },
+  searchToggle: { 
+    width: 40, height: 40, borderRadius: 20, 
+    backgroundColor: '#f0f0f0', 
+    justifyContent: 'center', alignItems: 'center' 
   },
-  premiumSearchInput: { flex: 1, fontSize: 16, color: Colors.darkText, padding: 0 },
+  searchToggleActive: { backgroundColor: Colors.primary },
   
-  // Kategoriler
-  categoriesScroll: { maxHeight: 50, marginTop: 4 },
-  categoriesContent: { paddingHorizontal: 12, gap: 8, alignItems: 'center' },
-  categoryChip: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    borderRadius: 20,
-    backgroundColor: '#F5F5F5',
-    gap: 6,
-    borderWidth: 1,
-    borderColor: '#E8E8E8',
-  },
-  categoryChipText: { fontSize: 13, fontWeight: '500', color: Colors.darkText },
-  
-  // Sonuçlar
-  resultsHeader: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 16, paddingVertical: 10, gap: 8 },
-  resultsCount: { fontSize: 13, color: Colors.lightText },
-  searchingFor: { fontSize: 13, color: Colors.primary, fontWeight: '500' },
-  foodListContent: { paddingHorizontal: 12, paddingBottom: 100 },
-  
-  // Premium Yemek Kartı
-  premiumFoodCard: {
+  // Search
+  searchContainer: { paddingHorizontal: 16, overflow: 'hidden' },
+  searchBox: {
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#FFF',
-    borderRadius: 14,
-    padding: 12,
-    marginBottom: 10,
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    height: 48,
     borderWidth: 1,
-    borderColor: '#F0F0F0',
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.05,
-    shadowRadius: 3,
+    borderColor: '#e8e8e8',
+    gap: 10,
   },
-  foodCardLeft: { flex: 1, flexDirection: 'row', alignItems: 'center' },
-  foodEmoji: { width: 44, height: 44, borderRadius: 22, backgroundColor: '#F8F8F8', justifyContent: 'center', alignItems: 'center', marginRight: 12 },
-  foodEmojiText: { fontSize: 22 },
-  foodCardInfo: { flex: 1 },
-  foodCardName: { fontSize: 15, fontWeight: '600', color: Colors.darkText, marginBottom: 4, lineHeight: 20 },
-  macroRow: { marginBottom: 4 },
-  macroText: { fontSize: 12, color: Colors.lightText },
-  macroBar: { flexDirection: 'row', height: 4, borderRadius: 2, overflow: 'hidden', backgroundColor: '#F0F0F0' },
-  macroSegment: { height: '100%' },
-  foodCardRight: { alignItems: 'center', marginLeft: 8 },
-  caloriesBadge: { fontSize: 20, fontWeight: 'bold', color: Colors.primary },
-  kcalText: { fontSize: 11, color: Colors.lightText, marginBottom: 4 },
-  quickAddBtn: { marginTop: 2 },
+  searchInput: { flex: 1, fontSize: 16, color: Colors.darkText },
   
-  // Clear Search
-  clearSearchBtn: { marginTop: 16, paddingHorizontal: 20, paddingVertical: 10, backgroundColor: Colors.primary + '15', borderRadius: 20 },
-  clearSearchText: { color: Colors.primary, fontWeight: '600' },
+  // Categories
+  categoriesContainer: { backgroundColor: '#FFF', paddingVertical: 12 },
+  categoriesScroll: { paddingHorizontal: 12, gap: 8 },
+  categoryCard: { 
+    borderRadius: 12, 
+    overflow: 'hidden',
+    minWidth: 70,
+  },
+  categoryCardSelected: { 
+    shadowColor: '#667eea',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  categoryGradient: { 
+    paddingHorizontal: 14, 
+    paddingVertical: 10, 
+    alignItems: 'center',
+    minWidth: 70,
+  },
+  categoryInner: { 
+    paddingHorizontal: 14, 
+    paddingVertical: 10, 
+    alignItems: 'center',
+    backgroundColor: '#f5f5f5',
+    minWidth: 70,
+  },
+  categoryEmoji: { fontSize: 22, marginBottom: 4 },
+  categoryName: { fontSize: 12, fontWeight: '600', color: Colors.darkText },
+  categoryNameSelected: { fontSize: 12, fontWeight: '600', color: '#FFF' },
+  
+  // Recent
+  recentSection: { padding: 16, paddingBottom: 8 },
+  sectionHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 },
+  sectionTitle: { fontSize: 16, fontWeight: '700', color: Colors.darkText },
+  clearText: { fontSize: 13, color: Colors.primary },
+  recentCard: {
+    backgroundColor: '#FFF',
+    borderRadius: 12,
+    padding: 12,
+    marginRight: 10,
+    width: 90,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 2,
+  },
+  recentEmoji: { fontSize: 28, marginBottom: 6 },
+  recentName: { fontSize: 11, color: Colors.darkText, textAlign: 'center', fontWeight: '500' },
+  recentCal: { fontSize: 10, color: Colors.lightText, marginTop: 4 },
+  
+  // Results
+  resultsInfo: { paddingHorizontal: 16, paddingBottom: 8 },
+  resultsText: { fontSize: 13, color: Colors.lightText, fontWeight: '500' },
+  
+  // List
+  listContent: { paddingHorizontal: 16, paddingBottom: 100 },
+  
+  // Premium Card
+  premiumCard: {
+    backgroundColor: '#FFF',
+    borderRadius: 16,
+    padding: 14,
+    marginBottom: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  cardLeft: { flex: 1, flexDirection: 'row', alignItems: 'center' },
+  emojiContainer: {
+    width: 50, height: 50, borderRadius: 14,
+    backgroundColor: '#f8f8f8',
+    justifyContent: 'center', alignItems: 'center',
+    marginRight: 12,
+  },
+  foodEmoji: { fontSize: 28 },
+  cardInfo: { flex: 1 },
+  cardName: { fontSize: 15, fontWeight: '600', color: Colors.darkText, marginBottom: 6, lineHeight: 20 },
+  macrosRow: { flexDirection: 'row', gap: 8 },
+  macroChip: { flexDirection: 'row', alignItems: 'center', gap: 4 },
+  macroDot: { width: 6, height: 6, borderRadius: 3 },
+  macroText: { fontSize: 11, color: Colors.lightText, fontWeight: '500' },
+  cardRight: { alignItems: 'center', gap: 6 },
+  favButton: { padding: 4 },
+  caloriesBadge: { 
+    paddingHorizontal: 10, paddingVertical: 6, 
+    borderRadius: 10, alignItems: 'center',
+    minWidth: 55,
+  },
+  caloriesValue: { fontSize: 16, fontWeight: '700', color: '#FFF' },
+  caloriesUnit: { fontSize: 9, color: 'rgba(255,255,255,0.8)', marginTop: -2 },
+  addBtn: { 
+    width: 32, height: 32, borderRadius: 16, 
+    backgroundColor: Colors.primary,
+    justifyContent: 'center', alignItems: 'center',
+  },
+  
+  // Empty
+  emptyState: { alignItems: 'center', paddingVertical: 60 },
+  emptyEmoji: { fontSize: 48, marginBottom: 12 },
+  emptyTitle: { fontSize: 18, fontWeight: '600', color: Colors.darkText, marginBottom: 4 },
+  emptyText: { fontSize: 14, color: Colors.lightText },
   
   // Modal
-  modalOverlay: { flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', justifyContent: 'flex-end' },
-  modalContent: { backgroundColor: '#FFF', borderTopLeftRadius: 24, borderTopRightRadius: 24, padding: 20, paddingBottom: 40 },
-  modalHeader: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 },
-  modalTitle: { fontSize: 18, fontWeight: 'bold', color: Colors.darkText, flex: 1, marginRight: 12 },
+  modalOverlay: { flex: 1, justifyContent: 'flex-end' },
+  modalBackdrop: { ...StyleSheet.absoluteFillObject, backgroundColor: 'rgba(0,0,0,0.5)' },
+  modalCard: { 
+    backgroundColor: '#FFF', 
+    borderTopLeftRadius: 24, 
+    borderTopRightRadius: 24,
+    padding: 20,
+    paddingBottom: 36,
+  },
+  modalHeader: { flexDirection: 'row', alignItems: 'center', marginBottom: 24 },
+  modalEmojiBox: { 
+    width: 56, height: 56, borderRadius: 16, 
+    backgroundColor: '#f5f5f5', 
+    justifyContent: 'center', alignItems: 'center',
+    marginRight: 14,
+  },
+  modalEmoji: { fontSize: 32 },
+  modalTitleBox: { flex: 1 },
+  modalTitle: { fontSize: 18, fontWeight: '700', color: Colors.darkText, marginBottom: 4 },
+  modalSubtitle: { fontSize: 13, color: Colors.lightText },
+  modalClose: { padding: 4 },
   
-  // Porsiyon
-  portionSection: { marginBottom: 20 },
-  portionLabel: { fontSize: 15, fontWeight: '600', color: Colors.darkText, marginBottom: 12 },
-  portionControls: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 },
-  portionBtn: { width: 44, height: 44, borderRadius: 22, backgroundColor: '#F0F0F0', justifyContent: 'center', alignItems: 'center' },
-  portionDisplay: { paddingHorizontal: 24, paddingVertical: 8, backgroundColor: Colors.primary + '15', borderRadius: 12 },
-  portionValue: { fontSize: 24, fontWeight: 'bold', color: Colors.primary },
-  quickPortions: { flexDirection: 'row', justifyContent: 'center', gap: 10, marginTop: 12 },
-  quickPortionBtn: { paddingHorizontal: 16, paddingVertical: 8, borderRadius: 16, backgroundColor: '#F5F5F5', borderWidth: 1, borderColor: '#E8E8E8' },
-  quickPortionBtnActive: { backgroundColor: Colors.primary, borderColor: Colors.primary },
-  quickPortionText: { fontSize: 14, fontWeight: '500', color: Colors.darkText },
+  // Portion
+  portionSection: { marginBottom: 24 },
+  portionLabel: { fontSize: 15, fontWeight: '600', color: Colors.darkText, marginBottom: 16, textAlign: 'center' },
+  portionRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 },
+  portionBtnLarge: { 
+    width: 52, height: 52, borderRadius: 26, 
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center', alignItems: 'center',
+  },
+  portionDisplay: { flexDirection: 'row', alignItems: 'baseline' },
+  portionValue: { fontSize: 48, fontWeight: '700', color: Colors.primary },
+  portionX: { fontSize: 24, color: Colors.lightText, marginLeft: 4 },
+  quickPortions: { flexDirection: 'row', justifyContent: 'center', gap: 8, marginTop: 16 },
+  quickPortionChip: { 
+    paddingHorizontal: 16, paddingVertical: 8, 
+    borderRadius: 20, backgroundColor: '#f5f5f5',
+  },
+  quickPortionActive: { backgroundColor: Colors.primary },
+  quickPortionText: { fontSize: 14, fontWeight: '600', color: Colors.darkText },
   quickPortionTextActive: { color: '#FFF' },
   
-  // Nutrition Grid
-  nutritionGrid: { flexDirection: 'row', gap: 10, marginBottom: 20 },
-  nutritionItem: { flex: 1, alignItems: 'center', paddingVertical: 12, borderRadius: 12 },
-  nutritionIcon: { fontSize: 16, fontWeight: 'bold', color: Colors.darkText },
-  nutritionValue: { fontSize: 18, fontWeight: 'bold', color: Colors.darkText, marginTop: 4 },
-  nutritionLabel: { fontSize: 11, color: Colors.lightText, marginTop: 2 },
+  // Nutrition
+  nutritionSummary: { marginBottom: 24 },
+  nutritionMain: { alignItems: 'center', marginBottom: 16 },
+  calorieCircle: { 
+    width: 100, height: 100, borderRadius: 50,
+    justifyContent: 'center', alignItems: 'center',
+  },
+  calorieNumber: { fontSize: 28, fontWeight: '700', color: '#FFF' },
+  calorieLabel: { fontSize: 12, color: 'rgba(255,255,255,0.8)', marginTop: -2 },
+  macroBoxes: { flexDirection: 'row', gap: 12 },
+  macroBox: { 
+    flex: 1, backgroundColor: '#f8f8f8', borderRadius: 12, 
+    padding: 12, alignItems: 'center',
+    borderLeftWidth: 3,
+  },
+  macroBoxValue: { fontSize: 18, fontWeight: '700', color: Colors.darkText },
+  macroBoxLabel: { fontSize: 11, color: Colors.lightText, marginTop: 2 },
   
   // Add Button
-  addButton: { borderRadius: 14, overflow: 'hidden' },
-  addButtonGradient: { flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingVertical: 16, gap: 8 },
-  addButtonText: { fontSize: 16, fontWeight: '600', color: '#FFF' },
+  addMealBtn: { borderRadius: 14, overflow: 'hidden' },
+  addMealGradient: { 
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'center',
+    paddingVertical: 16, gap: 8,
+  },
+  addMealText: { fontSize: 17, fontWeight: '600', color: '#FFF' },
+  
+  // Loading
+  loadingOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(255,255,255,0.9)',
+    justifyContent: 'center', alignItems: 'center',
+  },
 });
