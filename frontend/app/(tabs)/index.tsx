@@ -154,8 +154,27 @@ export default function DashboardScreen() {
     loadData();
     checkAndShowPremiumModal();
     loadNotificationSettings();
+    checkAndShowDietRecommendation();
     // Removed auto permission request - only ask when user toggles reminders
   }, [refreshData]);
+
+  // İlk girişte diyet önerisi göster
+  const checkAndShowDietRecommendation = async () => {
+    try {
+      const shown = await AsyncStorage.getItem('diet_recommendation_shown');
+      const onboardingComplete = await AsyncStorage.getItem('onboarding_complete');
+      
+      // Onboarding tamamlandıysa ve daha önce gösterilmediyse
+      if (onboardingComplete === 'true' && shown !== 'true') {
+        // 2 saniye bekle (dashboard yüklendikten sonra)
+        setTimeout(() => {
+          setShowDietRecommendation(true);
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Error checking diet recommendation:', error);
+    }
+  };
 
   const loadNotificationSettings = async () => {
     try {
