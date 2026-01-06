@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Modal, TextInput, FlatList } from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Modal, TextInput } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getTodayMeals, getDailySummary, addMeal, deleteMeal } from '../../utils/api';
 import { Colors } from '../../constants/Colors';
@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useStore } from '../../store/useStore';
 import i18n from '../../utils/i18n';
-import { FOOD_DATABASE, searchFoods, FOOD_COUNT } from '../../content/foodDatabase';
+import { FOOD_COUNT } from '../../content/foodDatabase';
 
 interface Meal {
   meal_id: string;
