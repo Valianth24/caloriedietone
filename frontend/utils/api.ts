@@ -222,8 +222,35 @@ export const getDailySummary = async () => {
   return apiRequest('/food/daily-summary');
 };
 
+/**
+ * @deprecated Bu fonksiyon artık API çağrısı yapmıyor.
+ * Yemek veritabanı frontend'de statik olarak tutulur.
+ * Bunun yerine doğrudan foodDatabase modülünü kullanın:
+ * import { searchFoods, FOOD_DATABASE } from '../content/foodDatabase';
+ */
 export const getFoodDatabase = async (lang: string = 'tr') => {
-  return apiRequest(`/food/database?lang=${lang}`);
+  // Local import - no network request needed
+  const { FOOD_DATABASE } = await import('../content/foodDatabase');
+  
+  // Return in the expected format
+  if (lang === 'en') {
+    return FOOD_DATABASE.map(f => ({
+      food_id: f.food_id,
+      name: f.name_en,
+      calories: f.calories,
+      protein: f.protein,
+      carbs: f.carbs,
+      fat: f.fat,
+    }));
+  }
+  return FOOD_DATABASE.map(f => ({
+    food_id: f.food_id,
+    name: f.name,
+    calories: f.calories,
+    protein: f.protein,
+    carbs: f.carbs,
+    fat: f.fat,
+  }));
 };
 
 export const deleteMeal = async (mealId: string) => {
