@@ -1428,4 +1428,48 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#FFF',
   },
+  // Meal Type Selection Styles
+  mealTypeSection: {
+    backgroundColor: Colors.white,
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 16,
+  },
+  mealTypeSectionTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: Colors.darkText,
+    marginBottom: 12,
+    textAlign: 'center',
+  },
+  mealTypeButtons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: 8,
+  },
+  mealTypeBtn: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 4,
+    borderRadius: 12,
+    backgroundColor: Colors.background,
+    borderWidth: 2,
+    borderColor: 'transparent',
+    gap: 4,
+  },
+  mealTypeBtnActive: {
+    backgroundColor: Colors.primary,
+    borderColor: Colors.primary,
+  },
+  mealTypeBtnText: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: Colors.darkText,
+    textAlign: 'center',
+  },
+  mealTypeBtnTextActive: {
+    color: '#FFF',
+  },
 });
