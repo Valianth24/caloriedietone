@@ -882,6 +882,10 @@ const styles = StyleSheet.create({
   gridItemFull: {
     width: '100%',
   },
+  weightChartSection: {
+    marginTop: 8,
+    marginBottom: 8,
+  },
   fab: {
     position: 'absolute',
     bottom: 80,
