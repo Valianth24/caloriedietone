@@ -413,61 +413,6 @@ export default function MealsDetailScreen() {
           </ScrollView>
         </SafeAreaView>
       </Modal>
-      
-      {/* Food List Modal */}
-      <Modal visible={showFoodListModal} animationType="slide">
-        <SafeAreaView style={styles.foodListModal} edges={['top']}>
-          <View style={styles.foodListHeader}>
-            <TouchableOpacity onPress={() => setShowFoodListModal(false)} style={styles.backButton}>
-              <Ionicons name="close" size={28} color={Colors.darkText} />
-            </TouchableOpacity>
-            <Text style={styles.headerTitle}>{t('selectFood') || 'Yiyecek Seç'}</Text>
-            <View style={{ width: 40 }} />
-          </View>
-          
-          <View style={styles.searchContainer}>
-            <Ionicons name="search" size={20} color={Colors.lightText} style={styles.searchIcon} />
-            <TextInput
-              style={styles.searchInput}
-              placeholder={t('searchFood') || 'Yiyecek ara...'}
-              value={searchQuery}
-              onChangeText={setSearchQuery}
-              placeholderTextColor={Colors.lightText}
-            />
-            {searchQuery.length > 0 && (
-              <TouchableOpacity onPress={() => setSearchQuery('')}>
-                <Ionicons name="close-circle" size={20} color={Colors.lightText} />
-              </TouchableOpacity>
-            )}
-          </View>
-          
-          <FlatList
-            data={filteredFoods}
-            keyExtractor={(item) => item.food_id}
-            contentContainerStyle={styles.foodListContent}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={styles.foodListItem}
-                onPress={() => handleSelectFood(item)}
-              >
-                <View style={styles.foodListItemInfo}>
-                  <Text style={styles.foodListItemName}>{item.name}</Text>
-                  <Text style={styles.foodListItemMacros}>
-                    {item.calories} kcal • P: {item.protein}g • K: {item.carbs}g • Y: {item.fat}g
-                  </Text>
-                </View>
-                <Ionicons name="add-circle" size={28} color={Colors.primary} />
-              </TouchableOpacity>
-            )}
-            ListEmptyComponent={
-              <View style={styles.emptyList}>
-                <Ionicons name="search-outline" size={48} color={Colors.lightText} />
-                <Text style={styles.emptyListText}>{t('noFoodFound') || 'Yiyecek bulunamadı'}</Text>
-              </View>
-            }
-          />
-        </SafeAreaView>
-      </Modal>
     </SafeAreaView>
   );
 }
