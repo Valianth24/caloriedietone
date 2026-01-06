@@ -364,7 +364,7 @@ export default function CameraScreen() {
           carbs: totals.carbs,
           fat: totals.fat,
           image_base64: imageBase64,
-          meal_type: 'snack',
+          meal_type: selectedMealType,
         }),
       });
 
