@@ -1878,6 +1878,20 @@ const resources = {
       average: 'Durchschnitt',
       calorie: 'Kalorie',
       
+      // Weight Tracking - German
+      weightTracking: 'Gewichtsverfolgung',
+      startWeight: 'Start',
+      change: 'Änderung',
+      goalProgress: 'Zielfortschritt',
+      completed: 'abgeschlossen',
+      toGo: 'übrig',
+      toGain: 'zuzunehmen',
+      noWeightData: 'Keine Gewichtsdaten',
+      logFirstWeight: 'Erstes Gewicht erfassen',
+      logWeight: 'Gewicht erfassen',
+      weightLogged: 'Gewicht erfasst',
+      weightLogError: 'Gewicht konnte nicht erfasst werden',
+      
       vitamins: 'Vitamine',
       vitaminTracking: 'Vitamin-Tracking',
       addVitamin: 'Vitamin hinzufügen',
