@@ -1,6 +1,6 @@
 import { Pedometer } from 'expo-sensors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform, PermissionsAndroid, Alert } from 'react-native';
+import { Platform, PermissionsAndroid, AppState } from 'react-native';
 
 interface StepData {
   steps: number;
@@ -13,17 +13,28 @@ class PedometerService {
   private stepCount: number = 0;
   private todayDate: string = '';
   private isAvailable: boolean = false;
+  private isInitialized: boolean = false;
   private syncInterval: any = null;
   private listeners: Set<(steps: number) => void> = new Set();
-  private baseSteps: number = 0; // Track base steps from history
+  private baseSteps: number = 0;
+  private realtimeSteps: number = 0; // Steps from watchStepCount since subscription
+  private appStateSubscription: any = null;
+  private lastHistoricalFetch: number = 0;
 
-  async initialize() {
+  async initialize(): Promise<boolean> {
+    // Prevent multiple initializations
+    if (this.isInitialized) {
+      console.log('[Pedometer] Already initialized with', this.stepCount, 'steps');
+      return this.isAvailable;
+    }
+
     console.log('[Pedometer] Initializing...');
     
-    // Request permissions first (especially for Android 10+)
+    // Request permissions first
     const permissionGranted = await this.requestPermissions();
     if (!permissionGranted) {
       console.log('[Pedometer] Permission denied');
+      this.isInitialized = true;
       return false;
     }
     
@@ -33,27 +44,44 @@ class PedometerService {
     
     if (!available) {
       console.log('[Pedometer] Not available on this device');
+      this.isInitialized = true;
       return false;
     }
 
-    // Load today's steps from storage
+    // Load today's saved steps
     await this.loadTodaySteps();
 
-    // Get historical steps first, then start listening
-    await this.getHistoricalSteps();
+    // Get historical steps (total since midnight)
+    await this.refreshHistoricalSteps();
     
-    // Start listening to step count updates
+    // Start real-time listening
     this.startListening();
 
-    // Sync steps every 5 minutes
+    // Listen for app state changes
+    this.setupAppStateListener();
+
+    // Sync to backend periodically
     this.startSyncInterval();
 
+    this.isInitialized = true;
     console.log('[Pedometer] Initialized successfully with', this.stepCount, 'steps');
     return true;
   }
   
+  private setupAppStateListener() {
+    if (this.appStateSubscription) {
+      this.appStateSubscription.remove();
+    }
+
+    this.appStateSubscription = AppState.addEventListener('change', async (nextAppState) => {
+      if (nextAppState === 'active') {
+        console.log('[Pedometer] App became active, refreshing steps...');
+        await this.refreshHistoricalSteps();
+      }
+    });
+  }
+  
   private async requestPermissions(): Promise<boolean> {
-    // iOS - request from Pedometer directly
     if (Platform.OS === 'ios') {
       try {
         const { status } = await Pedometer.requestPermissionsAsync();
@@ -64,7 +92,6 @@ class PedometerService {
       }
     }
     
-    // Android 10+ (API 29+) requires ACTIVITY_RECOGNITION permission at runtime
     if (Platform.OS === 'android' && Platform.Version >= 29) {
       try {
         const granted = await PermissionsAndroid.request(
@@ -78,38 +105,48 @@ class PedometerService {
           }
         );
         
-        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-          console.log('[Pedometer] Android ACTIVITY_RECOGNITION permission granted');
-          return true;
-        } else {
-          console.log('[Pedometer] Android ACTIVITY_RECOGNITION permission denied');
-          return false;
-        }
+        return granted === PermissionsAndroid.RESULTS.GRANTED;
       } catch (err) {
-        console.error('[Pedometer] Android permission request error:', err);
+        console.error('[Pedometer] Android permission error:', err);
         return false;
       }
     }
     
-    // Android < 10 doesn't need runtime permission
     return true;
   }
   
-  private async getHistoricalSteps() {
+  async refreshHistoricalSteps(): Promise<void> {
+    // Rate limit: don't fetch more than once per 5 seconds
+    const now = Date.now();
+    if (now - this.lastHistoricalFetch < 5000) {
+      console.log('[Pedometer] Skipping historical fetch (rate limited)');
+      return;
+    }
+    this.lastHistoricalFetch = now;
+
     try {
       const end = new Date();
       const start = new Date();
       start.setHours(0, 0, 0, 0);
       
       const result = await Pedometer.getStepCountAsync(start, end);
-      if (result && result.steps > 0) {
-        this.baseSteps = result.steps;
-        if (result.steps > this.stepCount) {
-          this.stepCount = result.steps;
+      if (result && result.steps >= 0) {
+        const historicalSteps = result.steps;
+        console.log('[Pedometer] Historical steps from sensor:', historicalSteps);
+        
+        // Historical steps is the ground truth - use it directly
+        this.baseSteps = historicalSteps;
+        this.realtimeSteps = 0; // Reset realtime counter
+        
+        // Update total step count
+        const newTotal = this.baseSteps;
+        if (newTotal !== this.stepCount) {
+          this.stepCount = newTotal;
           await this.saveTodaySteps();
           this.notifyListeners();
         }
-        console.log('[Pedometer] Historical steps loaded:', this.stepCount);
+        
+        console.log('[Pedometer] Total steps updated to:', this.stepCount);
       }
     } catch (error) {
       console.error('[Pedometer] Error getting historical steps:', error);
@@ -118,6 +155,15 @@ class PedometerService {
 
   private async loadTodaySteps() {
     const today = new Date().toISOString().split('T')[0];
+    
+    // Check if it's a new day
+    if (this.todayDate && this.todayDate !== today) {
+      console.log('[Pedometer] New day detected, resetting steps');
+      this.stepCount = 0;
+      this.baseSteps = 0;
+      this.realtimeSteps = 0;
+    }
+    
     this.todayDate = today;
 
     try {
@@ -126,12 +172,12 @@ class PedometerService {
         const data: StepData = JSON.parse(storedData);
         if (data.date === today) {
           this.stepCount = data.steps;
-          this.baseSteps = data.steps; // Use stored as base
-          console.log('[Pedometer] Loaded stored steps:', this.stepCount);
+          console.log('[Pedometer] Loaded saved steps:', this.stepCount);
         } else {
-          // New day, reset
+          // New day
           this.stepCount = 0;
           this.baseSteps = 0;
+          this.realtimeSteps = 0;
           await this.saveTodaySteps();
           console.log('[Pedometer] New day - reset steps');
         }
@@ -158,38 +204,42 @@ class PedometerService {
   private startListening() {
     if (this.subscription) {
       this.subscription.remove();
+      this.subscription = null;
     }
 
-    // watchStepCount returns steps since subscription started
-    // We need to add these to our base steps
+    // Reset realtime counter when starting new subscription
+    this.realtimeSteps = 0;
+
+    // watchStepCount returns steps SINCE subscription started
     this.subscription = Pedometer.watchStepCount((result) => {
-      // Calculate total: base steps from history + new steps since subscription
-      const newTotal = this.baseSteps + result.steps;
+      this.realtimeSteps = result.steps;
+      
+      // Total = base steps (from historical) + realtime steps (since subscription)
+      const newTotal = this.baseSteps + this.realtimeSteps;
       
       if (newTotal > this.stepCount) {
         this.stepCount = newTotal;
-        
-        // Save to storage
         this.saveTodaySteps();
-        
-        // Notify listeners
         this.notifyListeners();
-        
-        console.log('[Pedometer] Steps updated:', this.stepCount, '(base:', this.baseSteps, '+ new:', result.steps, ')');
+        console.log('[Pedometer] Live update:', this.stepCount, '(base:', this.baseSteps, '+ realtime:', this.realtimeSteps, ')');
       }
     });
     
-    console.log('[Pedometer] Real-time step tracking started');
+    console.log('[Pedometer] Real-time tracking started');
   }
 
   private startSyncInterval() {
-    // Sync to backend every 5 minutes
+    if (this.syncInterval) {
+      clearInterval(this.syncInterval);
+    }
+
+    // Sync every 5 minutes
     this.syncInterval = setInterval(() => {
       this.syncToBackend();
-    }, 5 * 60 * 1000); // 5 minutes
+    }, 5 * 60 * 1000);
 
-    // Initial sync
-    this.syncToBackend();
+    // Initial sync after 10 seconds
+    setTimeout(() => this.syncToBackend(), 10000);
   }
 
   private async syncToBackend() {
@@ -200,7 +250,6 @@ class PedometerService {
       const token = await AsyncStorage.getItem('session_token');
 
       if (!token || !backendUrl) {
-        console.log('[Pedometer] No token or backend URL for sync');
         return;
       }
 
@@ -218,22 +267,18 @@ class PedometerService {
 
       if (response.ok) {
         console.log('[Pedometer] Synced to backend:', this.stepCount, 'steps');
-      } else {
-        console.error('[Pedometer] Sync failed:', response.status);
       }
     } catch (error) {
-      console.error('[Pedometer] Error syncing to backend:', error);
+      console.error('[Pedometer] Sync error:', error);
     }
   }
 
-  // Subscribe to step updates
   subscribe(callback: (steps: number) => void) {
     this.listeners.add(callback);
-    // Immediately call with current value
+    // Immediately provide current value
     callback(this.stepCount);
   }
 
-  // Unsubscribe from step updates
   unsubscribe(callback: (steps: number) => void) {
     this.listeners.delete(callback);
   }
@@ -250,7 +295,13 @@ class PedometerService {
     return this.isAvailable;
   }
 
+  isServiceInitialized(): boolean {
+    return this.isInitialized;
+  }
+
+  // DON'T call stop() when component unmounts - keep service running
   stop() {
+    // Only stop if explicitly needed (e.g., logout)
     if (this.subscription) {
       this.subscription.remove();
       this.subscription = null;
@@ -261,16 +312,27 @@ class PedometerService {
       this.syncInterval = null;
     }
 
+    if (this.appStateSubscription) {
+      this.appStateSubscription.remove();
+      this.appStateSubscription = null;
+    }
+
     this.listeners.clear();
+    this.isInitialized = false;
     console.log('[Pedometer] Service stopped');
   }
 
-  // Manual step add (for testing or manual entry)
   async addManualSteps(steps: number) {
     this.stepCount += steps;
     await this.saveTodaySteps();
     await this.syncToBackend();
     this.notifyListeners();
+  }
+
+  // Force refresh from sensor
+  async forceRefresh(): Promise<number> {
+    await this.refreshHistoricalSteps();
+    return this.stepCount;
   }
 }
 
