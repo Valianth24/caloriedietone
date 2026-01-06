@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useStore } from '../../store/useStore';
 import Svg, { Circle } from 'react-native-svg';
-import { Pedometer } from 'expo-sensors';
+import { pedometerService } from '../../services/pedometerService';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -19,138 +19,75 @@ export default function StepsDetailScreen() {
   const [todaySteps, setTodaySteps] = useState(0);
   const [isPedometerAvailable, setIsPedometerAvailable] = useState('checking');
   const [lastUpdate, setLastUpdate] = useState<Date | null>(null);
-  const subscriptionRef = useRef<any>(null);
-  const appStateRef = useRef(AppState.currentState);
-  const baseStepsRef = useRef(0); // Track base steps from history
 
   useEffect(() => {
-    loadData();
-    initPedometer();
-
-    // Listen for app state changes to refresh when coming back to foreground
-    const subscription = AppState.addEventListener('change', handleAppStateChange);
-
+    initAndSubscribe();
+    
     return () => {
-      // Cleanup subscription on unmount
-      if (subscriptionRef.current) {
-        subscriptionRef.current.remove();
-      }
-      subscription.remove();
+      // Unsubscribe but don't stop the service
+      pedometerService.unsubscribe(handleStepUpdate);
     };
   }, []);
 
-  const handleAppStateChange = async (nextAppState: AppStateStatus) => {
-    if (appStateRef.current.match(/inactive|background/) && nextAppState === 'active') {
-      // App has come to foreground - refresh steps
-      console.log('[Steps] App came to foreground, refreshing...');
-      await refreshStepsFromPedometer();
+  const handleStepUpdate = (steps: number) => {
+    if (steps > 0) {
+      setTodaySteps(steps);
+      setLastUpdate(new Date());
     }
-    appStateRef.current = nextAppState;
   };
 
-  const loadData = async () => {
+  const initAndSubscribe = async () => {
+    try {
+      // Initialize service (if not already)
+      const available = await pedometerService.initialize();
+      setIsPedometerAvailable(String(available));
+      
+      if (available) {
+        // Subscribe to updates
+        pedometerService.subscribe(handleStepUpdate);
+        
+        // Get current steps immediately
+        const currentSteps = pedometerService.getCurrentSteps();
+        if (currentSteps > 0) {
+          setTodaySteps(currentSteps);
+          setLastUpdate(new Date());
+        }
+      } else {
+        // Fallback to API
+        await loadFromAPI();
+      }
+    } catch (error) {
+      console.error('[Steps] Init error:', error);
+      setIsPedometerAvailable('false');
+      await loadFromAPI();
+    }
+  };
+
+  const loadFromAPI = async () => {
     try {
       const steps = await getTodaySteps() as any;
       setTodaySteps(steps?.steps || 0);
     } catch (error) {
-      console.error('Error loading steps:', error);
-      setTodaySteps(0);
+      console.error('[Steps] Error loading from API:', error);
     }
-  };
-
-  const initPedometer = async () => {
-    try {
-      // Request Android ACTIVITY_RECOGNITION permission for Android 10+
-      if (Platform.OS === 'android' && Platform.Version >= 29) {
-        const granted = await PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACTIVITY_RECOGNITION,
-          {
-            title: t('stepPermissionTitle') || 'Adım Sayacı İzni',
-            message: t('stepPermissionMessage') || 'Adımlarınızı takip edebilmemiz için fiziksel aktivite iznine ihtiyacımız var.',
-            buttonNeutral: t('askLater') || 'Daha Sonra Sor',
-            buttonNegative: t('cancel') || 'İptal',
-            buttonPositive: t('ok') || 'Tamam',
-          }
-        );
-        
-        if (granted !== PermissionsAndroid.RESULTS.GRANTED) {
-          console.log('[Steps] Android ACTIVITY_RECOGNITION permission denied');
-          setIsPedometerAvailable('false');
-          return;
-        }
-        console.log('[Steps] Android ACTIVITY_RECOGNITION permission granted');
-      }
-      
-      // iOS permission request
-      if (Platform.OS === 'ios') {
-        const { status } = await Pedometer.requestPermissionsAsync();
-        if (status !== 'granted') {
-          console.log('[Steps] iOS motion permission denied');
-          setIsPedometerAvailable('false');
-          return;
-        }
-      }
-      
-      const available = await Pedometer.isAvailableAsync();
-      setIsPedometerAvailable(String(available));
-      console.log('[Steps] Pedometer available:', available);
-
-      if (available) {
-        await refreshStepsFromPedometer();
-        startRealtimeTracking();
-      }
-    } catch (error) {
-      console.error('[Steps] Pedometer init error:', error);
-      setIsPedometerAvailable('false');
-    }
-  };
-
-  const refreshStepsFromPedometer = async () => {
-    try {
-      const end = new Date();
-      const start = new Date();
-      start.setHours(0, 0, 0, 0);
-
-      const pastStepCount = await Pedometer.getStepCountAsync(start, end);
-      if (pastStepCount && pastStepCount.steps > 0) {
-        console.log('[Steps] Got historical steps:', pastStepCount.steps);
-        baseStepsRef.current = pastStepCount.steps;
-        setTodaySteps(pastStepCount.steps);
-        setLastUpdate(new Date());
-        await syncSteps(pastStepCount.steps, 'pedometer');
-      }
-    } catch (error) {
-      console.error('[Steps] Error reading historical steps:', error);
-    }
-  };
-
-  const startRealtimeTracking = () => {
-    // Remove existing subscription if any
-    if (subscriptionRef.current) {
-      subscriptionRef.current.remove();
-    }
-
-    // Start watching for step updates
-    // watchStepCount returns steps since subscription started
-    subscriptionRef.current = Pedometer.watchStepCount(result => {
-      console.log('[Steps] Real-time step update: +', result.steps);
-      // Calculate total: base steps from history + new steps since subscription
-      const newTotal = baseStepsRef.current + result.steps;
-      setTodaySteps(newTotal);
-      setLastUpdate(new Date());
-      // Sync to backend periodically (not on every step to avoid spam)
-      if (result.steps % 10 === 0) {
-        syncSteps(newTotal, 'pedometer').catch(console.error);
-      }
-    });
-    
-    console.log('[Steps] Real-time tracking started with base:', baseStepsRef.current);
   };
 
   const manualRefresh = async () => {
     console.log('[Steps] Manual refresh triggered');
-    await refreshStepsFromPedometer();
-    Alert.alert(t('success') || 'Başarılı', t('stepsUpdated') || 'Adımlar güncellendi');
+    try {
+      if (pedometerService.isServiceAvailable()) {
+        const newSteps = await pedometerService.forceRefresh();
+        setTodaySteps(newSteps);
+        setLastUpdate(new Date());
+        
+        // Also sync to backend
+        await syncSteps(newSteps, 'pedometer').catch(console.error);
+      }
+      Alert.alert(t('success') || 'Başarılı', t('stepsUpdated') || 'Adımlar güncellendi');
+    } catch (error) {
+      console.error('[Steps] Refresh error:', error);
+      Alert.alert(t('error') || 'Hata', t('refreshFailed') || 'Güncelleme başarısız');
+    }
   };
 
   const goal = user?.step_goal || 10000;
