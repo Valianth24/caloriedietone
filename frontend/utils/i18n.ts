@@ -780,6 +780,20 @@ const resources = {
       average: 'Ortalama',
       calorie: 'Kalori',
       
+      // Weight Tracking - Kilo Takibi
+      weightTracking: 'Kilo Takibi',
+      startWeight: 'Başlangıç',
+      change: 'Değişim',
+      goalProgress: 'Hedef İlerlemesi',
+      completed: 'tamamlandı',
+      toGo: 'kaldı',
+      toGain: 'alınacak',
+      noWeightData: 'Henüz kilo kaydı yok',
+      logFirstWeight: 'İlk kilonuzu kaydedin',
+      logWeight: 'Kilo Kaydet',
+      weightLogged: 'Kilo kaydedildi',
+      weightLogError: 'Kilo kaydedilemedi',
+      
       // Food Photo Card
       takePhotoOfYourMeal: 'Yemeğinizin Fotoğrafını Çekin',
       toCalculateCalories: 'kalori hesaplamak için',
