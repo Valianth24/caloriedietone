@@ -101,10 +101,6 @@ export default function MealsDetailScreen() {
     { key: 'snack', label: t('snack') },
   ];
   
-  const filteredFoods = foodDatabase.filter(food =>
-    food.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-  
   const handleAddFromList = () => {
     setShowAddModal(false);
     setShowFoodListModal(true);
