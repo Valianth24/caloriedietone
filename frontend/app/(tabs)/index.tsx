@@ -11,6 +11,7 @@ import FoodPhotoCard from '../../components/FoodPhotoCard';
 import PremiumPromoButton from '../../components/PremiumPromoButton';
 import PremiumPaywall from '../../components/PremiumPaywall';
 import WeightChart from '../../components/WeightChart';
+import DietRecommendationModal from '../../components/DietRecommendationModal';
 import { useTheme } from '../../contexts/ThemeContext';
 import { Colors } from '../../constants/Colors';
 import { useTranslation } from 'react-i18next';
