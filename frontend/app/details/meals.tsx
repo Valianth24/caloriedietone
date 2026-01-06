@@ -293,7 +293,7 @@ export default function MealsDetailScreen() {
               </View>
               <View style={styles.addOptionTextContainer}>
                 <Text style={styles.addOptionTitle}>{t('selectFromList') || 'Listeden Seç'}</Text>
-                <Text style={styles.addOptionDesc}>{t('selectFromListDesc') || '80+ hazır yemek seçeneği'}</Text>
+                <Text style={styles.addOptionDesc}>{FOOD_COUNT.toLocaleString()}+ {lang === 'en' ? 'food options' : 'yemek seçeneği'}</Text>
               </View>
               <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
             </TouchableOpacity>
