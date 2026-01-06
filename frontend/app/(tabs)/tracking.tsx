@@ -6,16 +6,17 @@ import { useTheme } from '../../contexts/ThemeContext';
 import { Colors } from '../../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
-import { LineChart, BarChart } from 'react-native-gifted-charts';
+import { LineChart } from 'react-native-gifted-charts';
 import { useStore } from '../../store/useStore';
 import { calculateWaterGoal, UserData } from '../../utils/nutritionCalculator';
+import WeightChart from '../../components/WeightChart';
 
 const screenWidth = Dimensions.get('window').width;
 
 export default function TrackingScreen() {
   const { t } = useTranslation();
   const { colors } = useTheme();
-  const { user, refreshData } = useStore();
+  const { user, refreshData, triggerRefresh } = useStore();
   const [weeklyWater, setWeeklyWater] = useState<any[]>([]);
   const [todayWater, setTodayWater] = useState(0);
   const [todaySteps, setTodaySteps] = useState(0);
@@ -80,12 +81,6 @@ export default function TrackingScreen() {
     setRefreshing(false);
   };
 
-  const chartData = weeklyWater.map((item, index) => ({
-    value: (item.total_amount || 0) / 1000,
-    label: new Date(item.date).toLocaleDateString('tr-TR', { weekday: 'short' }),
-    frontColor: colors.teal,
-  }));
-
   const lineChartData = weeklyWater.map((item) => ({
     value: (item.total_amount || 0) / 1000,
   }));
@@ -108,6 +103,19 @@ export default function TrackingScreen() {
         }
       >
         <Text style={[styles.title, { color: colors.darkText }]}>{t('tracking')}</Text>
+
+        {/* Weight Chart - Kilo Takibi */}
+        <View style={styles.section}>
+          <WeightChart 
+            currentWeight={user?.weight}
+            targetWeight={user?.target_weight}
+            onWeightUpdate={() => {
+              // Refresh data after weight update
+              triggerRefresh();
+              loadData();
+            }}
+          />
+        </View>
 
         {/* Water Tracking Section */}
         <View style={styles.section}>
@@ -151,32 +159,6 @@ export default function TrackingScreen() {
               <Text style={[styles.avgLabel, { color: colors.lightText }]}>{t('thisWeekAvg')}</Text>
               <Text style={[styles.avgValue, { color: colors.primary }]}>{avgWater.toFixed(1)} {t('liters')} {t('perDay')}</Text>
             </View>
-          </View>
-        </View>
-
-        {/* Bar Chart Section */}
-        <View style={styles.section}>
-          <Text style={[styles.sectionTitle, { color: colors.darkText }]}>{t('weeklyDetail')}</Text>
-
-          <View style={[styles.card, { backgroundColor: colors.white }]}>
-            {chartData.length > 0 && (
-              <BarChart
-                data={chartData}
-                width={screenWidth - 80}
-                height={200}
-                barWidth={35}
-                spacing={15}
-                roundedTop
-                roundedBottom
-                hideRules
-                xAxisColor="#E0E0E0"
-                yAxisColor="#E0E0E0"
-                yAxisTextStyle={{ color: colors.lightText }}
-                xAxisLabelTextStyle={{ color: colors.lightText, fontSize: 12 }}
-                noOfSections={5}
-                maxValue={3}
-              />
-            )}
           </View>
         </View>
 
