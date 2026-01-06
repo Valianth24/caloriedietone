@@ -717,6 +717,45 @@ export default function CameraScreen() {
                   </Text>
                 </View>
 
+                {/* Meal Type Selection */}
+                <View style={styles.mealTypeSection}>
+                  <Text style={styles.mealTypeSectionTitle}>
+                    {lang === 'tr' ? 'Hangi öğüne eklensin?' : 'Add to which meal?'}
+                  </Text>
+                  <View style={styles.mealTypeButtons}>
+                    {[
+                      { key: 'breakfast', icon: 'sunny', label: lang === 'tr' ? 'Kahvaltı' : 'Breakfast' },
+                      { key: 'lunch', icon: 'restaurant', label: lang === 'tr' ? 'Öğle' : 'Lunch' },
+                      { key: 'dinner', icon: 'moon', label: lang === 'tr' ? 'Akşam' : 'Dinner' },
+                      { key: 'snack', icon: 'cafe', label: lang === 'tr' ? 'Ara Öğün' : 'Snack' },
+                    ].map((type) => (
+                      <TouchableOpacity
+                        key={type.key}
+                        style={[
+                          styles.mealTypeBtn,
+                          selectedMealType === type.key && styles.mealTypeBtnActive,
+                        ]}
+                        onPress={() => setSelectedMealType(type.key)}
+                      >
+                        <Ionicons
+                          name={type.icon as any}
+                          size={20}
+                          color={selectedMealType === type.key ? '#FFF' : Colors.primary}
+                        />
+                        <Text
+                          style={[
+                            styles.mealTypeBtnText,
+                            selectedMealType === type.key && styles.mealTypeBtnTextActive,
+                          ]}
+                          numberOfLines={1}
+                        >
+                          {type.label}
+                        </Text>
+                      </TouchableOpacity>
+                    ))}
+                  </View>
+                </View>
+
                 {/* Save Button */}
                 <TouchableOpacity
                   style={styles.saveButton}
