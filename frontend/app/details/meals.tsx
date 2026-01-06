@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Modal, TextInput, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { getTodayMeals, getDailySummary, getFoodDatabase, addMeal, deleteMeal } from '../../utils/api';
+import { getTodayMeals, getDailySummary, addMeal, deleteMeal } from '../../utils/api';
 import { Colors } from '../../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useStore } from '../../store/useStore';
 import i18n from '../../utils/i18n';
+import { FOOD_DATABASE, searchFoods, FOOD_COUNT } from '../../content/foodDatabase';
 
 interface Meal {
   meal_id: string;
@@ -33,31 +34,29 @@ export default function MealsDetailScreen() {
   const [showAddModal, setShowAddModal] = useState(false);
   const [showFoodListModal, setShowFoodListModal] = useState(false);
   const [selectedMealType, setSelectedMealType] = useState('lunch');
-  const [foodDatabase, setFoodDatabase] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
+  
+  const lang = i18n.language?.startsWith('en') ? 'en' : 'tr';
 
   useEffect(() => {
     loadData();
   }, [refreshData]);
-  
-  // Load food database when food list modal opens
-  useEffect(() => {
-    if (showFoodListModal) {
-      loadFoodDatabase();
+
+  // Filter foods based on search query - using local database
+  const filteredFoods = useMemo(() => {
+    if (searchQuery.length >= 2) {
+      return searchFoods(searchQuery, lang, 100);
     }
-  }, [showFoodListModal]);
-  
-  const loadFoodDatabase = async () => {
-    try {
-      const lang = i18n.language;
-      const foods = await getFoodDatabase(lang);
-      if (Array.isArray(foods)) {
-        setFoodDatabase(foods);
-      }
-    } catch (error) {
-      console.error('Error loading food database:', error);
-    }
-  };
+    // Show first 50 foods by default
+    return FOOD_DATABASE.slice(0, 50).map(food => ({
+      food_id: food.food_id,
+      name: lang === 'en' ? food.name_en : food.name,
+      calories: food.calories,
+      protein: food.protein,
+      carbs: food.carbs,
+      fat: food.fat,
+    }));
+  }, [searchQuery, lang]);
 
   const loadData = async () => {
     try {
