@@ -33,6 +33,7 @@ interface DietRecommendation {
   score: number;
   reasons: string[];
   match_percentage: number;
+  emoji?: string;
 }
 
 interface UserProfile {
