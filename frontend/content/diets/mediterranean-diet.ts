@@ -571,7 +571,7 @@ export const mediterraneanDiet: Diet = {
             { name: 'Fırında kuzu incik', portion: '200g', calories: 400, note: 'Sebzeli' },
             { name: 'Fırın patates', portion: '100g', calories: 130 },
             { name: 'Akdeniz salatası', portion: '150g', calories: 120 },
-            { name: 'Kırmızı şarap', portion: '1 kadeh (125ml)', calories: 100, note: 'Opsiyonel' },
+            { name: 'Taze sıkılmış nar suyu', portion: '1 bardak', calories: 100 },
           ],
         },
         {
