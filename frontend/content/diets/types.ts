@@ -38,6 +38,12 @@ export interface Diet {
   isPremium: boolean;            // Premium mi?
   duration: number;              // Önerilen süre (gün)
   difficulty: 'easy' | 'medium' | 'hard';  // Zorluk seviyesi
+  category?: string;             // Diyet kategorisi
+  macros?: {                     // Makro besin oranları
+    protein: number;
+    carbs: number;
+    fat: number;
+  };
   
   // Bilimsel Açıklama
   description: {
