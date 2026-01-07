@@ -1,0 +1,57 @@
+{
+  "name": "Mantar Çorbası",
+  "description": "Kremamsı ve aromatik mantar çorbası. Soğuk kış günlerinin vazgeçilmez tatlısı.",
+  "prepTime": "15 dakika",
+  "cookTime": "30 dakika",
+  "totalTime": "45 dakika",
+  "servings": 6,
+  "ingredients": [
+    {"name": "Kestane mantarı", "amount": "500", "unit": "gram", "note": "dilimlenmiş"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "doğranmış"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Tereyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Un", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Tavuk suyu", "amount": "4", "unit": "su bardağı"},
+    {"name": "Süt", "amount": "1", "unit": "su bardağı"},
+    {"name": "Krema", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Taze kekik", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Taze maydanoz", "amount": "2", "unit": "yemek kaşığı", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Büyük bir tencerede tereyağının yarısını eritin.", "duration": "1 dakika"},
+    {"step": 2, "instruction": "Mantarları ekleyin, 8-10 dakika sularını salıp çekene ve kızarana kadar kavurun.", "tip": "Mantarları kalabalık etmeyin - buhar yapar.", "duration": "10 dakika"},
+    {"step": 3, "instruction": "Mantarların yarısını kenara ayırın (servis için).", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Kalan tereyağıyı ekleyin, soğanı 5 dakika kavurun.", "duration": "5 dakika"},
+    {"step": 5, "instruction": "Sarımsağı ekleyin, 1 dakika kavurun.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Unu ekleyin, 2 dakika karıştırarak kavurun.", "tip": "Un kokusunun gitmesi için önemli.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Tavuk suyunu yavaş yavaş ekleyin, sürekli karıştırın.", "duration": "3 dakika"},
+    {"step": 8, "instruction": "Kekiği ekleyin, kaynatın, sonra kısık ateşte 15 dakika pişirin.", "duration": "15 dakika"},
+    {"step": 9, "instruction": "Blender ile pürüzsüz hale getirin.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Süt ve kremayı ekleyin, karıştırın. Tuz ve biberle tatlandırın.", "duration": "2 dakika"},
+    {"step": 11, "instruction": "Kaselere dökün, kavurulmuş mantar ve maydanoz ile servis edin.", "duration": "2 dakika"}
+  ],
+  "nutrition": {
+    "calories": 180,
+    "protein": 6,
+    "carbs": 12,
+    "fat": 13,
+    "fiber": 2,
+    "sugar": 4,
+    "sodium": 520
+  },
+  "tips": [
+    "Farklı mantar çeşitleri karıştırırsanız daha zengin lezzet alırsınız.",
+    "Krema yerine hindistan cevizi sütü ile vegan yapabilirsiniz.",
+    "Truffle yağı damlatarak lüks versiyon yapın.",
+    "Mantarları kağıt havluyla kurulayarak daha iyi kızartın."
+  ],
+  "storageInfo": "Buzdolabında 4 gün, dondurucuda 2 ay saklanır.",
+  "servingSuggestion": "Crusty ekmek ile sıcak servis edin.",
+  "variations": [
+    "Porcini mantarı ile daha yoğun lezzet elde edebilirsiniz.",
+    "Sherry ekleyerek alkollü versiyon yapabilirsiniz.",
+    "Havlı peynir serperek zenginleştirebilirsiniz."
+  ]
+}

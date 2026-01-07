@@ -1,0 +1,54 @@
+{
+  "name": "Karidesli Sarımsaklı Makarna",
+  "description": "Akdeniz esintili, sarımsak ve zeytinyağlı sosta karidesler ile hazırlanan hafif ve lezzetli makarna.",
+  "prepTime": "10 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "25 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Spagetti", "amount": "400", "unit": "gram"},
+    {"name": "Büyük karides", "amount": "500", "unit": "gram", "note": "temizlenmiş"},
+    {"name": "Sarımsak", "amount": "6", "unit": "diş", "note": "ince dilimlenmiş"},
+    {"name": "Zeytinyağı", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Tereyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Beyaz şarap (veya limon suyu)", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Pul biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Taze maydanoz", "amount": "1", "unit": "demet", "note": "ince kıyılmış"},
+    {"name": "Limon", "amount": "1", "unit": "adet"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Büyük bir tencerede tuzlu suyu kaynatın, makarnayı al dente pişirin.", "tip": "1 su bardağı makarna suyunu saklayın.", "duration": "10 dakika"},
+    {"step": 2, "instruction": "Geniş bir tavada zeytinyağı ve tereyağını orta ateşte ısıtın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Sarımsak dilimlerini ekleyin, 1 dakika altın sarısı olana kadar kavurun.", "tip": "Yanmasına dikkat edin - acı olur.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Pul biberi ekleyin, 30 saniye kavurun.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Karidesleri ekleyin, her tarafı 2 dakika pişirin.", "tip": "Karides pembe olmalı ama çok pişmesin - lastik gibi olur.", "duration": "4 dakika"},
+    {"step": 6, "instruction": "Limon suyu ekleyin, 1 dakika kaynatın.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Süzülmüş makarnayı tavaya ekleyin.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Makarna suyundan 1/2 su bardağı ekleyin, sos makarnayı sarana kadar karıştırın.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Maydanoz ve limon kabuğu rendesi ekleyerek servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 28,
+    "carbs": 52,
+    "fat": 12,
+    "fiber": 3,
+    "sugar": 2,
+    "sodium": 580
+  },
+  "tips": [
+    "Karidesleri tavaya koymadan önce kurulayın - daha iyi kızarır.",
+    "Makarna suyundaki nişasta sosu kremamsı yapar.",
+    "Parmesan peyniri serperek zenginleştirebilirsiniz.",
+    "Taze karides kullanın - dondurulmuş ise iyice çözündürün."
+  ],
+  "storageInfo": "Taze tüketilmesi önerilir. Buzdolabında 1 gün saklanabilir.",
+  "servingSuggestion": "Yanında yeşil salata ve crusty ekmek ile servis edin.",
+  "variations": [
+    "Cherry domates ekleyerek daha renkli yapabilirsiniz.",
+    "Roka ile servis ederek acımsı bir lezzet katabilirsiniz.",
+    "Linguine veya fettuccine ile de yapabilirsiniz."
+  ]
+}

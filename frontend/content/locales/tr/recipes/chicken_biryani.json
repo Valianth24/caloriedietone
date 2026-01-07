@@ -1,0 +1,60 @@
+{
+  "name": "Tavuklu Biryani",
+  "description": "Hint ve Pakistan mutfaklarının gururu. Baharatlı pilav ile pişirilmiş tavuk parçaları, her lokmada bayram.",
+  "prepTime": "30 dakika",
+  "cookTime": "45 dakika",
+  "totalTime": "1 saat 15 dakika",
+  "servings": 6,
+  "ingredients": [
+    {"name": "Basmati pirinç", "amount": "2", "unit": "su bardağı"},
+    {"name": "Tavuk but", "amount": "800", "unit": "gram", "note": "kemiğinden ayrılmış"},
+    {"name": "Yoğurt", "amount": "1", "unit": "su bardağı"},
+    {"name": "Soğan", "amount": "3", "unit": "adet", "note": "ince dilimlenmiş"},
+    {"name": "Sarımsak", "amount": "6", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Zencefil", "amount": "2", "unit": "yemek kaşığı", "note": "rendelenmiş"},
+    {"name": "Yeşil biber", "amount": "2", "unit": "adet", "note": "yarılmış"},
+    {"name": "Sıvı yağ", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Safran", "amount": "1/2", "unit": "tatlı kaşığı", "note": "2 yemek kaşığı sıcak süttte bekletilmiş"},
+    {"name": "Garam masala", "amount": "2", "unit": "tatlı kaşığı"},
+    {"name": "Zerdeçal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı toz biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kişniş tohumu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Taze nane", "amount": "1/2", "unit": "demet"},
+    {"name": "Taze kişniş", "amount": "1/2", "unit": "demet"},
+    {"name": "Tuz", "amount": "1.5", "unit": "tatlı kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pirinçleri yıkayın, 30 dakika suda bekletin.", "duration": "30 dakika"},
+    {"step": 2, "instruction": "Tavukları yoğurt, sarımsak, zencefil, zerdeçal, kırmızı biber, garam masala ve tuz ile marine edin. 1 saat bekletin.", "duration": "1 saat"},
+    {"step": 3, "instruction": "Büyük bir tencerede yağı ısıtın. Soğanları koyu kahverengi ve çıtır olana kadar kavurun.", "tip": "Bu adım lezzet için kritik - 15-20 dakika sürebilir.", "duration": "20 dakika"},
+    {"step": 4, "instruction": "Soğanların yarısını çıkarın, servis için saklayın.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Marine tavukları ekleyin, 10 dakika her tarafı çevirerek pişirin.", "duration": "10 dakika"},
+    {"step": 6, "instruction": "Süzülmüş pirinçleri tuzlu kaynar suda %70 pişirin. Süzün.", "duration": "8 dakika"},
+    {"step": 7, "instruction": "Tavuk üzerine pirinçleri yayın. Safranlı süt, nane ve kişniş yapraklarını serpin.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Kapağını sıkıca kapatın (buhar kaçmasın), çok kısık ateşte 25 dakika pişirin.", "tip": "Kapağı pişene kadar açmayın.", "duration": "25 dakika"},
+    {"step": 9, "instruction": "Kavurulmuş soğan ve taze otlar ile servis edin.", "duration": "2 dakika"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 35,
+    "carbs": 55,
+    "fat": 16,
+    "fiber": 3,
+    "sugar": 4,
+    "sodium": 680
+  },
+  "tips": [
+    "Dum (buhar) yöntemi biryani'nin sırrıdır - kapağı açmayın.",
+    "Kapağı hamur ile kapatarak buharı hapsedebilirsiniz.",
+    "Kaliteli safran kullanın - lezzet ve renk için çok önemli.",
+    "Yanında raita (yoğurtlu salata) servis edin."
+  ],
+  "storageInfo": "Buzdolabında 3 gün saklanır. Mikrodalgada veya buharda ısıtın.",
+  "servingSuggestion": "Raita, turla ve papadum ile servis edin.",
+  "variations": [
+    "Sebzeli biryani için tavuk yerine karnabahar ve bezelye kullanın.",
+    "Kuzu etli biryani yapabilirsiniz - pişirme süresi uzar.",
+    "Yumurta ekleyerek zenginleştirebilirsiniz."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Kore Usulü Bulgogi",
+  "description": "Marine edilmiş ince dilimlenmiş dana eti ile hazırlanan Kore mutfağının klasik lezzeti. Tatlı ve tuzlu aroması bağımlılık yapıyor.",
+  "prepTime": "20 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "35 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Dana bonfile", "amount": "600", "unit": "gram", "note": "ince dilimlenmiş"},
+    {"name": "Armut", "amount": "1", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Soya sosu", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Bal", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "5", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Zencefil", "amount": "1", "unit": "yemek kaşığı", "note": "rendelenmiş"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "ince dilimlenmiş"},
+    {"name": "Yeşil soğan", "amount": "4", "unit": "adet", "note": "doğranmış"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Susam", "amount": "2", "unit": "yemek kaşığı", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marine için: Rendelenmiş armut, soya sosu, susam yağı, bal, sarımsak, zencefil ve karabiberi karıştırın.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Et dilimlerini marine karışımına ekleyin, iyice karıştırın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Buzdolabında minimum 2 saat, ideal olarak 1 gece bekletin.", "tip": "Armut eti yumuşlatır - atlamamayın.", "duration": "2 saat"},
+    {"step": 4, "instruction": "Geniş bir tavayı veya wok'u yüksek ateşte kızdırın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Marine eti ve soğanı tavaya ekleyin.", "tip": "Tavayı doldurmayın - 2 parti pişirmeniz gerekebilir.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Yüksek ateşte 8-10 dakika, et kızarana ve karamelize olana kadar pişirin.", "duration": "10 dakika"},
+    {"step": 7, "instruction": "Yeşil soğan ve susam serperek servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 35,
+    "carbs": 18,
+    "fat": 18,
+    "fiber": 2,
+    "sugar": 12,
+    "sodium": 720
+  },
+  "tips": [
+    "Eti dondurucuda 30 dakika bekletirseniz daha kolay dilimlersiniz.",
+    "Yüksek ateş karamelize lezzet için çok önemli.",
+    "Armut yerine elma veya kivi de kullanabilirsiniz.",
+    "Pirinc ile veya lavaşa sararak tüketebilirsiniz."
+  ],
+  "storageInfo": "Marine et 2 gün, pişmiş hali 3 gün buzdolabında saklanır.",
+  "servingSuggestion": "Beyaz pilav, kimchi ve turşu çeşitleri ile servis edin.",
+  "variations": [
+    "Tavuk ile de yapabilirsiniz (Dak Bulgogi).",
+    "İnce dilimlenmiş mantar ekleyebilirsiniz.",
+    "Daha acılı seviyorsanız gochujang (Kore biber salçası) ekleyin."
+  ]
+}
