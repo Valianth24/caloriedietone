@@ -115,7 +115,6 @@ export const mediterraneanDiet: Diet = {
 
   warnings: {
     tr: [
-      '⚠️ Şarap tüketimi opsiyoneldir - alkol kullanmıyorsanız başlamayın',
       '🥜 Fıstık alerjisi olanlar kuruyemiş seçiminde dikkatli olmalı',
       '🐟 Hamilelikte yüksek cıvalı balıklardan (ton, kılıç balığı) kaçının',
       '💊 Kan sulandırıcı kullananlar omega-3 takviyesi için doktora danışmalı',
@@ -123,7 +122,6 @@ export const mediterraneanDiet: Diet = {
       '📏 Porsiyon kontrolü önemlidir - sınırsız yemek değildir',
     ],
     en: [
-      '⚠️ Wine consumption is optional - don\'t start if you don\'t drink alcohol',
       '🥜 Those with nut allergies should be careful with nut selection',
       '🐟 Avoid high-mercury fish (tuna, swordfish) during pregnancy',
       '💊 Those on blood thinners should consult doctor for omega-3 supplements',
@@ -146,7 +144,7 @@ export const mediterraneanDiet: Diet = {
       '🥚 Yumurta (haftada 4-6 adet)',
       '🧄 Sarımsak, soğan, domates',
       '🌿 Taze otlar (kekik, fesleğen, biberiye)',
-      '🍷 Kırmızı şarap (opsiyonel, günde 1 kadeh)',
+      '🍵 Yeşil çay ve bitki çayları',
       '🍯 Bal (az miktarda)',
     ],
     en: [
@@ -162,7 +160,7 @@ export const mediterraneanDiet: Diet = {
       '🥚 Eggs (4-6 per week)',
       '🧄 Garlic, onion, tomatoes',
       '🌿 Fresh herbs (thyme, basil, rosemary)',
-      '🍷 Red wine (optional, 1 glass daily)',
+      '🍵 Green tea and herbal teas',
       '🍯 Honey (small amounts)',
     ],
   },
