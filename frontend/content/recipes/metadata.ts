@@ -569,7 +569,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
     category: 'main_course',
     difficulty: 'easy',
     tags: ['high_protein', 'quick', 'mediterranean'],
-    imageUrl: 'https://images.unsplash.com/photo-1563379926898-05f4575a45d8?w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=400',
     iconName: 'restaurant-outline',
     color: '#FF7043',
     version: '1.0.0',
