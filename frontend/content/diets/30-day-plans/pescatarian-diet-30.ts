@@ -172,7 +172,7 @@ export const pescatarianDiet30: Diet = {
 
   forbiddenFoods: {
     tr: [
-      '🚫 Kırmızı et: Dana, kuzu, domuz',
+      '🚫 Kırmızı et: Dana, kuzu (sınırlı)',
       '🚫 Beyaz et: Tavuk, hindi, ördek',
       '🚫 İşlenmiş etler: Sosis, salam, sucuk, jambon',
       '🚫 Fast food ve kızartmalar',

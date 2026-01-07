@@ -198,7 +198,7 @@ export const veganDiet: Diet = {
   forbiddenFoods: {
     tr: [
       '🥩 TÜM HAYVANSAL ÜRÜNLER:',
-      '🥩 Kırmızı et (dana, kuzu, domuz)',
+      '🥩 Kırmızı et (dana, kuzu - sınırlı)',
       '🍗 Kümes hayvanları (tavuk, hindi)',
       '🐟 Balık ve deniz ürünleri',
       '🥚 Yumurta (her türlü)',

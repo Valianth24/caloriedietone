@@ -190,15 +190,15 @@ export const mindDiet30: Diet = {
       '🫒 OLIVE OIL (Primary oil):',
       '🫒 Extra virgin olive oil',
       '',
-      '🍷 WINE (Optional - ≤1 glass/day):',
-      '🍷 Red wine (resveratrol)',
+      '🍵 HEALTHY DRINKS:',
+      '🍵 Green tea (antioxidants)',
     ],
   },
 
   forbiddenFoods: {
     tr: [
       '🥩 KIRMIZI ET (Haftada <4 porsiyon):',
-      '🥩 Dana, kuzu, domuz eti',
+      '🥩 Dana, kuzu eti (fazla tüketmeyin)',
       '',
       '🧈 TEREYAĞI VE MARGARİN (Günde <1 yemek kaşığı):',
       '🧈 Tereyağı, margarin',
