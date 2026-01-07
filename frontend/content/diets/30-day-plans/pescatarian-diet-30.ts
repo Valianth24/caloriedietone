@@ -767,7 +767,7 @@ export const pescatarianDiet30: Diet = {
       meals: [
         { type: 'breakfast', name: 'Kutlama Brunch', foods: [{ name: 'Premium balıklı brunch', portion: '1 porsiyon', calories: 650 }], totalCalories: 650 },
         { type: 'lunch', name: 'Şef Salatası', foods: [{ name: 'Deniz mahsulleri salatası', portion: '1 porsiyon', calories: 500 }], totalCalories: 500 },
-        { type: 'dinner', name: 'Gala Yemeği', foods: [{ name: 'Premium balık tabağı + şarap', portion: '1 porsiyon', calories: 750 }], totalCalories: 750 },
+        { type: 'dinner', name: 'Gala Yemeği', foods: [{ name: 'Premium balık tabağı', portion: '1 porsiyon', calories: 750 }], totalCalories: 750 },
         { type: 'snack', name: 'Tatlı', foods: [{ name: 'Kutlama tatlısı', portion: '1 porsiyon', calories: 250 }], totalCalories: 250 },
       ],
       totalCalories: 2150,

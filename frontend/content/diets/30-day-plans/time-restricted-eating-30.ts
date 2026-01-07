@@ -1575,7 +1575,7 @@ export const timeRestrictedEating30: Diet = {
           type: 'breakfast',
           name: 'İLK ÖĞÜN (12:00) - Kutlama!',
           foods: [
-            { name: 'Şampanya brunch', portion: '1 porsiyon', calories: 700 },
+            { name: 'Özel kahvaltı tabağı', portion: '1 porsiyon', calories: 700 },
           ],
           totalCalories: 700,
         },

@@ -671,7 +671,7 @@ export const japaneseDiet30: Diet = {
           name: 'Akşam Yemeği',
           totalCalories: 550,
           foods: [
-            { name: 'Tonkatsu (domuz yerine tavuk)', portion: '150g', calories: 280 },
+            { name: 'Chicken katsu (tavuk)', portion: '150g', calories: 280 },
             { name: 'Pirinç', portion: '150g', calories: 180 },
             { name: 'Lahana salatası', portion: '80g', calories: 25 },
             { name: 'Miso çorbası', portion: '150ml', calories: 45 },

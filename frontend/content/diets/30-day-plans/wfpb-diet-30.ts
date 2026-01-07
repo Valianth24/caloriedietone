@@ -1811,7 +1811,7 @@ export const wfpbDiet30: Diet = {
             { name: 'Patates püresi', portion: '150g', calories: 150 },
             { name: 'Kuşkonmaz', portion: '100g', calories: 20 },
             { name: 'Gravy (bitkisel)', portion: '50ml', calories: 40 },
-            { name: 'Şarap (isteğe bağlı)', portion: '1 bardak', calories: 125 },
+            { name: 'Taze meyve suyu', portion: '1 bardak', calories: 100 },
           ],
           totalCalories: 395,
         },
