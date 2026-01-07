@@ -1,0 +1,52 @@
+{
+  "name": "Baklavalı Yulaf Ezmesi",
+  "description": "Türk tatlısı baklava lezzeti ile hazırlanan sağlıklı kahvaltılık yulaf ezmesi. Bal, ceviz ve tarçın ile.",
+  "prepTime": "5 dakika",
+  "cookTime": "10 dakika",
+  "totalTime": "15 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Yulaf ezmesi", "amount": "1", "unit": "su bardağı"},
+    {"name": "Süt", "amount": "2", "unit": "su bardağı"},
+    {"name": "Bal", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Ceviz", "amount": "1/4", "unit": "su bardağı", "note": "kıyılmış"},
+    {"name": "Antep fıstığı", "amount": "2", "unit": "yemek kaşığı", "note": "kıyılmış"},
+    {"name": "Tereyağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tarçın", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Kakule", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Vanilya özütü", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tutam"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Orta boy bir tencerede sütü kaynatın.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Yulafı ekleyin, ateşi kısın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "5-7 dakika, sık sık karıştırarak pişirin.", "tip": "Kremamsı kıvam almalı.", "duration": "7 dakika"},
+    {"step": 4, "instruction": "Tereyağı, bal, tarçın, kakule ve vanilyayı ekleyin.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "İyice karıştırın, ateşten alın.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Kaselere dökün.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Üzerine ceviz, Antep fıstığı ve ekstra bal gezdirin.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Tarçın serperek sıcak servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 10,
+    "carbs": 48,
+    "fat": 18,
+    "fiber": 5,
+    "sugar": 20,
+    "sodium": 120
+  },
+  "tips": [
+    "Baklava tadı için bal ve tereyağı kombinasyonu şart.",
+    "Antep fıstığı otantik lezzet için önemli.",
+    "Kakule Ortadoğu tatlılarının vazgeçilmezi.",
+    "Daha sağlıklı için bal miktarını azaltabilirsiniz."
+  ],
+  "storageInfo": "Taze tüketilmesi önerilir. Bir gün sonra lezzeti düşer.",
+  "servingSuggestion": "Sıcak olarak kahvaltıda veya tatlı niyetine tüketin.",
+  "variations": [
+    "Hurma ile tatlandırarak şekersiz yapabilirsiniz.",
+    "Hindistan cevizi sütü ile vegan versiyonu yapabilirsiniz.",
+    "Muz dilimi ekleyerek zenginleştirebilirsiniz."
+  ]
+}

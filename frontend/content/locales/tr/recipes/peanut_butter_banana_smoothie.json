@@ -1,0 +1,47 @@
+{
+  "name": "Fıstık Ezmeli Muzlu Smoothie",
+  "description": "Protein zengini, doyurucu ve lezzetli smoothie. Sabah kahvaltısı veya egzersiz sonrası için ideal.",
+  "prepTime": "5 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "5 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Olgun muz", "amount": "2", "unit": "adet", "note": "dondurulmuş tercih edilir"},
+    {"name": "Fıstık ezmesi", "amount": "2", "unit": "yemek kaşığı", "note": "şekersiz"},
+    {"name": "Süt", "amount": "1.5", "unit": "su bardağı", "note": "veya badem sütü"},
+    {"name": "Yunan yoğurdu", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Bal", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tarçın", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Buz", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Yulaf", "amount": "2", "unit": "yemek kaşığı", "note": "isteğe bağlı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Tüm malzemeleri blender'a koyun.", "duration": "1 dakika"},
+    {"step": 2, "instruction": "Yüksek hızda 1-2 dakika, pürüzsüz olana kadar blenderlayın.", "tip": "Yulaf eklediyseniz biraz daha uzun blenderlayın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Kıvamını kontrol edin - daha ince için süt ekleyin.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Bardaklara dökün, tarçın serperek servis edin.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "İsterseniz üzerine muz dilimi ve fıstık ezmesi damlatın.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 350,
+    "protein": 14,
+    "carbs": 45,
+    "fat": 14,
+    "fiber": 5,
+    "sugar": 28,
+    "sodium": 180
+  },
+  "tips": [
+    "Dondurulmuş muz milkshake kıvamı verir - mutlaka deneyin.",
+    "Fıstık ezmesinde şeker ve yağ eklenmemiş olmasına dikkat edin.",
+    "Protein tozu ekleyerek sporcu versiyonu yapabilirsiniz.",
+    "Kakao tozu ekleyerek çikolatalı versiyonu deneyin."
+  ],
+  "storageInfo": "Hemen tüketilmesi önerilir.",
+  "servingSuggestion": "Kahvaltı yerine veya antrenman sonrası tüketin.",
+  "variations": [
+    "Badem ezmesi ile yapabilirsiniz.",
+    "Kakao tozu ekleyerek çikolatalı versiyonu yapabilirsiniz.",
+    "Ispanak ekleyerek yeşil smoothie haline getirebilirsiniz."
+  ]
+}

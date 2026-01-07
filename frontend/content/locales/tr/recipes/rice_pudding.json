@@ -1,0 +1,53 @@
+{
+  "name": "Sütlaç",
+  "description": "Türk tatlı mutfağının klasiği. Kremamsı, vanilya aromalı ve tarçınlı geleneksel pirinç tatlısı.",
+  "prepTime": "10 dakika",
+  "cookTime": "45 dakika",
+  "totalTime": "55 dakika",
+  "servings": 6,
+  "ingredients": [
+    {"name": "Pirinç", "amount": "1/2", "unit": "su bardağı", "note": "yıkanmış"},
+    {"name": "Su", "amount": "1", "unit": "su bardağı"},
+    {"name": "Süt", "amount": "4", "unit": "su bardağı"},
+    {"name": "Şeker", "amount": "3/4", "unit": "su bardağı"},
+    {"name": "Pirinç unu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Vanilya özütü", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tarçın", "amount": "1", "unit": "tatlı kaşığı", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pirinci bol su ile yıkayın, süzün.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Orta boy bir tencerede pirinci 1 su bardağı su ile kaynatın.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Kısık ateşte pirinç suyu çekene kadar pişirin.", "tip": "Ara sıra karıştırın, yapışmasın.", "duration": "15 dakika"},
+    {"step": 4, "instruction": "3 su bardağı sütü ekleyin, karıştırın.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Orta ateşte, sık sık karıştırarak 20 dakika pişirin.", "duration": "20 dakika"},
+    {"step": 6, "instruction": "Kalan 1 su bardağı sütte pirinç ununu çözün.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Unlu sütü tencereye yavaşça ekleyin, sürekli karıştırın.", "tip": "Topaklanmaması için sürekli karıştırın.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Şekeri ekleyin, karıştırın.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "5-7 dakika daha, kıvam alana kadar pişirin.", "duration": "7 dakika"},
+    {"step": 10, "instruction": "Vanilyayı ekleyin, karıştırın, ateşten alın.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Kaselere dökün, oda sıcaklığında soğutun.", "duration": "30 dakika"},
+    {"step": 12, "instruction": "Buzdolabında soğutun, tarçın serperek servis edin.", "duration": "2 saat"}
+  ],
+  "nutrition": {
+    "calories": 220,
+    "protein": 6,
+    "carbs": 42,
+    "fat": 4,
+    "fiber": 0,
+    "sugar": 28,
+    "sodium": 75
+  },
+  "tips": [
+    "Pirinç unu kıvamı kremamsı yapar - atlamayın.",
+    "Sürekli karıştırın - dibi tutmasın.",
+    "Fırında üstünü kızartarak fırın sütlaç yapabilirsiniz.",
+    "Soğuk servis en lezzetlisidir."
+  ],
+  "storageInfo": "Buzdolabında 5 gün saklanır.",
+  "servingSuggestion": "Soğuk olarak, tarçın serperek servis edin.",
+  "variations": [
+    "Fırında kızartarak fırın sütlaç yapabilirsiniz.",
+    "Gül suyu ekleyerek aromatik hale getirebilirsiniz.",
+    "Antep fıstığı serperek zenginleştirebilirsiniz."
+  ]
+}

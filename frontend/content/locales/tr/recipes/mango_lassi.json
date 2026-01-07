@@ -1,0 +1,46 @@
+{
+  "name": "Mango Lassi",
+  "description": "Hint mutfağının serinletici içeceği. Taze mango, yoğurt ve baharatlarla hazırlanan kremamsı smoothie.",
+  "prepTime": "5 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "5 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Olgun mango", "amount": "2", "unit": "adet", "note": "soyulmuş, doğranmış"},
+    {"name": "Yoğurt", "amount": "1", "unit": "su bardağı"},
+    {"name": "Süt", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Bal", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Kakule", "amount": "1/4", "unit": "tatlı kaşığı", "note": "öğütülmüş"},
+    {"name": "Buz", "amount": "1", "unit": "su bardağı"},
+    {"name": "Antep fıstığı", "amount": "1", "unit": "yemek kaşığı", "note": "servis için, kıyılmış"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Mango, yoğurt, süt, bal ve kakuleyi blender'a koyun.", "duration": "1 dakika"},
+    {"step": 2, "instruction": "Pürüzsüz olana kadar blenderlayın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Buz ekleyin, tekrar blenderlayın.", "tip": "Daha soğuk seviyorsanız daha fazla buz ekleyin.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Kıvamını kontrol edin - daha ince için süt ekleyin.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Bardaklara dökün, Antep fıstığı serperek servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 280,
+    "protein": 8,
+    "carbs": 52,
+    "fat": 5,
+    "fiber": 3,
+    "sugar": 45,
+    "sodium": 85
+  },
+  "tips": [
+    "Mango çok olgun olmalı - tatlılık için şart.",
+    "Dondurulmuş mango kullanarak daha yoğun kıvam alabilirsiniz.",
+    "Kakule Hint baharatçılarında bulunur - lezzet için kritik.",
+    "Vegan versiyon için hindistan cevizi yoğurdu kullanın."
+  ],
+  "storageInfo": "Hemen tüketilmesi önerilir. Blenderlayıp 2 saat içinde için.",
+  "servingSuggestion": "Baharatlı yemeklerle birlikte veya yaz günlerinde serinletici içecek olarak.",
+  "variations": [
+    "Gül suyu ekleyerek aromatik versiyon yapabilirsiniz.",
+    "Safran ekleyerek lüks bir dokunuş katabilirsiniz.",
+    "Muzlu mango lassi için yarım muz ekleyebilirsiniz."
+  ]
+}
