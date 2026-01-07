@@ -28,7 +28,7 @@ interface DietRecommendation {
   duration_days: number;
   category: string;
   difficulty: string;
-  macros: { protein: number; carbs: number; fat: number };
+  macros?: { protein: number; carbs: number; fat: number };
   is_premium: boolean;
   score: number;
   reasons: string[];
