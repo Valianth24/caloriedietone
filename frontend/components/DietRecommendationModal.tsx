@@ -324,15 +324,15 @@ export default function DietRecommendationModal({ visible, onClose, onSelectDiet
         
         <View style={styles.macrosRow}>
           <View style={styles.macroItem}>
-            <Text style={[styles.macroValue, { color: '#3b82f6' }]}>{diet.macros.protein}%</Text>
+            <Text style={[styles.macroValue, { color: '#3b82f6' }]}>{diet.macros?.protein ?? 25}%</Text>
             <Text style={styles.macroLabel}>Protein</Text>
           </View>
           <View style={styles.macroItem}>
-            <Text style={[styles.macroValue, { color: '#f59e0b' }]}>{diet.macros.carbs}%</Text>
+            <Text style={[styles.macroValue, { color: '#f59e0b' }]}>{diet.macros?.carbs ?? 45}%</Text>
             <Text style={styles.macroLabel}>{lang === 'en' ? 'Carbs' : 'Karb'}</Text>
           </View>
           <View style={styles.macroItem}>
-            <Text style={[styles.macroValue, { color: '#ef4444' }]}>{diet.macros.fat}%</Text>
+            <Text style={[styles.macroValue, { color: '#ef4444' }]}>{diet.macros?.fat ?? 30}%</Text>
             <Text style={styles.macroLabel}>{lang === 'en' ? 'Fat' : 'Yağ'}</Text>
           </View>
         </View>
