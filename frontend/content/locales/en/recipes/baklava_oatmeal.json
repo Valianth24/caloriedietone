@@ -1,0 +1,52 @@
+{
+  "name": "Baklava Oatmeal",
+  "description": "Healthy oatmeal with baklava flavors. Honey, walnuts and warm spices make breakfast feel like dessert.",
+  "prepTime": "5 minutes",
+  "cookTime": "10 minutes",
+  "totalTime": "15 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Rolled oats", "amount": "1", "unit": "cup"},
+    {"name": "Milk", "amount": "2", "unit": "cups"},
+    {"name": "Honey", "amount": "2", "unit": "tablespoons"},
+    {"name": "Walnuts", "amount": "1/4", "unit": "cup", "note": "chopped"},
+    {"name": "Pistachios", "amount": "2", "unit": "tablespoons", "note": "chopped"},
+    {"name": "Butter", "amount": "1", "unit": "tablespoon"},
+    {"name": "Cinnamon", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Cardamom", "amount": "1/4", "unit": "teaspoon"},
+    {"name": "Vanilla extract", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "pinch"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Bring milk to a simmer in medium pot.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Add oats, reduce heat.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Cook 5-7 minutes, stirring frequently.", "tip": "Should be creamy.", "duration": "7 minutes"},
+    {"step": 4, "instruction": "Add butter, honey, cinnamon, cardamom and vanilla.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Stir well, remove from heat.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Pour into bowls.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Top with walnuts, pistachios and extra honey drizzle.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Sprinkle cinnamon and serve warm.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 10,
+    "carbs": 48,
+    "fat": 18,
+    "fiber": 5,
+    "sugar": 20,
+    "sodium": 120
+  },
+  "tips": [
+    "Honey and butter combo is key for baklava taste.",
+    "Pistachios are essential for authentic flavor.",
+    "Cardamom is common in Middle Eastern desserts.",
+    "Reduce honey for a less sweet version."
+  ],
+  "storageInfo": "Best served fresh. Flavor diminishes next day.",
+  "servingSuggestion": "Serve warm for breakfast or as a dessert.",
+  "variations": [
+    "Use dates to sweeten instead of honey.",
+    "Use coconut milk for vegan version.",
+    "Add sliced banana for extra nutrition."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Mango Lassi",
+  "description": "Refreshing Indian yogurt drink with fresh mango. Creamy, cooling and perfectly spiced.",
+  "prepTime": "5 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "5 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Ripe mango", "amount": "2", "unit": "medium", "note": "peeled, chopped"},
+    {"name": "Yogurt", "amount": "1", "unit": "cup"},
+    {"name": "Milk", "amount": "1/2", "unit": "cup"},
+    {"name": "Honey", "amount": "2", "unit": "tablespoons"},
+    {"name": "Cardamom", "amount": "1/4", "unit": "teaspoon", "note": "ground"},
+    {"name": "Ice", "amount": "1", "unit": "cup"},
+    {"name": "Pistachios", "amount": "1", "unit": "tablespoon", "note": "chopped, for garnish"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Add mango, yogurt, milk, honey and cardamom to blender.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Blend until smooth.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Add ice, blend again.", "tip": "Add more ice for colder drink.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Check consistency - add milk to thin if needed.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Pour into glasses, top with chopped pistachios.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 280,
+    "protein": 8,
+    "carbs": 52,
+    "fat": 5,
+    "fiber": 3,
+    "sugar": 45,
+    "sodium": 85
+  },
+  "tips": [
+    "Mango must be very ripe for natural sweetness.",
+    "Use frozen mango for thicker consistency.",
+    "Cardamom found at Indian grocers - essential for flavor.",
+    "Use coconut yogurt for vegan version."
+  ],
+  "storageInfo": "Best consumed immediately. Blend and drink within 2 hours.",
+  "servingSuggestion": "Pair with spicy food or enjoy on hot summer days.",
+  "variations": [
+    "Add rose water for aromatic version.",
+    "Add saffron for a luxurious touch.",
+    "Add half banana for mango-banana lassi."
+  ]
+}

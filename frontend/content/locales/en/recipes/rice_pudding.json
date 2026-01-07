@@ -1,0 +1,53 @@
+{
+  "name": "Rice Pudding",
+  "description": "Classic Turkish creamy rice dessert. Vanilla-scented and topped with cinnamon.",
+  "prepTime": "10 minutes",
+  "cookTime": "45 minutes",
+  "totalTime": "55 minutes",
+  "servings": 6,
+  "ingredients": [
+    {"name": "Rice", "amount": "1/2", "unit": "cup", "note": "washed"},
+    {"name": "Water", "amount": "1", "unit": "cup"},
+    {"name": "Milk", "amount": "4", "unit": "cups"},
+    {"name": "Sugar", "amount": "3/4", "unit": "cup"},
+    {"name": "Rice flour", "amount": "2", "unit": "tablespoons"},
+    {"name": "Vanilla extract", "amount": "1", "unit": "teaspoon"},
+    {"name": "Cinnamon", "amount": "1", "unit": "teaspoon", "note": "for garnish"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Wash rice thoroughly, drain.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Boil rice in 1 cup water in medium pot.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Simmer on low until water is absorbed.", "tip": "Stir occasionally to prevent sticking.", "duration": "15 minutes"},
+    {"step": 4, "instruction": "Add 3 cups milk, stir.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Cook over medium heat, stirring frequently, for 20 minutes.", "duration": "20 minutes"},
+    {"step": 6, "instruction": "Dissolve rice flour in remaining 1 cup milk.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Slowly add flour mixture to pot, stirring constantly.", "tip": "Keep stirring to prevent lumps.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Add sugar, stir.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Cook 5-7 more minutes until thickened.", "duration": "7 minutes"},
+    {"step": 10, "instruction": "Add vanilla, stir, remove from heat.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Pour into serving bowls, cool at room temperature.", "duration": "30 minutes"},
+    {"step": 12, "instruction": "Refrigerate until chilled. Serve with cinnamon.", "duration": "2 hours"}
+  ],
+  "nutrition": {
+    "calories": 220,
+    "protein": 6,
+    "carbs": 42,
+    "fat": 4,
+    "fiber": 0,
+    "sugar": 28,
+    "sodium": 75
+  },
+  "tips": [
+    "Rice flour creates creamy texture - don't skip.",
+    "Stir constantly to prevent burning.",
+    "Broil top for fırın sütlaç (baked rice pudding).",
+    "Best served cold."
+  ],
+  "storageInfo": "Refrigerate up to 5 days.",
+  "servingSuggestion": "Serve chilled with cinnamon on top.",
+  "variations": [
+    "Broil top for Turkish fırın sütlaç.",
+    "Add rose water for aromatic version.",
+    "Top with pistachios for crunch."
+  ]
+}

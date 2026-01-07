@@ -1,0 +1,47 @@
+{
+  "name": "Peanut Butter Banana Smoothie",
+  "description": "Protein-packed smoothie that tastes like dessert. Perfect for breakfast or post-workout.",
+  "prepTime": "5 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "5 minutes",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Ripe bananas", "amount": "2", "unit": "medium", "note": "frozen preferred"},
+    {"name": "Peanut butter", "amount": "2", "unit": "tablespoons", "note": "natural, no sugar"},
+    {"name": "Milk", "amount": "1.5", "unit": "cups", "note": "or almond milk"},
+    {"name": "Greek yogurt", "amount": "1/2", "unit": "cup"},
+    {"name": "Honey", "amount": "1", "unit": "tablespoon"},
+    {"name": "Cinnamon", "amount": "1/4", "unit": "teaspoon"},
+    {"name": "Ice", "amount": "1/2", "unit": "cup"},
+    {"name": "Oats", "amount": "2", "unit": "tablespoons", "note": "optional"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Add all ingredients to blender.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Blend on high 1-2 minutes until smooth.", "tip": "Blend longer if using oats.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Check consistency - add milk to thin if needed.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Pour into glasses, sprinkle cinnamon on top.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Optional: drizzle peanut butter and add banana slices on top.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 350,
+    "protein": 14,
+    "carbs": 45,
+    "fat": 14,
+    "fiber": 5,
+    "sugar": 28,
+    "sodium": 180
+  },
+  "tips": [
+    "Frozen banana gives milkshake texture - highly recommended.",
+    "Choose peanut butter without added sugar or oil.",
+    "Add protein powder for a gym-friendly version.",
+    "Add cocoa powder for chocolate version."
+  ],
+  "storageInfo": "Best consumed immediately.",
+  "servingSuggestion": "Enjoy for breakfast or after workout.",
+  "variations": [
+    "Use almond butter instead.",
+    "Add cocoa powder for chocolate version.",
+    "Add spinach for a green smoothie twist."
+  ]
+}
