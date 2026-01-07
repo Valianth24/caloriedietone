@@ -211,11 +211,11 @@ export const veganDiet: Diet = {
       '🍮 Jelatin (şekerleme, jöle)',
       '🧈 Peynir altı suyu (bazı ürünlerde)',
       '🔴 Karmin (böcek bazlı kırmızı boya)',
-      '🥚 Albümin (bazı şaraplarda)',
+      '🥚 Albümin (bazı ürünlerde)',
     ],
     en: [
       '🥩 ALL ANIMAL PRODUCTS:',
-      '🥩 Red meat (beef, lamb, pork)',
+      '🥩 Red meat (beef, lamb)',
       '🍗 Poultry (chicken, turkey)',
       '🐟 Fish and seafood',
       '🥚 Eggs (all types)',
@@ -228,7 +228,7 @@ export const veganDiet: Diet = {
       '🍮 Gelatin (in candies, jelly)',
       '🧈 Whey (in some products)',
       '🔴 Carmine (insect-based red dye)',
-      '🥚 Albumin (in some wines)',
+      '🥚 Albumin (in some products)',
     ],
   },
 
