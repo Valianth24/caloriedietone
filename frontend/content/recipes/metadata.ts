@@ -504,7 +504,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
     category: 'breakfast',
     difficulty: 'easy',
     tags: ['vegetarian', 'high_protein', 'mediterranean', 'gluten_free'],
-    imageUrl: 'https://images.unsplash.com/photo-1590412200988-a436970781fa?w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=400',
     iconName: 'flame-outline',
     color: '#E53935',
     featured: true,
