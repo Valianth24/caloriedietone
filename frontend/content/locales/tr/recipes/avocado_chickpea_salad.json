@@ -1,0 +1,52 @@
+{
+  "name": "Avokadolu Nohut Salatası",
+  "description": "Protein ve sağlıklı yağlar açısından zengin, doyurucu ve besleyici vegan salata.",
+  "prepTime": "15 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "15 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Haşlanmış nohut", "amount": "2", "unit": "su bardağı"},
+    {"name": "Avokado", "amount": "2", "unit": "adet", "note": "olgun, küp doğranmış"},
+    {"name": "Cherry domates", "amount": "1", "unit": "su bardağı", "note": "ikiye bölünmüş"},
+    {"name": "Kırmızı soğan", "amount": "1/2", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Salatalık", "amount": "1", "unit": "adet", "note": "küp doğranmış"},
+    {"name": "Taze kişniş", "amount": "1/2", "unit": "demet", "note": "doğranmış"},
+    {"name": "Jalapeno", "amount": "1", "unit": "adet", "note": "ince doğranmış, isteğe bağlı"},
+    {"name": "Limon suyu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Büyük bir kasede nohudu, avokadoyu, domatesi, salatalığı ve soğanı birleştirin.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Jalapeno ve kişnişi ekleyin.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Küçük bir kasede limon suyu, zeytinyağı, kimyon, tuz ve karabiberi çırpın.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Sosu salatanın üzerine gezdirin.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Nazikçe karıştırın - avokado ezilmesin.", "tip": "Kaşık yerine spatula kullanın.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Hemen servis edin veya 30 dakika buzdolabında soğutun.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 10,
+    "carbs": 28,
+    "fat": 20,
+    "fiber": 12,
+    "sugar": 4,
+    "sodium": 380
+  },
+  "tips": [
+    "Avokado olgun olmalı ama çok yumuşak değil.",
+    "Limon suyu avokadonun kararmasını önler.",
+    "Konserve nohut kullanıyorsanız iyice süzün.",
+    "Protein takviyesi için kinoa ekleyebilirsiniz."
+  ],
+  "storageInfo": "Avokado kararacağı için aynı gün tüketin. Limon suyu kararmayı azaltır.",
+  "servingSuggestion": "Tek başına veya taco dolgusu olarak servis edin.",
+  "variations": [
+    "Mısır ekleyerek Meksika esintisi katabilirsiniz.",
+    "Feta peyniri ile zenginleştirebilirsiniz.",
+    "Mango ekleyerek tropikal versiyon yapabilirsiniz."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Dolgulu Hurma",
+  "description": "Doğal tatlılığıyla hurma, badem ezmesi ve bitter çikolata ile kaplanır. Sağlıklı ve lezzetli atıştırmalık.",
+  "prepTime": "20 dakika",
+  "cookTime": "5 dakika",
+  "totalTime": "25 dakika",
+  "servings": 12,
+  "ingredients": [
+    {"name": "Medjool hurma", "amount": "12", "unit": "adet", "note": "çekirdekleri çıkarılmış"},
+    {"name": "Badem ezmesi", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Bitter çikolata", "amount": "100", "unit": "gram", "note": "%70 kakao"},
+    {"name": "Hindistan cevizi yağı", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Deniz tuzu", "amount": "1/4", "unit": "tatlı kaşığı"},
+    {"name": "Bütün badem", "amount": "12", "unit": "adet", "note": "isteğe bağlı"},
+    {"name": "Hindistan cevizi rendesi", "amount": "2", "unit": "yemek kaşığı", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Hurmaları boydan yararak çekirdeklerini çıkarın.", "tip": "Tamamen ayırmayın - cep gibi açın.", "duration": "5 dakika"},
+    {"step": 2, "instruction": "Her hurmaya 1 çay kaşığı badem ezmesi doldurun.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Dilerseniz bütün bademi ezmesinin üzerine yerleştirin.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Hurmaları nazikçe kapatın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Çikolatayı hindistan cevizi yağı ile benmari usulü eritin.", "tip": "Su değmesin - çikolata keser.", "duration": "5 dakika"},
+    {"step": 6, "instruction": "Hurmaları eritilmiş çikolataya daldırın veya üzerine gezdirin.", "duration": "5 dakika"},
+    {"step": 7, "instruction": "Yağlı kağıt üzerine dizin, deniz tuzu serpin.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Hindistan cevizi rendesi ekleyin.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Buzdolabında 15 dakika çikolata katılaşana kadar bekletin.", "duration": "15 dakika"}
+  ],
+  "nutrition": {
+    "calories": 145,
+    "protein": 3,
+    "carbs": 22,
+    "fat": 6,
+    "fiber": 3,
+    "sugar": 18,
+    "sodium": 45
+  },
+  "tips": [
+    "Medjool hurma en yumuşak ve tatlısıdır - tercihen kullanın.",
+    "Bitter çikolata sağlıklı ve hurmanın tatlılığını dengeler.",
+    "Deniz tuzu kontrast lezzet yaratır - atlamayın.",
+    "Hediye olarak kutulanabilir - çok şık görünür."
+  ],
+  "storageInfo": "Buzdolabında 2 hafta saklanır. Oda sıcaklığında 1 hafta.",
+  "servingSuggestion": "Kahve veya çay eşliğinde ikram edin.",
+  "variations": [
+    "Fıstık ezmesi ile yapabilirsiniz.",
+    "Beyaz çikolata kaplamalı versiyon deneyebilirsiniz.",
+    "Antep fıstığı ezmesi ile doldurup servis edebilirsiniz."
+  ]
+}

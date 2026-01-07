@@ -1,0 +1,52 @@
+{
+  "name": "Baba Ganuş",
+  "description": "Kömür ateşinde közlenmiş patlıcan ile hazırlanan kremamsı Ortadoğu mezesi. Tahin ve sarımsağın mükemmel uyumu.",
+  "prepTime": "15 dakika",
+  "cookTime": "40 dakika",
+  "totalTime": "55 dakika",
+  "servings": 6,
+  "ingredients": [
+    {"name": "Büyük patlıcan", "amount": "3", "unit": "adet"},
+    {"name": "Tahin", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Limon suyu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kimyon", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Taze maydanoz", "amount": "2", "unit": "yemek kaşığı", "note": "servis için"},
+    {"name": "Sumak", "amount": "1", "unit": "tatlı kaşığı", "note": "servis için"},
+    {"name": "Nar tanesi", "amount": "2", "unit": "yemek kaşığı", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Patlıcanları çatal ile birkaç yerden delin.", "tip": "Bu patlıcanların patlamasını önler.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Patlıcanları doğrudan gaz ateşinde veya mangalda, her tarafı yanana ve yumuşayana kadar közlein.", "tip": "Kabuk tamamen yanmalı - is lezzetin sırrı.", "duration": "25 dakika"},
+    {"step": 3, "instruction": "Alternatif: Fırında 220°C'de 40 dakika pişirin.", "duration": "40 dakika"},
+    {"step": 4, "instruction": "Patlıcanları bir kaseye alın, 10 dakika soğumaya bırakın.", "duration": "10 dakika"},
+    {"step": 5, "instruction": "Yanmış kabukları soyun, içini çıkarın.", "tip": "Hafif yanmış kısımlar kalabilir - lezzet katar.", "duration": "5 dakika"},
+    {"step": 6, "instruction": "Patlıcan etini süzgeçte 15 dakika süzdürün.", "tip": "Fazla su baba ganuşu sulu yapar.", "duration": "15 dakika"},
+    {"step": 7, "instruction": "Patlıcan, tahin, sarımsak, limon suyu, zeytinyağı, tuz ve kimyonu food processor'da karıştırın.", "duration": "2 dakika"},
+    {"step": 8, "instruction": "Servis tabağına alın, üzerine zeytinyağı gezdirin, maydanoz, sumak ve nar tanesi serpin.", "duration": "2 dakika"}
+  ],
+  "nutrition": {
+    "calories": 120,
+    "protein": 3,
+    "carbs": 10,
+    "fat": 8,
+    "fiber": 4,
+    "sugar": 4,
+    "sodium": 280
+  },
+  "tips": [
+    "Ateşte közlemek is lezzeti verir - atlamayın.",
+    "Patlıcan suyunu iyice süzdürün - kıvam önemli.",
+    "Tahin kalitesi lezzeti doğrudan etkiler.",
+    "Oda sıcaklığında servis edin - soğuk değil."
+  ],
+  "storageInfo": "Buzdolabında 5 gün saklanır. Servis öncesi oda sıcaklığına getirin.",
+  "servingSuggestion": "Taze pide veya sebze çubukları ile daldırarak tüketin.",
+  "variations": [
+    "Yoğurt ekleyerek daha kremamsı yapabilirsiniz.",
+    "Acı biber ile baharatlı versiyon deneyebilirsiniz.",
+    "Ceviz serperek zenginleştirebilirsiniz."
+  ]
+}
