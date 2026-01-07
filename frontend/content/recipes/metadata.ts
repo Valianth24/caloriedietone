@@ -393,7 +393,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
     category: 'snack',
     difficulty: 'easy',
     tags: ['vegan', 'low_carb', 'quick', 'kid_friendly'],
-    imageUrl: 'https://images.unsplash.com/photo-1622205313162-be1d5712a43f?w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1640719028782-8230f1bdc56e?w=400',
     iconName: 'nutrition-outline',
     color: '#66BB6A',
     version: '1.0.0',
