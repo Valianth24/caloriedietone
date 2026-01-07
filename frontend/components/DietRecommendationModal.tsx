@@ -128,6 +128,10 @@ export default function DietRecommendationModal({ visible, onClose, onSelectDiet
         let score = 0;
         const reasons: string[] = [];
         
+        // Varsayılan macros değerleri
+        const defaultMacros = { protein: 25, carbs: 45, fat: 30 };
+        const dietMacros = diet.macros || defaultMacros;
+        
         // Hedef uyumu - suitableFor alanına göre
         const suitableGoals = getSuitableGoals(diet);
         if (suitableGoals.includes(userGoal)) {
@@ -168,7 +172,7 @@ export default function DietRecommendationModal({ visible, onClose, onSelectDiet
           duration_days: diet.duration,
           category: diet.category || 'weight_loss',
           difficulty: diet.difficulty,
-          macros: diet.macros,
+          macros: dietMacros,
           is_premium: diet.isPremium,
           score,
           reasons: reasons.slice(0, 2),
