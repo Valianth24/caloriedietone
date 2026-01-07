@@ -21,7 +21,6 @@ import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import i18n, { languageList, changeLanguage } from '../../utils/i18n';
 import ThemeSelector from '../../components/ThemeSelector';
-import WeightChart from '../../components/WeightChart';
 import Constants from 'expo-constants';
 
 // Get backend URL from app.config.js extra or environment
