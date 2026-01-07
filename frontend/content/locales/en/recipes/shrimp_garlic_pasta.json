@@ -1,0 +1,54 @@
+{
+  "name": "Garlic Shrimp Pasta",
+  "description": "Mediterranean-inspired pasta with succulent shrimp in garlic and olive oil sauce. Quick and elegant.",
+  "prepTime": "10 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "25 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Spaghetti", "amount": "400", "unit": "grams"},
+    {"name": "Large shrimp", "amount": "500", "unit": "grams", "note": "peeled and deveined"},
+    {"name": "Garlic", "amount": "6", "unit": "cloves", "note": "thinly sliced"},
+    {"name": "Olive oil", "amount": "4", "unit": "tablespoons"},
+    {"name": "Butter", "amount": "2", "unit": "tablespoons"},
+    {"name": "White wine or lemon juice", "amount": "1/2", "unit": "cup"},
+    {"name": "Red pepper flakes", "amount": "1", "unit": "teaspoon"},
+    {"name": "Fresh parsley", "amount": "1", "unit": "bunch", "note": "chopped"},
+    {"name": "Lemon", "amount": "1", "unit": "medium"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Cook spaghetti in salted boiling water until al dente.", "tip": "Reserve 1 cup pasta water.", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Heat olive oil and butter in a large skillet over medium heat.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Add garlic slices, cook 1 minute until golden.", "tip": "Don't burn - it becomes bitter.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Add red pepper flakes, cook 30 seconds.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Add shrimp, cook 2 minutes per side.", "tip": "Shrimp should be pink but not overcooked.", "duration": "4 minutes"},
+    {"step": 6, "instruction": "Add lemon juice, simmer 1 minute.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Add drained pasta to the skillet.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Add 1/2 cup pasta water, toss until sauce coats pasta.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Garnish with parsley and lemon zest. Serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 28,
+    "carbs": 52,
+    "fat": 12,
+    "fiber": 3,
+    "sugar": 2,
+    "sodium": 580
+  },
+  "tips": [
+    "Pat shrimp dry before cooking for better browning.",
+    "Pasta water starch makes the sauce creamy.",
+    "Add Parmesan cheese to enhance flavor.",
+    "Use fresh shrimp - thaw frozen ones completely."
+  ],
+  "storageInfo": "Best served fresh. Refrigerate for 1 day maximum.",
+  "servingSuggestion": "Serve with green salad and crusty bread.",
+  "variations": [
+    "Add cherry tomatoes for more color.",
+    "Serve over arugula for a peppery bite.",
+    "Use linguine or fettuccine instead."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Korean Beef Bulgogi",
+  "description": "Marinated Korean BBQ beef with sweet and savory flavors. An addictive classic of Korean cuisine.",
+  "prepTime": "20 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "35 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Beef sirloin", "amount": "600", "unit": "grams", "note": "thinly sliced"},
+    {"name": "Asian pear", "amount": "1", "unit": "medium", "note": "grated"},
+    {"name": "Soy sauce", "amount": "4", "unit": "tablespoons"},
+    {"name": "Sesame oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Honey", "amount": "2", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "5", "unit": "cloves", "note": "minced"},
+    {"name": "Ginger", "amount": "1", "unit": "tablespoon", "note": "grated"},
+    {"name": "Onion", "amount": "1", "unit": "medium", "note": "thinly sliced"},
+    {"name": "Green onions", "amount": "4", "unit": "stalks", "note": "chopped"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Sesame seeds", "amount": "2", "unit": "tablespoons", "note": "for garnish"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Make marinade: combine grated pear, soy sauce, sesame oil, honey, garlic, ginger and pepper.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Add beef slices to marinade, mix thoroughly.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Refrigerate for minimum 2 hours, ideally overnight.", "tip": "Pear tenderizes the meat - don't skip it.", "duration": "2 hours"},
+    {"step": 4, "instruction": "Heat a large skillet or wok over high heat.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Add marinated beef and onions to pan.", "tip": "Don't overcrowd - cook in 2 batches if needed.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Cook over high heat 8-10 minutes until caramelized.", "duration": "10 minutes"},
+    {"step": 7, "instruction": "Garnish with green onions and sesame seeds. Serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 35,
+    "carbs": 18,
+    "fat": 18,
+    "fiber": 2,
+    "sugar": 12,
+    "sodium": 720
+  },
+  "tips": [
+    "Freeze beef 30 minutes for easier slicing.",
+    "High heat is essential for caramelization.",
+    "Apple or kiwi can substitute for pear.",
+    "Serve in lettuce wraps or over rice."
+  ],
+  "storageInfo": "Marinated beef keeps 2 days, cooked 3 days refrigerated.",
+  "servingSuggestion": "Serve with white rice, kimchi and pickled vegetables.",
+  "variations": [
+    "Make with chicken (Dak Bulgogi).",
+    "Add sliced mushrooms.",
+    "Add gochujang (Korean chili paste) for spicier version."
+  ]
+}

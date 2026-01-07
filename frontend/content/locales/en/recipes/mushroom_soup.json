@@ -1,0 +1,57 @@
+{
+  "name": "Mushroom Soup",
+  "description": "Velvety cream of mushroom soup. Rich, aromatic and perfect for cold days.",
+  "prepTime": "15 minutes",
+  "cookTime": "30 minutes",
+  "totalTime": "45 minutes",
+  "servings": 6,
+  "ingredients": [
+    {"name": "Cremini mushrooms", "amount": "500", "unit": "grams", "note": "sliced"},
+    {"name": "Onion", "amount": "1", "unit": "medium", "note": "chopped"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Butter", "amount": "3", "unit": "tablespoons"},
+    {"name": "All-purpose flour", "amount": "2", "unit": "tablespoons"},
+    {"name": "Chicken broth", "amount": "4", "unit": "cups"},
+    {"name": "Milk", "amount": "1", "unit": "cup"},
+    {"name": "Heavy cream", "amount": "1/2", "unit": "cup"},
+    {"name": "Fresh thyme", "amount": "1", "unit": "tablespoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Fresh parsley", "amount": "2", "unit": "tablespoons", "note": "for garnish"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Melt half the butter in a large pot.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Add mushrooms, cook 8-10 minutes until liquid evaporates and they brown.", "tip": "Don't crowd the pan.", "duration": "10 minutes"},
+    {"step": 3, "instruction": "Remove half the mushrooms and set aside for garnish.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Add remaining butter, sauté onion for 5 minutes.", "duration": "5 minutes"},
+    {"step": 5, "instruction": "Add garlic, cook 1 minute.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Sprinkle flour, cook 2 minutes while stirring.", "tip": "Important to cook out raw flour taste.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Gradually add broth while stirring constantly.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Add thyme, bring to boil, then simmer 15 minutes.", "duration": "15 minutes"},
+    {"step": 9, "instruction": "Blend until smooth.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Stir in milk and cream. Season with salt and pepper.", "duration": "2 minutes"},
+    {"step": 11, "instruction": "Serve in bowls topped with reserved mushrooms and parsley.", "duration": "2 minutes"}
+  ],
+  "nutrition": {
+    "calories": 180,
+    "protein": 6,
+    "carbs": 12,
+    "fat": 13,
+    "fiber": 2,
+    "sugar": 4,
+    "sodium": 520
+  },
+  "tips": [
+    "Mix different mushroom varieties for richer flavor.",
+    "Use coconut cream for vegan version.",
+    "Add truffle oil for a luxurious touch.",
+    "Pat mushrooms dry for better browning."
+  ],
+  "storageInfo": "Refrigerate 4 days, freeze up to 2 months.",
+  "servingSuggestion": "Serve hot with crusty bread.",
+  "variations": [
+    "Use porcini mushrooms for deeper flavor.",
+    "Add sherry for an elegant twist.",
+    "Top with gruyère cheese."
+  ]
+}

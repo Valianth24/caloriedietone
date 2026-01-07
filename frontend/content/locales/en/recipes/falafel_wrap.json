@@ -1,0 +1,60 @@
+{
+  "name": "Falafel Wrap",
+  "description": "Popular Middle Eastern vegan delight. Crispy falafel with fresh vegetables in lavash wrap.",
+  "prepTime": "30 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "50 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Dried chickpeas", "amount": "2", "unit": "cups", "note": "soaked overnight"},
+    {"name": "Fresh parsley", "amount": "1", "unit": "bunch"},
+    {"name": "Fresh cilantro", "amount": "1/2", "unit": "bunch"},
+    {"name": "Onion", "amount": "1", "unit": "medium", "note": "chopped"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Coriander seeds", "amount": "1", "unit": "teaspoon"},
+    {"name": "Red pepper flakes", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Baking soda", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Oil for frying", "amount": "3", "unit": "cups"},
+    {"name": "Lavash or pita", "amount": "4", "unit": "pieces"},
+    {"name": "Tomatoes", "amount": "2", "unit": "medium", "note": "sliced"},
+    {"name": "Cucumber", "amount": "1", "unit": "medium", "note": "sliced"},
+    {"name": "Red onion", "amount": "1/2", "unit": "medium", "note": "thinly sliced"},
+    {"name": "Hummus", "amount": "1", "unit": "cup"},
+    {"name": "Tahini sauce", "amount": "1/2", "unit": "cup"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Drain soaked chickpeas thoroughly and pat dry.", "tip": "Never use canned chickpeas - falafel will fall apart.", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Process chickpeas, onion, garlic, parsley and cilantro in food processor until coarsely ground.", "tip": "Don't puree - texture is important.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Add spices, salt and baking soda. Mix well.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Refrigerate mixture for 30 minutes.", "duration": "30 minutes"},
+    {"step": 5, "instruction": "Form walnut-sized portions into flat discs.", "duration": "5 minutes"},
+    {"step": 6, "instruction": "Heat oil to 180°C.", "duration": "5 minutes"},
+    {"step": 7, "instruction": "Fry falafel 3-4 minutes per side until golden brown.", "tip": "Don't overcrowd the pan.", "duration": "15 minutes"},
+    {"step": 8, "instruction": "Drain on paper towels.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Warm lavash, spread hummus, add falafel, vegetables and tahini sauce. Wrap and serve.", "duration": "3 minutes"}
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 18,
+    "carbs": 55,
+    "fat": 22,
+    "fiber": 12,
+    "sugar": 5,
+    "sodium": 720
+  },
+  "tips": [
+    "Dried chickpeas are essential - canned won't hold shape.",
+    "Air fry at 180°C for 15 minutes as healthier option.",
+    "Add 1 tbsp flour if mixture is too wet.",
+    "Falafel should have plenty of herbs - adds color and flavor."
+  ],
+  "storageInfo": "Raw mixture keeps 3 days, cooked falafel 4 days refrigerated.",
+  "servingSuggestion": "Serve with hummus, tahini sauce, pickles and tabbouleh.",
+  "variations": [
+    "Use fava beans for Egyptian-style ta'amiya.",
+    "Bake at 200°C for 25 minutes instead of frying.",
+    "Add spinach for green falafel."
+  ]
+}
