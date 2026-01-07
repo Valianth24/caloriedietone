@@ -544,7 +544,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
     category: 'main_course',
     difficulty: 'medium',
     tags: ['high_protein', 'gluten_free'],
-    imageUrl: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1588166524941-3bf61a9c41db?w=400',
     iconName: 'restaurant-outline',
     color: '#FF6F00',
     featured: true,
