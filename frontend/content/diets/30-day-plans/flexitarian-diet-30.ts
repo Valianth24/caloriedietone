@@ -170,7 +170,7 @@ export const flexitarianDiet30: Diet = {
 
   forbiddenFoods: {
     tr: [
-      '🚫 İşlenmiş etler: Sosis, salam, sucuk, jambon',
+      '🚫 İşlenmiş etler: Sosis, salam, sucuk (sınırlı)',
       '🚫 Fast food ve kızartmalar',
       '🚫 Şekerli içecekler ve gazlı içecekler',
       '🚫 Rafine şeker ve beyaz un ürünleri',

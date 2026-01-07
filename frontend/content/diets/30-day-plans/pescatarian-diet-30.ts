@@ -174,7 +174,7 @@ export const pescatarianDiet30: Diet = {
     tr: [
       '🚫 Kırmızı et: Dana, kuzu (sınırlı)',
       '🚫 Beyaz et: Tavuk, hindi, ördek',
-      '🚫 İşlenmiş etler: Sosis, salam, sucuk, jambon',
+      '🚫 İşlenmiş etler: Sosis, salam, sucuk (sınırlı)',
       '🚫 Fast food ve kızartmalar',
       '🚫 Şekerli içecekler',
       '🚫 Rafine şeker ve beyaz un',
