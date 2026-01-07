@@ -1,0 +1,54 @@
+{
+  "name": "Lamb Kofta",
+  "description": "Spiced Mediterranean lamb meatballs. Tender, flavorful, and perfect for grilling.",
+  "prepTime": "20 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "35 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Ground lamb", "amount": "500", "unit": "grams"},
+    {"name": "Onion", "amount": "1", "unit": "medium", "note": "grated"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh parsley", "amount": "1/2", "unit": "bunch", "note": "finely chopped"},
+    {"name": "Fresh mint", "amount": "1/4", "unit": "bunch", "note": "finely chopped"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Coriander seeds", "amount": "1", "unit": "teaspoon", "note": "ground"},
+    {"name": "Red pepper flakes", "amount": "1", "unit": "teaspoon"},
+    {"name": "Cinnamon", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Combine all ingredients in a large bowl.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Mix thoroughly with your hands until spices are evenly distributed.", "tip": "Knead for at least 5 minutes for better texture.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Refrigerate mixture for 30 minutes.", "tip": "This makes shaping easier.", "duration": "30 minutes"},
+    {"step": 4, "instruction": "Form walnut-sized portions into elongated kofta shapes or thread onto skewers.", "duration": "5 minutes"},
+    {"step": 5, "instruction": "Preheat grill or grill pan over high heat.", "duration": "3 minutes"},
+    {"step": 6, "instruction": "Brush koftas with olive oil.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Grill 3-4 minutes per side, 12-15 minutes total.", "tip": "Don't flip too often - let them develop a nice crust.", "duration": "15 minutes"},
+    {"step": 8, "instruction": "Serve hot.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 28,
+    "carbs": 4,
+    "fat": 22,
+    "fiber": 1,
+    "sugar": 1,
+    "sodium": 520
+  },
+  "tips": [
+    "Lamb has enough fat - no extra oil needed.",
+    "Soak wooden skewers in water before grilling.",
+    "Internal temperature should reach 71°C.",
+    "Pairs wonderfully with yogurt sauce."
+  ],
+  "storageInfo": "Raw mixture keeps 2 days, cooked kofta 3 days refrigerated.",
+  "servingSuggestion": "Serve with lavash, hummus, tabbouleh and yogurt sauce.",
+  "variations": [
+    "Use ground beef as an alternative.",
+    "Bake at 200°C for 20 minutes instead of grilling.",
+    "Sprinkle sumac for a tangy twist."
+  ]
+}

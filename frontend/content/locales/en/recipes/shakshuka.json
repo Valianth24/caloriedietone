@@ -1,0 +1,54 @@
+{
+  "name": "Shakshuka",
+  "description": "Middle Eastern eggs poached in spiced tomato sauce. A breakfast favorite that's hearty and flavorful.",
+  "prepTime": "10 minutes",
+  "cookTime": "25 minutes",
+  "totalTime": "35 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Eggs", "amount": "6", "unit": "large"},
+    {"name": "Tomatoes", "amount": "6", "unit": "medium", "note": "ripe, diced"},
+    {"name": "Red bell pepper", "amount": "2", "unit": "medium", "note": "diced"},
+    {"name": "Onion", "amount": "1", "unit": "medium", "note": "finely chopped"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Paprika", "amount": "1", "unit": "teaspoon"},
+    {"name": "Sweet paprika", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Fresh parsley", "amount": "1", "unit": "bunch", "note": "for serving"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Heat olive oil in a wide skillet over medium heat.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Add onions and cook for 5 minutes until softened.", "tip": "Don't let them brown.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Add bell peppers and cook for 5 more minutes.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Add garlic and cook for 1 minute until fragrant.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add tomatoes, cumin, paprika and spices. Stir to combine.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Reduce heat and simmer for 10 minutes until sauce thickens.", "tip": "Stir occasionally.", "duration": "10 minutes"},
+    {"step": 7, "instruction": "Make small wells in the sauce and crack eggs into them.", "tip": "One well per egg.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Cover and cook 5-7 minutes until eggs are set to your liking.", "duration": "7 minutes"},
+    {"step": 9, "instruction": "Garnish with parsley and serve hot.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 245,
+    "protein": 14,
+    "carbs": 15,
+    "fat": 15,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 480
+  },
+  "tips": [
+    "Runny yolks are traditional - don't overcook.",
+    "Serve with crusty bread for dipping.",
+    "Add crumbled feta cheese on top.",
+    "Increase red pepper flakes for more heat."
+  ],
+  "storageInfo": "Best served fresh. Can be refrigerated for 1 day.",
+  "servingSuggestion": "Serve hot with fresh bread or pita.",
+  "variations": [
+    "Add spinach for green shakshuka.",
+    "Top with crumbled feta cheese.",
+    "Add chorizo for a heartier version."
+  ]
+}

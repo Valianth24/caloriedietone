@@ -1,0 +1,57 @@
+{
+  "name": "Butter Chicken",
+  "description": "Iconic Indian curry with tender chicken in a rich, creamy tomato sauce. A worldwide favorite.",
+  "prepTime": "20 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "55 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "600", "unit": "grams", "note": "cubed"},
+    {"name": "Yogurt", "amount": "1", "unit": "cup"},
+    {"name": "Tomato paste", "amount": "3", "unit": "tablespoons"},
+    {"name": "Heavy cream", "amount": "1", "unit": "cup"},
+    {"name": "Butter", "amount": "4", "unit": "tablespoons"},
+    {"name": "Onion", "amount": "1", "unit": "medium", "note": "grated"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Ginger", "amount": "1", "unit": "tablespoon", "note": "grated"},
+    {"name": "Garam masala", "amount": "2", "unit": "teaspoons"},
+    {"name": "Turmeric", "amount": "1", "unit": "teaspoon"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Red chili powder", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Fresh cilantro", "amount": "1", "unit": "bunch", "note": "for garnish"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marinate chicken with yogurt, turmeric, 1 tsp garam masala and salt. Let sit 30 minutes.", "tip": "Overnight marination gives best results.", "duration": "30 minutes"},
+    {"step": 2, "instruction": "Place marinated chicken on a baking sheet. Bake at 200°C for 20 minutes.", "duration": "20 minutes"},
+    {"step": 3, "instruction": "Melt butter in a large pan. Sauté onion for 5 minutes.", "duration": "5 minutes"},
+    {"step": 4, "instruction": "Add garlic and ginger, cook for 1 minute.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add tomato paste, remaining garam masala, cumin and chili. Cook 2 minutes.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Add 1 cup water, simmer for 10 minutes.", "duration": "10 minutes"},
+    {"step": 7, "instruction": "Stir in cream, simmer for 5 more minutes.", "duration": "5 minutes"},
+    {"step": 8, "instruction": "Add cooked chicken to sauce, simmer 5 minutes.", "duration": "5 minutes"},
+    {"step": 9, "instruction": "Garnish with cilantro and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 450,
+    "protein": 38,
+    "carbs": 12,
+    "fat": 28,
+    "fiber": 2,
+    "sugar": 6,
+    "sodium": 680
+  },
+  "tips": [
+    "Chicken can be grilled or pan-fried instead of baked.",
+    "Add water if sauce is too thick.",
+    "Use coconut cream for dairy-free version.",
+    "Pairs perfectly with basmati rice."
+  ],
+  "storageInfo": "Refrigerate for 3 days. Add water when reheating.",
+  "servingSuggestion": "Serve with basmati rice and naan bread.",
+  "variations": [
+    "Make it spicier with extra chili.",
+    "Use paneer for vegetarian version.",
+    "Add kasuri methi (dried fenugreek leaves) for authentic flavor."
+  ]
+}

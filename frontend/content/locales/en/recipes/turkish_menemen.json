@@ -1,0 +1,50 @@
+{
+  "name": "Turkish Menemen",
+  "description": "Traditional Turkish breakfast of scrambled eggs with tomatoes and peppers. A staple of Turkish cuisine.",
+  "prepTime": "10 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "25 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Eggs", "amount": "6", "unit": "large"},
+    {"name": "Tomatoes", "amount": "4", "unit": "medium", "note": "ripe, diced"},
+    {"name": "Green peppers", "amount": "3", "unit": "medium", "note": "Turkish sivri, chopped"},
+    {"name": "Onion", "amount": "1", "unit": "medium", "note": "finely chopped"},
+    {"name": "Butter", "amount": "2", "unit": "tablespoons"},
+    {"name": "Olive oil", "amount": "1", "unit": "tablespoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Red pepper flakes", "amount": "1", "unit": "teaspoon", "note": "optional"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Melt butter and olive oil in a pan.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Add onions and cook for 3 minutes until translucent.", "duration": "3 minutes"},
+    {"step": 3, "instruction": "Add peppers and cook for 3 more minutes.", "tip": "Peppers should soften but stay slightly crisp.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Add tomatoes, season with salt and pepper.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Cook for 5-7 minutes until tomato juices reduce.", "tip": "Shouldn't be too dry - keep it slightly saucy.", "duration": "7 minutes"},
+    {"step": 6, "instruction": "Crack eggs and stir gently while cooking.", "tip": "Don't over-stir - eggs should be chunky.", "duration": "3 minutes"},
+    {"step": 7, "instruction": "Remove from heat when eggs are set. Sprinkle with red pepper flakes.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 220,
+    "protein": 13,
+    "carbs": 10,
+    "fat": 15,
+    "fiber": 2,
+    "sugar": 6,
+    "sodium": 420
+  },
+  "tips": [
+    "Use ripe, juicy tomatoes - canned works in winter.",
+    "Don't overcook eggs - keep them moist.",
+    "Traditional sucuk (Turkish sausage) can be added.",
+    "Pairs perfectly with fresh bread or simit."
+  ],
+  "storageInfo": "Best served fresh.",
+  "servingSuggestion": "Serve hot with fresh bread and black olives.",
+  "variations": [
+    "Add grated cheese on top for cheesy menemen.",
+    "Add sucuk (Turkish sausage) for a heartier version.",
+    "Add pastırma (cured beef) for a different flavor."
+  ]
+}
