@@ -1,0 +1,57 @@
+{
+  "name": "Butter Chicken (Tereyağlı Tavuk)",
+  "description": "Hint mutfağının dünyaca ünlü yemeği. Kremamsı domates sosunda marine edilmiş tavuk parçaları.",
+  "prepTime": "20 dakika",
+  "cookTime": "35 dakika",
+  "totalTime": "55 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Tavuk göğsü", "amount": "600", "unit": "gram", "note": "kuşbaşı"},
+    {"name": "Yoğurt", "amount": "1", "unit": "su bardağı"},
+    {"name": "Domates salçası", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Krema", "amount": "1", "unit": "su bardağı"},
+    {"name": "Tereyağı", "amount": "4", "unit": "yemek kaşığı"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Zencefil", "amount": "1", "unit": "yemek kaşığı", "note": "rendelenmiş"},
+    {"name": "Garam masala", "amount": "2", "unit": "tatlı kaşığı"},
+    {"name": "Zerdeçal", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı toz biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Taze kişniş", "amount": "1", "unit": "demet", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Tavukları yoğurt, zerdeçal, 1 tatlı kaşığı garam masala ve tuz ile marine edin. 30 dakika bekletin.", "tip": "Bir gece bekletirseniz daha lezzetli olur.", "duration": "30 dakika"},
+    {"step": 2, "instruction": "Marine tavukları fırın tepsisine dizin, 200°C'de 20 dakika pişirin.", "duration": "20 dakika"},
+    {"step": 3, "instruction": "Büyük bir tavada tereyağını eritin. Soğanı 5 dakika kavurun.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Sarımsak ve zencefili ekleyin, 1 dakika kavurun.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Domates salçasını, kalan garam masala, kimyon ve kırmızı biberi ekleyin. 2 dakika kavurun.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "1 su bardağı su ekleyin, 10 dakika kaynatın.", "duration": "10 dakika"},
+    {"step": 7, "instruction": "Kremayı ekleyin, karıştırın. 5 dakika daha pişirin.", "duration": "5 dakika"},
+    {"step": 8, "instruction": "Pişmiş tavukları sosa ekleyin, 5 dakika sos içinde pişirin.", "duration": "5 dakika"},
+    {"step": 9, "instruction": "Kişniş ile süsleyerek servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 450,
+    "protein": 38,
+    "carbs": 12,
+    "fat": 28,
+    "fiber": 2,
+    "sugar": 6,
+    "sodium": 680
+  },
+  "tips": [
+    "Tavukları ızgarada veya tavada da pişirebilirsiniz.",
+    "Sos çok koyu olursa biraz su ekleyin.",
+    "Krema yerine hindistan cevizi sütü kullanarak vegan versiyonu yapabilirsiniz.",
+    "Basmati pilavı ile mükemmel uyum sağlar."
+  ],
+  "storageInfo": "Buzdolabında 3 gün saklanabilir. Isıtırken biraz su ekleyin.",
+  "servingSuggestion": "Basmati pilavı ve naan ekmeği ile servis edin.",
+  "variations": [
+    "Tikka Masala versiyonu için daha fazla baharat ekleyin.",
+    "Daha az acılı seviyorsanız kırmızı biberi azaltın.",
+    "Paneer ile vejetaryen versiyonu yapabilirsiniz."
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "name": "Kuzu Köfte",
+  "description": "Baharat zenginliği ile hazırlanan yumuşacık kuzu köfte. Akdeniz mutfağının en sevilen lezzetlerinden.",
+  "prepTime": "20 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "35 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Kuzu kıyma", "amount": "500", "unit": "gram"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Taze maydanoz", "amount": "1/2", "unit": "demet", "note": "ince kıyılmış"},
+    {"name": "Taze nane", "amount": "1/4", "unit": "demet", "note": "ince kıyılmış"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kişniş tohumu", "amount": "1", "unit": "tatlı kaşığı", "note": "dövülmüş"},
+    {"name": "Pul biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tarçın", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Tüm malzemeleri büyük bir kasede birleştirin.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Elinizle iyice yoğurun, tüm baharatlar eşit dağılsın.", "tip": "Minimum 5 dakika yoğurun - köfte daha sıkı olur.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Karışımı buzdolabında 30 dakika dinlendirin.", "tip": "Bu adım şekil vermesini kolaylaştırır.", "duration": "30 dakika"},
+    {"step": 4, "instruction": "Ceviz büyüklüğünde parçalar alın, uzun köfte şekli verin veya şişlere geçirin.", "duration": "5 dakika"},
+    {"step": 5, "instruction": "Izgarayı veya ızgara tavayı yüksek ateşte önceden ısıtın.", "duration": "3 dakika"},
+    {"step": 6, "instruction": "Köfteleri zeytinyağı ile yağlayın.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Her tarafı 3-4 dakika, toplam 12-15 dakika pişirin.", "tip": "Çok sık çevirmeyin - güzel kabuk oluşsun.", "duration": "15 dakika"},
+    {"step": 8, "instruction": "Dinlendirmeden sıcak servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 28,
+    "carbs": 4,
+    "fat": 22,
+    "fiber": 1,
+    "sugar": 1,
+    "sodium": 520
+  },
+  "tips": [
+    "Kuzu yağlı olduğu için ekstra yağ eklemeye gerek yok.",
+    "Şişe takmadan önce şişleri suda bekletin (ahşap ise).",
+    "İç sıcaklık 71°C olmalı.",
+    "Yoğurt sosu ile harika gider."
+  ],
+  "storageInfo": "Pişmemiş köfte 2 gün, pişmiş 3 gün buzdolabında saklanır.",
+  "servingSuggestion": "Lavaş, humus, tabule ve yoğurtlu sos ile servis edin.",
+  "variations": [
+    "Dana kıyma ile de yapabilirsiniz.",
+    "Fırında 200°C'de 20 dakika pişirebilirsiniz.",
+    "Sumak serperek farklı bir aroma katabilirsiniz."
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Açai Bowl",
+  "description": "Brezilya'nın süper meyvesi açai ile yapılan antioksidan deposu kahvaltı kasesi. Enerjik bir güne başlamanın en sağlıklı yolu.",
+  "prepTime": "10 dakika",
+  "cookTime": "0 dakika",
+  "totalTime": "10 dakika",
+  "servings": 2,
+  "ingredients": [
+    {"name": "Dondurulmuş açai püresi", "amount": "200", "unit": "gram"},
+    {"name": "Dondurulmuş muz", "amount": "2", "unit": "adet"},
+    {"name": "Dondurulmuş böğürtlen", "amount": "1", "unit": "su bardağı"},
+    {"name": "Badem sütü", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Bal", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Granola", "amount": "1/2", "unit": "su bardağı", "note": "üzeri için"},
+    {"name": "Taze muz", "amount": "1", "unit": "adet", "note": "dilimlenmiş, üzeri için"},
+    {"name": "Hindistan cevizi rendesi", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Chia tohumu", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Taze çilek", "amount": "6", "unit": "adet", "note": "dilimlenmiş"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Açai püresini, dondurulmuş muzu, böğürtleni ve badem sütünü blender'a koyun.", "duration": "1 dakika"},
+    {"step": 2, "instruction": "Pürüzsüz ve koyu kıvamlı bir karışım elde edene kadar blenderlayın.", "tip": "Çok sulu olursa daha fazla donmuş meyve ekleyin.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Balı ekleyin ve tekrar kısa blenderlayın.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Karışımı kaselere paylaştırın.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Üzerine granola, taze muz dilimleri, çilek, hindistan cevizi rendesi ve chia tohumu dizin.", "tip": "Topping'leri estetik şekilde sıralayın.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Hemen servis edin - erimeden önce tüketin!", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 8,
+    "carbs": 65,
+    "fat": 12,
+    "fiber": 10,
+    "sugar": 35,
+    "sodium": 45
+  },
+  "tips": [
+    "Açai güçlü antioksidan içerir - bağışıklık sistemini güçlendirir.",
+    "Protein tozu ekleyerek daha doyurucu hale getirebilirsiniz.",
+    "Kıvamı dondurma gibi koyu olmalı - çok akıcı olmamalı.",
+    "Topping'leri mevsim meyvelerine göre değiştirebilirsiniz."
+  ],
+  "storageInfo": "Hemen tüketilmelidir. Bekletilmez.",
+  "servingSuggestion": "Kahvaltıda veya egzersiz sonrası enerji takviyesi olarak tüketin.",
+  "variations": [
+    "Pitaya (ejder meyvesi) ile pembe bowl yapabilirsiniz.",
+    "Fıstık ezmesi ekleyerek protein değerini artırabilirsiniz.",
+    "Yeşil smoothie tarzı için ıspanak ekleyebilirsiniz."
+  ]
+}

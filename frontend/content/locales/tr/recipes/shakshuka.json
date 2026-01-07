@@ -1,0 +1,54 @@
+{
+  "name": "Şakşuka",
+  "description": "Ortadoğu'nun meşhur yumurtalı domates yemeği. Baharatlı domates sosunda pişmiş yumurtalar, kahvaltının yıldızı.",
+  "prepTime": "10 dakika",
+  "cookTime": "25 dakika",
+  "totalTime": "35 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Yumurta", "amount": "6", "unit": "adet"},
+    {"name": "Domates", "amount": "6", "unit": "adet", "note": "olgun, doğranmış"},
+    {"name": "Kırmızı biber", "amount": "2", "unit": "adet", "note": "doğranmış"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Pul biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tatlı kırmızı toz biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Taze maydanoz", "amount": "1", "unit": "demet", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Geniş bir tavada zeytinyağını orta ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Soğanları ekleyin, 5 dakika yumuşayana kadar kavurun.", "tip": "Karamelize olmalarına izin vermeyin.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Kırmızı biberleri ekleyin, 5 dakika daha pişirin.", "duration": "5 dakika"},
+    {"step": 4, "instruction": "Sarımsağı ekleyin, 1 dakika kokusu çıkana kadar kavurun.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Domatesleri, kimyonu, pul biberi ve toz biberi ekleyin. Karıştırın.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Ateşi kısın, 10 dakika sos koyulaşana kadar pişirin.", "tip": "Ara sıra karıştırın.", "duration": "10 dakika"},
+    {"step": 7, "instruction": "Sosta küçük çukurlar açın ve yumurtaları kırın.", "tip": "Her yumurta için ayrı çukur açın.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Kapağı kapatın, yumurtalar istediğiniz kıvama gelene kadar 5-7 dakika pişirin.", "duration": "7 dakika"},
+    {"step": 9, "instruction": "Maydanoz serperek sıcak servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 245,
+    "protein": 14,
+    "carbs": 15,
+    "fat": 15,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 480
+  },
+  "tips": [
+    "Yumurtaların sarısı akışkan kalırsa daha lezzetli olur.",
+    "Yanında crusty ekmek servis edin - sos için mükemmel.",
+    "Beyaz peynir kırıntısı ekleyebilirsiniz.",
+    "Daha baharatlı seviyorsanız pul biber miktarını artırın."
+  ],
+  "storageInfo": "Taze tüketilmesi önerilir. Buzdolabında 1 gün saklanabilir.",
+  "servingSuggestion": "Sıcak olarak, taze ekmek veya pide ile servis edin.",
+  "variations": [
+    "Ispanak ekleyerek yeşil şakşuka yapabilirsiniz.",
+    "Sucuk veya pastırma ekleyerek daha doyurucu hale getirebilirsiniz.",
+    "Feta peyniri kırıntısı ile servis edebilirsiniz."
+  ]
+}

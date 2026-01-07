@@ -1,0 +1,50 @@
+{
+  "name": "Türk Menemen",
+  "description": "Türk kahvaltı sofralarının vazgeçilmezi. Domates, biber ve yumurta ile hazırlanan geleneksel lezzet.",
+  "prepTime": "10 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "25 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Yumurta", "amount": "6", "unit": "adet"},
+    {"name": "Domates", "amount": "4", "unit": "adet", "note": "olgun, küp doğranmış"},
+    {"name": "Yeşil biber", "amount": "3", "unit": "adet", "note": "sivri, doğranmış"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Tereyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Zeytinyağı", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Pul biber", "amount": "1", "unit": "tatlı kaşığı", "note": "isteğe bağlı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Tavada tereyağı ve zeytinyağını eritin.", "duration": "1 dakika"},
+    {"step": 2, "instruction": "Soğanları ekleyin, 3 dakika pembeleşene kadar kavurun.", "duration": "3 dakika"},
+    {"step": 3, "instruction": "Biberleri ekleyin, 3 dakika daha kavurun.", "tip": "Biberler yumuşamalı ama çıtırlığını korumalı.", "duration": "3 dakika"},
+    {"step": 4, "instruction": "Domatesleri ekleyin, tuz ve karabiber ile tatlandırın.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Domates suyu çekene kadar 5-7 dakika pişirin.", "tip": "Çok kuru olmamalı, hafif sulu kalmalı.", "duration": "7 dakika"},
+    {"step": 6, "instruction": "Yumurtaları kırın ve hafifçe karıştırarak pişirin.", "tip": "Çok karıştırmayın - yumurtalar parçalı kalmalı.", "duration": "3 dakika"},
+    {"step": 7, "instruction": "Yumurtalar pişince ateşten alın. Pul biber serpin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 220,
+    "protein": 13,
+    "carbs": 10,
+    "fat": 15,
+    "fiber": 2,
+    "sugar": 6,
+    "sodium": 420
+  },
+  "tips": [
+    "Domatesler olgun ve sulu olmalı - kışın konserve domates kullanabilirsiniz.",
+    "Yumurtaları çok pişirmeyin - sulu kalmalı.",
+    "Sucuk veya pastırma ile zenginleştirebilirsiniz.",
+    "Taze ekmek veya simit ile mükemmel uyum sağlar."
+  ],
+  "storageInfo": "Taze tüketilmesi önerilir.",
+  "servingSuggestion": "Sıcak sıcak, taze ekmek ve siyah zeytin ile servis edin.",
+  "variations": [
+    "Kaşarlı menemen için üzerine kaşar rendeleyin.",
+    "Sucuklu menemen yapabilirsiniz.",
+    "Pastırmalı menemen ile farklı bir lezzet deneyebilirsiniz."
+  ]
+}
