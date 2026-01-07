@@ -581,7 +581,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
     category: 'main_course',
     difficulty: 'medium',
     tags: ['high_protein', 'dairy_free'],
-    imageUrl: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400',
     iconName: 'flame-outline',
     color: '#D32F2F',
     version: '1.0.0',
