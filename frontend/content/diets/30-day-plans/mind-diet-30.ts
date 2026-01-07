@@ -106,14 +106,12 @@ export const mindDiet30: Diet = {
   warnings: {
     tr: [
       '⚠️ Kan sulandırıcı kullananlar yeşil yapraklı sebzelere dikkat',
-      '🍷 Şarap önerisi herkes için uygun değildir',
       '🥜 Fındık alerjisi olanlar dikkatli olmalı',
       '💊 İlaç kullananlar doktora danışmalı',
       '🫐 Yüksek miktarda meyve diyabetiklerde dikkat gerektirir',
     ],
     en: [
       '⚠️ Those on blood thinners should watch leafy greens',
-      '🍷 Wine recommendation not suitable for everyone',
       '🥜 Those with nut allergies should be careful',
       '💊 Those on medication should consult doctor',
       '🫐 High fruit amounts require caution in diabetics',
@@ -155,8 +153,8 @@ export const mindDiet30: Diet = {
       '🫒 ZEYTİNYAĞI (Ana yağ kaynağı):',
       '🫒 Sızma zeytinyağı',
       '',
-      '🍷 ŞARAP (Opsiyonel - Günde ≤1 kadeh):',
-      '🍷 Kırmızı şarap (resveratrol)',
+      '🍵 SAĞLIKLI İÇECEKLER:',
+      '🍵 Yeşil çay, bitki çayları',
     ],
     en: [
       '🥬 GREEN LEAFY VEGETABLES (≥6 servings/week):',
