@@ -606,7 +606,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
     category: 'main_course',
     difficulty: 'medium',
     tags: ['vegan', 'high_protein', 'mediterranean'],
-    imageUrl: 'https://images.unsplash.com/photo-1593001874117-c99c800e3eb5?w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1529006557810-274b9b2fc783?w=400',
     iconName: 'leaf-outline',
     color: '#7CB342',
     version: '1.0.0',
