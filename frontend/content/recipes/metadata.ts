@@ -474,7 +474,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
     category: 'dessert',
     difficulty: 'medium',
     tags: ['vegetarian', 'gluten_free'],
-    imageUrl: 'https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=400',
     iconName: 'heart-outline',
     color: '#5D4037',
     version: '1.0.0',
