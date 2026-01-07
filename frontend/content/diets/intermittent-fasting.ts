@@ -514,7 +514,7 @@ export const intermittentFasting: Diet = {
             { name: 'Bonfile', portion: '200g', calories: 450, note: 'Medium pişmiş' },
             { name: 'Mantar sos', portion: '50g', calories: 80 },
             { name: 'Karışık salata', portion: '150g', calories: 100 },
-            { name: 'Kırmızı şarap', portion: '1 kadeh', calories: 100, note: 'Opsiyonel' },
+            { name: 'Ayran', portion: '1 bardak', calories: 70 },
             { name: 'Meyve', portion: '100g', calories: 50 },
           ],
         },
