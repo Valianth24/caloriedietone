@@ -306,7 +306,7 @@ export const athleteRecipeMetadata: Record<AthleteRecipeId, RecipeMetadata> = {
     category: 'main_course',
     difficulty: 'easy',
     tags: ['high_protein', 'quick'],
-    imageUrl: 'https://images.unsplash.com/photo-1590301157890-4810ed352733?w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1583224874284-0a94bd08c6a4?w=400',
     iconName: 'restaurant-outline',
     color: '#D84315',
     version: '1.0.0',
