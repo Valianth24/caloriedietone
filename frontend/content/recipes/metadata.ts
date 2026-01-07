@@ -13,6 +13,9 @@ export const RECIPE_IDS = [
   'overnight_oats',
   'veggie_omelette',
   'chia_pudding',
+  'shakshuka',
+  'acai_bowl',
+  'turkish_menemen',
   
   // Ana Yemek
   'grilled_chicken_salad',
@@ -23,35 +26,51 @@ export const RECIPE_IDS = [
   'quinoa_bowl',
   'baked_cod',
   'chicken_stir_fry',
+  'butter_chicken',
+  'lamb_kofta',
+  'shrimp_garlic_pasta',
+  'beef_bulgogi',
+  'chicken_biryani',
+  'falafel_wrap',
   
   // Çorba
   'lentil_soup',
   'chicken_vegetable_soup',
   'tomato_basil_soup',
   'broccoli_soup',
+  'mushroom_soup',
+  'pumpkin_soup',
   
   // Salata
   'greek_salad',
   'caesar_salad',
   'quinoa_salad',
   'tuna_salad',
+  'fattoush_salad',
+  'avocado_chickpea_salad',
   
   // Atıştırmalık
   'hummus',
   'energy_balls',
   'greek_yogurt_parfait',
   'veggie_sticks',
+  'baba_ganoush',
+  'stuffed_dates',
   
   // Smoothie
   'green_smoothie',
   'berry_smoothie',
   'protein_smoothie',
   'tropical_smoothie',
+  'mango_lassi',
+  'peanut_butter_banana_smoothie',
   
   // Tatlı (Sağlıklı)
   'banana_nice_cream',
   'dark_chocolate_mousse',
   'fruit_salad',
+  'rice_pudding',
+  'baklava_oatmeal',
 ] as const;
 
 export type RecipeId = typeof RECIPE_IDS[number];
