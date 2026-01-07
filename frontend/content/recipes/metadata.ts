@@ -557,7 +557,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
     category: 'main_course',
     difficulty: 'medium',
     tags: ['high_protein', 'mediterranean', 'gluten_free'],
-    imageUrl: 'https://images.unsplash.com/photo-1529042410759-befb1204b468?w=400',
+    imageUrl: 'https://images.unsplash.com/photo-1561651823-34feb02250e4?w=400',
     iconName: 'flame-outline',
     color: '#8D6E63',
     version: '1.0.0',
