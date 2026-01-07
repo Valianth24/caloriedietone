@@ -228,7 +228,7 @@ export const nordicDiet30: Diet = {
       '',
       '🥩 RED MEAT (Limited):',
       '🥩 Not more than 1-2 times per week',
-      '🌭 Processed meats (sausage, bacon)',
+      '🌭 Processed meats (sausage, turkey bacon)',
       '',
       '🧈 SATURATED FATS:',
       '🧈 Butter (small amounts allowed)',

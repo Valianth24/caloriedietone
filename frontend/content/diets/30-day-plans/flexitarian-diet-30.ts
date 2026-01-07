@@ -180,7 +180,7 @@ export const flexitarianDiet30: Diet = {
       '🚫 Aşırı tuzlu gıdalar',
     ],
     en: [
-      '🚫 Processed meats: Sausage, salami, bacon, ham',
+      '🚫 Processed meats: Sausage, salami, turkey bacon, ham',
       '🚫 Fast food and fried foods',
       '🚫 Sugary drinks and carbonated beverages',
       '🚫 Refined sugar and white flour products',

@@ -219,7 +219,7 @@ export const dashDiet30: Diet = {
       '🧂 HIGH SODIUM FOODS:',
       '🧂 Salty snacks (chips, crackers)',
       '🥫 Canned foods',
-      '🌭 Processed meats (bacon, sausage, salami)',
+      '🌭 Processed meats (turkey bacon, sausage, salami)',
       '🍟 Fast food',
       '',
       '🍬 SUGAR AND SWEETS (≤5/week):',

@@ -181,7 +181,7 @@ export const mediterraneanDiet: Diet = {
       '🍬 Refined sugar and sugary foods',
       '🥤 Sugary drinks and sodas',
       '🍟 Fried foods and fast food',
-      '🥓 Processed meat products (sausage, salami, bacon)',
+      '🥓 Processed meat products (sausage, salami, turkey bacon)',
       '🍞 White bread and refined grains',
       '🧈 Margarine and trans fats',
       '🍪 Packaged snacks and biscuits',

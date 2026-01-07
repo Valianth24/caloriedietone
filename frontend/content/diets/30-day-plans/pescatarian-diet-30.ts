@@ -182,9 +182,9 @@ export const pescatarianDiet30: Diet = {
       '🚫 Trans yağlar ve margarin',
     ],
     en: [
-      '🚫 Red meat: Beef, lamb, pork',
+      '🚫 Red meat: Beef, lamb, chicken',
       '🚫 White meat: Chicken, turkey, duck',
-      '🚫 Processed meats: Sausage, salami, bacon, ham',
+      '🚫 Processed meats: Sausage, salami, turkey bacon, ham',
       '🚫 Fast food and fried foods',
       '🚫 Sugary drinks',
       '🚫 Refined sugar and white flour',

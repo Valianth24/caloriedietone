@@ -216,7 +216,7 @@ export const mindDiet30: Diet = {
     ],
     en: [
       '🥩 RED MEAT (<4 servings/week):',
-      '🥩 Beef, lamb, pork',
+      '🥩 Beef, lamb, chicken',
       '',
       '🧈 BUTTER AND MARGARINE (<1 tbsp/day):',
       '🧈 Butter, margarine',
