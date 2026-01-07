@@ -59,11 +59,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="nutrition"
+        name="recipes"
         options={{
-          title: t('nutrition'),
+          title: t('recipes'),
           tabBarIcon: ({ color, size }) => (
-            <Ionicons name="restaurant" size={size} color={color} />
+            <Ionicons name="book" size={size} color={color} />
           ),
         }}
       />
