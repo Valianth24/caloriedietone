@@ -583,12 +583,6 @@ const getRecipeNameEN = (id: string): string => {
   };
   return names[id] || id;
 };
-    banana_nice_cream: 'Banana Nice Cream',
-    dark_chocolate_mousse: 'Dark Chocolate Mousse',
-    fruit_salad: 'Fruit Salad',
-  };
-  return names[id] || id;
-};
 
 const getTagLabelShort = (tag: string, locale: string): string => {
   const labels: Record<string, { tr: string; en: string }> = {
