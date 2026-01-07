@@ -1,0 +1,50 @@
+{
+  "name": "Stuffed Dates",
+  "description": "Naturally sweet dates filled with almond butter and dipped in dark chocolate. Healthy indulgence.",
+  "prepTime": "20 minutes",
+  "cookTime": "5 minutes",
+  "totalTime": "25 minutes",
+  "servings": 12,
+  "ingredients": [
+    {"name": "Medjool dates", "amount": "12", "unit": "whole", "note": "pitted"},
+    {"name": "Almond butter", "amount": "4", "unit": "tablespoons"},
+    {"name": "Dark chocolate", "amount": "100", "unit": "grams", "note": "70% cocoa"},
+    {"name": "Coconut oil", "amount": "1", "unit": "teaspoon"},
+    {"name": "Sea salt", "amount": "1/4", "unit": "teaspoon"},
+    {"name": "Whole almonds", "amount": "12", "unit": "whole", "note": "optional"},
+    {"name": "Shredded coconut", "amount": "2", "unit": "tablespoons", "note": "for topping"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Slice dates lengthwise to remove pits.", "tip": "Don't cut all the way through - create a pocket.", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Fill each date with 1 teaspoon almond butter.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Press a whole almond on top if desired.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Gently press dates closed.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Melt chocolate with coconut oil using double boiler method.", "tip": "No water contact - chocolate will seize.", "duration": "5 minutes"},
+    {"step": 6, "instruction": "Dip dates in melted chocolate or drizzle over top.", "duration": "5 minutes"},
+    {"step": 7, "instruction": "Place on parchment paper, sprinkle sea salt.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Add shredded coconut.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Refrigerate 15 minutes until chocolate sets.", "duration": "15 minutes"}
+  ],
+  "nutrition": {
+    "calories": 145,
+    "protein": 3,
+    "carbs": 22,
+    "fat": 6,
+    "fiber": 3,
+    "sugar": 18,
+    "sodium": 45
+  },
+  "tips": [
+    "Medjool dates are softest and sweetest.",
+    "Dark chocolate balances date sweetness.",
+    "Sea salt creates flavor contrast - don't skip.",
+    "Beautiful for gifting in boxes."
+  ],
+  "storageInfo": "Refrigerate 2 weeks. Room temperature 1 week.",
+  "servingSuggestion": "Serve with coffee or tea.",
+  "variations": [
+    "Use peanut butter instead.",
+    "Dip in white chocolate.",
+    "Fill with pistachio butter."
+  ]
+}

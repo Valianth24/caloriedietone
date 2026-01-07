@@ -1,0 +1,54 @@
+{
+  "name": "Fattoush Salad",
+  "description": "Lebanese bread salad with crispy pita, fresh vegetables and tangy sumac dressing.",
+  "prepTime": "15 minutes",
+  "cookTime": "10 minutes",
+  "totalTime": "25 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Pita bread", "amount": "2", "unit": "pieces", "note": "for crisping"},
+    {"name": "Romaine lettuce", "amount": "1", "unit": "head", "note": "chopped"},
+    {"name": "Tomatoes", "amount": "2", "unit": "medium", "note": "diced"},
+    {"name": "Cucumber", "amount": "2", "unit": "medium", "note": "diced"},
+    {"name": "Radishes", "amount": "6", "unit": "medium", "note": "thinly sliced"},
+    {"name": "Green onions", "amount": "4", "unit": "stalks", "note": "chopped"},
+    {"name": "Fresh mint", "amount": "1/2", "unit": "bunch"},
+    {"name": "Fresh parsley", "amount": "1/2", "unit": "bunch"},
+    {"name": "Sumac", "amount": "2", "unit": "teaspoons"},
+    {"name": "Olive oil", "amount": "4", "unit": "tablespoons"},
+    {"name": "Lemon juice", "amount": "3", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "1", "unit": "clove", "note": "minced"},
+    {"name": "Pomegranate molasses", "amount": "1", "unit": "tablespoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Tear pita into small pieces, toast at 180°C or in a pan until crispy.", "duration": "10 minutes"},
+    {"step": 2, "instruction": "Make dressing: whisk olive oil, lemon juice, pomegranate molasses, garlic, sumac and salt.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Combine lettuce, tomatoes, cucumber, radishes and green onions in a large bowl.", "duration": "3 minutes"},
+    {"step": 4, "instruction": "Add mint and parsley leaves.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Drizzle dressing, toss gently.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Top with crispy pita pieces and serve immediately.", "tip": "Add pita last to keep it crispy.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 220,
+    "protein": 5,
+    "carbs": 28,
+    "fat": 11,
+    "fiber": 4,
+    "sugar": 5,
+    "sodium": 380
+  },
+  "tips": [
+    "Sumac is essential - don't skip it.",
+    "Pita must stay crispy - add just before serving.",
+    "Pomegranate molasses found in Middle Eastern grocers.",
+    "Use plenty of fresh herbs."
+  ],
+  "storageInfo": "Store vegetables and dressing separately for 1 day. Keep crispy bread apart.",
+  "servingSuggestion": "Serve as a side or light lunch.",
+  "variations": [
+    "Add figs for an autumn version.",
+    "Top with crumbled feta cheese.",
+    "Add chickpeas for extra protein."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Avocado Chickpea Salad",
+  "description": "Protein-rich vegan salad loaded with healthy fats. Satisfying and nutritious.",
+  "prepTime": "15 minutes",
+  "cookTime": "0 minutes",
+  "totalTime": "15 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Cooked chickpeas", "amount": "2", "unit": "cups"},
+    {"name": "Avocados", "amount": "2", "unit": "large", "note": "ripe, cubed"},
+    {"name": "Cherry tomatoes", "amount": "1", "unit": "cup", "note": "halved"},
+    {"name": "Red onion", "amount": "1/2", "unit": "medium", "note": "finely chopped"},
+    {"name": "Cucumber", "amount": "1", "unit": "medium", "note": "diced"},
+    {"name": "Fresh cilantro", "amount": "1/2", "unit": "bunch", "note": "chopped"},
+    {"name": "Jalapeño", "amount": "1", "unit": "small", "note": "minced, optional"},
+    {"name": "Lime juice", "amount": "3", "unit": "tablespoons"},
+    {"name": "Olive oil", "amount": "2", "unit": "tablespoons"},
+    {"name": "Cumin", "amount": "1", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Combine chickpeas, avocado, tomatoes, cucumber and onion in a large bowl.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Add jalapeño and cilantro.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Whisk lime juice, olive oil, cumin, salt and pepper in a small bowl.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Drizzle dressing over salad.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Gently toss - don't mash the avocado.", "tip": "Use a spatula instead of a spoon.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Serve immediately or chill 30 minutes.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 10,
+    "carbs": 28,
+    "fat": 20,
+    "fiber": 12,
+    "sugar": 4,
+    "sodium": 380
+  },
+  "tips": [
+    "Avocado should be ripe but firm.",
+    "Lime juice prevents browning.",
+    "Drain canned chickpeas well.",
+    "Add quinoa for extra protein."
+  ],
+  "storageInfo": "Consume same day as avocado browns. Lime helps slow this.",
+  "servingSuggestion": "Serve alone or as taco filling.",
+  "variations": [
+    "Add corn for Mexican style.",
+    "Top with feta cheese.",
+    "Add mango for tropical twist."
+  ]
+}

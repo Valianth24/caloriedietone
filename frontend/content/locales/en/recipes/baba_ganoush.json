@@ -1,0 +1,52 @@
+{
+  "name": "Baba Ganoush",
+  "description": "Smoky roasted eggplant dip from the Middle East. Creamy tahini and garlic make it irresistible.",
+  "prepTime": "15 minutes",
+  "cookTime": "40 minutes",
+  "totalTime": "55 minutes",
+  "servings": 6,
+  "ingredients": [
+    {"name": "Large eggplants", "amount": "3", "unit": "whole"},
+    {"name": "Tahini", "amount": "3", "unit": "tablespoons"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Lemon juice", "amount": "3", "unit": "tablespoons"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Cumin", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Fresh parsley", "amount": "2", "unit": "tablespoons", "note": "for garnish"},
+    {"name": "Sumac", "amount": "1", "unit": "teaspoon", "note": "for garnish"},
+    {"name": "Pomegranate seeds", "amount": "2", "unit": "tablespoons", "note": "for garnish"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Pierce eggplants several times with a fork.", "tip": "Prevents them from bursting.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Char eggplants directly over gas flame or grill until skin is burnt and flesh is soft.", "tip": "Burnt skin gives smoky flavor - the secret.", "duration": "25 minutes"},
+    {"step": 3, "instruction": "Alternative: Roast at 220°C for 40 minutes.", "duration": "40 minutes"},
+    {"step": 4, "instruction": "Transfer to a bowl, cool 10 minutes.", "duration": "10 minutes"},
+    {"step": 5, "instruction": "Peel off charred skin, scoop out flesh.", "tip": "Some charred bits add flavor.", "duration": "5 minutes"},
+    {"step": 6, "instruction": "Drain eggplant in strainer for 15 minutes.", "tip": "Excess water makes it runny.", "duration": "15 minutes"},
+    {"step": 7, "instruction": "Process eggplant, tahini, garlic, lemon juice, olive oil, salt and cumin in food processor.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Transfer to serving plate, drizzle olive oil, sprinkle parsley, sumac and pomegranate seeds.", "duration": "2 minutes"}
+  ],
+  "nutrition": {
+    "calories": 120,
+    "protein": 3,
+    "carbs": 10,
+    "fat": 8,
+    "fiber": 4,
+    "sugar": 4,
+    "sodium": 280
+  },
+  "tips": [
+    "Fire-charring gives essential smoky flavor.",
+    "Drain eggplant well - texture matters.",
+    "Quality tahini makes a difference.",
+    "Serve at room temperature, not cold."
+  ],
+  "storageInfo": "Refrigerate 5 days. Bring to room temperature before serving.",
+  "servingSuggestion": "Serve with fresh pita or vegetable sticks for dipping.",
+  "variations": [
+    "Add yogurt for creamier texture.",
+    "Add chili for a spicy kick.",
+    "Top with walnuts for crunch."
+  ]
+}

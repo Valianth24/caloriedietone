@@ -1,0 +1,57 @@
+{
+  "name": "Pumpkin Soup",
+  "description": "Velvety and slightly sweet fall favorite. Vegan, gluten-free, and absolutely delicious.",
+  "prepTime": "15 minutes",
+  "cookTime": "35 minutes",
+  "totalTime": "50 minutes",
+  "servings": 6,
+  "ingredients": [
+    {"name": "Pumpkin", "amount": "1", "unit": "kg", "note": "peeled, cubed"},
+    {"name": "Onion", "amount": "1", "unit": "medium", "note": "chopped"},
+    {"name": "Carrot", "amount": "1", "unit": "medium", "note": "chopped"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Olive oil", "amount": "3", "unit": "tablespoons"},
+    {"name": "Vegetable broth", "amount": "4", "unit": "cups"},
+    {"name": "Coconut milk", "amount": "1", "unit": "cup"},
+    {"name": "Cinnamon", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Ginger", "amount": "1", "unit": "teaspoon", "note": "grated"},
+    {"name": "Nutmeg", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Salt", "amount": "1", "unit": "teaspoon"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "teaspoon"},
+    {"name": "Pumpkin seeds", "amount": "2", "unit": "tablespoons", "note": "for garnish"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Heat olive oil in a large pot over medium heat.", "duration": "1 minute"},
+    {"step": 2, "instruction": "Sauté onion and carrot for 5 minutes.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Add garlic and ginger, cook 1 minute.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Add pumpkin cubes, stir for 3 minutes.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Add broth, cinnamon and nutmeg. Bring to boil.", "duration": "5 minutes"},
+    {"step": 6, "instruction": "Reduce heat, simmer 25 minutes until pumpkin is tender.", "tip": "Knife should pass through easily.", "duration": "25 minutes"},
+    {"step": 7, "instruction": "Blend until smooth.", "duration": "3 minutes"},
+    {"step": 8, "instruction": "Stir in coconut milk.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Season with salt and pepper.", "duration": "1 minute"},
+    {"step": 10, "instruction": "Serve with pumpkin seeds on top.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 165,
+    "protein": 3,
+    "carbs": 22,
+    "fat": 8,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 420
+  },
+  "tips": [
+    "Butternut squash works as a substitute.",
+    "Roast pumpkin first for deeper flavor.",
+    "Coconut milk keeps it vegan and creamy.",
+    "Cinnamon and nutmeg are perfect warming spices."
+  ],
+  "storageInfo": "Refrigerate 5 days, freeze up to 3 months.",
+  "servingSuggestion": "Serve hot with pumpkin seeds and a drizzle of olive oil.",
+  "variations": [
+    "Add curry powder for Indian flair.",
+    "Add apple for extra sweetness.",
+    "Add chili flakes for a spicy version."
+  ]
+}
