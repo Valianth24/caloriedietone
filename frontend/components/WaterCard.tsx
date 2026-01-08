@@ -1,17 +1,25 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { Colors } from '../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import i18n from '../utils/i18n';
 
+const { width: screenWidth } = Dimensions.get('window');
+
+interface WaterEntry {
+  date: string;
+  total_amount: number;
+}
+
 interface WaterCardProps {
   current: number;
   goal: number;
+  weeklyData?: WaterEntry[];
 }
 
-export default function WaterCard({ current, goal }: WaterCardProps) {
+export default function WaterCard({ current, goal, weeklyData = [] }: WaterCardProps) {
   const { t } = useTranslation();
   const router = useRouter();
 
@@ -20,15 +28,31 @@ export default function WaterCard({ current, goal }: WaterCardProps) {
   const glassCount = Math.floor(current / glassSize);
   const progress = Math.min((current / goal) * 100, 100);
 
+  // Haftalık grafik için son 7 günü al
+  const chartData = weeklyData.slice(-7);
+  const maxAmount = Math.max(...chartData.map(d => d.total_amount || 0), goal);
+
+  // Günleri kısa göster
+  const getDayLabel = (dateStr: string) => {
+    const date = new Date(dateStr);
+    const days = i18n.language === 'tr' 
+      ? ['Pz', 'Pt', 'Sa', 'Ça', 'Pe', 'Cu', 'Ct']
+      : ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+    return days[date.getDay()];
+  };
+
   return (
     <TouchableOpacity 
       style={styles.container}
       onPress={() => router.push('/details/water-detail')}
       activeOpacity={0.9}
     >
-      <Text style={styles.title}>{t('waterTracking')}</Text>
+      <View style={styles.headerRow}>
+        <Text style={styles.title}>{t('waterTracking')}</Text>
+        <Ionicons name="water" size={24} color={Colors.teal} />
+      </View>
 
-      {/* Progress Bar - İçtikçe doluyor */}
+      {/* Progress Bar */}
       <View style={styles.progressContainer}>
         <View style={styles.progressBarBg}>
           <View style={[styles.progressBarFill, { width: `${progress}%` }]} />
@@ -36,17 +60,44 @@ export default function WaterCard({ current, goal }: WaterCardProps) {
         <Text style={styles.progressPercent}>{Math.round(progress)}%</Text>
       </View>
 
-      {/* Su damlası ikonu */}
-      <View style={styles.waterIconContainer}>
-        <Ionicons name="water" size={40} color={Colors.teal} />
+      {/* Ana Bilgi */}
+      <View style={styles.mainInfo}>
+        <Text style={styles.amount}>
+          {(current / 1000).toFixed(1)} / {(goal / 1000).toFixed(1)} L
+        </Text>
+        <Text style={styles.glassText}>
+          {glassCount} {t('glass')}
+        </Text>
       </View>
 
-      <Text style={styles.amount} numberOfLines={1}>
-        {(current / 1000).toFixed(1)} / {(goal / 1000).toFixed(1)} L
-      </Text>
-      <Text style={styles.glassText}>
-        {glassCount} {t('glass')}
-      </Text>
+      {/* Haftalık Mini Grafik - Premium Feature */}
+      {chartData.length > 0 && (
+        <View style={styles.chartSection}>
+          <Text style={styles.chartLabel}>{t('thisWeek') || 'Bu Hafta'}</Text>
+          <View style={styles.miniChart}>
+            {chartData.map((day, index) => {
+              const height = maxAmount > 0 ? (day.total_amount / maxAmount) * 40 : 0;
+              const isToday = index === chartData.length - 1;
+              return (
+                <View key={day.date || index} style={styles.chartBarContainer}>
+                  <View style={styles.chartBarBg}>
+                    <View 
+                      style={[
+                        styles.chartBar, 
+                        { height: Math.max(4, height) },
+                        isToday && styles.chartBarToday
+                      ]} 
+                    />
+                  </View>
+                  <Text style={[styles.chartDayLabel, isToday && styles.chartDayLabelToday]}>
+                    {getDayLabel(day.date)}
+                  </Text>
+                </View>
+              );
+            })}
+          </View>
+        </View>
+      )}
 
       <View style={styles.detailButton}>
         <Ionicons name="add-circle" size={18} color={Colors.teal} />
@@ -66,34 +117,37 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 8,
     elevation: 3,
-    alignItems: 'center',
-    minHeight: 220,
+    minHeight: 280,
+  },
+  headerRow: {
+    flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 12,
   },
   title: {
     fontSize: 16,
     fontWeight: 'bold',
     color: Colors.darkText,
-    alignSelf: 'flex-start',
   },
   progressContainer: {
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    marginTop: 12,
+    marginBottom: 12,
   },
   progressBarBg: {
     flex: 1,
-    height: 12,
+    height: 10,
     backgroundColor: '#E8F5E9',
-    borderRadius: 6,
+    borderRadius: 5,
     overflow: 'hidden',
   },
   progressBarFill: {
     height: '100%',
     backgroundColor: Colors.teal,
-    borderRadius: 6,
+    borderRadius: 5,
   },
   progressPercent: {
     fontSize: 12,
@@ -102,8 +156,9 @@ const styles = StyleSheet.create({
     minWidth: 36,
     textAlign: 'right',
   },
-  waterIconContainer: {
-    marginVertical: 8,
+  mainInfo: {
+    alignItems: 'center',
+    marginBottom: 12,
   },
   amount: {
     fontSize: 18,
@@ -113,7 +168,54 @@ const styles = StyleSheet.create({
   glassText: {
     fontSize: 12,
     color: Colors.lightText,
-    marginBottom: 8,
+    marginTop: 2,
+  },
+  // Haftalık Mini Grafik
+  chartSection: {
+    marginBottom: 12,
+  },
+  chartLabel: {
+    fontSize: 11,
+    color: Colors.lightText,
+    marginBottom: 6,
+  },
+  miniChart: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    height: 60,
+    paddingHorizontal: 4,
+  },
+  chartBarContainer: {
+    alignItems: 'center',
+    flex: 1,
+  },
+  chartBarBg: {
+    width: 12,
+    height: 40,
+    backgroundColor: '#E8F5E9',
+    borderRadius: 6,
+    justifyContent: 'flex-end',
+    overflow: 'hidden',
+  },
+  chartBar: {
+    width: '100%',
+    backgroundColor: Colors.teal,
+    borderRadius: 6,
+    opacity: 0.7,
+  },
+  chartBarToday: {
+    backgroundColor: Colors.teal,
+    opacity: 1,
+  },
+  chartDayLabel: {
+    fontSize: 9,
+    color: Colors.lightText,
+    marginTop: 4,
+  },
+  chartDayLabelToday: {
+    color: Colors.teal,
+    fontWeight: '600',
   },
   detailButton: {
     flexDirection: 'row',
