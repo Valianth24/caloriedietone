@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { ScrollView, View, Text, StyleSheet, RefreshControl, Image, Modal, TouchableOpacity, FlatList, TextInput, Switch } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useStore } from '../../store/useStore';
-import { getDailySummary, getTodayWater, getTodaySteps, getTodayMeals, getFoodDatabase, addMeal, activatePremium, getWeeklyWater } from '../../utils/api';
+import { getDailySummary, getTodayWater, getTodaySteps, getFoodDatabase, addMeal, activatePremium, getWeeklyWater } from '../../utils/api';
 import CalorieCard from '../../components/CalorieCard';
 import WaterCard from '../../components/WaterCard';
 import StepCard from '../../components/StepCard';
