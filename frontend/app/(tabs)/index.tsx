@@ -374,22 +374,62 @@ export default function DashboardScreen() {
           </View>
         </View>
 
-        {/* Recent Meals */}
-        {recentMeals.length > 0 && (
-          <View style={styles.recentMealsSection}>
-            <Text style={styles.sectionTitle}>{t('recentMeals')}</Text>
-            {recentMeals.map((meal) => (
-              <View key={meal.meal_id} style={styles.mealCard}>
-                <Image source={{ uri: meal.image_base64 }} style={styles.mealImage} />
-                <View style={styles.mealInfo}>
-                  <Text style={styles.mealName} numberOfLines={1}>{meal.name}</Text>
-                  <Text style={styles.mealCalories}>{meal.calories} kcal</Text>
+        {/* Active Diet Card - Premium Feature */}
+        {activeDiet && user?.is_premium && (() => {
+          const diet = allDiets.find(d => d.id === activeDiet.dietId);
+          if (!diet) return null;
+          
+          const lang = i18n.language === 'tr' ? 'tr' : 'en';
+          const currentDay = activeDiet.currentDay || 1;
+          const totalDays = activeDiet.totalDays || diet.days.length;
+          const progress = Math.round((currentDay / totalDays) * 100);
+          
+          return (
+            <TouchableOpacity 
+              style={styles.activeDietCard}
+              onPress={() => router.push('/details/active-diet')}
+              activeOpacity={0.9}
+            >
+              <LinearGradient
+                colors={[Colors.primary, '#7c3aed']}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={styles.activeDietGradient}
+              >
+                <View style={styles.activeDietHeader}>
+                  <View style={styles.activeDietIcon}>
+                    <Text style={styles.activeDietEmoji}>{diet.emoji}</Text>
+                  </View>
+                  <View style={styles.activeDietInfo}>
+                    <Text style={styles.activeDietTitle}>{diet.name[lang]}</Text>
+                    <Text style={styles.activeDietSubtitle}>
+                      {t('day')} {currentDay} / {totalDays}
+                    </Text>
+                  </View>
+                  <Ionicons name="chevron-forward" size={24} color={Colors.white} />
                 </View>
-                <Ionicons name="checkmark-circle" size={20} color={Colors.success} />
-              </View>
-            ))}
-          </View>
-        )}
+                
+                <View style={styles.activeDietProgress}>
+                  <View style={styles.activeDietProgressBg}>
+                    <View style={[styles.activeDietProgressFill, { width: `${progress}%` }]} />
+                  </View>
+                  <Text style={styles.activeDietProgressText}>{progress}%</Text>
+                </View>
+                
+                <View style={styles.activeDietBadges}>
+                  <View style={styles.activeDietBadge}>
+                    <Ionicons name="flame" size={14} color={Colors.white} />
+                    <Text style={styles.activeDietBadgeText}>{diet.avgCalories} kcal</Text>
+                  </View>
+                  <View style={styles.activeDietBadge}>
+                    <Ionicons name="time" size={14} color={Colors.white} />
+                    <Text style={styles.activeDietBadgeText}>{totalDays} {t('days')}</Text>
+                  </View>
+                </View>
+              </LinearGradient>
+            </TouchableOpacity>
+          );
+        })()}
 
         {/* Cards Grid */}
         <View style={styles.grid}>
