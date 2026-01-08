@@ -899,6 +899,92 @@ const styles = StyleSheet.create({
     color: Colors.darkText,
     marginBottom: 12,
   },
+  // Active Diet Card Styles
+  activeDietCard: {
+    marginBottom: 20,
+    borderRadius: 20,
+    overflow: 'hidden',
+    shadowColor: Colors.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  activeDietGradient: {
+    padding: 20,
+  },
+  activeDietHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  activeDietIcon: {
+    width: 50,
+    height: 50,
+    borderRadius: 25,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 14,
+  },
+  activeDietEmoji: {
+    fontSize: 28,
+  },
+  activeDietInfo: {
+    flex: 1,
+  },
+  activeDietTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    color: Colors.white,
+    marginBottom: 4,
+  },
+  activeDietSubtitle: {
+    fontSize: 14,
+    color: 'rgba(255,255,255,0.85)',
+  },
+  activeDietProgress: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    marginBottom: 14,
+  },
+  activeDietProgressBg: {
+    flex: 1,
+    height: 10,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    borderRadius: 5,
+    overflow: 'hidden',
+  },
+  activeDietProgressFill: {
+    height: '100%',
+    backgroundColor: Colors.white,
+    borderRadius: 5,
+  },
+  activeDietProgressText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.white,
+    minWidth: 40,
+  },
+  activeDietBadges: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  activeDietBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 20,
+  },
+  activeDietBadgeText: {
+    fontSize: 13,
+    fontWeight: '500',
+    color: Colors.white,
+  },
   mealCard: {
     flexDirection: 'row',
     alignItems: 'center',
