@@ -221,6 +221,7 @@ const resources = {
       weeklyWater: 'Weekly Water Intake',
       weeklyDetail: 'Weekly Detail',
       thisWeekAvg: 'This Week Avg:',
+      thisWeek: 'This Week',
       perDay: '/ Day',
       
       // Steps
