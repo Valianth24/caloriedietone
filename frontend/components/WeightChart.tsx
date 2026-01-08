@@ -102,10 +102,41 @@ export default function WeightChart({ currentWeight, targetWeight, onWeightUpdat
     dataPointText: index === history.length - 1 ? `${entry.weight}` : '',
   }));
 
-  // Calculate min/max for chart
+  // Calculate min/max for chart - 20kg fark ile dinamik aralık
   const weights = history.map(h => h.weight);
-  const minWeight = weights.length > 0 ? Math.floor(Math.min(...weights) - 2) : 50;
-  const maxWeight = weights.length > 0 ? Math.ceil(Math.max(...weights) + 2) : 100;
+  const actualMin = weights.length > 0 ? Math.min(...weights) : 70;
+  const actualMax = weights.length > 0 ? Math.max(...weights) : 80;
+  const weightRange = actualMax - actualMin;
+  
+  // Minimum 20kg aralık sağla, değişim az ise grafiği daha duyarlı yap
+  let minWeight: number;
+  let maxWeight: number;
+  
+  if (weightRange < 20) {
+    // 20kg'dan az fark varsa, ortadan 10'ar kg yukarı aşağı al
+    const midPoint = (actualMax + actualMin) / 2;
+    minWeight = Math.floor(midPoint - 10);
+    maxWeight = Math.ceil(midPoint + 10);
+    
+    // Eğer veriler aralık dışına çıkıyorsa ayarla
+    if (actualMin < minWeight) {
+      const diff = minWeight - actualMin;
+      minWeight = actualMin - 2;
+      maxWeight = maxWeight - diff + 2;
+    }
+    if (actualMax > maxWeight) {
+      const diff = actualMax - maxWeight;
+      maxWeight = actualMax + 2;
+      minWeight = minWeight - diff - 2;
+    }
+  } else {
+    // 20kg'dan fazla fark varsa, verilere göre ayarla
+    minWeight = Math.floor(actualMin - 5);
+    maxWeight = Math.ceil(actualMax + 5);
+  }
+  
+  // Minimum 30kg olsun (sağlıklı aralık)
+  if (minWeight < 30) minWeight = 30;
 
   const renderStats = () => {
     if (!stats) return null;
