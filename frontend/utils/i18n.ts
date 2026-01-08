@@ -806,6 +806,7 @@ const resources = {
       weeklyWater: 'Haftalık Su Tüketimi',
       weeklyDetail: 'Haftalık Detay',
       thisWeekAvg: 'Bu Hafta Ort:',
+      thisWeek: 'Bu Hafta',
       perDay: '/ Gün',
       
       steps: 'Adım',
