@@ -455,6 +455,7 @@ export default function DashboardScreen() {
               <WaterCard
                 current={waterData?.total_amount || 0}
                 goal={dynamicWaterGoal}
+                weeklyData={weeklyWater}
               />
             </View>
             <View style={styles.gridItemHalf}>
