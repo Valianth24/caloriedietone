@@ -108,11 +108,11 @@ export default function DashboardScreen() {
 
   const loadData = async () => {
     try {
-      const [summary, water, steps, meals] = await Promise.all([
+      const [summary, water, steps, weeklyWaterData] = await Promise.all([
         getDailySummary(),
         getTodayWater(),
         getTodaySteps(),
-        getTodayMeals(),
+        getWeeklyWater(),
       ]);
       
       // Safe type conversions with fallbacks
@@ -125,15 +125,23 @@ export default function DashboardScreen() {
       if (steps && typeof steps === 'object') {
         setStepData(steps as any);
       }
-      if (Array.isArray(meals)) {
-        setRecentMeals(meals.slice(0, 3));
+      // Haftalık su verisini al
+      const waterWeekly = weeklyWaterData as any;
+      if (waterWeekly?.weekly_data) {
+        setWeeklyWater(waterWeekly.weekly_data);
+      }
+      
+      // Aktif diyet kontrolü
+      const activeDietData = await AsyncStorage.getItem('active_diet');
+      if (activeDietData) {
+        const parsed = JSON.parse(activeDietData);
+        setActiveDiet(parsed);
       } else {
-        setRecentMeals([]);
+        setActiveDiet(null);
       }
     } catch (error) {
       console.error('Error loading dashboard data:', error);
-      // Set empty defaults on error
-      setRecentMeals([]);
+      setWeeklyWater([]);
     }
   };
 
