@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { ScrollView, View, Text, StyleSheet, RefreshControl, Image, Modal, TouchableOpacity, FlatList, TextInput, Switch } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useStore } from '../../store/useStore';
-import { getDailySummary, getTodayWater, getTodaySteps, getTodayMeals, getFoodDatabase, addMeal, activatePremium } from '../../utils/api';
+import { getDailySummary, getTodayWater, getTodaySteps, getTodayMeals, getFoodDatabase, addMeal, activatePremium, getWeeklyWater } from '../../utils/api';
 import CalorieCard from '../../components/CalorieCard';
 import WaterCard from '../../components/WaterCard';
 import StepCard from '../../components/StepCard';
@@ -22,6 +22,8 @@ import Constants from 'expo-constants';
 import { LogBox } from 'react-native';
 import { clearReminderNotifications, requestNotificationPermission, syncReminderNotifications } from '../../utils/notifications';
 import { calculateWaterGoal, UserData } from '../../utils/nutritionCalculator';
+import { allDiets } from '../../content/diets';
+import { LinearGradient } from 'expo-linear-gradient';
 
 // Expo Go'da remote push notification uyarılarını gizle
 LogBox.ignoreLogs([
