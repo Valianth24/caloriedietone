@@ -518,6 +518,23 @@ const resources = {
       accountDeleted: 'Your account has been successfully deleted.',
       deleteAccountError: 'Failed to delete account. Please try again.',
       
+      // Data Privacy & Legal
+      dataPrivacy: 'Data Privacy',
+      yourDataIsSafe: 'Your Data is Safe',
+      dataConsentMessage: 'CalorieDiet collects your health data (weight, calories, activity) and stores it on secure servers. This data is only used to provide you with personalized nutrition recommendations.\n\nYour data is not shared with third parties and you can request its deletion at any time.\n\nThis app is not a substitute for medical advice. Consult your doctor for diet changes.',
+      encryptedStorage: 'Encrypted Storage',
+      noThirdPartySharing: 'Not Shared with Third Parties',
+      deleteAnytime: 'Delete Anytime',
+      privacyPolicy: 'Privacy Policy',
+      termsOfService: 'Terms of Service',
+      and: ' and ',
+      acceptTerms: " I have read and accept",
+      readPrivacyPolicy: 'Read Privacy Policy',
+      readTermsOfService: 'Read Terms of Service',
+      legal: 'Legal',
+      privacyPolicySubtext: 'How we protect your data',
+      termsOfServiceSubtext: 'Read service terms',
+      
       // Date/Time
       today: 'Today',
       
