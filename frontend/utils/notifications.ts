@@ -27,7 +27,9 @@ export const getNotifications = () => {
     // Setup notification handler - MUST enable sound and alert
     _notifications.setNotificationHandler({
       handleNotification: async () => ({
-        shouldShowAlert: true,
+        shouldShowAlert: false, // Deprecated, using alternatives
+        shouldShowBanner: true,
+        shouldShowList: true,
         shouldPlaySound: true,
         shouldSetBadge: true,
         priority: 'high',
