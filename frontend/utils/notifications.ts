@@ -219,10 +219,15 @@ export const syncReminderNotifications = async ({ type, enabled, times, content 
               console.log(`[Notifications] Scheduling ${type} at ${time} - seconds until: ${secondsUntilTrigger}`);
               
               // Use seconds-based trigger for more reliable scheduling
-              const trigger: Notifications.NotificationTriggerInput = {
+              const trigger: any = {
                 seconds: secondsUntilTrigger,
                 repeats: false, // Will be rescheduled after firing
               };
+              
+              // Add channelId for Android
+              if (Platform.OS === 'android') {
+                trigger.channelId = REMINDER_CHANNEL_ID;
+              }
               
               const id = await Notifications.scheduleNotificationAsync({
                 content: {
