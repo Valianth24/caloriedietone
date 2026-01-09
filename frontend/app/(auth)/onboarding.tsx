@@ -104,6 +104,8 @@ export default function OnboardingScreen() {
     goals: [] as string[], // Multi-goal support
   });
 
+  const [dataConsentAccepted, setDataConsentAccepted] = useState(false);
+
   const [calculations, setCalculations] = useState({
     bmr: 0,
     tdee: 0,
