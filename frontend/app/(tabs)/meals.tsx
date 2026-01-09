@@ -496,7 +496,7 @@ export default function MealsScreen() {
     return (
       <View style={styles.recentSection}>
         <View style={styles.sectionHeader}>
-          <Text style={styles.sectionTitle}>{lang === 'en' ? 'Recent' : 'Son Eklenenler'}</Text>
+          <Text style={styles.sectionTitle}>{t('recentMeals')}</Text>
           <TouchableOpacity onPress={() => {
             setRecentFoods([]);
             AsyncStorage.removeItem('recent_foods_v2');
