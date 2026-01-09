@@ -160,7 +160,10 @@ export default function WaterDetailScreen() {
         getWeeklyWater(),
         getTodayWater(),
       ]);
-      setWeeklyWater(Array.isArray(water) ? water : []);
+      
+      // API returns {weekly_data: [{date, total_amount}]}
+      const weeklyData = (water as any)?.weekly_data || [];
+      setWeeklyWater(weeklyData);
       setTodayWater((today as any)?.total_amount || 0);
     } catch (error) {
       console.error('Error loading water data:', error);
