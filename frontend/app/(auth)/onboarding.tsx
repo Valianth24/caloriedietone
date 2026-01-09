@@ -81,7 +81,7 @@ const calculateTargetCalories = (tdee: number, goal: string): number => {
 
 // calculateIdealWeight ve calculateWeeksToGoal artık nutritionCalculator.ts'den import ediliyor
 
-type OnboardingStep = 'language' | 'welcome' | 'gender' | 'age' | 'height' | 'weight' | 'targetWeight' | 'activityLevel' | 'goal' | 'result';
+type OnboardingStep = 'language' | 'dataConsent' | 'welcome' | 'gender' | 'age' | 'height' | 'weight' | 'targetWeight' | 'activityLevel' | 'goal' | 'result';
 
 export default function OnboardingScreen() {
   const router = useRouter();
