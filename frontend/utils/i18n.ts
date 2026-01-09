@@ -610,6 +610,22 @@ const resources = {
       recipe: 'recipe',
       selectDaysFromProgram: 'Select which days you want to follow from the program',
       daysSelected: 'days selected',
+      
+      // Water Detail
+      todaysGoal: 'Today\'s Goal',
+      today: 'Today',
+      weeklyWaterConsumption: 'Weekly Water Consumption',
+      weeklyAverage: 'Weekly Average',
+      glasses: 'Glasses',
+      
+      // Vitamins
+      addNewVitamin: 'Add New Vitamin',
+      addTime: 'Add Time',
+      
+      // Meals Detail
+      wantToAddContext: 'Want to Add Context?',
+      recentMeals: 'Recent',
+      addCalorie: 'Add Calorie',
     }
   },
   
