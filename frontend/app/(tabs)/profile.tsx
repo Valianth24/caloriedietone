@@ -30,8 +30,8 @@ const API_BASE_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL
   || 'https://caloriediet-backend.onrender.com';
 
 // Privacy Policy & Terms URLs
-const PRIVACY_POLICY_URL = 'https://sites.google.com/d/1moixtG0RH7CZ-sLadmCjPcNurjRd7aP1/p/1kvWr3lcEqMdyJpg8bjd8g-rHfZRgC1Gj/edit';
-const TERMS_OF_SERVICE_URL = 'https://sites.google.com/d/1moixtG0RH7CZ-sLadmCjPcNurjRd7aP1/p/1kvWr3lcEqMdyJpg8bjd8g-rHfZRgC1Gj/edit';
+const PRIVACY_POLICY_URL = 'https://sites.google.com/view/calorie-diet-tracker/ana-sayfa';
+const TERMS_OF_SERVICE_URL = 'https://sites.google.com/view/calorie-diet-tracker/ana-sayfa';
 
 export default function ProfileScreen() {
   const { t } = useTranslation();
