@@ -303,7 +303,7 @@ export default function OnboardingScreen() {
   };
 
   const getStepProgress = () => {
-    const steps: OnboardingStep[] = ['welcome', 'gender', 'age', 'height', 'weight', 'targetWeight', 'activityLevel', 'goal', 'result'];
+    const steps: OnboardingStep[] = ['dataConsent', 'welcome', 'gender', 'age', 'height', 'weight', 'targetWeight', 'activityLevel', 'goal', 'result'];
     const currentIndex = steps.indexOf(step);
     return currentIndex >= 0 ? (currentIndex + 1) / steps.length : 0;
   };
