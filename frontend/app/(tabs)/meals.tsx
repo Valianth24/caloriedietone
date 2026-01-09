@@ -349,7 +349,7 @@ export default function MealsScreen() {
             <Text style={styles.calorieUnit}>kcal</Text>
           </View>
           <TouchableOpacity style={styles.addIconBtn} onPress={() => openQuickAdd(item)}>
-            <Ionicons name="add" size={22} color="#FFF" />
+            <Ionicons name="add" size={20} color="#FFF" />
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
