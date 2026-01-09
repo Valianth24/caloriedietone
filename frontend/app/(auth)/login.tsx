@@ -252,6 +252,27 @@ export default function LoginScreen() {
             <Ionicons name="person-outline" size={24} color={Colors.lightText} />
             <Text style={styles.guestButtonText}>{loading ? t('loggingIn') : t('guestLogin')}</Text>
           </TouchableOpacity>
+
+          {/* Legal Links */}
+          <View style={styles.legalLinksContainer}>
+            <Text style={styles.legalText}>
+              {t('byUsingApp') || 'Uygulamayı kullanarak'}{' '}
+              <Text 
+                style={styles.legalLink} 
+                onPress={() => Linking.openURL(PRIVACY_POLICY_URL)}
+              >
+                {t('privacyPolicy') || 'Gizlilik Politikası'}
+              </Text>
+              {' '}{t('and') || 've'}{' '}
+              <Text 
+                style={styles.legalLink} 
+                onPress={() => Linking.openURL(TERMS_OF_SERVICE_URL)}
+              >
+                {t('termsOfService') || 'Kullanım Şartları'}
+              </Text>
+              {t('youAccept') || "'nı kabul ediyorsunuz"}
+            </Text>
+          </View>
         </View>
       </View>
     </SafeAreaView>
