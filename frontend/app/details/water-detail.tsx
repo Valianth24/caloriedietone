@@ -365,6 +365,59 @@ export default function WaterDetailScreen() {
           </TouchableOpacity>
         </View>
 
+        {/* Weekly Water Graph */}
+        {weeklyWater.length > 0 && (
+          <View style={styles.chartCard}>
+            <Text style={styles.chartTitle}>Haftalık Su Tüketimi</Text>
+            <LineChart
+              data={weeklyWater.map(item => ({
+                value: item.amount / 1000,
+                label: new Date(item.date).toLocaleDateString('tr-TR', { weekday: 'short' }).slice(0, 2),
+              }))}
+              width={screenWidth - 64}
+              height={180}
+              spacing={Math.max(30, (screenWidth - 100) / weeklyWater.length)}
+              initialSpacing={10}
+              color={Colors.teal}
+              thickness={3}
+              startFillColor={Colors.teal}
+              startOpacity={0.3}
+              endFillColor={Colors.teal}
+              endOpacity={0.05}
+              areaChart
+              curved
+              hideRules
+              yAxisColor="#E0E0E0"
+              xAxisColor="#E0E0E0"
+              hideDataPoints={false}
+              dataPointsColor={Colors.teal}
+              dataPointsRadius={5}
+              yAxisTextStyle={{ color: Colors.lightText, fontSize: 10 }}
+              xAxisLabelTextStyle={{ color: Colors.lightText, fontSize: 10 }}
+              showVerticalLines={false}
+              noOfSections={4}
+              pointerConfig={{
+                pointerStripHeight: 160,
+                pointerStripColor: Colors.teal + '40',
+                pointerStripWidth: 2,
+                pointerColor: Colors.teal,
+                radius: 6,
+                pointerLabelWidth: 100,
+                pointerLabelHeight: 40,
+                activatePointersOnLongPress: true,
+                autoAdjustPointerLabelPosition: true,
+                pointerLabelComponent: (items: any) => {
+                  return (
+                    <View style={styles.pointerLabel}>
+                      <Text style={styles.pointerText}>{items[0].value.toFixed(1)}L</Text>
+                    </View>
+                  );
+                },
+              }}
+            />
+          </View>
+        )}
+
         {/* Weekly Average */}
         <View style={styles.avgSection}>
           <Text style={styles.avgLabel}>Haftalık Ortalama</Text>
