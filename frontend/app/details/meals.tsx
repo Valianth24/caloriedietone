@@ -412,7 +412,7 @@ export default function MealsDetailScreen() {
               style={styles.manualAddButton}
               onPress={handleManualAdd}
             >
-              <Text style={styles.manualAddButtonText}>{lang === 'en' ? 'Add' : 'Ekle'}</Text>
+              <Text style={styles.manualAddButtonText}>{t('add')}</Text>
             </TouchableOpacity>
           </ScrollView>
         </SafeAreaView>
