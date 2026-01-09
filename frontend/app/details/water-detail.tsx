@@ -328,7 +328,7 @@ export default function WaterDetailScreen() {
             )}
           </View>
           <Text style={styles.glassLabel}>
-            {glassCount} Bardak ({(todayWater / 1000).toFixed(1)}L)
+            {glassCount} {t('glasses')} ({(todayWater / 1000).toFixed(1)}L)
           </Text>
         </View>
 
