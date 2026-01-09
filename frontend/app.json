@@ -4,6 +4,11 @@
     "slug": "caloriediet",
     "version": "1.0.0",
     "orientation": "portrait",
+    "splash": {
+      "image": "./assets/images/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#4CAF50"
+    },
     "icon": "./assets/images/icon.png",
     "scheme": "caloriediet",
     "userInterfaceStyle": "automatic",
