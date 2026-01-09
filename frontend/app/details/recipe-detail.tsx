@@ -37,16 +37,28 @@ export default function RecipeDetailScreen() {
   const [checkedSteps, setCheckedSteps] = useState<Set<number>>(new Set());
 
   useEffect(() => {
-    loadRecipeData();
+    if (recipeId) {
+      loadRecipeData();
+    }
   }, [recipeId, locale]);
 
   const loadRecipeData = async () => {
+    if (!recipeId) {
+      setLoading(false);
+      return;
+    }
+    
     setLoading(true);
     try {
       const data = await loadRecipe(recipeId, locale);
-      setRecipe(data);
+      if (data) {
+        setRecipe(data);
+      } else {
+        setRecipe(null);
+      }
     } catch (error) {
       console.error('Error loading recipe:', error);
+      setRecipe(null);
     } finally {
       setLoading(false);
     }
