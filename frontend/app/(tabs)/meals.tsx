@@ -983,9 +983,12 @@ const styles = StyleSheet.create({
   calorieValue: { fontSize: 20, fontWeight: '700', color: Colors.primary },
   calorieUnit: { fontSize: 11, color: Colors.lightText, marginTop: -2 },
   addIconBtn: { 
-    width: 36, height: 36, borderRadius: 18, 
+    width: 32, 
+    height: 32, 
+    borderRadius: 16, 
     backgroundColor: Colors.primary,
-    justifyContent: 'center', alignItems: 'center',
+    justifyContent: 'center', 
+    alignItems: 'center',
   },
   
   // Empty
