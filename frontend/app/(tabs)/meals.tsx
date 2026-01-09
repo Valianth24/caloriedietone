@@ -208,7 +208,7 @@ export default function MealsScreen() {
         carbs: Math.round(food.carbs * portionMultiplier * 10) / 10,
         fat: Math.round(food.fat * portionMultiplier * 10) / 10,
         image_base64: '',
-        meal_type: 'snack',
+        meal_type: mealTypeParam || 'snack', // Parametre varsa kullan, yoksa snack
       });
 
       const newRecent: RecentFood = {
@@ -233,7 +233,16 @@ export default function MealsScreen() {
         lang === 'en' ? 'Success' : 'Başarılı', 
         `${lang === 'en' ? food.name_en : food.name} ${lang === 'en' ? 'added' : 'eklendi'}`
       );
-      router.replace('/(tabs)');
+      
+      // Eğer meal detail'den geldiyse oraya geri dön
+      if (mealTypeParam) {
+        router.push({
+          pathname: '/details/meals',
+          params: { meal_type: mealTypeParam }
+        });
+      } else {
+        router.replace('/(tabs)');
+      }
     } catch (error: any) {
       Alert.alert(lang === 'en' ? 'Error' : 'Hata', error.message || (lang === 'en' ? 'Could not add meal' : 'Yemek eklenemedi'));
     } finally {
