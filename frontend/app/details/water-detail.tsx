@@ -216,7 +216,7 @@ export default function WaterDetailScreen() {
 
   const avgWater =
     weeklyWater.length > 0
-      ? weeklyWater.reduce((sum, item) => sum + item.amount, 0) / weeklyWater.length / 1000
+      ? weeklyWater.reduce((sum, item) => sum + (item.total_amount || 0), 0) / weeklyWater.length / 1000
       : 0;
 
   // Dinamik su hedefi hesaplama
