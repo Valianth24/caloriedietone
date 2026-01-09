@@ -158,15 +158,19 @@ export default function RecipesScreen() {
   };
 
   const handleRecipePress = (recipe: RecipeMetadata) => {
-    if (recipe.isPremium && !isPremium) {
-      setShowPaywall(true);
-      return;
-    }
+    try {
+      if (recipe.isPremium && !isPremium) {
+        setShowPaywall(true);
+        return;
+      }
 
-    router.push({
-      pathname: '/details/recipe-detail',
-      params: { recipeId: recipe.id },
-    });
+      router.push({
+        pathname: '/details/recipe-detail',
+        params: { recipeId: recipe.id },
+      });
+    } catch (error) {
+      console.error('Error navigating to recipe detail:', error);
+    }
   };
 
   const categories = getAllCategories(locale);
