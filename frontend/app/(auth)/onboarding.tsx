@@ -143,11 +143,23 @@ export default function OnboardingScreen() {
     try {
       await changeLanguage(selectedLang);
       await setFirstLaunchDone();
-      console.log('[Onboarding] Moving to welcome step');
-      setStep('welcome');
+      console.log('[Onboarding] Moving to dataConsent step');
+      setStep('dataConsent');
     } catch (error) {
       console.error('[Onboarding] Error:', error);
     }
+  };
+
+  // Privacy Policy & Terms URLs
+  const PRIVACY_POLICY_URL = 'https://sites.google.com/d/1moixtG0RH7CZ-sLadmCjPcNurjRd7aP1/p/1kvWr3lcEqMdyJpg8bjd8g-rHfZRgC1Gj/edit';
+  const TERMS_OF_SERVICE_URL = 'https://sites.google.com/d/1moixtG0RH7CZ-sLadmCjPcNurjRd7aP1/p/1kvWr3lcEqMdyJpg8bjd8g-rHfZRgC1Gj/edit';
+
+  const openPrivacyPolicy = () => {
+    Linking.openURL(PRIVACY_POLICY_URL);
+  };
+
+  const openTermsOfService = () => {
+    Linking.openURL(TERMS_OF_SERVICE_URL);
   };
 
   const goToNextStep = () => {
