@@ -84,15 +84,6 @@
         {
           "motionPermission": "CalorieDiet uses motion sensors to track your daily steps."
         }
-      ],
-      [
-        "expo-splash-screen",
-        {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
-          "resizeMode": "contain",
-          "backgroundColor": "#4CAF50"
-        }
       ]
     ],
     "experiments": {
