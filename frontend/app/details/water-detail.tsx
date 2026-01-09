@@ -13,6 +13,7 @@ import { LogBox } from 'react-native';
 import { clearReminderNotifications, requestNotificationPermission, syncReminderNotifications, sendTestNotification, getScheduledNotifications } from '../../utils/notifications';
 import Svg, { Circle } from 'react-native-svg';
 import { calculateWaterGoal, UserData } from '../../utils/nutritionCalculator';
+import { LineChart } from 'react-native-gifted-charts';
 
 const screenWidth = Dimensions.get('window').width;
 
