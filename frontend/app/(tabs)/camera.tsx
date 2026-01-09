@@ -825,7 +825,7 @@ export default function CameraScreen() {
             
             <View style={styles.contextModalBody}>
               <Text style={styles.contextModalTitle}>
-                {lang === 'tr' ? 'İçerik Eklemek İster misiniz?' : 'Want to Add Context?'}
+                {t('wantToAddContext')}
               </Text>
               <Text style={styles.contextModalSubtitle}>
                 {lang === 'tr' 
