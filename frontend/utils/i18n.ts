@@ -2976,11 +2976,12 @@ const resources = {
 export const languageList = [
   { code: 'en', name: 'English', flag: '🇬🇧', nativeName: 'English' },
   { code: 'tr', name: 'Türkçe', flag: '🇹🇷', nativeName: 'Türkçe' },
-  { code: 'es', name: 'Español', flag: '🇪🇸', nativeName: 'Español' },
-  { code: 'pt', name: 'Português', flag: '🇧🇷', nativeName: 'Português' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪', nativeName: 'Deutsch' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷', nativeName: 'Français' },
-  { code: 'ar', name: 'العربية', flag: '🇸🇦', nativeName: 'العربية' },
+  // Diğer diller temel seviye tamamlandıktan sonra eklenecek
+  // { code: 'es', name: 'Español', flag: '🇪🇸', nativeName: 'Español' },
+  // { code: 'pt', name: 'Português', flag: '🇧🇷', nativeName: 'Português' },
+  // { code: 'de', name: 'Deutsch', flag: '🇩🇪', nativeName: 'Deutsch' },
+  // { code: 'fr', name: 'Français', flag: '🇫🇷', nativeName: 'Français' },
+  // { code: 'ar', name: 'العربية', flag: '🇸🇦', nativeName: 'العربية' },
 ];
 
 // Dil değiştirme fonksiyonu
