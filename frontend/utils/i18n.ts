@@ -1217,6 +1217,22 @@ const resources = {
       recipe: 'tarif',
       selectDaysFromProgram: 'Programdan uygulamak istediğiniz günleri seçin',
       daysSelected: 'gün seçildi',
+      
+      // Water Detail
+      todaysGoal: 'Bugünkü Hedefiniz',
+      today: 'Bugün',
+      weeklyWaterConsumption: 'Haftalık Su Tüketimi',
+      weeklyAverage: 'Haftalık Ortalama',
+      glasses: 'Bardak',
+      
+      // Vitamins
+      addNewVitamin: 'Yeni Vitamin Ekle',
+      addTime: 'Saat Ekle',
+      
+      // Meals Detail
+      wantToAddContext: 'İçerik Eklemek İster misiniz?',
+      recentMeals: 'Son Eklenenler',
+      addCalorie: 'Kalori Ekle',
     }
   },
   
