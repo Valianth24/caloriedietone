@@ -558,7 +558,7 @@ export default function MealsScreen() {
           <View style={styles.modalHandle} />
           
           <Text style={styles.actionSheetTitle}>
-            {lang === 'en' ? 'Add Calorie' : 'Kalori Ekle'}
+            {t('addCalorie')}
           </Text>
           <Text style={styles.actionSheetSubtitle}>
             {lang === 'en' ? 'How would you like to add?' : 'Nasıl eklemek istersiniz?'}
