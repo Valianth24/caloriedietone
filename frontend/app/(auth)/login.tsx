@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform, ScrollView, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform, ScrollView, Alert, Linking } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useAuth } from '../../contexts/AuthContext';
@@ -7,6 +7,10 @@ import { Colors } from '../../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import { registerUser, loginUser, guestLogin, setAuthToken } from '../../utils/api';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+// Privacy Policy & Terms URLs
+const PRIVACY_POLICY_URL = 'https://sites.google.com/d/1moixtG0RH7CZ-sLadmCjPcNurjRd7aP1/p/1kvWr3lcEqMdyJpg8bjd8g-rHfZRgC1Gj/edit';
+const TERMS_OF_SERVICE_URL = 'https://sites.google.com/d/1moixtG0RH7CZ-sLadmCjPcNurjRd7aP1/p/1kvWr3lcEqMdyJpg8bjd8g-rHfZRgC1Gj/edit';
 
 export default function LoginScreen() {
   const { login, setUser } = useAuth();
