@@ -423,7 +423,7 @@ export default function WaterDetailScreen() {
 
         {/* Weekly Average */}
         <View style={styles.avgSection}>
-          <Text style={styles.avgLabel}>Haftalık Ortalama</Text>
+          <Text style={styles.avgLabel}>{t('weeklyAverage')}</Text>
           <Text style={styles.circularValue}>{avgWater.toFixed(1)}L</Text>
         </View>
       </ScrollView>
