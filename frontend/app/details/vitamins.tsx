@@ -360,7 +360,7 @@ export default function VitaminsScreen() {
                 style={[styles.modalButton, styles.modalButtonAdd]}
                 onPress={handleAddVitamin}
               >
-                <Text style={styles.modalButtonText}>Ekle</Text>
+                <Text style={styles.modalButtonText}>{t('add')}</Text>
               </TouchableOpacity>
             </View>
           </View>
