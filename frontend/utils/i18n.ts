@@ -1126,6 +1126,8 @@ const resources = {
       legal: 'Yasal',
       privacyPolicySubtext: 'Verilerinizi nasıl koruyoruz',
       termsOfServiceSubtext: 'Hizmet koşullarını okuyun',
+      byUsingApp: 'Uygulamayı kullanarak',
+      youAccept: "'nı kabul ediyorsunuz",
       
       today: 'Bugün',
       
