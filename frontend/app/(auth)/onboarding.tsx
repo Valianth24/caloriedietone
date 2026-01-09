@@ -198,7 +198,7 @@ export default function OnboardingScreen() {
   };
 
   const goToPrevStep = () => {
-    const steps: OnboardingStep[] = ['language', 'welcome', 'gender', 'age', 'height', 'weight', 'targetWeight', 'activityLevel', 'goal', 'result'];
+    const steps: OnboardingStep[] = ['language', 'dataConsent', 'welcome', 'gender', 'age', 'height', 'weight', 'targetWeight', 'activityLevel', 'goal', 'result'];
     const currentIndex = steps.indexOf(step);
     if (currentIndex > 1) {
       setStep(steps[currentIndex - 1]);
