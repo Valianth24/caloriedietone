@@ -336,7 +336,7 @@ export default function VitaminsScreen() {
           style={styles.modalContainer}
         >
           <View style={styles.modalContent}>
-            <Text style={styles.modalTitle}>Yeni Vitamin Ekle</Text>
+            <Text style={styles.modalTitle}>{t('addNewVitamin')}</Text>
             <TextInput
               style={styles.modalInput}
               placeholder="Vitamin Adı"
