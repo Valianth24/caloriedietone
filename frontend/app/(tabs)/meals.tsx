@@ -967,7 +967,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#F0F0F0',
-    height: 82,
+    minHeight: 82,
   },
   cardContent: { flex: 1, marginRight: 12 },
   cardHeader: { flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: 10 },
