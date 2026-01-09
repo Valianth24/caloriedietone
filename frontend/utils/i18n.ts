@@ -1108,6 +1108,23 @@ const resources = {
       accountDeleted: 'Hesabınız başarıyla silindi.',
       deleteAccountError: 'Hesap silinemedi. Lütfen tekrar deneyin.',
       
+      // Veri Gizliliği & Yasal
+      dataPrivacy: 'Veri Gizliliği',
+      yourDataIsSafe: 'Verileriniz Güvende',
+      dataConsentMessage: 'CalorieDiet, sağlık verilerinizi (kilo, kalori, aktivite) toplar ve güvenli sunucularda saklar. Bu veriler sadece size özel beslenme önerileri sunmak için kullanılır.\n\nVerileriniz üçüncü taraflarla paylaşılmaz ve istediğiniz zaman silinmesini talep edebilirsiniz.\n\nBu uygulama tıbbi tavsiye yerine geçmez. Diyet değişiklikleri için doktorunuza danışın.',
+      encryptedStorage: 'Şifrelenmiş Depolama',
+      noThirdPartySharing: 'Üçüncü Taraflarla Paylaşılmaz',
+      deleteAnytime: 'İstediğinizde Silin',
+      privacyPolicy: 'Gizlilik Politikası',
+      termsOfService: 'Kullanım Şartları',
+      and: ' ve ',
+      acceptTerms: "'nı okudum ve kabul ediyorum",
+      readPrivacyPolicy: 'Gizlilik Politikasını Oku',
+      readTermsOfService: 'Kullanım Şartlarını Oku',
+      legal: 'Yasal',
+      privacyPolicySubtext: 'Verilerinizi nasıl koruyoruz',
+      termsOfServiceSubtext: 'Hizmet koşullarını okuyun',
+      
       today: 'Bugün',
       
       // Diyet Detay Sayfası
