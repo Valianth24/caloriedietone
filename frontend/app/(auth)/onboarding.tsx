@@ -151,8 +151,8 @@ export default function OnboardingScreen() {
   };
 
   // Privacy Policy & Terms URLs
-  const PRIVACY_POLICY_URL = 'https://sites.google.com/d/1moixtG0RH7CZ-sLadmCjPcNurjRd7aP1/p/1kvWr3lcEqMdyJpg8bjd8g-rHfZRgC1Gj/edit';
-  const TERMS_OF_SERVICE_URL = 'https://sites.google.com/d/1moixtG0RH7CZ-sLadmCjPcNurjRd7aP1/p/1kvWr3lcEqMdyJpg8bjd8g-rHfZRgC1Gj/edit';
+  const PRIVACY_POLICY_URL = 'https://sites.google.com/view/calorie-diet-tracker/ana-sayfa';
+  const TERMS_OF_SERVICE_URL = 'https://sites.google.com/view/calorie-diet-tracker/ana-sayfa';
 
   const openPrivacyPolicy = () => {
     Linking.openURL(PRIVACY_POLICY_URL);
