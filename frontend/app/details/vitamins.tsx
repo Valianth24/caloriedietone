@@ -410,7 +410,7 @@ export default function VitaminsScreen() {
                   {reminderTimes.length < 5 && (
                     <TouchableOpacity style={styles.addTimeButton} onPress={addReminderTime}>
                       <Ionicons name="add-circle" size={24} color={Colors.primary} />
-                      <Text style={styles.addTimeText}>Saat Ekle</Text>
+                      <Text style={styles.addTimeText}>{t('addTime')}</Text>
                     </TouchableOpacity>
                   )}
 
