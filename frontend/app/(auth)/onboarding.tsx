@@ -378,6 +378,79 @@ export default function OnboardingScreen() {
     );
   }
 
+  // Data Consent Step - GDPR/KVKK Compliance
+  if (step === 'dataConsent') {
+    return (
+      <SafeAreaView style={styles.container}>
+        <ScrollView contentContainerStyle={styles.langContent}>
+          <View style={styles.langHeader}>
+            <Text style={styles.langLogo}>🔒</Text>
+            <Text style={styles.langTitle}>{t('dataPrivacy') || 'Veri Gizliliği'}</Text>
+            <Text style={styles.langSubtitle}>{t('yourDataIsSafe') || 'Verileriniz Güvende'}</Text>
+          </View>
+
+          <View style={styles.dataConsentCard}>
+            <Text style={styles.dataConsentText}>
+              {t('dataConsentMessage') || 'CalorieDiet, sağlık verilerinizi (kilo, kalori, aktivite) toplar ve güvenli sunucularda saklar. Bu veriler sadece size özel beslenme önerileri sunmak için kullanılır.\n\nVerileriniz üçüncü taraflarla paylaşılmaz ve istediğiniz zaman silinmesini talep edebilirsiniz.\n\nBu uygulama tıbbi tavsiye yerine geçmez. Diyet değişiklikleri için doktorunuza danışın.'}
+            </Text>
+            
+            <View style={styles.dataConsentFeatures}>
+              <View style={styles.dataConsentFeatureItem}>
+                <Text style={styles.dataConsentFeatureIcon}>🔐</Text>
+                <Text style={styles.dataConsentFeatureText}>{t('encryptedStorage') || 'Şifrelenmiş Depolama'}</Text>
+              </View>
+              <View style={styles.dataConsentFeatureItem}>
+                <Text style={styles.dataConsentFeatureIcon}>🚫</Text>
+                <Text style={styles.dataConsentFeatureText}>{t('noThirdPartySharing') || 'Üçüncü Taraflarla Paylaşılmaz'}</Text>
+              </View>
+              <View style={styles.dataConsentFeatureItem}>
+                <Text style={styles.dataConsentFeatureIcon}>🗑️</Text>
+                <Text style={styles.dataConsentFeatureText}>{t('deleteAnytime') || 'İstediğinizde Silin'}</Text>
+              </View>
+            </View>
+          </View>
+
+          <TouchableOpacity 
+            style={styles.consentCheckboxRow}
+            onPress={() => setDataConsentAccepted(!dataConsentAccepted)}
+          >
+            <View style={[styles.checkbox, dataConsentAccepted && styles.checkboxChecked]}>
+              {dataConsentAccepted && <Text style={styles.checkboxMark}>✓</Text>}
+            </View>
+            <Text style={styles.consentCheckboxText}>
+              <Text onPress={openPrivacyPolicy} style={styles.linkText}>{t('privacyPolicy') || 'Gizlilik Politikası'}</Text>
+              <Text>{t('and') || ' ve '}</Text>
+              <Text onPress={openTermsOfService} style={styles.linkText}>{t('termsOfService') || 'Kullanım Şartları'}</Text>
+              <Text>{t('acceptTerms') || "'nı okudum ve kabul ediyorum"}</Text>
+            </Text>
+          </TouchableOpacity>
+
+          <View style={styles.legalLinksRow}>
+            <TouchableOpacity onPress={openPrivacyPolicy} style={styles.legalLink}>
+              <Text style={styles.legalLinkText}>📄 {t('readPrivacyPolicy') || 'Gizlilik Politikasını Oku'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={openTermsOfService} style={styles.legalLink}>
+              <Text style={styles.legalLinkText}>📋 {t('readTermsOfService') || 'Kullanım Şartlarını Oku'}</Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity 
+            style={[styles.continueBtn, !dataConsentAccepted && styles.continueBtnDisabled]} 
+            onPress={() => setStep('welcome')}
+            disabled={!dataConsentAccepted}
+          >
+            <LinearGradient 
+              colors={dataConsentAccepted ? [Colors.primary, '#45a049'] : ['#ccc', '#aaa']} 
+              style={styles.gradientBtn}
+            >
+              <Text style={styles.continueBtnText}>{t('continue')}</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </ScrollView>
+      </SafeAreaView>
+    );
+  }
+
   // Welcome Step
   if (step === 'welcome') {
     return (
