@@ -273,7 +273,7 @@ export default function WaterDetailScreen() {
       <ScrollView style={styles.content}>
         {/* Today's Goal - SVG Circular Progress */}
         <View style={styles.goalSection}>
-          <Text style={styles.goalTitle}>Bugünkü Hedefiniz</Text>
+          <Text style={styles.goalTitle}>{t('todaysGoal')}</Text>
           <View style={styles.circularProgressWrapper}>
             <Svg width={radius * 2 + strokeWidth} height={radius * 2 + strokeWidth}>
               {/* Background Circle */}
@@ -301,7 +301,7 @@ export default function WaterDetailScreen() {
             </Svg>
             <View style={styles.circularInner}>
               <Ionicons name="water" size={32} color={Colors.teal} />
-              <Text style={styles.circularText}>Bugün</Text>
+              <Text style={styles.circularText}>{t('today')}</Text>
               <Text style={styles.circularValue}>{(todayWater / 1000).toFixed(1)}L</Text>
               <Text style={styles.circularSubtext}>/ {(goal / 1000).toFixed(1)}L</Text>
             </View>
