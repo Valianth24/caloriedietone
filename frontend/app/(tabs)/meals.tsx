@@ -480,7 +480,7 @@ export default function MealsScreen() {
               {loading ? (
                 <ActivityIndicator color="#FFF" />
               ) : (
-                <Text style={styles.addButtonText}>{lang === 'en' ? 'Add' : 'Ekle'}</Text>
+                <Text style={styles.addButtonText}>{t('add')}</Text>
               )}
             </TouchableOpacity>
           </View>
@@ -715,7 +715,7 @@ export default function MealsScreen() {
               {loading ? (
                 <ActivityIndicator color="#FFF" />
               ) : (
-                <Text style={styles.addButtonText}>{lang === 'en' ? 'Add' : 'Ekle'}</Text>
+                <Text style={styles.addButtonText}>{t('add')}</Text>
               )}
             </TouchableOpacity>
           </ScrollView>
