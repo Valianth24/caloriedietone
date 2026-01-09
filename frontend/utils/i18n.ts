@@ -534,6 +534,8 @@ const resources = {
       legal: 'Legal',
       privacyPolicySubtext: 'How we protect your data',
       termsOfServiceSubtext: 'Read service terms',
+      byUsingApp: 'By using the app, you accept',
+      youAccept: '',
       
       // Date/Time
       today: 'Today',
