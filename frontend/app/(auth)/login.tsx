@@ -464,4 +464,19 @@ const styles = StyleSheet.create({
     color: Colors.primary,
     fontWeight: '600',
   },
+  legalLinksContainer: {
+    marginTop: 24,
+    paddingHorizontal: 16,
+  },
+  legalText: {
+    fontSize: 12,
+    color: Colors.lightText,
+    textAlign: 'center',
+    lineHeight: 18,
+  },
+  legalLink: {
+    color: Colors.primary,
+    textDecorationLine: 'underline',
+    fontWeight: '500',
+  },
 });
