@@ -52,7 +52,10 @@
           ],
           "category": ["BROWSABLE", "DEFAULT"]
         }
-      ]
+      ],
+      "config": {
+        "usesCleartextTraffic": false
+      }
     },
     "web": {
       "bundler": "metro",
