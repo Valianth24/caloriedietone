@@ -314,7 +314,7 @@ export default function DietProgramScreen() {
           </View>
           <View style={styles.legendItem}>
             <View style={[styles.legendDot, { backgroundColor: Colors.primary }]} />
-            <Text style={styles.legendText}>Bugün</Text>
+            <Text style={styles.legendText}>{t('today')}</Text>
           </View>
           <View style={styles.legendItem}>
             <Ionicons name="lock-closed" size={12} color={Colors.lightText} />
