@@ -5,7 +5,7 @@ import { getTodayMeals, getDailySummary, addMeal, deleteMeal } from '../../utils
 import { Colors } from '../../constants/Colors';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
+import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useStore } from '../../store/useStore';
 import i18n from '../../utils/i18n';
 import { FOOD_COUNT } from '../../content/foodDatabase';
@@ -25,6 +25,7 @@ interface Meal {
 export default function MealsDetailScreen() {
   const { t } = useTranslation();
   const router = useRouter();
+  const params = useLocalSearchParams();
   const { user, refreshData, triggerRefresh } = useStore();
   const [meals, setMeals] = useState<Meal[]>([]);
   const [summary, setSummary] = useState({ total_calories: 0, total_protein: 0, total_carbs: 0, total_fat: 0 });
@@ -33,7 +34,7 @@ export default function MealsDetailScreen() {
   // Add Food Modal States
   const [showAddModal, setShowAddModal] = useState(false);
   const [showManualEntry, setShowManualEntry] = useState(false);
-  const [selectedMealType, setSelectedMealType] = useState('lunch');
+  const [selectedMealType, setSelectedMealType] = useState(params.meal_type as string || 'lunch');
   
   // Manual Entry State
   const [manualFood, setManualFood] = useState({
