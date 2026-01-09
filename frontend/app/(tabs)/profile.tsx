@@ -622,6 +622,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: Colors.lightText,
   },
+  settingDivider: {
+    height: 1,
+    backgroundColor: Colors.background,
+    marginVertical: 8,
+  },
   logoutButton: {
     flexDirection: 'row',
     backgroundColor: Colors.primary,
