@@ -59,6 +59,10 @@ type ScreenMode = 'actionSheet' | 'foodList' | 'manualEntry';
 export default function MealsScreen() {
   const { t } = useTranslation();
   const router = useRouter();
+  const params = useLocalSearchParams();
+  
+  // Meal type from params (from meal detail screen)
+  const mealTypeParam = params.meal_type as string || null;
   
   // Screen Mode - her zaman action sheet ile başla
   const [screenMode, setScreenMode] = useState<ScreenMode>('actionSheet');
