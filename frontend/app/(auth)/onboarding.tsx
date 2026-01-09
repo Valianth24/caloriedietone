@@ -1629,6 +1629,93 @@ const styles = StyleSheet.create({
     color: Colors.lightText,
     fontWeight: '600',
   },
+  // Data Consent Step Styles
+  dataConsentCard: {
+    backgroundColor: Colors.white,
+    borderRadius: 16,
+    padding: 20,
+    marginBottom: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  dataConsentText: {
+    fontSize: 14,
+    color: Colors.darkText,
+    lineHeight: 22,
+    marginBottom: 16,
+  },
+  dataConsentFeatures: {
+    gap: 12,
+  },
+  dataConsentFeatureItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+  },
+  dataConsentFeatureIcon: {
+    fontSize: 24,
+  },
+  dataConsentFeatureText: {
+    fontSize: 14,
+    color: Colors.darkText,
+    fontWeight: '500',
+  },
+  consentCheckboxRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: 12,
+    marginBottom: 20,
+    paddingHorizontal: 4,
+  },
+  checkbox: {
+    width: 24,
+    height: 24,
+    borderRadius: 6,
+    borderWidth: 2,
+    borderColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 2,
+  },
+  checkboxChecked: {
+    backgroundColor: Colors.primary,
+  },
+  checkboxMark: {
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  consentCheckboxText: {
+    flex: 1,
+    fontSize: 14,
+    color: Colors.darkText,
+    lineHeight: 20,
+  },
+  linkText: {
+    color: Colors.primary,
+    textDecorationLine: 'underline',
+    fontWeight: '600',
+  },
+  legalLinksRow: {
+    gap: 12,
+    marginBottom: 20,
+  },
+  legalLink: {
+    backgroundColor: Colors.white,
+    borderRadius: 12,
+    padding: 14,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: Colors.primary + '30',
+  },
+  legalLinkText: {
+    fontSize: 14,
+    color: Colors.primary,
+    fontWeight: '500',
+  },
 });
 
 
