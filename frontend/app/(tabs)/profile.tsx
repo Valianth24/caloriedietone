@@ -380,6 +380,46 @@ export default function ProfileScreen() {
           </View>
         </View>
 
+        {/* Legal Links Section */}
+        <View style={styles.section}>
+          <Text style={styles.sectionTitle}>{t('legal') || 'Yasal'}</Text>
+          <View style={styles.card}>
+            <TouchableOpacity 
+              style={styles.settingItem} 
+              onPress={() => Linking.openURL(PRIVACY_POLICY_URL)}
+            >
+              <View style={styles.settingLeft}>
+                <View style={[styles.settingIconBg, { backgroundColor: '#7C3AED' }]}>
+                  <Ionicons name="shield-checkmark" size={22} color={Colors.white} />
+                </View>
+                <View>
+                  <Text style={styles.settingText}>{t('privacyPolicy') || 'Gizlilik Politikası'}</Text>
+                  <Text style={styles.settingSubtext}>{t('privacyPolicySubtext') || 'Verilerinizi nasıl koruyoruz'}</Text>
+                </View>
+              </View>
+              <Ionicons name="open-outline" size={22} color={Colors.lightText} />
+            </TouchableOpacity>
+            
+            <View style={styles.settingDivider} />
+            
+            <TouchableOpacity 
+              style={styles.settingItem} 
+              onPress={() => Linking.openURL(TERMS_OF_SERVICE_URL)}
+            >
+              <View style={styles.settingLeft}>
+                <View style={[styles.settingIconBg, { backgroundColor: '#EC4899' }]}>
+                  <Ionicons name="document-text" size={22} color={Colors.white} />
+                </View>
+                <View>
+                  <Text style={styles.settingText}>{t('termsOfService') || 'Kullanım Şartları'}</Text>
+                  <Text style={styles.settingSubtext}>{t('termsOfServiceSubtext') || 'Hizmet koşullarını okuyun'}</Text>
+                </View>
+              </View>
+              <Ionicons name="open-outline" size={22} color={Colors.lightText} />
+            </TouchableOpacity>
+          </View>
+        </View>
+
         {/* Theme Selector */}
         <ThemeSelector />
 
