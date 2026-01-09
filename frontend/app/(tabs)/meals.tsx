@@ -269,14 +269,23 @@ export default function MealsScreen() {
         carbs: parseFloat(manualFood.carbs) || 0,
         fat: parseFloat(manualFood.fat) || 0,
         image_base64: '',
-        meal_type: 'snack',
+        meal_type: mealTypeParam || 'snack',
       });
 
       Alert.alert(
         lang === 'en' ? 'Success' : 'Başarılı',
         lang === 'en' ? 'Meal added' : 'Yemek eklendi'
       );
-      router.replace('/(tabs)');
+      
+      // Eğer meal detail'den geldiyse oraya geri dön
+      if (mealTypeParam) {
+        router.push({
+          pathname: '/details/meals',
+          params: { meal_type: mealTypeParam }
+        });
+      } else {
+        router.replace('/(tabs)');
+      }
     } catch (error: any) {
       Alert.alert(lang === 'en' ? 'Error' : 'Hata', error.message);
     } finally {
