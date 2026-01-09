@@ -140,6 +140,8 @@ export default function RecipesScreen() {
       setFeaturedRecipes(getFeaturedRecipes());
     } catch (error) {
       console.error('Error loading recipes:', error);
+      setRecipes([]);
+      setFeaturedRecipes([]);
     } finally {
       setLoading(false);
     }
