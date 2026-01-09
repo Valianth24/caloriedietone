@@ -374,7 +374,7 @@ export default function WaterDetailScreen() {
             <Text style={styles.chartTitle}>Haftalık Su Tüketimi</Text>
             <LineChart
               data={weeklyWater.map(item => ({
-                value: item.amount / 1000,
+                value: (item.total_amount || 0) / 1000,
                 label: new Date(item.date).toLocaleDateString('tr-TR', { weekday: 'short' }).slice(0, 2),
               }))}
               width={screenWidth - 64}
