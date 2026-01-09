@@ -660,6 +660,17 @@ const styles = StyleSheet.create({
     color: Colors.darkText,
     marginBottom: 16,
   },
+  pointerLabel: {
+    backgroundColor: Colors.teal,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    borderRadius: 8,
+  },
+  pointerText: {
+    color: '#FFF',
+    fontWeight: '600',
+    fontSize: 13,
+  },
   modalContainer: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
