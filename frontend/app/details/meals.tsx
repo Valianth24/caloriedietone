@@ -96,8 +96,11 @@ export default function MealsDetailScreen() {
   
   const handleAddFromList = () => {
     setShowAddModal(false);
-    // Alt bardaki + ile aynı listeye yönlendir
-    router.push('/(tabs)/meals');
+    // Alt bardaki meals listesine meal_type parametresi ile yönlendir
+    router.push({
+      pathname: '/(tabs)/meals',
+      params: { meal_type: selectedMealType }
+    });
   };
   
   const handleAddFromCamera = () => {
