@@ -44,6 +44,12 @@ export default function DietsScreen() {
   };
 
   const handleDietClick = (diet: Diet) => {
+    // Premium check temporarily disabled - all diets accessible
+    router.push({
+      pathname: '/details/premium-diet-detail',
+      params: { id: diet.id }
+    });
+    /* Premium check - temporarily disabled
     if (diet.isPremium && !isPremium) {
       setShowPaywall(true);
     } else {
@@ -52,6 +58,7 @@ export default function DietsScreen() {
         params: { id: diet.id }
       });
     }
+    */
   };
 
   const getDifficultyColor = (difficulty: string) => {
