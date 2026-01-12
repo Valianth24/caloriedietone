@@ -747,6 +747,19 @@ async def get_current_user(request: Request) -> Optional[User]:
     logger.warning(f"User not found for session: {session['user_id']}")
     return None
 
+  # Update last_active and cancel any scheduled deletion
+  # This ensures active users are never deleted
+  try:
+    user_id = session["user_id"]
+    await store_update_user(user_id, {"last_active": now_utc().isoformat()})
+    
+    # If user was scheduled for deletion, cancel it (they're actively using the app)
+    if user_doc.get("scheduled_deletion_at"):
+      await store_cancel_user_deletion(user_id)
+      logger.info(f"Auto-cancelled deletion for active user: {user_id}")
+  except Exception as e:
+    logger.debug(f"Could not update last_active: {e}")
+
   return User(**user_doc)
 
 
