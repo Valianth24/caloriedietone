@@ -506,7 +506,7 @@ export default function RecipesScreen() {
             <FlatList
               horizontal
               data={featuredRecipes}
-              renderItem={renderFeaturedCard}
+              renderItem={({ item }) => <FeaturedCard item={item} />}
               keyExtractor={(item) => item.id}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={styles.featuredList}
