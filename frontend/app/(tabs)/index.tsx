@@ -498,34 +498,40 @@ export default function DashboardScreen() {
             <FoodPhotoCard />
           </View>
 
-          {/* Personal Diets Section */}
-          <View style={styles.personalDietsSection}>
-            <View style={styles.personalDietsHeader}>
-              <Ionicons name="heart" size={24} color={Colors.error} />
-              <Text style={styles.personalDietsTitle}>{t('personalDiets')}</Text>
-            </View>
-            <Text style={styles.personalDietsSubtitle}>
-              {t('personalDietsSubtitle')}
-            </Text>
-            
-            {/* No diets placeholder */}
-            <TouchableOpacity
-              style={styles.noDietsCard}
-              onPress={() => router.push('/diets')}
-            >
-              <View style={styles.noDietsIcon}>
-                <Ionicons name="add-circle-outline" size={48} color={Colors.primary} />
+          {/* Personal Diets Section - Only show if no active diet */}
+          {!activeDiet && (
+            <View style={styles.personalDietsSection}>
+              <View style={styles.personalDietsHeader}>
+                <Ionicons name="nutrition" size={24} color={Colors.primary} />
+                <Text style={styles.personalDietsTitle}>{t('personalDiets')}</Text>
               </View>
-              <Text style={styles.noDietsText}>{t('noDietsYet')}</Text>
-              <Text style={styles.noDietsSubtext}>
-                {t('noDietsSubtext')}
+              <Text style={styles.personalDietsSubtitle}>
+                {t('personalDietsSubtitle')}
               </Text>
-              <View style={styles.noDietsButton}>
-                <Text style={styles.noDietsButtonText}>{t('goToDiets')}</Text>
-                <Ionicons name="arrow-forward" size={20} color={Colors.primary} />
-              </View>
-            </TouchableOpacity>
-          </View>
+              
+              {/* Explore diets card */}
+              <TouchableOpacity
+                style={styles.noDietsCard}
+                onPress={() => router.push('/(tabs)/diets')}
+              >
+                <View style={styles.noDietsIcon}>
+                  <Ionicons name="leaf-outline" size={48} color={Colors.primary} />
+                </View>
+                <Text style={styles.noDietsText}>
+                  {i18n.language === 'tr' ? 'Diyet Programlarını Keşfet' : 'Explore Diet Programs'}
+                </Text>
+                <Text style={styles.noDietsSubtext}>
+                  {i18n.language === 'tr' 
+                    ? 'Size özel hazırlanmış beslenme planlarını inceleyin' 
+                    : 'Browse nutrition plans prepared just for you'}
+                </Text>
+                <View style={styles.noDietsButton}>
+                  <Text style={styles.noDietsButtonText}>{t('goToDiets')}</Text>
+                  <Ionicons name="arrow-forward" size={20} color={Colors.primary} />
+                </View>
+              </TouchableOpacity>
+            </View>
+          )}
 
           {/* Recipe Book Section */}
           <View style={styles.recipeBookSection}>
