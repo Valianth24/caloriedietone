@@ -102,41 +102,45 @@ export default function WeightChart({ currentWeight, targetWeight, onWeightUpdat
     dataPointText: index === history.length - 1 ? `${entry.weight}` : '',
   }));
 
-  // Calculate min/max for chart - 20kg fark ile dinamik aralık
+  // Calculate min/max for chart - Dinamik ve kullanıcı dostu aralık
   const weights = history.map(h => h.weight);
-  const actualMin = weights.length > 0 ? Math.min(...weights) : 70;
-  const actualMax = weights.length > 0 ? Math.max(...weights) : 80;
+  const actualMin = weights.length > 0 ? Math.min(...weights) : (currentWeight || 70);
+  const actualMax = weights.length > 0 ? Math.max(...weights) : (currentWeight || 80);
   const weightRange = actualMax - actualMin;
   
-  // Minimum 20kg aralık sağla, değişim az ise grafiği daha duyarlı yap
+  // Dinamik aralık hesaplama - veri değişimine göre uyarlanır
   let minWeight: number;
   let maxWeight: number;
   
-  if (weightRange < 20) {
-    // 20kg'dan az fark varsa, ortadan 10'ar kg yukarı aşağı al
+  if (weightRange < 2) {
+    // Çok az değişim varsa (0-2kg) - ±3kg aralık
     const midPoint = (actualMax + actualMin) / 2;
-    minWeight = Math.floor(midPoint - 10);
-    maxWeight = Math.ceil(midPoint + 10);
-    
-    // Eğer veriler aralık dışına çıkıyorsa ayarla
-    if (actualMin < minWeight) {
-      const diff = minWeight - actualMin;
-      minWeight = actualMin - 2;
-      maxWeight = maxWeight - diff + 2;
-    }
-    if (actualMax > maxWeight) {
-      const diff = actualMax - maxWeight;
-      maxWeight = actualMax + 2;
-      minWeight = minWeight - diff - 2;
-    }
+    minWeight = Math.floor(midPoint - 3);
+    maxWeight = Math.ceil(midPoint + 3);
+  } else if (weightRange < 5) {
+    // Az değişim varsa (2-5kg) - ±4kg padding
+    minWeight = Math.floor(actualMin - 2);
+    maxWeight = Math.ceil(actualMax + 2);
+  } else if (weightRange < 10) {
+    // Orta değişim (5-10kg) - ±3kg padding
+    minWeight = Math.floor(actualMin - 1.5);
+    maxWeight = Math.ceil(actualMax + 1.5);
   } else {
-    // 20kg'dan fazla fark varsa, verilere göre ayarla
-    minWeight = Math.floor(actualMin - 5);
-    maxWeight = Math.ceil(actualMax + 5);
+    // Büyük değişim (10kg+) - minimal padding
+    minWeight = Math.floor(actualMin - 1);
+    maxWeight = Math.ceil(actualMax + 1);
   }
   
   // Minimum 30kg olsun (sağlıklı aralık)
   if (minWeight < 30) minWeight = 30;
+  
+  // Maksimum aralık 15kg olsun (görsellik için)
+  const finalRange = maxWeight - minWeight;
+  if (finalRange > 15 && weightRange < 10) {
+    const midPoint = (actualMax + actualMin) / 2;
+    minWeight = Math.floor(midPoint - 7);
+    maxWeight = Math.ceil(midPoint + 7);
+  }
 
   const renderStats = () => {
     if (!stats) return null;
