@@ -42,6 +42,17 @@ const CARD_WIDTH = (width - 48) / 2;
 
 // Özel Koleksiyonlar (Collections)
 const RECIPE_COLLECTIONS = {
+  favorites: {
+    id: 'favorites',
+    labelTr: 'Favori Tarifler',
+    labelEn: 'Favorite Recipes',
+    icon: 'heart',
+    color: '#e11d48',
+    descTr: 'Kaydettiğiniz tarifler',
+    descEn: 'Your saved recipes',
+    filter: (_recipes: RecipeMetadata[], favoriteIds: string[]) => 
+      _recipes.filter(r => favoriteIds.includes(r.id)),
+  },
   athlete: {
     id: 'athlete',
     labelTr: 'Sporcu Tarifleri',
