@@ -134,15 +134,37 @@ export default function RecipesScreen() {
   const [showAdModal, setShowAdModal] = useState(false);
   const [pendingRecipe, setPendingRecipe] = useState<RecipeMetadata | null>(null);
   const [recipeViewCount, setRecipeViewCount] = useState(0);
+  
+  // Favori tarifler
+  const [favoriteRecipes, setFavoriteRecipes] = useState<string[]>([]);
 
   const isPremium = user?.is_premium || false;
   const allRecipes = getAllRecipeMetadata();
 
   useEffect(() => {
+    loadFavoriteRecipes();
+  }, []);
+
+  useEffect(() => {
     loadRecipes();
     loadViewCount();
-  }, [selectedCategory, selectedCollection]);
+  }, [selectedCategory, selectedCollection, favoriteRecipes]);
   
+  const loadFavoriteRecipes = async () => {
+    try {
+      const stored = await AsyncStorage.getItem('favorite_recipes_v2');
+      if (stored) setFavoriteRecipes(JSON.parse(stored));
+    } catch (e) { console.error(e); }
+  };
+
+  const toggleFavoriteRecipe = async (recipeId: string) => {
+    const newFavorites = favoriteRecipes.includes(recipeId)
+      ? favoriteRecipes.filter(id => id !== recipeId)
+      : [...favoriteRecipes, recipeId];
+    setFavoriteRecipes(newFavorites);
+    await AsyncStorage.setItem('favorite_recipes_v2', JSON.stringify(newFavorites));
+  };
+
   const loadViewCount = async () => {
     const count = await getRecipeViews();
     setRecipeViewCount(count);
@@ -153,7 +175,11 @@ export default function RecipesScreen() {
     try {
       if (selectedCollection) {
         const collection = RECIPE_COLLECTIONS[selectedCollection];
-        setRecipes(collection.filter(allRecipes));
+        if (selectedCollection === 'favorites') {
+          setRecipes(collection.filter(allRecipes, favoriteRecipes));
+        } else {
+          setRecipes(collection.filter(allRecipes, []));
+        }
       } else if (selectedCategory === 'all') {
         setRecipes(allRecipes);
       } else {
