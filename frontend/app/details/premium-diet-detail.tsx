@@ -558,17 +558,20 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   exerciseDetails: {
-    flexDirection: 'row',
-    gap: 20,
+    flexDirection: 'column',
+    gap: 8,
+    marginTop: 8,
   },
   exerciseDetail: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
+    gap: 8,
   },
   exerciseDetailText: {
     fontSize: 14,
     color: Colors.lightText,
+    flex: 1,
+    flexWrap: 'wrap',
   },
   exerciseNote: {
     fontSize: 13,
