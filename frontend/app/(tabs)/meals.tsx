@@ -81,6 +81,10 @@ export default function MealsScreen() {
   const [quickAddItem, setQuickAddItem] = useState<FoodItem | null>(null);
   const [portion, setPortion] = useState(1);
   
+  // Multi-select Cart State (Birden fazla yemek ekleme)
+  const [cart, setCart] = useState<{food: FoodItem, portion: number}[]>([]);
+  const [showCart, setShowCart] = useState(false);
+  
   // Manual Entry State
   const [manualFood, setManualFood] = useState({
     name: '',
