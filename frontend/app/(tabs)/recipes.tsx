@@ -457,15 +457,6 @@ export default function RecipesScreen() {
             <Ionicons name="gift-outline" size={16} color={Colors.primary} />
             <Text style={styles.freeAdText}>{t('100PercentFree')}</Text>
           </View>
-            </View>
-          ) : (
-            <TouchableOpacity
-              style={styles.getPremiumButton}
-              onPress={() => router.push('/(tabs)/diets')}
-            >
-              <Text style={styles.getPremiumText}>Premium</Text>
-            </TouchableOpacity>
-          )}
         </View>
       </View>
 
