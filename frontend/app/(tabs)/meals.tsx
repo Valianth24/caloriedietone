@@ -710,12 +710,6 @@ export default function MealsScreen() {
       </Modal>
     );
   };
-            </View>
-          </View>
-        </View>
-      </Modal>
-    );
-  };
 
   // Sepet Modal
   const CartModal = () => {
