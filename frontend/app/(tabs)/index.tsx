@@ -377,7 +377,7 @@ export default function DashboardScreen() {
         </View>
 
         {/* Active Diet Card - shown for all users now */}
-        {activeDiet && (() => {
+        {activeDiet ? (() => {
           const diet = allDiets.find(d => d.id === activeDiet.dietId);
           if (!diet) return null;
           
@@ -431,7 +431,33 @@ export default function DashboardScreen() {
               </LinearGradient>
             </TouchableOpacity>
           );
-        })()}
+        })() : (
+          /* No active diet - show explore diets card */
+          <TouchableOpacity 
+            style={styles.exploreDietsCard}
+            onPress={() => router.push('/(tabs)/diets')}
+            activeOpacity={0.9}
+          >
+            <View style={styles.exploreDietsContent}>
+              <View style={styles.exploreDietsIconContainer}>
+                <Ionicons name="nutrition-outline" size={28} color={Colors.primary} />
+              </View>
+              <View style={styles.exploreDietsInfo}>
+                <Text style={styles.exploreDietsTitle}>
+                  {i18n.language === 'tr' ? 'Diyet Programlarını Keşfet' : 'Explore Diet Programs'}
+                </Text>
+                <Text style={styles.exploreDietsSubtitle}>
+                  {i18n.language === 'tr' 
+                    ? 'Size özel hazırlanmış beslenme planları' 
+                    : 'Nutrition plans prepared just for you'}
+                </Text>
+              </View>
+              <View style={styles.exploreDietsArrow}>
+                <Ionicons name="chevron-forward" size={20} color={Colors.primary} />
+              </View>
+            </View>
+          </TouchableOpacity>
+        )}
 
         {/* Cards Grid */}
         <View style={styles.grid}>
