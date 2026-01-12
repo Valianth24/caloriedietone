@@ -626,6 +626,19 @@ const resources = {
       wantToAddContext: 'Want to Add Context?',
       recentMeals: 'Recent',
       addCalorie: 'Add Calorie',
+      
+      // Ad System (Free with Ads)
+      watchAdForRecipe: 'Watch Ad to Continue',
+      watchAdForCalorie: 'Watch Ad to Calculate Calories',
+      watchAdRecipeDesc: 'You\'ve viewed 2 free recipes. Watch a short ad for more.',
+      watchAdCalorieDesc: 'Watch a short ad to calculate calories for free.',
+      '100PercentFree': '100% Free',
+      supportWithAds: 'Support us by watching ads',
+      watchAd: 'Watch Ad',
+      after2RecipesFree: 'Short ad after every 2 recipes',
+      freeWithAds: 'Completely free with ads',
+      recipesRemaining: 'recipes remaining',
+      watchAdToUnlock: 'Watch Ad to Unlock',
     }
   },
   
