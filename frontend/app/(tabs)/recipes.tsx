@@ -944,6 +944,15 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     marginLeft: 4,
   },
+  favoriteBtn: {
+    position: 'absolute',
+    top: 8,
+    right: 8,
+    backgroundColor: 'rgba(0,0,0,0.4)',
+    padding: 6,
+    borderRadius: 16,
+    zIndex: 10,
+  },
   featuredBadge: {
     position: 'absolute',
     top: 8,
