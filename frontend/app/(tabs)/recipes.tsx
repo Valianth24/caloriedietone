@@ -327,6 +327,10 @@ export default function RecipesScreen() {
 
   const renderRecipeCard = ({ item }: { item: RecipeMetadata }) => {
     const isFav = favoriteRecipes.includes(item.id);
+    const [imageError, setImageError] = useState(false);
+    
+    // Fallback image URL
+    const fallbackImage = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80';
     
     return (
       <TouchableOpacity
@@ -336,10 +340,17 @@ export default function RecipesScreen() {
       >
         <View style={styles.imageContainer}>
           <Image
-            source={{ uri: item.imageUrl }}
+            source={{ uri: imageError ? fallbackImage : item.imageUrl }}
             style={styles.recipeImage}
             resizeMode="cover"
+            onError={() => setImageError(true)}
           />
+          {/* Fallback icon when no image */}
+          {(!item.imageUrl || imageError) && (
+            <View style={styles.imagePlaceholder}>
+              <Ionicons name="restaurant-outline" size={32} color="#ccc" />
+            </View>
+          )}
           {/* Favori Butonu */}
           <TouchableOpacity 
             style={styles.favoriteBtn}
