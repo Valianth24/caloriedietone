@@ -374,10 +374,15 @@ export default function RecipesScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <PremiumPaywall 
-        visible={showPaywall} 
-        onClose={() => setShowPaywall(false)} 
-        onSubscribe={() => setShowPaywall(false)}
+      <WatchAdModal
+        visible={showAdModal}
+        onClose={() => {
+          setShowAdModal(false);
+          setPendingRecipe(null);
+        }}
+        onWatchAd={handleWatchAd}
+        type="recipe"
+        remainingFree={Math.max(0, 2 - recipeViewCount)}
       />
       
       {/* Header */}
@@ -386,9 +391,11 @@ export default function RecipesScreen() {
           {t('recipes')}
         </Text>
         <View style={styles.headerRight}>
-          {isPremium ? (
-            <View style={styles.premiumIndicator}>
-              <Ionicons name="diamond" size={16} color={Colors.premium} />
+          {/* Free with Ads Badge */}
+          <View style={styles.freeAdBadge}>
+            <Ionicons name="gift-outline" size={16} color={Colors.primary} />
+            <Text style={styles.freeAdText}>{t('100PercentFree')}</Text>
+          </View>
             </View>
           ) : (
             <TouchableOpacity
