@@ -568,17 +568,121 @@ export default function MealsScreen() {
               </View>
             </View>
             
-            {/* Add Button */}
+            {/* Add Buttons - Tek ekle veya sepete ekle */}
+            <View style={styles.addButtonsRow}>
+              <TouchableOpacity 
+                style={styles.addToCartButton}
+                onPress={() => addToCart(quickAddItem, portion)}
+                activeOpacity={0.8}
+              >
+                <Ionicons name="cart-outline" size={20} color={Colors.primary} />
+                <Text style={styles.addToCartButtonText}>
+                  {lang === 'en' ? 'Add to Cart' : 'Sepete Ekle'}
+                </Text>
+              </TouchableOpacity>
+              
+              <TouchableOpacity 
+                style={styles.addButton}
+                onPress={() => addMealToDay(quickAddItem, portion)}
+                disabled={loading}
+                activeOpacity={0.8}
+              >
+                {loading ? (
+                  <ActivityIndicator color="#FFF" />
+                ) : (
+                  <Text style={styles.addButtonText}>{t('add')}</Text>
+                )}
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
+      </Modal>
+    );
+  };
+
+  // Sepet Modal
+  const CartModal = () => {
+    if (cart.length === 0) return null;
+    
+    return (
+      <Modal visible={showCart} transparent animationType="slide">
+        <View style={styles.modalOverlay}>
+          <TouchableOpacity 
+            style={styles.modalBackdrop} 
+            activeOpacity={1} 
+            onPress={() => setShowCart(false)} 
+          />
+          <View style={styles.cartContent}>
+            <View style={styles.modalHandle} />
+            
+            <View style={styles.cartHeader}>
+              <Text style={styles.cartTitle}>
+                {lang === 'en' ? 'Your Cart' : 'Sepetiniz'} ({cart.length})
+              </Text>
+              <TouchableOpacity onPress={() => setShowCart(false)}>
+                <Ionicons name="close" size={24} color="#999" />
+              </TouchableOpacity>
+            </View>
+            
+            <ScrollView style={styles.cartList}>
+              {cart.map((item, index) => (
+                <View key={item.food.food_id + index} style={styles.cartItem}>
+                  <View style={styles.cartItemInfo}>
+                    <Text style={styles.cartItemName} numberOfLines={1}>
+                      {lang === 'en' ? item.food.name_en : item.food.name}
+                    </Text>
+                    <Text style={styles.cartItemDetails}>
+                      {item.portion}x • {Math.round(item.food.calories * item.portion)} kcal
+                    </Text>
+                  </View>
+                  <TouchableOpacity 
+                    style={styles.removeCartItem}
+                    onPress={() => removeFromCart(item.food.food_id)}
+                  >
+                    <Ionicons name="trash-outline" size={18} color="#ef4444" />
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </ScrollView>
+            
+            {/* Cart Totals */}
+            <View style={styles.cartTotals}>
+              <Text style={styles.cartTotalsTitle}>
+                {lang === 'en' ? 'Total' : 'Toplam'}
+              </Text>
+              <View style={styles.cartTotalsRow}>
+                <View style={styles.cartTotalItem}>
+                  <Text style={styles.cartTotalValue}>{cartTotals.calories}</Text>
+                  <Text style={styles.cartTotalLabel}>kcal</Text>
+                </View>
+                <View style={styles.cartTotalItem}>
+                  <Text style={[styles.cartTotalValue, { color: '#3b82f6' }]}>{cartTotals.protein}g</Text>
+                  <Text style={styles.cartTotalLabel}>Protein</Text>
+                </View>
+                <View style={styles.cartTotalItem}>
+                  <Text style={[styles.cartTotalValue, { color: '#f59e0b' }]}>{cartTotals.carbs}g</Text>
+                  <Text style={styles.cartTotalLabel}>{lang === 'en' ? 'Carbs' : 'Karb'}</Text>
+                </View>
+                <View style={styles.cartTotalItem}>
+                  <Text style={[styles.cartTotalValue, { color: '#ef4444' }]}>{cartTotals.fat}g</Text>
+                  <Text style={styles.cartTotalLabel}>{lang === 'en' ? 'Fat' : 'Yağ'}</Text>
+                </View>
+              </View>
+            </View>
+            
+            {/* Add All Button */}
             <TouchableOpacity 
-              style={styles.addButton}
-              onPress={() => addMealToDay(quickAddItem, portion)}
+              style={styles.addAllButton}
+              onPress={addAllFromCart}
               disabled={loading}
               activeOpacity={0.8}
             >
               {loading ? (
                 <ActivityIndicator color="#FFF" />
               ) : (
-                <Text style={styles.addButtonText}>{t('add')}</Text>
+                <Text style={styles.addAllButtonText}>
+                  {lang === 'en' ? `Add All (${cart.length} items)` : `Hepsini Ekle (${cart.length} yemek)`}
+                </Text>
               )}
             </TouchableOpacity>
           </View>
