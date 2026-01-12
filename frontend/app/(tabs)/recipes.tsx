@@ -546,7 +546,7 @@ export default function RecipesScreen() {
             <View style={styles.recipeGrid}>
               {recipes.map((recipe) => (
                 <View key={recipe.id} style={styles.gridItem}>
-                  {renderRecipeCard({ item: recipe })}
+                  <RecipeCard item={recipe} />
                 </View>
               ))}
             </View>
