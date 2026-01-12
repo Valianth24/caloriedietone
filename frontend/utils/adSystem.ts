@@ -20,10 +20,11 @@ export interface AdSystemState {
 
 /**
  * Ücretsiz limitleri
+ * 1 reklamsız, 1 reklamlı döngüsü
  */
 export const FREE_LIMITS = {
-  RECIPES_PER_AD: 2, // Her 2 tariften sonra reklam
-  CALORIES_PER_AD: 3, // Her 3 kalori taramadan sonra reklam
+  RECIPES_PER_AD: 1, // Her 1 tariften sonra reklam
+  CALORIES_PER_AD: 1, // Her 1 kalori taramadan sonra reklam
 };
 
 /**
