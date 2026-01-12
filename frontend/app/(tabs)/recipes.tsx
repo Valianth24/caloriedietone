@@ -445,11 +445,13 @@ export default function RecipesScreen() {
             {getCategoryLabel(item.category, locale)}
           </Text>
         </View>
+        {/* Premium lock - temporarily hidden
         {item.isPremium && !isPremium && (
           <View style={styles.featuredLock}>
             <Ionicons name="lock-closed" size={20} color="#fff" />
           </View>
         )}
+        */}
       </TouchableOpacity>
     );
   });
