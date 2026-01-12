@@ -1359,4 +1359,147 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(255,255,255,0.9)',
     justifyContent: 'center', alignItems: 'center',
   },
+  
+  // Cart Badge in Header
+  cartBtnActive: {
+    backgroundColor: Colors.primary + '15',
+    borderRadius: 8,
+  },
+  cartBadge: {
+    position: 'absolute',
+    top: 4,
+    right: 4,
+    backgroundColor: Colors.primary,
+    borderRadius: 10,
+    minWidth: 18,
+    height: 18,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 4,
+  },
+  cartBadgeText: {
+    fontSize: 11,
+    fontWeight: '700',
+    color: '#FFF',
+  },
+  
+  // Add Buttons Row
+  addButtonsRow: {
+    flexDirection: 'row',
+    gap: 12,
+  },
+  addToCartButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.primary + '15',
+    borderRadius: 12,
+    paddingVertical: 16,
+    gap: 8,
+  },
+  addToCartButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.primary,
+  },
+  
+  // Cart Modal
+  cartContent: { 
+    backgroundColor: '#FFF', 
+    borderTopLeftRadius: 20, 
+    borderTopRightRadius: 20,
+    paddingHorizontal: 20,
+    paddingBottom: 34,
+    maxHeight: screenHeight * 0.7,
+  },
+  cartHeader: { 
+    flexDirection: 'row', 
+    justifyContent: 'space-between', 
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  cartTitle: { fontSize: 20, fontWeight: '700', color: Colors.darkText },
+  cartList: {
+    maxHeight: screenHeight * 0.35,
+  },
+  cartItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F8F8F8',
+    borderRadius: 12,
+    padding: 12,
+    marginBottom: 8,
+  },
+  cartItemInfo: { flex: 1 },
+  cartItemName: { fontSize: 15, fontWeight: '600', color: Colors.darkText },
+  cartItemDetails: { fontSize: 13, color: Colors.lightText, marginTop: 2 },
+  removeCartItem: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: '#fef2f2',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 12,
+  },
+  
+  // Cart Totals
+  cartTotals: {
+    backgroundColor: '#F8F8F8',
+    borderRadius: 12,
+    padding: 16,
+    marginTop: 12,
+    marginBottom: 16,
+  },
+  cartTotalsTitle: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.darkText,
+    marginBottom: 12,
+  },
+  cartTotalsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  cartTotalItem: { alignItems: 'center' },
+  cartTotalValue: { fontSize: 18, fontWeight: '700', color: Colors.primary },
+  cartTotalLabel: { fontSize: 11, color: Colors.lightText, marginTop: 2 },
+  
+  // Add All Button
+  addAllButton: {
+    backgroundColor: Colors.primary,
+    borderRadius: 12,
+    paddingVertical: 16,
+    alignItems: 'center',
+  },
+  addAllButtonText: { fontSize: 16, fontWeight: '600', color: '#FFF' },
+  
+  // Floating Cart Button
+  floatingCartBtn: {
+    position: 'absolute',
+    bottom: 100,
+    left: 16,
+    right: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: Colors.primary,
+    borderRadius: 16,
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    gap: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.15,
+    shadowRadius: 8,
+    elevation: 6,
+  },
+  floatingCartText: {
+    flex: 1,
+    fontSize: 15,
+    fontWeight: '600',
+    color: '#FFF',
+    textAlign: 'center',
+  },
 });
