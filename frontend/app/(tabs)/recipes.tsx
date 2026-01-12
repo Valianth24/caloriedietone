@@ -412,38 +412,45 @@ export default function RecipesScreen() {
     );
   };
 
-  const renderFeaturedCard = ({ item }: { item: RecipeMetadata }) => (
-    <TouchableOpacity
-      style={styles.featuredCard}
-      onPress={() => handleRecipePress(item)}
-      activeOpacity={0.8}
-    >
-      <Image
-        source={{ uri: item.imageUrl }}
-        style={styles.featuredImage}
-        resizeMode="cover"
-      />
-      <View style={styles.featuredOverlay}>
-        <View style={styles.featuredBadgeContainer}>
-          <Ionicons name="star" size={14} color="#FFD700" />
-          <Text style={styles.featuredBadgeText2}>
-            {t('featured')}
+  // Featured Card Component with fallback
+  const FeaturedCard = React.memo(({ item }: { item: RecipeMetadata }) => {
+    const [imageError, setImageError] = React.useState(false);
+    const fallbackImage = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80';
+    
+    return (
+      <TouchableOpacity
+        style={styles.featuredCard}
+        onPress={() => handleRecipePress(item)}
+        activeOpacity={0.8}
+      >
+        <Image
+          source={{ uri: imageError ? fallbackImage : item.imageUrl }}
+          style={styles.featuredImage}
+          resizeMode="cover"
+          onError={() => setImageError(true)}
+        />
+        <View style={styles.featuredOverlay}>
+          <View style={styles.featuredBadgeContainer}>
+            <Ionicons name="star" size={14} color="#FFD700" />
+            <Text style={styles.featuredBadgeText2}>
+              {t('featured')}
+            </Text>
+          </View>
+          <Text style={styles.featuredName}>
+            {locale === 'tr' ? getRecipeNameTR(item.id) : getRecipeNameEN(item.id)}
+          </Text>
+          <Text style={styles.featuredCategory}>
+            {getCategoryLabel(item.category, locale)}
           </Text>
         </View>
-        <Text style={styles.featuredName}>
-          {locale === 'tr' ? getRecipeNameTR(item.id) : getRecipeNameEN(item.id)}
-        </Text>
-        <Text style={styles.featuredCategory}>
-          {getCategoryLabel(item.category, locale)}
-        </Text>
-      </View>
-      {item.isPremium && !isPremium && (
-        <View style={styles.featuredLock}>
-          <Ionicons name="lock-closed" size={20} color="#fff" />
-        </View>
-      )}
-    </TouchableOpacity>
-  );
+        {item.isPremium && !isPremium && (
+          <View style={styles.featuredLock}>
+            <Ionicons name="lock-closed" size={20} color="#fff" />
+          </View>
+        )}
+      </TouchableOpacity>
+    );
+  });
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
