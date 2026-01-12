@@ -127,7 +127,13 @@ export default function RecipesScreen() {
 
   useEffect(() => {
     loadRecipes();
+    loadViewCount();
   }, [selectedCategory, selectedCollection]);
+  
+  const loadViewCount = async () => {
+    const count = await getRecipeViews();
+    setRecipeViewCount(count);
+  };
 
   const loadRecipes = () => {
     setLoading(true);
