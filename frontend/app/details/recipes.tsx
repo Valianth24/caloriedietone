@@ -348,6 +348,7 @@ export default function RecipesScreen() {
           {t('recipes')}
         </Text>
         <View style={styles.headerRight}>
+          {/* Premium indicator - temporarily hidden
           {isPremium ? (
             <View style={styles.premiumIndicator}>
               <Ionicons name="diamond" size={16} color={Colors.premium} />
@@ -360,6 +361,7 @@ export default function RecipesScreen() {
               <Text style={styles.getPremiumText}>Premium</Text>
             </TouchableOpacity>
           )}
+          */}
         </View>
       </View>
 
