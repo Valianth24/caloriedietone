@@ -215,16 +215,18 @@ export default function DietsScreen() {
           </TouchableOpacity>
         )}
 
-        {/* Premium Diets Section */}
+        {/* Premium Diets Section - Title changed, lock removed */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
             <Ionicons name="star" size={24} color={Colors.warning} />
-            <Text style={styles.sectionTitle}>{lang === 'en' ? 'Premium Diets' : 'Premium Diyetler'}</Text>
+            <Text style={styles.sectionTitle}>{lang === 'en' ? 'Diet Programs' : 'Diyet Programları'}</Text>
+            {/* Lock badge - temporarily hidden
             {!isPremium && (
               <View style={styles.lockBadge}>
                 <Ionicons name="lock-closed" size={14} color={Colors.white} />
               </View>
             )}
+            */}
           </View>
           <Text style={styles.sectionSubtitle}>
             {lang === 'en' ? 'Prepared by expert dietitians' : 'Uzman diyetisyenler tarafından hazırlanmış'}
@@ -234,21 +236,25 @@ export default function DietsScreen() {
             {allDiets.map((diet) => (
               <TouchableOpacity
                 key={diet.id}
-                style={[styles.dietCard, !isPremium && diet.isPremium && styles.dietCardLocked]}
+                style={styles.dietCard}
                 onPress={() => handleDietClick(diet)}
               >
                 <View style={styles.dietEmojiContainer}>
                   <Text style={styles.dietEmoji}>{diet.emoji}</Text>
                 </View>
+                {/* Lock overlay - temporarily hidden
                 {!isPremium && diet.isPremium && (
                   <View style={styles.lockOverlay}>
                     <Ionicons name="lock-closed" size={32} color={Colors.white} />
                   </View>
                 )}
+                */}
+                {/* Premium badge - temporarily hidden
                 <View style={styles.premiumDietBadge}>
                   <Ionicons name="star" size={12} color={Colors.white} />
                   <Text style={styles.premiumDietText}>Premium</Text>
                 </View>
+                */}
                 <View style={styles.dietInfo}>
                   <Text style={styles.dietName}>{diet.name[lang]}</Text>
                   <Text style={styles.dietDescription} numberOfLines={2}>
