@@ -410,7 +410,7 @@ export default function RecipesScreen() {
         </View>
       </TouchableOpacity>
     );
-  };
+  });
 
   // Featured Card Component with fallback
   const FeaturedCard = React.memo(({ item }: { item: RecipeMetadata }) => {
