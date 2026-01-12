@@ -30,6 +30,7 @@ const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 // Kategoriler - Profesyonel ikonlar
 const FOOD_CATEGORIES = [
   { id: 'all', name: 'Tümü', name_en: 'All', icon: 'grid-outline', color: '#667eea' },
+  { id: 'favorites', name: 'Favoriler', name_en: 'Favorites', icon: 'heart', color: '#e11d48' },
   { id: 'popular', name: 'Popüler', name_en: 'Popular', icon: 'star-outline', color: '#f59e0b', keywords: ['tavuk', 'pilav', 'salata', 'yumurta', 'ekmek'] },
   { id: 'meat', name: 'Et', name_en: 'Meat', icon: 'restaurant-outline', color: '#dc2626', keywords: ['et', 'dana', 'kuzu', 'biftek', 'köfte', 'pirzola', 'kıyma'] },
   { id: 'chicken', name: 'Tavuk', name_en: 'Chicken', icon: 'restaurant-outline', color: '#ea580c', keywords: ['tavuk', 'piliç', 'chicken'] },
