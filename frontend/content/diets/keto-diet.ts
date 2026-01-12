@@ -187,26 +187,26 @@ export const ketoDiet: Diet = {
   exercises: [
     {
       name: 'Yürüyüş / Walking',
-      duration: '30-45 dakika / minutes',
+      duration: '30-45 dakika / 30-45 minutes',
       frequency: 'Her gün / Daily',
       note: 'Özellikle ilk haftalarda yoğun egzersizden kaçının. Keto adaptasyonu sırasında hafif kardiyo idealdir.',
     },
     {
       name: 'Ağırlık Antrenmanı / Weight Training',
-      duration: '30-45 dakika / minutes',
-      frequency: 'Haftada 3 kez / 3 times a week',
+      duration: '30-45 dakika / 30-45 minutes',
+      frequency: 'Haftada 3 kez / 3 times per week',
       note: 'Kas kaybını önlemek için önemlidir. Orta yoğunlukta başlayın.',
     },
     {
       name: 'HIIT (Yüksek Yoğunluklu Aralıklı Antrenman)',
       duration: '15-20 dakika / minutes',
-      frequency: 'Haftada 2 kez / 2 times a week',
+      frequency: 'Haftada 2 kez / 2 times per week',
       note: 'Sadece keto adaptasyonu tamamlandıktan sonra (2-3 hafta). Yağ yakımını hızlandırır.',
     },
     {
       name: 'Yoga veya Pilates',
-      duration: '20-30 dakika / minutes',
-      frequency: 'Haftada 2-3 kez / 2-3 times a week',
+      duration: '20-30 dakika / 20-30 minutes',
+      frequency: 'Haftada 2-3 kez / 2-3 times per week',
       note: 'Esneklik, denge ve stres yönetimi için mükemmeldir.',
     },
   ],

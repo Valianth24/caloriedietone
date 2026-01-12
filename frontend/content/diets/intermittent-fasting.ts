@@ -211,20 +211,20 @@ export const intermittentFasting: Diet = {
   exercises: [
     {
       name: 'Hafif Kardiyo / Light Cardio',
-      duration: '20-30 dakika / minutes',
+      duration: '20-30 dakika / 20-30 minutes',
       frequency: 'Her gün / Daily',
       note: 'Oruç saatlerinde hafif yürüyüş yapılabilir. Ağır kardiyo yeme penceresine bırakın.',
     },
     {
       name: 'Ağırlık Antrenmanı / Weight Training',
-      duration: '30-45 dakika / minutes',
-      frequency: 'Haftada 3-4 kez / 3-4 times a week',
+      duration: '30-45 dakika / 30-45 minutes',
+      frequency: 'Haftada 3-4 kez / 3-4 times per week',
       note: 'İdeali yeme penceresinin ortasında yapmak. Sonrasında protein alımını unutmayın.',
     },
     {
       name: 'HIIT',
       duration: '15-20 dakika / minutes',
-      frequency: 'Haftada 2 kez / 2 times a week',
+      frequency: 'Haftada 2 kez / 2 times per week',
       note: 'Sadece yeme penceresinde yapın. En az 1 saat önce hafif bir şeyler yiyin.',
     },
     {

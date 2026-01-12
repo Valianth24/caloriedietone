@@ -261,14 +261,14 @@ export const paleoDiet: Diet = {
   exercises: [
     {
       name: 'Fonksiyonel Antrenman / Functional Training',
-      duration: '30-45 dakika / minutes',
-      frequency: 'Haftada 3-4 kez / 3-4 times a week',
+      duration: '30-45 dakika / 30-45 minutes',
+      frequency: 'Haftada 3-4 kez / 3-4 times per week',
       note: 'Paleo felsefesiyle uyumlu: tırmanma, taşıma, kaldırma hareketleri.',
     },
     {
       name: 'Sprint / Sprinting',
       duration: '15-20 dakika / minutes',
-      frequency: 'Haftada 2 kez / 2 times a week',
+      frequency: 'Haftada 2 kez / 2 times per week',
       note: 'Avcı-toplayıcı atalarımızın yaptığı gibi kısa yoğun koşular.',
     },
     {
@@ -280,13 +280,13 @@ export const paleoDiet: Diet = {
     {
       name: 'Ağırlık Kaldırma / Weight Lifting',
       duration: '40-50 dakika / minutes',
-      frequency: 'Haftada 3 kez / 3 times a week',
+      frequency: 'Haftada 3 kez / 3 times per week',
       note: 'Compound hareketler: squat, deadlift, bench press.',
     },
     {
       name: 'Yüzme veya Kano',
-      duration: '30 dakika / minutes',
-      frequency: 'Haftada 1-2 kez / 1-2 times a week',
+      duration: '30 dakika / 30 minutes',
+      frequency: 'Haftada 1-2 kez / 1-2 times per week',
       note: 'Doğal hareket paternleri.',
     },
   ],

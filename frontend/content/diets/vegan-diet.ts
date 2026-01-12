@@ -235,25 +235,25 @@ export const veganDiet: Diet = {
   exercises: [
     {
       name: 'Kardiyo / Cardio',
-      duration: '30-45 dakika / minutes',
-      frequency: 'Haftada 4-5 kez / 4-5 times a week',
+      duration: '30-45 dakika / 30-45 minutes',
+      frequency: 'Haftada 4-5 kez / 4-5 times per week',
       note: 'Koşu, bisiklet, yüzme. Vegan diyetle enerji seviyeleri yüksek olur.',
     },
     {
       name: 'Güç Antrenmanı / Strength Training',
       duration: '40-50 dakika / minutes',
-      frequency: 'Haftada 3 kez / 3 times a week',
+      frequency: 'Haftada 3 kez / 3 times per week',
       note: 'Kas geliştirmek mümkün! Yeterli protein aldığınızdan emin olun.',
     },
     {
       name: 'Yoga',
-      duration: '30-45 dakika / minutes',
-      frequency: 'Haftada 2-3 kez / 2-3 times a week',
+      duration: '30-45 dakika / 30-45 minutes',
+      frequency: 'Haftada 2-3 kez / 2-3 times per week',
       note: 'Vegan felsefesiyle uyumlu, zihinsel ve fiziksel denge.',
     },
     {
       name: 'Yürüyüş / Walking',
-      duration: '30 dakika / minutes',
+      duration: '30 dakika / 30 minutes',
       frequency: 'Her gün / Daily',
       note: 'Doğada yürüyüş, çevreyle bağlantı.',
     },
