@@ -630,15 +630,18 @@ const resources = {
       // Ad System (Free with Ads)
       watchAdForRecipe: 'Watch Ad to Continue',
       watchAdForCalorie: 'Watch Ad to Calculate Calories',
-      watchAdRecipeDesc: 'You\'ve viewed 2 free recipes. Watch a short ad for more.',
+      watchAdRecipeDesc: 'Watch a short ad to view this recipe. Completely free!',
       watchAdCalorieDesc: 'Watch a short ad to calculate calories for free.',
       '100PercentFree': '100% Free',
       supportWithAds: 'Support us by watching ads',
       watchAd: 'Watch Ad',
-      after2RecipesFree: 'Short ad after every 2 recipes',
+      after2RecipesFree: 'Free with ads (1 free, 1 ad)',
       freeWithAds: 'Completely free with ads',
-      recipesRemaining: 'recipes remaining',
+      recipesRemaining: 'free recipe',
       watchAdToUnlock: 'Watch Ad to Unlock',
+      everyOtherRecipe: 'Ad after every recipe',
+      nextFree: 'Next one is free',
+      nextAd: 'Next one requires ad',
     }
   },
   
