@@ -937,7 +937,18 @@ export default function MealsScreen() {
         <Text style={styles.headerTitle}>
           {lang === 'en' ? 'Select Food' : 'Yemek Seç'}
         </Text>
-        <View style={styles.headerBtn} />
+        {/* Sepet butonu */}
+        <TouchableOpacity 
+          style={[styles.headerBtn, cart.length > 0 && styles.cartBtnActive]} 
+          onPress={() => cart.length > 0 && setShowCart(true)}
+        >
+          <Ionicons name="cart" size={24} color={cart.length > 0 ? Colors.primary : Colors.lightText} />
+          {cart.length > 0 && (
+            <View style={styles.cartBadge}>
+              <Text style={styles.cartBadgeText}>{cart.length}</Text>
+            </View>
+          )}
+        </TouchableOpacity>
       </View>
       
       {/* Search */}
