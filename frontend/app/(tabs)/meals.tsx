@@ -1013,7 +1013,9 @@ export default function MealsScreen() {
           <View style={styles.emptyState}>
             <Ionicons name="search-outline" size={48} color="#ddd" />
             <Text style={styles.emptyText}>
-              {lang === 'en' ? 'No results found' : 'Sonuç bulunamadı'}
+              {selectedCategory === 'favorites' && favorites.length === 0
+                ? (lang === 'en' ? 'No favorites yet' : 'Henüz favori yok')
+                : (lang === 'en' ? 'No results found' : 'Sonuç bulunamadı')}
             </Text>
           </View>
         }
@@ -1021,6 +1023,22 @@ export default function MealsScreen() {
       />
       
       <QuickAddModal />
+      <CartModal />
+      
+      {/* Floating Cart Button */}
+      {cart.length > 0 && (
+        <TouchableOpacity 
+          style={styles.floatingCartBtn}
+          onPress={() => setShowCart(true)}
+          activeOpacity={0.9}
+        >
+          <Ionicons name="cart" size={22} color="#FFF" />
+          <Text style={styles.floatingCartText}>
+            {cart.length} {lang === 'en' ? 'items' : 'yemek'} • {cartTotals.calories} kcal
+          </Text>
+          <Ionicons name="chevron-up" size={18} color="#FFF" />
+        </TouchableOpacity>
+      )}
       
       {loading && (
         <View style={styles.loadingOverlay}>
