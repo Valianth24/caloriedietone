@@ -476,7 +476,7 @@ export default function MealsScreen() {
     );
   };
 
-  // Quick Add Modal
+  // Quick Add Modal - Premium Design
   const QuickAddModal = () => {
     if (!quickAddItem) return null;
     
@@ -484,6 +484,13 @@ export default function MealsScreen() {
     const pro = Math.round(quickAddItem.protein * portion * 10) / 10;
     const carb = Math.round(quickAddItem.carbs * portion * 10) / 10;
     const fat = Math.round(quickAddItem.fat * portion * 10) / 10;
+    const isFav = favorites.includes(quickAddItem.food_id);
+    
+    // Progress percentages for visual bars
+    const maxPro = 50, maxCarb = 100, maxFat = 40;
+    const proPercent = Math.min((pro / maxPro) * 100, 100);
+    const carbPercent = Math.min((carb / maxCarb) * 100, 100);
+    const fatPercent = Math.min((fat / maxFat) * 100, 100);
     
     return (
       <Modal visible={showQuickAdd} transparent animationType="slide">
@@ -493,106 +500,216 @@ export default function MealsScreen() {
             activeOpacity={1} 
             onPress={() => setShowQuickAdd(false)} 
           />
-          <View style={styles.quickAddContent}>
-            <View style={styles.modalHandle} />
+          <Animated.View style={styles.premiumModalContent}>
+            {/* Premium Handle */}
+            <View style={styles.premiumHandle} />
             
-            <View style={styles.quickAddHeader}>
-              <Text style={styles.quickAddTitle} numberOfLines={2}>
-                {lang === 'en' ? quickAddItem.name_en : quickAddItem.name}
-              </Text>
-              <TouchableOpacity onPress={() => setShowQuickAdd(false)}>
-                <Ionicons name="close" size={24} color="#999" />
-              </TouchableOpacity>
+            {/* Header with gradient accent */}
+            <View style={styles.premiumHeader}>
+              <View style={styles.premiumHeaderLeft}>
+                <View style={styles.foodIconContainer}>
+                  <Ionicons name="restaurant" size={24} color="#FFF" />
+                </View>
+                <View style={styles.premiumTitleContainer}>
+                  <Text style={styles.premiumTitle} numberOfLines={2}>
+                    {lang === 'en' ? quickAddItem.name_en : quickAddItem.name}
+                  </Text>
+                  <Text style={styles.premiumSubtitle}>
+                    100g • {quickAddItem.calories} kcal
+                  </Text>
+                </View>
+              </View>
+              <View style={styles.premiumHeaderRight}>
+                <TouchableOpacity 
+                  style={styles.premiumFavBtn}
+                  onPress={() => toggleFavorite(quickAddItem.food_id)}
+                >
+                  <Ionicons 
+                    name={isFav ? 'heart' : 'heart-outline'} 
+                    size={22} 
+                    color={isFav ? '#e11d48' : '#999'} 
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity 
+                  style={styles.premiumCloseBtn}
+                  onPress={() => setShowQuickAdd(false)}
+                >
+                  <Ionicons name="close" size={20} color="#666" />
+                </TouchableOpacity>
+              </View>
             </View>
             
-            <Text style={styles.quickAddSubtitle}>1 {lang === 'en' ? 'portion' : 'porsiyon'} = {quickAddItem.calories} kcal</Text>
+            {/* Premium Calorie Display */}
+            <View style={styles.premiumCalorieCard}>
+              <View style={styles.calorieGlowContainer}>
+                <Text style={styles.premiumCalorieValue}>{cal}</Text>
+                <Text style={styles.premiumCalorieUnit}>kcal</Text>
+              </View>
+              <View style={styles.calorieRing}>
+                <View style={[styles.calorieRingFill, { 
+                  width: `${Math.min((cal / 500) * 100, 100)}%` 
+                }]} />
+              </View>
+            </View>
             
-            {/* Portion Selector */}
-            <View style={styles.portionContainer}>
-              <Text style={styles.portionTitle}>{lang === 'en' ? 'Portion' : 'Porsiyon'}</Text>
-              <View style={styles.portionSelector}>
+            {/* Premium Portion Selector */}
+            <View style={styles.premiumPortionSection}>
+              <Text style={styles.premiumSectionLabel}>
+                {lang === 'en' ? 'Portion Size' : 'Porsiyon Miktarı'}
+              </Text>
+              
+              <View style={styles.premiumPortionControl}>
                 <TouchableOpacity 
-                  style={styles.portionBtn}
+                  style={styles.premiumPortionBtnMinus}
                   onPress={() => setPortion(Math.max(0.25, portion - 0.25))}
+                  activeOpacity={0.7}
                 >
-                  <Ionicons name="remove" size={24} color={Colors.primary} />
+                  <Ionicons name="remove" size={28} color="#FFF" />
                 </TouchableOpacity>
                 
-                <View style={styles.portionValueBox}>
-                  <Text style={styles.portionValue}>{portion}</Text>
+                <View style={styles.premiumPortionDisplay}>
+                  <Text style={styles.premiumPortionValue}>{portion}</Text>
+                  <Text style={styles.premiumPortionLabel}>
+                    {lang === 'en' ? 'portion' : 'porsiyon'}
+                  </Text>
                 </View>
                 
                 <TouchableOpacity 
-                  style={styles.portionBtn}
+                  style={styles.premiumPortionBtnPlus}
                   onPress={() => setPortion(Math.min(5, portion + 0.25))}
+                  activeOpacity={0.7}
                 >
-                  <Ionicons name="add" size={24} color={Colors.primary} />
+                  <Ionicons name="add" size={28} color="#FFF" />
                 </TouchableOpacity>
               </View>
               
-              <View style={styles.portionPresets}>
-                {[0.5, 1, 1.5, 2].map(p => (
+              {/* Quick Select Pills */}
+              <View style={styles.premiumQuickSelect}>
+                {[
+                  { val: 0.5, label: '½' },
+                  { val: 1, label: '1' },
+                  { val: 1.5, label: '1½' },
+                  { val: 2, label: '2' },
+                  { val: 3, label: '3' },
+                ].map(item => (
                   <TouchableOpacity
-                    key={p}
-                    style={[styles.presetBtn, portion === p && styles.presetBtnActive]}
-                    onPress={() => setPortion(p)}
+                    key={item.val}
+                    style={[
+                      styles.premiumQuickPill,
+                      portion === item.val && styles.premiumQuickPillActive
+                    ]}
+                    onPress={() => setPortion(item.val)}
+                    activeOpacity={0.8}
                   >
-                    <Text style={[styles.presetText, portion === p && styles.presetTextActive]}>
-                      {p === 0.5 ? '½' : p === 1.5 ? '1½' : p}x
+                    <Text style={[
+                      styles.premiumQuickPillText,
+                      portion === item.val && styles.premiumQuickPillTextActive
+                    ]}>
+                      {item.label}x
                     </Text>
                   </TouchableOpacity>
                 ))}
               </View>
             </View>
             
-            {/* Nutrition */}
-            <View style={styles.nutritionBox}>
-              <View style={styles.nutritionMain}>
-                <Text style={styles.nutritionCalorie}>{cal}</Text>
-                <Text style={styles.nutritionCalorieUnit}>kcal</Text>
-              </View>
+            {/* Premium Macros Display */}
+            <View style={styles.premiumMacrosSection}>
+              <Text style={styles.premiumSectionLabel}>
+                {lang === 'en' ? 'Nutrition Facts' : 'Besin Değerleri'}
+              </Text>
               
-              <View style={styles.nutritionMacros}>
-                <View style={styles.nutritionMacroItem}>
-                  <Text style={[styles.nutritionMacroValue, { color: '#3b82f6' }]}>{pro}g</Text>
-                  <Text style={styles.nutritionMacroLabel}>Protein</Text>
+              <View style={styles.premiumMacrosGrid}>
+                {/* Protein */}
+                <View style={styles.premiumMacroCard}>
+                  <View style={styles.macroIconCircle}>
+                    <Ionicons name="fitness" size={16} color="#3b82f6" />
+                  </View>
+                  <Text style={styles.premiumMacroValue}>{pro}g</Text>
+                  <Text style={styles.premiumMacroLabel}>Protein</Text>
+                  <View style={styles.macroProgressBar}>
+                    <View style={[styles.macroProgressFill, { 
+                      width: `${proPercent}%`,
+                      backgroundColor: '#3b82f6' 
+                    }]} />
+                  </View>
                 </View>
-                <View style={styles.nutritionMacroItem}>
-                  <Text style={[styles.nutritionMacroValue, { color: '#f59e0b' }]}>{carb}g</Text>
-                  <Text style={styles.nutritionMacroLabel}>{lang === 'en' ? 'Carbs' : 'Karb'}</Text>
+                
+                {/* Carbs */}
+                <View style={styles.premiumMacroCard}>
+                  <View style={[styles.macroIconCircle, { backgroundColor: '#fef3c7' }]}>
+                    <Ionicons name="flash" size={16} color="#f59e0b" />
+                  </View>
+                  <Text style={styles.premiumMacroValue}>{carb}g</Text>
+                  <Text style={styles.premiumMacroLabel}>
+                    {lang === 'en' ? 'Carbs' : 'Karbonhidrat'}
+                  </Text>
+                  <View style={styles.macroProgressBar}>
+                    <View style={[styles.macroProgressFill, { 
+                      width: `${carbPercent}%`,
+                      backgroundColor: '#f59e0b' 
+                    }]} />
+                  </View>
                 </View>
-                <View style={styles.nutritionMacroItem}>
-                  <Text style={[styles.nutritionMacroValue, { color: '#ef4444' }]}>{fat}g</Text>
-                  <Text style={styles.nutritionMacroLabel}>{lang === 'en' ? 'Fat' : 'Yağ'}</Text>
+                
+                {/* Fat */}
+                <View style={styles.premiumMacroCard}>
+                  <View style={[styles.macroIconCircle, { backgroundColor: '#fee2e2' }]}>
+                    <Ionicons name="water" size={16} color="#ef4444" />
+                  </View>
+                  <Text style={styles.premiumMacroValue}>{fat}g</Text>
+                  <Text style={styles.premiumMacroLabel}>
+                    {lang === 'en' ? 'Fat' : 'Yağ'}
+                  </Text>
+                  <View style={styles.macroProgressBar}>
+                    <View style={[styles.macroProgressFill, { 
+                      width: `${fatPercent}%`,
+                      backgroundColor: '#ef4444' 
+                    }]} />
+                  </View>
                 </View>
               </View>
             </View>
             
-            {/* Add Buttons - Tek ekle veya sepete ekle */}
-            <View style={styles.addButtonsRow}>
+            {/* Premium Action Buttons */}
+            <View style={styles.premiumActionsContainer}>
               <TouchableOpacity 
-                style={styles.addToCartButton}
+                style={styles.premiumCartBtn}
                 onPress={() => addToCart(quickAddItem, portion)}
                 activeOpacity={0.8}
               >
-                <Ionicons name="cart-outline" size={20} color={Colors.primary} />
-                <Text style={styles.addToCartButtonText}>
+                <View style={styles.premiumCartIconBg}>
+                  <Ionicons name="bag-add-outline" size={20} color={Colors.primary} />
+                </View>
+                <Text style={styles.premiumCartBtnText}>
                   {lang === 'en' ? 'Add to Cart' : 'Sepete Ekle'}
                 </Text>
               </TouchableOpacity>
               
               <TouchableOpacity 
-                style={styles.addButton}
+                style={styles.premiumAddBtn}
                 onPress={() => addMealToDay(quickAddItem, portion)}
                 disabled={loading}
-                activeOpacity={0.8}
+                activeOpacity={0.85}
               >
                 {loading ? (
                   <ActivityIndicator color="#FFF" />
                 ) : (
-                  <Text style={styles.addButtonText}>{t('add')}</Text>
+                  <>
+                    <Text style={styles.premiumAddBtnText}>
+                      {lang === 'en' ? 'Add Now' : 'Hemen Ekle'}
+                    </Text>
+                    <View style={styles.premiumAddBtnIcon}>
+                      <Ionicons name="checkmark" size={18} color="#FFF" />
+                    </View>
+                  </>
                 )}
               </TouchableOpacity>
+            </View>
+          </Animated.View>
+        </View>
+      </Modal>
+    );
+  };
             </View>
           </View>
         </View>
