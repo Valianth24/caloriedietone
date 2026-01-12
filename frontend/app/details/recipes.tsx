@@ -446,7 +446,7 @@ export default function RecipesScreen() {
           )}
         </View>
 
-        {/* Premium CTA */}
+        {/* Premium CTA - temporarily hidden
         {!isPremium && (
           <TouchableOpacity
             style={styles.premiumCta}
@@ -464,6 +464,7 @@ export default function RecipesScreen() {
             <Ionicons name="chevron-forward" size={20} color={Colors.premium} />
           </TouchableOpacity>
         )}
+        */}
 
         <View style={styles.bottomPadding} />
       </ScrollView>
