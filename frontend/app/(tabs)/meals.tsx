@@ -150,6 +150,9 @@ export default function MealsScreen() {
     if (searchQuery.length >= 2) {
       // Arama yapılıyorsa - 200'e kadar sonuç göster
       results = searchFoods(searchQuery, lang, 200);
+    } else if (selectedCategory === 'favorites') {
+      // Favoriler - favori yemekleri göster
+      results = FOOD_DATABASE.filter(food => favorites.includes(food.food_id));
     } else if (selectedCategory === 'popular') {
       // Popüler - ilk 50
       results = FOOD_DATABASE.slice(0, 50);
@@ -168,7 +171,7 @@ export default function MealsScreen() {
     }
     
     return results;
-  }, [searchQuery, selectedCategory, lang]);
+  }, [searchQuery, selectedCategory, lang, favorites]);
 
   const handleCloseActionSheet = () => {
     Animated.timing(slideAnim, {
