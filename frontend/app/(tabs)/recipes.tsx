@@ -256,7 +256,10 @@ export default function RecipesScreen() {
 
   const renderCollectionCard = (collectionId: CollectionId) => {
     const collection = RECIPE_COLLECTIONS[collectionId];
-    const collectionRecipes = collection.filter(allRecipes);
+    // Favoriler için özel sayı hesaplama
+    const collectionRecipes = collectionId === 'favorites' 
+      ? collection.filter(allRecipes, favoriteRecipes)
+      : collection.filter(allRecipes, []);
     const isSelected = selectedCollection === collectionId;
     
     return (
