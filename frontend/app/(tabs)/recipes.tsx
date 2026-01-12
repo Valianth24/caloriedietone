@@ -166,19 +166,50 @@ export default function RecipesScreen() {
     }
   };
 
-  const handleRecipePress = (recipe: RecipeMetadata) => {
+  const handleRecipePress = async (recipe: RecipeMetadata) => {
     try {
-      if (recipe.isPremium && !isPremium) {
-        setShowPaywall(true);
+      // Reklam gerekli mi kontrol et
+      const needsAd = await needsAdForRecipe();
+      
+      if (needsAd) {
+        // Reklam modal göster
+        setPendingRecipe(recipe);
+        setShowAdModal(true);
         return;
       }
 
+      // View count artır ve yönlendir
+      const newCount = await incrementRecipeViews();
+      setRecipeViewCount(newCount);
+      
       router.push({
         pathname: '/details/recipe-detail',
         params: { recipeId: recipe.id },
       });
     } catch (error) {
       console.error('Error navigating to recipe detail:', error);
+    }
+  };
+  
+  const handleWatchAd = async () => {
+    try {
+      // Reklam göster (simülasyon - yayından sonra gerçek entegrasyon)
+      await showRewardedAd('recipe');
+      
+      // Count'u sıfırla
+      setRecipeViewCount(0);
+      
+      // Bekleyen tarife git
+      if (pendingRecipe) {
+        router.push({
+          pathname: '/details/recipe-detail',
+          params: { recipeId: pendingRecipe.id },
+        });
+        setPendingRecipe(null);
+      }
+    } catch (error) {
+      console.error('Error watching ad:', error);
+      Alert.alert('Hata', 'Reklam yüklenemedi. Lütfen tekrar deneyin.');
     }
   };
 
