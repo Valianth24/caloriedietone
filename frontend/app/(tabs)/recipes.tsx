@@ -325,61 +325,80 @@ export default function RecipesScreen() {
     </TouchableOpacity>
   );
 
-  const renderRecipeCard = ({ item }: { item: RecipeMetadata }) => (
-    <TouchableOpacity
-      style={styles.recipeCard}
-      onPress={() => handleRecipePress(item)}
-      activeOpacity={0.7}
-    >
-      <View style={styles.imageContainer}>
-        <Image
-          source={{ uri: item.imageUrl }}
-          style={styles.recipeImage}
-          resizeMode="cover"
-        />
-        {item.isPremium && !isPremium && (
-          <View style={styles.premiumBadge}>
-            <Ionicons name="lock-closed" size={12} color="#fff" />
-            <Text style={styles.premiumBadgeText}>Premium</Text>
-          </View>
-        )}
-        {item.featured && (
-          <View style={styles.featuredBadge}>
-            <Ionicons name="star" size={12} color="#FFD700" />
-          </View>
-        )}
-        <View style={[styles.difficultyBadge, { backgroundColor: item.color }]}>
-          <Text style={styles.difficultyText}>
-            {getDifficultyLabel(item.difficulty, locale)}
-          </Text>
-        </View>
-      </View>
-      <View style={styles.recipeInfo}>
-        <Text style={styles.recipeName} numberOfLines={2}>
-          {locale === 'tr' ? getRecipeNameTR(item.id) : getRecipeNameEN(item.id)}
-        </Text>
-        <View style={styles.categoryTag}>
-          <Ionicons
-            name={CATEGORY_LABELS[item.category].icon as any}
-            size={12}
-            color={CATEGORY_LABELS[item.category].color}
+  const renderRecipeCard = ({ item }: { item: RecipeMetadata }) => {
+    const isFav = favoriteRecipes.includes(item.id);
+    
+    return (
+      <TouchableOpacity
+        style={styles.recipeCard}
+        onPress={() => handleRecipePress(item)}
+        activeOpacity={0.7}
+      >
+        <View style={styles.imageContainer}>
+          <Image
+            source={{ uri: item.imageUrl }}
+            style={styles.recipeImage}
+            resizeMode="cover"
           />
-          <Text style={[styles.categoryTagText, { color: CATEGORY_LABELS[item.category].color }]}>
-            {getCategoryLabel(item.category, locale)}
-          </Text>
-        </View>
-        <View style={styles.tagsRow}>
-          {item.tags.slice(0, 2).map((tag, idx) => (
-            <View key={idx} style={styles.tagChip}>
-              <Text style={styles.tagChipText}>
-                {getTagLabelShort(tag, locale)}
-              </Text>
+          {/* Favori Butonu */}
+          <TouchableOpacity 
+            style={styles.favoriteBtn}
+            onPress={(e) => {
+              e.stopPropagation();
+              toggleFavoriteRecipe(item.id);
+            }}
+            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+          >
+            <Ionicons 
+              name={isFav ? 'heart' : 'heart-outline'} 
+              size={20} 
+              color={isFav ? '#e11d48' : '#fff'} 
+            />
+          </TouchableOpacity>
+          {item.isPremium && !isPremium && (
+            <View style={styles.premiumBadge}>
+              <Ionicons name="lock-closed" size={12} color="#fff" />
+              <Text style={styles.premiumBadgeText}>Premium</Text>
             </View>
-          ))}
+          )}
+          {item.featured && (
+            <View style={styles.featuredBadge}>
+              <Ionicons name="star" size={12} color="#FFD700" />
+            </View>
+          )}
+          <View style={[styles.difficultyBadge, { backgroundColor: item.color }]}>
+            <Text style={styles.difficultyText}>
+              {getDifficultyLabel(item.difficulty, locale)}
+            </Text>
+          </View>
         </View>
-      </View>
-    </TouchableOpacity>
-  );
+        <View style={styles.recipeInfo}>
+          <Text style={styles.recipeName} numberOfLines={2}>
+            {locale === 'tr' ? getRecipeNameTR(item.id) : getRecipeNameEN(item.id)}
+          </Text>
+          <View style={styles.categoryTag}>
+            <Ionicons
+              name={CATEGORY_LABELS[item.category].icon as any}
+              size={12}
+              color={CATEGORY_LABELS[item.category].color}
+            />
+            <Text style={[styles.categoryTagText, { color: CATEGORY_LABELS[item.category].color }]}>
+              {getCategoryLabel(item.category, locale)}
+            </Text>
+          </View>
+          <View style={styles.tagsRow}>
+            {item.tags.slice(0, 2).map((tag, idx) => (
+              <View key={idx} style={styles.tagChip}>
+                <Text style={styles.tagChipText}>
+                  {getTagLabelShort(tag, locale)}
+                </Text>
+              </View>
+            ))}
+          </View>
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   const renderFeaturedCard = ({ item }: { item: RecipeMetadata }) => (
     <TouchableOpacity
