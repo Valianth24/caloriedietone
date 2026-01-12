@@ -679,19 +679,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  premiumIndicator: {
+  freeAdBadge: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
-  },
-  getPremiumButton: {
-    backgroundColor: Colors.premium,
-    paddingHorizontal: 12,
+    backgroundColor: Colors.primary + '15',
+    paddingHorizontal: 10,
     paddingVertical: 6,
     borderRadius: 12,
+    gap: 4,
+  },
+  freeAdText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: Colors.primary,
   },
   getPremiumText: {
     color: '#fff',
