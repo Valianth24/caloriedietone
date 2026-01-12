@@ -113,6 +113,7 @@ export default function DietsScreen() {
         >
           <Ionicons name="chevron-back" size={28} color={Colors.darkText} />
         </TouchableOpacity>
+        {/* Premium button - temporarily hidden
         <TouchableOpacity 
           style={styles.premiumButton}
           onPress={() => setShowPaywall(true)}
@@ -121,6 +122,7 @@ export default function DietsScreen() {
           <Ionicons name="diamond" size={20} color={Colors.white} />
           <Text style={styles.premiumButtonText}>Premium</Text>
         </TouchableOpacity>
+        */}
       </View>
 
       <ScrollView 
@@ -137,7 +139,7 @@ export default function DietsScreen() {
           </View>
         </View>
 
-        {/* Premium Badge if user has premium */}
+        {/* Premium Badge if user has premium - temporarily hidden
         {isPremium && (
           <View style={styles.premiumBanner}>
             <Ionicons name="checkmark-circle" size={24} color={Colors.success} />
@@ -146,6 +148,7 @@ export default function DietsScreen() {
             </Text>
           </View>
         )}
+        */}
 
         {/* Personalized Diet Recommendation Button */}
         <TouchableOpacity 
