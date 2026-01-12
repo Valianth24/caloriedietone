@@ -472,18 +472,50 @@ export default function DashboardScreen() {
             <FoodPhotoCard />
           </View>
 
-          {/* Personal Diets Section - Only show if no active diet */}
-          {!activeDiet && (
-            <View style={styles.personalDietsSection}>
-              <View style={styles.personalDietsHeader}>
-                <Ionicons name="nutrition" size={24} color={Colors.primary} />
-                <Text style={styles.personalDietsTitle}>{t('personalDiets')}</Text>
-              </View>
-              <Text style={styles.personalDietsSubtitle}>
-                {t('personalDietsSubtitle')}
-              </Text>
+          {/* Personal Diets Section - Always visible */}
+          <View style={styles.personalDietsSection}>
+            <View style={styles.personalDietsHeader}>
+              <Ionicons name="nutrition" size={24} color={Colors.primary} />
+              <Text style={styles.personalDietsTitle}>{t('personalDiets')}</Text>
+            </View>
+            <Text style={styles.personalDietsSubtitle}>
+              {t('personalDietsSubtitle')}
+            </Text>
+            
+            {activeDiet ? (() => {
+              // Show active diet mini card
+              const diet = allDiets.find(d => d.id === activeDiet.dietId);
+              if (!diet) return null;
               
-              {/* Explore diets card */}
+              const lang = i18n.language === 'tr' ? 'tr' : 'en';
+              const currentDay = activeDiet.currentDay || 1;
+              const totalDays = activeDiet.totalDays || diet.days.length;
+              const progress = Math.round((currentDay / totalDays) * 100);
+              
+              return (
+                <TouchableOpacity
+                  style={styles.activeDietMiniCard}
+                  onPress={() => router.push('/details/active-diet')}
+                >
+                  <View style={styles.activeDietMiniLeft}>
+                    <Text style={styles.activeDietMiniEmoji}>{diet.emoji}</Text>
+                    <View style={styles.activeDietMiniInfo}>
+                      <Text style={styles.activeDietMiniTitle}>{diet.name[lang]}</Text>
+                      <Text style={styles.activeDietMiniProgress}>
+                        {t('day')} {currentDay}/{totalDays} • {progress}%
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.activeDietMiniRight}>
+                    <Text style={styles.activeDietMiniButtonText}>
+                      {i18n.language === 'tr' ? 'Devam Et' : 'Continue'}
+                    </Text>
+                    <Ionicons name="arrow-forward" size={16} color={Colors.primary} />
+                  </View>
+                </TouchableOpacity>
+              );
+            })() : (
+              // Show explore diets card
               <TouchableOpacity
                 style={styles.noDietsCard}
                 onPress={() => router.push('/(tabs)/diets')}
@@ -500,12 +532,28 @@ export default function DashboardScreen() {
                     : 'Browse nutrition plans prepared just for you'}
                 </Text>
                 <View style={styles.noDietsButton}>
-                  <Text style={styles.noDietsButtonText}>{t('goToDiets')}</Text>
+                  <Text style={styles.noDietsButtonText}>
+                    {i18n.language === 'tr' ? 'Diyetlere Git' : 'Go to Diets'}
+                  </Text>
                   <Ionicons name="arrow-forward" size={20} color={Colors.primary} />
                 </View>
               </TouchableOpacity>
-            </View>
-          )}
+            )}
+            
+            {/* Always show "Browse All Diets" button */}
+            {activeDiet && (
+              <TouchableOpacity
+                style={styles.browseDietsButton}
+                onPress={() => router.push('/(tabs)/diets')}
+              >
+                <Ionicons name="apps-outline" size={18} color={Colors.primary} />
+                <Text style={styles.browseDietsText}>
+                  {i18n.language === 'tr' ? 'Tüm Diyetleri Gör' : 'Browse All Diets'}
+                </Text>
+                <Ionicons name="chevron-forward" size={18} color={Colors.primary} />
+              </TouchableOpacity>
+            )}
+          </View>
 
           {/* Recipe Book Section */}
           <View style={styles.recipeBookSection}>
