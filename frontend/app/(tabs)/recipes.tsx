@@ -325,9 +325,10 @@ export default function RecipesScreen() {
     </TouchableOpacity>
   );
 
-  const renderRecipeCard = ({ item }: { item: RecipeMetadata }) => {
+  // Recipe Card Component
+  const RecipeCard = React.memo(({ item }: { item: RecipeMetadata }) => {
     const isFav = favoriteRecipes.includes(item.id);
-    const [imageError, setImageError] = useState(false);
+    const [imageError, setImageError] = React.useState(false);
     
     // Fallback image URL
     const fallbackImage = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80';
