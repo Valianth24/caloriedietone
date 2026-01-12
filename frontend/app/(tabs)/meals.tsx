@@ -302,6 +302,95 @@ export default function MealsScreen() {
     }
   };
 
+  // Sepete ekle (Birden fazla yemek)
+  const addToCart = (food: FoodItem, portionMultiplier: number = 1) => {
+    const existingIndex = cart.findIndex(item => item.food.food_id === food.food_id);
+    if (existingIndex >= 0) {
+      // Var olan öğenin porsiyonunu güncelle
+      const newCart = [...cart];
+      newCart[existingIndex].portion = portionMultiplier;
+      setCart(newCart);
+    } else {
+      // Yeni öğe ekle
+      setCart([...cart, { food, portion: portionMultiplier }]);
+    }
+    setShowQuickAdd(false);
+    setQuickAddItem(null);
+    setPortion(1);
+  };
+
+  // Sepetten kaldır
+  const removeFromCart = (foodId: string) => {
+    setCart(cart.filter(item => item.food.food_id !== foodId));
+  };
+
+  // Sepetteki tüm yemekleri ekle
+  const addAllFromCart = async () => {
+    if (cart.length === 0) return;
+    
+    try {
+      setLoading(true);
+      
+      for (const item of cart) {
+        await addMeal({
+          name: lang === 'en' ? item.food.name_en : item.food.name,
+          calories: Math.round(item.food.calories * item.portion),
+          protein: Math.round(item.food.protein * item.portion * 10) / 10,
+          carbs: Math.round(item.food.carbs * item.portion * 10) / 10,
+          fat: Math.round(item.food.fat * item.portion * 10) / 10,
+          image_base64: '',
+          meal_type: mealTypeParam || 'snack',
+        });
+
+        // Son eklenenler listesine ekle
+        const newRecent: RecentFood = {
+          id: item.food.food_id,
+          name: lang === 'en' ? item.food.name_en : item.food.name,
+          calories: Math.round(item.food.calories * item.portion),
+          protein: Math.round(item.food.protein * item.portion * 10) / 10,
+          carbs: Math.round(item.food.carbs * item.portion * 10) / 10,
+          fat: Math.round(item.food.fat * item.portion * 10) / 10,
+          timestamp: Date.now(),
+        };
+        
+        const updatedRecents = [newRecent, ...recentFoods.filter(r => r.id !== item.food.food_id)].slice(0, 20);
+        setRecentFoods(updatedRecents);
+        await AsyncStorage.setItem('recent_foods_v2', JSON.stringify(updatedRecents));
+      }
+
+      setCart([]);
+      setShowCart(false);
+      
+      Alert.alert(
+        lang === 'en' ? 'Success' : 'Başarılı', 
+        `${cart.length} ${lang === 'en' ? 'items added' : 'yemek eklendi'}`
+      );
+      
+      if (mealTypeParam) {
+        router.push({
+          pathname: '/details/meals',
+          params: { meal_type: mealTypeParam }
+        });
+      } else {
+        router.replace('/(tabs)');
+      }
+    } catch (error: any) {
+      Alert.alert(lang === 'en' ? 'Error' : 'Hata', error.message || (lang === 'en' ? 'Could not add meals' : 'Yemekler eklenemedi'));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Sepet toplamları
+  const cartTotals = useMemo(() => {
+    return cart.reduce((acc, item) => ({
+      calories: acc.calories + Math.round(item.food.calories * item.portion),
+      protein: acc.protein + Math.round(item.food.protein * item.portion * 10) / 10,
+      carbs: acc.carbs + Math.round(item.food.carbs * item.portion * 10) / 10,
+      fat: acc.fat + Math.round(item.food.fat * item.portion * 10) / 10,
+    }), { calories: 0, protein: 0, carbs: 0, fat: 0 });
+  }, [cart]);
+
   const openQuickAdd = (food: FoodItem) => {
     setQuickAddItem(food);
     setPortion(1);
