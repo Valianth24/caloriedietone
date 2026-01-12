@@ -16,7 +16,8 @@ import { useTranslation } from 'react-i18next';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuth } from '../../contexts/AuthContext';
 import { Colors } from '../../constants/Colors';
-import PremiumPaywall from '../../components/PremiumPaywall';
+import WatchAdModal from '../../components/WatchAdModal';
+import { needsAdForRecipe, incrementRecipeViews, showRewardedAd, getRecipeViews } from '../../utils/adSystem';
 import {
   getAllRecipeMetadata,
   getRecipesByCategory,
