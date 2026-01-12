@@ -382,7 +382,7 @@ export default function RecipesScreen() {
         }}
         onWatchAd={handleWatchAd}
         type="recipe"
-        remainingFree={Math.max(0, 2 - recipeViewCount)}
+        remainingFree={Math.max(0, 1 - recipeViewCount)}
       />
       
       {/* Header */}
