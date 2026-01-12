@@ -133,7 +133,7 @@ export default function WatchAdModal({
           {/* Footer note */}
           <Text style={styles.footerNote}>
             {type === 'recipe' 
-              ? t('after2RecipesFree') || 'Her 2 tariften sonra kısa reklam'
+              ? t('after2RecipesFree') || 'Reklamla ücretsiz (1 bedava, 1 reklamlı)'
               : t('freeWithAds') || 'Reklamlarla tamamen ücretsiz'
             }
           </Text>
