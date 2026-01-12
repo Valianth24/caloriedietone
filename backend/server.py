@@ -623,13 +623,21 @@ async def store_delete_user_data(user_id: str):
     logger.info(f"Permanently deleted all data for user {user_id}")
 
 async def cleanup_expired_users():
-    """Delete users whose scheduled_deletion_at has passed (non-premium or expired premium)."""
+    """Delete users whose scheduled_deletion_at has passed (non-premium or expired premium).
+    
+    SAFETY CHECKS:
+    1. Only deletes users with scheduled_deletion_at set (from logout)
+    2. Checks last_active - if user was active recently, don't delete
+    3. Checks premium status and expiry
+    4. Logs all deletions for audit
+    """
     if mongo_db is None:
         logger.warning("Cleanup skipped - MongoDB not configured")
         return 0
     
     now = now_utc()
     deleted_count = 0
+    skipped_active = 0
     
     # Find users scheduled for deletion
     cursor = mongo_db.users.find({
@@ -637,6 +645,7 @@ async def cleanup_expired_users():
     })
     
     async for user in cursor:
+        user_id = user.get("user_id", "unknown")
         deletion_str = user.get("scheduled_deletion_at")
         if not deletion_str:
             continue
@@ -650,7 +659,37 @@ async def cleanup_expired_users():
         
         # Check if deletion date has passed
         if deletion_date < now:
-            # Check if premium user with active subscription
+            # SAFETY CHECK 1: Check last_active - if user was active in last 35 days, don't delete
+            last_active_str = user.get("last_active")
+            if last_active_str:
+                try:
+                    last_active = datetime.fromisoformat(last_active_str.replace('Z', '+00:00'))
+                    if last_active.tzinfo is None:
+                        last_active = last_active.replace(tzinfo=timezone.utc)
+                    
+                    days_since_active = (now - last_active).days
+                    if days_since_active < DATA_RETENTION_DAYS:
+                        # User was active recently, cancel deletion
+                        await store_cancel_user_deletion(user_id)
+                        skipped_active += 1
+                        logger.info(f"Skipped deletion for recently active user {user_id} (active {days_since_active} days ago)")
+                        continue
+                except Exception as e:
+                    logger.debug(f"Could not parse last_active for {user_id}: {e}")
+            
+            # SAFETY CHECK 2: Check if user has active sessions
+            active_sessions = await mongo_db.user_sessions.count_documents({
+                "user_id": user_id,
+                "expires_at": {"$gt": now}
+            })
+            if active_sessions > 0:
+                # User has active sessions, cancel deletion
+                await store_cancel_user_deletion(user_id)
+                skipped_active += 1
+                logger.info(f"Skipped deletion for user {user_id} with {active_sessions} active sessions")
+                continue
+            
+            # SAFETY CHECK 3: Check if premium user with active subscription
             is_premium = user.get("is_premium", False)
             premium_expires = user.get("premium_expires_at")
             
@@ -661,16 +700,18 @@ async def cleanup_expired_users():
                         exp_date = exp_date.replace(tzinfo=timezone.utc)
                     # If premium is still active, don't delete
                     if exp_date > now:
+                        logger.info(f"Skipped deletion for premium user {user_id}")
                         continue
                 except:
                     pass
             
-            # Delete user data
-            await store_delete_user_data(user["user_id"])
+            # All safety checks passed - delete user data
+            logger.warning(f"DELETING user {user_id} - scheduled at {deletion_str}, last_active: {last_active_str}")
+            await store_delete_user_data(user_id)
             deleted_count += 1
     
-    if deleted_count > 0:
-        logger.info(f"Cleaned up {deleted_count} expired user accounts")
+    if deleted_count > 0 or skipped_active > 0:
+        logger.info(f"Cleanup complete: deleted {deleted_count} users, skipped {skipped_active} active users")
     
     return deleted_count
 
