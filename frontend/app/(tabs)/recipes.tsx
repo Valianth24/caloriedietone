@@ -367,12 +367,14 @@ export default function RecipesScreen() {
               color={isFav ? '#e11d48' : '#fff'} 
             />
           </TouchableOpacity>
+          {/* Premium badge - temporarily hidden
           {item.isPremium && !isPremium && (
             <View style={styles.premiumBadge}>
               <Ionicons name="lock-closed" size={12} color="#fff" />
               <Text style={styles.premiumBadgeText}>Premium</Text>
             </View>
           )}
+          */}
           {item.featured && (
             <View style={styles.featuredBadge}>
               <Ionicons name="star" size={12} color="#FFD700" />
