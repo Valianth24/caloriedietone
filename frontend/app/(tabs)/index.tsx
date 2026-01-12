@@ -794,7 +794,7 @@ export default function DashboardScreen() {
         </View>
       </Modal>
 
-      {/* Premium Paywall */}
+      {/* Premium Paywall - temporarily hidden
       <PremiumPaywall
         visible={showPremiumModal}
         onClose={() => setShowPremiumModal(false)}
@@ -813,6 +813,7 @@ export default function DashboardScreen() {
           }
         }}
       />
+      */}
 
       {/* Diet Recommendation Modal - İlk girişte gösterilir */}
       <DietRecommendationModal
