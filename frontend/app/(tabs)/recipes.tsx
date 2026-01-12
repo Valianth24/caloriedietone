@@ -933,10 +933,17 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     position: 'relative',
+    backgroundColor: '#F5F5F5',
   },
   recipeImage: {
     width: '100%',
     height: 120,
+  },
+  imagePlaceholder: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F8F8F8',
   },
   premiumBadge: {
     position: 'absolute',
