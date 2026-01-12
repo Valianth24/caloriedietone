@@ -104,6 +104,7 @@ export default function MealsScreen() {
       setScreenMode('actionSheet');
       setSearchQuery('');
       setSelectedCategory('all');
+      setCart([]); // Sepeti temizle
       
       // Animate action sheet
       slideAnim.setValue(0);
