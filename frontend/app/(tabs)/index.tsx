@@ -1304,6 +1304,71 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: Colors.primary,
   },
+  // Active Diet Mini Card (for bottom section)
+  activeDietMiniCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: Colors.primary + '10',
+    borderRadius: 16,
+    padding: 16,
+    borderWidth: 1,
+    borderColor: Colors.primary + '30',
+  },
+  activeDietMiniLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1,
+  },
+  activeDietMiniEmoji: {
+    fontSize: 32,
+    marginRight: 12,
+  },
+  activeDietMiniInfo: {
+    flex: 1,
+  },
+  activeDietMiniTitle: {
+    fontSize: 16,
+    fontWeight: '700',
+    color: Colors.darkText,
+    marginBottom: 2,
+  },
+  activeDietMiniProgress: {
+    fontSize: 13,
+    color: Colors.lightText,
+  },
+  activeDietMiniRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: Colors.white,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: 20,
+    gap: 4,
+  },
+  activeDietMiniButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.primary,
+  },
+  // Browse All Diets Button
+  browseDietsButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 12,
+    paddingVertical: 12,
+    backgroundColor: Colors.white,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: Colors.primary + '30',
+    gap: 8,
+  },
+  browseDietsText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.primary,
+  },
   addButton: {
     backgroundColor: Colors.primary,
     paddingVertical: 16,
