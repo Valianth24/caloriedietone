@@ -53,7 +53,7 @@ export default function WatchAdModal({
 
   const getDescription = () => {
     if (type === 'recipe') {
-      return t('watchAdRecipeDesc') || '2 ücretsiz tarif görüntülediniz. Daha fazlası için kısa bir reklam izleyin.';
+      return t('watchAdRecipeDesc') || 'Bu tarifi görmek için kısa bir reklam izleyin. İlk 3 tarif her kategoride ücretsiz!';
     }
     return t('watchAdCalorieDesc') || 'Ücretsiz kalori hesaplama için kısa bir reklam izleyin.';
   };
