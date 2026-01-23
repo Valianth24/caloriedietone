@@ -2,29 +2,31 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /**
  * Ücretsiz Reklam Sistemini Yönetir
- * NOT: Reklam entegrasyonu yayından sonra eklenecek
- * Şimdilik sadece UI/UX hazır
+ * NOT: Reklam entegrasyonu yayından sonra eklenecek (AdMob)
+ * Şimdilik MOCK - uygulama çökmesin
  */
 
 const STORAGE_KEYS = {
   RECIPE_VIEWS: 'free_recipe_views',
   CALORIE_SCANS: 'free_calorie_scans',
   LAST_RESET: 'last_ad_reset',
+  WATCHED_ADS_FOR_RECIPES: 'watched_ads_for_recipes', // Reklam izlenmiş tarifler
 };
 
 export interface AdSystemState {
-  recipeViewsRemaining: number; // Kalan ücretsiz tarif görüntüleme
-  calorieScanRemaining: number; // Kalan ücretsiz kalori tarama
+  recipeViewsRemaining: number;
+  calorieScanRemaining: number;
   lastResetDate: string;
 }
 
 /**
- * Ücretsiz limitleri
- * 1 reklamsız, 1 reklamlı döngüsü
+ * Ücretsiz tarif limiti - her kategoride ilk 3 tarif reklamsız
  */
+export const FREE_RECIPES_PER_CATEGORY = 3;
+
 export const FREE_LIMITS = {
-  RECIPES_PER_AD: 1, // Her 1 tariften sonra reklam
-  CALORIES_PER_AD: 1, // Her 1 kalori taramadan sonra reklam
+  RECIPES_PER_AD: 1,
+  CALORIES_PER_AD: 1,
 };
 
 /**
