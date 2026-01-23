@@ -326,17 +326,20 @@ export default function RecipesScreen() {
   );
 
   // Recipe Card Component
-  const RecipeCard = React.memo(({ item }: { item: RecipeMetadata }) => {
+  const RecipeCard = React.memo(({ item, index }: { item: RecipeMetadata; index: number }) => {
     const isFav = favoriteRecipes.includes(item.id);
     const [imageError, setImageError] = React.useState(false);
     
     // Fallback image URL
     const fallbackImage = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80';
     
+    // Reklam gerektiren tarif mi? (ilk 3 tarif reklamsız)
+    const requiresAd = !isRecipeFree(index) && !watchedAdRecipes.includes(item.id);
+    
     return (
       <TouchableOpacity
         style={styles.recipeCard}
-        onPress={() => handleRecipePress(item)}
+        onPress={() => handleRecipePress(item, index)}
         activeOpacity={0.7}
       >
         <View style={styles.imageContainer}>
@@ -367,14 +370,20 @@ export default function RecipesScreen() {
               color={isFav ? '#e11d48' : '#fff'} 
             />
           </TouchableOpacity>
-          {/* Premium badge - temporarily hidden
-          {item.isPremium && !isPremium && (
-            <View style={styles.premiumBadge}>
-              <Ionicons name="lock-closed" size={12} color="#fff" />
-              <Text style={styles.premiumBadgeText}>Premium</Text>
+          {/* Reklam gerektiren tarifler için kilit ikonu */}
+          {requiresAd && (
+            <View style={styles.adBadge}>
+              <Ionicons name="play-circle" size={14} color="#fff" />
+              <Text style={styles.adBadgeText}>{t('watchAd') || 'Reklam'}</Text>
             </View>
           )}
-          */}
+          {/* Reklamsız tarifler için ücretsiz badge */}
+          {isRecipeFree(index) && (
+            <View style={styles.freeBadge}>
+              <Ionicons name="checkmark-circle" size={12} color="#fff" />
+              <Text style={styles.freeBadgeText}>{t('free') || 'Ücretsiz'}</Text>
+            </View>
+          )}
           {item.featured && (
             <View style={styles.featuredBadge}>
               <Ionicons name="star" size={12} color="#FFD700" />
