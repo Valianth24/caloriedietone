@@ -173,21 +173,21 @@ export const getAdSystemState = async (): Promise<AdSystemState> => {
 };
 
 /**
- * MOCK: Reklam göster (yayından sonra gerçek entegrasyon)
- * Şimdilik sadece simüle ediyor
+ * MOCK: Reklam göster (yayından sonra gerçek AdMob entegrasyonu)
+ * Şimdilik sadece simüle ediyor - uygulama çökmesin
  */
-export const showRewardedAd = async (type: 'recipe' | 'calorie'): Promise<boolean> => {
-  // TODO: Yayından sonra gerçek reklam SDK entegrasyonu
-  // AdMob veya başka bir reklam network
+export const showRewardedAd = async (type: 'recipe' | 'calorie', recipeId?: string): Promise<boolean> => {
+  // TODO: Yayından sonra gerçek AdMob entegrasyonu
+  // google.com, pub-6980942787991808, DIRECT, f08c47fec0942fa0
   
-  console.log(`[AD] Showing rewarded ad for ${type}`);
+  console.log(`[AD MOCK] Showing rewarded ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}`);
   
-  // Simülasyon: 2 saniye bekle
+  // Simülasyon: 2 saniye bekle (gerçek reklamda 15-30 saniye)
   await new Promise(resolve => setTimeout(resolve, 2000));
   
-  // Başarılı kabul et ve sıfırla
-  await resetAfterAd(type);
+  // Başarılı kabul et ve işaretle
+  await resetAfterAd(type, recipeId);
   
-  console.log(`[AD] Rewarded ad completed for ${type}`);
+  console.log(`[AD MOCK] Rewarded ad completed for ${type}`);
   return true;
 };
