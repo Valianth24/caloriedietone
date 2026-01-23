@@ -206,22 +206,20 @@ export default function RecipesScreen() {
     }
   };
 
-  const handleRecipePress = async (recipe: RecipeMetadata) => {
+  const handleRecipePress = async (recipe: RecipeMetadata, recipeIndex: number) => {
     try {
-      // Reklam gerekli mi kontrol et
-      const needsAd = await needsAdForRecipe();
+      // Reklam gerekli mi kontrol et (ilk 3 tarif her kategoride reklamsız)
+      const needsAd = await needsAdForRecipe(recipe.id, recipeIndex);
       
       if (needsAd) {
-        // Reklam modal göster
+        // Reklam modal göster - tarif reklam izlenmeden açılmayacak
         setPendingRecipe(recipe);
+        setPendingRecipeIndex(recipeIndex);
         setShowAdModal(true);
         return;
       }
 
-      // View count artır ve yönlendir
-      const newCount = await incrementRecipeViews();
-      setRecipeViewCount(newCount);
-      
+      // Reklamsız tarif - direkt aç
       router.push({
         pathname: '/details/recipe-detail',
         params: { recipeId: recipe.id },
@@ -233,8 +231,8 @@ export default function RecipesScreen() {
   
   const handleWatchAd = async () => {
     try {
-      // Reklam göster (simülasyon - yayından sonra gerçek entegrasyon)
-      await showRewardedAd('recipe');
+      // MOCK Reklam göster (yayından sonra gerçek AdMob entegrasyonu)
+      await showRewardedAd('recipe', pendingRecipe?.id);
       
       // Count'u sıfırla
       setRecipeViewCount(0);
