@@ -564,9 +564,9 @@ export default function RecipesScreen() {
             <ActivityIndicator size="large" color={Colors.primary} style={styles.loader} />
           ) : (
             <View style={styles.recipeGrid}>
-              {recipes.map((recipe) => (
+              {recipes.map((recipe, index) => (
                 <View key={recipe.id} style={styles.gridItem}>
-                  <RecipeCard item={recipe} />
+                  <RecipeCard item={recipe} index={index} />
                 </View>
               ))}
             </View>
