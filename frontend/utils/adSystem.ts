@@ -58,20 +58,62 @@ export const incrementRecipeViews = async (): Promise<number> => {
 };
 
 /**
- * Tarif için reklam izlemesi gerekli mi?
+ * Tarif için reklam izlemesi gerekli mi? (Kategori bazlı)
+ * Her kategoride ilk 3 tarif reklamsız
  */
-export const needsAdForRecipe = async (): Promise<boolean> => {
-  const views = await getRecipeViews();
-  return views >= FREE_LIMITS.RECIPES_PER_AD;
+export const needsAdForRecipe = async (recipeId: string, recipeIndex: number): Promise<boolean> => {
+  // İlk 3 tarif her kategoride reklamsız (index 0, 1, 2)
+  if (recipeIndex < FREE_RECIPES_PER_CATEGORY) {
+    return false;
+  }
+  
+  // Daha önce bu tarif için reklam izlendi mi?
+  const watchedRecipes = await getWatchedAdRecipes();
+  return !watchedRecipes.includes(recipeId);
+};
+
+/**
+ * Tarif reklamsız mı kontrol et (UI için)
+ */
+export const isRecipeFree = (recipeIndex: number): boolean => {
+  return recipeIndex < FREE_RECIPES_PER_CATEGORY;
+};
+
+/**
+ * Reklam izlenmiş tarifleri al
+ */
+export const getWatchedAdRecipes = async (): Promise<string[]> => {
+  try {
+    const stored = await AsyncStorage.getItem(STORAGE_KEYS.WATCHED_ADS_FOR_RECIPES);
+    return stored ? JSON.parse(stored) : [];
+  } catch (error) {
+    console.error('Error getting watched ad recipes:', error);
+    return [];
+  }
+};
+
+/**
+ * Tarif için reklam izlendi olarak işaretle
+ */
+export const markRecipeAdWatched = async (recipeId: string): Promise<void> => {
+  try {
+    const watched = await getWatchedAdRecipes();
+    if (!watched.includes(recipeId)) {
+      watched.push(recipeId);
+      await AsyncStorage.setItem(STORAGE_KEYS.WATCHED_ADS_FOR_RECIPES, JSON.stringify(watched));
+    }
+  } catch (error) {
+    console.error('Error marking recipe ad watched:', error);
+  }
 };
 
 /**
  * Reklam izlendikten sonra sıfırla
  */
-export const resetAfterAd = async (type: 'recipe' | 'calorie'): Promise<void> => {
+export const resetAfterAd = async (type: 'recipe' | 'calorie', recipeId?: string): Promise<void> => {
   try {
-    if (type === 'recipe') {
-      await AsyncStorage.setItem(STORAGE_KEYS.RECIPE_VIEWS, '0');
+    if (type === 'recipe' && recipeId) {
+      await markRecipeAdWatched(recipeId);
     } else if (type === 'calorie') {
       await AsyncStorage.setItem(STORAGE_KEYS.CALORIE_SCANS, '0');
     }
