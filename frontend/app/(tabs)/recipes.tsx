@@ -370,21 +370,13 @@ export default function RecipesScreen() {
               color={isFav ? '#e11d48' : '#fff'} 
             />
           </TouchableOpacity>
-          {/* Reklam gerektiren tarifler için kilit ikonu */}
+          {/* Reklamlı tarifler için yıldız ikonu (premium görünümü) */}
           {requiresAd && (
-            <View style={styles.adBadge}>
-              <Ionicons name="play-circle" size={14} color="#fff" />
-              <Text style={styles.adBadgeText}>{t('watchAd') || 'Reklam'}</Text>
+            <View style={styles.premiumStarBadge}>
+              <Ionicons name="star" size={16} color="#FFD700" />
             </View>
           )}
-          {/* Reklamsız tarifler için ücretsiz badge */}
-          {isRecipeFree(index) && (
-            <View style={styles.freeBadge}>
-              <Ionicons name="checkmark-circle" size={12} color="#fff" />
-              <Text style={styles.freeBadgeText}>{t('free') || 'Ücretsiz'}</Text>
-            </View>
-          )}
-          {item.featured && (
+          {item.featured && !requiresAd && (
             <View style={styles.featuredBadge}>
               <Ionicons name="star" size={12} color="#FFD700" />
             </View>
