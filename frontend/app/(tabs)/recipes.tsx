@@ -149,8 +149,12 @@ export default function RecipesScreen() {
 
   useEffect(() => {
     loadRecipes();
-    loadViewCount();
   }, [selectedCategory, selectedCollection, favoriteRecipes]);
+  
+  const loadWatchedAdRecipes = async () => {
+    const watched = await getWatchedAdRecipes();
+    setWatchedAdRecipes(watched);
+  };
   
   const loadFavoriteRecipes = async () => {
     try {
