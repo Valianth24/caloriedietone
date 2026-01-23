@@ -1255,7 +1255,7 @@ const resources = {
       // Ad System (Reklamla Ücretsiz)
       watchAdForRecipe: 'Reklam İzleyerek Devam Et',
       watchAdForCalorie: 'Reklam İzleyerek Kalori Hesapla',
-      watchAdRecipeDesc: 'Bu tarifi görmek için kısa bir reklam izleyin. Tamamen ücretsiz!',
+      watchAdRecipeDesc: 'Bu tarifi görmek için kısa bir reklam izleyin. Her kategoride ilk 3 tarif ücretsiz!',
       watchAdCalorieDesc: 'Ücretsiz kalori hesaplama için kısa bir reklam izleyin.',
       '100PercentFree': '%100 Ücretsiz',
       supportWithAds: 'Reklamları izleyerek bizi destekleyin',
@@ -1267,6 +1267,8 @@ const resources = {
       everyOtherRecipe: 'Her tariften sonra reklam',
       nextFree: 'Sonraki ücretsiz',
       nextAd: 'Sonraki reklamlı',
+      first3Free: 'Her kategoride ilk 3 tarif ücretsiz!',
+      free: 'Ücretsiz',
     }
   },
   
