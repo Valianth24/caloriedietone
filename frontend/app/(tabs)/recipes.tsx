@@ -144,6 +144,7 @@ export default function RecipesScreen() {
 
   useEffect(() => {
     loadFavoriteRecipes();
+    loadWatchedAdRecipes();
   }, []);
 
   useEffect(() => {
