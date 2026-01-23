@@ -472,10 +472,11 @@ export default function RecipesScreen() {
         onClose={() => {
           setShowAdModal(false);
           setPendingRecipe(null);
+          setPendingRecipeIndex(0);
         }}
         onWatchAd={handleWatchAd}
         type="recipe"
-        remainingFree={Math.max(0, 1 - recipeViewCount)}
+        remainingFree={FREE_RECIPES_PER_CATEGORY}
       />
       
       {/* Header */}
