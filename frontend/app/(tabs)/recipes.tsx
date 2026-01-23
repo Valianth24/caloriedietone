@@ -163,19 +163,6 @@ export default function RecipesScreen() {
     } catch (e) { console.error(e); }
   };
 
-  const toggleFavoriteRecipe = async (recipeId: string) => {
-    const newFavorites = favoriteRecipes.includes(recipeId)
-      ? favoriteRecipes.filter(id => id !== recipeId)
-      : [...favoriteRecipes, recipeId];
-    setFavoriteRecipes(newFavorites);
-    await AsyncStorage.setItem('favorite_recipes_v2', JSON.stringify(newFavorites));
-  };
-
-  const loadViewCount = async () => {
-    const count = await getRecipeViews();
-    setRecipeViewCount(count);
-  };
-
   const loadRecipes = () => {
     setLoading(true);
     try {
