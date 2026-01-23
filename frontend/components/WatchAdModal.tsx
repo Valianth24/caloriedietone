@@ -9,7 +9,7 @@ import {
   Dimensions,
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Colors } from '../constants/Colors';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useTranslation } from 'react-i18next';
 
 const { width } = Dimensions.get('window');
@@ -27,7 +27,6 @@ export default function WatchAdModal({
   onClose,
   onWatchAd,
   type,
-  remainingFree = 0,
 }: WatchAdModalProps) {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
@@ -46,16 +45,16 @@ export default function WatchAdModal({
 
   const getTitle = () => {
     if (type === 'recipe') {
-      return t('watchAdForRecipe') || 'Reklam İzleyerek Devam Et';
+      return t('watchAdForRecipe') || 'Premium İçerik';
     }
-    return t('watchAdForCalorie') || 'Reklam İzleyerek Kalori Hesapla';
+    return t('watchAdForCalorie') || 'Kalori Hesaplama';
   };
 
   const getDescription = () => {
     if (type === 'recipe') {
-      return t('watchAdRecipeDesc') || 'Bu tarifi görmek için kısa bir reklam izleyin. İlk 3 tarif her kategoride ücretsiz!';
+      return t('watchAdRecipeDesc') || 'Bu tarife erişmek için kısa bir video izleyin.';
     }
-    return t('watchAdCalorieDesc') || 'Ücretsiz kalori hesaplama için kısa bir reklam izleyin.';
+    return t('watchAdCalorieDesc') || 'Kalori hesaplama için kısa bir video izleyin.';
   };
 
   return (
@@ -67,76 +66,86 @@ export default function WatchAdModal({
     >
       <View style={styles.overlay}>
         <View style={styles.modal}>
+          {/* Premium Header */}
+          <LinearGradient
+            colors={['#667eea', '#764ba2']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            style={styles.header}
+          >
+            <View style={styles.starContainer}>
+              <Ionicons name="star" size={32} color="#FFD700" />
+            </View>
+            <Text style={styles.headerTitle}>{getTitle()}</Text>
+          </LinearGradient>
+
           {/* Close button */}
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-            <Ionicons name="close" size={24} color={Colors.darkText} />
+            <Ionicons name="close" size={22} color="#FFF" />
           </TouchableOpacity>
 
-          {/* Icon */}
-          <View style={styles.iconContainer}>
-            <Ionicons 
-              name={type === 'recipe' ? 'play-circle' : 'camera'} 
-              size={80} 
-              color={Colors.primary} 
-            />
-          </View>
+          {/* Content */}
+          <View style={styles.content}>
+            {/* Description */}
+            <Text style={styles.description}>{getDescription()}</Text>
 
-          {/* Title */}
-          <Text style={styles.title}>{getTitle()}</Text>
+            {/* Feature List */}
+            <View style={styles.featureList}>
+              <View style={styles.featureItem}>
+                <Ionicons name="checkmark-circle" size={20} color="#4CAF50" />
+                <Text style={styles.featureText}>
+                  {type === 'recipe' 
+                    ? t('unlockRecipeAccess') || 'Tarife tam erişim'
+                    : t('unlockCalorieAccess') || 'Sınırsız hesaplama'
+                  }
+                </Text>
+              </View>
+              <View style={styles.featureItem}>
+                <Ionicons name="time-outline" size={20} color="#667eea" />
+                <Text style={styles.featureText}>
+                  {t('shortVideoTime') || 'Sadece 15 saniye'}
+                </Text>
+              </View>
+            </View>
 
-          {/* Description */}
-          <Text style={styles.description}>{getDescription()}</Text>
+            {/* Buttons */}
+            <View style={styles.buttons}>
+              <TouchableOpacity 
+                style={styles.watchButton}
+                onPress={handleWatchAd}
+                disabled={loading}
+                activeOpacity={0.8}
+              >
+                <LinearGradient
+                  colors={['#667eea', '#764ba2']}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  style={styles.watchButtonGradient}
+                >
+                  {loading ? (
+                    <ActivityIndicator color="#FFF" />
+                  ) : (
+                    <>
+                      <Ionicons name="play" size={22} color="#FFF" />
+                      <Text style={styles.watchButtonText}>
+                        {t('watchVideo') || 'Video İzle'}
+                      </Text>
+                    </>
+                  )}
+                </LinearGradient>
+              </TouchableOpacity>
 
-          {/* Info box */}
-          <View style={styles.infoBox}>
-            <Ionicons name="gift-outline" size={24} color={Colors.primary} />
-            <View style={styles.infoText}>
-              <Text style={styles.infoTitle}>
-                {t('100PercentFree') || '%100 Ücretsiz'}
-              </Text>
-              <Text style={styles.infoDesc}>
-                {t('supportWithAds') || 'Reklamları izleyerek bizi destekleyin'}
-              </Text>
+              <TouchableOpacity 
+                style={styles.cancelButton}
+                onPress={onClose}
+                disabled={loading}
+              >
+                <Text style={styles.cancelButtonText}>
+                  {t('notNow') || 'Şimdi Değil'}
+                </Text>
+              </TouchableOpacity>
             </View>
           </View>
-
-          {/* Buttons */}
-          <View style={styles.buttons}>
-            <TouchableOpacity 
-              style={styles.watchButton}
-              onPress={handleWatchAd}
-              disabled={loading}
-            >
-              {loading ? (
-                <ActivityIndicator color="#FFF" />
-              ) : (
-                <>
-                  <Ionicons name="play-circle" size={24} color="#FFF" />
-                  <Text style={styles.watchButtonText}>
-                    {t('watchAd') || 'Reklam İzle'} (15s)
-                  </Text>
-                </>
-              )}
-            </TouchableOpacity>
-
-            <TouchableOpacity 
-              style={styles.cancelButton}
-              onPress={onClose}
-              disabled={loading}
-            >
-              <Text style={styles.cancelButtonText}>
-                {t('cancel') || 'İptal'}
-              </Text>
-            </TouchableOpacity>
-          </View>
-
-          {/* Footer note */}
-          <Text style={styles.footerNote}>
-            {type === 'recipe' 
-              ? t('first3Free') || 'Her kategoride ilk 3 tarif reklamsız!'
-              : t('freeWithAds') || 'Reklamlarla tamamen ücretsiz'
-            }
-          </Text>
         </View>
       </View>
     </Modal>
@@ -146,105 +155,109 @@ export default function WatchAdModal({
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.7)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 20,
+    padding: 24,
   },
   modal: {
     backgroundColor: '#FFF',
-    borderRadius: 24,
-    padding: 24,
-    width: width - 40,
-    maxWidth: 400,
+    borderRadius: 20,
+    width: width - 48,
+    maxWidth: 380,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 10 },
+    shadowOpacity: 0.25,
+    shadowRadius: 20,
+    elevation: 10,
+  },
+  header: {
+    paddingVertical: 28,
+    paddingHorizontal: 24,
     alignItems: 'center',
+  },
+  starContainer: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  headerTitle: {
+    fontSize: 22,
+    fontWeight: '700',
+    color: '#FFF',
+    textAlign: 'center',
   },
   closeButton: {
     position: 'absolute',
-    top: 16,
-    right: 16,
+    top: 12,
+    right: 12,
     zIndex: 10,
-    padding: 4,
-  },
-  iconContainer: {
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    backgroundColor: Colors.primary + '20',
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 16,
   },
-  title: {
-    fontSize: 22,
-    fontWeight: '700',
-    color: Colors.darkText,
-    textAlign: 'center',
-    marginBottom: 12,
+  content: {
+    padding: 24,
   },
   description: {
-    fontSize: 16,
-    color: Colors.lightText,
+    fontSize: 15,
+    color: '#666',
     textAlign: 'center',
     lineHeight: 22,
     marginBottom: 20,
   },
-  infoBox: {
-    flexDirection: 'row',
-    backgroundColor: Colors.primary + '10',
-    borderRadius: 12,
-    padding: 16,
-    width: '100%',
+  featureList: {
     marginBottom: 24,
+  },
+  featureItem: {
+    flexDirection: 'row',
     alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    backgroundColor: '#F8F9FA',
+    borderRadius: 10,
+    marginBottom: 8,
+    gap: 12,
   },
-  infoText: {
-    flex: 1,
-    marginLeft: 12,
-  },
-  infoTitle: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: Colors.primary,
-    marginBottom: 4,
-  },
-  infoDesc: {
+  featureText: {
     fontSize: 14,
-    color: Colors.lightText,
+    color: '#333',
+    fontWeight: '500',
   },
   buttons: {
-    width: '100%',
     gap: 12,
   },
   watchButton: {
-    backgroundColor: Colors.primary,
     borderRadius: 12,
-    padding: 16,
+    overflow: 'hidden',
+  },
+  watchButtonGradient: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 16,
     gap: 8,
   },
   watchButtonText: {
     color: '#FFF',
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
   },
   cancelButton: {
-    backgroundColor: '#F5F5F5',
-    borderRadius: 12,
-    padding: 16,
+    paddingVertical: 14,
     alignItems: 'center',
   },
   cancelButtonText: {
-    color: Colors.darkText,
-    fontSize: 16,
+    color: '#999',
+    fontSize: 15,
     fontWeight: '500',
-  },
-  footerNote: {
-    fontSize: 12,
-    color: Colors.lightText,
-    textAlign: 'center',
-    marginTop: 16,
   },
 });
