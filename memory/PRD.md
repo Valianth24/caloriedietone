@@ -1,38 +1,39 @@
 # CalorieDiet App - PRD
 
 ## Orijinal İstek
-Play Store'da yayınlanan CalorieDiet uygulamasında reklam sistemi değişikliği:
-- Yeşil/turuncu badge'ler kaldırılsın
-- Reklamlı tariflerde sadece yıldız ikonu olsun
-- Ücretsiz tariflerde hiçbir işaret olmasın
+- Yeşil/turuncu badge'ler kaldırılsın, reklamlı tariflerde yıldız olsun
+- Profesyonel görünüm (bizi destekleyin mesajları kaldır)
+- Temalar: 3 reklam = 24 saat kullanım sistemi
 - Çeviriler tüm dillerde çalışsın
 
 ## Tamamlanan İşler (23 Ocak 2026)
 
-### 1. UI Güncellemesi
-- ✅ Yeşil/turuncu badge'ler KALDIRILDI
+### 1. Tarif Sistemi
 - ✅ Reklamlı tarifler: Sarı yıldız (⭐) ikonu
-- ✅ Ücretsiz tarifler: Hiçbir işaret yok (temiz görünüm)
-
-### 2. Reklam Sistemi
+- ✅ Ücretsiz tarifler: Hiçbir işaret yok
 - ✅ Her kategoride ilk 3 tarif reklamsız
-- ✅ 4. tariften sonrası reklamlı (yıldız ikonu ile)
-- ✅ Reklam izlenmeden tarif açılmıyor
-- ✅ MOCK reklam (uygulama çökmesin)
 
-### 3. Çeviriler (7 Dil)
-- ✅ Türkçe (tr)
-- ✅ İngilizce (en)
-- ✅ İspanyolca (es)
-- ✅ Portekizce (pt)
-- ✅ Almanca (de)
-- ✅ Fransızca (fr)
-- ✅ Arapça (ar)
+### 2. Premium Modal Tasarımı
+- ✅ WatchAdModal: Gradient header, profesyonel tasarım
+- ✅ "Bizi destekleyin" mesajları KALDIRILDI
+- ✅ "Video İzle" butonu, feature list
+
+### 3. Tema Sistemi (3 Reklam = 24 Saat)
+- ✅ ThemeSelector: Premium modal ile tema kilidi açma
+- ✅ Progress göstergesi (1/3, 2/3, 3/3)
+- ✅ Kalan süre badge (24h, 23h...)
+- ✅ adSystem.ts: Tema kilidi açma fonksiyonları
+
+### 4. Çeviriler (7 Dil)
+- ✅ Türkçe, İngilizce, İspanyolca, Portekizce
+- ✅ Almanca, Fransızca, Arapça
+- ✅ Tema unlock çevirileri eklendi
 
 ### Dosyalar
-- `frontend/utils/adSystem.ts` - Reklam mantığı
-- `frontend/app/(tabs)/recipes.tsx` - UI (yıldız badge)
-- `frontend/utils/i18n.ts` - 7 dilde çeviriler
+- `frontend/components/WatchAdModal.tsx` - Premium tasarım
+- `frontend/components/ThemeSelector.tsx` - 3 reklam sistemi
+- `frontend/utils/adSystem.ts` - Tema kilidi fonksiyonları
+- `frontend/utils/i18n.ts` - Çeviriler
 
 ## AdMob (Beklemede)
 ```
@@ -40,6 +41,6 @@ google.com, pub-6980942787991808, DIRECT, f08c47fec0942fa0
 ```
 
 ## Sonraki Adımlar
-1. Kodu test et (expo start)
-2. Build al (eas build)
+1. expo start ile test
+2. eas build ile APK
 3. Play Store'a yükle
