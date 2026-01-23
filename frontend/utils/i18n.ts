@@ -1998,6 +1998,17 @@ const resources = {
       storage: 'Armazenamento',
       servingSuggestion: 'Sugestão de Servir',
       variations: 'Variações',
+      
+      // Ad System
+      watchAdForRecipe: 'Assistir Anúncio para Continuar',
+      watchAdForCalorie: 'Assistir Anúncio para Calcular Calorias',
+      watchAdRecipeDesc: 'Assista a um anúncio curto para ver esta receita. As primeiras 3 receitas em cada categoria são grátis!',
+      watchAdCalorieDesc: 'Assista a um anúncio curto para calcular calorias gratuitamente.',
+      '100PercentFree': '100% Grátis',
+      supportWithAds: 'Apoie-nos assistindo anúncios',
+      watchAd: 'Assistir Anúncio',
+      freeWithAds: 'Completamente grátis com anúncios',
+      first3Free: 'As primeiras 3 receitas em cada categoria são grátis!',
     }
   },
   
