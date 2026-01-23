@@ -205,3 +205,131 @@ export const showRewardedAd = async (type: 'recipe' | 'calorie', recipeId?: stri
   console.log(`[AD MOCK] Rewarded ad completed for ${type}`);
   return true;
 };
+
+
+// ========================================
+// TEMA KİLİDİ AÇMA SİSTEMİ (3 Reklam = 24 Saat)
+// ========================================
+
+/**
+ * Tema kilidi verilerini al
+ */
+export const getThemeUnlockData = async (): Promise<ThemeUnlockData> => {
+  try {
+    const data = await AsyncStorage.getItem(STORAGE_KEYS.THEME_UNLOCK_DATA);
+    return data ? JSON.parse(data) : {};
+  } catch (error) {
+    console.error('Error getting theme unlock data:', error);
+    return {};
+  }
+};
+
+/**
+ * Tema kilidi verilerini kaydet
+ */
+const saveThemeUnlockData = async (data: ThemeUnlockData): Promise<void> => {
+  try {
+    await AsyncStorage.setItem(STORAGE_KEYS.THEME_UNLOCK_DATA, JSON.stringify(data));
+  } catch (error) {
+    console.error('Error saving theme unlock data:', error);
+  }
+};
+
+/**
+ * Tema aktif mi kontrol et (24 saat içinde mi?)
+ */
+export const isThemeUnlocked = async (themeName: string): Promise<boolean> => {
+  if (themeName === 'default') return true; // Varsayılan tema her zaman açık
+  
+  const data = await getThemeUnlockData();
+  const themeData = data[themeName];
+  
+  if (!themeData || !themeData.unlockedUntil) return false;
+  
+  const now = new Date();
+  const unlockedUntil = new Date(themeData.unlockedUntil);
+  
+  return now < unlockedUntil;
+};
+
+/**
+ * Tema için izlenen reklam sayısını al
+ */
+export const getThemeAdCount = async (themeName: string): Promise<number> => {
+  const data = await getThemeUnlockData();
+  return data[themeName]?.adsWatched || 0;
+};
+
+/**
+ * Tema için kalan süreyi al (saat cinsinden)
+ */
+export const getThemeRemainingHours = async (themeName: string): Promise<number> => {
+  const data = await getThemeUnlockData();
+  const themeData = data[themeName];
+  
+  if (!themeData || !themeData.unlockedUntil) return 0;
+  
+  const now = new Date();
+  const unlockedUntil = new Date(themeData.unlockedUntil);
+  const diffMs = unlockedUntil.getTime() - now.getTime();
+  
+  if (diffMs <= 0) return 0;
+  
+  return Math.ceil(diffMs / (1000 * 60 * 60));
+};
+
+/**
+ * Tema için reklam izle
+ * 3 reklam tamamlanınca 24 saat açılır
+ */
+export const watchAdForTheme = async (themeName: string): Promise<{ success: boolean; adsWatched: number; unlocked: boolean }> => {
+  // MOCK: Reklam simülasyonu
+  console.log(`[AD MOCK] Watching ad for theme: ${themeName}`);
+  await new Promise(resolve => setTimeout(resolve, 2000));
+  
+  const data = await getThemeUnlockData();
+  
+  if (!data[themeName]) {
+    data[themeName] = { adsWatched: 0, unlockedUntil: null };
+  }
+  
+  // Eğer tema zaten açıksa, reklam sayısını sıfırla ve süreyi uzat
+  const isUnlocked = await isThemeUnlocked(themeName);
+  if (isUnlocked) {
+    // Süreyi uzat
+    const newUnlockTime = new Date();
+    newUnlockTime.setHours(newUnlockTime.getHours() + THEME_UNLOCK_CONFIG.UNLOCK_DURATION_HOURS);
+    data[themeName].unlockedUntil = newUnlockTime.toISOString();
+    await saveThemeUnlockData(data);
+    return { success: true, adsWatched: THEME_UNLOCK_CONFIG.ADS_REQUIRED, unlocked: true };
+  }
+  
+  // Reklam sayısını artır
+  data[themeName].adsWatched = (data[themeName].adsWatched || 0) + 1;
+  
+  // 3 reklam tamamlandıysa kilidi aç
+  if (data[themeName].adsWatched >= THEME_UNLOCK_CONFIG.ADS_REQUIRED) {
+    const unlockTime = new Date();
+    unlockTime.setHours(unlockTime.getHours() + THEME_UNLOCK_CONFIG.UNLOCK_DURATION_HOURS);
+    data[themeName].unlockedUntil = unlockTime.toISOString();
+    data[themeName].adsWatched = 0; // Sıfırla
+    await saveThemeUnlockData(data);
+    
+    console.log(`[AD MOCK] Theme ${themeName} unlocked for 24 hours`);
+    return { success: true, adsWatched: THEME_UNLOCK_CONFIG.ADS_REQUIRED, unlocked: true };
+  }
+  
+  await saveThemeUnlockData(data);
+  return { success: true, adsWatched: data[themeName].adsWatched, unlocked: false };
+};
+
+/**
+ * Tema kilidini sıfırla (süre dolduğunda)
+ */
+export const resetThemeUnlock = async (themeName: string): Promise<void> => {
+  const data = await getThemeUnlockData();
+  if (data[themeName]) {
+    data[themeName] = { adsWatched: 0, unlockedUntil: null };
+    await saveThemeUnlockData(data);
+  }
+};
