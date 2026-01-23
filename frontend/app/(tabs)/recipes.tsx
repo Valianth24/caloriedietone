@@ -234,8 +234,8 @@ export default function RecipesScreen() {
       // MOCK Reklam göster (yayından sonra gerçek AdMob entegrasyonu)
       await showRewardedAd('recipe', pendingRecipe?.id);
       
-      // Count'u sıfırla
-      setRecipeViewCount(0);
+      // Reklam izlenen tarifleri güncelle
+      await loadWatchedAdRecipes();
       
       // Bekleyen tarife git
       if (pendingRecipe) {
@@ -244,6 +244,7 @@ export default function RecipesScreen() {
           params: { recipeId: pendingRecipe.id },
         });
         setPendingRecipe(null);
+        setPendingRecipeIndex(0);
       }
     } catch (error) {
       console.error('Error watching ad:', error);
