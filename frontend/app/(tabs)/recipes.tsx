@@ -19,7 +19,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../contexts/AuthContext';
 import { Colors } from '../../constants/Colors';
 import WatchAdModal from '../../components/WatchAdModal';
-import { needsAdForRecipe, incrementRecipeViews, showRewardedAd, getRecipeViews } from '../../utils/adSystem';
+import { needsAdForRecipe, isRecipeFree, showRewardedAd, getWatchedAdRecipes, FREE_RECIPES_PER_CATEGORY } from '../../utils/adSystem';
 import {
   getAllRecipeMetadata,
   getRecipesByCategory,
