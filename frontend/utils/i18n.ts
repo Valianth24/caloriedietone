@@ -3080,6 +3080,17 @@ const resources = {
       storage: 'التخزين',
       servingSuggestion: 'اقتراح التقديم',
       variations: 'تنويعات',
+      
+      // Ad System
+      watchAdForRecipe: 'شاهد إعلان للمتابعة',
+      watchAdForCalorie: 'شاهد إعلان لحساب السعرات',
+      watchAdRecipeDesc: 'شاهد إعلاناً قصيراً لرؤية هذه الوصفة. أول 3 وصفات في كل فئة مجانية!',
+      watchAdCalorieDesc: 'شاهد إعلاناً قصيراً لحساب السعرات الحرارية مجاناً.',
+      '100PercentFree': '100% مجاني',
+      supportWithAds: 'ادعمنا بمشاهدة الإعلانات',
+      watchAd: 'شاهد الإعلان',
+      freeWithAds: 'مجاني تماماً مع الإعلانات',
+      first3Free: 'أول 3 وصفات في كل فئة مجانية!',
     }
   },
 };
