@@ -644,6 +644,20 @@ const resources = {
       nextAd: 'Next one requires ad',
       first3Free: 'First 3 recipes in each category are free!',
       free: 'Free',
+      
+      // Theme Unlock
+      themes: 'Themes',
+      unlockTheme: 'Unlock Theme',
+      watchAdsToUnlock: 'Watch videos to unlock',
+      videosWatched: 'videos watched',
+      unlockFor24Hours: '24 hours access',
+      extendAnytime: 'Extend anytime',
+      watchVideo: 'Watch Video',
+      remaining: 'remaining',
+      notNow: 'Not Now',
+      unlockRecipeAccess: 'Full recipe access',
+      unlockCalorieAccess: 'Unlimited calculation',
+      shortVideoTime: 'Only 15 seconds',
     }
   },
   
