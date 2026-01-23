@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /**
- * Ücretsiz Reklam Sistemini Yönetir
+ * Reklam Sistemini Yönetir
  * NOT: Reklam entegrasyonu yayından sonra eklenecek (AdMob)
  * Şimdilik MOCK - uygulama çökmesin
  */
@@ -10,13 +10,27 @@ const STORAGE_KEYS = {
   RECIPE_VIEWS: 'free_recipe_views',
   CALORIE_SCANS: 'free_calorie_scans',
   LAST_RESET: 'last_ad_reset',
-  WATCHED_ADS_FOR_RECIPES: 'watched_ads_for_recipes', // Reklam izlenmiş tarifler
+  WATCHED_ADS_FOR_RECIPES: 'watched_ads_for_recipes',
+  THEME_UNLOCK_DATA: 'theme_unlock_data', // Tema kilidi açma verileri
 };
 
 export interface AdSystemState {
   recipeViewsRemaining: number;
   calorieScanRemaining: number;
   lastResetDate: string;
+}
+
+// Tema kilidi açma için gerekli reklam sayısı ve süre
+export const THEME_UNLOCK_CONFIG = {
+  ADS_REQUIRED: 3, // 3 reklam izle
+  UNLOCK_DURATION_HOURS: 24, // 24 saat kullanım
+};
+
+export interface ThemeUnlockData {
+  [themeName: string]: {
+    adsWatched: number;
+    unlockedUntil: string | null; // ISO date string
+  };
 }
 
 /**
