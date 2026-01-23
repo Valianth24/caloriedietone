@@ -1283,6 +1283,20 @@ const resources = {
       nextAd: 'Sonraki reklamlı',
       first3Free: 'Her kategoride ilk 3 tarif ücretsiz!',
       free: 'Ücretsiz',
+      
+      // Theme Unlock
+      themes: 'Temalar',
+      unlockTheme: 'Temayı Aç',
+      watchAdsToUnlock: 'Video izleyerek aç',
+      videosWatched: 'video izlendi',
+      unlockFor24Hours: '24 saat kullanım hakkı',
+      extendAnytime: 'İstediğiniz zaman uzatın',
+      watchVideo: 'Video İzle',
+      remaining: 'kaldı',
+      notNow: 'Şimdi Değil',
+      unlockRecipeAccess: 'Tarife tam erişim',
+      unlockCalorieAccess: 'Sınırsız hesaplama',
+      shortVideoTime: 'Sadece 15 saniye',
     }
   },
   
