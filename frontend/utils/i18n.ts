@@ -2724,6 +2724,17 @@ const resources = {
       storage: 'Conservation',
       servingSuggestion: 'Suggestion de Service',
       variations: 'Variations',
+      
+      // Ad System
+      watchAdForRecipe: 'Regarder une publicité pour continuer',
+      watchAdForCalorie: 'Regarder une publicité pour calculer les calories',
+      watchAdRecipeDesc: 'Regardez une courte publicité pour voir cette recette. Les 3 premières recettes de chaque catégorie sont gratuites!',
+      watchAdCalorieDesc: 'Regardez une courte publicité pour calculer les calories gratuitement.',
+      '100PercentFree': '100% Gratuit',
+      supportWithAds: 'Soutenez-nous en regardant des publicités',
+      watchAd: 'Voir la publicité',
+      freeWithAds: 'Entièrement gratuit avec publicités',
+      first3Free: 'Les 3 premières recettes de chaque catégorie sont gratuites!',
     }
   },
   
