@@ -333,21 +333,21 @@ export default function VisionResultScreen() {
                 <Ionicons name="fitness" size={20} color="#FFF" />
               </LinearGradient>
               <Text style={styles.totalValue}>{totals.protein.toFixed(1)}g</Text>
-              <Text style={styles.totalLabel}>Protein</Text>
+              <Text style={styles.totalLabel}>{t('protein') || 'Protein'}</Text>
             </View>
             <View style={styles.totalItem}>
               <LinearGradient colors={['#FFA726', '#FFB851']} style={styles.totalIcon}>
                 <Ionicons name="leaf" size={20} color="#FFF" />
               </LinearGradient>
               <Text style={styles.totalValue}>{totals.carbs.toFixed(1)}g</Text>
-              <Text style={styles.totalLabel}>Karb</Text>
+              <Text style={styles.totalLabel}>{t('carbs') || 'Karb'}</Text>
             </View>
             <View style={styles.totalItem}>
               <LinearGradient colors={['#AB47BC', '#C370CE']} style={styles.totalIcon}>
                 <Ionicons name="water" size={20} color="#FFF" />
               </LinearGradient>
               <Text style={styles.totalValue}>{totals.fat.toFixed(1)}g</Text>
-              <Text style={styles.totalLabel}>Yağ</Text>
+              <Text style={styles.totalLabel}>{t('fat') || 'Yağ'}</Text>
             </View>
           </View>
         </View>
@@ -356,7 +356,7 @@ export default function VisionResultScreen() {
         <View style={styles.disclaimer}>
           <Ionicons name="information-circle" size={16} color={Colors.lightText} />
           <Text style={styles.disclaimerText}>
-            AI tahminidir. Doğrulamak için gram değerlerini düzenleyebilirsiniz.
+            {t('aiDisclaimer') || 'AI tahminidir. Doğrulamak için gram değerlerini düzenleyebilirsiniz.'}
           </Text>
         </View>
 
