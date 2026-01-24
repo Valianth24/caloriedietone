@@ -378,7 +378,7 @@ export default function VitaminsScreen() {
               <Text style={styles.modalTitle}>{t('reminderSettings')}</Text>
               
               <View style={styles.switchRow}>
-                <Text style={styles.switchLabel}>Hatırlatıcıları Aç</Text>
+                <Text style={styles.switchLabel}>{t('enableReminder')}</Text>
                 <Switch
                   value={reminderEnabled}
                   onValueChange={setReminderEnabled}
@@ -389,7 +389,7 @@ export default function VitaminsScreen() {
 
               {reminderEnabled && (
                 <>
-                  <Text style={styles.sectionTitle}>Hatırlatma Saatleri</Text>
+                  <Text style={styles.sectionTitle}>{t('reminderTimes')}</Text>
                   {reminderTimes.map((time, index) => (
                     <View key={index} style={styles.timeRow}>
                       <TextInput
@@ -416,8 +416,8 @@ export default function VitaminsScreen() {
 
                   <View style={styles.switchRow}>
                     <View>
-                      <Text style={styles.switchLabel}>Alarm Tarzı Bildirim</Text>
-                      <Text style={styles.switchSubtext}>Maksimum ses ve titreşim</Text>
+                      <Text style={styles.switchLabel}>{t('alarmStyle')}</Text>
+                      <Text style={styles.switchSubtext}>{t('alarmStyleDesc')}</Text>
                     </View>
                     <Switch
                       value={alarmStyle}
@@ -434,13 +434,13 @@ export default function VitaminsScreen() {
                   style={[styles.modalButton, styles.modalButtonCancel]}
                   onPress={() => setShowReminderModal(false)}
                 >
-                  <Text style={styles.modalButtonTextCancel}>İptal</Text>
+                  <Text style={styles.modalButtonTextCancel}>{t('cancel')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={[styles.modalButton, styles.modalButtonAdd]}
                   onPress={handleSaveReminders}
                 >
-                  <Text style={styles.modalButtonText}>Kaydet</Text>
+                  <Text style={styles.modalButtonText}>{t('save')}</Text>
                 </TouchableOpacity>
               </View>
             </View>
