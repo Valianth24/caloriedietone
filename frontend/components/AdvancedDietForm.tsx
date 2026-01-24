@@ -219,7 +219,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
               <Text style={styles.label}>{t('age')}</Text>
               <TextInput
                 style={styles.input}
-                placeholder="Yaşınız"
+                placeholder={t('age')}
                 value={age}
                 onChangeText={setAge}
                 keyboardType="number-pad"
@@ -228,7 +228,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
 
             {/* Goal */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>🎯 Hedefiniz</Text>
+              <Text style={styles.sectionTitle}>🎯 {t('whatIsYourGoal')}</Text>
               <View style={styles.gridOptions}>
                 {goalOptions.map((option) => (
                   <TouchableOpacity
@@ -242,7 +242,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
                       color={goal === option.key ? Colors.white : Colors.primary}
                     />
                     <Text style={[styles.gridOptionLabel, goal === option.key && styles.gridOptionLabelActive]}>
-                      {option.label}
+                      {t(option.labelKey)}
                     </Text>
                     <Text style={[styles.gridOptionDesc, goal === option.key && styles.gridOptionDescActive]}>
                       {option.desc}
@@ -254,7 +254,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
 
             {/* Activity Level */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>🏃 Aktivite Seviyeniz</Text>
+              <Text style={styles.sectionTitle}>🏃 {t('activityLevel')}</Text>
               {activityOptions.map((option) => (
                 <TouchableOpacity
                   key={option.key}
@@ -266,9 +266,9 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
                   </View>
                   <View style={styles.listOptionText}>
                     <Text style={[styles.listOptionLabel, activityLevel === option.key && styles.listOptionLabelActive]}>
-                      {option.label}
+                      {t(option.labelKey)}
                     </Text>
-                    <Text style={styles.listOptionDesc}>{option.desc}</Text>
+                    <Text style={styles.listOptionDesc}>{t(option.descKey)}</Text>
                   </View>
                 </TouchableOpacity>
               ))}
@@ -276,7 +276,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
 
             {/* Diet Type */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>🥗 Diyet Tercihiniz</Text>
+              <Text style={styles.sectionTitle}>🥗 {t('dietPreference')}</Text>
               <View style={styles.gridOptions}>
                 {dietTypeOptions.map((option) => (
                   <TouchableOpacity
@@ -285,10 +285,10 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
                     onPress={() => setDietType(option.key as any)}
                   >
                     <Text style={[styles.gridOptionLabel, dietType === option.key && styles.gridOptionLabelActive]}>
-                      {option.label}
+                      {t(option.labelKey)}
                     </Text>
                     <Text style={[styles.gridOptionDesc, dietType === option.key && styles.gridOptionDescActive]}>
-                      {option.desc}
+                      {option.descKey ? t(option.descKey) : option.desc}
                     </Text>
                   </TouchableOpacity>
                 ))}
@@ -297,7 +297,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
 
             {/* Meals Per Day */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>⏰ Günlük Öğün Sayısı</Text>
+              <Text style={styles.sectionTitle}>⏰ {t('mealsPerDay')}</Text>
               <View style={styles.optionsRow}>
                 {[3, 4, 5, 6].map((num) => (
                   <TouchableOpacity
@@ -315,7 +315,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
 
             {/* Restrictions */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>🚫 Alerji & Kısıtlamalar</Text>
+              <Text style={styles.sectionTitle}>🚫 {t('restrictions')}</Text>
               <TextInput
                 style={[styles.input, styles.textArea]}
                 placeholder="Örn: Fıstık alerjim var, laktozsuz"
