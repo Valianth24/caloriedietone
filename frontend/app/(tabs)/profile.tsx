@@ -210,7 +210,7 @@ export default function ProfileScreen() {
       setShowLanguageModal(false);
       Alert.alert(t('success'), t('languageChanged'));
     } catch (error) {
-      Alert.alert(t('error'), 'Language change failed');
+      Alert.alert(t('error'), t('languageChangeFailed'));
     }
   };
 
