@@ -311,10 +311,10 @@ export default function DashboardScreen() {
       setShowAddModal(false);
       setSelectedFood(null);
       setSearchQuery('');
-      alert('Yemek eklendi!');
+      alert(t('mealAdded'));
     } catch (error) {
       console.error('Error adding meal:', error);
-      alert('Hata: Yemek eklenemedi.');
+      alert(t('mealAddError'));
     }
   };
 
