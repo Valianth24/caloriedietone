@@ -469,7 +469,6 @@ export default function RecipesScreen() {
         }}
         onWatchAd={handleWatchAd}
         type="recipe"
-        remainingFree={FREE_RECIPES_PER_CATEGORY}
       />
       
       {/* Header */}
