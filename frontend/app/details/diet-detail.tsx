@@ -4,10 +4,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useTranslation } from 'react-i18next';
 
 export default function DietDetailScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
+  const { t, i18n } = useTranslation();
+  const locale = i18n.language?.startsWith('tr') ? 'tr' : 'en';
   
   // Mock data - gerçek veride backend'den gelecek
   const diet = {
