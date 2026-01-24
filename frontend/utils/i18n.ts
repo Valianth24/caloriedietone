@@ -1401,6 +1401,8 @@ const resources = {
       unlockRecipeAccess: 'Tarife tam erişim',
       unlockCalorieAccess: 'Sınırsız hesaplama',
       shortVideoTime: 'Sadece 15 saniye',
+      pleaseWait: 'Lütfen bekleyin',
+      adLoadFailed: 'Reklam yüklenemedi. Lütfen tekrar deneyin.',
     }
   },
   
