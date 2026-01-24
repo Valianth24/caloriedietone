@@ -57,6 +57,25 @@ const resources = {
       profile: 'Profile',
       settings: 'Settings',
       
+      // Vision Result
+      analysisResult: 'Analysis Result',
+      aiEstimate: 'AI Estimate',
+      detectedFoods: 'Detected Foods',
+      alternatives: 'Alternatives',
+      portion: 'Portion',
+      notFoundInDatabase: 'Not found in database - estimated values',
+      notes: 'Notes',
+      totalNutrition: 'Total Nutrition',
+      aiDisclaimer: 'AI estimate. Edit gram values to verify.',
+      saveMeal: 'Save Meal',
+      mealSaved: 'Meal saved!',
+      mealSaveFailed: 'Meal could not be saved. Try again.',
+      analyzingMeal: 'Analyzing Meal...',
+      aiAnalyzing: 'AI is analyzing the image',
+      analysisFailed: 'Analysis failed',
+      mealAnalysisFailed: 'Meal analysis failed. Try again.',
+      saveFailed: 'Save failed',
+      
       // Auth
       welcome: 'Welcome to CalorieDiet',
       loginWithGoogle: 'Login with Google',
