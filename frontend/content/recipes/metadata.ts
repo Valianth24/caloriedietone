@@ -81,7 +81,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   // ============================================
   avocado_toast: {
     id: 'avocado_toast',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'breakfast',
     difficulty: 'easy',
     tags: ['vegetarian', 'quick', 'high_protein'],
@@ -94,7 +94,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   protein_pancakes: {
     id: 'protein_pancakes',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'breakfast',
     difficulty: 'easy',
     tags: ['high_protein', 'kid_friendly'],
@@ -106,7 +106,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   overnight_oats: {
     id: 'overnight_oats',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'breakfast',
     difficulty: 'easy',
     tags: ['vegetarian', 'meal_prep', 'quick'],
@@ -118,7 +118,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   veggie_omelette: {
     id: 'veggie_omelette',
-    isPremium: true,
+    isPremium: true, // Reklamlı (yıldızlı)
     category: 'breakfast',
     difficulty: 'easy',
     tags: ['vegetarian', 'high_protein', 'low_carb', 'quick'],
@@ -130,7 +130,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   chia_pudding: {
     id: 'chia_pudding',
-    isPremium: true,
+    isPremium: true, // Reklamlı (yıldızlı)
     category: 'breakfast',
     difficulty: 'easy',
     tags: ['vegan', 'gluten_free', 'meal_prep'],
