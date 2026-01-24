@@ -339,13 +339,13 @@ export default function VitaminsScreen() {
             <Text style={styles.modalTitle}>{t('addNewVitamin')}</Text>
             <TextInput
               style={styles.modalInput}
-              placeholder="Vitamin Adı"
+              placeholder={t('vitaminName')}
               value={newVitaminName}
               onChangeText={setNewVitaminName}
             />
             <TextInput
               style={styles.modalInput}
-              placeholder="Zaman (örn: Her Sabah)"
+              placeholder={t('vitaminTimePlaceholder')}
               value={newVitaminTime}
               onChangeText={setNewVitaminTime}
             />
@@ -354,7 +354,7 @@ export default function VitaminsScreen() {
                 style={[styles.modalButton, styles.modalButtonCancel]}
                 onPress={() => setShowAddModal(false)}
               >
-                <Text style={styles.modalButtonTextCancel}>İptal</Text>
+                <Text style={styles.modalButtonTextCancel}>{t('cancel')}</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 style={[styles.modalButton, styles.modalButtonAdd]}
@@ -375,7 +375,7 @@ export default function VitaminsScreen() {
         >
           <ScrollView contentContainerStyle={styles.modalScrollContent}>
             <View style={styles.modalContent}>
-              <Text style={styles.modalTitle}>Hatırlatıcı Ayarları</Text>
+              <Text style={styles.modalTitle}>{t('reminderSettings')}</Text>
               
               <View style={styles.switchRow}>
                 <Text style={styles.switchLabel}>Hatırlatıcıları Aç</Text>
