@@ -284,13 +284,24 @@ export const getThemeRemainingHours = async (themeName: string): Promise<number>
 };
 
 /**
- * Tema için reklam izle
+ * Tema için reklam izle (AdMob)
  * 3 reklam tamamlanınca 24 saat açılır
  */
 export const watchAdForTheme = async (themeName: string): Promise<{ success: boolean; adsWatched: number; unlocked: boolean }> => {
-  // MOCK: Reklam simülasyonu
-  console.log(`[AD MOCK] Watching ad for theme: ${themeName}`);
-  await new Promise(resolve => setTimeout(resolve, 2000));
+  const { showSingleRewardedAd } = await import('./admobService');
+  
+  console.log(`[AdMob] Watching ad for theme: ${themeName}`);
+  
+  // Gerçek reklam göster
+  const adSuccess = await new Promise<boolean>((resolve) => {
+    showSingleRewardedAd((success) => {
+      resolve(success);
+    });
+  });
+  
+  if (!adSuccess) {
+    return { success: false, adsWatched: 0, unlocked: false };
+  }
   
   const data = await getThemeUnlockData();
   
@@ -299,8 +310,8 @@ export const watchAdForTheme = async (themeName: string): Promise<{ success: boo
   }
   
   // Eğer tema zaten açıksa, reklam sayısını sıfırla ve süreyi uzat
-  const isUnlocked = await isThemeUnlocked(themeName);
-  if (isUnlocked) {
+  const isUnlockedNow = await isThemeUnlocked(themeName);
+  if (isUnlockedNow) {
     // Süreyi uzat
     const newUnlockTime = new Date();
     newUnlockTime.setHours(newUnlockTime.getHours() + THEME_UNLOCK_CONFIG.UNLOCK_DURATION_HOURS);
