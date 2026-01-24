@@ -158,15 +158,15 @@ export default function VisionResultScreen() {
       });
 
       if (!response.ok) {
-        throw new Error('Kaydetme başarısız');
+        throw new Error(t('saveFailed') || 'Kaydetme başarısız');
       }
 
-      Alert.alert('Başarılı', 'Yemek kaydedildi!', [
-        { text: 'Tamam', onPress: () => router.replace('/(tabs)') },
+      Alert.alert(t('success') || 'Başarılı', t('mealSaved') || 'Yemek kaydedildi!', [
+        { text: t('ok') || 'Tamam', onPress: () => router.replace('/(tabs)') },
       ]);
     } catch (error) {
       console.error('Save meal error:', error);
-      Alert.alert('Hata', 'Yemek kaydedilemedi. Tekrar deneyin.');
+      Alert.alert(t('error') || 'Hata', t('mealSaveFailed') || 'Yemek kaydedilemedi. Tekrar deneyin.');
     } finally {
       setSaving(false);
     }
@@ -187,8 +187,8 @@ export default function VisionResultScreen() {
             style={styles.loadingGradient}
           >
             <ActivityIndicator size="large" color="#FFFFFF" />
-            <Text style={styles.loadingText}>Yemek Analiz Ediliyor...</Text>
-            <Text style={styles.loadingSubtext}>AI görüntüyü inceliyor</Text>
+            <Text style={styles.loadingText}>{t('analyzingMeal') || 'Yemek Analiz Ediliyor...'}</Text>
+            <Text style={styles.loadingSubtext}>{t('aiAnalyzing') || 'AI görüntüyü inceliyor'}</Text>
           </LinearGradient>
         </View>
       </SafeAreaView>
