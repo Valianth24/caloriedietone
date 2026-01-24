@@ -310,7 +310,7 @@ export default function DietProgramScreen() {
         <View style={styles.legendRow}>
           <View style={styles.legendItem}>
             <View style={[styles.legendDot, { backgroundColor: Colors.success }]} />
-            <Text style={styles.legendText}>Tamamlandı</Text>
+            <Text style={styles.legendText}>{t('completed')}</Text>
           </View>
           <View style={styles.legendItem}>
             <View style={[styles.legendDot, { backgroundColor: Colors.primary }]} />
@@ -318,7 +318,7 @@ export default function DietProgramScreen() {
           </View>
           <View style={styles.legendItem}>
             <Ionicons name="lock-closed" size={12} color={Colors.lightText} />
-            <Text style={styles.legendText}>Kilitli</Text>
+            <Text style={styles.legendText}>{t('locked')}</Text>
           </View>
         </View>
       </View>
