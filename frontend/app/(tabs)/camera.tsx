@@ -828,14 +828,12 @@ export default function CameraScreen() {
                 {t('wantToAddContext')}
               </Text>
               <Text style={styles.contextModalSubtitle}>
-                {lang === 'tr' 
-                  ? 'Daha doğru sonuç için yemeğin adını veya içeriğini yazabilirsiniz (isteğe bağlı)'
-                  : 'For more accurate results, you can describe the food (optional)'}
+                {t('contextModalDescription')}
               </Text>
               
               <TextInput
                 style={styles.contextInput}
-                placeholder={lang === 'tr' ? 'Örn: Tavuklu pilav, mercimek çorbası...' : 'E.g: Chicken rice, lentil soup...'}
+                placeholder={t('contextPlaceholder')}
                 placeholderTextColor={Colors.lightText}
                 value={foodContext}
                 onChangeText={setFoodContext}
@@ -845,7 +843,7 @@ export default function CameraScreen() {
               />
               
               <Text style={styles.contextHint}>
-                {lang === 'tr' ? '3-5 kelime yeterli' : '3-5 words are enough'}
+                {t('contextHint')}
               </Text>
               
               <View style={styles.contextButtonsRow}>
@@ -854,7 +852,7 @@ export default function CameraScreen() {
                   onPress={handleSkipContext}
                 >
                   <Text style={styles.contextSkipButtonText}>
-                    {lang === 'tr' ? 'Atla' : 'Skip'}
+                    {t('skip')}
                   </Text>
                 </TouchableOpacity>
                 
@@ -870,7 +868,7 @@ export default function CameraScreen() {
                   >
                     <Ionicons name="search" size={20} color="#FFF" />
                     <Text style={styles.contextSubmitButtonText}>
-                      {lang === 'tr' ? 'Analiz Et' : 'Analyze'}
+                      {t('analyze')}
                     </Text>
                   </LinearGradient>
                 </TouchableOpacity>
