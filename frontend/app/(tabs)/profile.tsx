@@ -140,9 +140,9 @@ export default function ProfileScreen() {
             if (response?.data_retention_days) {
               setTimeout(() => {
                 Alert.alert(
-                  t('logoutSuccess') || 'Çıkış Yapıldı',
-                  response.message || `${response.data_retention_days} gün içinde tekrar giriş yapmazsanız verileriniz silinecektir.`,
-                  [{ text: 'Tamam' }]
+                  t('logoutSuccess'),
+                  t('dataRetentionWarning', { days: response.data_retention_days }),
+                  [{ text: t('ok') }]
                 );
               }, 500);
             }
@@ -154,12 +154,12 @@ export default function ProfileScreen() {
 
   const handleDeleteAccount = async () => {
     Alert.alert(
-      t('deleteAccount') || 'Hesabı Sil',
-      t('deleteAccountConfirm') || 'Hesabınızı silmek istediğinizden emin misiniz? Bu işlem geri alınamaz ve tüm verileriniz silinecektir.',
+      t('deleteAccount'),
+      t('deleteAccountConfirm'),
       [
         { text: t('cancel'), style: 'cancel' },
         { 
-          text: t('delete') || 'Sil', 
+          text: t('delete'), 
           style: 'destructive', 
           onPress: async () => {
             try {
@@ -178,9 +178,9 @@ export default function ProfileScreen() {
                 await AsyncStorage.multiRemove(['session_token', 'app_theme', 'is_premium', 'user_data', 'first_launch']);
                 
                 Alert.alert(
-                  t('success') || 'Başarılı',
-                  t('accountDeleted') || 'Hesabınız başarıyla silindi.',
-                  [{ text: 'Tamam', onPress: logout }]
+                  t('success'),
+                  t('accountDeleted'),
+                  [{ text: t('ok'), onPress: logout }]
                 );
               } else {
                 const errorData = await response.json();
@@ -188,7 +188,7 @@ export default function ProfileScreen() {
               }
             } catch (error: any) {
               console.error('Delete account error:', error);
-              Alert.alert(t('error'), t('deleteAccountError') || 'Hesap silinemedi. Lütfen tekrar deneyin.');
+              Alert.alert(t('error'), t('deleteAccountError'));
             }
           }
         },
