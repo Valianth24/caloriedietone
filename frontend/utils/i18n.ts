@@ -1311,6 +1311,7 @@ const resources = {
       end: 'Bitir',
       noActiveDiet: 'Aktif Diyet Yok',
       goToDiets: 'Diyetlere Git',
+      selectDietToStart: 'Diyetlerden birini seçerek başlayabilirsiniz',
       progress: 'İlerleme',
       activeDietTitle: 'Aktif Diyet Programınız Var!',
       tapToContinue: 'Devam etmek için tıklayın',
