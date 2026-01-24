@@ -484,13 +484,13 @@ export default function WaterDetailScreen() {
 
             {/* Save Button */}
             <TouchableOpacity style={styles.saveButton} onPress={saveReminderSettings}>
-              <Text style={styles.saveButtonText}>Kaydet</Text>
+              <Text style={styles.saveButtonText}>{t('save')}</Text>
             </TouchableOpacity>
 
             {/* Test Notification Button */}
             <TouchableOpacity style={styles.testButton} onPress={handleTestNotification}>
               <Ionicons name="notifications" size={20} color={Colors.primary} />
-              <Text style={styles.testButtonText}>Test Bildirimi Gönder</Text>
+              <Text style={styles.testButtonText}>{t('testNotification')}</Text>
             </TouchableOpacity>
           </View>
         </View>
