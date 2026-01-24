@@ -204,7 +204,7 @@ export default function VisionResultScreen() {
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
           <Ionicons name="arrow-back" size={24} color={Colors.darkText} />
         </TouchableOpacity>
-        <Text style={styles.headerTitle}>Analiz Sonucu</Text>
+        <Text style={styles.headerTitle}>{t('analysisResult') || 'Analiz Sonucu'}</Text>
         <View style={{ width: 40 }} />
       </View>
 
@@ -219,14 +219,14 @@ export default function VisionResultScreen() {
             />
             <View style={styles.aiLabel}>
               <Ionicons name="sparkles" size={14} color="#FFD700" />
-              <Text style={styles.aiLabelText}>AI Tahmini</Text>
+              <Text style={styles.aiLabelText}>{t('aiEstimate') || 'AI Tahmini'}</Text>
             </View>
           </View>
         )}
 
         {/* Detected Items */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Tespit Edilen Yemekler</Text>
+          <Text style={styles.sectionTitle}>{t('detectedFoods') || 'Tespit Edilen Yemekler'}</Text>
           
           {editedItems.map((item, index) => (
             <View key={index} style={styles.itemCard}>
@@ -244,7 +244,7 @@ export default function VisionResultScreen() {
 
               {item.aliases.length > 0 && (
                 <Text style={styles.aliases}>
-                  Alternatifler: {item.aliases.join(', ')}
+                  {t('alternatives') || 'Alternatifler'}: {item.aliases.join(', ')}
                 </Text>
               )}
 
