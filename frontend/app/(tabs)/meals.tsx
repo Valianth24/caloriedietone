@@ -362,8 +362,8 @@ export default function MealsScreen() {
       setShowCart(false);
       
       Alert.alert(
-        lang === 'en' ? 'Success' : 'Başarılı', 
-        `${cart.length} ${lang === 'en' ? 'items added' : 'yemek eklendi'}`
+        t('success'), 
+        `${cart.length} ${t('itemsAdded')}`
       );
       
       if (mealTypeParam) {
@@ -375,7 +375,7 @@ export default function MealsScreen() {
         router.replace('/(tabs)');
       }
     } catch (error: any) {
-      Alert.alert(lang === 'en' ? 'Error' : 'Hata', error.message || (lang === 'en' ? 'Could not add meals' : 'Yemekler eklenemedi'));
+      Alert.alert(t('error'), error.message || t('mealAddError'));
     } finally {
       setLoading(false);
     }
