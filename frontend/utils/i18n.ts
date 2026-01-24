@@ -732,6 +732,8 @@ const resources = {
       addAllItems: 'Add All ({{count}} items)',
       testNotification: 'Send Test Notification',
       dayCompleted: 'This day is completed!',
+      startDietProgram: 'Start 30-Day Program',
+      sevenDayPreview: '7-Day Preview',
     }
   },
   
