@@ -248,7 +248,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   // ============================================
   lentil_soup: {
     id: 'lentil_soup',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'soup',
     difficulty: 'easy',
     tags: ['vegan', 'high_protein', 'budget_friendly', 'meal_prep'],
@@ -261,7 +261,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   chicken_vegetable_soup: {
     id: 'chicken_vegetable_soup',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'soup',
     difficulty: 'easy',
     tags: ['high_protein', 'low_carb', 'kid_friendly'],
