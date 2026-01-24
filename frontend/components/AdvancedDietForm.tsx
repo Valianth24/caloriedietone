@@ -117,27 +117,27 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
   };
 
   const goalOptions = [
-    { key: 'lose', icon: 'trending-down', label: 'Kilo Vermek', desc: '-500 kcal' },
-    { key: 'gain', icon: 'trending-up', label: 'Kilo Almak', desc: '+500 kcal' },
-    { key: 'maintain', icon: 'remove', label: 'Korumak', desc: '±0 kcal' },
-    { key: 'muscle', icon: 'fitness', label: 'Kas Yapmak', desc: '+300 kcal' },
+    { key: 'lose', icon: 'trending-down', labelKey: 'loseWeight', desc: '-500 kcal' },
+    { key: 'gain', icon: 'trending-up', labelKey: 'gainWeight', desc: '+500 kcal' },
+    { key: 'maintain', icon: 'remove', labelKey: 'maintainWeight', desc: '±0 kcal' },
+    { key: 'muscle', icon: 'fitness', labelKey: 'buildMuscle', desc: '+300 kcal' },
   ];
 
   const activityOptions = [
-    { key: 'sedentary', label: 'Hareketsiz', desc: 'Ofis işi, az hareket' },
-    { key: 'light', label: 'Az Hareketli', desc: 'Haftada 1-3 gün egzersiz' },
-    { key: 'moderate', label: 'Orta', desc: 'Haftada 3-5 gün egzersiz' },
-    { key: 'active', label: 'Aktif', desc: 'Haftada 6-7 gün egzersiz' },
-    { key: 'very_active', label: 'Çok Aktif', desc: 'Günde 2 kez egzersiz' },
+    { key: 'sedentary', labelKey: 'sedentary', descKey: 'sedentaryDesc' },
+    { key: 'light', labelKey: 'light', descKey: 'lightDesc' },
+    { key: 'moderate', labelKey: 'moderate', descKey: 'moderateDesc' },
+    { key: 'active', labelKey: 'active', descKey: 'activeDesc' },
+    { key: 'very_active', labelKey: 'veryActive', descKey: 'veryActiveDesc' },
   ];
 
   const dietTypeOptions = [
-    { key: 'balanced', label: 'Dengeli', desc: 'P:30% K:40% Y:30%' },
-    { key: 'low_carb', label: 'Düşük Karb', desc: 'P:40% K:20% Y:40%' },
-    { key: 'high_protein', label: 'Yüksek Protein', desc: 'P:50% K:30% Y:20%' },
-    { key: 'vegetarian', label: 'Vejetaryen', desc: 'Bitkisel ağırlıklı' },
-    { key: 'vegan', label: 'Vegan', desc: 'Sadece bitkisel' },
-    { key: 'keto', label: 'Keto', desc: 'P:25% K:5% Y:70%' },
+    { key: 'balanced', labelKey: 'balanced', desc: 'P:30% K:40% Y:30%' },
+    { key: 'low_carb', labelKey: 'lowCarb', desc: 'P:40% K:20% Y:40%' },
+    { key: 'high_protein', labelKey: 'highProtein', desc: 'P:50% K:30% Y:20%' },
+    { key: 'vegetarian', labelKey: 'vegetarian', descKey: 'vegetarianDesc' },
+    { key: 'vegan', labelKey: 'vegan', descKey: 'veganDesc' },
+    { key: 'keto', labelKey: 'keto', desc: 'P:25% K:5% Y:70%' },
   ];
 
   return (
