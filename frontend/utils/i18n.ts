@@ -727,6 +727,9 @@ const resources = {
       dailyExpenditure: 'Daily Expenditure',
       macroDistribution: 'Macro Distribution',
       vitaminTimePlaceholder: 'Time (e.g. Every Morning)',
+      addToCart: 'Add to Cart',
+      addNow: 'Add Now',
+      addAllItems: 'Add All ({{count}} items)',
     }
   },
   
