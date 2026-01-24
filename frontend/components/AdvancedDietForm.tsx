@@ -87,7 +87,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
 
   const handleSubmit = () => {
     if (!dietName.trim()) {
-      alert('Lütfen diyet adı girin');
+      alert(t('pleaseEnterDietName'));
       return;
     }
 
