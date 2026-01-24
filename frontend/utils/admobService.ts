@@ -53,7 +53,7 @@ export const preloadAds = async (): Promise<void> => {
 
 /**
  * İki reklamı arka arkaya göster (tek reklam gibi)
- * Tarifler için kullanılır
+ * İlk kez tarif açılırken kullanılır
  */
 export const showDoubleRewardedAd = (
   onComplete: (success: boolean) => void,
@@ -144,6 +144,66 @@ const showRealDoubleAd = async (
     onComplete(true);
   } catch (error) {
     console.error('[AdMob] Error showing real ads:', error);
+    isShowingAds = false;
+    onComplete(false);
+  }
+};
+
+/**
+ * Kısa geçiş reklamı göster (Interstitial)
+ * Daha önce açılmış tarifler için kullanılır
+ */
+export const showInterstitialAd = (
+  onComplete: (success: boolean) => void
+): void => {
+  if (isShowingAds) {
+    console.log('[AdMob] Ads already showing');
+    return;
+  }
+
+  isShowingAds = true;
+
+  if (USE_MOCK) {
+    (async () => {
+      console.log('[AdMob MOCK] Showing interstitial ad...');
+      await new Promise(resolve => setTimeout(resolve, 800));
+      console.log('[AdMob MOCK] Interstitial ad completed');
+      isShowingAds = false;
+      onComplete(true);
+    })();
+    return;
+  }
+
+  // Production: Gerçek interstitial reklam
+  showRealInterstitialAd(onComplete);
+};
+
+/**
+ * Gerçek interstitial reklam göster (production)
+ */
+const showRealInterstitialAd = async (onComplete: (success: boolean) => void): Promise<void> => {
+  try {
+    const {
+      InterstitialAd,
+      AdEventType,
+    } = await import('react-native-google-mobile-ads');
+
+    const AD_UNIT_ID = 'ca-app-pub-6980942787991808/2514158595'; // Interstitial ad unit
+    const ad = InterstitialAd.createForAdRequest(AD_UNIT_ID);
+
+    await new Promise<void>((resolve, reject) => {
+      ad.addAdEventListener(AdEventType.LOADED, () => {
+        ad.show().then(() => resolve()).catch(reject);
+      });
+      ad.addAdEventListener(AdEventType.ERROR, reject);
+      ad.addAdEventListener(AdEventType.CLOSED, resolve);
+      ad.load();
+    });
+
+    isShowingAds = false;
+    onComplete(true);
+  } catch (error) {
+    console.error('[AdMob] Error showing interstitial ad:', error);
     isShowingAds = false;
     onComplete(false);
   }
