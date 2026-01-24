@@ -187,27 +187,43 @@ export const getAdSystemState = async (): Promise<AdSystemState> => {
 };
 
 /**
- * Tarif için çift reklam göster (AdMob)
- * İki reklam arka arkaya, tek reklam gibi
+ * Tarif için reklam göster (AdMob)
+ * İlk kez: Çift ödüllü reklam (rewarded)
+ * Sonraki seferler: Kısa geçiş reklamı (interstitial)
  */
 export const showRewardedAd = async (type: 'recipe' | 'calorie', recipeId?: string): Promise<boolean> => {
-  const { showDoubleRewardedAd, areAdsLoaded } = await import('./admobService');
+  const { showDoubleRewardedAd, showInterstitialAd, areAdsLoaded } = await import('./admobService');
   
-  console.log(`[AdMob] Showing double rewarded ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}`);
+  // Bu tarif daha önce açıldı mı?
+  const watchedRecipes = await getWatchedAdRecipes();
+  const wasWatchedBefore = recipeId ? watchedRecipes.includes(recipeId) : false;
+  
+  console.log(`[AdMob] Showing ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}, wasWatchedBefore: ${wasWatchedBefore}`);
   
   return new Promise((resolve) => {
-    showDoubleRewardedAd(
-      async (success) => {
+    if (wasWatchedBefore) {
+      // Daha önce açıldı - sadece kısa geçiş reklamı göster
+      showInterstitialAd(async (success) => {
         if (success) {
-          await resetAfterAd(type, recipeId);
-          console.log(`[AdMob] Double ad completed successfully for ${type}`);
+          console.log(`[AdMob] Interstitial ad completed for ${type}`);
         }
         resolve(success);
-      },
-      (current, total) => {
-        console.log(`[AdMob] Ad progress: ${current}/${total}`);
-      }
-    );
+      });
+    } else {
+      // İlk kez açılıyor - çift ödüllü reklam göster
+      showDoubleRewardedAd(
+        async (success) => {
+          if (success) {
+            await resetAfterAd(type, recipeId);
+            console.log(`[AdMob] Double ad completed successfully for ${type}`);
+          }
+          resolve(success);
+        },
+        (current, total) => {
+          console.log(`[AdMob] Ad progress: ${current}/${total}`);
+        }
+      );
+    }
   });
 };
 
