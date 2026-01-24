@@ -141,8 +141,8 @@ export default function DietsScreen() {
         {/* Header */}
         <View style={styles.header}>
           <View>
-            <Text style={styles.title}>{lang === 'en' ? 'Diets' : 'Diyetler'}</Text>
-            <Text style={styles.subtitle}>{lang === 'en' ? 'Nutrition plans just for you' : 'Size özel beslenme planları'}</Text>
+            <Text style={styles.title}>{t('diets')}</Text>
+            <Text style={styles.subtitle}>{t('dietsSubtitle')}</Text>
           </View>
         </View>
 
@@ -151,7 +151,7 @@ export default function DietsScreen() {
           <View style={styles.premiumBanner}>
             <Ionicons name="checkmark-circle" size={24} color={Colors.success} />
             <Text style={styles.premiumBannerText}>
-              {lang === 'en' ? 'You are a Premium member! All features unlocked.' : 'Premium üyesiniz! Tüm özelliklere erişebilirsiniz.'}
+              {t('premiumMember')}
             </Text>
           </View>
         )}
@@ -175,12 +175,10 @@ export default function DietsScreen() {
               </View>
               <View style={styles.recommendationText}>
                 <Text style={styles.recommendationTitle}>
-                  {lang === 'en' ? 'Personalized Diet' : 'Size Özel Diyet'}
+                  {t('personalizedDiet')}
                 </Text>
                 <Text style={styles.recommendationSubtitle}>
-                  {lang === 'en' 
-                    ? 'We recommend the best diet based on your profile' 
-                    : 'Profilinize göre en uygun diyeti öneriyoruz'}
+                  {t('personalizedDietDesc')}
                 </Text>
               </View>
               <Ionicons name="chevron-forward" size={24} color="#FFF" />
@@ -189,15 +187,15 @@ export default function DietsScreen() {
             <View style={styles.recommendationBadges}>
               <View style={styles.recBadge}>
                 <Ionicons name="body" size={14} color="#FFF" />
-                <Text style={styles.recBadgeText}>{lang === 'en' ? 'BMI' : 'BMI'}</Text>
+                <Text style={styles.recBadgeText}>{t('bmi')}</Text>
               </View>
               <View style={styles.recBadge}>
                 <Ionicons name="trending-down" size={14} color="#FFF" />
-                <Text style={styles.recBadgeText}>{lang === 'en' ? 'Goal' : 'Hedef'}</Text>
+                <Text style={styles.recBadgeText}>{t('goalLabel')}</Text>
               </View>
               <View style={styles.recBadge}>
                 <Ionicons name="star" size={14} color="#FFF" />
-                <Text style={styles.recBadgeText}>{lang === 'en' ? 'Best Match' : 'En Uygun'}</Text>
+                <Text style={styles.recBadgeText}>{t('bestMatch')}</Text>
               </View>
             </View>
           </LinearGradient>
@@ -212,10 +210,10 @@ export default function DietsScreen() {
             <Ionicons name="fitness" size={24} color={Colors.white} />
             <View style={styles.activeDietText}>
               <Text style={styles.activeDietTitle}>
-                {lang === 'en' ? 'Active Diet' : 'Aktif Diyetiniz'}
+                {t('activeDiet')}
               </Text>
               <Text style={styles.activeDietSubtitle}>
-                {lang === 'en' ? 'Tap to continue' : 'Devam etmek için dokunun'}
+                {t('tapToContinue')}
               </Text>
             </View>
             <Ionicons name="chevron-forward" size={24} color={Colors.white} />
@@ -226,7 +224,7 @@ export default function DietsScreen() {
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
             <Ionicons name="star" size={24} color={Colors.warning} />
-            <Text style={styles.sectionTitle}>{lang === 'en' ? 'Diet Programs' : 'Diyet Programları'}</Text>
+            <Text style={styles.sectionTitle}>{t('dietPrograms')}</Text>
             {/* Lock badge - temporarily hidden
             {!isPremium && (
               <View style={styles.lockBadge}>
@@ -236,7 +234,7 @@ export default function DietsScreen() {
             */}
           </View>
           <Text style={styles.sectionSubtitle}>
-            {lang === 'en' ? 'Prepared by expert dietitians' : 'Uzman diyetisyenler tarafından hazırlanmış'}
+            {t('preparedByExperts')}
           </Text>
           
           <View style={styles.dietGrid}>
