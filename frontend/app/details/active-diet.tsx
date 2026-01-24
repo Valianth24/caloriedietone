@@ -133,10 +133,7 @@ export default function ActiveDietScreen() {
             {t('noActiveDiet')}
           </Text>
           <Text style={styles.emptySubtitle}>
-            {lang === 'tr' 
-              ? 'Premium diyetlerden birini seçerek başlayabilirsiniz'
-              : 'You can start by selecting one of the premium diets'
-            }
+            {t('selectDietToStart')}
           </Text>
           <TouchableOpacity 
             style={styles.emptyButton}
