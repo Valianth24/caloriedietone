@@ -228,14 +228,14 @@ export default function DietProgramScreen() {
           {program.program_id && !day.completed && day.unlocked && (
             <TouchableOpacity style={styles.completeDayButton} onPress={handleCompleteDay}>
               <Ionicons name="checkmark-circle" size={24} color={Colors.white} />
-              <Text style={styles.completeDayText}>Günü Tamamla</Text>
+              <Text style={styles.completeDayText}>{t('completeDay')}</Text>
             </TouchableOpacity>
           )}
 
           {day.completed && (
             <View style={styles.completedBadge}>
               <Ionicons name="trophy" size={24} color={Colors.warning} />
-              <Text style={styles.completedText}>Bu gün tamamlandı!</Text>
+              <Text style={styles.completedText}>{t('dayCompleted')}</Text>
             </View>
           )}
 
