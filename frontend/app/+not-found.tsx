@@ -51,10 +51,10 @@ export default function NotFoundScreen() {
   return (
     <View style={styles.container}>
       <Ionicons name="alert-circle-outline" size={64} color={Colors.lightText} />
-      <Text style={styles.title}>Sayfa Bulunamadı</Text>
-      <Text style={styles.subtitle}>Bu sayfa mevcut değil veya taşınmış olabilir.</Text>
+      <Text style={styles.title}>{t('pageNotFound') || 'Sayfa Bulunamadı'}</Text>
+      <Text style={styles.subtitle}>{t('pageNotFoundDesc') || 'Bu sayfa mevcut değil veya taşınmış olabilir.'}</Text>
       <TouchableOpacity style={styles.button} onPress={goHome}>
-        <Text style={styles.buttonText}>Ana Sayfaya Dön</Text>
+        <Text style={styles.buttonText}>{t('goToHome') || 'Ana Sayfaya Dön'}</Text>
       </TouchableOpacity>
     </View>
   );
