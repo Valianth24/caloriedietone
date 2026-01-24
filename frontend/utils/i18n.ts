@@ -1417,6 +1417,18 @@ const resources = {
       pleaseWait: 'Lütfen bekleyin',
       adLoadFailed: 'Reklam yüklenemedi. Lütfen tekrar deneyin.',
       languageChangeFailed: 'Dil değiştirme başarısız',
+      lowCarb: 'Düşük Karb',
+      highProtein: 'Yüksek Protein',
+      vegan: 'Vegan',
+      veganDesc: 'Sadece bitkisel',
+      keto: 'Keto',
+      dietPreference: 'Diyet Tercihi',
+      mealsPerDay: 'Günlük Öğün Sayısı',
+      restrictionsPlaceholder: 'Örn: Fıstık alerjim var, laktozsuz',
+      calculatedValues: 'Hesaplanan Değerler',
+      basalMetabolism: 'Bazal Metabolizma',
+      dailyExpenditure: 'Günlük Harcama',
+      macroDistribution: 'Makro Dağılımı',
     }
   },
   
