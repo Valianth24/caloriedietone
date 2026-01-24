@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { Colors } from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import * as Linking from 'expo-linking';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Catch-all screen for unmatched routes
@@ -11,6 +12,7 @@ import * as Linking from 'expo-linking';
  */
 export default function NotFoundScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
 
   useEffect(() => {
     const handleDeepLink = async () => {
