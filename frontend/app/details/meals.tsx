@@ -279,13 +279,13 @@ export default function MealsDetailScreen() {
                 color={Colors.primary} 
               />
               <Text style={styles.selectedMealTitle}>
-                {selectedMealType === 'breakfast' ? (lang === 'en' ? 'Breakfast' : 'Kahvaltı') :
-                 selectedMealType === 'lunch' ? (lang === 'en' ? 'Lunch' : 'Öğle Yemeği') :
-                 selectedMealType === 'dinner' ? (lang === 'en' ? 'Dinner' : 'Akşam Yemeği') :
-                 (lang === 'en' ? 'Snack' : 'Ara Öğün')}
+                {selectedMealType === 'breakfast' ? t('breakfast') :
+                 selectedMealType === 'lunch' ? t('lunch') :
+                 selectedMealType === 'dinner' ? t('dinner') :
+                 t('snack')}
               </Text>
             </View>
-            <Text style={styles.addOptionsSubtitle}>{t('howToAddMeal') || 'Nasıl eklemek istersiniz?'}</Text>
+            <Text style={styles.addOptionsSubtitle}>{t('howToAddMeal')}</Text>
             
             {/* Add Options */}
             <TouchableOpacity style={styles.addOptionButton} onPress={handleAddFromList}>
@@ -293,8 +293,8 @@ export default function MealsDetailScreen() {
                 <Ionicons name="list" size={28} color={Colors.primary} />
               </View>
               <View style={styles.addOptionTextContainer}>
-                <Text style={styles.addOptionTitle}>{t('selectFromList') || 'Listeden Seç'}</Text>
-                <Text style={styles.addOptionDesc}>{FOOD_COUNT.toLocaleString()}+ {lang === 'en' ? 'food options' : 'yemek seçeneği'}</Text>
+                <Text style={styles.addOptionTitle}>{t('selectFromList')}</Text>
+                <Text style={styles.addOptionDesc}>{FOOD_COUNT.toLocaleString()}+ {t('foodOptions')}</Text>
               </View>
               <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
             </TouchableOpacity>
@@ -304,8 +304,8 @@ export default function MealsDetailScreen() {
                 <Ionicons name="camera" size={28} color={Colors.teal} />
               </View>
               <View style={styles.addOptionTextContainer}>
-                <Text style={styles.addOptionTitle}>{t('calculateWithPhoto') || 'Fotoğraf ile Hesapla'}</Text>
-                <Text style={styles.addOptionDesc}>{t('calculateWithPhotoDesc') || 'AI ile otomatik kalori tahmini'}</Text>
+                <Text style={styles.addOptionTitle}>{t('calculateWithPhoto')}</Text>
+                <Text style={styles.addOptionDesc}>{t('calculateWithPhotoDesc')}</Text>
               </View>
               <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
             </TouchableOpacity>
@@ -315,8 +315,8 @@ export default function MealsDetailScreen() {
                 <Ionicons name="create" size={28} color="#f59e0b" />
               </View>
               <View style={styles.addOptionTextContainer}>
-                <Text style={styles.addOptionTitle}>{lang === 'en' ? 'Manual Entry' : 'Manuel Giriş'}</Text>
-                <Text style={styles.addOptionDesc}>{lang === 'en' ? 'Enter calorie values manually' : 'Kalori değerlerini manuel girin'}</Text>
+                <Text style={styles.addOptionTitle}>{t('manualEntry')}</Text>
+                <Text style={styles.addOptionDesc}>{t('manualEntryDesc')}</Text>
               </View>
               <Ionicons name="chevron-forward" size={24} color={Colors.lightText} />
             </TouchableOpacity>
@@ -325,7 +325,7 @@ export default function MealsDetailScreen() {
               style={styles.cancelButton} 
               onPress={() => setShowAddModal(false)}
             >
-              <Text style={styles.cancelButtonText}>{t('cancel') || 'Vazgeç'}</Text>
+              <Text style={styles.cancelButtonText}>{t('cancel')}</Text>
             </TouchableOpacity>
           </View>
         </TouchableOpacity>
@@ -338,14 +338,14 @@ export default function MealsDetailScreen() {
             <TouchableOpacity onPress={() => setShowManualEntry(false)} style={styles.backButton}>
               <Ionicons name="close" size={28} color={Colors.darkText} />
             </TouchableOpacity>
-            <Text style={styles.headerTitle}>{lang === 'en' ? 'Manual Entry' : 'Manuel Giriş'}</Text>
+            <Text style={styles.headerTitle}>{t('manualEntry')}</Text>
             <View style={{ width: 40 }} />
           </View>
           
           <ScrollView style={styles.manualForm} showsVerticalScrollIndicator={false}>
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>
-                {lang === 'en' ? 'Food Name' : 'Yemek Adı'} *
+                {t('foodName')} *
               </Text>
               <TextInput
                 style={styles.textInput}
