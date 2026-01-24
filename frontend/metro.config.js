@@ -11,12 +11,6 @@ config.cacheStores = [
   new FileStore({ root: path.join(root, 'cache') }),
 ];
 
-// Enable reanimated babel transformer
-config.transformer = {
-  ...config.transformer,
-  babelTransformerPath: require.resolve('react-native-reanimated/plugin'),
-};
-
 // Reduce the number of workers to decrease resource usage
 config.maxWorkers = 2;
 
