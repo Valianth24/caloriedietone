@@ -11,6 +11,9 @@ config.cacheStores = [
   new FileStore({ root: path.join(root, 'cache') }),
 ];
 
+// Reset cache to fix worklets initialization
+config.resetCache = true;
+
 // Reduce the number of workers to decrease resource usage
 config.maxWorkers = 2;
 
