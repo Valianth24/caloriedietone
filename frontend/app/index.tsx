@@ -59,6 +59,8 @@ const FloatingParticle = ({ delay, startX, startY, size }: { delay: number; star
 };
 
 export default function SplashScreen() {
+  const { t } = useTranslation();
+  
   // Animation values
   const logoScale = useSharedValue(0);
   const logoRotate = useSharedValue(0);
