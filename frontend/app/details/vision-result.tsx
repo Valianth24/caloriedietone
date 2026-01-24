@@ -381,7 +381,7 @@ export default function VisionResultScreen() {
             ) : (
               <>
                 <Ionicons name="checkmark-circle" size={24} color="#FFF" />
-                <Text style={styles.saveButtonText}>Yemeği Kaydet</Text>
+                <Text style={styles.saveButtonText}>{t('saveMeal') || 'Yemeği Kaydet'}</Text>
               </>
             )}
           </LinearGradient>
