@@ -187,23 +187,28 @@ export const getAdSystemState = async (): Promise<AdSystemState> => {
 };
 
 /**
- * MOCK: Reklam göster (yayından sonra gerçek AdMob entegrasyonu)
- * Şimdilik sadece simüle ediyor - uygulama çökmesin
+ * Tarif için çift reklam göster (AdMob)
+ * İki reklam arka arkaya, tek reklam gibi
  */
 export const showRewardedAd = async (type: 'recipe' | 'calorie', recipeId?: string): Promise<boolean> => {
-  // TODO: Yayından sonra gerçek AdMob entegrasyonu
-  // google.com, pub-6980942787991808, DIRECT, f08c47fec0942fa0
+  const { showDoubleRewardedAd, areAdsLoaded } = await import('./admobService');
   
-  console.log(`[AD MOCK] Showing rewarded ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}`);
+  console.log(`[AdMob] Showing double rewarded ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}`);
   
-  // Simülasyon: 2 saniye bekle (gerçek reklamda 15-30 saniye)
-  await new Promise(resolve => setTimeout(resolve, 2000));
-  
-  // Başarılı kabul et ve işaretle
-  await resetAfterAd(type, recipeId);
-  
-  console.log(`[AD MOCK] Rewarded ad completed for ${type}`);
-  return true;
+  return new Promise((resolve) => {
+    showDoubleRewardedAd(
+      async (success) => {
+        if (success) {
+          await resetAfterAd(type, recipeId);
+          console.log(`[AdMob] Double ad completed successfully for ${type}`);
+        }
+        resolve(success);
+      },
+      (current, total) => {
+        console.log(`[AdMob] Ad progress: ${current}/${total}`);
+      }
+    );
+  });
 };
 
 
