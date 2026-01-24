@@ -184,7 +184,7 @@ export default function SplashScreen() {
 
         {/* Subtitle */}
         <Animated.Text style={[styles.subtitle, subtitleAnimatedStyle]}>
-          Sağlıklı Yaşam İçin Akıllı Beslenme
+          {t('splashSubtitle') || 'Sağlıklı Yaşam İçin Akıllı Beslenme'}
         </Animated.Text>
 
         {/* Feature icons */}
@@ -193,26 +193,26 @@ export default function SplashScreen() {
             <View style={styles.featureIconWrapper}>
               <Ionicons name="camera-outline" size={24} color="#4CAF50" />
             </View>
-            <Text style={styles.featureText}>Fotoğraf</Text>
+            <Text style={styles.featureText}>{t('photo') || 'Fotoğraf'}</Text>
           </View>
           <View style={styles.featureItem}>
             <View style={styles.featureIconWrapper}>
               <Ionicons name="analytics-outline" size={24} color="#8BC34A" />
             </View>
-            <Text style={styles.featureText}>Analiz</Text>
+            <Text style={styles.featureText}>{t('analysis') || 'Analiz'}</Text>
           </View>
           <View style={styles.featureItem}>
             <View style={styles.featureIconWrapper}>
               <Ionicons name="trophy-outline" size={24} color="#CDDC39" />
             </View>
-            <Text style={styles.featureText}>Hedef</Text>
+            <Text style={styles.featureText}>{t('goal') || 'Hedef'}</Text>
           </View>
         </Animated.View>
       </View>
 
       {/* Bottom branding */}
       <Animated.View style={[styles.bottomBranding, subtitleAnimatedStyle]}>
-        <Text style={styles.brandingText}>Premium Kalori Takibi</Text>
+        <Text style={styles.brandingText}>{t('premiumCalorieTracking') || 'Premium Kalori Takibi'}</Text>
       </Animated.View>
     </LinearGradient>
   );
