@@ -19,7 +19,11 @@
       "infoPlist": {
         "NSCameraUsageDescription": "CalorieDiet needs camera access to take photos of your meals for calorie analysis.",
         "NSPhotoLibraryUsageDescription": "CalorieDiet needs photo library access to select meal photos for calorie analysis.",
-        "NSMotionUsageDescription": "CalorieDiet uses motion sensors to count your daily steps."
+        "NSMotionUsageDescription": "CalorieDiet uses motion sensors to count your daily steps.",
+        "GADApplicationIdentifier": "ca-app-pub-6980942787991808~8398068336",
+        "SKAdNetworkItems": [
+          { "SKAdNetworkIdentifier": "cstr6suwn9.skadnetwork" }
+        ]
       }
     },
     "android": {
@@ -40,7 +44,8 @@
         "RECEIVE_BOOT_COMPLETED",
         "VIBRATE",
         "INTERNET",
-        "ACCESS_NETWORK_STATE"
+        "ACCESS_NETWORK_STATE",
+        "com.google.android.gms.permission.AD_ID"
       ],
       "intentFilters": [
         {
