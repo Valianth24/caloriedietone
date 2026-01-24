@@ -81,12 +81,12 @@ export default function DietProgramScreen() {
 
       setProgram(data.program);
       Alert.alert(
-        '🎉 ' + (t('success') || 'Başarılı'),
-        t('dietStarted') || 'Diyet programınız başladı! 30 günlük yolculuğunuz başlıyor.',
-        [{ text: 'Tamam' }]
+        '🎉 ' + t('success'),
+        t('dietStarted'),
+        [{ text: t('ok') }]
       );
     } catch (error: any) {
-      Alert.alert(t('error') || 'Hata', error.message);
+      Alert.alert(t('error'), error.message);
     } finally {
       setLoading(false);
     }
