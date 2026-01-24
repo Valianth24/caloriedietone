@@ -250,7 +250,7 @@ export default function VisionResultScreen() {
 
               {/* Gram Input */}
               <View style={styles.gramRow}>
-                <Text style={styles.gramLabel}>Porsiyon:</Text>
+                <Text style={styles.gramLabel}>{t('portion') || 'Porsiyon'}:</Text>
                 <View style={styles.gramInputContainer}>
                   <TouchableOpacity 
                     style={styles.gramButton}
@@ -285,22 +285,22 @@ export default function VisionResultScreen() {
                 </View>
                 <View style={styles.nutritionItem}>
                   <Text style={styles.nutritionValue}>{item.protein}g</Text>
-                  <Text style={styles.nutritionLabel}>Protein</Text>
+                  <Text style={styles.nutritionLabel}>{t('protein') || 'Protein'}</Text>
                 </View>
                 <View style={styles.nutritionItem}>
                   <Text style={styles.nutritionValue}>{item.carbs}g</Text>
-                  <Text style={styles.nutritionLabel}>Karb</Text>
+                  <Text style={styles.nutritionLabel}>{t('carbs') || 'Karb'}</Text>
                 </View>
                 <View style={styles.nutritionItem}>
                   <Text style={styles.nutritionValue}>{item.fat}g</Text>
-                  <Text style={styles.nutritionLabel}>Yağ</Text>
+                  <Text style={styles.nutritionLabel}>{t('fat') || 'Yağ'}</Text>
                 </View>
               </View>
 
               {!item.food_id && (
                 <View style={styles.warningBanner}>
                   <Ionicons name="warning" size={16} color="#FFA500" />
-                  <Text style={styles.warningText}>Veritabanında bulunamadı - tahmini değerler</Text>
+                  <Text style={styles.warningText}>{t('notFoundInDatabase') || 'Veritabanında bulunamadı - tahmini değerler'}</Text>
                 </View>
               )}
             </View>
@@ -310,7 +310,7 @@ export default function VisionResultScreen() {
         {/* Notes */}
         {result?.notes && result.notes.length > 0 && (
           <View style={styles.notesSection}>
-            <Text style={styles.notesTitle}>Notlar:</Text>
+            <Text style={styles.notesTitle}>{t('notes') || 'Notlar'}:</Text>
             {result.notes.map((note, index) => (
               <Text key={index} style={styles.noteText}>• {note}</Text>
             ))}
@@ -319,7 +319,7 @@ export default function VisionResultScreen() {
 
         {/* Totals */}
         <View style={styles.totalsCard}>
-          <Text style={styles.totalsTitle}>Toplam Besin Değerleri</Text>
+          <Text style={styles.totalsTitle}>{t('totalNutrition') || 'Toplam Besin Değerleri'}</Text>
           <View style={styles.totalsGrid}>
             <View style={styles.totalItem}>
               <LinearGradient colors={['#FF6B6B', '#FF8E8E']} style={styles.totalIcon}>
