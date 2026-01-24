@@ -146,7 +146,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
         <View style={styles.container}>
           {/* Header */}
           <View style={styles.header}>
-            <Text style={styles.title}>Kişisel Diyet Oluştur</Text>
+            <Text style={styles.title}>{t('createPersonalDiet')}</Text>
             <TouchableOpacity onPress={onClose}>
               <Ionicons name="close" size={28} color={Colors.darkText} />
             </TouchableOpacity>
@@ -155,10 +155,10 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
           <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
             {/* Diet Name */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>Diyet Adı</Text>
+              <Text style={styles.sectionTitle}>{t('dietName')}</Text>
               <TextInput
                 style={styles.input}
-                placeholder="Örn: Yaz Diyetim"
+                placeholder={t('enterDietName')}
                 value={dietName}
                 onChangeText={setDietName}
               />
@@ -166,29 +166,29 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
 
             {/* Personal Info */}
             <View style={styles.section}>
-              <Text style={styles.sectionTitle}>📊 Kişisel Bilgiler</Text>
+              <Text style={styles.sectionTitle}>📊 {t('personalInfo')}</Text>
               
               {/* Gender */}
-              <Text style={styles.label}>Cinsiyet</Text>
+              <Text style={styles.label}>{t('gender')}</Text>
               <View style={styles.optionsRow}>
                 <TouchableOpacity
                   style={[styles.optionButton, gender === 'male' && styles.optionButtonActive]}
                   onPress={() => setGender('male')}
                 >
                   <Ionicons name="male" size={24} color={gender === 'male' ? Colors.white : Colors.primary} />
-                  <Text style={[styles.optionText, gender === 'male' && styles.optionTextActive]}>Erkek</Text>
+                  <Text style={[styles.optionText, gender === 'male' && styles.optionTextActive]}>{t('male')}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={[styles.optionButton, gender === 'female' && styles.optionButtonActive]}
                   onPress={() => setGender('female')}
                 >
                   <Ionicons name="female" size={24} color={gender === 'female' ? Colors.white : Colors.primary} />
-                  <Text style={[styles.optionText, gender === 'female' && styles.optionTextActive]}>Kadın</Text>
+                  <Text style={[styles.optionText, gender === 'female' && styles.optionTextActive]}>{t('female')}</Text>
                 </TouchableOpacity>
               </View>
 
               {/* Height */}
-              <Text style={styles.label}>Boy: {height} cm</Text>
+              <Text style={styles.label}>{t('height')}: {height} {t('cm')}</Text>
               <Slider
                 style={styles.slider}
                 minimumValue={140}
@@ -202,7 +202,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
               />
 
               {/* Weight */}
-              <Text style={styles.label}>Kilo: {weight} kg</Text>
+              <Text style={styles.label}>{t('weight')}: {weight} {t('kg')}</Text>
               <Slider
                 style={styles.slider}
                 minimumValue={40}
@@ -216,7 +216,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
               />
 
               {/* Age */}
-              <Text style={styles.label}>Yaş</Text>
+              <Text style={styles.label}>{t('age')}</Text>
               <TextInput
                 style={styles.input}
                 placeholder="Yaşınız"
