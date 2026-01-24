@@ -1404,6 +1404,7 @@ const resources = {
       watchAd: 'Reklam İzle',
       watchAdToViewRecipe: 'Bu tarifi görüntülemek için reklam izleyin.',
       watchAdToCalculate: 'Kalori hesaplamak için reklam izleyin.',
+      yourHealthJourney: 'Sağlıklı Yaşam Yolculuğunuz',
       after2RecipesFree: 'Reklamla ücretsiz (1 bedava, 1 reklamlı)',
       freeWithAds: 'Reklamlarla tamamen ücretsiz',
       recipesRemaining: 'ücretsiz tarif',
