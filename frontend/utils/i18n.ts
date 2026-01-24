@@ -694,13 +694,21 @@ const resources = {
       or: 'veya',
       refreshFailed: 'Yenileme başarısız',
       stepsUpdated: 'Adımlar güncellendi',
-      yes: 'Evet',
-      no: 'Hayır',
-      ok: 'Tamam',
       back: 'Geri',
       next: 'İleri',
       done: 'Bitti',
-      or: 'veya',
+      
+      // Splash Screen
+      splashSubtitle: 'Sağlıklı Yaşam İçin Akıllı Beslenme',
+      photo: 'Fotoğraf',
+      analysis: 'Analiz',
+      goal: 'Hedef',
+      premiumCalorieTracking: 'Premium Kalori Takibi',
+      
+      // Not Found
+      pageNotFound: 'Sayfa Bulunamadı',
+      pageNotFoundDesc: 'Bu sayfa mevcut değil veya taşınmış olabilir.',
+      goToHome: 'Ana Sayfaya Dön',
       
       selectLanguage: 'Dil Seçin',
       languageSettings: 'Dil Ayarları',
