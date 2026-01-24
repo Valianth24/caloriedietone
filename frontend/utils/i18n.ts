@@ -1439,6 +1439,8 @@ const resources = {
       addToCart: 'Sepete Ekle',
       addNow: 'Hemen Ekle',
       addAllItems: 'Hepsini Ekle ({{count}} yemek)',
+      testNotification: 'Test Bildirimi Gönder',
+      dayCompleted: 'Bu gün tamamlandı!',
     }
   },
   
