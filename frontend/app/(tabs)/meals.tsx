@@ -792,7 +792,7 @@ export default function MealsScreen() {
                 <ActivityIndicator color="#FFF" />
               ) : (
                 <Text style={styles.addAllButtonText}>
-                  {lang === 'en' ? `Add All (${cart.length} items)` : `Hepsini Ekle (${cart.length} yemek)`}
+                  {t('addAllItems', { count: cart.length })}
                 </Text>
               )}
             </TouchableOpacity>
