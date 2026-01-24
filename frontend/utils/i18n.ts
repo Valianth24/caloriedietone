@@ -1401,6 +1401,8 @@ const resources = {
       '100PercentFree': '%100 Ücretsiz',
       supportWithAds: 'Reklamları izleyerek bizi destekleyin',
       watchAd: 'Reklam İzle',
+      watchAdToViewRecipe: 'Bu tarifi görüntülemek için reklam izleyin.',
+      watchAdToCalculate: 'Kalori hesaplamak için reklam izleyin.',
       after2RecipesFree: 'Reklamla ücretsiz (1 bedava, 1 reklamlı)',
       freeWithAds: 'Reklamlarla tamamen ücretsiz',
       recipesRemaining: 'ücretsiz tarif',
