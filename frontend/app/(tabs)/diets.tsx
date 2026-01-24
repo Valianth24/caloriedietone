@@ -72,9 +72,9 @@ export default function DietsScreen() {
 
   const getDifficultyText = (difficulty: string) => {
     switch (difficulty) {
-      case 'easy': return lang === 'en' ? 'Easy' : 'Kolay';
-      case 'medium': return lang === 'en' ? 'Medium' : 'Orta';
-      case 'hard': return lang === 'en' ? 'Hard' : 'Zor';
+      case 'easy': return t('easy');
+      case 'medium': return t('medium');
+      case 'hard': return t('hard');
       default: return difficulty;
     }
   };
@@ -88,16 +88,16 @@ export default function DietsScreen() {
       }
       
       Alert.alert(
-        '🎉 ' + (lang === 'en' ? 'Success' : 'Başarılı'), 
-        lang === 'en' ? 'Premium activated! All features unlocked.' : 'Premium üyeliğiniz aktif edildi! Tüm özelliklere erişebilirsiniz.'
+        '🎉 ' + t('success'), 
+        t('premiumActivated')
       );
       setShowPaywall(false);
       
     } catch (error: any) {
       console.error('Premium activation error:', error);
       Alert.alert(
-        lang === 'en' ? 'Error' : 'Hata', 
-        lang === 'en' ? 'Premium activation failed. Please try again.' : 'Premium aktivasyonu başarısız. Lütfen tekrar deneyin.'
+        t('error'), 
+        t('premiumActivationFailed')
       );
     }
   };
