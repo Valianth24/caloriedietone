@@ -318,7 +318,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
               <Text style={styles.sectionTitle}>🚫 {t('restrictions')}</Text>
               <TextInput
                 style={[styles.input, styles.textArea]}
-                placeholder="Örn: Fıstık alerjim var, laktozsuz"
+                placeholder={t('restrictionsPlaceholder')}
                 value={restrictions}
                 onChangeText={setRestrictions}
                 multiline
@@ -328,23 +328,23 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
 
             {/* Summary */}
             <View style={styles.summaryCard}>
-              <Text style={styles.summaryTitle}>Hesaplanan Değerler</Text>
+              <Text style={styles.summaryTitle}>{t('calculatedValues')}</Text>
               <View style={styles.summaryRow}>
-                <Text style={styles.summaryLabel}>Bazal Metabolizma (BMR):</Text>
+                <Text style={styles.summaryLabel}>{t('basalMetabolism')} (BMR):</Text>
                 <Text style={styles.summaryValue}>{Math.round(calculateBMR())} kcal</Text>
               </View>
               <View style={styles.summaryRow}>
-                <Text style={styles.summaryLabel}>Günlük Harcama (TDEE):</Text>
+                <Text style={styles.summaryLabel}>{t('dailyExpenditure')} (TDEE):</Text>
                 <Text style={styles.summaryValue}>{Math.round(calculateTDEE())} kcal</Text>
               </View>
               <View style={styles.summaryRow}>
-                <Text style={styles.summaryLabel}>Hedef Kalori:</Text>
+                <Text style={styles.summaryLabel}>{t('targetCalorie')}:</Text>
                 <Text style={[styles.summaryValue, styles.summaryValueHighlight]}>
                   {calculateTargetCalories()} kcal
                 </Text>
               </View>
               <View style={styles.summaryRow}>
-                <Text style={styles.summaryLabel}>Makro Dağılımı:</Text>
+                <Text style={styles.summaryLabel}>{t('macroDistribution')}:</Text>
                 <Text style={styles.summaryValue}>
                   P:{getMacroDistribution().protein}% K:{getMacroDistribution().carbs}% Y:{getMacroDistribution().fat}%
                 </Text>
@@ -358,7 +358,7 @@ export default function AdvancedDietForm({ visible, onClose, onSubmit }: Advance
           <View style={styles.footer}>
             <TouchableOpacity style={styles.submitButton} onPress={handleSubmit}>
               <Ionicons name="checkmark-circle" size={24} color={Colors.white} />
-              <Text style={styles.submitButtonText}>Diyeti Oluştur</Text>
+              <Text style={styles.submitButtonText}>{t('generateDiet')}</Text>
             </TouchableOpacity>
           </View>
         </View>
