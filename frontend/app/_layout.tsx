@@ -2,12 +2,18 @@ import { useEffect } from 'react';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
 import { ThemeProvider } from '../contexts/ThemeContext';
+import { preloadAds } from '../utils/admobService';
 import '../utils/i18n';
 
 function RootLayoutNav() {
   const { isAuthenticated, isLoading, needsOnboarding } = useAuth();
   const segments = useSegments();
   const router = useRouter();
+
+  // AdMob reklamlarını önceden yükle
+  useEffect(() => {
+    preloadAds().catch(console.error);
+  }, []);
 
   useEffect(() => {
     if (isLoading) return;
