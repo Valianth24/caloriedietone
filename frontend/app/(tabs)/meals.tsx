@@ -239,8 +239,8 @@ export default function MealsScreen() {
       setPortion(1);
       
       Alert.alert(
-        lang === 'en' ? 'Success' : 'Başarılı', 
-        `${lang === 'en' ? food.name_en : food.name} ${lang === 'en' ? 'added' : 'eklendi'}`
+        t('success'), 
+        `${lang === 'en' ? food.name_en : food.name} ${t('added')}`
       );
       
       // Eğer meal detail'den geldiyse oraya geri dön
@@ -253,7 +253,7 @@ export default function MealsScreen() {
         router.replace('/(tabs)');
       }
     } catch (error: any) {
-      Alert.alert(lang === 'en' ? 'Error' : 'Hata', error.message || (lang === 'en' ? 'Could not add meal' : 'Yemek eklenemedi'));
+      Alert.alert(t('error'), error.message || t('mealAddError'));
     } finally {
       setLoading(false);
     }
@@ -262,8 +262,8 @@ export default function MealsScreen() {
   const handleManualAdd = async () => {
     if (!manualFood.name || !manualFood.calories) {
       Alert.alert(
-        lang === 'en' ? 'Error' : 'Hata',
-        lang === 'en' ? 'Please enter food name and calories' : 'Lütfen yemek adı ve kalori girin'
+        t('error'),
+        t('pleaseEnterFoodNameAndCalories')
       );
       return;
     }
