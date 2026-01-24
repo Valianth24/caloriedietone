@@ -720,14 +720,14 @@ export default function CameraScreen() {
                 {/* Meal Type Selection */}
                 <View style={styles.mealTypeSection}>
                   <Text style={styles.mealTypeSectionTitle}>
-                    {lang === 'tr' ? 'Hangi öğüne eklensin?' : 'Add to which meal?'}
+                    {t('addToWhichMeal')}
                   </Text>
                   <View style={styles.mealTypeButtons}>
                     {[
-                      { key: 'breakfast', icon: 'sunny', label: lang === 'tr' ? 'Kahvaltı' : 'Breakfast' },
-                      { key: 'lunch', icon: 'restaurant', label: lang === 'tr' ? 'Öğle' : 'Lunch' },
-                      { key: 'dinner', icon: 'moon', label: lang === 'tr' ? 'Akşam' : 'Dinner' },
-                      { key: 'snack', icon: 'cafe', label: lang === 'tr' ? 'Ara Öğün' : 'Snack' },
+                      { key: 'breakfast', icon: 'sunny', label: t('breakfast') },
+                      { key: 'lunch', icon: 'restaurant', label: t('lunch') },
+                      { key: 'dinner', icon: 'moon', label: t('dinner') },
+                      { key: 'snack', icon: 'cafe', label: t('snack') },
                     ].map((type) => (
                       <TouchableOpacity
                         key={type.key}
