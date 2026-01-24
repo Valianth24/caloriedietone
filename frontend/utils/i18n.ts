@@ -688,6 +688,8 @@ const resources = {
       '100PercentFree': '100% Free',
       supportWithAds: 'Support us by watching ads',
       watchAd: 'Watch Ad',
+      watchAdToViewRecipe: 'Watch an ad to view this recipe.',
+      watchAdToCalculate: 'Watch an ad to calculate calories.',
       after2RecipesFree: 'Free with ads (1 free, 1 ad)',
       freeWithAds: 'Completely free with ads',
       recipesRemaining: 'free recipe',
