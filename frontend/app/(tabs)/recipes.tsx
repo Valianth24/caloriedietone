@@ -208,8 +208,8 @@ export default function RecipesScreen() {
 
   const handleRecipePress = async (recipe: RecipeMetadata, recipeIndex: number) => {
     try {
-      // Reklam gerekli mi kontrol et (ilk 3 tarif her kategoride reklamsız)
-      const needsAd = await needsAdForRecipe(recipe.id, recipeIndex);
+      // Reklam gerekli mi? isPremium = true ise reklam gerekli (yıldızlı tarifler)
+      const needsAd = recipe.isPremium && !watchedAdRecipes.includes(recipe.id);
       
       if (needsAd) {
         // Reklam modal göster - tarif reklam izlenmeden açılmayacak
@@ -231,7 +231,7 @@ export default function RecipesScreen() {
   
   const handleWatchAd = async () => {
     try {
-      // MOCK Reklam göster (yayından sonra gerçek AdMob entegrasyonu)
+      // AdMob çift reklam göster
       await showRewardedAd('recipe', pendingRecipe?.id);
       
       // Reklam izlenen tarifleri güncelle
