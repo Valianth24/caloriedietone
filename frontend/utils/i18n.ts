@@ -726,6 +726,7 @@ const resources = {
       basalMetabolism: 'Basal Metabolism',
       dailyExpenditure: 'Daily Expenditure',
       macroDistribution: 'Macro Distribution',
+      vitaminTimePlaceholder: 'Time (e.g. Every Morning)',
     }
   },
   
