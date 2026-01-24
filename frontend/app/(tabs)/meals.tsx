@@ -282,8 +282,8 @@ export default function MealsScreen() {
       });
 
       Alert.alert(
-        lang === 'en' ? 'Success' : 'Başarılı',
-        lang === 'en' ? 'Meal added' : 'Yemek eklendi'
+        t('success'),
+        t('mealAdded')
       );
       
       // Eğer meal detail'den geldiyse oraya geri dön
