@@ -508,7 +508,7 @@ export default function DashboardScreen() {
                   </View>
                   <View style={styles.activeDietMiniRight}>
                     <Text style={styles.activeDietMiniButtonText}>
-                      {i18n.language === 'tr' ? 'Devam Et' : 'Continue'}
+                      {t('continue')}
                     </Text>
                     <Ionicons name="arrow-forward" size={16} color={Colors.primary} />
                   </View>
