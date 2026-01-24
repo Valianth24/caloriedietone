@@ -188,7 +188,8 @@ const showRealInterstitialAd = async (onComplete: (success: boolean) => void): P
       AdEventType,
     } = await import('react-native-google-mobile-ads');
 
-    const AD_UNIT_ID = 'ca-app-pub-6980942787991808/2514158595'; // Interstitial ad unit
+    // TARİF3 - Geçiş Reklamı (Interstitial)
+    const AD_UNIT_ID = 'ca-app-pub-6980942787991808/1408960486';
     const ad = InterstitialAd.createForAdRequest(AD_UNIT_ID);
 
     await new Promise<void>((resolve, reject) => {
