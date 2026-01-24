@@ -333,8 +333,8 @@ export default function RecipesScreen() {
     // Fallback image URL
     const fallbackImage = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80';
     
-    // Reklam gerektiren tarif mi? (ilk 3 tarif reklamsız)
-    const requiresAd = !isRecipeFree(index) && !watchedAdRecipes.includes(item.id);
+    // Reklamlı tarif mi? isPremium = true ve henüz reklam izlenmemiş
+    const requiresAd = item.isPremium && !watchedAdRecipes.includes(item.id);
     
     return (
       <TouchableOpacity
@@ -370,13 +370,14 @@ export default function RecipesScreen() {
               color={isFav ? '#e11d48' : '#fff'} 
             />
           </TouchableOpacity>
-          {/* Reklamlı tarifler için yıldız ikonu (premium görünümü) */}
-          {requiresAd && (
+          {/* Yıldızlı (isPremium) tarifler - reklamlı */}
+          {item.isPremium && (
             <View style={styles.premiumStarBadge}>
               <Ionicons name="star" size={16} color="#FFD700" />
             </View>
           )}
-          {item.featured && !requiresAd && (
+          {/* Featured badge sadece reklamsız tariflerde */}
+          {item.featured && !item.isPremium && (
             <View style={styles.featuredBadge}>
               <Ionicons name="star" size={12} color="#FFD700" />
             </View>
