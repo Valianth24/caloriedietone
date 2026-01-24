@@ -130,13 +130,13 @@ export default function MealsDetailScreen() {
         meal_type: selectedMealType,
       });
 
-      alert(lang === 'en' ? 'Meal added!' : 'Yemek eklendi!');
+      alert(t('mealAdded'));
       setShowManualEntry(false);
       setManualFood({ name: '', calories: '', protein: '', carbs: '', fat: '' });
       triggerRefresh();
       loadData();
     } catch (error: any) {
-      alert(error.message || (lang === 'en' ? 'Could not add meal' : 'Yemek eklenemedi'));
+      alert(error.message || t('mealAddError'));
     }
   };
   
