@@ -623,6 +623,7 @@ const resources = {
       end: 'End',
       noActiveDiet: 'No Active Diet',
       goToDiets: 'Go to Diets',
+      selectDietToStart: 'You can start by selecting one of the diets',
       progress: 'Progress',
       activeDietTitle: 'You Have an Active Diet!',
       tapToContinue: 'Tap to continue',
