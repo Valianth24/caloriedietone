@@ -711,6 +711,8 @@ const resources = {
       unlockRecipeAccess: 'Full recipe access',
       unlockCalorieAccess: 'Unlimited calculation',
       shortVideoTime: 'Only 15 seconds',
+      pleaseWait: 'Please wait',
+      adLoadFailed: 'Ad could not be loaded. Please try again.',
     }
   },
   
