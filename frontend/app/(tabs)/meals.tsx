@@ -681,7 +681,7 @@ export default function MealsScreen() {
                   <Ionicons name="bag-add-outline" size={20} color={Colors.primary} />
                 </View>
                 <Text style={styles.premiumCartBtnText}>
-                  {lang === 'en' ? 'Add to Cart' : 'Sepete Ekle'}
+                  {t('addToCart')}
                 </Text>
               </TouchableOpacity>
               
@@ -696,7 +696,7 @@ export default function MealsScreen() {
                 ) : (
                   <>
                     <Text style={styles.premiumAddBtnText}>
-                      {lang === 'en' ? 'Add Now' : 'Hemen Ekle'}
+                      {t('addNow')}
                     </Text>
                     <View style={styles.premiumAddBtnIcon}>
                       <Ionicons name="checkmark" size={18} color="#FFF" />
