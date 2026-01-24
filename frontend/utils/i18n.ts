@@ -714,6 +714,18 @@ const resources = {
       pleaseWait: 'Please wait',
       adLoadFailed: 'Ad could not be loaded. Please try again.',
       languageChangeFailed: 'Language change failed',
+      lowCarb: 'Low Carb',
+      highProtein: 'High Protein',
+      vegan: 'Vegan',
+      veganDesc: 'Only plant-based',
+      keto: 'Keto',
+      dietPreference: 'Diet Preference',
+      mealsPerDay: 'Meals Per Day',
+      restrictionsPlaceholder: 'e.g. Peanut allergy, lactose-free',
+      calculatedValues: 'Calculated Values',
+      basalMetabolism: 'Basal Metabolism',
+      dailyExpenditure: 'Daily Expenditure',
+      macroDistribution: 'Macro Distribution',
     }
   },
   
