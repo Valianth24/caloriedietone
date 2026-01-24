@@ -296,7 +296,7 @@ export default function MealsScreen() {
         router.replace('/(tabs)');
       }
     } catch (error: any) {
-      Alert.alert(lang === 'en' ? 'Error' : 'Hata', error.message);
+      Alert.alert(t('error'), error.message);
     } finally {
       setLoading(false);
     }
