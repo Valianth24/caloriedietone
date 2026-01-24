@@ -31,6 +31,18 @@ const resources = {
       refreshFailed: 'Refresh failed',
       stepsUpdated: 'Steps updated',
       
+      // Splash Screen
+      splashSubtitle: 'Smart Nutrition for Healthy Living',
+      photo: 'Photo',
+      analysis: 'Analysis',
+      goal: 'Goal',
+      premiumCalorieTracking: 'Premium Calorie Tracking',
+      
+      // Not Found
+      pageNotFound: 'Page Not Found',
+      pageNotFoundDesc: 'This page does not exist or may have been moved.',
+      goToHome: 'Go to Home',
+      
       // Language
       selectLanguage: 'Select Language',
       languageSettings: 'Language Settings',
