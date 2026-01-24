@@ -12,6 +12,7 @@ interface AdvancedDietFormProps {
 }
 
 export default function AdvancedDietForm({ visible, onClose, onSubmit }: AdvancedDietFormProps) {
+  const { t } = useTranslation();
   // Personal Info
   const [height, setHeight] = useState(170);
   const [weight, setWeight] = useState(70);
