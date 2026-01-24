@@ -730,6 +730,8 @@ const resources = {
       addToCart: 'Add to Cart',
       addNow: 'Add Now',
       addAllItems: 'Add All ({{count}} items)',
+      testNotification: 'Send Test Notification',
+      dayCompleted: 'This day is completed!',
     }
   },
   
