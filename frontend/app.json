@@ -89,6 +89,13 @@
         {
           "motionPermission": "CalorieDiet uses motion sensors to track your daily steps."
         }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          "androidAppId": "ca-app-pub-6980942787991808~8398068336",
+          "iosAppId": "ca-app-pub-6980942787991808~8398068336"
+        }
       ]
     ],
     "experiments": {
