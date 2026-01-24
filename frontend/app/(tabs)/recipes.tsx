@@ -248,7 +248,7 @@ export default function RecipesScreen() {
       }
     } catch (error) {
       console.error('Error watching ad:', error);
-      Alert.alert('Hata', 'Reklam yüklenemedi. Lütfen tekrar deneyin.');
+      Alert.alert(t('error'), t('adLoadFailed'));
     }
   };
 
