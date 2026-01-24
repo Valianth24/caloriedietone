@@ -3,6 +3,7 @@ import { ScrollView, View, Text, StyleSheet, TouchableOpacity, TextInput, Modal 
 import { Colors } from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import Slider from '@react-native-community/slider';
+import { useTranslation } from 'react-i18next';
 
 interface AdvancedDietFormProps {
   visible: boolean;
