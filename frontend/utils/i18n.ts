@@ -1434,6 +1434,9 @@ const resources = {
       dailyExpenditure: 'Günlük Harcama',
       macroDistribution: 'Makro Dağılımı',
       vitaminTimePlaceholder: 'Zaman (örn: Her Sabah)',
+      addToCart: 'Sepete Ekle',
+      addNow: 'Hemen Ekle',
+      addAllItems: 'Hepsini Ekle ({{count}} yemek)',
     }
   },
   
