@@ -476,13 +476,6 @@ export default function RecipesScreen() {
         <Text style={styles.headerTitle}>
           {t('recipes')}
         </Text>
-        <View style={styles.headerRight}>
-          {/* Free with Ads Badge */}
-          <View style={styles.freeAdBadge}>
-            <Ionicons name="gift-outline" size={16} color={Colors.primary} />
-            <Text style={styles.freeAdText}>{t('100PercentFree')}</Text>
-          </View>
-        </View>
       </View>
 
       <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
