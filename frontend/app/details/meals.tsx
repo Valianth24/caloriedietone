@@ -349,7 +349,7 @@ export default function MealsDetailScreen() {
               </Text>
               <TextInput
                 style={styles.textInput}
-                placeholder={lang === 'en' ? 'e.g. Homemade pasta' : 'örn. Ev yapımı makarna'}
+                placeholder={t('foodNamePlaceholder')}
                 value={manualFood.name}
                 onChangeText={(text) => setManualFood({ ...manualFood, name: text })}
                 placeholderTextColor="#999"
@@ -358,7 +358,7 @@ export default function MealsDetailScreen() {
             
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>
-                {lang === 'en' ? 'Calories' : 'Kalori'} (kcal) *
+                {t('calories')} (kcal) *
               </Text>
               <TextInput
                 style={styles.textInput}
@@ -372,7 +372,7 @@ export default function MealsDetailScreen() {
             
             <View style={styles.inputRow}>
               <View style={[styles.inputGroup, { flex: 1 }]}>
-                <Text style={styles.inputLabel}>Protein (g)</Text>
+                <Text style={styles.inputLabel}>{t('protein')} (g)</Text>
                 <TextInput
                   style={styles.textInput}
                   placeholder="0"
@@ -384,7 +384,7 @@ export default function MealsDetailScreen() {
               </View>
               
               <View style={[styles.inputGroup, { flex: 1, marginLeft: 12 }]}>
-                <Text style={styles.inputLabel}>{lang === 'en' ? 'Carbs' : 'Karb'} (g)</Text>
+                <Text style={styles.inputLabel}>{t('carbs')} (g)</Text>
                 <TextInput
                   style={styles.textInput}
                   placeholder="0"
@@ -396,7 +396,7 @@ export default function MealsDetailScreen() {
               </View>
               
               <View style={[styles.inputGroup, { flex: 1, marginLeft: 12 }]}>
-                <Text style={styles.inputLabel}>{lang === 'en' ? 'Fat' : 'Yağ'} (g)</Text>
+                <Text style={styles.inputLabel}>{t('fat')} (g)</Text>
                 <TextInput
                   style={styles.textInput}
                   placeholder="0"
