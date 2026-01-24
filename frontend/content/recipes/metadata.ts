@@ -146,7 +146,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   // ============================================
   grilled_chicken_salad: {
     id: 'grilled_chicken_salad',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'main_course',
     difficulty: 'easy',
     tags: ['high_protein', 'low_carb', 'mediterranean'],
@@ -159,7 +159,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   salmon_vegetables: {
     id: 'salmon_vegetables',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'main_course',
     difficulty: 'medium',
     tags: ['high_protein', 'mediterranean', 'gluten_free'],
@@ -172,7 +172,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   turkey_meatballs: {
     id: 'turkey_meatballs',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'main_course',
     difficulty: 'medium',
     tags: ['high_protein', 'kid_friendly'],
@@ -184,7 +184,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   stuffed_peppers: {
     id: 'stuffed_peppers',
-    isPremium: true,
+    isPremium: true, // Reklamlı (yıldızlı)
     category: 'main_course',
     difficulty: 'medium',
     tags: ['high_protein', 'gluten_free', 'mediterranean'],
