@@ -1430,6 +1430,7 @@ const resources = {
       basalMetabolism: 'Bazal Metabolizma',
       dailyExpenditure: 'Günlük Harcama',
       macroDistribution: 'Makro Dağılımı',
+      vitaminTimePlaceholder: 'Zaman (örn: Her Sabah)',
     }
   },
   
