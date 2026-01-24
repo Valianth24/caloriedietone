@@ -19,7 +19,7 @@ interface WatchAdModalProps {
   onClose: () => void;
   onWatchAd: () => Promise<void>;
   type: 'recipe' | 'calorie';
-  remainingFree?: number;
+  isFirstTime?: boolean; // İlk kez mi izleniyor (ödüllü) yoksa sonraki seferler mi (geçiş)
 }
 
 export default function WatchAdModal({
@@ -27,6 +27,7 @@ export default function WatchAdModal({
   onClose,
   onWatchAd,
   type,
+  isFirstTime = true,
 }: WatchAdModalProps) {
   const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
@@ -45,16 +46,16 @@ export default function WatchAdModal({
 
   const getTitle = () => {
     if (type === 'recipe') {
-      return t('watchAdForRecipe') || 'Premium İçerik';
+      return t('watchAdForRecipe');
     }
-    return t('watchAdForCalorie') || 'Kalori Hesaplama';
+    return t('watchAdForCalorie');
   };
 
   const getDescription = () => {
     if (type === 'recipe') {
-      return t('watchAdRecipeDesc') || 'Bu tarife erişmek için kısa bir video izleyin.';
+      return t('watchAdToViewRecipe');
     }
-    return t('watchAdCalorieDesc') || 'Kalori hesaplama için kısa bir video izleyin.';
+    return t('watchAdToCalculate');
   };
 
   return (
@@ -89,25 +90,6 @@ export default function WatchAdModal({
             {/* Description */}
             <Text style={styles.description}>{getDescription()}</Text>
 
-            {/* Feature List */}
-            <View style={styles.featureList}>
-              <View style={styles.featureItem}>
-                <Ionicons name="checkmark-circle" size={20} color="#4CAF50" />
-                <Text style={styles.featureText}>
-                  {type === 'recipe' 
-                    ? t('unlockRecipeAccess') || 'Tarife tam erişim'
-                    : t('unlockCalorieAccess') || 'Sınırsız hesaplama'
-                  }
-                </Text>
-              </View>
-              <View style={styles.featureItem}>
-                <Ionicons name="time-outline" size={20} color="#667eea" />
-                <Text style={styles.featureText}>
-                  {t('shortVideoTime') || 'Sadece 15 saniye'}
-                </Text>
-              </View>
-            </View>
-
             {/* Buttons */}
             <View style={styles.buttons}>
               <TouchableOpacity 
@@ -128,7 +110,7 @@ export default function WatchAdModal({
                     <>
                       <Ionicons name="play" size={22} color="#FFF" />
                       <Text style={styles.watchButtonText}>
-                        {t('watchVideo') || 'Video İzle'}
+                        {t('watchAd')}
                       </Text>
                     </>
                   )}
@@ -141,7 +123,7 @@ export default function WatchAdModal({
                 disabled={loading}
               >
                 <Text style={styles.cancelButtonText}>
-                  {t('notNow') || 'Şimdi Değil'}
+                  {t('notNow')}
                 </Text>
               </TouchableOpacity>
             </View>
@@ -212,25 +194,7 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
     lineHeight: 22,
-    marginBottom: 20,
-  },
-  featureList: {
     marginBottom: 24,
-  },
-  featureItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 16,
-    backgroundColor: '#F8F9FA',
-    borderRadius: 10,
-    marginBottom: 8,
-    gap: 12,
-  },
-  featureText: {
-    fontSize: 14,
-    color: '#333',
-    fontWeight: '500',
   },
   buttons: {
     gap: 12,
