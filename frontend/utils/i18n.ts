@@ -1443,6 +1443,8 @@ const resources = {
       addAllItems: 'Hepsini Ekle ({{count}} yemek)',
       testNotification: 'Test Bildirimi Gönder',
       dayCompleted: 'Bu gün tamamlandı!',
+      startDietProgram: '30 Günlük Programa Başla',
+      sevenDayPreview: '7 Günlük Önizleme',
     }
   },
   
