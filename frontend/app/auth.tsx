@@ -3,6 +3,7 @@ import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 import { useRouter, useLocalSearchParams, useGlobalSearchParams } from 'expo-router';
 import { Colors } from '../constants/Colors';
 import * as Linking from 'expo-linking';
+import { useTranslation } from 'react-i18next';
 
 /**
  * Auth callback handler for OAuth deep links
@@ -11,6 +12,7 @@ import * as Linking from 'expo-linking';
  */
 export default function AuthCallbackScreen() {
   const router = useRouter();
+  const { t } = useTranslation();
   
   useEffect(() => {
     // Get the full URL to pass to the auth handler
@@ -39,8 +41,8 @@ export default function AuthCallbackScreen() {
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" color={Colors.primary} />
-      <Text style={styles.text}>Giriş yapılıyor...</Text>
-      <Text style={styles.subtext}>Lütfen bekleyin</Text>
+      <Text style={styles.text}>{t('loggingIn')}</Text>
+      <Text style={styles.subtext}>{t('pleaseWait')}</Text>
     </View>
   );
 }
