@@ -775,6 +775,25 @@ const resources = {
       registerFailed: 'Kayıt başarısız',
       guestLoginFailed: 'Misafir girişi başarısız',
       
+      // Vision Result
+      analysisResult: 'Analiz Sonucu',
+      aiEstimate: 'AI Tahmini',
+      detectedFoods: 'Tespit Edilen Yemekler',
+      alternatives: 'Alternatifler',
+      portion: 'Porsiyon',
+      notFoundInDatabase: 'Veritabanında bulunamadı - tahmini değerler',
+      notes: 'Notlar',
+      totalNutrition: 'Toplam Besin Değerleri',
+      aiDisclaimer: 'AI tahminidir. Doğrulamak için gram değerlerini düzenleyebilirsiniz.',
+      saveMeal: 'Yemeği Kaydet',
+      mealSaved: 'Yemek kaydedildi!',
+      mealSaveFailed: 'Yemek kaydedilemedi. Tekrar deneyin.',
+      analyzingMeal: 'Yemek Analiz Ediliyor...',
+      aiAnalyzing: 'AI görüntüyü inceliyor',
+      analysisFailed: 'Analiz başarısız',
+      mealAnalysisFailed: 'Yemek analizi yapılamadı. Tekrar deneyin.',
+      saveFailed: 'Kaydetme başarısız',
+      
       // Onboarding - Leap Fitness Tarzı
       welcomeToApp: 'CalorieDiet\'e Hoş Geldin!',
       letsPersonalize: 'Deneyimini kişiselleştirelim',
