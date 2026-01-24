@@ -56,11 +56,13 @@ interface VisionResult {
 export default function VisionResultScreen() {
   const router = useRouter();
   const params = useLocalSearchParams();
+  const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState<VisionResult | null>(null);
   const [editedItems, setEditedItems] = useState<DetectedItem[]>([]);
   const [saving, setSaving] = useState(false);
   const imageBase64 = params.image as string;
+  const locale = i18n.language?.startsWith('tr') ? 'tr-TR' : 'en-US';
 
   useEffect(() => {
     if (imageBase64) {
@@ -81,12 +83,12 @@ export default function VisionResultScreen() {
         },
         body: JSON.stringify({
           image_base64: imageBase64,
-          locale: 'tr-TR',
+          locale: locale,
         }),
       });
 
       if (!response.ok) {
-        throw new Error('Analiz başarısız');
+        throw new Error(t('analysisFailed') || 'Analiz başarısız');
       }
 
       const data = await response.json();
@@ -94,7 +96,7 @@ export default function VisionResultScreen() {
       setEditedItems(data.items);
     } catch (error) {
       console.error('Vision analysis error:', error);
-      Alert.alert('Hata', 'Yemek analizi yapılamadı. Tekrar deneyin.');
+      Alert.alert(t('error') || 'Hata', t('mealAnalysisFailed') || 'Yemek analizi yapılamadı. Tekrar deneyin.');
       router.back();
     } finally {
       setLoading(false);
