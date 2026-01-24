@@ -379,12 +379,12 @@ export default function DietProgramScreen() {
               <View style={styles.statItem}>
                 <Ionicons name="calendar" size={24} color={Colors.primary} />
                 <Text style={styles.statValue}>{program.duration_days || 7}</Text>
-                <Text style={styles.statLabel}>gün</Text>
+                <Text style={styles.statLabel}>{t('days')}</Text>
               </View>
               <View style={styles.statItem}>
                 <Ionicons name="trophy" size={24} color={Colors.warning} />
-                <Text style={styles.statValue}>{program.goal || 'Dengeli'}</Text>
-                <Text style={styles.statLabel}>hedef</Text>
+                <Text style={styles.statValue}>{program.goal || t('balanced')}</Text>
+                <Text style={styles.statLabel}>{t('goal')}</Text>
               </View>
             </View>
           </View>
@@ -393,7 +393,7 @@ export default function DietProgramScreen() {
           {!program.program_id && (
             <TouchableOpacity style={styles.startButton} onPress={handleStartDiet}>
               <Ionicons name="rocket" size={24} color={Colors.white} />
-              <Text style={styles.startButtonText}>30 Günlük Programa Başla</Text>
+              <Text style={styles.startButtonText}>{t('startDietProgram')}</Text>
             </TouchableOpacity>
           )}
 
@@ -403,7 +403,7 @@ export default function DietProgramScreen() {
           {/* 7-Day Preview (if not started) */}
           {!program.program_id && program.days && (
             <View style={styles.previewSection}>
-              <Text style={styles.sectionTitle}>7 Günlük Önizleme</Text>
+              <Text style={styles.sectionTitle}>{t('sevenDayPreview')}</Text>
               {program.days.slice(0, 7).map((day: any, index: number) => (
                 <TouchableOpacity
                   key={index}
