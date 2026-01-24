@@ -115,7 +115,7 @@ export default function MealsDetailScreen() {
   
   const handleManualAdd = async () => {
     if (!manualFood.name || !manualFood.calories) {
-      alert(lang === 'en' ? 'Please enter food name and calories' : 'Lütfen yemek adı ve kalori girin');
+      alert(t('pleaseEnterFoodNameAndCalories'));
       return;
     }
 
