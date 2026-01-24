@@ -1404,6 +1404,7 @@ const resources = {
       shortVideoTime: 'Sadece 15 saniye',
       pleaseWait: 'Lütfen bekleyin',
       adLoadFailed: 'Reklam yüklenemedi. Lütfen tekrar deneyin.',
+      languageChangeFailed: 'Dil değiştirme başarısız',
     }
   },
   
