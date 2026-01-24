@@ -690,6 +690,7 @@ const resources = {
       watchAd: 'Watch Ad',
       watchAdToViewRecipe: 'Watch an ad to view this recipe.',
       watchAdToCalculate: 'Watch an ad to calculate calories.',
+      yourHealthJourney: 'Your Health Journey',
       after2RecipesFree: 'Free with ads (1 free, 1 ad)',
       freeWithAds: 'Completely free with ads',
       recipesRemaining: 'free recipe',
