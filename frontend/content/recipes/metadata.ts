@@ -301,7 +301,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   // ============================================
   greek_salad: {
     id: 'greek_salad',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'salad',
     difficulty: 'easy',
     tags: ['vegetarian', 'mediterranean', 'quick', 'low_carb'],
@@ -313,7 +313,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   caesar_salad: {
     id: 'caesar_salad',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'salad',
     difficulty: 'easy',
     tags: ['high_protein', 'quick'],
@@ -325,7 +325,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   quinoa_salad: {
     id: 'quinoa_salad',
-    isPremium: true,
+    isPremium: true, // Reklamlı (yıldızlı)
     category: 'salad',
     difficulty: 'easy',
     tags: ['vegan', 'high_protein', 'gluten_free', 'meal_prep'],
@@ -337,7 +337,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   },
   tuna_salad: {
     id: 'tuna_salad',
-    isPremium: true,
+    isPremium: true, // Reklamlı (yıldızlı)
     category: 'salad',
     difficulty: 'easy',
     tags: ['high_protein', 'low_carb', 'quick', 'meal_prep'],
@@ -353,7 +353,7 @@ export const recipeMetadata: Record<RecipeId, RecipeMetadata> = {
   // ============================================
   hummus: {
     id: 'hummus',
-    isPremium: true,
+    isPremium: false, // Reklamsız
     category: 'snack',
     difficulty: 'easy',
     tags: ['vegan', 'high_protein', 'mediterranean', 'meal_prep'],
