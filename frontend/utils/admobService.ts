@@ -14,6 +14,15 @@ const isDevelopment = __DEV__;
 // Mock modu: Expo Go veya development
 const USE_MOCK = isExpoGo || isDevelopment;
 
+// Debug için log
+console.log('[AdMob Config]', {
+  isExpoGo,
+  isDevelopment,
+  USE_MOCK,
+  platform: Platform.OS,
+  appOwnership: Constants.appOwnership,
+});
+
 // Reklam durumları
 let isShowingAds = false;
 
