@@ -32,7 +32,8 @@ module.exports = {
         "RECEIVE_BOOT_COMPLETED",
         "VIBRATE",
         "INTERNET",
-        "ACCESS_NETWORK_STATE"
+        "ACCESS_NETWORK_STATE",
+        "com.google.android.gms.permission.AD_ID"
       ],
       intentFilters: [
         {
