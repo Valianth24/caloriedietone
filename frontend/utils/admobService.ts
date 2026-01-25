@@ -104,6 +104,8 @@ const showRealDoubleAd = async (
   onProgress?: (current: number, total: number) => void
 ): Promise<void> => {
   try {
+    console.log('[AdMob] Loading react-native-google-mobile-ads module...');
+    
     const {
       RewardedAd,
       RewardedAdEventType,
@@ -112,47 +114,91 @@ const showRealDoubleAd = async (
       AdEventType,
     } = await import('react-native-google-mobile-ads');
 
+    console.log('[AdMob] Module loaded successfully');
+
     const AD_UNIT_IDS = {
       REWARDED_INTERSTITIAL: 'ca-app-pub-6980942787991808/2514158595',
       REWARDED: 'ca-app-pub-6980942787991808/8616532511',
     };
 
+    console.log('[AdMob] Using ad unit IDs:', AD_UNIT_IDS);
+
     onProgress?.(0, 2);
 
     // İlk reklam (Rewarded Interstitial)
+    console.log('[AdMob] Creating first ad (Rewarded Interstitial)...');
     const firstAd = RewardedInterstitialAd.createForAdRequest(AD_UNIT_IDS.REWARDED_INTERSTITIAL);
     
     await new Promise<void>((resolve, reject) => {
-      firstAd.addAdEventListener(RewardedInterstitialAdEventType.LOADED, () => {
-        firstAd.show().then(() => resolve()).catch(reject);
+      const loadedListener = firstAd.addAdEventListener(RewardedInterstitialAdEventType.LOADED, () => {
+        console.log('[AdMob] First ad loaded, showing...');
+        firstAd.show().then(() => {
+          console.log('[AdMob] First ad shown successfully');
+        }).catch((showError: Error) => {
+          console.error('[AdMob] Error showing first ad:', showError);
+          reject(showError);
+        });
       });
-      firstAd.addAdEventListener(AdEventType.ERROR, reject);
-      firstAd.addAdEventListener(AdEventType.CLOSED, () => {
+      
+      const errorListener = firstAd.addAdEventListener(AdEventType.ERROR, (error: Error) => {
+        console.error('[AdMob] First ad error:', error);
+        reject(error);
+      });
+      
+      const closedListener = firstAd.addAdEventListener(AdEventType.CLOSED, () => {
+        console.log('[AdMob] First ad closed');
         onProgress?.(1, 2);
+        // Clean up listeners
+        loadedListener();
+        errorListener();
+        closedListener();
         resolve();
       });
+      
+      console.log('[AdMob] Loading first ad...');
       firstAd.load();
     });
 
     // İkinci reklam (Rewarded)
+    console.log('[AdMob] Creating second ad (Rewarded)...');
     const secondAd = RewardedAd.createForAdRequest(AD_UNIT_IDS.REWARDED);
     
     await new Promise<void>((resolve, reject) => {
-      secondAd.addAdEventListener(RewardedAdEventType.LOADED, () => {
-        secondAd.show().then(() => resolve()).catch(reject);
+      const loadedListener = secondAd.addAdEventListener(RewardedAdEventType.LOADED, () => {
+        console.log('[AdMob] Second ad loaded, showing...');
+        secondAd.show().then(() => {
+          console.log('[AdMob] Second ad shown successfully');
+        }).catch((showError: Error) => {
+          console.error('[AdMob] Error showing second ad:', showError);
+          reject(showError);
+        });
       });
-      secondAd.addAdEventListener(AdEventType.ERROR, reject);
-      secondAd.addAdEventListener(AdEventType.CLOSED, () => {
+      
+      const errorListener = secondAd.addAdEventListener(AdEventType.ERROR, (error: Error) => {
+        console.error('[AdMob] Second ad error:', error);
+        reject(error);
+      });
+      
+      const closedListener = secondAd.addAdEventListener(AdEventType.CLOSED, () => {
+        console.log('[AdMob] Second ad closed');
         onProgress?.(2, 2);
+        // Clean up listeners
+        loadedListener();
+        errorListener();
+        closedListener();
         resolve();
       });
+      
+      console.log('[AdMob] Loading second ad...');
       secondAd.load();
     });
 
     isShowingAds = false;
+    console.log('[AdMob] Both ads completed successfully');
     onComplete(true);
   } catch (error) {
-    console.error('[AdMob] Error showing real ads:', error);
+    console.error('[AdMob] Error in showRealDoubleAd:', error);
+    console.error('[AdMob] Error details:', JSON.stringify(error, null, 2));
     isShowingAds = false;
     onComplete(false);
   }
