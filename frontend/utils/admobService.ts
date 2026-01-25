@@ -322,14 +322,18 @@ const showRealSingleAd = async (onComplete: (success: boolean) => void): Promise
       AdEventType,
     } = await import('react-native-google-mobile-ads');
 
-    const AD_UNIT_ID = 'ca-app-pub-6980942787991808/8616532511';
-    const ad = RewardedAd.createForAdRequest(AD_UNIT_ID);
+    console.log('[AdMob] Creating single rewarded ad with ID:', AD_UNIT_IDS.REWARDED);
+    const ad = RewardedAd.createForAdRequest(AD_UNIT_IDS.REWARDED);
 
     await new Promise<void>((resolve, reject) => {
       ad.addAdEventListener(RewardedAdEventType.LOADED, () => {
+        console.log('[AdMob] Single rewarded ad loaded, showing...');
         ad.show().then(() => resolve()).catch(reject);
       });
-      ad.addAdEventListener(AdEventType.ERROR, reject);
+      ad.addAdEventListener(AdEventType.ERROR, (error: Error) => {
+        console.error('[AdMob] Single rewarded ad error:', error);
+        reject(error);
+      });
       ad.addAdEventListener(AdEventType.CLOSED, resolve);
       ad.load();
     });
