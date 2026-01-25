@@ -260,15 +260,18 @@ const showRealInterstitialAd = async (onComplete: (success: boolean) => void): P
       AdEventType,
     } = await import('react-native-google-mobile-ads');
 
-    // TARİF3 - Geçiş Reklamı (Interstitial)
-    const AD_UNIT_ID = 'ca-app-pub-6980942787991808/1408960486';
-    const ad = InterstitialAd.createForAdRequest(AD_UNIT_ID);
+    console.log('[AdMob] Creating interstitial ad with ID:', AD_UNIT_IDS.INTERSTITIAL);
+    const ad = InterstitialAd.createForAdRequest(AD_UNIT_IDS.INTERSTITIAL);
 
     await new Promise<void>((resolve, reject) => {
       ad.addAdEventListener(AdEventType.LOADED, () => {
+        console.log('[AdMob] Interstitial ad loaded, showing...');
         ad.show().then(() => resolve()).catch(reject);
       });
-      ad.addAdEventListener(AdEventType.ERROR, reject);
+      ad.addAdEventListener(AdEventType.ERROR, (error: Error) => {
+        console.error('[AdMob] Interstitial ad error:', error);
+        reject(error);
+      });
       ad.addAdEventListener(AdEventType.CLOSED, resolve);
       ad.load();
     });
