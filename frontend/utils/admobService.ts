@@ -23,6 +23,29 @@ console.log('[AdMob Config]', {
   appOwnership: Constants.appOwnership,
 });
 
+// TEST MODE: AdMob doğrulaması tamamlanana kadar test ID'leri kullan
+// Uygulama doğrulandıktan sonra bu değeri false yapın
+const USE_TEST_ADS = true;
+
+// Google'ın resmi test ID'leri - her zaman çalışır
+const TEST_AD_UNIT_IDS = {
+  REWARDED_INTERSTITIAL: 'ca-app-pub-3940256099942544/5354046379',
+  REWARDED: 'ca-app-pub-3940256099942544/5224354917',
+  INTERSTITIAL: 'ca-app-pub-3940256099942544/1033173712',
+};
+
+// Gerçek (production) Ad Unit ID'leri - AdMob doğrulaması sonrası kullanılacak
+const PROD_AD_UNIT_IDS = {
+  REWARDED_INTERSTITIAL: 'ca-app-pub-6980942787991808/2514158595',
+  REWARDED: 'ca-app-pub-6980942787991808/8616532511',
+  INTERSTITIAL: 'ca-app-pub-6980942787991808/1408960486',
+};
+
+// Hangi ID'leri kullanacağımızı belirle
+const AD_UNIT_IDS = USE_TEST_ADS ? TEST_AD_UNIT_IDS : PROD_AD_UNIT_IDS;
+
+console.log('[AdMob] Using', USE_TEST_ADS ? 'TEST' : 'PRODUCTION', 'ad IDs');
+
 // Reklam durumları
 let isShowingAds = false;
 
