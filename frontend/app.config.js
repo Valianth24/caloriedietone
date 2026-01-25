@@ -60,6 +60,7 @@ module.exports = {
     plugins: [
       "expo-router",
       "expo-font",
+      "expo-navigation-bar",
       [
         "expo-image-picker",
         {
@@ -80,6 +81,13 @@ module.exports = {
           imageWidth: 200,
           resizeMode: "contain",
           backgroundColor: "#4CAF50"
+        }
+      ],
+      [
+        "react-native-google-mobile-ads",
+        {
+          androidAppId: "ca-app-pub-6980942787991808~8398068336",
+          iosAppId: "ca-app-pub-6980942787991808~8398068336"
         }
       ]
     ],
