@@ -138,12 +138,6 @@ const showRealDoubleAd = async (
     } = await import('react-native-google-mobile-ads');
 
     console.log('[AdMob] Module loaded successfully');
-
-    const AD_UNIT_IDS = {
-      REWARDED_INTERSTITIAL: 'ca-app-pub-6980942787991808/2514158595',
-      REWARDED: 'ca-app-pub-6980942787991808/8616532511',
-    };
-
     console.log('[AdMob] Using ad unit IDs:', AD_UNIT_IDS);
 
     onProgress?.(0, 2);
