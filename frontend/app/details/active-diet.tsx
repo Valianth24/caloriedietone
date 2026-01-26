@@ -136,12 +136,7 @@ export default function ActiveDietScreen() {
     const currentIndex = activeDiet.selectedDays.indexOf(activeDiet.currentDay);
     if (currentIndex > 0) {
       const prevDay = activeDiet.selectedDays[currentIndex - 1];
-      const updated = { ...activeDiet, currentDay: prevDay };
-      await AsyncStorage.setItem('active_diet', JSON.stringify(updated));
-      setActiveDiet(updated);
-      
-      const dayData = diet.days.find(d => d.day === prevDay);
-      setCurrentDayData(dayData || null);
+      await switchToDay(prevDay);
     }
   };
 
