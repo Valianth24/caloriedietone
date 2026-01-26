@@ -52,7 +52,7 @@ export default function ActiveDietScreen() {
           setCurrentDayData(dayData || null);
           
           // Açılmış günleri yükle
-          loadUnlockedDays(parsed.dietId);
+          loadUnlockedDays(parsed.dietId, parsed.selectedDays);
         }
       }
     } catch (error) {
