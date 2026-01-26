@@ -55,12 +55,29 @@ export default function PremiumDietDetailScreen() {
     );
   }
 
-  const handleStartDiet = () => {
-    if (!user?.is_premium) {
-      Alert.alert(t('premium'), t('premiumRequired'));
+  const handleStartDiet = async () => {
+    // Reklam izlenmemiş ise önce reklam göster
+    if (!adWatched) {
+      setShowAdModal(true);
       return;
     }
     setShowDaysModal(true);
+  };
+
+  // Reklam izleme fonksiyonu
+  const handleWatchAdForDiet = async () => {
+    if (!diet) return;
+    
+    const success = await showAdsForDietEntry(diet.id);
+    if (success) {
+      setAdWatched(true);
+      setShowDaysModal(true); // Reklam bittikten sonra gün seçim modalını aç
+    } else {
+      Alert.alert(
+        lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
+        lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
+      );
+    }
   };
 
   const handleConfirmStart = async () => {
