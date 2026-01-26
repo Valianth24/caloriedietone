@@ -257,48 +257,6 @@ const showRealTripleAd = async (
     onComplete(false);
   }
 };
-    const secondAd = RewardedAd.createForAdRequest(AD_UNIT_IDS.REWARDED);
-    
-    await new Promise<void>((resolve, reject) => {
-      const loadedListener = secondAd.addAdEventListener(RewardedAdEventType.LOADED, () => {
-        console.log('[AdMob] Second ad loaded, showing...');
-        secondAd.show().then(() => {
-          console.log('[AdMob] Second ad shown successfully');
-        }).catch((showError: Error) => {
-          console.error('[AdMob] Error showing second ad:', showError);
-          reject(showError);
-        });
-      });
-      
-      const errorListener = secondAd.addAdEventListener(AdEventType.ERROR, (error: Error) => {
-        console.error('[AdMob] Second ad error:', error);
-        reject(error);
-      });
-      
-      const closedListener = secondAd.addAdEventListener(AdEventType.CLOSED, () => {
-        console.log('[AdMob] Second ad closed');
-        onProgress?.(2, 2);
-        // Clean up listeners
-        loadedListener();
-        errorListener();
-        closedListener();
-        resolve();
-      });
-      
-      console.log('[AdMob] Loading second ad...');
-      secondAd.load();
-    });
-
-    isShowingAds = false;
-    console.log('[AdMob] Both ads completed successfully');
-    onComplete(true);
-  } catch (error) {
-    console.error('[AdMob] Error in showRealDoubleAd:', error);
-    console.error('[AdMob] Error details:', JSON.stringify(error, null, 2));
-    isShowingAds = false;
-    onComplete(false);
-  }
-};
 
 /**
  * Kısa geçiş reklamı göster (Interstitial)
