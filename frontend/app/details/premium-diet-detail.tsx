@@ -8,6 +8,8 @@ import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useStore } from '../../store/useStore';
 import { getDietById, Diet, DietDay } from '../../content/diets';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import WatchAdModal from '../../components/WatchAdModal';
+import { needsAdForDietEntry, showAdsForDietEntry } from '../../utils/adSystem';
 
 export default function PremiumDietDetailScreen() {
   const { t, i18n } = useTranslation();
