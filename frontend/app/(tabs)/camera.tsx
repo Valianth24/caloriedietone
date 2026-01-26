@@ -220,27 +220,40 @@ export default function CameraScreen() {
     }
   };
 
-  // Handle context modal submit
+  // Handle context modal submit - önce reklam göster
   const handleContextSubmit = () => {
     if (pendingBase64) {
-      setImageBase64(pendingBase64);
+      setPendingAnalysis({ base64: pendingBase64, context: foodContext.trim() });
       setShowContextModal(false);
-      setResult(null);
-      setEditedItems([]);
-      analyzeImage(pendingBase64, foodContext.trim());
-      setPendingBase64(null);
+      setShowAdModal(true); // Reklam modalını göster
     }
   };
 
-  // Skip context and analyze directly
+  // Skip context and analyze directly - önce reklam göster
   const handleSkipContext = () => {
     if (pendingBase64) {
-      setImageBase64(pendingBase64);
+      setPendingAnalysis({ base64: pendingBase64, context: '' });
       setShowContextModal(false);
+      setShowAdModal(true); // Reklam modalını göster
+    }
+  };
+
+  // Reklam izlendikten sonra analiz yap
+  const handleWatchAdForCalorie = async () => {
+    const success = await showAdsForCalorieCalculation();
+    if (success && pendingAnalysis) {
+      setImageBase64(pendingAnalysis.base64);
       setResult(null);
       setEditedItems([]);
-      analyzeImage(pendingBase64, '');
+      analyzeImage(pendingAnalysis.base64, pendingAnalysis.context);
+      setPendingAnalysis(null);
       setPendingBase64(null);
+    } else {
+      // Reklam başarısız oldu
+      Alert.alert(
+        lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
+        lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
+      );
     }
   };
 
