@@ -124,9 +124,11 @@ export const showDoubleRewardedAd = (
 };
 
 /**
- * Gerçek çift reklam göster (production)
+ * Gerçek ÜÇ reklam göster (production)
+ * Sıra: Rewarded Interstitial → Rewarded → Interstitial
+ * Kullanıcı hiçbir şeye basmadan 3 reklam arka arkaya oynar
  */
-const showRealDoubleAd = async (
+const showRealTripleAd = async (
   onComplete: (success: boolean) => void,
   onProgress?: (current: number, total: number) => void
 ): Promise<void> => {
@@ -138,50 +140,123 @@ const showRealDoubleAd = async (
       RewardedAdEventType,
       RewardedInterstitialAd,
       RewardedInterstitialAdEventType,
+      InterstitialAd,
       AdEventType,
     } = await import('react-native-google-mobile-ads');
 
     console.log('[AdMob] Module loaded successfully');
-    console.log('[AdMob] Using ad unit IDs:', AD_UNIT_IDS);
+    console.log('[AdMob] Starting triple ad sequence...');
 
-    onProgress?.(0, 2);
+    onProgress?.(0, 3);
 
-    // İlk reklam (Rewarded Interstitial)
-    console.log('[AdMob] Creating first ad (Rewarded Interstitial)...');
+    // ========== 1. REKLAM: Rewarded Interstitial ==========
+    console.log('[AdMob] Creating ad 1/3 (Rewarded Interstitial)...');
     const firstAd = RewardedInterstitialAd.createForAdRequest(AD_UNIT_IDS.REWARDED_INTERSTITIAL);
     
     await new Promise<void>((resolve, reject) => {
       const loadedListener = firstAd.addAdEventListener(RewardedInterstitialAdEventType.LOADED, () => {
-        console.log('[AdMob] First ad loaded, showing...');
-        firstAd.show().then(() => {
-          console.log('[AdMob] First ad shown successfully');
-        }).catch((showError: Error) => {
-          console.error('[AdMob] Error showing first ad:', showError);
+        console.log('[AdMob] Ad 1/3 loaded, showing...');
+        firstAd.show().catch((showError: Error) => {
+          console.error('[AdMob] Error showing ad 1/3:', showError);
           reject(showError);
         });
       });
       
       const errorListener = firstAd.addAdEventListener(AdEventType.ERROR, (error: Error) => {
-        console.error('[AdMob] First ad error:', error);
+        console.error('[AdMob] Ad 1/3 error:', error);
+        loadedListener();
+        errorListener();
         reject(error);
       });
       
       const closedListener = firstAd.addAdEventListener(AdEventType.CLOSED, () => {
-        console.log('[AdMob] First ad closed');
-        onProgress?.(1, 2);
-        // Clean up listeners
+        console.log('[AdMob] Ad 1/3 closed');
+        onProgress?.(1, 3);
         loadedListener();
         errorListener();
         closedListener();
         resolve();
       });
       
-      console.log('[AdMob] Loading first ad...');
+      console.log('[AdMob] Loading ad 1/3...');
       firstAd.load();
     });
 
-    // İkinci reklam (Rewarded)
-    console.log('[AdMob] Creating second ad (Rewarded)...');
+    // ========== 2. REKLAM: Rewarded ==========
+    console.log('[AdMob] Creating ad 2/3 (Rewarded)...');
+    const secondAd = RewardedAd.createForAdRequest(AD_UNIT_IDS.REWARDED);
+    
+    await new Promise<void>((resolve, reject) => {
+      const loadedListener = secondAd.addAdEventListener(RewardedAdEventType.LOADED, () => {
+        console.log('[AdMob] Ad 2/3 loaded, showing...');
+        secondAd.show().catch((showError: Error) => {
+          console.error('[AdMob] Error showing ad 2/3:', showError);
+          reject(showError);
+        });
+      });
+      
+      const errorListener = secondAd.addAdEventListener(AdEventType.ERROR, (error: Error) => {
+        console.error('[AdMob] Ad 2/3 error:', error);
+        loadedListener();
+        errorListener();
+        reject(error);
+      });
+      
+      const closedListener = secondAd.addAdEventListener(AdEventType.CLOSED, () => {
+        console.log('[AdMob] Ad 2/3 closed');
+        onProgress?.(2, 3);
+        loadedListener();
+        errorListener();
+        closedListener();
+        resolve();
+      });
+      
+      console.log('[AdMob] Loading ad 2/3...');
+      secondAd.load();
+    });
+
+    // ========== 3. REKLAM: Interstitial ==========
+    console.log('[AdMob] Creating ad 3/3 (Interstitial)...');
+    const thirdAd = InterstitialAd.createForAdRequest(AD_UNIT_IDS.INTERSTITIAL);
+    
+    await new Promise<void>((resolve, reject) => {
+      const loadedListener = thirdAd.addAdEventListener(AdEventType.LOADED, () => {
+        console.log('[AdMob] Ad 3/3 loaded, showing...');
+        thirdAd.show().catch((showError: Error) => {
+          console.error('[AdMob] Error showing ad 3/3:', showError);
+          reject(showError);
+        });
+      });
+      
+      const errorListener = thirdAd.addAdEventListener(AdEventType.ERROR, (error: Error) => {
+        console.error('[AdMob] Ad 3/3 error:', error);
+        loadedListener();
+        errorListener();
+        reject(error);
+      });
+      
+      const closedListener = thirdAd.addAdEventListener(AdEventType.CLOSED, () => {
+        console.log('[AdMob] Ad 3/3 closed');
+        onProgress?.(3, 3);
+        loadedListener();
+        errorListener();
+        closedListener();
+        resolve();
+      });
+      
+      console.log('[AdMob] Loading ad 3/3...');
+      thirdAd.load();
+    });
+
+    isShowingAds = false;
+    console.log('[AdMob] All 3 ads completed successfully! ✅');
+    onComplete(true);
+  } catch (error) {
+    console.error('[AdMob] Error in triple ad sequence:', error);
+    isShowingAds = false;
+    onComplete(false);
+  }
+};
     const secondAd = RewardedAd.createForAdRequest(AD_UNIT_IDS.REWARDED);
     
     await new Promise<void>((resolve, reject) => {
