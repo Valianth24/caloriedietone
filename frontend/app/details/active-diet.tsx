@@ -50,11 +50,28 @@ export default function ActiveDietScreen() {
           // Mevcut günün verisini bul
           const dayData = foundDiet.days.find(d => d.day === parsed.currentDay);
           setCurrentDayData(dayData || null);
+          
+          // Açılmış günleri yükle
+          loadUnlockedDays(parsed.dietId);
         }
       }
     } catch (error) {
       console.error('Error loading active diet:', error);
     }
+  };
+
+  // Açılmış günleri yükle
+  const loadUnlockedDays = async (dietId: string) => {
+    const unlocked = [1]; // Gün 1 her zaman açık
+    if (activeDiet) {
+      for (const day of activeDiet.selectedDays) {
+        const isUnlocked = await isDietDayUnlocked(dietId, day);
+        if (isUnlocked && !unlocked.includes(day)) {
+          unlocked.push(day);
+        }
+      }
+    }
+    setUnlockedDays(unlocked);
   };
 
   const handleNextDay = async () => {
