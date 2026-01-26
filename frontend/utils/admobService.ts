@@ -147,107 +147,94 @@ const showRealTripleAd = async (
 
     console.log('[AdMob] Module loaded successfully');
     console.log('[AdMob] Starting triple ad sequence...');
+    console.log('[AdMob] Ad Unit IDs:', AD_UNIT_IDS);
 
     onProgress?.(0, 3);
+
+    // Helper: Reklam yükleme ve gösterme (timeout ile)
+    const showAdWithTimeout = <T extends { load: () => void; show: () => Promise<void> }>(
+      ad: T,
+      loadEvent: string,
+      addListener: (event: string, callback: () => void) => () => void,
+      adName: string,
+      timeoutMs: number = 15000
+    ): Promise<void> => {
+      return new Promise((resolve, reject) => {
+        let resolved = false;
+        
+        const timeout = setTimeout(() => {
+          if (!resolved) {
+            resolved = true;
+            console.error(`[AdMob] ${adName} timeout after ${timeoutMs}ms`);
+            reject(new Error(`${adName} timeout`));
+          }
+        }, timeoutMs);
+
+        const cleanup = () => {
+          clearTimeout(timeout);
+        };
+
+        // @ts-ignore - dynamic event handling
+        const loadedListener = ad.addAdEventListener(loadEvent, () => {
+          console.log(`[AdMob] ${adName} loaded, showing...`);
+          ad.show()
+            .then(() => console.log(`[AdMob] ${adName} shown`))
+            .catch((err: Error) => {
+              if (!resolved) {
+                resolved = true;
+                cleanup();
+                reject(err);
+              }
+            });
+        });
+
+        // @ts-ignore
+        const errorListener = ad.addAdEventListener(AdEventType.ERROR, (error: Error) => {
+          console.error(`[AdMob] ${adName} error:`, error);
+          if (!resolved) {
+            resolved = true;
+            cleanup();
+            loadedListener();
+            errorListener();
+            reject(error);
+          }
+        });
+
+        // @ts-ignore
+        const closedListener = ad.addAdEventListener(AdEventType.CLOSED, () => {
+          console.log(`[AdMob] ${adName} closed`);
+          if (!resolved) {
+            resolved = true;
+            cleanup();
+            loadedListener();
+            errorListener();
+            closedListener();
+            resolve();
+          }
+        });
+
+        console.log(`[AdMob] Loading ${adName}...`);
+        ad.load();
+      });
+    };
 
     // ========== 1. REKLAM: Rewarded Interstitial ==========
     console.log('[AdMob] Creating ad 1/3 (Rewarded Interstitial)...');
     const firstAd = RewardedInterstitialAd.createForAdRequest(AD_UNIT_IDS.REWARDED_INTERSTITIAL);
-    
-    await new Promise<void>((resolve, reject) => {
-      const loadedListener = firstAd.addAdEventListener(RewardedInterstitialAdEventType.LOADED, () => {
-        console.log('[AdMob] Ad 1/3 loaded, showing...');
-        firstAd.show().catch((showError: Error) => {
-          console.error('[AdMob] Error showing ad 1/3:', showError);
-          reject(showError);
-        });
-      });
-      
-      const errorListener = firstAd.addAdEventListener(AdEventType.ERROR, (error: Error) => {
-        console.error('[AdMob] Ad 1/3 error:', error);
-        loadedListener();
-        errorListener();
-        reject(error);
-      });
-      
-      const closedListener = firstAd.addAdEventListener(AdEventType.CLOSED, () => {
-        console.log('[AdMob] Ad 1/3 closed');
-        onProgress?.(1, 3);
-        loadedListener();
-        errorListener();
-        closedListener();
-        resolve();
-      });
-      
-      console.log('[AdMob] Loading ad 1/3...');
-      firstAd.load();
-    });
+    await showAdWithTimeout(firstAd, RewardedInterstitialAdEventType.LOADED, firstAd.addAdEventListener.bind(firstAd), 'Ad 1/3 (Rewarded Interstitial)');
+    onProgress?.(1, 3);
 
     // ========== 2. REKLAM: Rewarded ==========
     console.log('[AdMob] Creating ad 2/3 (Rewarded)...');
     const secondAd = RewardedAd.createForAdRequest(AD_UNIT_IDS.REWARDED);
-    
-    await new Promise<void>((resolve, reject) => {
-      const loadedListener = secondAd.addAdEventListener(RewardedAdEventType.LOADED, () => {
-        console.log('[AdMob] Ad 2/3 loaded, showing...');
-        secondAd.show().catch((showError: Error) => {
-          console.error('[AdMob] Error showing ad 2/3:', showError);
-          reject(showError);
-        });
-      });
-      
-      const errorListener = secondAd.addAdEventListener(AdEventType.ERROR, (error: Error) => {
-        console.error('[AdMob] Ad 2/3 error:', error);
-        loadedListener();
-        errorListener();
-        reject(error);
-      });
-      
-      const closedListener = secondAd.addAdEventListener(AdEventType.CLOSED, () => {
-        console.log('[AdMob] Ad 2/3 closed');
-        onProgress?.(2, 3);
-        loadedListener();
-        errorListener();
-        closedListener();
-        resolve();
-      });
-      
-      console.log('[AdMob] Loading ad 2/3...');
-      secondAd.load();
-    });
+    await showAdWithTimeout(secondAd, RewardedAdEventType.LOADED, secondAd.addAdEventListener.bind(secondAd), 'Ad 2/3 (Rewarded)');
+    onProgress?.(2, 3);
 
     // ========== 3. REKLAM: Interstitial ==========
     console.log('[AdMob] Creating ad 3/3 (Interstitial)...');
     const thirdAd = InterstitialAd.createForAdRequest(AD_UNIT_IDS.INTERSTITIAL);
-    
-    await new Promise<void>((resolve, reject) => {
-      const loadedListener = thirdAd.addAdEventListener(AdEventType.LOADED, () => {
-        console.log('[AdMob] Ad 3/3 loaded, showing...');
-        thirdAd.show().catch((showError: Error) => {
-          console.error('[AdMob] Error showing ad 3/3:', showError);
-          reject(showError);
-        });
-      });
-      
-      const errorListener = thirdAd.addAdEventListener(AdEventType.ERROR, (error: Error) => {
-        console.error('[AdMob] Ad 3/3 error:', error);
-        loadedListener();
-        errorListener();
-        reject(error);
-      });
-      
-      const closedListener = thirdAd.addAdEventListener(AdEventType.CLOSED, () => {
-        console.log('[AdMob] Ad 3/3 closed');
-        onProgress?.(3, 3);
-        loadedListener();
-        errorListener();
-        closedListener();
-        resolve();
-      });
-      
-      console.log('[AdMob] Loading ad 3/3...');
-      thirdAd.load();
-    });
+    await showAdWithTimeout(thirdAd, AdEventType.LOADED, thirdAd.addAdEventListener.bind(thirdAd), 'Ad 3/3 (Interstitial)');
+    onProgress?.(3, 3);
 
     isShowingAds = false;
     console.log('[AdMob] All 3 ads completed successfully! ✅');
