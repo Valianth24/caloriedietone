@@ -18,8 +18,9 @@ interface WatchAdModalProps {
   visible: boolean;
   onClose: () => void;
   onWatchAd: () => Promise<void>;
-  type: 'recipe' | 'calorie';
-  isFirstTime?: boolean; // İlk kez mi izleniyor (ödüllü) yoksa sonraki seferler mi (geçiş)
+  type: 'recipe' | 'calorie' | 'calorie_calculation' | 'diet_entry' | 'diet_day';
+  isFirstTime?: boolean;
+  dietDay?: number; // Diet günü için
 }
 
 export default function WatchAdModal({
@@ -28,9 +29,11 @@ export default function WatchAdModal({
   onWatchAd,
   type,
   isFirstTime = true,
+  dietDay,
 }: WatchAdModalProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [loading, setLoading] = useState(false);
+  const lang = i18n.language === 'tr' ? 'tr' : 'en';
 
   const handleWatchAd = async () => {
     setLoading(true);
@@ -44,18 +47,68 @@ export default function WatchAdModal({
     }
   };
 
-  const getTitle = () => {
-    if (type === 'recipe') {
-      return t('watchAdForRecipe');
+  const getIcon = () => {
+    switch (type) {
+      case 'recipe': return 'restaurant';
+      case 'calorie': return 'flame';
+      case 'calorie_calculation': return 'camera';
+      case 'diet_entry': return 'fitness';
+      case 'diet_day': return 'calendar';
+      default: return 'star';
     }
-    return t('watchAdForCalorie');
+  };
+
+  const getTitle = () => {
+    switch (type) {
+      case 'recipe':
+        return t('watchAdForRecipe');
+      case 'calorie':
+        return t('watchAdForCalorie');
+      case 'calorie_calculation':
+        return lang === 'tr' ? 'Kalori Hesaplama' : 'Calorie Calculation';
+      case 'diet_entry':
+        return lang === 'tr' ? 'Diyet Programına Eriş' : 'Access Diet Program';
+      case 'diet_day':
+        return lang === 'tr' ? `Gün ${dietDay} Kilidi Aç` : `Unlock Day ${dietDay}`;
+      default:
+        return t('watchAd');
+    }
   };
 
   const getDescription = () => {
-    if (type === 'recipe') {
-      return t('watchAdToViewRecipe');
+    switch (type) {
+      case 'recipe':
+        return t('watchAdToViewRecipe');
+      case 'calorie':
+        return t('watchAdToCalculate');
+      case 'calorie_calculation':
+        return lang === 'tr' 
+          ? 'Fotoğrafınızdan kalori hesaplamak için kısa bir reklam izleyin. 3 reklam arka arkaya gösterilecektir.'
+          : 'Watch a short ad to calculate calories from your photo. 3 ads will be shown in sequence.';
+      case 'diet_entry':
+        return lang === 'tr'
+          ? 'Diyet programına erişmek için kısa bir reklam izleyin. 3 reklam arka arkaya gösterilecektir.'
+          : 'Watch a short ad to access the diet program. 3 ads will be shown in sequence.';
+      case 'diet_day':
+        return lang === 'tr'
+          ? `Gün ${dietDay} içeriğini görmek için kısa bir reklam izleyin. 3 reklam arka arkaya gösterilecektir.`
+          : `Watch a short ad to see Day ${dietDay} content. 3 ads will be shown in sequence.`;
+      default:
+        return t('watchAdDescription');
     }
-    return t('watchAdToCalculate');
+  };
+
+  const getGradientColors = (): [string, string] => {
+    switch (type) {
+      case 'calorie_calculation':
+        return ['#FF6B6B', '#FF8E53'];
+      case 'diet_entry':
+        return ['#4CAF50', '#8BC34A'];
+      case 'diet_day':
+        return ['#2196F3', '#03A9F4'];
+      default:
+        return ['#667eea', '#764ba2'];
+    }
   };
 
   return (
@@ -67,15 +120,15 @@ export default function WatchAdModal({
     >
       <View style={styles.overlay}>
         <View style={styles.modal}>
-          {/* Premium Header */}
+          {/* Header */}
           <LinearGradient
-            colors={['#667eea', '#764ba2']}
+            colors={getGradientColors()}
             start={{ x: 0, y: 0 }}
             end={{ x: 1, y: 1 }}
             style={styles.header}
           >
             <View style={styles.starContainer}>
-              <Ionicons name="star" size={32} color="#FFD700" />
+              <Ionicons name={getIcon() as any} size={32} color="#FFF" />
             </View>
             <Text style={styles.headerTitle}>{getTitle()}</Text>
           </LinearGradient>
@@ -87,6 +140,16 @@ export default function WatchAdModal({
 
           {/* Content */}
           <View style={styles.content}>
+            {/* Ad count indicator */}
+            <View style={styles.adCountContainer}>
+              <View style={styles.adCountBadge}>
+                <Ionicons name="videocam" size={16} color="#667eea" />
+                <Text style={styles.adCountText}>
+                  {lang === 'tr' ? '3 Reklam' : '3 Ads'}
+                </Text>
+              </View>
+            </View>
+
             {/* Description */}
             <Text style={styles.description}>{getDescription()}</Text>
 
@@ -99,7 +162,7 @@ export default function WatchAdModal({
                 activeOpacity={0.8}
               >
                 <LinearGradient
-                  colors={['#667eea', '#764ba2']}
+                  colors={getGradientColors()}
                   start={{ x: 0, y: 0 }}
                   end={{ x: 1, y: 0 }}
                   style={styles.watchButtonGradient}
@@ -188,6 +251,24 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 24,
+  },
+  adCountContainer: {
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  adCountBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#667eea15',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    gap: 8,
+  },
+  adCountText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#667eea',
   },
   description: {
     fontSize: 15,
