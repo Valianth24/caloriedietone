@@ -231,13 +231,21 @@ export default function RecipesScreen() {
   
   const handleWatchAd = async () => {
     try {
-      // AdMob çift reklam göster
-      await showRewardedAd('recipe', pendingRecipe?.id);
+      // AdMob 3'lü reklam göster
+      const success = await showRewardedAd('recipe', pendingRecipe?.id);
       
-      // Reklam izlenen tarifleri güncelle
+      if (!success) {
+        // Reklam başarısız - tarifi açma
+        Alert.alert(
+          lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
+          lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
+        );
+        return;
+      }
+      
+      // Reklam başarılı - tarifleri güncelle ve aç
       await loadWatchedAdRecipes();
       
-      // Bekleyen tarife git
       if (pendingRecipe) {
         router.push({
           pathname: '/details/recipe-detail',
@@ -248,7 +256,10 @@ export default function RecipesScreen() {
       }
     } catch (error) {
       console.error('Error watching ad:', error);
-      Alert.alert(t('error'), t('adLoadFailed'));
+      Alert.alert(
+        lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
+        lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
+      );
     }
   };
 
