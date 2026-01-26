@@ -161,12 +161,6 @@ export default function CameraScreen() {
   };
 
   const pickImage = async () => {
-    // Premium check - only premium users can use AI analysis
-    if (!isPremium) {
-      setShowPaywall(true);
-      return;
-    }
-    
     const permissionResult = await ImagePicker.requestCameraPermissionsAsync();
     if (!permissionResult.granted) {
       Alert.alert(t('error'), t('cameraPermissionRequired'));
@@ -192,12 +186,6 @@ export default function CameraScreen() {
   };
 
   const pickFromGallery = async () => {
-    // Premium check - only premium users can use AI analysis
-    if (!isPremium) {
-      setShowPaywall(true);
-      return;
-    }
-    
     const permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (!permissionResult.granted) {
       Alert.alert(t('error'), t('galleryPermissionRequired'));
