@@ -11,8 +11,9 @@ import Constants from 'expo-constants';
 const isExpoGo = Constants.appOwnership === 'expo';
 const isDevelopment = __DEV__;
 
-// Mock modu: Expo Go veya development
-const USE_MOCK = isExpoGo || isDevelopment;
+// MOCK MODU KAPALI - Her zaman gerçek reklamlar gösterilecek
+// Eğer test etmek istiyorsanız USE_MOCK = true yapın
+const USE_MOCK = false; // ❌ MOCK KAPALI - Gerçek reklamlar aktif
 
 // Debug için log
 console.log('[AdMob Config]', {
