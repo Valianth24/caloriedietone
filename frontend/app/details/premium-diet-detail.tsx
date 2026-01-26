@@ -20,6 +20,10 @@ export default function PremiumDietDetailScreen() {
   const [showDaysModal, setShowDaysModal] = useState(false);
   const [selectedDays, setSelectedDays] = useState<number[]>([]);
   const [activeTab, setActiveTab] = useState<'info' | 'foods' | 'exercises'>('info');
+  
+  // Reklam state'leri
+  const [showAdModal, setShowAdModal] = useState(false);
+  const [adWatched, setAdWatched] = useState(false);
 
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
 
@@ -30,9 +34,16 @@ export default function PremiumDietDetailScreen() {
         setDiet(foundDiet);
         // Varsayılan olarak tüm günleri seç
         setSelectedDays(foundDiet.days.map(d => d.day));
+        // Reklam durumunu kontrol et
+        checkAdStatus(foundDiet.id);
       }
     }
   }, [id]);
+
+  const checkAdStatus = async (dietId: string) => {
+    const needsAd = await needsAdForDietEntry(dietId);
+    setAdWatched(!needsAd);
+  };
 
   if (!diet) {
     return (
