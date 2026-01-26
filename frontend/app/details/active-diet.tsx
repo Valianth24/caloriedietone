@@ -61,14 +61,13 @@ export default function ActiveDietScreen() {
   };
 
   // Açılmış günleri yükle
-  const loadUnlockedDays = async (dietId: string) => {
+  const loadUnlockedDays = async (dietId: string, selectedDays: number[]) => {
     const unlocked = [1]; // Gün 1 her zaman açık
-    if (activeDiet) {
-      for (const day of activeDiet.selectedDays) {
-        const isUnlocked = await isDietDayUnlocked(dietId, day);
-        if (isUnlocked && !unlocked.includes(day)) {
-          unlocked.push(day);
-        }
+    for (const day of selectedDays) {
+      if (day === 1) continue; // Gün 1 zaten eklendi
+      const isUnlocked = await isDietDayUnlocked(dietId, day);
+      if (isUnlocked && !unlocked.includes(day)) {
+        unlocked.push(day);
       }
     }
     setUnlockedDays(unlocked);
