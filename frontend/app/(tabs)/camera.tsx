@@ -821,6 +821,17 @@ export default function CameraScreen() {
         onSubscribe={handleSubscribe}
       />
 
+      {/* Reklam Modal - Kalori hesaplama için */}
+      <WatchAdModal
+        visible={showAdModal}
+        onClose={() => {
+          setShowAdModal(false);
+          setPendingAnalysis(null);
+        }}
+        onWatchAd={handleWatchAdForCalorie}
+        type="calorie_calculation"
+      />
+
       {/* Context Input Modal - Ask user for food description */}
       <Modal
         visible={showContextModal}
