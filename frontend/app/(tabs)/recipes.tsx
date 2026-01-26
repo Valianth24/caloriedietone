@@ -125,6 +125,7 @@ export default function RecipesScreen() {
   const { user } = useAuth();
   const router = useRouter();
   const locale = i18n.language?.startsWith('tr') ? 'tr' : 'en';
+  const lang = i18n.language === 'tr' ? 'tr' : 'en';
 
   const [selectedCategory, setSelectedCategory] = useState<RecipeCategory | 'all'>('all');
   const [selectedCollection, setSelectedCollection] = useState<CollectionId | null>(null);
