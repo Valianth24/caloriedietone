@@ -25,7 +25,9 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
 import PremiumPaywall from '../../components/PremiumPaywall';
+import WatchAdModal from '../../components/WatchAdModal';
 import { activatePremium } from '../../utils/api';
+import { showAdsForCalorieCalculation } from '../../utils/adSystem';
 import Constants from 'expo-constants';
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
