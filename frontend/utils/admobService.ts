@@ -84,8 +84,9 @@ export const preloadAds = async (): Promise<void> => {
 };
 
 /**
- * İki reklamı arka arkaya göster (tek reklam gibi)
- * İlk kez tarif açılırken kullanılır
+ * ÜÇ reklamı arka arkaya göster (tek reklam deneyimi gibi)
+ * Kullanıcı 1 kez "Reklam İzle" butonuna basar, 3 reklam otomatik oynar
+ * Sıra: Rewarded Interstitial → Rewarded → Interstitial
  */
 export const showDoubleRewardedAd = (
   onComplete: (success: boolean) => void,
@@ -99,15 +100,18 @@ export const showDoubleRewardedAd = (
   isShowingAds = true;
 
   if (USE_MOCK) {
-    // Mock: İki reklam simüle et
+    // Mock: Üç reklam simüle et
     (async () => {
-      onProgress?.(0, 2);
+      onProgress?.(0, 3);
       
       await showMockAd();
-      onProgress?.(1, 2);
+      onProgress?.(1, 3);
       
       await showMockAd();
-      onProgress?.(2, 2);
+      onProgress?.(2, 3);
+      
+      await showMockAd();
+      onProgress?.(3, 3);
       
       isShowingAds = false;
       onComplete(true);
@@ -115,8 +119,8 @@ export const showDoubleRewardedAd = (
     return;
   }
 
-  // Production: Gerçek AdMob reklamları
-  showRealDoubleAd(onComplete, onProgress);
+  // Production: Gerçek AdMob reklamları (3 reklam arka arkaya)
+  showRealTripleAd(onComplete, onProgress);
 };
 
 /**
