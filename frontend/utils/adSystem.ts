@@ -195,38 +195,30 @@ export const getAdSystemState = async (): Promise<AdSystemState> => {
  * Sonraki seferler: Kısa geçiş reklamı (interstitial)
  */
 export const showRewardedAd = async (type: 'recipe' | 'calorie', recipeId?: string): Promise<boolean> => {
-  const { showDoubleRewardedAd, showInterstitialAd, areAdsLoaded } = await import('./admobService');
+  const { showDoubleRewardedAd, showInterstitialAd } = await import('./admobService');
   
   // Bu tarif daha önce açıldı mı?
   const watchedRecipes = await getWatchedAdRecipes();
   const wasWatchedBefore = recipeId ? watchedRecipes.includes(recipeId) : false;
   
-  console.log(`[AdMob] Showing ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}, wasWatchedBefore: ${wasWatchedBefore}`);
+  console.log(`[AdSystem] Showing ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}, wasWatchedBefore: ${wasWatchedBefore}`);
   
   return new Promise((resolve) => {
-    if (wasWatchedBefore) {
-      // Daha önce açıldı - sadece kısa geçiş reklamı göster
-      showInterstitialAd(async (success) => {
-        if (success) {
-          console.log(`[AdMob] Interstitial ad completed for ${type}`);
+    // Her zaman 3'lü reklam göster (ilk kez veya tekrar)
+    showDoubleRewardedAd(
+      async (success) => {
+        console.log(`[AdSystem] Triple ad result: ${success}`);
+        if (success && recipeId) {
+          await resetAfterAd(type, recipeId);
+          console.log(`[AdSystem] Recipe ${recipeId} marked as watched`);
         }
+        // Reklam başarısız olursa false dön - tarif açılmasın
         resolve(success);
-      });
-    } else {
-      // İlk kez açılıyor - çift ödüllü reklam göster
-      showDoubleRewardedAd(
-        async (success) => {
-          if (success) {
-            await resetAfterAd(type, recipeId);
-            console.log(`[AdMob] Double ad completed successfully for ${type}`);
-          }
-          resolve(success);
-        },
-        (current, total) => {
-          console.log(`[AdMob] Ad progress: ${current}/${total}`);
-        }
-      );
-    }
+      },
+      (current, total) => {
+        console.log(`[AdSystem] Ad progress: ${current}/${total}`);
+      }
+    );
   });
 };
 
