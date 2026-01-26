@@ -80,17 +80,52 @@ export default function ActiveDietScreen() {
     const currentIndex = activeDiet.selectedDays.indexOf(activeDiet.currentDay);
     if (currentIndex < activeDiet.selectedDays.length - 1) {
       const nextDay = activeDiet.selectedDays[currentIndex + 1];
-      const updated = { ...activeDiet, currentDay: nextDay };
-      await AsyncStorage.setItem('active_diet', JSON.stringify(updated));
-      setActiveDiet(updated);
       
-      const dayData = diet.days.find(d => d.day === nextDay);
-      setCurrentDayData(dayData || null);
+      // Gün kilidi kontrolü
+      const isUnlocked = await isDietDayUnlocked(activeDiet.dietId, nextDay);
+      if (!isUnlocked && nextDay !== 1) {
+        // Reklam göster
+        setPendingDayChange(nextDay);
+        setShowAdModal(true);
+        return;
+      }
+      
+      // Güne geç
+      await switchToDay(nextDay);
     } else {
       Alert.alert(
         t('congratulations'),
         t('dietCompleted'),
         [{ text: t('ok') }]
+      );
+    }
+  };
+
+  // Güne geçiş fonksiyonu
+  const switchToDay = async (day: number) => {
+    if (!activeDiet || !diet) return;
+    
+    const updated = { ...activeDiet, currentDay: day };
+    await AsyncStorage.setItem('active_diet', JSON.stringify(updated));
+    setActiveDiet(updated);
+    
+    const dayData = diet.days.find(d => d.day === day);
+    setCurrentDayData(dayData || null);
+  };
+
+  // Reklam izleme fonksiyonu
+  const handleWatchAdForDay = async () => {
+    if (!activeDiet || pendingDayChange === null) return;
+    
+    const success = await showAdsForDietDay(activeDiet.dietId, pendingDayChange);
+    if (success) {
+      setUnlockedDays(prev => [...prev, pendingDayChange]);
+      await switchToDay(pendingDayChange);
+      setPendingDayChange(null);
+    } else {
+      Alert.alert(
+        lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
+        lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
       );
     }
   };
