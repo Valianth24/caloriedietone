@@ -410,6 +410,14 @@ export default function PremiumDietDetailScreen() {
           </View>
         </View>
       </Modal>
+
+      {/* Reklam Modal - Diyete giriş için */}
+      <WatchAdModal
+        visible={showAdModal}
+        onClose={() => setShowAdModal(false)}
+        onWatchAd={handleWatchAdForDiet}
+        type="diet_entry"
+      />
     </SafeAreaView>
   );
 }
