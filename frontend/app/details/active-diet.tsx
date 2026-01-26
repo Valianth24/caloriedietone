@@ -347,6 +347,18 @@ export default function ActiveDietScreen() {
 
         <View style={{ height: 40 }} />
       </ScrollView>
+
+      {/* Reklam Modal - Diet günü için */}
+      <WatchAdModal
+        visible={showAdModal}
+        onClose={() => {
+          setShowAdModal(false);
+          setPendingDayChange(null);
+        }}
+        onWatchAd={handleWatchAdForDay}
+        type="diet_day"
+        dietDay={pendingDayChange || undefined}
+      />
     </SafeAreaView>
   );
 }
