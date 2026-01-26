@@ -25,7 +25,7 @@ console.log('[AdMob Config]', {
 
 // TEST MODE: AdMob doğrulaması tamamlanana kadar test ID'leri kullan
 // Uygulama doğrulandıktan sonra bu değeri false yapın
-const USE_TEST_ADS = true;
+const USE_TEST_ADS = false; // ✅ PRODUCTION MODE - Gerçek reklamlar aktif
 
 // Google'ın resmi test ID'leri - her zaman çalışır
 const TEST_AD_UNIT_IDS = {
