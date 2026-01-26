@@ -82,6 +82,10 @@ export default function CameraScreen() {
   const [foodContext, setFoodContext] = useState('');
   const [selectedMealType, setSelectedMealType] = useState('snack'); // Öğün seçimi için
   
+  // Reklam modal state
+  const [showAdModal, setShowAdModal] = useState(false);
+  const [pendingAnalysis, setPendingAnalysis] = useState<{ base64: string; context: string } | null>(null);
+  
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
   
   // Scanning animation
