@@ -24,6 +24,11 @@ export default function ActiveDietScreen() {
   const [diet, setDiet] = useState<Diet | null>(null);
   const [currentDayData, setCurrentDayData] = useState<DietDay | null>(null);
   const [expandedMeal, setExpandedMeal] = useState<string | null>(null);
+  
+  // Reklam state'leri
+  const [showAdModal, setShowAdModal] = useState(false);
+  const [pendingDayChange, setPendingDayChange] = useState<number | null>(null);
+  const [unlockedDays, setUnlockedDays] = useState<number[]>([1]); // Gün 1 her zaman açık
 
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
 
