@@ -368,3 +368,158 @@ export const resetThemeUnlock = async (themeName: string): Promise<void> => {
     await saveThemeUnlockData(data);
   }
 };
+
+// ========================================
+// FOTOĞRAF İLE KALORİ HESAPLAMA REKLAM SİSTEMİ
+// ========================================
+
+/**
+ * Kalori hesaplama için reklam gerekli mi?
+ * Her hesaplama için reklam gösterilir
+ */
+export const needsAdForCalorieCalculation = async (): Promise<boolean> => {
+  // Her hesaplama için reklam gösterilecek
+  return true;
+};
+
+/**
+ * Kalori hesaplama için çift reklam göster (Rewarded Interstitial + Rewarded + Interstitial)
+ */
+export const showAdsForCalorieCalculation = async (): Promise<boolean> => {
+  const { showDoubleRewardedAd } = await import('./admobService');
+  
+  console.log('[AdSystem] Showing ads for calorie calculation');
+  
+  return new Promise((resolve) => {
+    showDoubleRewardedAd(
+      (success) => {
+        console.log(`[AdSystem] Calorie calculation ads completed: ${success}`);
+        resolve(success);
+      },
+      (current, total) => {
+        console.log(`[AdSystem] Calorie ad progress: ${current}/${total}`);
+      }
+    );
+  });
+};
+
+// ========================================
+// DİYET REKLAM SİSTEMİ
+// ========================================
+
+interface DietUnlockData {
+  dietId: string;
+  entryAdWatched: boolean; // Diyete giriş reklamı izlendi mi?
+  unlockedDays: number[]; // Kilidi açılmış günler
+}
+
+/**
+ * Diet unlock verilerini al
+ */
+export const getDietUnlockData = async (): Promise<{ [key: string]: DietUnlockData }> => {
+  try {
+    const data = await AsyncStorage.getItem(STORAGE_KEYS.DIET_UNLOCKED_DAYS);
+    return data ? JSON.parse(data) : {};
+  } catch (error) {
+    console.error('Error getting diet unlock data:', error);
+    return {};
+  }
+};
+
+/**
+ * Diet unlock verilerini kaydet
+ */
+const saveDietUnlockData = async (data: { [key: string]: DietUnlockData }): Promise<void> => {
+  try {
+    await AsyncStorage.setItem(STORAGE_KEYS.DIET_UNLOCKED_DAYS, JSON.stringify(data));
+  } catch (error) {
+    console.error('Error saving diet unlock data:', error);
+  }
+};
+
+/**
+ * Diyete giriş için reklam gerekli mi?
+ */
+export const needsAdForDietEntry = async (dietId: string): Promise<boolean> => {
+  const data = await getDietUnlockData();
+  return !data[dietId]?.entryAdWatched;
+};
+
+/**
+ * Diyete giriş için reklam göster
+ */
+export const showAdsForDietEntry = async (dietId: string): Promise<boolean> => {
+  const { showDoubleRewardedAd } = await import('./admobService');
+  
+  console.log('[AdSystem] Showing ads for diet entry:', dietId);
+  
+  return new Promise((resolve) => {
+    showDoubleRewardedAd(
+      async (success) => {
+        if (success) {
+          const data = await getDietUnlockData();
+          if (!data[dietId]) {
+            data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
+          }
+          data[dietId].entryAdWatched = true;
+          await saveDietUnlockData(data);
+          console.log('[AdSystem] Diet entry ads completed, marked as watched');
+        }
+        resolve(success);
+      },
+      (current, total) => {
+        console.log(`[AdSystem] Diet entry ad progress: ${current}/${total}`);
+      }
+    );
+  });
+};
+
+/**
+ * Diet günü için kilit açık mı?
+ */
+export const isDietDayUnlocked = async (dietId: string, dayNumber: number): Promise<boolean> => {
+  // Gün 1 her zaman açık
+  if (dayNumber === 1) return true;
+  
+  const data = await getDietUnlockData();
+  return data[dietId]?.unlockedDays?.includes(dayNumber) || false;
+};
+
+/**
+ * Diet günü için reklam göster ve kilidi aç
+ */
+export const showAdsForDietDay = async (dietId: string, dayNumber: number): Promise<boolean> => {
+  const { showDoubleRewardedAd } = await import('./admobService');
+  
+  console.log(`[AdSystem] Showing ads for diet day: ${dietId} - Day ${dayNumber}`);
+  
+  return new Promise((resolve) => {
+    showDoubleRewardedAd(
+      async (success) => {
+        if (success) {
+          const data = await getDietUnlockData();
+          if (!data[dietId]) {
+            data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
+          }
+          if (!data[dietId].unlockedDays.includes(dayNumber)) {
+            data[dietId].unlockedDays.push(dayNumber);
+          }
+          await saveDietUnlockData(data);
+          console.log(`[AdSystem] Diet day ${dayNumber} unlocked for ${dietId}`);
+        }
+        resolve(success);
+      },
+      (current, total) => {
+        console.log(`[AdSystem] Diet day ad progress: ${current}/${total}`);
+      }
+    );
+  });
+};
+
+/**
+ * Tüm diet verilerini sıfırla (test için)
+ */
+export const resetAllDietUnlocks = async (): Promise<void> => {
+  await AsyncStorage.removeItem(STORAGE_KEYS.DIET_UNLOCKED_DAYS);
+  console.log('[AdSystem] All diet unlocks reset');
+};
