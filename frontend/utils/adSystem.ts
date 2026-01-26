@@ -2,8 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 /**
  * Reklam Sistemini Yönetir
- * NOT: Reklam entegrasyonu yayından sonra eklenecek (AdMob)
- * Şimdilik MOCK - uygulama çökmesin
+ * AdMob entegrasyonu ile çalışır
  */
 
 const STORAGE_KEYS = {
@@ -11,7 +10,11 @@ const STORAGE_KEYS = {
   CALORIE_SCANS: 'free_calorie_scans',
   LAST_RESET: 'last_ad_reset',
   WATCHED_ADS_FOR_RECIPES: 'watched_ads_for_recipes',
-  THEME_UNLOCK_DATA: 'theme_unlock_data', // Tema kilidi açma verileri
+  THEME_UNLOCK_DATA: 'theme_unlock_data',
+  // Yeni: Kalori ve Diet için
+  WATCHED_ADS_FOR_CALORIE: 'watched_ads_for_calorie',
+  DIET_UNLOCKED_DAYS: 'diet_unlocked_days',
+  DIET_ENTRY_WATCHED: 'diet_entry_watched',
 };
 
 export interface AdSystemState {
