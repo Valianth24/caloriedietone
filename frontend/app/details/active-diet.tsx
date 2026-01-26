@@ -7,6 +7,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { getDietById, Diet, DietDay, DietMeal } from '../../content/diets';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import WatchAdModal from '../../components/WatchAdModal';
+import { isDietDayUnlocked, showAdsForDietDay } from '../../utils/adSystem';
 
 interface ActiveDietData {
   dietId: string;
