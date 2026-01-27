@@ -421,29 +421,23 @@ export const needsAdForDietEntry = async (dietId: string): Promise<boolean> => {
  * Diyete giriş için reklam göster
  */
 export const showAdsForDietEntry = async (dietId: string): Promise<boolean> => {
-  const { showDoubleRewardedAd } = await import('./admobService');
+  const { showRewardedAdAsync } = await import('./admobService');
   
-  console.log('[AdSystem] Showing ads for diet entry:', dietId);
+  console.log('[AdSystem] Showing rewarded ad for diet entry:', dietId);
   
-  return new Promise((resolve) => {
-    showDoubleRewardedAd(
-      async (success) => {
-        if (success) {
-          const data = await getDietUnlockData();
-          if (!data[dietId]) {
-            data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
-          }
-          data[dietId].entryAdWatched = true;
-          await saveDietUnlockData(data);
-          console.log('[AdSystem] Diet entry ads completed, marked as watched');
-        }
-        resolve(success);
-      },
-      (current, total) => {
-        console.log(`[AdSystem] Diet entry ad progress: ${current}/${total}`);
-      }
-    );
-  });
+  const success = await showRewardedAdAsync();
+  
+  if (success) {
+    const data = await getDietUnlockData();
+    if (!data[dietId]) {
+      data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
+    }
+    data[dietId].entryAdWatched = true;
+    await saveDietUnlockData(data);
+    console.log('[AdSystem] Diet entry ad completed, marked as watched');
+  }
+  
+  return success;
 };
 
 /**
@@ -461,31 +455,25 @@ export const isDietDayUnlocked = async (dietId: string, dayNumber: number): Prom
  * Diet günü için reklam göster ve kilidi aç
  */
 export const showAdsForDietDay = async (dietId: string, dayNumber: number): Promise<boolean> => {
-  const { showDoubleRewardedAd } = await import('./admobService');
+  const { showRewardedAdAsync } = await import('./admobService');
   
-  console.log(`[AdSystem] Showing ads for diet day: ${dietId} - Day ${dayNumber}`);
+  console.log(`[AdSystem] Showing rewarded ad for diet day: ${dietId} - Day ${dayNumber}`);
   
-  return new Promise((resolve) => {
-    showDoubleRewardedAd(
-      async (success) => {
-        if (success) {
-          const data = await getDietUnlockData();
-          if (!data[dietId]) {
-            data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
-          }
-          if (!data[dietId].unlockedDays.includes(dayNumber)) {
-            data[dietId].unlockedDays.push(dayNumber);
-          }
-          await saveDietUnlockData(data);
-          console.log(`[AdSystem] Diet day ${dayNumber} unlocked for ${dietId}`);
-        }
-        resolve(success);
-      },
-      (current, total) => {
-        console.log(`[AdSystem] Diet day ad progress: ${current}/${total}`);
-      }
-    );
-  });
+  const success = await showRewardedAdAsync();
+  
+  if (success) {
+    const data = await getDietUnlockData();
+    if (!data[dietId]) {
+      data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
+    }
+    if (!data[dietId].unlockedDays.includes(dayNumber)) {
+      data[dietId].unlockedDays.push(dayNumber);
+    }
+    await saveDietUnlockData(data);
+    console.log(`[AdSystem] Diet day ${dayNumber} unlocked for ${dietId}`);
+  }
+  
+  return success;
 };
 
 /**
