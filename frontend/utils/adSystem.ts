@@ -358,29 +358,21 @@ export const resetThemeUnlock = async (themeName: string): Promise<void> => {
  * Her hesaplama için reklam gösterilir
  */
 export const needsAdForCalorieCalculation = async (): Promise<boolean> => {
-  // Her hesaplama için reklam gösterilecek
   return true;
 };
 
 /**
- * Kalori hesaplama için çift reklam göster (Rewarded Interstitial + Rewarded + Interstitial)
+ * Kalori hesaplama için tek ödüllü reklam göster
  */
 export const showAdsForCalorieCalculation = async (): Promise<boolean> => {
-  const { showDoubleRewardedAd } = await import('./admobService');
+  const { showRewardedAdAsync } = await import('./admobService');
   
-  console.log('[AdSystem] Showing ads for calorie calculation');
+  console.log('[AdSystem] Showing rewarded ad for calorie calculation');
   
-  return new Promise((resolve) => {
-    showDoubleRewardedAd(
-      (success) => {
-        console.log(`[AdSystem] Calorie calculation ads completed: ${success}`);
-        resolve(success);
-      },
-      (current, total) => {
-        console.log(`[AdSystem] Calorie ad progress: ${current}/${total}`);
-      }
-    );
-  });
+  const success = await showRewardedAdAsync();
+  console.log(`[AdSystem] Calorie calculation ad result: ${success}`);
+  
+  return success;
 };
 
 // ========================================
