@@ -81,6 +81,8 @@ export const showRewardedAd = (
 const showRealRewardedAd = async (
   onComplete: (success: boolean, reward?: { type: string; amount: number }) => void
 ): Promise<void> => {
+  let timeoutId: NodeJS.Timeout | null = null;
+  
   try {
     console.log('[AdMob] Loading react-native-google-mobile-ads...');
     
@@ -94,10 +96,27 @@ const showRealRewardedAd = async (
 
     let rewardEarned = false;
     let earnedReward: { type: string; amount: number } | undefined;
+    let completed = false;
+
+    // Cleanup fonksiyonu
+    const cleanup = () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+      }
+      loadedUnsubscribe();
+      earnedUnsubscribe();
+      errorUnsubscribe();
+      closedUnsubscribe();
+    };
 
     // Reklam yüklendi
     const loadedUnsubscribe = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
       console.log('[AdMob] Rewarded ad loaded, showing...');
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+        timeoutId = null;
+      }
       rewarded.show();
     });
 
@@ -110,6 +129,8 @@ const showRealRewardedAd = async (
 
     // Hata oluştu
     const errorUnsubscribe = rewarded.addAdEventListener(AdEventType.ERROR, (error) => {
+      if (completed) return;
+      completed = true;
       console.error('[AdMob] Ad error:', error);
       cleanup();
       isShowingAd = false;
@@ -118,34 +139,23 @@ const showRealRewardedAd = async (
 
     // Reklam kapandı
     const closedUnsubscribe = rewarded.addAdEventListener(AdEventType.CLOSED, () => {
+      if (completed) return;
+      completed = true;
       console.log('[AdMob] Ad closed, reward earned:', rewardEarned);
       cleanup();
       isShowingAd = false;
       onComplete(rewardEarned, earnedReward);
     });
 
-    // Cleanup fonksiyonu
-    const cleanup = () => {
-      loadedUnsubscribe();
-      earnedUnsubscribe();
-      errorUnsubscribe();
-      closedUnsubscribe();
-    };
-
     // Timeout (15 saniye)
-    const timeout = setTimeout(() => {
-      console.error('[AdMob] Ad load timeout');
+    timeoutId = setTimeout(() => {
+      if (completed) return;
+      completed = true;
+      console.error('[AdMob] Ad load timeout (15s)');
       cleanup();
       isShowingAd = false;
       onComplete(false);
     }, 15000);
-
-    // Yükleme başladığında timeout'u temizle
-    const originalCleanup = cleanup;
-    const cleanupWithTimeout = () => {
-      clearTimeout(timeout);
-      originalCleanup();
-    };
 
     // Reklamı yükle
     console.log('[AdMob] Loading ad...');
@@ -153,6 +163,7 @@ const showRealRewardedAd = async (
 
   } catch (error) {
     console.error('[AdMob] Error:', error);
+    if (timeoutId) clearTimeout(timeoutId);
     isShowingAd = false;
     onComplete(false);
   }
