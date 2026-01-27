@@ -191,35 +191,23 @@ export const getAdSystemState = async (): Promise<AdSystemState> => {
 
 /**
  * Tarif için reklam göster (AdMob)
- * İlk kez: Çift ödüllü reklam (rewarded)
- * Sonraki seferler: Kısa geçiş reklamı (interstitial)
+ * Tek ödüllü reklam
  */
 export const showRewardedAd = async (type: 'recipe' | 'calorie', recipeId?: string): Promise<boolean> => {
-  const { showDoubleRewardedAd, showInterstitialAd } = await import('./admobService');
+  const { showRewardedAdAsync } = await import('./admobService');
   
-  // Bu tarif daha önce açıldı mı?
-  const watchedRecipes = await getWatchedAdRecipes();
-  const wasWatchedBefore = recipeId ? watchedRecipes.includes(recipeId) : false;
+  console.log(`[AdSystem] Showing rewarded ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}`);
   
-  console.log(`[AdSystem] Showing ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}, wasWatchedBefore: ${wasWatchedBefore}`);
+  const success = await showRewardedAdAsync();
   
-  return new Promise((resolve) => {
-    // Her zaman 3'lü reklam göster (ilk kez veya tekrar)
-    showDoubleRewardedAd(
-      async (success) => {
-        console.log(`[AdSystem] Triple ad result: ${success}`);
-        if (success && recipeId) {
-          await resetAfterAd(type, recipeId);
-          console.log(`[AdSystem] Recipe ${recipeId} marked as watched`);
-        }
-        // Reklam başarısız olursa false dön - tarif açılmasın
-        resolve(success);
-      },
-      (current, total) => {
-        console.log(`[AdSystem] Ad progress: ${current}/${total}`);
-      }
-    );
-  });
+  console.log(`[AdSystem] Ad result: ${success}`);
+  
+  if (success && recipeId) {
+    await resetAfterAd(type, recipeId);
+    console.log(`[AdSystem] Recipe ${recipeId} marked as watched`);
+  }
+  
+  return success;
 };
 
 
