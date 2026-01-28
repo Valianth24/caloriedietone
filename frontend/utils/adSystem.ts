@@ -384,7 +384,7 @@ export const needsAdForCalorieCalculation = async (): Promise<boolean> => {
 export const showAdsForCalorieCalculation = async (): Promise<boolean> => {
   const { showRewardedAdAsync } = await import('./admobService');
   
-  console.log('[AdSystem] Showing rewarded ad for calorie calculation');
+  console.log('[AdSystem] Showing Rewarded ad for calorie calculation');
   
   const success = await showRewardedAdAsync();
   console.log(`[AdSystem] Calorie calculation ad result: ${success}`);
