@@ -228,7 +228,11 @@ export default function CameraScreen() {
 
   // Reklam izlendikten sonra analiz yap
   const handleWatchAdForCalorie = async () => {
+    // Modal'ı hemen kapat
+    setShowAdModal(false);
+    
     const success = await showAdsForCalorieCalculation();
+    
     if (success && pendingAnalysis) {
       setImageBase64(pendingAnalysis.base64);
       setResult(null);
@@ -236,8 +240,7 @@ export default function CameraScreen() {
       analyzeImage(pendingAnalysis.base64, pendingAnalysis.context);
       setPendingAnalysis(null);
       setPendingBase64(null);
-    } else {
-      // Reklam başarısız oldu
+    } else if (!success) {
       Alert.alert(
         lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
         lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
