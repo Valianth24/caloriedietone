@@ -1,37 +1,46 @@
 /**
  * AdMob Reklam Servisi
  * Ocak 2026 - Güncellenmiş versiyon
- * Tek ödüllü reklam kullanımı
+ * İki farklı reklam tipi:
+ * - Ödüllü (Rewarded): Yıldızlı tarifler, kalori hesaplama
+ * - Ödüllü Geçiş (Rewarded Interstitial): Yıldızsız tarifler, diyetler
  */
 
 import { Platform } from 'react-native';
 import Constants from 'expo-constants';
 
-// Production build kontrolü
-const isExpoGo = Constants.appOwnership === 'expo';
+// Debug modu
 const isDevelopment = __DEV__;
-
-// MOCK MODU - Production'da kapalı
+const isExpoGo = Constants.appOwnership === 'expo';
 const USE_MOCK = false;
 
 // Reklam Birimi ID'leri
-const AD_UNIT_ID = {
-  // Production - Gerçek reklam birimi
+const AD_UNITS = {
+  // Ödüllü Reklam - Yıldızlı tarifler ve kalori hesaplama için
   REWARDED: 'ca-app-pub-6980942787991808/1382918054',
-  // Test ID (geliştirme için)
+  // Ödüllü Geçiş Reklamı - Yıldızsız tarifler, daha önce görülenler ve diyetler için
+  REWARDED_INTERSTITIAL: 'ca-app-pub-6980942787991808/3429358823',
+  // Test ID'leri
   TEST_REWARDED: 'ca-app-pub-3940256099942544/5224354917',
+  TEST_REWARDED_INTERSTITIAL: 'ca-app-pub-3940256099942544/5354046379',
 };
 
-// Hangi ID kullanılacak
-const REWARDED_AD_ID = USE_MOCK ? AD_UNIT_ID.TEST_REWARDED : AD_UNIT_ID.REWARDED;
+// Hangi ID'leri kullanacağız
+const getAdUnitId = (type: 'rewarded' | 'rewarded_interstitial'): string => {
+  if (USE_MOCK) {
+    return type === 'rewarded' ? AD_UNITS.TEST_REWARDED : AD_UNITS.TEST_REWARDED_INTERSTITIAL;
+  }
+  return type === 'rewarded' ? AD_UNITS.REWARDED : AD_UNITS.REWARDED_INTERSTITIAL;
+};
 
 // Debug log
 console.log('[AdMob] Config:', {
-  isExpoGo,
   isDevelopment,
+  isExpoGo,
   USE_MOCK,
   platform: Platform.OS,
-  adUnitId: REWARDED_AD_ID,
+  rewardedId: getAdUnitId('rewarded'),
+  rewardedInterstitialId: getAdUnitId('rewarded_interstitial'),
 });
 
 // Reklam durumu
@@ -41,183 +50,257 @@ let isShowingAd = false;
  * Mock reklam göster (test için)
  */
 const showMockAd = async (): Promise<boolean> => {
-  console.log('[AdMob MOCK] Showing mock rewarded ad...');
+  console.log('[AdMob MOCK] Showing mock ad...');
   await new Promise(resolve => setTimeout(resolve, 1500));
   console.log('[AdMob MOCK] Mock ad completed');
   return true;
 };
 
+// ============================================
+// ÖDÜLLÜ REKLAM (Rewarded)
+// Kullanım: Yıldızlı tarifler, kalori hesaplama
+// ============================================
+
 /**
  * Ödüllü reklam göster
- * Tüm uygulama genelinde bu fonksiyon kullanılır
  */
 export const showRewardedAd = (
-  onComplete: (success: boolean, reward?: { type: string; amount: number }) => void
+  onComplete: (success: boolean) => void
 ): void => {
   if (isShowingAd) {
-    console.log('[AdMob] Ad already showing, skipping...');
+    console.log('[AdMob] Ad already showing');
     onComplete(false);
     return;
   }
 
   isShowingAd = true;
 
-  // Mock mod (test için)
   if (USE_MOCK) {
     showMockAd().then(() => {
       isShowingAd = false;
-      onComplete(true, { type: 'reward', amount: 1 });
+      onComplete(true);
     });
     return;
   }
 
-  // Production: Gerçek AdMob reklamı
   showRealRewardedAd(onComplete);
 };
 
-/**
- * Gerçek ödüllü reklam göster
- */
-const showRealRewardedAd = async (
-  onComplete: (success: boolean, reward?: { type: string; amount: number }) => void
-): Promise<void> => {
+const showRealRewardedAd = async (onComplete: (success: boolean) => void): Promise<void> => {
   let timeoutId: NodeJS.Timeout | null = null;
   
   try {
-    console.log('[AdMob] Loading react-native-google-mobile-ads...');
-    
     const { RewardedAd, RewardedAdEventType, AdEventType } = await import('react-native-google-mobile-ads');
-
-    console.log('[AdMob] Creating rewarded ad with ID:', REWARDED_AD_ID);
+    const adUnitId = getAdUnitId('rewarded');
     
-    const rewarded = RewardedAd.createForAdRequest(REWARDED_AD_ID, {
+    console.log('[AdMob] Creating Rewarded ad:', adUnitId);
+    
+    const rewarded = RewardedAd.createForAdRequest(adUnitId, {
       requestNonPersonalizedAdsOnly: false,
     });
 
     let rewardEarned = false;
-    let earnedReward: { type: string; amount: number } | undefined;
     let completed = false;
 
-    // Cleanup fonksiyonu
-    const cleanup = () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-        timeoutId = null;
-      }
-      loadedUnsubscribe();
-      earnedUnsubscribe();
-      errorUnsubscribe();
-      closedUnsubscribe();
+    const finish = (success: boolean) => {
+      if (completed) return;
+      completed = true;
+      if (timeoutId) clearTimeout(timeoutId);
+      cleanup();
+      isShowingAd = false;
+      console.log('[AdMob] Rewarded ad finished, success:', success);
+      onComplete(success);
     };
 
-    // Reklam yüklendi
-    const loadedUnsubscribe = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
+    const loadedUnsub = rewarded.addAdEventListener(RewardedAdEventType.LOADED, () => {
       console.log('[AdMob] Rewarded ad loaded, showing...');
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-        timeoutId = null;
-      }
+      if (timeoutId) clearTimeout(timeoutId);
       rewarded.show();
     });
 
-    // Ödül kazanıldı
-    const earnedUnsubscribe = rewarded.addAdEventListener(RewardedAdEventType.EARNED_REWARD, (reward) => {
+    const earnedUnsub = rewarded.addAdEventListener(RewardedAdEventType.EARNED_REWARD, (reward) => {
       console.log('[AdMob] Reward earned:', reward);
       rewardEarned = true;
-      earnedReward = { type: reward.type, amount: reward.amount };
     });
 
-    // Hata oluştu
-    const errorUnsubscribe = rewarded.addAdEventListener(AdEventType.ERROR, (error) => {
-      if (completed) return;
-      completed = true;
-      console.error('[AdMob] Ad error:', error);
-      cleanup();
-      isShowingAd = false;
-      onComplete(false);
+    const errorUnsub = rewarded.addAdEventListener(AdEventType.ERROR, (error) => {
+      console.error('[AdMob] Rewarded ad error:', error);
+      finish(false);
     });
 
-    // Reklam kapandı
-    const closedUnsubscribe = rewarded.addAdEventListener(AdEventType.CLOSED, () => {
-      if (completed) return;
-      completed = true;
-      console.log('[AdMob] Ad closed, reward earned:', rewardEarned);
-      cleanup();
-      isShowingAd = false;
-      onComplete(rewardEarned, earnedReward);
+    const closedUnsub = rewarded.addAdEventListener(AdEventType.CLOSED, () => {
+      console.log('[AdMob] Rewarded ad closed, reward earned:', rewardEarned);
+      finish(rewardEarned);
     });
 
-    // Timeout (15 saniye)
+    const cleanup = () => {
+      loadedUnsub();
+      earnedUnsub();
+      errorUnsub();
+      closedUnsub();
+    };
+
     timeoutId = setTimeout(() => {
-      if (completed) return;
-      completed = true;
-      console.error('[AdMob] Ad load timeout (15s)');
-      cleanup();
-      isShowingAd = false;
-      onComplete(false);
+      console.error('[AdMob] Rewarded ad timeout');
+      finish(false);
     }, 15000);
 
-    // Reklamı yükle
-    console.log('[AdMob] Loading ad...');
+    console.log('[AdMob] Loading Rewarded ad...');
     rewarded.load();
 
   } catch (error) {
-    console.error('[AdMob] Error:', error);
+    console.error('[AdMob] Rewarded ad error:', error);
     if (timeoutId) clearTimeout(timeoutId);
     isShowingAd = false;
     onComplete(false);
   }
 };
 
+// ============================================
+// ÖDÜLLÜ GEÇİŞ REKLAMI (Rewarded Interstitial)
+// Kullanım: Yıldızsız tarifler, daha önce görülenler, diyetler
+// ============================================
+
 /**
- * Promise tabanlı reklam gösterme (async/await için)
+ * Ödüllü geçiş reklamı göster
+ */
+export const showRewardedInterstitialAd = (
+  onComplete: (success: boolean) => void
+): void => {
+  if (isShowingAd) {
+    console.log('[AdMob] Ad already showing');
+    onComplete(false);
+    return;
+  }
+
+  isShowingAd = true;
+
+  if (USE_MOCK) {
+    showMockAd().then(() => {
+      isShowingAd = false;
+      onComplete(true);
+    });
+    return;
+  }
+
+  showRealRewardedInterstitialAd(onComplete);
+};
+
+const showRealRewardedInterstitialAd = async (onComplete: (success: boolean) => void): Promise<void> => {
+  let timeoutId: NodeJS.Timeout | null = null;
+  
+  try {
+    const { RewardedInterstitialAd, RewardedInterstitialAdEventType, AdEventType } = await import('react-native-google-mobile-ads');
+    const adUnitId = getAdUnitId('rewarded_interstitial');
+    
+    console.log('[AdMob] Creating Rewarded Interstitial ad:', adUnitId);
+    
+    const rewardedInterstitial = RewardedInterstitialAd.createForAdRequest(adUnitId, {
+      requestNonPersonalizedAdsOnly: false,
+    });
+
+    let rewardEarned = false;
+    let completed = false;
+
+    const finish = (success: boolean) => {
+      if (completed) return;
+      completed = true;
+      if (timeoutId) clearTimeout(timeoutId);
+      cleanup();
+      isShowingAd = false;
+      console.log('[AdMob] Rewarded Interstitial finished, success:', success);
+      onComplete(success);
+    };
+
+    const loadedUnsub = rewardedInterstitial.addAdEventListener(RewardedInterstitialAdEventType.LOADED, () => {
+      console.log('[AdMob] Rewarded Interstitial loaded, showing...');
+      if (timeoutId) clearTimeout(timeoutId);
+      rewardedInterstitial.show();
+    });
+
+    const earnedUnsub = rewardedInterstitial.addAdEventListener(RewardedInterstitialAdEventType.EARNED_REWARD, (reward) => {
+      console.log('[AdMob] Interstitial reward earned:', reward);
+      rewardEarned = true;
+    });
+
+    const errorUnsub = rewardedInterstitial.addAdEventListener(AdEventType.ERROR, (error) => {
+      console.error('[AdMob] Rewarded Interstitial error:', error);
+      finish(false);
+    });
+
+    const closedUnsub = rewardedInterstitial.addAdEventListener(AdEventType.CLOSED, () => {
+      console.log('[AdMob] Rewarded Interstitial closed, reward earned:', rewardEarned);
+      finish(rewardEarned);
+    });
+
+    const cleanup = () => {
+      loadedUnsub();
+      earnedUnsub();
+      errorUnsub();
+      closedUnsub();
+    };
+
+    timeoutId = setTimeout(() => {
+      console.error('[AdMob] Rewarded Interstitial timeout');
+      finish(false);
+    }, 15000);
+
+    console.log('[AdMob] Loading Rewarded Interstitial...');
+    rewardedInterstitial.load();
+
+  } catch (error) {
+    console.error('[AdMob] Rewarded Interstitial error:', error);
+    if (timeoutId) clearTimeout(timeoutId);
+    isShowingAd = false;
+    onComplete(false);
+  }
+};
+
+// ============================================
+// ASYNC WRAPPER'LAR
+// ============================================
+
+/**
+ * Ödüllü reklam (Promise)
  */
 export const showRewardedAdAsync = (): Promise<boolean> => {
   return new Promise((resolve) => {
-    showRewardedAd((success) => {
-      resolve(success);
-    });
+    showRewardedAd(resolve);
   });
 };
 
 /**
- * Reklam durumunu kontrol et
+ * Ödüllü geçiş reklamı (Promise)
  */
-export const isAdShowing = (): boolean => {
-  return isShowingAd;
+export const showRewardedInterstitialAdAsync = (): Promise<boolean> => {
+  return new Promise((resolve) => {
+    showRewardedInterstitialAd(resolve);
+  });
 };
 
-// Eski fonksiyon isimleri için uyumluluk (geriye dönük)
+// ============================================
+// LEGACY EXPORTS (Geriye Uyumluluk)
+// ============================================
+
 export const showDoubleRewardedAd = (
   onComplete: (success: boolean) => void,
   _onProgress?: (current: number, total: number) => void
 ): void => {
-  showRewardedAd((success) => {
-    onComplete(success);
-  });
+  showRewardedAd(onComplete);
 };
 
 export const showInterstitialAd = (
   onComplete: (success: boolean) => void
 ): void => {
-  showRewardedAd((success) => {
-    onComplete(success);
-  });
+  showRewardedInterstitialAd(onComplete);
 };
 
 export const showSingleRewardedAd = (
   onComplete: (success: boolean) => void
 ): void => {
-  showRewardedAd((success) => {
-    onComplete(success);
-  });
+  showRewardedAd(onComplete);
 };
 
-// Legacy exports
-export const preloadAds = async (): Promise<void> => {
-  console.log('[AdMob] Preload called (not needed with new API)');
-};
-
-export const areAdsLoaded = (): boolean => {
-  return true;
-};
+export const isAdShowing = (): boolean => isShowingAd;
+export const preloadAds = async (): Promise<void> => {};
+export const areAdsLoaded = (): boolean => true;
