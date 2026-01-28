@@ -191,14 +191,31 @@ export const getAdSystemState = async (): Promise<AdSystemState> => {
 
 /**
  * Tarif için reklam göster (AdMob)
- * Tek ödüllü reklam
+ * Yıldızlı ve ilk kez: Ödüllü reklam
+ * Yıldızsız veya daha önce görülen: Ödüllü geçiş reklamı
  */
-export const showRewardedAd = async (type: 'recipe' | 'calorie', recipeId?: string): Promise<boolean> => {
-  const { showRewardedAdAsync } = await import('./admobService');
+export const showRewardedAd = async (
+  type: 'recipe' | 'calorie', 
+  recipeId?: string,
+  isPremiumRecipe: boolean = true,
+  wasWatchedBefore: boolean = false
+): Promise<boolean> => {
+  const { showRewardedAdAsync, showRewardedInterstitialAdAsync } = await import('./admobService');
   
-  console.log(`[AdSystem] Showing rewarded ad for ${type}${recipeId ? ` - Recipe: ${recipeId}` : ''}`);
+  // Hangi reklam tipi kullanılacak?
+  const useInterstitial = !isPremiumRecipe || wasWatchedBefore;
   
-  const success = await showRewardedAdAsync();
+  console.log(`[AdSystem] Showing ad for ${type}`, {
+    recipeId,
+    isPremiumRecipe,
+    wasWatchedBefore,
+    adType: useInterstitial ? 'Rewarded Interstitial' : 'Rewarded'
+  });
+  
+  // Reklam göster
+  const success = useInterstitial 
+    ? await showRewardedInterstitialAdAsync()
+    : await showRewardedAdAsync();
   
   console.log(`[AdSystem] Ad result: ${success}`);
   
