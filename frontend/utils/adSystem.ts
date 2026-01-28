@@ -469,14 +469,14 @@ export const isDietDayUnlocked = async (dietId: string, dayNumber: number): Prom
 };
 
 /**
- * Diet günü için reklam göster ve kilidi aç
+ * Diet günü için reklam göster ve kilidi aç (Ödüllü Geçiş)
  */
 export const showAdsForDietDay = async (dietId: string, dayNumber: number): Promise<boolean> => {
-  const { showRewardedAdAsync } = await import('./admobService');
+  const { showRewardedInterstitialAdAsync } = await import('./admobService');
   
-  console.log(`[AdSystem] Showing rewarded ad for diet day: ${dietId} - Day ${dayNumber}`);
+  console.log(`[AdSystem] Showing Rewarded Interstitial for diet day: ${dietId} - Day ${dayNumber}`);
   
-  const success = await showRewardedAdAsync();
+  const success = await showRewardedInterstitialAdAsync();
   
   if (success) {
     const data = await getDietUnlockData();
