@@ -68,7 +68,11 @@ export default function PremiumDietDetailScreen() {
   const handleWatchAdForDiet = async () => {
     if (!diet) return;
     
+    // Modal'ı hemen kapat
+    setShowAdModal(false);
+    
     const success = await showAdsForDietEntry(diet.id);
+    
     if (success) {
       setAdWatched(true);
       setShowDaysModal(true); // Reklam bittikten sonra gün seçim modalını aç
