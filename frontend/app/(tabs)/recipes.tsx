@@ -231,12 +231,27 @@ export default function RecipesScreen() {
   };
   
   const handleWatchAd = async () => {
+    if (!pendingRecipe) return;
+    
+    // Modal'ı hemen kapat
+    setShowAdModal(false);
+    
     try {
-      // AdMob 3'lü reklam göster
-      const success = await showRewardedAd('recipe', pendingRecipe?.id);
+      // Bu tarif daha önce izlendi mi?
+      const wasWatched = watchedAdRecipes.includes(pendingRecipe.id);
+      // Yıldızlı (premium) tarif mi?
+      const isPremium = pendingRecipe.isPremium === true;
+      
+      console.log('[Recipes] Watching ad for recipe:', {
+        id: pendingRecipe.id,
+        isPremium,
+        wasWatched,
+      });
+      
+      // Reklam göster (isPremium ve wasWatched'a göre farklı reklam tipi)
+      const success = await showRewardedAd('recipe', pendingRecipe.id, isPremium, wasWatched);
       
       if (!success) {
-        // Reklam başarısız - tarifi açma
         Alert.alert(
           lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
           lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
@@ -247,14 +262,14 @@ export default function RecipesScreen() {
       // Reklam başarılı - tarifleri güncelle ve aç
       await loadWatchedAdRecipes();
       
-      if (pendingRecipe) {
-        router.push({
-          pathname: '/details/recipe-detail',
-          params: { recipeId: pendingRecipe.id },
-        });
-        setPendingRecipe(null);
-        setPendingRecipeIndex(0);
-      }
+      router.push({
+        pathname: '/details/recipe-detail',
+        params: { recipeId: pendingRecipe.id },
+      });
+      
+      setPendingRecipe(null);
+      setPendingRecipeIndex(0);
+      
     } catch (error) {
       console.error('Error watching ad:', error);
       Alert.alert(
