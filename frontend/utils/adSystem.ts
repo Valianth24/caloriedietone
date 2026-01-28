@@ -435,14 +435,14 @@ export const needsAdForDietEntry = async (dietId: string): Promise<boolean> => {
 };
 
 /**
- * Diyete giriş için reklam göster
+ * Diyete giriş için reklam göster (Ödüllü Geçiş)
  */
 export const showAdsForDietEntry = async (dietId: string): Promise<boolean> => {
-  const { showRewardedAdAsync } = await import('./admobService');
+  const { showRewardedInterstitialAdAsync } = await import('./admobService');
   
-  console.log('[AdSystem] Showing rewarded ad for diet entry:', dietId);
+  console.log('[AdSystem] Showing Rewarded Interstitial for diet entry:', dietId);
   
-  const success = await showRewardedAdAsync();
+  const success = await showRewardedInterstitialAdAsync();
   
   if (success) {
     const data = await getDietUnlockData();
