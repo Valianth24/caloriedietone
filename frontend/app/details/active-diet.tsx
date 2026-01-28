@@ -116,10 +116,16 @@ export default function ActiveDietScreen() {
   const handleWatchAdForDay = async () => {
     if (!activeDiet || pendingDayChange === null) return;
     
-    const success = await showAdsForDietDay(activeDiet.dietId, pendingDayChange);
+    // Modal'ı hemen kapat
+    setShowAdModal(false);
+    
+    const dayToUnlock = pendingDayChange;
+    
+    const success = await showAdsForDietDay(activeDiet.dietId, dayToUnlock);
+    
     if (success) {
-      setUnlockedDays(prev => [...prev, pendingDayChange]);
-      await switchToDay(pendingDayChange);
+      setUnlockedDays(prev => [...prev, dayToUnlock]);
+      await switchToDay(dayToUnlock);
       setPendingDayChange(null);
     } else {
       Alert.alert(
