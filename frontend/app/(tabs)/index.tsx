@@ -88,9 +88,6 @@ export default function DashboardScreen() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedFood, setSelectedFood] = useState<any>(null);
   
-  // Premium modal
-  const [showPremiumModal, setShowPremiumModal] = useState(false);
-  
   // Diet recommendation modal
   const [showDietRecommendation, setShowDietRecommendation] = useState(false);
   
