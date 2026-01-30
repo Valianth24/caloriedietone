@@ -235,14 +235,6 @@ export default function DietsScreen() {
         </View>
       </ScrollView>
 
-      {/* Premium Paywall - temporarily hidden
-      <PremiumPaywall
-        visible={showPaywall}
-        onClose={() => setShowPaywall(false)}
-        onSubscribe={handleSubscribe}
-      />
-      */}
-
       {/* Diet Recommendation Modal */}
       <DietRecommendationModal
         visible={showDietRecommendation}
