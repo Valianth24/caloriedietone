@@ -109,35 +109,47 @@ function WaterCard({ current, goal, weeklyData = [], index = 0 }: WaterCardProps
   }, [router]);
 
   // Animated styles
-  const cardAnimatedStyle = useAnimatedStyle(() => ({
-    opacity: cardOpacity.value,
-    transform: [
-      { translateY: cardTranslateY.value },
-      { scale: cardScale.value },
-    ],
-  }));
+  const cardAnimatedStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: cardOpacity.value,
+      transform: [
+        { translateY: cardTranslateY.value },
+        { scale: cardScale.value },
+      ] as const,
+    };
+  });
 
-  const progressBarStyle = useAnimatedStyle(() => ({
-    width: `${progressWidth.value}%`,
-  }));
+  const progressBarStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      width: `${progressWidth.value}%`,
+    };
+  });
 
-  const iconStyle = useAnimatedStyle(() => ({
-    transform: [
-      { scale: iconBounce.value },
-      { 
-        rotate: `${interpolate(
-          waterWave.value,
-          [0, 0.5, 1],
-          [-5, 5, -5]
-        )}deg` 
-      },
-    ],
-  }));
+  const iconStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [
+        { scale: iconBounce.value },
+        { 
+          rotate: `${interpolate(
+            waterWave.value,
+            [0, 0.5, 1],
+            [-5, 5, -5]
+          )}deg` 
+        },
+      ] as const,
+    };
+  });
 
-  const chartBarContainerStyle = useAnimatedStyle(() => ({
-    transform: [{ scaleY: chartBarsScale.value }],
-    opacity: chartBarsScale.value,
-  }));
+  const chartBarContainerStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scaleY: chartBarsScale.value }],
+      opacity: chartBarsScale.value,
+    };
+  });
 
   // Get progress color based on percentage
   const getProgressColor = () => {
