@@ -202,9 +202,12 @@ export default function CameraScreen() {
     };
   });
 
-  const buttonAnimStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: buttonScale.value }],
-  }));
+  const buttonAnimStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: buttonScale.value }],
+    };
+  });
 
   // Button press handlers
   const handleButtonPressIn = useCallback(() => {
