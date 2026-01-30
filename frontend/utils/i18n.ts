@@ -749,6 +749,20 @@ const resources = {
       calculatingCalories: 'Calculating calories...',
       analyzingImage: 'Analyzing image...',
       preparingContent: 'Preparing content...',
+      
+      // Free Pass
+      freeRecipesOffer: '1 Hour Free Recipes!',
+      freeRecipesDescription: 'Watch 2 short ads to unlock all recipes for 1 hour!',
+      adsWatched: 'ads watched',
+      watchAd: 'Watch Ad',
+      skipForNow: 'Skip for Now',
+      freeAccessRemaining: 'Free access: {{minutes}} min left',
+      extendOneHour: '+1 Hour',
+      twoAdsOneHourFree: '2 ads = 1 hour free!',
+      congratulations: 'Congratulations!',
+      allRecipesFreeOneHour: 'All recipes are free for 1 hour! Enjoy exploring!',
+      adError: 'Ad Error',
+      adFailedTryAgain: 'Ad failed to load. Please try again.',
     }
   },
   
