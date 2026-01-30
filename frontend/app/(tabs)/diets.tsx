@@ -75,29 +75,6 @@ export default function DietsScreen() {
     }
   };
 
-  const handleSubscribe = async () => {
-    try {
-      const updatedUser = await activatePremium() as any;
-      
-      if (updatedUser && setUser) {
-        setUser({ ...user, ...updatedUser, is_premium: true });
-      }
-      
-      Alert.alert(
-        '🎉 ' + t('success'), 
-        t('premiumActivated')
-      );
-      setShowPaywall(false);
-      
-    } catch (error: any) {
-      console.error('Premium activation error:', error);
-      Alert.alert(
-        t('error'), 
-        t('premiumActivationFailed')
-      );
-    }
-  };
-
   const handleOpenRecommendation = async () => {
     // Önceki gösterim kaydını sil ki her seferinde gösterilsin
     await AsyncStorage.removeItem('diet_recommendation_shown');
