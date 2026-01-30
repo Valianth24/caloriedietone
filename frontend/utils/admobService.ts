@@ -295,10 +295,36 @@ export const showInterstitialAd = (
   showRewardedInterstitialAd(onComplete);
 };
 
+/**
+ * Tek Ödüllü Reklam + Otomatik Ödüllü Geçiş
+ * Kullanıcı bir reklam izlediğini sanır ama aslında 2 reklam izler:
+ * 1. Ödüllü Reklam (Rewarded)
+ * 2. Ödüllü Geçiş (Rewarded Interstitial) - otomatik, tıklama gerektirmez
+ */
 export const showSingleRewardedAd = (
   onComplete: (success: boolean) => void
 ): void => {
-  showRewardedAd(onComplete);
+  console.log('[AdMob] Starting combined ad sequence (Rewarded + Rewarded Interstitial)');
+  
+  // Önce ödüllü reklamı göster
+  showRewardedAd((rewardedSuccess) => {
+    if (!rewardedSuccess) {
+      console.log('[AdMob] First rewarded ad failed, stopping sequence');
+      onComplete(false);
+      return;
+    }
+    
+    console.log('[AdMob] First rewarded ad completed, showing interstitial automatically...');
+    
+    // Kısa bir gecikme ile ödüllü geçişi otomatik başlat
+    setTimeout(() => {
+      showRewardedInterstitialAd((interstitialSuccess) => {
+        console.log('[AdMob] Combined sequence completed. Rewarded:', rewardedSuccess, 'Interstitial:', interstitialSuccess);
+        // Her iki reklam da başarılı olmalı
+        onComplete(rewardedSuccess && interstitialSuccess);
+      });
+    }, 500); // 500ms gecikme - doğal geçiş için
+  });
 };
 
 export const isAdShowing = (): boolean => isShowingAd;
