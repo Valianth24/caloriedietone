@@ -438,26 +438,27 @@ export const needsAdForDietEntry = async (dietId: string): Promise<boolean> => {
 };
 
 /**
- * Diyete giriş için reklam göster (Ödüllü Geçiş)
+ * Diyete giriş için reklam göster (Tariflerdeki aynı reklam birimi)
  */
 export const showAdsForDietEntry = async (dietId: string): Promise<boolean> => {
-  const { showRewardedInterstitialAdAsync } = await import('./admobService');
+  const { showSingleRewardedAd } = await import('./admobService');
   
-  console.log('[AdSystem] Showing Rewarded Interstitial for diet entry:', dietId);
+  console.log('[AdSystem] Showing Rewarded ad for diet entry:', dietId);
   
-  const success = await showRewardedInterstitialAdAsync();
-  
-  if (success) {
-    const data = await getDietUnlockData();
-    if (!data[dietId]) {
-      data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
-    }
-    data[dietId].entryAdWatched = true;
-    await saveDietUnlockData(data);
-    console.log('[AdSystem] Diet entry ad completed, marked as watched');
-  }
-  
-  return success;
+  return new Promise(async (resolve) => {
+    showSingleRewardedAd(async (success) => {
+      if (success) {
+        const data = await getDietUnlockData();
+        if (!data[dietId]) {
+          data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
+        }
+        data[dietId].entryAdWatched = true;
+        await saveDietUnlockData(data);
+        console.log('[AdSystem] Diet entry ad completed, marked as watched');
+      }
+      resolve(success);
+    });
+  });
 };
 
 /**
