@@ -99,6 +99,7 @@ export default function AnimatedCard({
   }, [disabled, onPress]);
 
   const animatedStyle = useAnimatedStyle(() => {
+    'worklet';
     // Entrance animation interpolation
     const enterOpacity = enterAnimation !== 'none' 
       ? interpolate(progress.value, [0, 1], [0, 1], Extrapolation.CLAMP)
@@ -119,7 +120,7 @@ export default function AnimatedCard({
       transform: [
         { translateY: enterTranslateY + translateY.value },
         { scale: scale.value * enterScale },
-      ],
+      ] as const,
     };
   });
 
