@@ -298,6 +298,3 @@ export function ShimmerPlaceholder({
     />
   );
 }
-
-// Re-export withRepeat for ShimmerPlaceholder
-import { withRepeat } from 'react-native-reanimated';
