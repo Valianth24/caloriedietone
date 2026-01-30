@@ -37,9 +37,10 @@ export interface ThemeUnlockData {
 }
 
 /**
- * Ücretsiz tarif limiti - her kategoride ilk 3 tarif reklamsız
+ * Ücretsiz tarif limiti - TÜM TARİFLER REKLAMLI
+ * Not: İlk tarif bile reklam gerektiriyor
  */
-export const FREE_RECIPES_PER_CATEGORY = 3;
+export const FREE_RECIPES_PER_CATEGORY = 0;
 
 export const FREE_LIMITS = {
   RECIPES_PER_AD: 1,
