@@ -157,7 +157,6 @@ export default function DashboardScreen() {
 
   useEffect(() => {
     loadData();
-    checkAndShowPremiumModal();
     loadNotificationSettings();
     checkAndShowDietRecommendation();
     // Removed auto permission request - only ask when user toggles reminders
@@ -277,11 +276,6 @@ export default function DashboardScreen() {
       loadFoodDatabase();
     }
   }, [showAddModal]);
-
-  const checkAndShowPremiumModal = async () => {
-    // Premium modal disabled - users can access from premium button
-    return;
-  };
 
   const onRefresh = async () => {
     setRefreshing(true);
