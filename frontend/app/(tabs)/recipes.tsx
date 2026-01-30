@@ -270,22 +270,12 @@ export default function RecipesScreen() {
         return;
       }
       
-      // Reklam gerekli mi? isPremium = true ise reklam gerekli (yıldızlı tarifler)
-      const needsAd = recipe.isPremium && !watchedAdRecipes.includes(recipe.id);
+      // Her tarif için reklam gerekli (Free Pass yoksa)
+      // isPremium kontrolü yok - tüm tarifler reklam gerektiriyor
+      setPendingRecipe(recipe);
+      setPendingRecipeIndex(recipeIndex);
+      setShowAdModal(true);
       
-      if (needsAd) {
-        // Reklam modal göster - tarif reklam izlenmeden açılmayacak
-        setPendingRecipe(recipe);
-        setPendingRecipeIndex(recipeIndex);
-        setShowAdModal(true);
-        return;
-      }
-
-      // Reklamsız tarif - direkt aç
-      router.push({
-        pathname: '/details/recipe-detail',
-        params: { recipeId: recipe.id },
-      });
     } catch (error) {
       console.error('Error navigating to recipe detail:', error);
     }
