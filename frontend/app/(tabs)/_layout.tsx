@@ -235,20 +235,22 @@ export default function TabLayout() {
           title: '',
           tabBarIcon: ({ focused }) => (
             <View style={{
-              width: 56,
-              height: 56,
-              borderRadius: 28,
+              width: 64,
+              height: 64,
+              borderRadius: 32,
               backgroundColor: colors.primary,
               justifyContent: 'center',
               alignItems: 'center',
-              marginBottom: 30 + bottomPadding, // Dinamik margin
-              shadowColor: '#000',
-              shadowOffset: { width: 0, height: 4 },
-              shadowOpacity: 0.3,
-              shadowRadius: 8,
-              elevation: 8,
+              marginBottom: 40 + bottomPadding,
+              shadowColor: colors.primary,
+              shadowOffset: { width: 0, height: 6 },
+              shadowOpacity: 0.4,
+              shadowRadius: 12,
+              elevation: 10,
+              borderWidth: 4,
+              borderColor: colors.white,
             }}>
-              <Ionicons name="camera" size={28} color={colors.white} />
+              <Ionicons name="camera" size={30} color={colors.white} />
             </View>
           ),
         }}
