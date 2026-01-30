@@ -178,9 +178,12 @@ export function AnimatedProgressBar({
     }
   }, [progress, animated]);
 
-  const progressStyle = useAnimatedStyle(() => ({
-    width: `${Math.min(animatedProgress.value, 100)}%`,
-  }));
+  const progressStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      width: `${Math.min(animatedProgress.value, 100)}%`,
+    };
+  });
 
   return (
     <Animated.View
