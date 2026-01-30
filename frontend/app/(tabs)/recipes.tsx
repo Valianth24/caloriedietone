@@ -594,6 +594,135 @@ export default function RecipesScreen() {
         type="recipe"
       />
       
+      {/* Free Pass Modal */}
+      <Modal
+        visible={showFreePassModal}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setShowFreePassModal(false)}
+      >
+        <View style={styles.freePassModalOverlay}>
+          <View style={styles.freePassModalContent}>
+            {/* Close Button */}
+            <TouchableOpacity 
+              style={styles.freePassCloseButton}
+              onPress={() => setShowFreePassModal(false)}
+            >
+              <Ionicons name="close" size={24} color={Colors.lightText} />
+            </TouchableOpacity>
+            
+            {/* Icon */}
+            <View style={styles.freePassIconContainer}>
+              <Ionicons name="gift" size={48} color={Colors.primary} />
+            </View>
+            
+            {/* Title */}
+            <Text style={styles.freePassTitle}>
+              {lang === 'tr' ? '1 Saat Ücretsiz Tarifler!' : '1 Hour Free Recipes!'}
+            </Text>
+            
+            {/* Description */}
+            <Text style={styles.freePassDescription}>
+              {lang === 'tr' 
+                ? '2 kısa reklam izleyerek tüm tariflere 1 saat boyunca ücretsiz erişin!'
+                : 'Watch 2 short ads to unlock all recipes for 1 hour!'}
+            </Text>
+            
+            {/* Progress */}
+            <View style={styles.freePassProgress}>
+              <View style={styles.freePassProgressDots}>
+                <View style={[
+                  styles.freePassDot, 
+                  freePassAdsWatched >= 1 && styles.freePassDotActive
+                ]}>
+                  {freePassAdsWatched >= 1 && (
+                    <Ionicons name="checkmark" size={14} color="#fff" />
+                  )}
+                </View>
+                <View style={styles.freePassProgressLine} />
+                <View style={[
+                  styles.freePassDot, 
+                  freePassAdsWatched >= 2 && styles.freePassDotActive
+                ]}>
+                  {freePassAdsWatched >= 2 && (
+                    <Ionicons name="checkmark" size={14} color="#fff" />
+                  )}
+                </View>
+              </View>
+              <Text style={styles.freePassProgressText}>
+                {freePassAdsWatched}/2 {lang === 'tr' ? 'reklam izlendi' : 'ads watched'}
+              </Text>
+            </View>
+            
+            {/* Button */}
+            <TouchableOpacity
+              style={[styles.freePassButton, freePassLoading && styles.freePassButtonDisabled]}
+              onPress={handleWatchFreePassAd}
+              disabled={freePassLoading}
+            >
+              {freePassLoading ? (
+                <ActivityIndicator color="#fff" />
+              ) : (
+                <>
+                  <Ionicons name="play-circle" size={24} color="#fff" />
+                  <Text style={styles.freePassButtonText}>
+                    {lang === 'tr' ? 'Reklam İzle' : 'Watch Ad'}
+                  </Text>
+                </>
+              )}
+            </TouchableOpacity>
+            
+            {/* Skip */}
+            <TouchableOpacity
+              style={styles.freePassSkipButton}
+              onPress={() => setShowFreePassModal(false)}
+            >
+              <Text style={styles.freePassSkipText}>
+                {lang === 'tr' ? 'Şimdilik Geç' : 'Skip for Now'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
+      
+      {/* Free Pass Active Banner */}
+      {freePassActive && (
+        <View style={styles.freePassBanner}>
+          <Ionicons name="time" size={18} color={Colors.success} />
+          <Text style={styles.freePassBannerText}>
+            {lang === 'tr' 
+              ? `Ücretsiz erişim: ${freePassRemainingMinutes} dk kaldı`
+              : `Free access: ${freePassRemainingMinutes} min left`}
+          </Text>
+          <TouchableOpacity 
+            onPress={() => setShowFreePassModal(true)}
+            style={styles.freePassExtendButton}
+          >
+            <Text style={styles.freePassExtendText}>
+              {lang === 'tr' ? '+1 Saat' : '+1 Hour'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+      )}
+      
+      {/* Free Pass Offer Banner (when not active) */}
+      {!freePassActive && (
+        <TouchableOpacity 
+          style={styles.freePassOfferBanner}
+          onPress={() => setShowFreePassModal(true)}
+        >
+          <View style={styles.freePassOfferLeft}>
+            <Ionicons name="gift" size={20} color={Colors.primary} />
+            <Text style={styles.freePassOfferText}>
+              {lang === 'tr' 
+                ? `2 reklam = 1 saat ücretsiz! (${freePassAdsWatched}/2)`
+                : `2 ads = 1 hour free! (${freePassAdsWatched}/2)`}
+            </Text>
+          </View>
+          <Ionicons name="chevron-forward" size={20} color={Colors.primary} />
+        </TouchableOpacity>
+      )}
+      
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
