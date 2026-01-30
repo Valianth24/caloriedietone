@@ -573,16 +573,7 @@ export default function CameraScreen() {
                   <Animated.View
                     style={[
                       styles.scanLine,
-                      {
-                        transform: [
-                          {
-                            translateY: scanLineAnim.interpolate({
-                              inputRange: [0, 1],
-                              outputRange: [0, 250], // Height of image
-                            }),
-                          },
-                        ],
-                      },
+                      scanLineStyle,
                     ]}
                   >
                     <LinearGradient
@@ -595,7 +586,7 @@ export default function CameraScreen() {
                     <Animated.View
                       style={[
                         styles.scanLineGlow,
-                        { transform: [{ scaleY: pulseAnim }] },
+                        pulseStyle,
                       ]}
                     />
                   </Animated.View>
@@ -618,7 +609,7 @@ export default function CameraScreen() {
               <View style={styles.loadingCard}>
                 {/* Animated scanning indicator */}
                 <View style={styles.scanningHeader}>
-                  <Animated.View style={{ transform: [{ scale: pulseAnim }] }}>
+                  <Animated.View style={pulseStyle}>
                     <Ionicons name="scan" size={40} color={Colors.primary} />
                   </Animated.View>
                 </View>
