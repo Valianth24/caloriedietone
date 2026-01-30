@@ -31,7 +31,6 @@ import { Colors } from '../../constants/Colors';
 import WatchAdModal from '../../components/WatchAdModal';
 import { 
   showRewardedAd, 
-  getWatchedAdRecipes,
   isRecipeFreePassActive,
   getRecipeFreePassRemainingMinutes,
   getRecipePassAdsWatched,
