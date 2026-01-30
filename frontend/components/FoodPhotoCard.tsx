@@ -218,22 +218,6 @@ const styles = StyleSheet.create({
     padding: 20,
     justifyContent: 'flex-end',
   },
-  floatingIcons: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-  floatingIcon: {
-    position: 'absolute',
-    backgroundColor: 'rgba(255,255,255,0.2)',
-    borderRadius: 20,
-    padding: 8,
-  },
-  floatingEmoji: {
-    fontSize: 20,
-  },
   content: {
     gap: 8,
   },
