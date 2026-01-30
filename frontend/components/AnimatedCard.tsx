@@ -16,6 +16,7 @@ import Animated, {
   withSpring,
   withTiming,
   withDelay,
+  withRepeat,
   interpolate,
   Extrapolation,
   runOnJS,
