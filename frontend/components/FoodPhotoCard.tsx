@@ -152,19 +152,6 @@ function FoodPhotoCard({ index = 0 }: FoodPhotoCardProps) {
             style={styles.gradient}
           >
             <View style={styles.overlay}>
-              {/* Floating food icons */}
-              <View style={styles.floatingIcons}>
-                <Animated.View style={[styles.floatingIcon, { top: 20, left: 20 }]}>
-                  <Text style={styles.floatingEmoji}>🥗</Text>
-                </Animated.View>
-                <Animated.View style={[styles.floatingIcon, { top: 30, right: 30 }]}>
-                  <Text style={styles.floatingEmoji}>🍎</Text>
-                </Animated.View>
-                <Animated.View style={[styles.floatingIcon, { bottom: 80, right: 20 }]}>
-                  <Text style={styles.floatingEmoji}>🥑</Text>
-                </Animated.View>
-              </View>
-
               {/* Content */}
               <View style={styles.content}>
                 <Text style={styles.title}>{t('takePhotoOfYourMeal')}</Text>
