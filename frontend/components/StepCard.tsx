@@ -143,31 +143,46 @@ function StepCard({ current, goal, index = 0 }: StepCardProps) {
   }, [router]);
 
   // Animated styles
-  const cardAnimatedStyle = useAnimatedStyle(() => ({
-    opacity: cardOpacity.value,
-    transform: [
-      { translateY: cardTranslateY.value },
-      { scale: cardScale.value },
-    ],
-  }));
+  const cardAnimatedStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: cardOpacity.value,
+      transform: [
+        { translateY: cardTranslateY.value },
+        { scale: cardScale.value },
+      ] as const,
+    };
+  });
 
-  const progressBarStyle = useAnimatedStyle(() => ({
-    width: `${progressWidth.value}%`,
-  }));
+  const progressBarStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      width: `${progressWidth.value}%`,
+    };
+  });
 
-  const iconStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: stepIconBounce.value }],
-  }));
+  const iconStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: stepIconBounce.value }],
+    };
+  });
 
-  const stepCountStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: stepCountScale.value }],
-    opacity: stepCountScale.value,
-  }));
+  const stepCountStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: stepCountScale.value }],
+      opacity: stepCountScale.value,
+    };
+  });
 
-  const livePulseStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: livePulse.value }],
-    opacity: interpolate(livePulse.value, [1, 1.3], [1, 0.5]),
-  }));
+  const livePulseStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: livePulse.value }],
+      opacity: interpolate(livePulse.value, [1, 1.3], [1, 0.5]),
+    };
+  });
 
   const sourceIcon = Platform.OS === 'ios' ? 'logo-apple' : 'logo-google';
   const sourceName = Platform.OS === 'ios' ? 'Apple Health' : 'Google Fit';
