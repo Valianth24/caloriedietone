@@ -840,27 +840,6 @@ export default function DashboardScreen() {
         </View>
       </Modal>
 
-      {/* Premium Paywall - temporarily hidden
-      <PremiumPaywall
-        visible={showPremiumModal}
-        onClose={() => setShowPremiumModal(false)}
-        onSubscribe={async () => {
-          try {
-            const result = await activatePremium() as any;
-            // Update user state with premium status
-            if (result && setUser) {
-              setUser({ ...user, ...result, is_premium: true });
-            }
-            alert(`🎉 ${t('premiumActivated')}`);
-            setShowPremiumModal(false);
-          } catch (error) {
-            console.error('Premium activation error:', error);
-            alert(t('errorOccurredTryAgain'));
-          }
-        }}
-      />
-      */}
-
       {/* Diet Recommendation Modal - İlk girişte gösterilir */}
       <DietRecommendationModal
         visible={showDietRecommendation}
