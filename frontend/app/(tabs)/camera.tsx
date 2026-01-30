@@ -177,21 +177,30 @@ export default function CameraScreen() {
   }, [result]);
 
   // Animated styles
-  const scanLineStyle = useAnimatedStyle(() => ({
-    transform: [
-      { translateY: interpolate(scanLineY.value, [0, 1], [0, 200], Extrapolation.CLAMP) },
-    ],
-  }));
+  const scanLineStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [
+        { translateY: interpolate(scanLineY.value, [0, 1], [0, 200], Extrapolation.CLAMP) },
+      ],
+    };
+  });
 
-  const pulseStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: pulseScale.value }],
-    opacity: glowOpacity.value,
-  }));
+  const pulseStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: pulseScale.value }],
+      opacity: glowOpacity.value,
+    };
+  });
 
-  const resultCardStyle = useAnimatedStyle(() => ({
-    opacity: resultCardOpacity.value,
-    transform: [{ scale: resultCardScale.value }],
-  }));
+  const resultCardStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: resultCardOpacity.value,
+      transform: [{ scale: resultCardScale.value }],
+    };
+  });
 
   const buttonAnimStyle = useAnimatedStyle(() => ({
     transform: [{ scale: buttonScale.value }],
