@@ -92,32 +92,47 @@ function FoodPhotoCard({ index = 0 }: FoodPhotoCardProps) {
   }, [router]);
 
   // Animated styles
-  const cardAnimatedStyle = useAnimatedStyle(() => ({
-    opacity: cardOpacity.value,
-    transform: [
-      { translateY: cardTranslateY.value },
-      { scale: cardScale.value },
-    ],
-  }));
+  const cardAnimatedStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: cardOpacity.value,
+      transform: [
+        { translateY: cardTranslateY.value },
+        { scale: cardScale.value },
+      ] as const,
+    };
+  });
 
-  const imageStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: imageScale.value }],
-  }));
+  const imageStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: imageScale.value }],
+    };
+  });
 
-  const buttonAnimatedStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: buttonScale.value }],
-  }));
+  const buttonAnimatedStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: buttonScale.value }],
+    };
+  });
 
-  const iconStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: iconPulse.value }],
-  }));
+  const iconStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: iconPulse.value }],
+    };
+  });
 
-  const shimmerStyle = useAnimatedStyle(() => ({
-    opacity: interpolate(shimmer.value, [0, 0.5, 1], [0, 0.3, 0]),
-    transform: [
-      { translateX: interpolate(shimmer.value, [0, 1], [-100, 200]) },
-    ],
-  }));
+  const shimmerStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: interpolate(shimmer.value, [0, 0.5, 1], [0, 0.3, 0]),
+      transform: [
+        { translateX: interpolate(shimmer.value, [0, 1], [-100, 200]) },
+      ],
+    };
+  });
 
   return (
     <AnimatedPressable
