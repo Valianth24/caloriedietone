@@ -156,13 +156,48 @@ export default function RecipesScreen() {
   
   // Favori tarifler
   const [favoriteRecipes, setFavoriteRecipes] = useState<string[]>([]);
+  
+  // Free Pass sistemi
+  const [showFreePassModal, setShowFreePassModal] = useState(false);
+  const [freePassActive, setFreePassActive] = useState(false);
+  const [freePassRemainingMinutes, setFreePassRemainingMinutes] = useState(0);
+  const [freePassAdsWatched, setFreePassAdsWatched] = useState(0);
+  const [freePassLoading, setFreePassLoading] = useState(false);
 
   const isPremium = user?.is_premium || false;
   const allRecipes = getAllRecipeMetadata();
 
+  // Free Pass durumunu kontrol et
+  const checkFreePassStatus = async () => {
+    const isActive = await isRecipeFreePassActive();
+    setFreePassActive(isActive);
+    
+    if (isActive) {
+      const remaining = await getRecipeFreePassRemainingMinutes();
+      setFreePassRemainingMinutes(remaining);
+    } else {
+      const adsWatched = await getRecipePassAdsWatched();
+      setFreePassAdsWatched(adsWatched);
+      // Eğer henüz aktif değilse ve ilk girişse, modal göster
+      const hasSeenModal = await AsyncStorage.getItem('free_pass_modal_shown');
+      if (!hasSeenModal) {
+        setShowFreePassModal(true);
+        await AsyncStorage.setItem('free_pass_modal_shown', 'true');
+      }
+    }
+  };
+
   useEffect(() => {
     loadFavoriteRecipes();
     loadWatchedAdRecipes();
+    checkFreePassStatus();
+    
+    // Her 1 dakikada free pass süresini güncelle
+    const interval = setInterval(() => {
+      checkFreePassStatus();
+    }, 60000);
+    
+    return () => clearInterval(interval);
   }, []);
 
   useEffect(() => {
