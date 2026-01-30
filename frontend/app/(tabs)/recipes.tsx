@@ -430,8 +430,8 @@ export default function RecipesScreen() {
     // Fallback image URL
     const fallbackImage = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&q=80';
     
-    // Reklamlı tarif mi? isPremium = true ve henüz reklam izlenmemiş
-    const requiresAd = item.isPremium && !watchedAdRecipes.includes(item.id);
+    // Free Pass aktif değilse tüm tarifler reklam gerektirir
+    const requiresAd = !freePassActive;
     
     return (
       <TouchableOpacity
