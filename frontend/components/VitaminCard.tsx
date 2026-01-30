@@ -139,17 +139,23 @@ function VitaminCard({ index = 0 }: VitaminCardProps) {
   }, [router]);
 
   // Animated styles
-  const cardAnimatedStyle = useAnimatedStyle(() => ({
-    opacity: cardOpacity.value,
-    transform: [
-      { translateY: cardTranslateY.value },
-      { scale: cardScale.value },
-    ],
-  }));
+  const cardAnimatedStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: cardOpacity.value,
+      transform: [
+        { translateY: cardTranslateY.value },
+        { scale: cardScale.value },
+      ] as const,
+    };
+  });
 
-  const itemsStyle = useAnimatedStyle(() => ({
-    opacity: itemsOpacity.value,
-  }));
+  const itemsStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: itemsOpacity.value,
+    };
+  });
 
   // Count taken vitamins
   const takenCount = vitamins.filter(v => v.is_taken).length;
