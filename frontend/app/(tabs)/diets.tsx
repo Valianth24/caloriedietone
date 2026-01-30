@@ -256,35 +256,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.lightText,
   },
-  premiumButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.warning,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    borderRadius: 20,
-    gap: 6,
-  },
-  premiumButtonText: {
-    color: Colors.white,
-    fontSize: 14,
-    fontWeight: 'bold',
-  },
-  premiumBanner: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: Colors.success + '20',
-    padding: 16,
-    borderRadius: 12,
-    marginBottom: 16,
-    gap: 12,
-  },
-  premiumBannerText: {
-    flex: 1,
-    fontSize: 14,
-    color: Colors.success,
-    fontWeight: '600',
-  },
   
   // Recommendation Card
   recommendationCard: {
