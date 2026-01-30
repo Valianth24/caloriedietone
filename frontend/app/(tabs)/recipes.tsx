@@ -188,7 +188,6 @@ export default function RecipesScreen() {
 
   useEffect(() => {
     loadFavoriteRecipes();
-    loadWatchedAdRecipes();
     checkFreePassStatus();
     
     // Her 1 dakikada free pass süresini güncelle
@@ -202,11 +201,6 @@ export default function RecipesScreen() {
   useEffect(() => {
     loadRecipes();
   }, [selectedCategory, selectedCollection, favoriteRecipes]);
-  
-  const loadWatchedAdRecipes = async () => {
-    const watched = await getWatchedAdRecipes();
-    setWatchedAdRecipes(watched);
-  };
   
   const loadFavoriteRecipes = async () => {
     try {
