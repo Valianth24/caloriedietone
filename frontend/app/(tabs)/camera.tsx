@@ -102,54 +102,50 @@ export default function CameraScreen() {
   
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
   
-  // Scanning animation
-  const scanLineAnim = useRef(new Animated.Value(0)).current;
-  const pulseAnim = useRef(new Animated.Value(1)).current;
+  // Reanimated animation values
+  const scanLineY = useSharedValue(0);
+  const pulseScale = useSharedValue(1);
+  const resultCardScale = useSharedValue(0.9);
+  const resultCardOpacity = useSharedValue(0);
+  const buttonScale = useSharedValue(1);
+  const glowOpacity = useSharedValue(0.5);
 
   // Check premium status
-  const isPremium = user?.is_premium || false;
   const isGuest = user?.user_id?.startsWith('guest_') || false;
 
   // Start scan animation when analyzing
   useEffect(() => {
     if (analyzing) {
-      // Reset animations
-      scanLineAnim.setValue(0);
-      
-      // Scan line animation - moves up and down
-      const scanAnimation = Animated.loop(
-        Animated.sequence([
-          Animated.timing(scanLineAnim, {
-            toValue: 1,
-            duration: 1500,
-            useNativeDriver: true,
-          }),
-          Animated.timing(scanLineAnim, {
-            toValue: 0,
-            duration: 1500,
-            useNativeDriver: true,
-          }),
-        ])
+      // Scan line animation - moves up and down smoothly
+      scanLineY.value = 0;
+      scanLineY.value = withRepeat(
+        withSequence(
+          withTiming(1, { duration: 1800, easing: Easing.inOut(Easing.ease) }),
+          withTiming(0, { duration: 1800, easing: Easing.inOut(Easing.ease) })
+        ),
+        -1,
+        true
       );
       
-      // Pulse animation for the scan line glow
-      const pulseAnimation = Animated.loop(
-        Animated.sequence([
-          Animated.timing(pulseAnim, {
-            toValue: 1.2,
-            duration: 500,
-            useNativeDriver: true,
-          }),
-          Animated.timing(pulseAnim, {
-            toValue: 1,
-            duration: 500,
-            useNativeDriver: true,
-          }),
-        ])
+      // Pulse animation for glow effect
+      pulseScale.value = withRepeat(
+        withSequence(
+          withTiming(1.3, { duration: 600 }),
+          withTiming(1, { duration: 600 })
+        ),
+        -1,
+        true
       );
       
-      scanAnimation.start();
-      pulseAnimation.start();
+      // Glow breathing effect
+      glowOpacity.value = withRepeat(
+        withSequence(
+          withTiming(1, { duration: 800 }),
+          withTiming(0.3, { duration: 800 })
+        ),
+        -1,
+        true
+      );
       
       // Progress simulation
       const progressInterval = setInterval(() => {
@@ -160,13 +156,57 @@ export default function CameraScreen() {
       }, 300);
       
       return () => {
-        scanAnimation.stop();
-        pulseAnimation.stop();
         clearInterval(progressInterval);
         setScanProgress(0);
       };
+    } else {
+      // Reset when not analyzing
+      scanLineY.value = 0;
+      pulseScale.value = 1;
     }
   }, [analyzing]);
+
+  // Animate result card when result arrives
+  useEffect(() => {
+    if (result) {
+      resultCardOpacity.value = withTiming(1, { duration: 400 });
+      resultCardScale.value = withSpring(1, SPRING_CONFIGS.bouncy);
+    } else {
+      resultCardOpacity.value = 0;
+      resultCardScale.value = 0.9;
+    }
+  }, [result]);
+
+  // Animated styles
+  const scanLineStyle = useAnimatedStyle(() => ({
+    transform: [
+      { translateY: interpolate(scanLineY.value, [0, 1], [0, 200], Extrapolation.CLAMP) },
+    ],
+  }));
+
+  const pulseStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: pulseScale.value }],
+    opacity: glowOpacity.value,
+  }));
+
+  const resultCardStyle = useAnimatedStyle(() => ({
+    opacity: resultCardOpacity.value,
+    transform: [{ scale: resultCardScale.value }],
+  }));
+
+  const buttonAnimStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: buttonScale.value }],
+  }));
+
+  // Button press handlers
+  const handleButtonPressIn = useCallback(() => {
+    buttonScale.value = withSpring(0.95, SPRING_CONFIGS.snappy);
+    runOnJS(triggerHaptic)('light');
+  }, []);
+
+  const handleButtonPressOut = useCallback(() => {
+    buttonScale.value = withSpring(1, SPRING_CONFIGS.bouncy);
+  }, []);
 
   const resizeImage = async (base64: string): Promise<string> => {
     // Frontend preprocessing - just return as is for now
