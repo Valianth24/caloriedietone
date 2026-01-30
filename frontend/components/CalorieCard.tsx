@@ -102,14 +102,20 @@ function CalorieCard({ current, goal, protein, carbs, fat, index = 0 }: CalorieC
     };
   });
 
-  const calorieTextStyle = useAnimatedStyle(() => ({
-    opacity: interpolate(calorieCount.value, [0, current * 0.5, current], [0, 0.7, 1]),
-  }));
+  const calorieTextStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: interpolate(calorieCount.value, [0, current * 0.5, current], [0, 0.7, 1]),
+    };
+  });
 
-  const macroAnimatedStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: macroScale.value }],
-    opacity: macroScale.value,
-  }));
+  const macroAnimatedStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: macroScale.value }],
+      opacity: macroScale.value,
+    };
+  });
 
   // Get progress color based on percentage
   const getProgressColor = () => {
