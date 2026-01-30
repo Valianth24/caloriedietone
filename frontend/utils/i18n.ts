@@ -1489,6 +1489,20 @@ const resources = {
       calculatingCalories: 'Kaloriler hesaplanıyor...',
       analyzingImage: 'Görsel analiz ediliyor...',
       preparingContent: 'İçerik hazırlanıyor...',
+      
+      // Free Pass
+      freeRecipesOffer: '1 Saat Ücretsiz Tarifler!',
+      freeRecipesDescription: '2 kısa reklam izleyerek tüm tariflere 1 saat boyunca ücretsiz erişin!',
+      adsWatched: 'reklam izlendi',
+      watchAd: 'Reklam İzle',
+      skipForNow: 'Şimdilik Geç',
+      freeAccessRemaining: 'Ücretsiz erişim: {{minutes}} dk kaldı',
+      extendOneHour: '+1 Saat',
+      twoAdsOneHourFree: '2 reklam = 1 saat ücretsiz!',
+      congratulations: 'Tebrikler!',
+      allRecipesFreeOneHour: 'Tüm tarifler 1 saat boyunca ücretsiz! İyi keşifler!',
+      adError: 'Reklam Hatası',
+      adFailedTryAgain: 'Reklam yüklenemedi. Tekrar deneyin.',
     }
   },
   
