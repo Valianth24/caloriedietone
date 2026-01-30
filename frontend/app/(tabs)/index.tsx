@@ -430,10 +430,11 @@ export default function DashboardScreen() {
                 protein={dailySummary?.total_protein || 0}
                 carbs={dailySummary?.total_carbs || 0}
                 fat={dailySummary?.total_fat || 0}
+                index={0}
               />
             </View>
             <View style={styles.gridItemHalf}>
-              <VitaminCard />
+              <VitaminCard index={1} />
             </View>
           </View>
 
@@ -444,18 +445,20 @@ export default function DashboardScreen() {
                 current={waterData?.total_amount || 0}
                 goal={dynamicWaterGoal}
                 weeklyData={weeklyWater}
+                index={2}
               />
             </View>
             <View style={styles.gridItemHalf}>
               <StepCard
                 current={stepData?.steps || 0}
                 goal={user?.step_goal || 10000}
+                index={3}
               />
             </View>
           </View>
 
           <View style={styles.gridItemFull}>
-            <FoodPhotoCard />
+            <FoodPhotoCard index={4} />
           </View>
 
           {/* Personal Diets Section - Always visible */}
