@@ -271,14 +271,17 @@ export function ShimmerPlaceholder({
     );
   }, []);
 
-  const shimmerStyle = useAnimatedStyle(() => ({
-    opacity: interpolate(
-      shimmer.value,
-      [0, 0.5, 1],
-      [0.3, 0.7, 0.3],
-      Extrapolation.CLAMP
-    ),
-  }));
+  const shimmerStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: interpolate(
+        shimmer.value,
+        [0, 0.5, 1],
+        [0.3, 0.7, 0.3],
+        Extrapolation.CLAMP
+      ),
+    };
+  });
 
   return (
     <Animated.View
