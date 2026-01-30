@@ -333,19 +333,13 @@ export default function RecipesScreen() {
     setShowAdModal(false);
     
     try {
-      // Bu tarif daha önce izlendi mi?
-      const wasWatched = watchedAdRecipes.includes(pendingRecipe.id);
-      // Yıldızlı (premium) tarif mi?
-      const isPremium = pendingRecipe.isPremium === true;
-      
-      console.log('[Recipes] Watching ad for recipe:', {
+      console.log('[Recipes] Watching ads for recipe:', {
         id: pendingRecipe.id,
-        isPremium,
-        wasWatched,
+        note: 'Her tarif için reklam izlenir, kilit kalkmaz'
       });
       
-      // Reklam göster (isPremium ve wasWatched'a göre farklı reklam tipi)
-      const success = await showRewardedAd('recipe', pendingRecipe.id, isPremium, wasWatched);
+      // Reklam göster (Ödüllü + Ödüllü Geçiş otomatik)
+      const success = await showRewardedAd('recipe', pendingRecipe.id, true, false);
       
       if (!success) {
         Alert.alert(
@@ -355,9 +349,7 @@ export default function RecipesScreen() {
         return;
       }
       
-      // Reklam başarılı - tarifleri güncelle ve aç
-      await loadWatchedAdRecipes();
-      
+      // Reklam başarılı - tarifi aç (kilit kalkmaz, her seferinde reklam izlenecek)
       router.push({
         pathname: '/details/recipe-detail',
         params: { recipeId: pendingRecipe.id },
