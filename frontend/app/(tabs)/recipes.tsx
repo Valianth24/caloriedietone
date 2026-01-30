@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   View,
   Text,
@@ -10,7 +10,17 @@ import {
   FlatList,
   Dimensions,
   Alert,
+  Modal,
 } from 'react-native';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+  withRepeat,
+  withSequence,
+  runOnJS,
+} from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
@@ -19,7 +29,14 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../contexts/AuthContext';
 import { Colors } from '../../constants/Colors';
 import WatchAdModal from '../../components/WatchAdModal';
-import { showRewardedAd, getWatchedAdRecipes } from '../../utils/adSystem';
+import { 
+  showRewardedAd, 
+  getWatchedAdRecipes,
+  isRecipeFreePassActive,
+  getRecipeFreePassRemainingMinutes,
+  getRecipePassAdsWatched,
+  watchAdForRecipeFreePass,
+} from '../../utils/adSystem';
 import {
   getAllRecipeMetadata,
   getRecipesByCategory,
