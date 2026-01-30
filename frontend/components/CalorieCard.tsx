@@ -83,15 +83,19 @@ function CalorieCard({ current, goal, protein, carbs, fat, index = 0 }: CalorieC
   }, [router]);
 
   // Animated styles
-  const cardAnimatedStyle = useAnimatedStyle(() => ({
-    opacity: cardOpacity.value,
-    transform: [
-      { translateY: cardTranslateY.value },
-      { scale: cardScale.value },
-    ],
-  }));
+  const cardAnimatedStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: cardOpacity.value,
+      transform: [
+        { translateY: cardTranslateY.value },
+        { scale: cardScale.value },
+      ] as const,
+    };
+  });
 
   const progressAnimatedProps = useAnimatedProps(() => {
+    'worklet';
     const strokeDashoffset = circumference - (progressAnim.value / 100) * circumference;
     return {
       strokeDashoffset,
