@@ -737,6 +737,18 @@ const resources = {
       dayCompleted: 'This day is completed!',
       startDietProgram: 'Start 30-Day Program',
       sevenDayPreview: '7-Day Preview',
+      
+      // Page Transitions
+      loadingData: 'Loading data...',
+      savingChanges: 'Saving changes...',
+      processingRequest: 'Processing...',
+      pleaseWaitMoment: 'Please wait a moment...',
+      almostDone: 'Almost done...',
+      fetchingData: 'Fetching data...',
+      updatingProfile: 'Updating profile...',
+      calculatingCalories: 'Calculating calories...',
+      analyzingImage: 'Analyzing image...',
+      preparingContent: 'Preparing content...',
     }
   },
   
