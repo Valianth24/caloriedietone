@@ -1,9 +1,145 @@
 import { Tabs } from 'expo-router';
-import { View, Platform } from 'react-native';
+import { View, Platform, Pressable } from 'react-native';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+  interpolate,
+  Extrapolation,
+} from 'react-native-reanimated';
 import { Ionicons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../../contexts/ThemeContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import React, { useCallback, useEffect } from 'react';
+import * as Haptics from 'expo-haptics';
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
+
+// Custom animated tab bar button
+interface AnimatedTabButtonProps {
+  children: React.ReactNode;
+  onPress: () => void;
+  onLongPress?: () => void;
+  isFocused: boolean;
+  color: string;
+  accessibilityLabel?: string;
+  testID?: string;
+}
+
+function AnimatedTabButton({ 
+  children, 
+  onPress, 
+  onLongPress,
+  isFocused, 
+  color,
+  accessibilityLabel,
+  testID,
+}: AnimatedTabButtonProps) {
+  const scale = useSharedValue(1);
+  const translateY = useSharedValue(0);
+
+  useEffect(() => {
+    if (isFocused) {
+      translateY.value = withSpring(-2, { damping: 15, stiffness: 300 });
+      scale.value = withSpring(1.1, { damping: 15, stiffness: 300 });
+    } else {
+      translateY.value = withSpring(0, { damping: 15, stiffness: 300 });
+      scale.value = withSpring(1, { damping: 15, stiffness: 300 });
+    }
+  }, [isFocused]);
+
+  const handlePressIn = useCallback(() => {
+    scale.value = withSpring(0.9, { damping: 10, stiffness: 400 });
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+  }, []);
+
+  const handlePressOut = useCallback(() => {
+    scale.value = withSpring(isFocused ? 1.1 : 1, { damping: 15, stiffness: 300 });
+  }, [isFocused]);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [
+        { scale: scale.value },
+        { translateY: translateY.value },
+      ],
+    };
+  });
+
+  return (
+    <AnimatedPressable
+      onPress={onPress}
+      onLongPress={onLongPress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      style={[{ flex: 1, alignItems: 'center', justifyContent: 'center' }, animatedStyle]}
+      accessibilityLabel={accessibilityLabel}
+      testID={testID}
+      accessibilityRole="button"
+      accessibilityState={isFocused ? { selected: true } : {}}
+    >
+      {children}
+    </AnimatedPressable>
+  );
+}
+
+// Animated center add button
+function AnimatedAddButton({ onPress, colors, bottomPadding }: { 
+  onPress: () => void; 
+  colors: any; 
+  bottomPadding: number;
+}) {
+  const scale = useSharedValue(1);
+  const rotation = useSharedValue(0);
+
+  const handlePressIn = useCallback(() => {
+    scale.value = withSpring(0.9, { damping: 10, stiffness: 400 });
+    rotation.value = withSpring(45, { damping: 15, stiffness: 300 });
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+  }, []);
+
+  const handlePressOut = useCallback(() => {
+    scale.value = withSpring(1, { damping: 12, stiffness: 200 });
+    rotation.value = withSpring(0, { damping: 15, stiffness: 300 });
+  }, []);
+
+  const animatedStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [
+        { scale: scale.value },
+        { rotate: `${rotation.value}deg` },
+      ],
+    };
+  });
+
+  return (
+    <AnimatedPressable
+      onPress={onPress}
+      onPressIn={handlePressIn}
+      onPressOut={handlePressOut}
+      style={[{
+        width: 56,
+        height: 56,
+        borderRadius: 28,
+        backgroundColor: colors.primary,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 30 + bottomPadding,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 8,
+        elevation: 8,
+      }, animatedStyle]}
+    >
+      <Ionicons name="add" size={30} color={colors.white} />
+    </AnimatedPressable>
+  );
+}
 
 export default function TabLayout() {
   const { t } = useTranslation();
@@ -43,6 +179,24 @@ export default function TabLayout() {
         },
         // İçeriğin tab bar altında kalmaması için
         tabBarHideOnKeyboard: true,
+        // Custom tab button with animation
+        tabBarButton: (props) => {
+          const { children, onPress, onLongPress, accessibilityLabel, testID, ...rest } = props;
+          const isFocused = rest.accessibilityState?.selected || false;
+          
+          return (
+            <AnimatedTabButton
+              onPress={onPress as () => void}
+              onLongPress={onLongPress as () => void}
+              isFocused={isFocused}
+              color={isFocused ? colors.primary : colors.lightText}
+              accessibilityLabel={accessibilityLabel}
+              testID={testID}
+            >
+              {children}
+            </AnimatedTabButton>
+          );
+        },
       }}
       // Ekranların tab bar yüksekliği kadar padding almasını sağla
       sceneContainerStyle={{
@@ -53,8 +207,12 @@ export default function TabLayout() {
         name="index"
         options={{
           title: t('home'),
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="home" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? "home" : "home-outline"} 
+              size={size} 
+              color={color} 
+            />
           ),
         }}
       />
@@ -62,8 +220,12 @@ export default function TabLayout() {
         name="recipes"
         options={{
           title: t('recipes'),
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="book" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? "book" : "book-outline"} 
+              size={size} 
+              color={color} 
+            />
           ),
         }}
       />
@@ -107,8 +269,12 @@ export default function TabLayout() {
         name="tracking"
         options={{
           title: t('tracking'),
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="stats-chart" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? "stats-chart" : "stats-chart-outline"} 
+              size={size} 
+              color={color} 
+            />
           ),
         }}
       />
@@ -116,8 +282,12 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: t('profile'),
-          tabBarIcon: ({ color, size }) => (
-            <Ionicons name="person" size={size} color={color} />
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons 
+              name={focused ? "person" : "person-outline"} 
+              size={size} 
+              color={color} 
+            />
           ),
         }}
       />
