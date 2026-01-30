@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import {
   View,
   Text,
@@ -10,11 +10,24 @@ import {
   TextInput,
   Alert,
   Dimensions,
-  Animated,
   Modal,
   KeyboardAvoidingView,
   Platform,
+  Pressable,
 } from 'react-native';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withTiming,
+  withRepeat,
+  withSequence,
+  withDelay,
+  interpolate,
+  Extrapolation,
+  runOnJS,
+  Easing,
+} from 'react-native-reanimated';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -24,11 +37,12 @@ import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import { LinearGradient } from 'expo-linear-gradient';
-import PremiumPaywall from '../../components/PremiumPaywall';
 import WatchAdModal from '../../components/WatchAdModal';
-import { activatePremium } from '../../utils/api';
 import { showAdsForCalorieCalculation } from '../../utils/adSystem';
 import Constants from 'expo-constants';
+import { SPRING_CONFIGS, triggerHaptic } from '../../utils/animations';
+
+const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
 const { width: screenWidth, height: screenHeight } = Dimensions.get('window');
 
