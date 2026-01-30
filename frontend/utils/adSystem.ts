@@ -380,16 +380,19 @@ export const needsAdForCalorieCalculation = async (): Promise<boolean> => {
 
 /**
  * Kalori hesaplama için tek ödüllü reklam göster
+ * Tariflerde kullanılan aynı reklam birimi kullanılıyor
  */
 export const showAdsForCalorieCalculation = async (): Promise<boolean> => {
-  const { showRewardedAdAsync } = await import('./admobService');
+  const { showSingleRewardedAd } = await import('./admobService');
   
-  console.log('[AdSystem] Showing Rewarded ad for calorie calculation');
+  console.log('[AdSystem] Showing Rewarded ad for calorie calculation (same as recipes)');
   
-  const success = await showRewardedAdAsync();
-  console.log(`[AdSystem] Calorie calculation ad result: ${success}`);
-  
-  return success;
+  return new Promise((resolve) => {
+    showSingleRewardedAd((success) => {
+      console.log(`[AdSystem] Calorie calculation ad result: ${success}`);
+      resolve(success);
+    });
+  });
 };
 
 // ========================================
