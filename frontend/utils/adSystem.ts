@@ -47,6 +47,172 @@ export const FREE_LIMITS = {
   CALORIES_PER_AD: 1,
 };
 
+// ========================================
+// 2 REKLAM = 1 SAAT ÜCRETSİZ TARİF SİSTEMİ
+// ========================================
+
+const RECIPE_PASS_STORAGE_KEY = 'recipe_free_pass';
+
+export interface RecipeFreePassData {
+  adsWatched: number;
+  freeUntil: string | null; // ISO date string
+}
+
+/**
+ * Tarif geçiş kartı verilerini al
+ */
+export const getRecipeFreePassData = async (): Promise<RecipeFreePassData> => {
+  try {
+    const data = await AsyncStorage.getItem(RECIPE_PASS_STORAGE_KEY);
+    if (data) {
+      return JSON.parse(data);
+    }
+  } catch (error) {
+    console.error('Error getting recipe free pass data:', error);
+  }
+  return { adsWatched: 0, freeUntil: null };
+};
+
+/**
+ * Tarif geçiş kartı verilerini kaydet
+ */
+const saveRecipeFreePassData = async (data: RecipeFreePassData): Promise<void> => {
+  try {
+    await AsyncStorage.setItem(RECIPE_PASS_STORAGE_KEY, JSON.stringify(data));
+  } catch (error) {
+    console.error('Error saving recipe free pass data:', error);
+  }
+};
+
+/**
+ * Tarifler şu an ücretsiz mi? (1 saatlik geçiş aktif mi?)
+ */
+export const isRecipeFreePassActive = async (): Promise<boolean> => {
+  const data = await getRecipeFreePassData();
+  
+  if (!data.freeUntil) return false;
+  
+  const now = new Date();
+  const freeUntil = new Date(data.freeUntil);
+  
+  return now < freeUntil;
+};
+
+/**
+ * Kalan ücretsiz süreyi dakika cinsinden al
+ */
+export const getRecipeFreePassRemainingMinutes = async (): Promise<number> => {
+  const data = await getRecipeFreePassData();
+  
+  if (!data.freeUntil) return 0;
+  
+  const now = new Date();
+  const freeUntil = new Date(data.freeUntil);
+  const diffMs = freeUntil.getTime() - now.getTime();
+  
+  if (diffMs <= 0) return 0;
+  
+  return Math.ceil(diffMs / (1000 * 60));
+};
+
+/**
+ * İzlenen reklam sayısını al (henüz 1 saat açılmamış)
+ */
+export const getRecipePassAdsWatched = async (): Promise<number> => {
+  const isActive = await isRecipeFreePassActive();
+  if (isActive) return 2; // Zaten aktif
+  
+  const data = await getRecipeFreePassData();
+  return data.adsWatched;
+};
+
+/**
+ * Tarif geçiş kartı için reklam izle
+ * 2 reklam = 1 saat ücretsiz
+ */
+export const watchAdForRecipeFreePass = async (): Promise<{ 
+  success: boolean; 
+  adsWatched: number; 
+  activated: boolean;
+  remainingMinutes: number;
+}> => {
+  const { showSingleRewardedAd } = await import('./admobService');
+  
+  console.log('[AdSystem] Watching ad for recipe free pass');
+  
+  return new Promise(async (resolve) => {
+    showSingleRewardedAd(async (success) => {
+      if (!success) {
+        const currentData = await getRecipeFreePassData();
+        resolve({ 
+          success: false, 
+          adsWatched: currentData.adsWatched, 
+          activated: false,
+          remainingMinutes: 0
+        });
+        return;
+      }
+      
+      const data = await getRecipeFreePassData();
+      
+      // Eğer zaten aktifse, süreyi uzat
+      const isActive = await isRecipeFreePassActive();
+      if (isActive) {
+        const currentFreeUntil = new Date(data.freeUntil!);
+        currentFreeUntil.setHours(currentFreeUntil.getHours() + 1);
+        data.freeUntil = currentFreeUntil.toISOString();
+        await saveRecipeFreePassData(data);
+        
+        const remainingMinutes = await getRecipeFreePassRemainingMinutes();
+        resolve({ 
+          success: true, 
+          adsWatched: 2, 
+          activated: true,
+          remainingMinutes
+        });
+        return;
+      }
+      
+      // Reklam sayısını artır
+      data.adsWatched = (data.adsWatched || 0) + 1;
+      
+      // 2 reklam tamamlandıysa 1 saat aç
+      if (data.adsWatched >= 2) {
+        const freeUntil = new Date();
+        freeUntil.setHours(freeUntil.getHours() + 1);
+        data.freeUntil = freeUntil.toISOString();
+        data.adsWatched = 0; // Sıfırla
+        await saveRecipeFreePassData(data);
+        
+        console.log('[AdSystem] Recipe free pass activated for 1 hour');
+        resolve({ 
+          success: true, 
+          adsWatched: 2, 
+          activated: true,
+          remainingMinutes: 60
+        });
+        return;
+      }
+      
+      await saveRecipeFreePassData(data);
+      resolve({ 
+        success: true, 
+        adsWatched: data.adsWatched, 
+        activated: false,
+        remainingMinutes: 0
+      });
+    });
+  });
+};
+
+/**
+ * Tarif geçiş kartını sıfırla (test için)
+ */
+export const resetRecipeFreePass = async (): Promise<void> => {
+  await AsyncStorage.removeItem(RECIPE_PASS_STORAGE_KEY);
+  console.log('[AdSystem] Recipe free pass reset');
+};
+
 /**
  * Tarif görüntüleme sayısını al
  */
