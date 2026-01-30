@@ -87,7 +87,6 @@ export default function CameraScreen() {
   const [result, setResult] = useState<VisionResult | null>(null);
   const [editedItems, setEditedItems] = useState<DetectedItem[]>([]);
   const [saving, setSaving] = useState(false);
-  const [showPaywall, setShowPaywall] = useState(false);
   const [scanProgress, setScanProgress] = useState(0);
   
   // New: Context input modal
