@@ -261,6 +261,15 @@ export default function RecipesScreen() {
 
   const handleRecipePress = async (recipe: RecipeMetadata, recipeIndex: number) => {
     try {
+      // Free Pass aktifse tüm tarifler ücretsiz
+      if (freePassActive) {
+        router.push({
+          pathname: '/details/recipe-detail',
+          params: { recipeId: recipe.id },
+        });
+        return;
+      }
+      
       // Reklam gerekli mi? isPremium = true ise reklam gerekli (yıldızlı tarifler)
       const needsAd = recipe.isPremium && !watchedAdRecipes.includes(recipe.id);
       
@@ -279,6 +288,41 @@ export default function RecipesScreen() {
       });
     } catch (error) {
       console.error('Error navigating to recipe detail:', error);
+    }
+  };
+  
+  // Free Pass için reklam izle
+  const handleWatchFreePassAd = async () => {
+    setFreePassLoading(true);
+    
+    try {
+      const result = await watchAdForRecipeFreePass();
+      
+      if (result.success) {
+        setFreePassAdsWatched(result.adsWatched);
+        
+        if (result.activated) {
+          setFreePassActive(true);
+          setFreePassRemainingMinutes(result.remainingMinutes);
+          setShowFreePassModal(false);
+          
+          Alert.alert(
+            lang === 'tr' ? 'Tebrikler!' : 'Congratulations!',
+            lang === 'tr' 
+              ? 'Tüm tarifler 1 saat boyunca ücretsiz! İyi keşifler!' 
+              : 'All recipes are free for 1 hour! Enjoy exploring!'
+          );
+        }
+      } else {
+        Alert.alert(
+          lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
+          lang === 'tr' ? 'Reklam yüklenemedi. Tekrar deneyin.' : 'Ad failed to load. Please try again.'
+        );
+      }
+    } catch (error) {
+      console.error('Error watching free pass ad:', error);
+    } finally {
+      setFreePassLoading(false);
     }
   };
   
