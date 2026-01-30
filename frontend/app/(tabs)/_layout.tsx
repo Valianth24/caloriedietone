@@ -248,7 +248,7 @@ export default function TabLayout() {
               shadowRadius: 8,
               elevation: 8,
             }}>
-              <Ionicons name="add" size={30} color={colors.white} />
+              <Ionicons name="camera" size={28} color={colors.white} />
             </View>
           ),
         }}
