@@ -228,14 +228,20 @@ const VitaminItem = memo(({ vitamin, index }: { vitamin: Vitamin; index: number 
     }
   }, [vitamin.is_taken, index]);
 
-  const itemStyle = useAnimatedStyle(() => ({
-    opacity: itemOpacity.value,
-    transform: [{ scale: itemScale.value }],
-  }));
+  const itemStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: itemOpacity.value,
+      transform: [{ scale: itemScale.value }],
+    };
+  });
 
-  const checkStyle = useAnimatedStyle(() => ({
-    transform: [{ scale: checkScale.value }],
-  }));
+  const checkStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: checkScale.value }],
+    };
+  });
 
   return (
     <Animated.View style={[styles.vitaminItem, itemStyle]}>
