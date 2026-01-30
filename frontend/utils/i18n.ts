@@ -1463,6 +1463,18 @@ const resources = {
       dayCompleted: 'Bu gün tamamlandı!',
       startDietProgram: '30 Günlük Programa Başla',
       sevenDayPreview: '7 Günlük Önizleme',
+      
+      // Page Transitions
+      loadingData: 'Veriler yükleniyor...',
+      savingChanges: 'Değişiklikler kaydediliyor...',
+      processingRequest: 'İşleniyor...',
+      pleaseWaitMoment: 'Lütfen biraz bekleyin...',
+      almostDone: 'Neredeyse bitti...',
+      fetchingData: 'Veriler alınıyor...',
+      updatingProfile: 'Profil güncelleniyor...',
+      calculatingCalories: 'Kaloriler hesaplanıyor...',
+      analyzingImage: 'Görsel analiz ediliyor...',
+      preparingContent: 'İçerik hazırlanıyor...',
     }
   },
   
