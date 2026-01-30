@@ -473,28 +473,29 @@ export const isDietDayUnlocked = async (dietId: string, dayNumber: number): Prom
 };
 
 /**
- * Diet günü için reklam göster ve kilidi aç (Ödüllü Geçiş)
+ * Diet günü için reklam göster ve kilidi aç (Tariflerdeki aynı reklam birimi)
  */
 export const showAdsForDietDay = async (dietId: string, dayNumber: number): Promise<boolean> => {
-  const { showRewardedInterstitialAdAsync } = await import('./admobService');
+  const { showSingleRewardedAd } = await import('./admobService');
   
-  console.log(`[AdSystem] Showing Rewarded Interstitial for diet day: ${dietId} - Day ${dayNumber}`);
+  console.log(`[AdSystem] Showing Rewarded ad for diet day: ${dietId} - Day ${dayNumber}`);
   
-  const success = await showRewardedInterstitialAdAsync();
-  
-  if (success) {
-    const data = await getDietUnlockData();
-    if (!data[dietId]) {
-      data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
-    }
-    if (!data[dietId].unlockedDays.includes(dayNumber)) {
-      data[dietId].unlockedDays.push(dayNumber);
-    }
-    await saveDietUnlockData(data);
-    console.log(`[AdSystem] Diet day ${dayNumber} unlocked for ${dietId}`);
-  }
-  
-  return success;
+  return new Promise(async (resolve) => {
+    showSingleRewardedAd(async (success) => {
+      if (success) {
+        const data = await getDietUnlockData();
+        if (!data[dietId]) {
+          data[dietId] = { dietId, entryAdWatched: false, unlockedDays: [] };
+        }
+        if (!data[dietId].unlockedDays.includes(dayNumber)) {
+          data[dietId].unlockedDays.push(dayNumber);
+        }
+        await saveDietUnlockData(data);
+        console.log(`[AdSystem] Diet day ${dayNumber} unlocked for ${dietId}`);
+      }
+      resolve(success);
+    });
+  });
 };
 
 /**
