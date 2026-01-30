@@ -1,10 +1,10 @@
 /**
  * Success Animation Component
- * Konfeti ve kutlama efektleri için
+ * Profesyonel ve minimal başarı animasyonu
  */
 
 import React, { useEffect, memo } from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -12,162 +12,106 @@ import Animated, {
   withTiming,
   withSequence,
   withDelay,
-  withRepeat,
   interpolate,
   Extrapolation,
   runOnJS,
+  Easing,
 } from 'react-native-reanimated';
 import { Colors } from '../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
 import * as Haptics from 'expo-haptics';
+import Svg, { Circle, Path } from 'react-native-svg';
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
+const AnimatedCircle = Animated.createAnimatedComponent(Circle);
+const AnimatedPath = Animated.createAnimatedComponent(Path);
 
 interface SuccessAnimationProps {
   visible: boolean;
   onComplete?: () => void;
   message?: string;
-  type?: 'success' | 'celebration' | 'achievement';
+  type?: 'success' | 'saved' | 'added' | 'deleted';
+  duration?: number;
 }
-
-// Konfeti parçacığı
-const ConfettiPiece = memo(({ delay, color, startX, startY }: { 
-  delay: number; 
-  color: string; 
-  startX: number;
-  startY: number;
-}) => {
-  const translateY = useSharedValue(0);
-  const translateX = useSharedValue(0);
-  const rotation = useSharedValue(0);
-  const opacity = useSharedValue(0);
-  const scale = useSharedValue(0);
-
-  useEffect(() => {
-    // Random horizontal movement
-    const randomX = (Math.random() - 0.5) * 200;
-    
-    opacity.value = withDelay(delay, withSequence(
-      withTiming(1, { duration: 200 }),
-      withDelay(1500, withTiming(0, { duration: 500 }))
-    ));
-    
-    scale.value = withDelay(delay, withSpring(1, { damping: 10, stiffness: 300 }));
-    
-    translateY.value = withDelay(delay, withTiming(300, { duration: 2000 }));
-    translateX.value = withDelay(delay, withTiming(randomX, { duration: 2000 }));
-    rotation.value = withDelay(delay, withRepeat(
-      withTiming(360, { duration: 1000 }),
-      3,
-      false
-    ));
-  }, []);
-
-  const animatedStyle = useAnimatedStyle(() => {
-    'worklet';
-    return {
-      opacity: opacity.value,
-      transform: [
-        { translateX: startX + translateX.value },
-        { translateY: startY + translateY.value },
-        { rotate: `${rotation.value}deg` },
-        { scale: scale.value },
-      ],
-    };
-  });
-
-  return (
-    <Animated.View
-      style={[
-        styles.confettiPiece,
-        { backgroundColor: color },
-        animatedStyle,
-      ]}
-    />
-  );
-});
-
-// Ana başarı rozeti
-const SuccessBadge = memo(({ type }: { type: string }) => {
-  const scale = useSharedValue(0);
-  const rotation = useSharedValue(-30);
-  const innerScale = useSharedValue(0);
-
-  useEffect(() => {
-    // Haptic feedback
-    Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
-    
-    // Badge entrance animation
-    scale.value = withSpring(1, { damping: 8, stiffness: 200 });
-    rotation.value = withSpring(0, { damping: 12, stiffness: 150 });
-    innerScale.value = withDelay(200, withSpring(1, { damping: 8, stiffness: 300 }));
-  }, []);
-
-  const badgeStyle = useAnimatedStyle(() => {
-    'worklet';
-    return {
-      transform: [
-        { scale: scale.value },
-        { rotate: `${rotation.value}deg` },
-      ],
-    };
-  });
-
-  const innerStyle = useAnimatedStyle(() => {
-    'worklet';
-    return {
-      transform: [{ scale: innerScale.value }],
-    };
-  });
-
-  const iconName = type === 'achievement' ? 'trophy' : type === 'celebration' ? 'sparkles' : 'checkmark-circle';
-  const iconColor = type === 'achievement' ? '#FFD700' : Colors.white;
-
-  return (
-    <Animated.View style={[styles.badge, badgeStyle]}>
-      <Animated.View style={[styles.badgeInner, innerStyle]}>
-        <Ionicons name={iconName as any} size={48} color={iconColor} />
-      </Animated.View>
-    </Animated.View>
-  );
-});
 
 export default function SuccessAnimation({ 
   visible, 
   onComplete, 
-  message = 'Success!',
-  type = 'success'
+  message,
+  type = 'success',
+  duration = 1800
 }: SuccessAnimationProps) {
   const containerOpacity = useSharedValue(0);
+  const containerScale = useSharedValue(0.9);
+  const circleProgress = useSharedValue(0);
+  const checkmarkProgress = useSharedValue(0);
+  const iconScale = useSharedValue(0);
   const messageOpacity = useSharedValue(0);
-  const messageTranslateY = useSharedValue(20);
+  const messageTranslateY = useSharedValue(10);
 
   useEffect(() => {
     if (visible) {
-      containerOpacity.value = withTiming(1, { duration: 300 });
-      messageOpacity.value = withDelay(400, withTiming(1, { duration: 300 }));
-      messageTranslateY.value = withDelay(400, withSpring(0, { damping: 15, stiffness: 200 }));
+      // Haptic feedback
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      
+      // Container fade in
+      containerOpacity.value = withTiming(1, { duration: 200 });
+      containerScale.value = withSpring(1, { damping: 15, stiffness: 200 });
+      
+      // Circle drawing animation
+      circleProgress.value = withDelay(100, withTiming(1, { 
+        duration: 400, 
+        easing: Easing.out(Easing.cubic) 
+      }));
+      
+      // Checkmark drawing animation
+      checkmarkProgress.value = withDelay(400, withTiming(1, { 
+        duration: 300, 
+        easing: Easing.out(Easing.cubic) 
+      }));
+      
+      // Icon bounce
+      iconScale.value = withDelay(600, withSequence(
+        withSpring(1.15, { damping: 8, stiffness: 300 }),
+        withSpring(1, { damping: 12, stiffness: 200 })
+      ));
+      
+      // Message fade in
+      messageOpacity.value = withDelay(500, withTiming(1, { duration: 200 }));
+      messageTranslateY.value = withDelay(500, withSpring(0, { damping: 15, stiffness: 200 }));
 
       // Auto dismiss
       const timer = setTimeout(() => {
-        containerOpacity.value = withTiming(0, { duration: 300 });
+        containerOpacity.value = withTiming(0, { duration: 200 });
+        containerScale.value = withTiming(0.95, { duration: 200 });
         if (onComplete) {
-          setTimeout(() => runOnJS(onComplete)(), 300);
+          setTimeout(() => runOnJS(onComplete)(), 200);
         }
-      }, 2500);
+      }, duration);
 
       return () => clearTimeout(timer);
     } else {
       containerOpacity.value = 0;
+      containerScale.value = 0.9;
+      circleProgress.value = 0;
+      checkmarkProgress.value = 0;
+      iconScale.value = 0;
       messageOpacity.value = 0;
-      messageTranslateY.value = 20;
+      messageTranslateY.value = 10;
     }
-  }, [visible, onComplete]);
+  }, [visible, onComplete, duration]);
 
   const containerStyle = useAnimatedStyle(() => {
     'worklet';
     return {
       opacity: containerOpacity.value,
+      transform: [{ scale: containerScale.value }],
+    };
+  });
+
+  const iconContainerStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      transform: [{ scale: iconScale.value }],
     };
   });
 
@@ -181,38 +125,125 @@ export default function SuccessAnimation({
 
   if (!visible) return null;
 
-  // Konfeti renkleri
-  const confettiColors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#95E1D3', '#F38181', '#AA96DA', '#FCBAD3'];
-  
-  // Rastgele konfeti parçacıkları oluştur
-  const confettiPieces = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    color: confettiColors[i % confettiColors.length],
-    delay: Math.random() * 500,
-    startX: Math.random() * SCREEN_WIDTH - SCREEN_WIDTH / 2,
-    startY: -50,
-  }));
+  // Icon ve renk seçimi
+  const getConfig = () => {
+    switch (type) {
+      case 'saved':
+        return { icon: 'checkmark', color: Colors.success, bgColor: Colors.success + '15' };
+      case 'added':
+        return { icon: 'checkmark', color: Colors.primary, bgColor: Colors.primary + '15' };
+      case 'deleted':
+        return { icon: 'checkmark', color: Colors.error, bgColor: Colors.error + '15' };
+      default:
+        return { icon: 'checkmark', color: Colors.success, bgColor: Colors.success + '15' };
+    }
+  };
+
+  const config = getConfig();
+
+  // Circle parametreleri
+  const size = 72;
+  const strokeWidth = 3;
+  const radius = (size - strokeWidth) / 2;
+  const circumference = 2 * Math.PI * radius;
 
   return (
-    <Animated.View style={[styles.container, containerStyle]} pointerEvents="none">
-      {/* Konfeti */}
-      {type !== 'success' && confettiPieces.map((piece) => (
-        <ConfettiPiece
-          key={piece.id}
-          delay={piece.delay}
-          color={piece.color}
-          startX={piece.startX}
-          startY={piece.startY}
-        />
-      ))}
+    <Animated.View style={[styles.container, containerStyle]}>
+      <View style={[styles.card, { backgroundColor: config.bgColor }]}>
+        {/* Animated Circle with Checkmark */}
+        <Animated.View style={[styles.iconContainer, iconContainerStyle]}>
+          <Svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
+            {/* Background circle */}
+            <Circle
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              stroke={config.color + '30'}
+              strokeWidth={strokeWidth}
+              fill="none"
+            />
+            {/* Animated progress circle */}
+            <AnimatedCircle
+              cx={size / 2}
+              cy={size / 2}
+              r={radius}
+              stroke={config.color}
+              strokeWidth={strokeWidth}
+              fill="none"
+              strokeDasharray={circumference}
+              strokeDashoffset={circumference * (1 - circleProgress.value)}
+              strokeLinecap="round"
+              transform={`rotate(-90 ${size / 2} ${size / 2})`}
+            />
+          </Svg>
+          
+          {/* Checkmark icon */}
+          <View style={styles.checkmarkContainer}>
+            <Ionicons name="checkmark" size={32} color={config.color} />
+          </View>
+        </Animated.View>
 
-      {/* Merkez rozet */}
-      <View style={styles.centerContent}>
-        <SuccessBadge type={type} />
-        <Animated.Text style={[styles.message, messageStyle]}>
-          {message}
-        </Animated.Text>
+        {/* Message */}
+        {message && (
+          <Animated.Text style={[styles.message, { color: config.color }, messageStyle]}>
+            {message}
+          </Animated.Text>
+        )}
       </View>
+    </Animated.View>
+  );
+}
+
+// Compact toast-style success indicator
+export function SuccessToast({ 
+  visible, 
+  message, 
+  onComplete,
+  duration = 2000 
+}: {
+  visible: boolean;
+  message: string;
+  onComplete?: () => void;
+  duration?: number;
+}) {
+  const translateY = useSharedValue(-100);
+  const opacity = useSharedValue(0);
+
+  useEffect(() => {
+    if (visible) {
+      Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+      
+      opacity.value = withTiming(1, { duration: 200 });
+      translateY.value = withSpring(0, { damping: 15, stiffness: 200 });
+
+      const timer = setTimeout(() => {
+        opacity.value = withTiming(0, { duration: 200 });
+        translateY.value = withTiming(-100, { duration: 200 });
+        if (onComplete) {
+          setTimeout(() => runOnJS(onComplete)(), 200);
+        }
+      }, duration);
+
+      return () => clearTimeout(timer);
+    }
+  }, [visible, duration, onComplete]);
+
+  const toastStyle = useAnimatedStyle(() => {
+    'worklet';
+    return {
+      opacity: opacity.value,
+      transform: [{ translateY: translateY.value }],
+    };
+  });
+
+  if (!visible) return null;
+
+  return (
+    <Animated.View style={[styles.toast, toastStyle]}>
+      <View style={styles.toastIcon}>
+        <Ionicons name="checkmark-circle" size={20} color={Colors.success} />
+      </View>
+      <Text style={styles.toastText}>{message}</Text>
     </Animated.View>
   );
 }
@@ -222,44 +253,57 @@ const styles = StyleSheet.create({
     ...StyleSheet.absoluteFillObject,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     zIndex: 9999,
   },
-  centerContent: {
+  card: {
+    padding: 32,
+    borderRadius: 20,
     alignItems: 'center',
-    justifyContent: 'center',
+    minWidth: 160,
   },
-  badge: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: Colors.success,
+  iconContainer: {
+    width: 72,
+    height: 72,
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: Colors.success,
-    shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.4,
-    shadowRadius: 16,
-    elevation: 10,
   },
-  badgeInner: {
-    alignItems: 'center',
+  checkmarkContainer: {
+    position: 'absolute',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   message: {
-    marginTop: 24,
-    fontSize: 20,
-    fontWeight: '700',
-    color: Colors.white,
+    marginTop: 16,
+    fontSize: 15,
+    fontWeight: '600',
     textAlign: 'center',
-    textShadowColor: 'rgba(0, 0, 0, 0.3)',
-    textShadowOffset: { width: 0, height: 2 },
-    textShadowRadius: 4,
   },
-  confettiPiece: {
+  // Toast styles
+  toast: {
     position: 'absolute',
-    width: 10,
-    height: 10,
-    borderRadius: 2,
+    top: 60,
+    left: 20,
+    right: 20,
+    backgroundColor: Colors.white,
+    borderRadius: 12,
+    padding: 16,
+    flexDirection: 'row',
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.1,
+    shadowRadius: 12,
+    elevation: 5,
+    zIndex: 9999,
+  },
+  toastIcon: {
+    marginRight: 12,
+  },
+  toastText: {
+    flex: 1,
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.darkText,
   },
 });
