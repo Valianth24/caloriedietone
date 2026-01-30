@@ -15,15 +15,13 @@ export default function DietsScreen() {
   const { t, i18n } = useTranslation();
   const router = useRouter();
   const { user, setUser } = useStore();
-  const [showPaywall, setShowPaywall] = useState(false);
   const [showDietRecommendation, setShowDietRecommendation] = useState(false);
   const [hasActiveDiet, setHasActiveDiet] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
 
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
 
-  // Check premium and guest status
-  const isPremium = user?.is_premium || false;
+  // Check guest status
   const isGuest = user?.user_id?.startsWith('guest_') || false;
 
   useEffect(() => {
