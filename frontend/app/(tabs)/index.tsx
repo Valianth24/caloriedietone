@@ -343,9 +343,6 @@ export default function DashboardScreen() {
             </View>
           </View>
           <View style={styles.headerRight}>
-            {/* Premium promo button - temporarily hidden
-            <PremiumPromoButton onPress={() => setShowPremiumModal(true)} />
-            */}
             <TouchableOpacity onPress={() => setShowNotificationModal(true)} style={{ marginLeft: 12 }}>
               <Ionicons name="notifications-outline" size={28} color={Colors.darkText} />
               {(waterReminderEnabled || vitaminReminderEnabled) && (
