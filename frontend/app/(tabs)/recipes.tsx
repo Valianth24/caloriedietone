@@ -584,9 +584,12 @@ export default function RecipesScreen() {
           setShowAdModal(false);
           setPendingRecipe(null);
           setPendingRecipeIndex(0);
+          setAdsWatchedForRecipe(0);
         }}
         onWatchAd={handleWatchAd}
         type="recipe"
+        adsWatched={adsWatchedForRecipe}
+        loading={adLoading}
       />
       
       {/* Free Pass Modal */}
