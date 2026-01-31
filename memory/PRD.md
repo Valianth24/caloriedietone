@@ -1,106 +1,62 @@
-# CalorieDiet - Çok Dilli Kalori Takip Uygulaması
+# CalorieDiet App - PRD
 
-## Problem Statement
-GitHub repo'sundan alınan CalorieDiet Android uygulamasında Türkçe-İngilizce dil geçişlerinin tüm sayfalarda sorunsuz çalıştığından emin olunması istendi. Uygulama Play Store'da yayında.
+## Proje Bilgisi
+- **Uygulama**: CalorieDiet - Kalori Takip ve Diyet Uygulaması
+- **Platform**: React Native / Expo (Play Store)
+- **Son Güncelleme**: 31 Ocak 2026
 
-## Architecture
-- **Platform**: React Native / Expo (Android App)
-- **Localization**: react-i18next + expo-localization
-- **Languages**: 7 dil desteği (EN, TR, ES, DE, FR, PT, AR)
+## Tamamlanan Görevler
 
-## What Was Implemented
-### Date: Jan 2026
+### ✅ 1. Reklam Sistemi - 2 Tıklama = 2 Reklam (31 Ocak 2026)
+**recipes.tsx:**
+- `adsWatchedForRecipe` state eklendi
+- `handleWatchAd` güncellendi: Her tıklamada 1 reklam, 2 reklam izlenince tarif açılır
+- Modal 1. reklamdan sonra kapanmıyor, kullanıcı 2. reklamı da izliyor
 
-**Dil Geçiş Düzeltmeleri:**
+**camera.tsx:**
+- `adsWatchedForCalorie` state eklendi  
+- `handleWatchAdForCalorie` güncellendi: 2 reklam izlenince kalori analizi başlıyor
+- Aynı 2 tıklama sistemi kalori hesaplama için uygulandı
 
-1. **auth.tsx** - Hardcoded Türkçe metinler i18n'e çevrildi:
-   - "Giriş yapılıyor..." → `t('loggingIn')`
-   - "Lütfen bekleyin" → `t('pleaseWait')`
+**WatchAdModal.tsx:**
+- `adsWatched` ve `loading` props eklendi (dışarıdan kontrol)
+- Progress göstergesi (0/2 → 1/2 → 2/2) düzgün çalışıyor
 
-2. **recipes.tsx** - Alert mesajı düzeltildi:
-   - Hardcoded "Hata" → `t('error')`
-   - Reklam yükleme hatası → `t('adLoadFailed')`
+### ✅ 2. Ekran Görüntüsü/Kayıt Engelleme (31 Ocak 2026)
+**_layout.tsx:**
+- `expo-screen-capture` entegre edildi
+- Uygulama genelinde ekran görüntüsü ve kayıt engelleme aktif
+- Android'de FLAG_SECURE otomatik aktif
 
-3. **profile.tsx** - Alert butonları düzeltildi:
-   - "Tamam" → `t('ok')`
-   - "Language change failed" → `t('languageChangeFailed')`
+**package.json:**
+- `expo-screen-capture: ^7.0.9` eklendi
 
-4. **meals.tsx** - Sepet butonları düzeltildi:
-   - "Sepete Ekle" / "Add to Cart" → `t('addToCart')`
-   - "Hemen Ekle" / "Add Now" → `t('addNow')`
-   - "Hepsini Ekle" → `t('addAllItems')`
+### ✅ 3. Önceki Hata Düzeltmeleri
+- PremiumPaywall kaldırıldı
+- watchedAdRecipes hatası düzeltildi
+- showSingleRewardedAd tek reklam yapıldı
 
-5. **vitamins.tsx** - Modal içerikleri düzeltildi:
-   - Placeholder "Vitamin Adı" → `t('vitaminName')`
-   - "Zaman (örn: Her Sabah)" → `t('vitaminTimePlaceholder')`
-   - "Hatırlatıcı Ayarları" → `t('reminderSettings')`
-   - "Hatırlatıcıları Aç" → `t('enableReminder')`
-   - "Hatırlatma Saatleri" → `t('reminderTimes')`
-   - "Alarm Tarzı Bildirim" → `t('alarmStyle')`
-   - İptal/Kaydet butonları → `t('cancel')`, `t('save')`
+## Reklam Akışı (Hedef - TAMAMLANDI)
+```
+Kullanıcı Tıklar → Modal Açılır (0/2)
+→ "Reklam İzle" Tıklar → 1 Ödüllü Reklam → (1/2)
+→ "Reklam İzle" Tıklar → 1 Ödüllü Reklam → (2/2)
+→ İçerik Açılır
+```
 
-6. **AdvancedDietForm.tsx** - Tüm form etiketleri düzeltildi:
-   - "Kişisel Diyet Oluştur" → `t('createPersonalDiet')`
-   - Cinsiyet, Boy, Kilo, Yaş etiketleri
-   - Hedef seçenekleri (Kilo Ver, Kas Yap, vb.)
-   - Aktivite seviyeleri
-   - Diyet tercihleri
-   - Makro dağılımı, BMR, TDEE etiketleri
+## Dosya Konumları
+- `/app/frontend/app/(tabs)/recipes.tsx` - handleWatchAd (satır 312)
+- `/app/frontend/app/(tabs)/camera.tsx` - handleWatchAdForCalorie (satır 295)
+- `/app/frontend/components/WatchAdModal.tsx` - Modal bileşeni
+- `/app/frontend/app/_layout.tsx` - Ekran koruma
+- `/app/frontend/utils/admobService.ts` - AdMob servisi
 
-7. **water-detail.tsx** - Buton metinleri düzeltildi:
-   - "Kaydet" → `t('save')`
-   - "Test Bildirimi Gönder" → `t('testNotification')`
+## Sonraki Görevler (Backlog)
+- P1: Test on real device
+- P2: iOS screenshot limitation handling (OS limitation)
+- P2: Analytics integration for ad performance
 
-8. **diet-program.tsx** - Çeşitli metinler düzeltildi:
-   - "Günü Tamamla" → `t('completeDay')`
-   - "Bu gün tamamlandı!" → `t('dayCompleted')`
-   - "Tamamlandı" / "Kilitli" legend etiketleri
-   - "30 Günlük Programa Başla" → `t('startDietProgram')`
-   - "7 Günlük Önizleme" → `t('sevenDayPreview')`
-
-9. **index.tsx** - Devam Et butonu düzeltildi:
-   - Hardcoded dil kontrolü → `t('continue')`
-
-**i18n.ts'ye Eklenen Yeni Çeviriler:**
-- pleaseWait (EN/TR)
-- adLoadFailed (EN/TR)
-- languageChangeFailed (EN/TR)
-- lowCarb, highProtein, vegan, veganDesc, keto (EN/TR)
-- dietPreference (EN/TR)
-- mealsPerDay (EN/TR)
-- restrictionsPlaceholder (EN/TR)
-- calculatedValues (EN/TR)
-- basalMetabolism (EN/TR)
-- dailyExpenditure (EN/TR)
-- macroDistribution (EN/TR)
-- vitaminTimePlaceholder (EN/TR)
-- addToCart, addNow, addAllItems (EN/TR)
-- testNotification (EN/TR)
-- dayCompleted (EN/TR)
-- startDietProgram (EN/TR)
-- sevenDayPreview (EN/TR)
-
-## Core Requirements (Static)
-- Tüm UI metinleri i18n ile çevrilmeli
-- Dil değişikliği anında tüm ekranlara yansımalı
-- Hardcoded string kullanılmamalı
-
-## User Personas
-- Türkçe konuşan kullanıcılar
-- İngilizce konuşan kullanıcılar
-- Diğer dil kullanıcıları (ES, DE, FR, PT, AR)
-
-## Next Tasks / Backlog
-- [ ] İspanyolca (ES) ve diğer dillere yeni eklenen çevirilerin eklenmesi
-- [ ] Tarif isimlerinin dinamik çevirisi (JSON dosyalarından)
-- [ ] Hata mesajlarının tamamının kontrol edilmesi
-- [ ] Tarih/saat formatlarının locale'e göre düzenlenmesi
-
-## P0 Features (Kritik)
-✅ TR/EN dil geçişleri sorunsuz çalışıyor
-
-## P1 Features (Önemli)  
-- Diğer dillere çeviri desteği genişletme
-
-## P2 Features (İyileştirme)
-- RTL dil desteği (Arapça) iyileştirmeleri
+## Teknik Notlar
+- AdMob Rewarded ID: ca-app-pub-6980942787991808/1382918054
+- AdMob Rewarded Interstitial ID: ca-app-pub-6980942787991808/3429358823
+- expo-screen-capture Android'de tam destek, iOS'ta sınırlı
