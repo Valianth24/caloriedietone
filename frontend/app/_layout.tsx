@@ -2,12 +2,32 @@ import { useEffect } from 'react';
 import { Stack, useRouter, useSegments } from 'expo-router';
 import { AuthProvider, useAuth } from '../contexts/AuthContext';
 import { ThemeProvider } from '../contexts/ThemeContext';
+import * as ScreenCapture from 'expo-screen-capture';
 import '../utils/i18n';
 
 function RootLayoutNav() {
   const { isAuthenticated, isLoading, needsOnboarding } = useAuth();
   const segments = useSegments();
   const router = useRouter();
+
+  // Ekran görüntüsü ve kayıt engelleme - Uygulama genelinde aktif
+  useEffect(() => {
+    const enableScreenProtection = async () => {
+      try {
+        await ScreenCapture.preventScreenCaptureAsync();
+        console.log('[Security] Screen capture prevention enabled');
+      } catch (error) {
+        console.log('[Security] Screen capture prevention not available:', error);
+      }
+    };
+    
+    enableScreenProtection();
+    
+    // Cleanup - uygulama kapanırken
+    return () => {
+      ScreenCapture.allowScreenCaptureAsync().catch(() => {});
+    };
+  }, []);
 
   useEffect(() => {
     if (isLoading) return;
