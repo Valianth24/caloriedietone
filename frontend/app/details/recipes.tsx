@@ -15,7 +15,6 @@ import { useRouter } from 'expo-router';
 import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../contexts/AuthContext';
 import { Colors } from '../../constants/Colors';
-import PremiumPaywall from '../../components/PremiumPaywall';
 import {
   getAllRecipeMetadata,
   getRecipesByCategory,
