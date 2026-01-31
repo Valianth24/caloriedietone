@@ -115,7 +115,6 @@ export default function RecipesScreen() {
   const [recipes, setRecipes] = useState<RecipeMetadata[]>([]);
   const [featuredRecipes, setFeaturedRecipes] = useState<RecipeMetadata[]>([]);
   const [loading, setLoading] = useState(true);
-  const [showPaywall, setShowPaywall] = useState(false);
 
   const isPremium = user?.is_premium || false;
   const allRecipes = getAllRecipeMetadata();
