@@ -306,9 +306,6 @@ export const showSingleRewardedAd = (
   console.log('[AdMob] Showing single rewarded ad');
   showRewardedAd(onComplete);
 };
-    }, 500); // 500ms gecikme - doğal geçiş için
-  });
-};
 
 export const isAdShowing = (): boolean => isShowingAd;
 export const preloadAds = async (): Promise<void> => {};
