@@ -293,25 +293,62 @@ export default function CameraScreen() {
     }
   };
 
-  // Reklam izlendikten sonra analiz yap
+  // Reklam izlendikten sonra analiz yap - 2 tıklama sistemi
   const handleWatchAdForCalorie = async () => {
-    // Modal'ı hemen kapat
-    setShowAdModal(false);
+    if (adLoading) return;
     
-    const success = await showAdsForCalorieCalculation();
+    setAdLoading(true);
     
-    if (success && pendingAnalysis) {
-      setImageBase64(pendingAnalysis.base64);
-      setResult(null);
-      setEditedItems([]);
-      analyzeImage(pendingAnalysis.base64, pendingAnalysis.context);
-      setPendingAnalysis(null);
-      setPendingBase64(null);
-    } else if (!success) {
+    try {
+      console.log('[Camera] Watching ad for calorie calculation:', {
+        currentAdsWatched: adsWatchedForCalorie,
+        note: '2 tıklama = 2 reklam = analiz başlar'
+      });
+      
+      // Tek reklam göster
+      const { showSingleRewardedAd } = await import('../../utils/admobService');
+      
+      const success = await new Promise<boolean>((resolve) => {
+        showSingleRewardedAd((result) => resolve(result));
+      });
+      
+      if (!success) {
+        setAdLoading(false);
+        Alert.alert(
+          lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
+          lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
+        );
+        return;
+      }
+      
+      // Reklam başarılı - sayacı artır
+      const newCount = adsWatchedForCalorie + 1;
+      setAdsWatchedForCalorie(newCount);
+      
+      console.log('[Camera] Ad watched successfully, count:', newCount);
+      
+      // 2 reklam tamamlandıysa analizi başlat
+      if (newCount >= 2 && pendingAnalysis) {
+        setShowAdModal(false);
+        setAdsWatchedForCalorie(0);
+        
+        setImageBase64(pendingAnalysis.base64);
+        setResult(null);
+        setEditedItems([]);
+        analyzeImage(pendingAnalysis.base64, pendingAnalysis.context);
+        setPendingAnalysis(null);
+        setPendingBase64(null);
+      }
+      // Değilse modal açık kalır, kullanıcı 2. reklamı izler
+      
+    } catch (error) {
+      console.error('Error watching ad:', error);
       Alert.alert(
         lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
         lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
       );
+    } finally {
+      setAdLoading(false);
     }
   };
 
