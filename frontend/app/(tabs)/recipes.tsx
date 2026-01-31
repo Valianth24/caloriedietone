@@ -311,21 +311,26 @@ export default function RecipesScreen() {
   };
   
   const handleWatchAd = async () => {
-    if (!pendingRecipe) return;
+    if (!pendingRecipe || adLoading) return;
     
-    // Modal'ı hemen kapat
-    setShowAdModal(false);
+    setAdLoading(true);
     
     try {
-      console.log('[Recipes] Watching ads for recipe:', {
+      console.log('[Recipes] Watching ad for recipe:', {
         id: pendingRecipe.id,
-        note: 'Her tarif için reklam izlenir, kilit kalkmaz'
+        currentAdsWatched: adsWatchedForRecipe,
+        note: '2 tıklama = 2 reklam = içerik açılır'
       });
       
-      // Reklam göster (Ödüllü + Ödüllü Geçiş otomatik)
-      const success = await showRewardedAd('recipe', pendingRecipe.id, true, false);
+      // Tek reklam göster
+      const { showSingleRewardedAd } = await import('../../utils/admobService');
+      
+      const success = await new Promise<boolean>((resolve) => {
+        showSingleRewardedAd((result) => resolve(result));
+      });
       
       if (!success) {
+        setAdLoading(false);
         Alert.alert(
           lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
           lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
@@ -333,14 +338,26 @@ export default function RecipesScreen() {
         return;
       }
       
-      // Reklam başarılı - tarifi aç (kilit kalkmaz, her seferinde reklam izlenecek)
-      router.push({
-        pathname: '/details/recipe-detail',
-        params: { recipeId: pendingRecipe.id },
-      });
+      // Reklam başarılı - sayacı artır
+      const newCount = adsWatchedForRecipe + 1;
+      setAdsWatchedForRecipe(newCount);
       
-      setPendingRecipe(null);
-      setPendingRecipeIndex(0);
+      console.log('[Recipes] Ad watched successfully, count:', newCount);
+      
+      // 2 reklam tamamlandıysa içeriği aç
+      if (newCount >= 2) {
+        setShowAdModal(false);
+        setAdsWatchedForRecipe(0);
+        
+        router.push({
+          pathname: '/details/recipe-detail',
+          params: { recipeId: pendingRecipe.id },
+        });
+        
+        setPendingRecipe(null);
+        setPendingRecipeIndex(0);
+      }
+      // Değilse modal açık kalır, kullanıcı 2. reklamı izler
       
     } catch (error) {
       console.error('Error watching ad:', error);
@@ -348,6 +365,8 @@ export default function RecipesScreen() {
         lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
         lang === 'tr' ? 'Reklam yüklenemedi. Lütfen tekrar deneyin.' : 'Ad failed to load. Please try again.'
       );
+    } finally {
+      setAdLoading(false);
     }
   };
 
