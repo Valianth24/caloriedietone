@@ -860,13 +860,6 @@ export default function CameraScreen() {
 
         <View style={{ height: 40 }} />
       </ScrollView>
-      
-      {/* Premium Paywall */}
-      <PremiumPaywall
-        visible={showPaywall}
-        onClose={() => setShowPaywall(false)}
-        onSubscribe={handleSubscribe}
-      />
 
       {/* Reklam Modal - Kalori hesaplama için */}
       <WatchAdModal
