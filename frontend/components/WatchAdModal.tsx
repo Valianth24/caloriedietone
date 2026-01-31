@@ -22,6 +22,8 @@ interface WatchAdModalProps {
   type?: 'recipe' | 'calorie' | 'calorie_calculation' | 'diet' | 'general';
   title?: string;
   description?: string;
+  adsWatched?: number;
+  loading?: boolean;
 }
 
 export default function WatchAdModal({
@@ -31,18 +33,16 @@ export default function WatchAdModal({
   type = 'general',
   title,
   description,
+  adsWatched: externalAdsWatched,
+  loading: externalLoading,
 }: WatchAdModalProps) {
   const { i18n } = useTranslation();
-  const [loading, setLoading] = useState(false);
-  const [adsWatched, setAdsWatched] = useState(0);
+  const [internalLoading, setInternalLoading] = useState(false);
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
-
-  // Modal açıldığında sayacı sıfırla
-  useEffect(() => {
-    if (visible) {
-      setAdsWatched(0);
-    }
-  }, [visible]);
+  
+  // Dışarıdan kontrol ediliyorsa dış değeri kullan
+  const adsWatched = externalAdsWatched ?? 0;
+  const loading = externalLoading ?? internalLoading;
 
   const handleWatchAd = async () => {
     setLoading(true);
