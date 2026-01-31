@@ -31,10 +31,24 @@
 **package.json:**
 - `expo-screen-capture: ^7.0.9` eklendi
 
-### ✅ 3. Önceki Hata Düzeltmeleri
-- PremiumPaywall kaldırıldı
-- watchedAdRecipes hatası düzeltildi
-- showSingleRewardedAd tek reklam yapıldı
+### ✅ 3. Tarif Sayısı Düzeltmesi (31 Ocak 2026)
+**recipes.tsx:**
+- `allRecipes` artık hem normal (52) hem de sporcu tariflerini (50) birleştiriyor
+- Toplam: 102 tarif
+
+**content/recipes/index.ts:**
+- `getAllCategories` fonksiyonu artık sporcu tariflerini de sayıyor
+- Kategori sayıları doğru gösteriliyor
+
+### ✅ 4. Çoklu Dil Desteği
+- 7 dil destekleniyor: TR, EN, DE, FR, ES, AR, RU
+- Tüm sayfalar `useTranslation` hook'u kullanıyor
+- Tarif isimleri TR/EN olarak `ATHLETE_RECIPE_NAMES` ile çevriliyor
+
+## Tarif İstatistikleri
+- **Normal Tarifler**: 52
+- **Sporcu Tarifleri**: 50
+- **Toplam**: 102 tarif
 
 ## Reklam Akışı (Hedef - TAMAMLANDI)
 ```
@@ -45,18 +59,19 @@ Kullanıcı Tıklar → Modal Açılır (0/2)
 ```
 
 ## Dosya Konumları
-- `/app/frontend/app/(tabs)/recipes.tsx` - handleWatchAd (satır 312)
-- `/app/frontend/app/(tabs)/camera.tsx` - handleWatchAdForCalorie (satır 295)
+- `/app/frontend/app/(tabs)/recipes.tsx` - handleWatchAd
+- `/app/frontend/app/(tabs)/camera.tsx` - handleWatchAdForCalorie
 - `/app/frontend/components/WatchAdModal.tsx` - Modal bileşeni
 - `/app/frontend/app/_layout.tsx` - Ekran koruma
 - `/app/frontend/utils/admobService.ts` - AdMob servisi
+- `/app/frontend/content/recipes/index.ts` - Tarif fonksiyonları
+- `/app/frontend/utils/i18n.ts` - Çeviriler
 
 ## Sonraki Görevler (Backlog)
-- P1: Test on real device
-- P2: iOS screenshot limitation handling (OS limitation)
-- P2: Analytics integration for ad performance
+- P1: Gerçek cihazda test
+- P2: iOS screenshot limitation handling
+- P2: Analytics integration
 
 ## Teknik Notlar
 - AdMob Rewarded ID: ca-app-pub-6980942787991808/1382918054
-- AdMob Rewarded Interstitial ID: ca-app-pub-6980942787991808/3429358823
 - expo-screen-capture Android'de tam destek, iOS'ta sınırlı
