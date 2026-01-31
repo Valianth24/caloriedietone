@@ -296,33 +296,16 @@ export const showInterstitialAd = (
 };
 
 /**
- * Çift Ödüllü Reklam (2x Rewarded)
- * Kullanıcı bir reklam izlediğini sanır ama aslında 2 ödüllü reklam art arda izler:
- * 1. Ödüllü Reklam #1 (Rewarded)
- * 2. Ödüllü Reklam #2 (Rewarded) - otomatik başlar
+ * Tek Ödüllü Reklam
+ * Her tıklamada sadece 1 ödüllü reklam gösterir
+ * 2 tıklama = 2 reklam = içerik açılır
  */
 export const showSingleRewardedAd = (
   onComplete: (success: boolean) => void
 ): void => {
-  console.log('[AdMob] Starting double rewarded ad sequence (2x Rewarded)');
-  
-  // İlk ödüllü reklamı göster
-  showRewardedAd((firstSuccess) => {
-    if (!firstSuccess) {
-      console.log('[AdMob] First rewarded ad failed, stopping sequence');
-      onComplete(false);
-      return;
-    }
-    
-    console.log('[AdMob] First rewarded ad completed, showing second rewarded ad...');
-    
-    // Kısa bir gecikme ile ikinci ödüllü reklamı başlat
-    setTimeout(() => {
-      showRewardedAd((secondSuccess) => {
-        console.log('[AdMob] Double rewarded sequence completed. First:', firstSuccess, 'Second:', secondSuccess);
-        // Her iki reklam da başarılı olmalı
-        onComplete(firstSuccess && secondSuccess);
-      });
+  console.log('[AdMob] Showing single rewarded ad');
+  showRewardedAd(onComplete);
+};
     }, 500); // 500ms gecikme - doğal geçiş için
   });
 };
