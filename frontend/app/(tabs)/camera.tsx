@@ -484,29 +484,6 @@ export default function CameraScreen() {
     return Colors.error;
   };
 
-  const handleSubscribe = async () => {
-    try {
-      // NOTE: Guest check disabled for Play Store testing
-      // Activate premium via API
-      const updatedUser = await activatePremium() as any;
-      
-      // Update local user state with premium status
-      if (updatedUser && setUser) {
-        setUser({ ...user, ...updatedUser, is_premium: true });
-      }
-      
-      Alert.alert(
-        '🎉 ' + t('success'), 
-        t('premiumActivated') || 'Premium üyeliğiniz aktif edildi!'
-      );
-      setShowPaywall(false);
-      
-    } catch (error: any) {
-      console.error('Premium activation error:', error);
-      Alert.alert(t('error'), t('premiumActivationFailed') || 'Premium aktivasyonu başarısız.');
-    }
-  };
-
   const totals = getTotals();
 
   return (
