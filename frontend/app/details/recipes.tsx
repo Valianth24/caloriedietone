@@ -331,13 +331,6 @@ export default function RecipesScreen() {
 
   return (
     <View style={styles.container}>
-      {/* Premium Paywall */}
-      <PremiumPaywall 
-        visible={showPaywall} 
-        onClose={() => setShowPaywall(false)} 
-        onSubscribe={() => setShowPaywall(false)}
-      />
-      
       {/* Header */}
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
