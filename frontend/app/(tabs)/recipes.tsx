@@ -151,6 +151,7 @@ export default function RecipesScreen() {
   const [showAdModal, setShowAdModal] = useState(false);
   const [pendingRecipe, setPendingRecipe] = useState<RecipeMetadata | null>(null);
   const [pendingRecipeIndex, setPendingRecipeIndex] = useState<number>(0);
+  const [adsWatchedForRecipe, setAdsWatchedForRecipe] = useState(0);
   
   // Favori tarifler
   const [favoriteRecipes, setFavoriteRecipes] = useState<string[]>([]);
