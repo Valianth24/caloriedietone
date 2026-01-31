@@ -307,15 +307,23 @@ export const getCategoryLabel = (category: RecipeCategory, locale: string = 'tr'
 
 /**
  * Get all categories with labels
+ * Includes both regular and athlete recipes in count
  */
 export const getAllCategories = (locale: string = 'tr') => {
-  return RECIPE_CATEGORIES.map(cat => ({
-    id: cat,
-    label: getCategoryLabel(cat, locale),
-    icon: CATEGORY_LABELS[cat].icon,
-    color: CATEGORY_LABELS[cat].color,
-    count: getRecipesByCategory(cat).length,
-  }));
+  const athleteRecipes = getAllAthleteRecipeMetadata();
+  
+  return RECIPE_CATEGORIES.map(cat => {
+    const regularCount = getRecipesByCategory(cat).length;
+    const athleteCount = athleteRecipes.filter(r => r.category === cat).length;
+    
+    return {
+      id: cat,
+      label: getCategoryLabel(cat, locale),
+      icon: CATEGORY_LABELS[cat].icon,
+      color: CATEGORY_LABELS[cat].color,
+      count: regularCount + athleteCount,
+    };
+  });
 };
 
 /**
