@@ -98,6 +98,8 @@ export default function CameraScreen() {
   // Reklam modal state
   const [showAdModal, setShowAdModal] = useState(false);
   const [pendingAnalysis, setPendingAnalysis] = useState<{ base64: string; context: string } | null>(null);
+  const [adsWatchedForCalorie, setAdsWatchedForCalorie] = useState(0);
+  const [adLoading, setAdLoading] = useState(false);
   
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
   
