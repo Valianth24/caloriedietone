@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Modal,
   View,
@@ -11,6 +11,7 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useTranslation } from 'react-i18next';
+import { Colors } from '../constants/Colors';
 
 const { width } = Dimensions.get('window');
 
@@ -18,7 +19,7 @@ interface WatchAdModalProps {
   visible: boolean;
   onClose: () => void;
   onWatchAd: () => Promise<void>;
-  type?: 'recipe' | 'calorie' | 'diet' | 'general';
+  type?: 'recipe' | 'calorie' | 'calorie_calculation' | 'diet' | 'general';
   title?: string;
   description?: string;
 }
@@ -33,12 +34,26 @@ export default function WatchAdModal({
 }: WatchAdModalProps) {
   const { i18n } = useTranslation();
   const [loading, setLoading] = useState(false);
+  const [adsWatched, setAdsWatched] = useState(0);
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
+
+  // Modal açıldığında sayacı sıfırla
+  useEffect(() => {
+    if (visible) {
+      setAdsWatched(0);
+    }
+  }, [visible]);
 
   const handleWatchAd = async () => {
     setLoading(true);
     try {
       await onWatchAd();
+      // Reklam başarılı - sayacı artır
+      const newCount = adsWatched + 1;
+      setAdsWatched(newCount);
+      
+      // 2 reklam izlendiyse modal kapanacak (onWatchAd içinde handle ediliyor)
+      // Burada sadece sayacı güncelliyoruz
     } catch (error) {
       console.error('Error watching ad:', error);
     } finally {
@@ -49,7 +64,8 @@ export default function WatchAdModal({
   const getIcon = () => {
     switch (type) {
       case 'recipe': return 'restaurant';
-      case 'calorie': return 'camera';
+      case 'calorie': 
+      case 'calorie_calculation': return 'camera';
       case 'diet': return 'fitness';
       default: return 'play-circle';
     }
@@ -61,6 +77,7 @@ export default function WatchAdModal({
       case 'recipe':
         return lang === 'tr' ? 'Tarifi Aç' : 'Unlock Recipe';
       case 'calorie':
+      case 'calorie_calculation':
         return lang === 'tr' ? 'Kalori Hesapla' : 'Calculate Calories';
       case 'diet':
         return lang === 'tr' ? 'Diyete Eriş' : 'Access Diet';
@@ -72,18 +89,21 @@ export default function WatchAdModal({
   const getDescription = () => {
     if (description) return description;
     return lang === 'tr' 
-      ? 'İçeriğe erişmek için kısa bir reklam izleyin.'
-      : 'Watch a short ad to access the content.';
+      ? '2 kısa reklam izleyerek içeriğe erişin.'
+      : 'Watch 2 short ads to access the content.';
   };
 
   const getGradientColors = (): [string, string] => {
     switch (type) {
       case 'recipe': return ['#FF6B6B', '#FF8E53'];
-      case 'calorie': return ['#667eea', '#764ba2'];
+      case 'calorie': 
+      case 'calorie_calculation': return ['#667eea', '#764ba2'];
       case 'diet': return ['#4CAF50', '#8BC34A'];
       default: return ['#667eea', '#764ba2'];
     }
   };
+
+  const remainingAds = 2 - adsWatched;
 
   return (
     <Modal
@@ -116,6 +136,30 @@ export default function WatchAdModal({
           <View style={styles.content}>
             <Text style={styles.description}>{getDescription()}</Text>
 
+            {/* Progress indicator */}
+            <View style={styles.progressContainer}>
+              <View style={styles.progressDots}>
+                <View style={[styles.progressDot, adsWatched >= 1 && styles.progressDotActive]}>
+                  {adsWatched >= 1 ? (
+                    <Ionicons name="checkmark" size={16} color="#fff" />
+                  ) : (
+                    <Text style={styles.progressDotText}>1</Text>
+                  )}
+                </View>
+                <View style={[styles.progressLine, adsWatched >= 1 && styles.progressLineActive]} />
+                <View style={[styles.progressDot, adsWatched >= 2 && styles.progressDotActive]}>
+                  {adsWatched >= 2 ? (
+                    <Ionicons name="checkmark" size={16} color="#fff" />
+                  ) : (
+                    <Text style={styles.progressDotText}>2</Text>
+                  )}
+                </View>
+              </View>
+              <Text style={styles.progressText}>
+                {adsWatched}/2 {lang === 'tr' ? 'reklam izlendi' : 'ads watched'}
+              </Text>
+            </View>
+
             {/* Watch Ad Button */}
             <TouchableOpacity 
               style={styles.watchButton}
@@ -135,7 +179,9 @@ export default function WatchAdModal({
                   <>
                     <Ionicons name="play" size={22} color="#FFF" />
                     <Text style={styles.watchButtonText}>
-                      {lang === 'tr' ? 'Reklam İzle' : 'Watch Ad'}
+                      {lang === 'tr' 
+                        ? `Reklam İzle (${remainingAds} kaldı)` 
+                        : `Watch Ad (${remainingAds} left)`}
                     </Text>
                   </>
                 )}
@@ -219,7 +265,47 @@ const styles = StyleSheet.create({
     color: '#666',
     textAlign: 'center',
     lineHeight: 22,
+    marginBottom: 20,
+  },
+  // Progress styles
+  progressContainer: {
+    alignItems: 'center',
     marginBottom: 24,
+  },
+  progressDots: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  progressDot: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: '#E0E0E0',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  progressDotActive: {
+    backgroundColor: Colors.success,
+  },
+  progressDotText: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#999',
+  },
+  progressLine: {
+    width: 50,
+    height: 3,
+    backgroundColor: '#E0E0E0',
+    marginHorizontal: 8,
+  },
+  progressLineActive: {
+    backgroundColor: Colors.success,
+  },
+  progressText: {
+    fontSize: 13,
+    color: '#888',
+    fontWeight: '500',
   },
   watchButton: {
     borderRadius: 12,
