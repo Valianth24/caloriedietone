@@ -165,7 +165,11 @@ export default function RecipesScreen() {
   const [freePassLoading, setFreePassLoading] = useState(false);
 
   const isPremium = user?.is_premium || false;
-  const allRecipes = getAllRecipeMetadata();
+  
+  // Tüm tarifleri birleştir (normal + sporcu)
+  const regularRecipes = getAllRecipeMetadata();
+  const athleteRecipes = getAllAthleteRecipeMetadata();
+  const allRecipes = [...regularRecipes, ...athleteRecipes];
 
   // Free Pass durumunu kontrol et
   const checkFreePassStatus = async () => {
