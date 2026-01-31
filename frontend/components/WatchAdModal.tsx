@@ -45,19 +45,20 @@ export default function WatchAdModal({
   const loading = externalLoading ?? internalLoading;
 
   const handleWatchAd = async () => {
-    setLoading(true);
+    if (loading) return;
+    
+    if (externalLoading === undefined) {
+      setInternalLoading(true);
+    }
+    
     try {
       await onWatchAd();
-      // Reklam başarılı - sayacı artır
-      const newCount = adsWatched + 1;
-      setAdsWatched(newCount);
-      
-      // 2 reklam izlendiyse modal kapanacak (onWatchAd içinde handle ediliyor)
-      // Burada sadece sayacı güncelliyoruz
     } catch (error) {
       console.error('Error watching ad:', error);
     } finally {
-      setLoading(false);
+      if (externalLoading === undefined) {
+        setInternalLoading(false);
+      }
     }
   };
 
