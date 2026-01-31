@@ -883,9 +883,12 @@ export default function CameraScreen() {
         onClose={() => {
           setShowAdModal(false);
           setPendingAnalysis(null);
+          setAdsWatchedForCalorie(0);
         }}
         onWatchAd={handleWatchAdForCalorie}
         type="calorie_calculation"
+        adsWatched={adsWatchedForCalorie}
+        loading={adLoading}
       />
 
       {/* Context Input Modal - Ask user for food description */}
