@@ -85,10 +85,46 @@ export default function LeaderboardScreen({ selectedLeague }: LeaderboardScreenP
     try {
       const league = selectedTab === 'all' ? undefined : selectedTab;
       const data = await getLeaderboard(league, 100);
-      setLeaderboard(data.leaderboard || []);
-      setCurrentUser(data.current_user || null);
+      
+      // Use API data if available, otherwise use demo data
+      if (data.leaderboard && data.leaderboard.length > 0) {
+        setLeaderboard(data.leaderboard);
+        setCurrentUser(data.current_user || null);
+      } else {
+        // Filter demo data by league if needed
+        const filteredDemo = selectedTab === 'all' 
+          ? DEMO_LEADERBOARD 
+          : DEMO_LEADERBOARD.filter(u => u.league === selectedTab);
+        setLeaderboard(filteredDemo);
+        // Set current user as demo user
+        setCurrentUser({
+          rank: 15,
+          user_id: 'current',
+          name: 'Sen',
+          level: 3,
+          total_points: 1500,
+          league: 'bronze',
+          daily_streak: 3,
+          achievements_count: 4,
+        });
+      }
     } catch (error) {
       console.error('Error loading leaderboard:', error);
+      // Use demo data on error
+      const filteredDemo = selectedTab === 'all' 
+        ? DEMO_LEADERBOARD 
+        : DEMO_LEADERBOARD.filter(u => u.league === selectedTab);
+      setLeaderboard(filteredDemo);
+      setCurrentUser({
+        rank: 15,
+        user_id: 'current',
+        name: 'Sen',
+        level: 3,
+        total_points: 1500,
+        league: 'bronze',
+        daily_streak: 3,
+        achievements_count: 4,
+      });
     } finally {
       setLoading(false);
       setRefreshing(false);
