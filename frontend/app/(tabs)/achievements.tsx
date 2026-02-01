@@ -186,6 +186,15 @@ export default function AchievementsScreen() {
       }
     }
     
+    if (taskId === 'steps' && task.progress && task.total && task.progress >= task.total) {
+      try {
+        await completeGoal('steps');
+        await loadData();
+      } catch (error) {
+        console.error('Error completing steps goal:', error);
+      }
+    }
+    
     if (taskId === 'calorie' && task.progress && task.total && task.progress >= task.total * 0.8) {
       try {
         await completeGoal('calorie');
