@@ -813,6 +813,7 @@ const resources = {
       camera: 'Kamera',
       nutrition: 'Beslenme',
       tracking: 'Takip',
+      achievements: 'Başarılarım',
       profile: 'Profil',
       settings: 'Ayarlar',
       
