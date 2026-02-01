@@ -476,6 +476,19 @@ class User(BaseModel):
   is_premium: bool = False
   premium_expires_at: Optional[datetime] = None
   ads_watched: int = 0
+  
+  # Gamification System
+  level: int = 1
+  xp: int = 0
+  total_points: int = 0
+  daily_streak: int = 0
+  goal_streak: int = 0
+  max_daily_streak: int = 0
+  max_goal_streak: int = 0
+  last_login: Optional[datetime] = None
+  last_goal_completion: Optional[datetime] = None
+  achievements: List[str] = []
+  league: str = "bronze"  # bronze, silver, gold, platinum, diamond, legend
 
 
 class SessionDataResponse(BaseModel):
