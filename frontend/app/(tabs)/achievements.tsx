@@ -92,7 +92,7 @@ export default function AchievementsScreen() {
   useEffect(() => {
     // Görevlerin durumunu güncelle
     updateTasksStatus();
-  }, [dailySummary, waterData, user]);
+  }, [dailySummary, waterData, stepData, user]);
 
   const loadData = async () => {
     setLoading(true);
