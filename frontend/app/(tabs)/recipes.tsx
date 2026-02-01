@@ -506,16 +506,25 @@ export default function RecipesScreen() {
           <Text style={styles.recipeName} numberOfLines={2}>
             {locale === 'tr' ? getRecipeNameTR(item.id) : getRecipeNameEN(item.id)}
           </Text>
-          <View style={styles.categoryTag}>
-            <Ionicons
-              name={CATEGORY_LABELS[item.category].icon as any}
-              size={12}
-              color={CATEGORY_LABELS[item.category].color}
-            />
-            <Text style={[styles.categoryTagText, { color: CATEGORY_LABELS[item.category].color }]}>
-              {getCategoryLabel(item.category, locale)}
-            </Text>
-          </View>
+          {item.category && CATEGORY_LABELS[item.category] ? (
+            <View style={styles.categoryTag}>
+              <Ionicons
+                name={CATEGORY_LABELS[item.category].icon as any}
+                size={12}
+                color={CATEGORY_LABELS[item.category].color}
+              />
+              <Text style={[styles.categoryTagText, { color: CATEGORY_LABELS[item.category].color }]}>
+                {getCategoryLabel(item.category, locale)}
+              </Text>
+            </View>
+          ) : (
+            <View style={styles.categoryTag}>
+              <Ionicons name="restaurant-outline" size={12} color={Colors.lightText} />
+              <Text style={[styles.categoryTagText, { color: Colors.lightText }]}>
+                {locale === 'tr' ? 'Genel' : 'General'}
+              </Text>
+            </View>
+          )}
           <View style={styles.tagsRow}>
             {item.tags.slice(0, 2).map((tag, idx) => (
               <View key={idx} style={styles.tagChip}>
