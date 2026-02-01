@@ -4146,6 +4146,7 @@ async def complete_daily_goal(
         "calorie": 50,
         "photo": 15,
         "diet": 100,
+        "steps": 30,  # Adım hedefi eklendi
     }
     
     xp_amount = xp_rewards.get(goal_type, 10)
