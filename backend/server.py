@@ -3940,8 +3940,12 @@ async def get_gamification_status(current_user: Optional[User] = Depends(get_cur
 
 
 @api_router.post("/gamification/check-daily")
-async def check_daily_login(user_id: str = Depends(verify_session)):
+async def check_daily_login(current_user: Optional[User] = Depends(get_current_user)):
     """Günlük giriş kontrolü - Seri ve XP güncelle"""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    user_id = current_user.user_id
     user = await get_user_by_id(user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
