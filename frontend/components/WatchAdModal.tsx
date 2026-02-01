@@ -114,7 +114,8 @@ export default function WatchAdModal({
     }
   };
 
-  const remainingAds = 2 - adsWatched;
+  const totalAds = singleAd ? 1 : 2;
+  const remainingAds = totalAds - adsWatched;
 
   return (
     <Modal
@@ -147,29 +148,31 @@ export default function WatchAdModal({
           <View style={styles.content}>
             <Text style={styles.description}>{getDescription()}</Text>
 
-            {/* Progress indicator */}
-            <View style={styles.progressContainer}>
-              <View style={styles.progressDots}>
-                <View style={[styles.progressDot, adsWatched >= 1 && styles.progressDotActive]}>
-                  {adsWatched >= 1 ? (
-                    <Ionicons name="checkmark" size={16} color="#fff" />
-                  ) : (
-                    <Text style={styles.progressDotText}>1</Text>
-                  )}
+            {/* Progress indicator - sadece çoklu reklam modunda göster */}
+            {!singleAd && (
+              <View style={styles.progressContainer}>
+                <View style={styles.progressDots}>
+                  <View style={[styles.progressDot, adsWatched >= 1 && styles.progressDotActive]}>
+                    {adsWatched >= 1 ? (
+                      <Ionicons name="checkmark" size={16} color="#fff" />
+                    ) : (
+                      <Text style={styles.progressDotText}>1</Text>
+                    )}
+                  </View>
+                  <View style={[styles.progressLine, adsWatched >= 1 && styles.progressLineActive]} />
+                  <View style={[styles.progressDot, adsWatched >= 2 && styles.progressDotActive]}>
+                    {adsWatched >= 2 ? (
+                      <Ionicons name="checkmark" size={16} color="#fff" />
+                    ) : (
+                      <Text style={styles.progressDotText}>2</Text>
+                    )}
+                  </View>
                 </View>
-                <View style={[styles.progressLine, adsWatched >= 1 && styles.progressLineActive]} />
-                <View style={[styles.progressDot, adsWatched >= 2 && styles.progressDotActive]}>
-                  {adsWatched >= 2 ? (
-                    <Ionicons name="checkmark" size={16} color="#fff" />
-                  ) : (
-                    <Text style={styles.progressDotText}>2</Text>
-                  )}
-                </View>
+                <Text style={styles.progressText}>
+                  {adsWatched}/{totalAds} {lang === 'tr' ? 'reklam izlendi' : 'ads watched'}
+                </Text>
               </View>
-              <Text style={styles.progressText}>
-                {adsWatched}/2 {lang === 'tr' ? 'reklam izlendi' : 'ads watched'}
-              </Text>
-            </View>
+            )}
 
             {/* Watch Ad Button */}
             <TouchableOpacity 
@@ -190,9 +193,11 @@ export default function WatchAdModal({
                   <>
                     <Ionicons name="play" size={22} color="#FFF" />
                     <Text style={styles.watchButtonText}>
-                      {lang === 'tr' 
-                        ? `Reklam İzle (${remainingAds} kaldı)` 
-                        : `Watch Ad (${remainingAds} left)`}
+                      {singleAd 
+                        ? (lang === 'tr' ? 'Reklam İzle' : 'Watch Ad')
+                        : (lang === 'tr' 
+                            ? `Reklam İzle (${remainingAds} kaldı)` 
+                            : `Watch Ad (${remainingAds} left)`)}
                     </Text>
                   </>
                 )}
