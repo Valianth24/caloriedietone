@@ -38,6 +38,20 @@ const LEAGUE_EMOJIS: Record<string, string> = {
   legend: '🔥',
 };
 
+// Demo leaderboard data for when API is not available
+const DEMO_LEADERBOARD: LeaderboardUser[] = [
+  { rank: 1, user_id: '1', name: 'Ahmet Y.', level: 15, total_points: 12500, league: 'gold', daily_streak: 45, achievements_count: 28 },
+  { rank: 2, user_id: '2', name: 'Elif K.', level: 14, total_points: 11200, league: 'gold', daily_streak: 38, achievements_count: 25 },
+  { rank: 3, user_id: '3', name: 'Mehmet A.', level: 12, total_points: 9800, league: 'silver', daily_streak: 30, achievements_count: 22 },
+  { rank: 4, user_id: '4', name: 'Ayşe D.', level: 11, total_points: 8500, league: 'silver', daily_streak: 25, achievements_count: 20 },
+  { rank: 5, user_id: '5', name: 'Can B.', level: 10, total_points: 7200, league: 'silver', daily_streak: 21, achievements_count: 18 },
+  { rank: 6, user_id: '6', name: 'Zeynep M.', level: 9, total_points: 6100, league: 'bronze', daily_streak: 18, achievements_count: 15 },
+  { rank: 7, user_id: '7', name: 'Ali T.', level: 8, total_points: 5400, league: 'bronze', daily_streak: 14, achievements_count: 12 },
+  { rank: 8, user_id: '8', name: 'Fatma S.', level: 7, total_points: 4200, league: 'bronze', daily_streak: 10, achievements_count: 10 },
+  { rank: 9, user_id: '9', name: 'Hasan K.', level: 6, total_points: 3500, league: 'bronze', daily_streak: 8, achievements_count: 8 },
+  { rank: 10, user_id: '10', name: 'Selin Y.', level: 5, total_points: 2800, league: 'bronze', daily_streak: 5, achievements_count: 6 },
+];
+
 interface LeaderboardUser {
   rank: number;
   user_id: string;
