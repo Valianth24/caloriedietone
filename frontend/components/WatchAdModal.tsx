@@ -91,6 +91,14 @@ export default function WatchAdModal({
 
   const getDescription = () => {
     if (description) return description;
+    
+    // Tek reklam modu için farklı açıklama
+    if (singleAd) {
+      return lang === 'tr' 
+        ? '1 kısa reklam izleyerek içeriğe erişin.'
+        : 'Watch 1 short ad to access the content.';
+    }
+    
     return lang === 'tr' 
       ? '2 kısa reklam izleyerek içeriğe erişin.'
       : 'Watch 2 short ads to access the content.';
