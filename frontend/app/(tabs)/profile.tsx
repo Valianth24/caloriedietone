@@ -66,10 +66,14 @@ export default function ModernProfileScreen() {
   const lang = i18nInstance.language === 'tr' ? 'tr' : 'en';
   const { user, logout } = useAuth();
   const { setUser } = useStore();
+  const { colors } = useTheme();
   const router = useRouter();
   
   const [editing, setEditing] = useState(false);
   const [gamificationData, setGamificationData] = useState<any>(null);
+  const [showLanguageModal, setShowLanguageModal] = useState(false);
+  const [showThemeModal, setShowThemeModal] = useState(false);
+  const [currentLang, setCurrentLang] = useState(i18nInstance.language);
   const [formData, setFormData] = useState({
     height: user?.height?.toString() || '',
     weight: user?.weight?.toString() || '',
