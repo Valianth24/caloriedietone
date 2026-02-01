@@ -87,7 +87,12 @@ export default function ModernProfileScreen() {
 
   useEffect(() => {
     loadGamificationData();
+    setCurrentLang(i18nInstance.language);
   }, []);
+
+  useEffect(() => {
+    setCurrentLang(i18nInstance.language);
+  }, [i18nInstance.language]);
 
   const loadGamificationData = async () => {
     try {
