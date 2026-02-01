@@ -44,6 +44,7 @@ export default function DashboardScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [activeDiet, setActiveDiet] = useState<any>(null);
   const [weeklyWater, setWeeklyWater] = useState<any[]>([]);
+  const [gamificationData, setGamificationData] = useState<any>(null);
   
   // Su hedefini kullanıcı verilerine göre dinamik hesapla
   const dynamicWaterGoal = useMemo(() => {
