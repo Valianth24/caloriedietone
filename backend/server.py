@@ -624,6 +624,25 @@ class User(BaseModel):
   last_goal_completion: Optional[datetime] = None
   achievements: List[str] = []
   league: str = "bronze"  # bronze, silver, gold, platinum, diamond, legend
+  
+  # Input validation
+  @validator('name', 'email')
+  def sanitize_text_fields(cls, v):
+      if v:
+          return sanitize_string_input(v, max_length=200)
+      return v
+  
+  @validator('age')
+  def validate_age(cls, v):
+      if v is not None and (v < 1 or v > 150):
+          raise ValueError('Age must be between 1 and 150')
+      return v
+  
+  @validator('height', 'weight', 'target_weight')
+  def validate_measurements(cls, v):
+      if v is not None and (v < 1 or v > 500):
+          raise ValueError('Measurement must be between 1 and 500')
+      return v
 
 
 class SessionDataResponse(BaseModel):
