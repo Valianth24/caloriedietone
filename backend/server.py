@@ -4075,9 +4075,13 @@ async def check_daily_login(current_user: Optional[User] = Depends(get_current_u
 async def add_xp(
     action: str,
     amount: int,
-    user_id: str = Depends(verify_session)
+    current_user: Optional[User] = Depends(get_current_user)
 ):
     """Belirli bir aksiyon için XP ekle"""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    user_id = current_user.user_id
     user = await get_user_by_id(user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
