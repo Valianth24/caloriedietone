@@ -526,13 +526,13 @@ export default function RecipesScreen() {
             </View>
           )}
           <View style={styles.tagsRow}>
-            {item.tags.slice(0, 2).map((tag, idx) => (
+            {item.tags && item.tags.length > 0 ? item.tags.slice(0, 2).map((tag, idx) => (
               <View key={idx} style={styles.tagChip}>
                 <Text style={styles.tagChipText}>
                   {getTagLabelShort(tag, locale)}
                 </Text>
               </View>
-            ))}
+            )) : null}
           </View>
         </View>
       </TouchableOpacity>
