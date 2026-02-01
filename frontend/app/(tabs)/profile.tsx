@@ -233,6 +233,8 @@ export default function ModernProfileScreen() {
   const handleLanguageChange = async (langCode: string) => {
     try {
       await changeLanguage(langCode);
+      setCurrentLang(langCode);
+      setShowLanguageModal(false);
       Alert.alert(
         lang === 'tr' ? 'Başarılı' : 'Success', 
         lang === 'tr' ? 'Dil değiştirildi' : 'Language changed'
@@ -243,6 +245,11 @@ export default function ModernProfileScreen() {
         lang === 'tr' ? 'Dil değiştirilemedi' : 'Language change failed'
       );
     }
+  };
+
+  const getCurrentLanguageInfo = () => {
+    const langInfo = languageList.find(l => l.code === currentLang);
+    return langInfo || languageList[0];
   };
 
   const leagueColors = gamificationData 
