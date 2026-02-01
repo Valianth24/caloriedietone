@@ -35,6 +35,7 @@ export default function AchievementsScreen() {
   const [achievements, setAchievements] = useState<any>(null);
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [newLevel, setNewLevel] = useState(1);
+  const [activeTab, setActiveTab] = useState<'overview' | 'leaderboard'>('overview');
   
   // Günlük görevler - Adım hedefi dahil!
   const [dailyTasks, setDailyTasks] = useState([
