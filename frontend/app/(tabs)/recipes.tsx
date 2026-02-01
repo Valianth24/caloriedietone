@@ -496,9 +496,9 @@ export default function RecipesScreen() {
               <Ionicons name="star" size={12} color="#FFD700" />
             </View>
           )}
-          <View style={[styles.difficultyBadge, { backgroundColor: item.color }]}>
+          <View style={[styles.difficultyBadge, { backgroundColor: item.color || Colors.primary }]}>
             <Text style={styles.difficultyText}>
-              {getDifficultyLabel(item.difficulty, locale)}
+              {item.difficulty ? getDifficultyLabel(item.difficulty, locale) : (locale === 'tr' ? 'Orta' : 'Medium')}
             </Text>
           </View>
         </View>
