@@ -366,3 +366,36 @@ export const deleteWeightEntry = async (date: string) => {
 export const getDietRecommendations = async (lang: string = 'tr') => {
   return apiRequest(`/diets/recommend?lang=${lang}`);
 };
+
+// ============================
+// GAMIFICATION API
+// ============================
+
+export const getGamificationStatus = async () => {
+  return apiRequest('/gamification/status');
+};
+
+export const checkDailyLogin = async () => {
+  return apiRequest('/gamification/check-daily', {
+    method: 'POST',
+  });
+};
+
+export const addXP = async (action: string, amount: number) => {
+  return apiRequest('/gamification/add-xp', {
+    method: 'POST',
+    body: JSON.stringify({ action, amount }),
+  });
+};
+
+export const completeGoal = async (goalType: string) => {
+  return apiRequest('/gamification/complete-goal', {
+    method: 'POST',
+    body: JSON.stringify({ goal_type: goalType }),
+  });
+};
+
+export const getAchievements = async () => {
+  return apiRequest('/gamification/achievements');
+};
+
