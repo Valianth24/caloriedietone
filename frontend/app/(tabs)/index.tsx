@@ -913,6 +913,9 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     color: Colors.darkText,
   },
+  gamificationMiniCard: {
+    marginBottom: 16,
+  },
   recentMealsSection: {
     marginBottom: 20,
   },
