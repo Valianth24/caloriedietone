@@ -35,7 +35,7 @@ export default function AchievementsScreen() {
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [newLevel, setNewLevel] = useState(1);
   
-  // Günlük görevler - Adım hedefi yok!
+  // Günlük görevler - Adım hedefi dahil!
   const [dailyTasks, setDailyTasks] = useState([
     {
       id: 'login',
@@ -54,6 +54,16 @@ export default function AchievementsScreen() {
       completed: false,
       progress: 0,
       total: 2500,
+    },
+    {
+      id: 'steps',
+      icon: 'footsteps' as const,
+      titleTr: 'Adım Hedefini Tamamla',
+      titleEn: 'Complete Step Goal',
+      xp: 30,
+      completed: false,
+      progress: 0,
+      total: 10000,
     },
     {
       id: 'calorie',
