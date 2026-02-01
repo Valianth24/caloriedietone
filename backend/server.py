@@ -4214,8 +4214,12 @@ async def complete_daily_goal(
 
 
 @api_router.get("/gamification/achievements")
-async def get_achievements(user_id: str = Depends(verify_session)):
+async def get_achievements(current_user: Optional[User] = Depends(get_current_user)):
     """Kullanıcının rozetlerini getir"""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    user_id = current_user.user_id
     user = await get_user_by_id(user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
