@@ -517,12 +517,69 @@ async def get_session_data(request: Request):
 
 
 # -------------------------
+# SECURITY UTILITIES - MongoDB Injection Prevention
+# -------------------------
+
+def sanitize_string_input(value: str, max_length: int = 1000) -> str:
+    """Sanitize string input to prevent injection attacks"""
+    if not value:
+        return ""
+    
+    # Remove null bytes
+    value = value.replace('\x00', '')
+    
+    # Trim to max length
+    if len(value) > max_length:
+        value = value[:max_length]
+    
+    # Remove MongoDB operators
+    dangerous_patterns = ['$where', '$regex', '$ne', '$gt', '$lt', '$in', '$nin', '$or', '$and']
+    for pattern in dangerous_patterns:
+        value = value.replace(pattern, '')
+    
+    return value.strip()
+
+def sanitize_dict_input(data: Dict[str, Any]) -> Dict[str, Any]:
+    """Recursively sanitize dictionary to prevent MongoDB injection"""
+    sanitized = {}
+    for key, value in data.items():
+        # Skip keys starting with $ or containing .
+        if key.startswith('$') or '.' in key:
+            continue
+        
+        if isinstance(value, str):
+            sanitized[key] = sanitize_string_input(value)
+        elif isinstance(value, dict):
+            sanitized[key] = sanitize_dict_input(value)
+        elif isinstance(value, list):
+            sanitized[key] = [sanitize_dict_input(item) if isinstance(item, dict) else item for item in value]
+        else:
+            sanitized[key] = value
+    
+    return sanitized
+
+def validate_object_id(id_string: str) -> bool:
+    """Validate MongoDB ObjectId format"""
+    if not id_string or not isinstance(id_string, str):
+        return False
+    
+    # ObjectId is 24 hex characters
+    if len(id_string) != 24:
+        return False
+    
+    try:
+        int(id_string, 16)
+        return True
+    except ValueError:
+        return False
+
+# -------------------------
 # CORS
 # -------------------------
 app.add_middleware(
   CORSMiddleware,
   allow_credentials=True,
-  allow_origins=["*"],
+  allow_origins=["*"],  # In production, specify exact origins
   allow_methods=["*"],
   allow_headers=["*"],
 )
