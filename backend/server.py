@@ -4249,6 +4249,86 @@ async def get_achievements(current_user: Optional[User] = Depends(get_current_us
     }
 
 
+@api_router.get("/gamification/leaderboard")
+async def get_leaderboard(
+    league: Optional[str] = None,
+    limit: int = 100,
+    current_user: Optional[User] = Depends(get_current_user)
+):
+    """Lig sıralaması - tüm kullanıcılar veya belirli bir lig"""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    try:
+        # MongoDB'den tüm kullanıcıları çek
+        query = {}
+        if league:
+            query["league"] = league
+        
+        users_cursor = users_collection.find(query).sort("total_points", -1).limit(limit)
+        users_list = await users_cursor.to_list(length=limit)
+        
+        leaderboard = []
+        current_user_rank = None
+        
+        for idx, user_doc in enumerate(users_list, 1):
+            user_data = {
+                "rank": idx,
+                "user_id": user_doc.get("user_id"),
+                "name": user_doc.get("name", "Unknown"),
+                "level": user_doc.get("level", 1),
+                "total_points": user_doc.get("total_points", 0),
+                "league": user_doc.get("league", "bronze"),
+                "daily_streak": user_doc.get("daily_streak", 0),
+                "achievements_count": len(user_doc.get("achievements", [])),
+            }
+            leaderboard.append(user_data)
+            
+            # Mevcut kullanıcının sırasını bul
+            if user_doc.get("user_id") == current_user.user_id:
+                current_user_rank = idx
+        
+        # Mevcut kullanıcı top 100'de değilse, sırasını ayrıca hesapla
+        if current_user_rank is None:
+            total_users = await users_collection.count_documents({})
+            users_above = await users_collection.count_documents({
+                "total_points": {"$gt": current_user.total_points}
+            })
+            current_user_rank = users_above + 1
+        
+        return {
+            "leaderboard": leaderboard,
+            "current_user": {
+                "rank": current_user_rank,
+                "user_id": current_user.user_id,
+                "name": current_user.name,
+                "level": current_user.level,
+                "total_points": current_user.total_points,
+                "league": current_user.league,
+                "daily_streak": current_user.daily_streak,
+                "achievements_count": len(current_user.achievements),
+            },
+            "total_users": len(leaderboard),
+        }
+    except Exception as e:
+        print(f"Error getting leaderboard: {e}")
+        # Fallback: sadece mevcut kullanıcıyı döndür
+        return {
+            "leaderboard": [],
+            "current_user": {
+                "rank": 1,
+                "user_id": current_user.user_id,
+                "name": current_user.name,
+                "level": current_user.level,
+                "total_points": current_user.total_points,
+                "league": current_user.league,
+                "daily_streak": current_user.daily_streak,
+                "achievements_count": len(current_user.achievements),
+            },
+            "total_users": 1,
+        }
+
+
 # -------------------------
 # APP ROUTER
 # -------------------------
