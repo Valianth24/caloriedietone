@@ -322,8 +322,7 @@ export default function RecipesScreen() {
     try {
       console.log('[Recipes] Watching ad for recipe:', {
         id: pendingRecipe.id,
-        currentAdsWatched: adsWatchedForRecipe,
-        note: '2 tıklama = 2 reklam = içerik açılır'
+        note: 'Her tarif için 1 reklam izle'
       });
       
       // Tek reklam göster
@@ -342,26 +341,19 @@ export default function RecipesScreen() {
         return;
       }
       
-      // Reklam başarılı - sayacı artır
-      const newCount = adsWatchedForRecipe + 1;
-      setAdsWatchedForRecipe(newCount);
+      // Reklam başarılı - direkt tarifi aç (sadece 1 reklam gerekli)
+      console.log('[Recipes] Ad watched successfully, opening recipe');
       
-      console.log('[Recipes] Ad watched successfully, count:', newCount);
+      setShowAdModal(false);
+      setAdsWatchedForRecipe(0);
       
-      // 2 reklam tamamlandıysa içeriği aç
-      if (newCount >= 2) {
-        setShowAdModal(false);
-        setAdsWatchedForRecipe(0);
-        
-        router.push({
-          pathname: '/details/recipe-detail',
-          params: { recipeId: pendingRecipe.id },
-        });
-        
-        setPendingRecipe(null);
-        setPendingRecipeIndex(0);
-      }
-      // Değilse modal açık kalır, kullanıcı 2. reklamı izler
+      router.push({
+        pathname: '/details/recipe-detail',
+        params: { recipeId: pendingRecipe.id },
+      });
+      
+      setPendingRecipe(null);
+      setPendingRecipeIndex(0);
       
     } catch (error) {
       console.error('Error watching ad:', error);
