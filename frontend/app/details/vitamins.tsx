@@ -374,7 +374,7 @@ export default function VitaminsScreen() {
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           style={styles.modalContainer}
         >
-          <ScrollView contentContainerStyle={styles.modalScrollContent}>
+          <ScrollView contentContainerStyle={[styles.modalScrollContent, { paddingBottom: Math.max(insets.bottom, 24) }]}>
             <View style={styles.modalContent}>
               <Text style={styles.modalTitle}>{t('reminderSettings')}</Text>
               
