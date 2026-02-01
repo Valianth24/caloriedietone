@@ -137,6 +137,15 @@ export default function DashboardScreen() {
       } else {
         setActiveDiet(null);
       }
+      
+      // Gamification verilerini al
+      try {
+        await checkDailyLogin(); // Günlük giriş kontrolü
+        const gamificationStatus = await getGamificationStatus();
+        setGamificationData(gamificationStatus);
+      } catch (gamificationError) {
+        console.log('Gamification data not available yet');
+      }
     } catch (error) {
       console.error('Error loading dashboard data:', error);
       setWeeklyWater([]);
