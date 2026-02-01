@@ -374,6 +374,20 @@ export default function DashboardScreen() {
           </View>
         </View>
 
+        {/* Gamification Mini Card */}
+        {gamificationData && (
+          <TouchableOpacity 
+            style={styles.gamificationMiniCard}
+            onPress={() => router.push('/(tabs)/achievements')}
+            activeOpacity={0.9}
+          >
+            <GamificationDashboard 
+              data={gamificationData}
+              onRefresh={loadData}
+            />
+          </TouchableOpacity>
+        )}
+
         {/* Active Diet Card - only shown when there's an active diet */}
         {activeDiet && (() => {
           const diet = allDiets.find(d => d.id === activeDiet.dietId);
