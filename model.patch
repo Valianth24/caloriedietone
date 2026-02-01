@@ -1,12 +1,30 @@
-diff --git a/frontend/utils/i18n.ts b/frontend/utils/i18n.ts
-index 3caf4a4..ed1dcc8 100644
---- a/frontend/utils/i18n.ts
-+++ b/frontend/utils/i18n.ts
-@@ -813,6 +813,7 @@ const resources = {
-       camera: 'Kamera',
-       nutrition: 'Beslenme',
-       tracking: 'Takip',
-+      achievements: 'Başarılarım',
-       profile: 'Profil',
-       settings: 'Ayarlar',
-       
+diff --git a/frontend/app/(tabs)/achievements.tsx b/frontend/app/(tabs)/achievements.tsx
+index 65dd711..37e8368 100644
+--- a/frontend/app/(tabs)/achievements.tsx
++++ b/frontend/app/(tabs)/achievements.tsx
+@@ -26,7 +26,7 @@ import { useStore } from '../../store/useStore';
+ export default function AchievementsScreen() {
+   const { t, i18n } = useTranslation();
+   const lang = i18n.language === 'tr' ? 'tr' : 'en';
+-  const { user, dailySummary, waterData } = useStore();
++  const { user, dailySummary, waterData, stepData } = useStore();
+   
+   const [loading, setLoading] = useState(true);
+   const [refreshing, setRefreshing] = useState(false);
+diff --git a/model.patch b/model.patch
+index aa2f824..e69de29 100644
+--- a/model.patch
++++ b/model.patch
+@@ -1,12 +0,0 @@
+-diff --git a/frontend/utils/i18n.ts b/frontend/utils/i18n.ts
+-index 3caf4a4..ed1dcc8 100644
+---- a/frontend/utils/i18n.ts
+-+++ b/frontend/utils/i18n.ts
+-@@ -813,6 +813,7 @@ const resources = {
+-       camera: 'Kamera',
+-       nutrition: 'Beslenme',
+-       tracking: 'Takip',
+-+      achievements: 'Başarılarım',
+-       profile: 'Profil',
+-       settings: 'Ayarlar',
+-       
