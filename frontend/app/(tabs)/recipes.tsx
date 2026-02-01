@@ -586,6 +586,7 @@ export default function RecipesScreen() {
         type="recipe"
         adsWatched={adsWatchedForRecipe}
         loading={adLoading}
+        singleAd={true} // Her tarif için tek reklam
       />
       
       {/* Free Pass Modal */}
