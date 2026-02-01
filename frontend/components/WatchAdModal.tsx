@@ -24,6 +24,7 @@ interface WatchAdModalProps {
   description?: string;
   adsWatched?: number;
   loading?: boolean;
+  singleAd?: boolean; // Tek reklam modu (progress bar gösterme)
 }
 
 export default function WatchAdModal({
