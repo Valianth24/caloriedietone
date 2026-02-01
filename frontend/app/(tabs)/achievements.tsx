@@ -398,6 +398,32 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  tabSwitcher: {
+    flexDirection: 'row',
+    padding: 16,
+    gap: 12,
+  },
+  tabButton: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 8,
+    paddingVertical: 12,
+    borderRadius: 12,
+    backgroundColor: Colors.card,
+  },
+  tabButtonActive: {
+    backgroundColor: Colors.primary,
+  },
+  tabButtonText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.lightText,
+  },
+  tabButtonTextActive: {
+    color: '#FFF',
+  },
   scrollView: {
     flex: 1,
   },
