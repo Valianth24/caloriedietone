@@ -36,6 +36,7 @@ export default function WatchAdModal({
   description,
   adsWatched: externalAdsWatched,
   loading: externalLoading,
+  singleAd = false, // Varsayılan olarak çoklu reklam modu
 }: WatchAdModalProps) {
   const { i18n } = useTranslation();
   const [internalLoading, setInternalLoading] = useState(false);
