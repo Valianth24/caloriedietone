@@ -140,6 +140,17 @@ export default function AchievementsScreen() {
         };
       }
       
+      if (task.id === 'steps') {
+        const current = stepData?.steps || 0;
+        const goal = user?.step_goal || 10000;
+        return {
+          ...task,
+          completed: current >= goal,
+          progress: current,
+          total: goal,
+        };
+      }
+      
       if (task.id === 'calorie') {
         const current = dailySummary?.total_calories || 0;
         const goal = user?.daily_calorie_goal || 2000;
