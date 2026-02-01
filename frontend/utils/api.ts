@@ -399,3 +399,10 @@ export const getAchievements = async () => {
   return apiRequest('/gamification/achievements');
 };
 
+export const getLeaderboard = async (league?: string, limit: number = 100) => {
+  const params = new URLSearchParams();
+  if (league) params.append('league', league);
+  params.append('limit', limit.toString());
+  return apiRequest(`/gamification/leaderboard?${params.toString()}`);
+};
+
