@@ -270,10 +270,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="tracking"
         options={{
-          title: t('tracking'),
+          href: null,
+        }}
+      />
+      <Tabs.Screen
+        name="achievements"
+        options={{
+          title: t('achievements') || 'Achievements',
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons 
-              name={focused ? "stats-chart" : "stats-chart-outline"} 
+              name={focused ? "trophy" : "trophy-outline"} 
               size={size} 
               color={color} 
             />
