@@ -26,7 +26,7 @@ import { useStore } from '../../store/useStore';
 export default function AchievementsScreen() {
   const { t, i18n } = useTranslation();
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
-  const { user, dailySummary, waterData } = useStore();
+  const { user, dailySummary, waterData, stepData } = useStore();
   
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
