@@ -3903,8 +3903,12 @@ ACHIEVEMENTS = {
 }
 
 @api_router.get("/gamification/status")
-async def get_gamification_status(user_id: str = Depends(verify_session)):
+async def get_gamification_status(current_user: Optional[User] = Depends(get_current_user)):
     """Kullanıcının gamification durumunu getir"""
+    if not current_user:
+        raise HTTPException(status_code=401, detail="Not authenticated")
+    
+    user_id = current_user.user_id
     user = await get_user_by_id(user_id)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
