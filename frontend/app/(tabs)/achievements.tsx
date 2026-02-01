@@ -219,18 +219,52 @@ export default function AchievementsScreen() {
 
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
-      <ScrollView
-        style={styles.scrollView}
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-        refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={handleRefresh}
-            colors={[Colors.primary]}
+      {/* Tab Switcher */}
+      <View style={styles.tabSwitcher}>
+        <TouchableOpacity
+          style={[styles.tabButton, activeTab === 'overview' && styles.tabButtonActive]}
+          onPress={() => setActiveTab('overview')}
+        >
+          <Ionicons 
+            name={activeTab === 'overview' ? 'trophy' : 'trophy-outline'} 
+            size={20} 
+            color={activeTab === 'overview' ? '#FFF' : Colors.lightText} 
           />
-        }
-      >
+          <Text style={[styles.tabButtonText, activeTab === 'overview' && styles.tabButtonTextActive]}>
+            {lang === 'tr' ? 'Genel Bakış' : 'Overview'}
+          </Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity
+          style={[styles.tabButton, activeTab === 'leaderboard' && styles.tabButtonActive]}
+          onPress={() => setActiveTab('leaderboard')}
+        >
+          <Ionicons 
+            name={activeTab === 'leaderboard' ? 'podium' : 'podium-outline'} 
+            size={20} 
+            color={activeTab === 'leaderboard' ? '#FFF' : Colors.lightText} 
+          />
+          <Text style={[styles.tabButtonText, activeTab === 'leaderboard' && styles.tabButtonTextActive]}>
+            {lang === 'tr' ? 'Sıralama' : 'Leaderboard'}
+          </Text>
+        </TouchableOpacity>
+      </View>
+
+      {activeTab === 'leaderboard' ? (
+        <LeaderboardScreen />
+      ) : (
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={styles.scrollContent}
+          showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={handleRefresh}
+              colors={[Colors.primary]}
+            />
+          }
+        >
         {/* Header */}
         <View style={styles.header}>
           <View>
