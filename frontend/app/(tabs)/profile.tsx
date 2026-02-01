@@ -507,7 +507,10 @@ export default function ModernProfileScreen() {
           </Text>
 
           {/* Language */}
-          <TouchableOpacity style={styles.settingItem}>
+          <TouchableOpacity 
+            style={styles.settingItem}
+            onPress={() => setShowLanguageModal(true)}
+          >
             <View style={styles.settingLeft}>
               <Ionicons name="language" size={24} color={Colors.primary} />
               <Text style={styles.settingText}>
@@ -516,14 +519,17 @@ export default function ModernProfileScreen() {
             </View>
             <View style={styles.settingRight}>
               <Text style={styles.settingValue}>
-                {lang === 'tr' ? 'Türkçe' : 'English'}
+                {getCurrentLanguageInfo().flag} {getCurrentLanguageInfo().name}
               </Text>
               <Ionicons name="chevron-forward" size={20} color={Colors.lightText} />
             </View>
           </TouchableOpacity>
 
-          {/* Theme - Future feature */}
-          <TouchableOpacity style={styles.settingItem}>
+          {/* Theme */}
+          <TouchableOpacity 
+            style={styles.settingItem}
+            onPress={() => setShowThemeModal(true)}
+          >
             <View style={styles.settingLeft}>
               <Ionicons name="color-palette" size={24} color={Colors.primary} />
               <Text style={styles.settingText}>
@@ -532,7 +538,7 @@ export default function ModernProfileScreen() {
             </View>
             <View style={styles.settingRight}>
               <Text style={styles.settingValue}>
-                {lang === 'tr' ? 'Açık' : 'Light'}
+                {lang === 'tr' ? 'Varsayılan' : 'Default'}
               </Text>
               <Ionicons name="chevron-forward" size={20} color={Colors.lightText} />
             </View>
@@ -541,7 +547,7 @@ export default function ModernProfileScreen() {
           {/* Privacy Policy */}
           <TouchableOpacity 
             style={styles.settingItem}
-            onPress={() => {}}
+            onPress={() => Linking.openURL(PRIVACY_POLICY_URL)}
           >
             <View style={styles.settingLeft}>
               <Ionicons name="shield-checkmark" size={24} color={Colors.primary} />
@@ -549,7 +555,21 @@ export default function ModernProfileScreen() {
                 {lang === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy'}
               </Text>
             </View>
-            <Ionicons name="chevron-forward" size={20} color={Colors.lightText} />
+            <Ionicons name="open-outline" size={20} color={Colors.lightText} />
+          </TouchableOpacity>
+
+          {/* Terms of Service */}
+          <TouchableOpacity 
+            style={styles.settingItem}
+            onPress={() => Linking.openURL(TERMS_OF_SERVICE_URL)}
+          >
+            <View style={styles.settingLeft}>
+              <Ionicons name="document-text" size={24} color={Colors.primary} />
+              <Text style={styles.settingText}>
+                {lang === 'tr' ? 'Kullanım Şartları' : 'Terms of Service'}
+              </Text>
+            </View>
+            <Ionicons name="open-outline" size={20} color={Colors.lightText} />
           </TouchableOpacity>
 
           {/* About */}
