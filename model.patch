@@ -1,0 +1,12 @@
+diff --git a/frontend/utils/i18n.ts b/frontend/utils/i18n.ts
+index 3caf4a4..ed1dcc8 100644
+--- a/frontend/utils/i18n.ts
++++ b/frontend/utils/i18n.ts
+@@ -813,6 +813,7 @@ const resources = {
+       camera: 'Kamera',
+       nutrition: 'Beslenme',
+       tracking: 'Takip',
++      achievements: 'Başarılarım',
+       profile: 'Profil',
+       settings: 'Ayarlar',
+       
