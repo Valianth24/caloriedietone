@@ -1,0 +1,62 @@
+{
+  "name": "Taco Bowl",
+  "description": "Mexican-inspired nutritious and colorful bowl filled with seasoned ground beef, fresh vegetables, beans, and guacamole.",
+  "prepTime": "15 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "35 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Ground beef", "amount": "400", "unit": "g", "note": "lean"},
+    {"name": "Rice or brown rice", "amount": "2", "unit": "cups", "note": "cooked"},
+    {"name": "Black beans", "amount": "1", "unit": "can", "note": "drained"},
+    {"name": "Sweet corn", "amount": "1", "unit": "cup"},
+    {"name": "Cherry tomatoes", "amount": "200", "unit": "g", "note": "halved"},
+    {"name": "Lettuce", "amount": "150", "unit": "g", "note": "shredded"},
+    {"name": "Avocado", "amount": "2", "unit": "pieces", "note": "ripe"},
+    {"name": "Red onion", "amount": "1/2", "unit": "piece", "note": "finely diced"},
+    {"name": "Cheddar cheese", "amount": "100", "unit": "g", "note": "shredded"},
+    {"name": "Sour cream", "amount": "100", "unit": "g"},
+    {"name": "Lime", "amount": "2", "unit": "pieces"},
+    {"name": "Cumin", "amount": "2", "unit": "tsp"},
+    {"name": "Paprika", "amount": "1", "unit": "tsp"},
+    {"name": "Garlic powder", "amount": "1", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Olive oil", "amount": "2", "unit": "tbsp"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Heat olive oil in large skillet over medium heat.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Add ground beef and break apart with wooden spoon while browning.", "duration": "8 minutes"},
+    {"step": 3, "instruction": "Add cumin, paprika, garlic powder, and half the salt. Stir to combine.", "duration": "1 minute"},
+    {"step": 4, "instruction": "Continue cooking, stirring occasionally, until beef is fully cooked.", "duration": "5 minutes"},
+    {"step": 5, "instruction": "For guacamole, mash avocados, add juice of 1 lime, remaining salt, and half the diced onion.", "tip": "Don't over-mash, keep it chunky.", "duration": "3 minutes"},
+    {"step": 6, "instruction": "Keep beans and corn warm separately or heat slightly.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Place rice at bottom of serving bowls.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Add seasoned beef on top of rice.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Arrange beans, corn, lettuce, and tomatoes neatly.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Top with guacamole and sour cream.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Sprinkle with shredded cheese and remaining onion.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Serve with lime wedges on the side.", "tip": "Optionally serve with tortilla chips.", "duration": "30 seconds"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 28,
+    "carbs": 45,
+    "fat": 26,
+    "fiber": 12,
+    "sugar": 6,
+    "sodium": 680
+  },
+  "tips": [
+    "Use turkey or chicken for a lighter version.",
+    "Add jalapeños for extra heat.",
+    "Use cauliflower rice for low-carb version.",
+    "Ingredients can be meal prepped ahead."
+  ],
+  "storageInfo": "All ingredients except guacamole can be stored separately for 3 days. Consume guacamole same day.",
+  "servingSuggestion": "Serve with tortilla chips and salsa.",
+  "variations": [
+    "Vegetarian: Use extra black beans and mushrooms instead of meat.",
+    "Chicken: Use grilled chicken strips.",
+    "Seafood: Add spiced shrimp."
+  ]
+}

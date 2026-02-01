@@ -1,0 +1,61 @@
+{
+  "name": "Yumurtalı Kızarmış Pilav",
+  "description": "Asya mutfağından klasik, sebzeler ve yumurta ile hazırlanan lezzetli ve pratik pilav. Mükemmel bir ana yemek veya garnitür.",
+  "prepTime": "10 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "25 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Jasmine pirinç", "amount": "3", "unit": "su bardağı", "note": "pişmiş, soğuk"},
+    {"name": "Yumurta", "amount": "4", "unit": "adet"},
+    {"name": "Bezelye", "amount": "1/2", "unit": "su bardağı", "note": "dondurulmuş olabilir"},
+    {"name": "Havuç", "amount": "1", "unit": "adet", "note": "küçük küp doğranmış"},
+    {"name": "Yeşil soğan", "amount": "4", "unit": "dal", "note": "ince dilimlenmiş"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Taze zencefil", "amount": "1", "unit": "tatlı kaşığı", "note": "rendelenmiş"},
+    {"name": "Soya sosu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "2", "unit": "tatlı kaşığı"},
+    {"name": "Bitkisel yağ", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Beyaz biber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1/2", "unit": "tatlı kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Soğuk pirinçi parmaklarınızla ayırın, topaklar kalmadığından emin olun.", "tip": "En iyi sonuç için bir gün önceden pişmiş soğuk pirinç kullanın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Yumurtaları küçük bir kasede çırpın, yarım tuz ekleyin.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Wok veya büyük tavayı yüksek ateşte çok iyi ısıtın.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "2 yk bitkisel yağ ekleyin, yayılmasını bekleyin.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Yumurtaları dökün, 20 saniye dokunmadan bekletin, sonra büyük parçalar halinde karıştırın.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Yumurtalar hâlâ hafif nemli iken tabağa alın.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Aynı wok'a kalan yağı ekleyin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Havuç ve bezelyeyi 2 dakika soteleyin.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Sarımsak ve zencefili ekleyin, 30 saniye kavurun.", "duration": "30 saniye"},
+    {"step": 10, "instruction": "Pirinçi ekleyin, sürekli karıştırarak 3-4 dakika kızartın.", "tip": "Pirinç hafifçe çıtır ve altın rengi olmaya başlamalı.", "duration": "4 dakika"},
+    {"step": 11, "instruction": "Soya sosu, susam yağı ve beyaz biberi ekleyin, karıştırın.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Pişmiş yumurtaları geri ekleyin, nazikçe karıştırın.", "duration": "1 dakika"},
+    {"step": 13, "instruction": "Yeşil soğanların çoğunu ekleyin, son kez karıştırın.", "duration": "30 saniye"},
+    {"step": 14, "instruction": "Kalan yeşil soğanla süsleyerek servis edin.", "duration": "30 saniye"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 12,
+    "carbs": 42,
+    "fat": 12,
+    "fiber": 3,
+    "sugar": 3,
+    "sodium": 680
+  },
+  "tips": [
+    "Günlük pirinç çok nemli olur, en az 4 saat buzdolabında bekletmiş pirinç kullanın.",
+    "Wok çok sıcak olmalı - bu 'wok hei' aromasını verir.",
+    "Protein eklemek için karides veya tavuk kullanabilirsiniz.",
+    "Düşük sodyum soya sosu ile daha sağlıklı yapabilirsiniz."
+  ],
+  "storageInfo": "Buzdolabında kapalı kapta 3 gün saklanır. Wok veya tavada ısıtın.",
+  "servingSuggestion": "Yanında tatlı ekşi tavuk veya kung pao karides ile servis edin.",
+  "variations": [
+    "Karidesli: 200g karides ekleyin.",
+    "Tavuklu: Küp tavuk göğsü ekleyin.",
+    "Vejetaryen: Tofu küpleri ve daha fazla sebze ekleyin.",
+    "Kimchi: Kimchi ekleyerek Kore tarzı yapın."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Tavuklu Quesadilla",
+  "description": "Çıtır tortilla içinde erimiş peynir, baharatlı tavuk ve renkli biberlerle hazırlanan Meksika klasiği.",
+  "prepTime": "15 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "30 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Tavuk göğsü", "amount": "400", "unit": "g", "note": "ince dilimlenmiş"},
+    {"name": "Büyük tortilla", "amount": "4", "unit": "adet"},
+    {"name": "Cheddar peyniri", "amount": "200", "unit": "g", "note": "rendelenmiş"},
+    {"name": "Mozzarella", "amount": "100", "unit": "g", "note": "rendelenmiş"},
+    {"name": "Yeşil biber", "amount": "1", "unit": "adet", "note": "ince dilimlenmiş"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet", "note": "ince dilimlenmiş"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "ince dilimlenmiş"},
+    {"name": "Jalapeño", "amount": "1", "unit": "adet", "note": "ince dilimlenmiş, isteğe bağlı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı biber tozu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak tozu", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Ekşi krema", "amount": "100", "unit": "g", "note": "servis için"},
+    {"name": "Salsa", "amount": "100", "unit": "g", "note": "servis için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Tavuk dilimlerini kimyon, kırmızı biber tozu, sarımsak tozu ve tuzla marine edin.", "duration": "5 dakika"},
+    {"step": 2, "instruction": "1 yk zeytinyağında soğan ve biberleri orta ateşte 4-5 dakika soteleyin.", "duration": "5 dakika"},
+    {"step": 3, "instruction": "Sebzeleri kenara alın, aynı tavaya 1 yk yağ ekleyin.", "duration": "30 saniye"},
+    {"step": 4, "instruction": "Marine edilmiş tavuğu pişirin, her tarafı 3-4 dakika.", "duration": "8 dakika"},
+    {"step": 5, "instruction": "Pişen tavuğu ince şeritler halinde doğrayın.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "İki peyniri karıştırın.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Tortillanın yarısına peynir karışımının 1/4'ünü yayın.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Üzerine tavuk ve soteli sebzeleri koyun.", "duration": "30 saniye"},
+    {"step": 9, "instruction": "Biraz daha peynir serpin ve tortillayı ikiye katlayın.", "duration": "30 saniye"},
+    {"step": 10, "instruction": "Temiz tavada az yağla quesadillayı her tarafı 2-3 dakika, çıtır ve altın rengi olana kadar pişirin.", "tip": "Orta-düşük ateş kullanın ki peynir erimeden yanmasın.", "duration": "5 dakika"},
+    {"step": 11, "instruction": "Diğer tortillalar için tekrarlayın.", "duration": "15 dakika"},
+    {"step": 12, "instruction": "Üçgen dilimler halinde kesin, ekşi krema ve salsa ile servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 34,
+    "carbs": 32,
+    "fat": 24,
+    "fiber": 3,
+    "sugar": 4,
+    "sodium": 720
+  },
+  "tips": [
+    "Artık tavuk kullanarak hızlıca hazırlayabilirsiniz.",
+    "Daha sağlıklı için tam buğday tortilla tercih edin.",
+    "Peynir erimesi için düşük ateş çok önemli.",
+    "Guacamole ile servis edin."
+  ],
+  "storageInfo": "Pişmiş quesadilla buzdolabında 2 gün saklanır. Fırında veya tost makinesinde ısıtın.",
+  "servingSuggestion": "Taze salata ve guacamole eşliğinde servis edin.",
+  "variations": [
+    "Vejetaryen: Tavuk yerine mantar ve kabak kullanın.",
+    "Biftek: Tavuk yerine ince dilimlenmiş biftek kullanın.",
+    "Breakfast: Sabah kahvaltısı için çırpılmış yumurta ekleyin."
+  ]
+}

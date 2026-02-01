@@ -1,0 +1,60 @@
+{
+  "name": "Chicken Wrap",
+  "description": "Delicious and satisfying wrap with fresh vegetables, grilled chicken, and creamy sauce. Perfect for lunch or light dinner.",
+  "prepTime": "15 minutes",
+  "cookTime": "12 minutes",
+  "totalTime": "27 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "400", "unit": "g", "note": "thinly sliced"},
+    {"name": "Large tortillas", "amount": "4", "unit": "pieces", "note": "large size"},
+    {"name": "Lettuce", "amount": "100", "unit": "g", "note": "finely shredded"},
+    {"name": "Tomatoes", "amount": "2", "unit": "pieces", "note": "diced"},
+    {"name": "Cucumber", "amount": "1", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Red onion", "amount": "1/2", "unit": "piece", "note": "thin rings"},
+    {"name": "Greek yogurt", "amount": "150", "unit": "g"},
+    {"name": "Mayonnaise", "amount": "2", "unit": "tbsp"},
+    {"name": "Garlic", "amount": "2", "unit": "cloves", "note": "minced"},
+    {"name": "Lemon juice", "amount": "1", "unit": "tbsp"},
+    {"name": "Olive oil", "amount": "2", "unit": "tbsp"},
+    {"name": "Paprika", "amount": "1", "unit": "tsp"},
+    {"name": "Cumin", "amount": "1/2", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marinate chicken slices with paprika, cumin, half the salt and pepper.", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Make sauce by mixing Greek yogurt, mayonnaise, garlic, lemon juice, and remaining salt.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Heat pan over medium-high heat, add olive oil.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Cook chicken slices, 4-5 minutes per side.", "tip": "Don't stir too much, let it get nice color.", "duration": "10 minutes"},
+    {"step": 5, "instruction": "Warm tortillas in dry pan or microwave for 20 seconds.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Spread 2 tbsp sauce in center of each tortilla.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Layer lettuce, tomatoes, cucumber, and onion.", "duration": "2 minutes"},
+    {"step": 8, "instruction": "Place cooked chicken slices on top of vegetables.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Drizzle with more sauce.", "duration": "30 seconds"},
+    {"step": 10, "instruction": "Fold bottom of tortilla up, then roll from sides.", "tip": "Roll tightly so ingredients don't fall out.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Cut diagonally and serve immediately.", "duration": "30 seconds"}
+  ],
+  "nutrition": {
+    "calories": 420,
+    "protein": 32,
+    "carbs": 38,
+    "fat": 16,
+    "fiber": 4,
+    "sugar": 5,
+    "sodium": 580
+  },
+  "tips": [
+    "Marinating chicken ahead makes it more flavorful.",
+    "Sauce can be prepared ahead and refrigerated.",
+    "Use whole wheat tortillas to increase fiber.",
+    "Optionally add avocado or guacamole."
+  ],
+  "storageInfo": "Unwrapped ingredients can be stored separately for 2 days. Consume immediately after wrapping.",
+  "servingSuggestion": "Serve with fries or fresh salad on the side.",
+  "variations": [
+    "Spicy version: Add sriracha or hot sauce.",
+    "Greek style: Add feta cheese and olives.",
+    "Mexican style: Add beans and corn."
+  ]
+}

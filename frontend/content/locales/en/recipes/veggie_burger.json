@@ -1,0 +1,62 @@
+{
+  "name": "Veggie Burger",
+  "description": "Protein-packed, delicious homemade vegetarian burger made with black beans, quinoa, and vegetables.",
+  "prepTime": "20 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "35 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Black beans", "amount": "400", "unit": "g", "note": "cooked, drained"},
+    {"name": "Quinoa", "amount": "1/2", "unit": "cup", "note": "cooked"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "finely diced"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Red bell pepper", "amount": "1/2", "unit": "piece", "note": "finely diced"},
+    {"name": "Breadcrumbs", "amount": "1/2", "unit": "cup"},
+    {"name": "Egg", "amount": "1", "unit": "piece"},
+    {"name": "Cumin", "amount": "1", "unit": "tsp"},
+    {"name": "Red pepper flakes", "amount": "1/2", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"},
+    {"name": "Olive oil", "amount": "3", "unit": "tbsp"},
+    {"name": "Burger buns", "amount": "4", "unit": "pieces"},
+    {"name": "Lettuce", "amount": "4", "unit": "leaves"},
+    {"name": "Tomato", "amount": "1", "unit": "piece", "note": "sliced"},
+    {"name": "Cheddar cheese", "amount": "4", "unit": "slices"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Sauté onion and garlic in 1 tbsp olive oil for 3 minutes.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Add red pepper, cook 2 more minutes. Remove from heat, let cool.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Roughly mash half the beans with fork or blender.", "tip": "Don't make completely smooth, keep some texture.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "In large bowl, combine mashed beans, whole beans, quinoa, and cooled vegetables.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Add egg, breadcrumbs, and spices. Mix well.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Divide mixture into 4 equal portions, shape into patties.", "tip": "Wet hands to prevent sticking.", "duration": "2 minutes"},
+    {"step": 7, "instruction": "Refrigerate patties for 10 minutes to firm up.", "duration": "10 minutes"},
+    {"step": 8, "instruction": "Heat remaining olive oil in pan over medium heat.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Cook patties 4-5 minutes per side until golden brown.", "tip": "Don't flip too often, they may break.", "duration": "10 minutes"},
+    {"step": 10, "instruction": "Place cheese slices on top during last minute, let melt.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Lightly toast burger buns.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Assemble with lettuce on bottom, patty, tomato on top. Close and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 18,
+    "carbs": 52,
+    "fat": 12,
+    "fiber": 10,
+    "sugar": 6,
+    "sodium": 620
+  },
+  "tips": [
+    "For vegan version, use flax egg instead of regular egg.",
+    "Patties can be frozen before cooking.",
+    "Pairs perfectly with BBQ sauce.",
+    "Can also cook on grill pan or in oven."
+  ],
+  "storageInfo": "Uncooked patties keep 2 days in fridge, 1 month in freezer.",
+  "servingSuggestion": "Serve with sweet potato fries or coleslaw.",
+  "variations": [
+    "Mushroom burger: Add portobello mushroom.",
+    "Spice bomb: Add chipotle and jalapeño.",
+    "Mediterranean: Add feta cheese and sun-dried tomatoes."
+  ]
+}

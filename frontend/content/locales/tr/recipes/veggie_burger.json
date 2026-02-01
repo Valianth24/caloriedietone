@@ -1,0 +1,62 @@
+{
+  "name": "Vejetaryen Burger",
+  "description": "Siyah fasulye, kinoa ve sebzelerle yapılan protein dolu, lezzetli ev yapımı vejetaryen burger.",
+  "prepTime": "20 dakika",
+  "cookTime": "15 dakika",
+  "totalTime": "35 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Siyah fasulye", "amount": "400", "unit": "g", "note": "pişmiş, süzülmüş"},
+    {"name": "Kinoa", "amount": "1/2", "unit": "su bardağı", "note": "pişmiş"},
+    {"name": "Soğan", "amount": "1", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Sarımsak", "amount": "3", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Kırmızı biber", "amount": "1/2", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Galeta unu", "amount": "1/2", "unit": "su bardağı"},
+    {"name": "Yumurta", "amount": "1", "unit": "adet"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı pul biber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Burger ekmeği", "amount": "4", "unit": "adet"},
+    {"name": "Marul", "amount": "4", "unit": "yaprak"},
+    {"name": "Domates", "amount": "1", "unit": "adet", "note": "dilimlenmiş"},
+    {"name": "Cheddar peyniri", "amount": "4", "unit": "dilim"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "1 yk zeytinyağında soğan ve sarımsağı 3 dakika kavurun.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "Kırmızı biberi ekleyin, 2 dakika daha pişirin. Ocaktan alın, soğutun.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Fasulyelerin yarısını çatalla veya blenderda kabaca ezin.", "tip": "Tamamen pürüzsüz yapmayın, doku kalmalı.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Büyük kapta ezilmiş fasulye, bütün fasulye, kinoa ve soğumuş sebzeleri karıştırın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Yumurta, galeta unu ve baharatları ekleyip iyice yoğurun.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Karışımı 4 eşit parçaya bölün, köfte şekli verin.", "tip": "Ellerinizi ıslatın, yapışmaz.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Köfteleri 10 dakika buzdolabında dinlendirin.", "duration": "10 dakika"},
+    {"step": 8, "instruction": "Kalan zeytinyağını tavada orta ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Köfteleri her tarafı 4-5 dakika, altın rengi alana kadar pişirin.", "tip": "Fazla çevirmeyin, kırılabilir.", "duration": "10 dakika"},
+    {"step": 10, "instruction": "Son 1 dakika peynir dilimlerini üzerine koyun, erimesini bekleyin.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Burger ekmeklerini hafifçe kızartın.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Ekmeğin altına marul, köfte, domates koyun, kapağı kapatıp servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 18,
+    "carbs": 52,
+    "fat": 12,
+    "fiber": 10,
+    "sugar": 6,
+    "sodium": 620
+  },
+  "tips": [
+    "Vegan versiyon için yumurta yerine keten tohumu jeli kullanın.",
+    "Köfteler pişirmeden önce dondurulabilir.",
+    "Barbekü sosu ile harika uyum sağlar.",
+    "Izgara tavada veya fırında da pişirebilirsiniz."
+  ],
+  "storageInfo": "Pişmemiş köfteler buzdolabında 2 gün, dondurucuda 1 ay saklanabilir.",
+  "servingSuggestion": "Tatlı patates kızartması veya coleslaw ile servis edin.",
+  "variations": [
+    "Mantar burger: Portobello mantarı ekleyin.",
+    "Baharat bombası: Chipotle ve jalapeño ekleyin.",
+    "Akdeniz: Feta peyniri ve kurutulmuş domates ekleyin."
+  ]
+}

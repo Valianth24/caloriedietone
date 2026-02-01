@@ -1,0 +1,62 @@
+{
+  "name": "Taco Bowl",
+  "description": "Meksika mutfağından ilham alan, baharatlı kıyma, taze sebzeler, fasulye ve guacamole ile dolu besleyici ve renkli kase.",
+  "prepTime": "15 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "35 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Dana kıyma", "amount": "400", "unit": "g", "note": "yağsız"},
+    {"name": "Pilav veya esmer pirinç", "amount": "2", "unit": "su bardağı", "note": "pişmiş"},
+    {"name": "Siyah fasulye", "amount": "1", "unit": "kutu", "note": "süzülmüş"},
+    {"name": "Tatlı mısır", "amount": "1", "unit": "su bardağı"},
+    {"name": "Kiraz domates", "amount": "200", "unit": "g", "note": "ikiye bölünmüş"},
+    {"name": "Marul", "amount": "150", "unit": "g", "note": "ince kıyılmış"},
+    {"name": "Avokado", "amount": "2", "unit": "adet", "note": "olgun"},
+    {"name": "Kırmızı soğan", "amount": "1/2", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Cheddar peyniri", "amount": "100", "unit": "g", "note": "rendelenmiş"},
+    {"name": "Ekşi krema", "amount": "100", "unit": "g"},
+    {"name": "Limon", "amount": "2", "unit": "adet"},
+    {"name": "Kimyon", "amount": "2", "unit": "tatlı kaşığı"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak tozu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Büyük tavada zeytinyağını orta ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Kıymayı ekleyin ve tahta kaşıkla parçalayarak kavurun.", "duration": "8 dakika"},
+    {"step": 3, "instruction": "Kimyon, kırmızı biber, sarımsak tozu ve yarım tuz ekleyin, karıştırın.", "duration": "1 dakika"},
+    {"step": 4, "instruction": "Kıyma iyice pişene kadar ara sıra karıştırarak pişirmeye devam edin.", "duration": "5 dakika"},
+    {"step": 5, "instruction": "Guacamole için avokadoları ezin, 1 limonun suyunu, kalan tuzu ve ince doğranmış soğanın yarısını ekleyin.", "tip": "Avokado çok pürüzsüz olmasın, parçacıklı kalsın.", "duration": "3 dakika"},
+    {"step": 6, "instruction": "Fasulye ve mısırı ayrı bir kapta ılık tutun veya hafifçe ısıtın.", "duration": "2 dakika"},
+    {"step": 7, "instruction": "Servis kaselerinin dibine pilav yerleştirin.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Pilavın üzerine baharatlı kıymayı ekleyin.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Fasulye, mısır, marul ve domatesi düzenli şekilde yerleştirin.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Guacamole ve ekşi kremayı üzerine koyun.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Rendelenmiş peynir ve kalan soğanı serpin.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Kalan limon dilimlerini yanına koyarak servis edin.", "tip": "İsteğe bağlı tortilla cipsi ile servis edin.", "duration": "30 saniye"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 28,
+    "carbs": 45,
+    "fat": 26,
+    "fiber": 12,
+    "sugar": 6,
+    "sodium": 680
+  },
+  "tips": [
+    "Hindi kıyma veya tavuk kıyma ile daha hafif yapabilirsiniz.",
+    "Acı severler için jalapeno ekleyebilirsiniz.",
+    "Karnabahar pilavı ile düşük karbonhidratlı versiyon yapılabilir.",
+    "Malzemeler önceden hazırlanıp meal prep yapılabilir."
+  ],
+  "storageInfo": "Guacamole hariç malzemeler ayrı ayrı 3 gün saklanabilir. Guacamole aynı gün tüketilmeli.",
+  "servingSuggestion": "Tortilla cipsleri ve salsa sosu ile servis edin.",
+  "variations": [
+    "Vejetaryen: Kıyma yerine siyah fasulye ve mantar kullanın.",
+    "Tavuklu: Izgara tavuk dilimleri kullanın.",
+    "Balıklı: Baharatlı karides ekleyin."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "name": "Egg Fried Rice",
+  "description": "Classic Asian dish, delicious and practical rice prepared with vegetables and eggs. Perfect as main course or side dish.",
+  "prepTime": "10 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "25 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Jasmine rice", "amount": "3", "unit": "cups", "note": "cooked, cold"},
+    {"name": "Eggs", "amount": "4", "unit": "pieces"},
+    {"name": "Peas", "amount": "1/2", "unit": "cup", "note": "can be frozen"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "small dice"},
+    {"name": "Green onions", "amount": "4", "unit": "stalks", "note": "thinly sliced"},
+    {"name": "Garlic", "amount": "3", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh ginger", "amount": "1", "unit": "tsp", "note": "grated"},
+    {"name": "Soy sauce", "amount": "3", "unit": "tbsp"},
+    {"name": "Sesame oil", "amount": "2", "unit": "tsp"},
+    {"name": "Vegetable oil", "amount": "3", "unit": "tbsp"},
+    {"name": "White pepper", "amount": "1/2", "unit": "tsp"},
+    {"name": "Salt", "amount": "1/2", "unit": "tsp"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Break up cold rice with fingers, ensure no clumps remain.", "tip": "Day-old cold rice works best for proper texture.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Beat eggs in small bowl, add half the salt.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Heat wok or large pan over high heat until very hot.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Add 2 tbsp vegetable oil, let it shimmer.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Pour in eggs, let set 20 seconds untouched, then scramble into large pieces.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Remove eggs to plate while still slightly wet.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Add remaining oil to same wok.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Sauté carrots and peas for 2 minutes.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Add garlic and ginger, cook 30 seconds.", "duration": "30 seconds"},
+    {"step": 10, "instruction": "Add rice, stir-fry constantly for 3-4 minutes.", "tip": "Rice should start getting slightly crispy and golden.", "duration": "4 minutes"},
+    {"step": 11, "instruction": "Add soy sauce, sesame oil, and white pepper. Toss to combine.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Return cooked eggs, gently fold in.", "duration": "1 minute"},
+    {"step": 13, "instruction": "Add most of the green onions, toss one final time.", "duration": "30 seconds"},
+    {"step": 14, "instruction": "Garnish with remaining green onions and serve.", "duration": "30 seconds"}
+  ],
+  "nutrition": {
+    "calories": 320,
+    "protein": 12,
+    "carbs": 42,
+    "fat": 12,
+    "fiber": 3,
+    "sugar": 3,
+    "sodium": 680
+  },
+  "tips": [
+    "Fresh rice is too moist - use rice refrigerated at least 4 hours.",
+    "Wok must be smoking hot - this creates 'wok hei' flavor.",
+    "Add shrimp or chicken for extra protein.",
+    "Use low-sodium soy sauce for healthier version."
+  ],
+  "storageInfo": "Keeps 3 days refrigerated in sealed container. Reheat in wok or pan.",
+  "servingSuggestion": "Serve alongside sweet and sour chicken or kung pao shrimp.",
+  "variations": [
+    "Shrimp: Add 200g shrimp.",
+    "Chicken: Add cubed chicken breast.",
+    "Vegetarian: Add tofu cubes and more vegetables.",
+    "Kimchi: Add kimchi for Korean style."
+  ]
+}

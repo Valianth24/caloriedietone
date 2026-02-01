@@ -1,0 +1,61 @@
+{
+  "name": "Chicken Quesadilla",
+  "description": "Mexican classic with crispy tortilla filled with melted cheese, seasoned chicken, and colorful peppers.",
+  "prepTime": "15 minutes",
+  "cookTime": "15 minutes",
+  "totalTime": "30 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Chicken breast", "amount": "400", "unit": "g", "note": "thinly sliced"},
+    {"name": "Large tortillas", "amount": "4", "unit": "pieces"},
+    {"name": "Cheddar cheese", "amount": "200", "unit": "g", "note": "shredded"},
+    {"name": "Mozzarella", "amount": "100", "unit": "g", "note": "shredded"},
+    {"name": "Green bell pepper", "amount": "1", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Red bell pepper", "amount": "1", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Onion", "amount": "1", "unit": "piece", "note": "thinly sliced"},
+    {"name": "Jalapeño", "amount": "1", "unit": "piece", "note": "thinly sliced, optional"},
+    {"name": "Cumin", "amount": "1", "unit": "tsp"},
+    {"name": "Paprika", "amount": "1", "unit": "tsp"},
+    {"name": "Garlic powder", "amount": "1/2", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Olive oil", "amount": "3", "unit": "tbsp"},
+    {"name": "Sour cream", "amount": "100", "unit": "g", "note": "for serving"},
+    {"name": "Salsa", "amount": "100", "unit": "g", "note": "for serving"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marinate chicken slices with cumin, paprika, garlic powder, and salt.", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Sauté onion and peppers in 1 tbsp olive oil over medium heat for 4-5 minutes.", "duration": "5 minutes"},
+    {"step": 3, "instruction": "Remove vegetables, add 1 tbsp oil to same pan.", "duration": "30 seconds"},
+    {"step": 4, "instruction": "Cook marinated chicken, 3-4 minutes per side.", "duration": "8 minutes"},
+    {"step": 5, "instruction": "Slice cooked chicken into thin strips.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Mix both cheeses together.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Spread 1/4 of cheese mixture on half of tortilla.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Top with chicken and sautéed vegetables.", "duration": "30 seconds"},
+    {"step": 9, "instruction": "Sprinkle more cheese and fold tortilla in half.", "duration": "30 seconds"},
+    {"step": 10, "instruction": "Cook quesadilla in clean pan with little oil, 2-3 minutes per side until crispy and golden.", "tip": "Use medium-low heat so cheese melts before tortilla burns.", "duration": "5 minutes"},
+    {"step": 11, "instruction": "Repeat with remaining tortillas.", "duration": "15 minutes"},
+    {"step": 12, "instruction": "Cut into triangles, serve with sour cream and salsa.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 34,
+    "carbs": 32,
+    "fat": 24,
+    "fiber": 3,
+    "sugar": 4,
+    "sodium": 720
+  },
+  "tips": [
+    "Use leftover chicken for quick preparation.",
+    "Choose whole wheat tortillas for healthier option.",
+    "Low heat is crucial for proper cheese melting.",
+    "Serve with guacamole."
+  ],
+  "storageInfo": "Cooked quesadillas keep 2 days refrigerated. Reheat in oven or toaster.",
+  "servingSuggestion": "Serve with fresh salad and guacamole on the side.",
+  "variations": [
+    "Vegetarian: Use mushrooms and zucchini instead of chicken.",
+    "Steak: Use thinly sliced beef instead of chicken.",
+    "Breakfast: Add scrambled eggs for morning meal."
+  ]
+}
