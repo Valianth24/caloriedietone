@@ -946,4 +946,93 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '700',
   },
+  // Modal styles
+  modalOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    justifyContent: 'flex-end',
+  },
+  modalContent: {
+    backgroundColor: Colors.white,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
+    padding: 24,
+    paddingBottom: 40,
+    maxHeight: '80%',
+  },
+  modalHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 20,
+  },
+  modalTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: Colors.darkText,
+  },
+  closeButton: {
+    padding: 8,
+    minWidth: 44,
+    minHeight: 44,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  languageList: {
+    maxHeight: 400,
+  },
+  languageItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 16,
+    borderRadius: 16,
+    marginBottom: 10,
+    backgroundColor: Colors.background,
+    borderWidth: 2,
+    borderColor: 'transparent',
+  },
+  languageItemActive: {
+    backgroundColor: Colors.primary + '12',
+    borderColor: Colors.primary,
+  },
+  languageFlag: {
+    fontSize: 32,
+    marginRight: 16,
+  },
+  languageTextContainer: {
+    flex: 1,
+  },
+  languageName: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: Colors.darkText,
+  },
+  languageNative: {
+    fontSize: 13,
+    color: Colors.lightText,
+    marginTop: 2,
+  },
+  languageNameActive: {
+    color: Colors.primary,
+  },
+  checkCircle: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    backgroundColor: Colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalCloseBtn: {
+    backgroundColor: Colors.primary,
+    borderRadius: 12,
+    padding: 16,
+    alignItems: 'center',
+    marginTop: 16,
+  },
+  modalCloseBtnText: {
+    color: Colors.white,
+    fontSize: 16,
+    fontWeight: '600',
+  },
 });
