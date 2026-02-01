@@ -3857,6 +3857,378 @@ async def delete_weight_entry(date: str, current_user: Optional[User] = Depends(
 
 
 # -------------------------
+# GAMIFICATION SYSTEM
+# -------------------------
+
+# Lig sistemleri ve XP gereksinimleri
+LEAGUES = {
+    "bronze": {"name": "Bronze", "emoji": "🥉", "min_points": 0, "max_points": 499},
+    "silver": {"name": "Silver", "emoji": "🥈", "min_points": 500, "max_points": 1499},
+    "gold": {"name": "Gold", "emoji": "🥇", "min_points": 1500, "max_points": 2999},
+    "platinum": {"name": "Platinum", "emoji": "💎", "min_points": 3000, "max_points": 4999},
+    "diamond": {"name": "Diamond", "emoji": "👑", "min_points": 5000, "max_points": 9999},
+    "legend": {"name": "Legend", "emoji": "🔥", "min_points": 10000, "max_points": 999999}
+}
+
+# Seviye başına gereken XP
+def xp_for_level(level: int) -> int:
+    """Her seviye için gereken XP - Exponential büyüme"""
+    return 100 * level + (level - 1) * 50
+
+def get_league_from_points(points: int) -> str:
+    """Puana göre lig belirle"""
+    for league_id, league_data in LEAGUES.items():
+        if league_data["min_points"] <= points <= league_data["max_points"]:
+            return league_id
+    return "legend"  # Max puan aşıldıysa
+
+# Rozetler
+ACHIEVEMENTS = {
+    "first_login": {"name_tr": "İlk Adım", "name_en": "First Step", "emoji": "👋", "xp": 10},
+    "streak_7": {"name_tr": "Haftalık Şampiyon", "name_en": "Week Champion", "emoji": "⭐", "xp": 100},
+    "streak_30": {"name_tr": "Aylık Efsane", "name_en": "Monthly Legend", "emoji": "💎", "xp": 500},
+    "streak_100": {"name_tr": "Yüz Günlük Kral", "name_en": "100 Day King", "emoji": "👑", "xp": 1000},
+    "goal_streak_7": {"name_tr": "Hedef Ustası", "name_en": "Goal Master", "emoji": "🎯", "xp": 150},
+    "water_hero": {"name_tr": "Su Kahramanı", "name_en": "Water Hero", "emoji": "💧", "xp": 100},
+    "calorie_master": {"name_tr": "Kalori Ustası", "name_en": "Calorie Master", "emoji": "🔥", "xp": 100},
+    "photo_hunter": {"name_tr": "Fotoğraf Avcısı", "name_en": "Photo Hunter", "emoji": "📸", "xp": 200},
+    "recipe_explorer": {"name_tr": "Tarif Kaşifi", "name_en": "Recipe Explorer", "emoji": "🍽️", "xp": 150},
+    "diet_guru": {"name_tr": "Diyet Gurusu", "name_en": "Diet Guru", "emoji": "🥗", "xp": 300},
+    "bronze_league": {"name_tr": "Bronz Ligi", "name_en": "Bronze League", "emoji": "🥉", "xp": 50},
+    "silver_league": {"name_tr": "Gümüş Ligi", "name_en": "Silver League", "emoji": "🥈", "xp": 100},
+    "gold_league": {"name_tr": "Altın Ligi", "name_en": "Gold League", "emoji": "🥇", "xp": 200},
+    "platinum_league": {"name_tr": "Platin Ligi", "name_en": "Platinum League", "emoji": "💎", "xp": 400},
+    "diamond_league": {"name_tr": "Elmas Ligi", "name_en": "Diamond League", "emoji": "👑", "xp": 800},
+    "legend_league": {"name_tr": "Efsane Ligi", "name_en": "Legend League", "emoji": "🔥", "xp": 1500},
+}
+
+@api_router.get("/gamification/status")
+async def get_gamification_status(user_id: str = Depends(verify_session)):
+    """Kullanıcının gamification durumunu getir"""
+    user = await get_user_by_id(user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Mevcut seviye için gereken XP
+    current_level_xp = xp_for_level(user.level)
+    next_level_xp = xp_for_level(user.level + 1)
+    level_progress = (user.xp / next_level_xp) * 100 if next_level_xp > 0 else 0
+    
+    # Lig bilgisi
+    league_info = LEAGUES.get(user.league, LEAGUES["bronze"])
+    
+    return {
+        "level": user.level,
+        "xp": user.xp,
+        "total_points": user.total_points,
+        "daily_streak": user.daily_streak,
+        "goal_streak": user.goal_streak,
+        "max_daily_streak": user.max_daily_streak,
+        "max_goal_streak": user.max_goal_streak,
+        "achievements": user.achievements,
+        "league": user.league,
+        "league_info": league_info,
+        "level_progress": round(level_progress, 1),
+        "current_level_xp": current_level_xp,
+        "next_level_xp": next_level_xp,
+        "last_login": user.last_login.isoformat() if user.last_login else None,
+    }
+
+
+@api_router.post("/gamification/check-daily")
+async def check_daily_login(user_id: str = Depends(verify_session)):
+    """Günlük giriş kontrolü - Seri ve XP güncelle"""
+    user = await get_user_by_id(user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    now = datetime.now(timezone.utc)
+    rewards = {
+        "xp_gained": 0,
+        "points_gained": 0,
+        "streak_continued": False,
+        "streak_broken": False,
+        "new_achievements": [],
+        "level_up": False,
+        "old_level": user.level,
+        "new_level": user.level,
+    }
+    
+    # İlk giriş
+    if not user.last_login:
+        user.daily_streak = 1
+        user.xp += 10
+        user.total_points += 10
+        rewards["xp_gained"] = 10
+        rewards["points_gained"] = 10
+        rewards["streak_continued"] = True
+        
+        # İlk giriş rozeti
+        if "first_login" not in user.achievements:
+            user.achievements.append("first_login")
+            rewards["new_achievements"].append("first_login")
+            user.xp += ACHIEVEMENTS["first_login"]["xp"]
+            rewards["xp_gained"] += ACHIEVEMENTS["first_login"]["xp"]
+    else:
+        # Son girişten bu yana geçen süre
+        last_login_date = user.last_login.replace(hour=0, minute=0, second=0, microsecond=0)
+        today_date = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        days_diff = (today_date - last_login_date).days
+        
+        if days_diff == 0:
+            # Bugün zaten giriş yapılmış
+            pass
+        elif days_diff == 1:
+            # Seri devam ediyor
+            user.daily_streak += 1
+            user.xp += 10
+            user.total_points += 10
+            rewards["xp_gained"] = 10
+            rewards["points_gained"] = 10
+            rewards["streak_continued"] = True
+            
+            # Max seriyi güncelle
+            if user.daily_streak > user.max_daily_streak:
+                user.max_daily_streak = user.daily_streak
+            
+            # Seri rozetleri kontrol et
+            if user.daily_streak >= 7 and "streak_7" not in user.achievements:
+                user.achievements.append("streak_7")
+                rewards["new_achievements"].append("streak_7")
+                user.xp += ACHIEVEMENTS["streak_7"]["xp"]
+                user.total_points += 50
+                rewards["xp_gained"] += ACHIEVEMENTS["streak_7"]["xp"]
+                rewards["points_gained"] += 50
+            
+            if user.daily_streak >= 30 and "streak_30" not in user.achievements:
+                user.achievements.append("streak_30")
+                rewards["new_achievements"].append("streak_30")
+                user.xp += ACHIEVEMENTS["streak_30"]["xp"]
+                user.total_points += 200
+                rewards["xp_gained"] += ACHIEVEMENTS["streak_30"]["xp"]
+                rewards["points_gained"] += 200
+            
+            if user.daily_streak >= 100 and "streak_100" not in user.achievements:
+                user.achievements.append("streak_100")
+                rewards["new_achievements"].append("streak_100")
+                user.xp += ACHIEVEMENTS["streak_100"]["xp"]
+                user.total_points += 500
+                rewards["xp_gained"] += ACHIEVEMENTS["streak_100"]["xp"]
+                rewards["points_gained"] += 500
+        else:
+            # Seri kesildi
+            user.daily_streak = 1
+            user.xp += 10
+            user.total_points += 10
+            rewards["xp_gained"] = 10
+            rewards["points_gained"] = 10
+            rewards["streak_broken"] = True
+    
+    user.last_login = now
+    
+    # Seviye kontrolü
+    next_level_xp = xp_for_level(user.level + 1)
+    while user.xp >= next_level_xp:
+        user.level += 1
+        user.xp -= next_level_xp
+        rewards["level_up"] = True
+        rewards["new_level"] = user.level
+        next_level_xp = xp_for_level(user.level + 1)
+    
+    # Lig kontrolü
+    new_league = get_league_from_points(user.total_points)
+    if new_league != user.league:
+        old_league = user.league
+        user.league = new_league
+        
+        # Lig rozeti ekle
+        league_achievement = f"{new_league}_league"
+        if league_achievement not in user.achievements:
+            user.achievements.append(league_achievement)
+            rewards["new_achievements"].append(league_achievement)
+            user.xp += ACHIEVEMENTS.get(league_achievement, {}).get("xp", 0)
+            rewards["xp_gained"] += ACHIEVEMENTS.get(league_achievement, {}).get("xp", 0)
+    
+    # Kullanıcıyı güncelle
+    await update_user(user_id, user.model_dump())
+    
+    return {
+        "success": True,
+        "rewards": rewards,
+        "current_streak": user.daily_streak,
+        "level": user.level,
+        "xp": user.xp,
+        "total_points": user.total_points,
+        "league": user.league,
+    }
+
+
+@api_router.post("/gamification/add-xp")
+async def add_xp(
+    action: str,
+    amount: int,
+    user_id: str = Depends(verify_session)
+):
+    """Belirli bir aksiyon için XP ekle"""
+    user = await get_user_by_id(user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    old_level = user.level
+    user.xp += amount
+    user.total_points += amount
+    
+    # Seviye kontrolü
+    next_level_xp = xp_for_level(user.level + 1)
+    level_up = False
+    while user.xp >= next_level_xp:
+        user.level += 1
+        user.xp -= next_level_xp
+        level_up = True
+        next_level_xp = xp_for_level(user.level + 1)
+    
+    # Lig kontrolü
+    new_league = get_league_from_points(user.total_points)
+    if new_league != user.league:
+        user.league = new_league
+    
+    await update_user(user_id, user.model_dump())
+    
+    return {
+        "success": True,
+        "xp_added": amount,
+        "total_xp": user.xp,
+        "total_points": user.total_points,
+        "level": user.level,
+        "level_up": level_up,
+        "old_level": old_level,
+        "league": user.league,
+    }
+
+
+@api_router.post("/gamification/complete-goal")
+async def complete_daily_goal(
+    goal_type: str,  # water, calorie, photo, diet
+    user_id: str = Depends(verify_session)
+):
+    """Günlük hedef tamamlandığında XP ve seri güncelle"""
+    user = await get_user_by_id(user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    now = datetime.now(timezone.utc)
+    rewards = {
+        "xp_gained": 0,
+        "points_gained": 0,
+        "new_achievements": [],
+        "level_up": False,
+    }
+    
+    # Hedef tipine göre puan ver
+    xp_rewards = {
+        "water": 20,
+        "calorie": 50,
+        "photo": 15,
+        "diet": 100,
+    }
+    
+    xp_amount = xp_rewards.get(goal_type, 10)
+    user.xp += xp_amount
+    user.total_points += xp_amount
+    rewards["xp_gained"] = xp_amount
+    rewards["points_gained"] = xp_amount
+    
+    # Hedef tamamlama serisi
+    if user.last_goal_completion:
+        last_completion_date = user.last_goal_completion.replace(hour=0, minute=0, second=0, microsecond=0)
+        today_date = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        days_diff = (today_date - last_completion_date).days
+        
+        if days_diff == 1:
+            user.goal_streak += 1
+            if user.goal_streak > user.max_goal_streak:
+                user.max_goal_streak = user.goal_streak
+                
+            # Goal streak rozetleri
+            if user.goal_streak >= 7 and "goal_streak_7" not in user.achievements:
+                user.achievements.append("goal_streak_7")
+                rewards["new_achievements"].append("goal_streak_7")
+                user.xp += ACHIEVEMENTS["goal_streak_7"]["xp"]
+                rewards["xp_gained"] += ACHIEVEMENTS["goal_streak_7"]["xp"]
+        elif days_diff > 1:
+            user.goal_streak = 1
+    else:
+        user.goal_streak = 1
+    
+    user.last_goal_completion = now
+    
+    # Hedef-specific rozetler
+    if goal_type == "water" and "water_hero" not in user.achievements:
+        # 7 gün üst üste su hedefi (basitleştirilmiş versiyon)
+        if user.goal_streak >= 7:
+            user.achievements.append("water_hero")
+            rewards["new_achievements"].append("water_hero")
+            user.xp += ACHIEVEMENTS["water_hero"]["xp"]
+            rewards["xp_gained"] += ACHIEVEMENTS["water_hero"]["xp"]
+    
+    # Seviye kontrolü
+    next_level_xp = xp_for_level(user.level + 1)
+    while user.xp >= next_level_xp:
+        user.level += 1
+        user.xp -= next_level_xp
+        rewards["level_up"] = True
+        next_level_xp = xp_for_level(user.level + 1)
+    
+    # Lig kontrolü
+    new_league = get_league_from_points(user.total_points)
+    if new_league != user.league:
+        user.league = new_league
+    
+    await update_user(user_id, user.model_dump())
+    
+    return {
+        "success": True,
+        "rewards": rewards,
+        "goal_streak": user.goal_streak,
+        "level": user.level,
+        "xp": user.xp,
+        "total_points": user.total_points,
+        "league": user.league,
+    }
+
+
+@api_router.get("/gamification/achievements")
+async def get_achievements(user_id: str = Depends(verify_session)):
+    """Kullanıcının rozetlerini getir"""
+    user = await get_user_by_id(user_id)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    
+    # Kullanıcının kazandığı rozetler
+    earned = []
+    for achievement_id in user.achievements:
+        if achievement_id in ACHIEVEMENTS:
+            achievement = ACHIEVEMENTS[achievement_id].copy()
+            achievement["id"] = achievement_id
+            earned.append(achievement)
+    
+    # Henüz kazanılmamış rozetler
+    unearned = []
+    for achievement_id, achievement_data in ACHIEVEMENTS.items():
+        if achievement_id not in user.achievements:
+            achievement = achievement_data.copy()
+            achievement["id"] = achievement_id
+            unearned.append(achievement)
+    
+    return {
+        "earned": earned,
+        "unearned": unearned,
+        "total_earned": len(earned),
+        "total_achievements": len(ACHIEVEMENTS),
+    }
+
+
+# -------------------------
 # APP ROUTER
 # -------------------------
 app.include_router(api_router)
