@@ -111,6 +111,81 @@ app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
 # -------------------------
+# SECURITY MIDDLEWARE - 2026 Standards
+# -------------------------
+
+# Rate Limiting Storage (in-memory for simplicity)
+rate_limit_storage = defaultdict(lambda: {"count": 0, "reset_time": time.time()})
+
+class RateLimitMiddleware(BaseHTTPMiddleware):
+    """Rate limiting middleware to prevent DDoS and brute force attacks"""
+    
+    async def dispatch(self, request: Request, call_next):
+        # Get client IP
+        client_ip = request.client.host if request.client else "unknown"
+        path = request.url.path
+        
+        # Rate limit: 100 requests per minute per IP
+        limit = 100
+        window = 60  # seconds
+        
+        current_time = time.time()
+        client_data = rate_limit_storage[client_ip]
+        
+        # Reset if window expired
+        if current_time > client_data["reset_time"]:
+            client_data["count"] = 0
+            client_data["reset_time"] = current_time + window
+        
+        # Check limit
+        if client_data["count"] >= limit:
+            return JSONResponse(
+                status_code=429,
+                content={
+                    "detail": "Too many requests. Please try again later.",
+                    "retry_after": int(client_data["reset_time"] - current_time)
+                }
+            )
+        
+        # Increment count
+        client_data["count"] += 1
+        
+        response = await call_next(request)
+        return response
+
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    """Add security headers to all responses - 2026 best practices"""
+    
+    async def dispatch(self, request: Request, call_next):
+        response = await call_next(request)
+        
+        # Security headers
+        response.headers["X-Content-Type-Options"] = "nosniff"
+        response.headers["X-Frame-Options"] = "DENY"
+        response.headers["X-XSS-Protection"] = "1; mode=block"
+        response.headers["Strict-Transport-Security"] = "max-age=31536000; includeSubDomains"
+        response.headers["Referrer-Policy"] = "strict-origin-when-cross-origin"
+        response.headers["Permissions-Policy"] = "geolocation=(), microphone=(), camera=()"
+        
+        # Content Security Policy
+        csp = (
+            "default-src 'self'; "
+            "script-src 'self' 'unsafe-inline' 'unsafe-eval'; "
+            "style-src 'self' 'unsafe-inline'; "
+            "img-src 'self' data: https:; "
+            "font-src 'self' data:; "
+            "connect-src 'self' https:; "
+            "frame-ancestors 'none';"
+        )
+        response.headers["Content-Security-Policy"] = csp
+        
+        return response
+
+# Add security middlewares
+app.add_middleware(SecurityHeadersMiddleware)
+app.add_middleware(RateLimitMiddleware)
+
+# -------------------------
 # STARTUP EVENT - Run cleanup on server start
 # -------------------------
 @app.on_event("startup")
