@@ -15,6 +15,7 @@ import { Colors } from '../../constants/Colors';
 import GamificationDashboard from '../../components/GamificationDashboard';
 import DailyTasksCard from '../../components/DailyTasksCard';
 import LevelUpModal from '../../components/LevelUpModal';
+import LeaderboardScreen from '../../components/LeaderboardScreen';
 import { 
   getGamificationStatus, 
   checkDailyLogin,
