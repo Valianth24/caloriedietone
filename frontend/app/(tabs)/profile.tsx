@@ -8,37 +8,60 @@ import {
   TextInput,
   Image,
   Alert,
-  Modal,
-  Linking,
+  Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring,
+  withDelay,
+} from 'react-native-reanimated';
+import { LinearGradient } from 'expo-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../contexts/AuthContext';
 import { useStore } from '../../store/useStore';
-import { useTheme } from '../../contexts/ThemeContext';
 import { Colors } from '../../constants/Colors';
-import { updateProfile, updateGoals } from '../../utils/api';
+import { updateProfile, updateGoals, getGamificationStatus } from '../../utils/api';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import i18n, { languageList, changeLanguage } from '../../utils/i18n';
-import ThemeSelector from '../../components/ThemeSelector';
 import Constants from 'expo-constants';
 
-// Get backend URL from app.config.js extra or environment
+const { width } = Dimensions.get('window');
+
 const API_BASE_URL = Constants.expoConfig?.extra?.EXPO_PUBLIC_BACKEND_URL 
   || process.env.EXPO_PUBLIC_BACKEND_URL 
   || 'https://caloriediet-backend.onrender.com';
 
-// Privacy Policy & Terms URLs
-const PRIVACY_POLICY_URL = 'https://sites.google.com/view/calorie-diet-tracker/ana-sayfa';
-const TERMS_OF_SERVICE_URL = 'https://sites.google.com/view/calorie-diet-tracker/ana-sayfa';
+const LEAGUE_COLORS: Record<string, string[]> = {
+  bronze: ['#CD7F32', '#8B4513'],
+  silver: ['#C0C0C0', '#808080'],
+  gold: ['#FFD700', '#FFA500'],
+  platinum: ['#E5E4E2', '#71797E'],
+  diamond: ['#B9F2FF', '#00CED1'],
+  legend: ['#FF6B6B', '#FF8E53'],
+};
 
-export default function ProfileScreen() {
-  const { t } = useTranslation();
+const LEAGUE_EMOJIS: Record<string, string> = {
+  bronze: '🥉',
+  silver: '🥈',
+  gold: '🥇',
+  platinum: '💎',
+  diamond: '👑',
+  legend: '🔥',
+};
+
+export default function ModernProfileScreen() {
+  const { t, i18n: i18nInstance } = useTranslation();
+  const lang = i18nInstance.language === 'tr' ? 'tr' : 'en';
   const { user, logout } = useAuth();
   const { setUser } = useStore();
-  const { colors } = useTheme();
+  const router = useRouter();
+  
   const [editing, setEditing] = useState(false);
+  const [gamificationData, setGamificationData] = useState<any>(null);
   const [formData, setFormData] = useState({
     height: user?.height?.toString() || '',
     weight: user?.weight?.toString() || '',
@@ -50,32 +73,45 @@ export default function ProfileScreen() {
     step_goal: user?.step_goal?.toString() || '',
   });
 
+  useEffect(() => {
+    loadGamificationData();
+  }, []);
+
+  const loadGamificationData = async () => {
+    try {
+      const data = await getGamificationStatus();
+      setGamificationData(data);
+    } catch (error) {
+      console.log('Gamification data not available');
+    }
+  };
+
   const handleSave = async () => {
     try {
-      // Validate input data
       const height = parseFloat(formData.height);
       const weight = parseFloat(formData.weight);
       const age = parseInt(formData.age);
       
       if (isNaN(height) || height < 100 || height > 250) {
-        Alert.alert(t('error'), t('enterValidHeight') || 'Please enter a valid height');
+        Alert.alert(t('error'), lang === 'tr' ? 'Geçerli bir boy girin' : 'Please enter a valid height');
         return;
       }
       if (isNaN(weight) || weight < 30 || weight > 300) {
-        Alert.alert(t('error'), t('enterValidWeight') || 'Please enter a valid weight');
+        Alert.alert(t('error'), lang === 'tr' ? 'Geçerli bir kilo girin' : 'Please enter a valid weight');
         return;
       }
       if (isNaN(age) || age < 10 || age > 120) {
-        Alert.alert(t('error'), t('enterValidAge') || 'Please enter a valid age');
+        Alert.alert(t('error'), lang === 'tr' ? 'Geçerli bir yaş girin' : 'Please enter a valid age');
         return;
       }
       
-      // Kalori hedefi sınırı kontrolü - minimum 1600
       const calorieGoal = parseInt(formData.daily_calorie_goal) || 2000;
       if (calorieGoal < 1600) {
         Alert.alert(
-          t('warning') || 'Uyarı',
-          t('minCalorieWarning') || 'Sağlık açısından günlük kalori hedefi 1600\'den düşük olmamalıdır. Hedef 1600 olarak ayarlandı.'
+          lang === 'tr' ? 'Uyarı' : 'Warning',
+          lang === 'tr' 
+            ? 'Sağlık açısından günlük kalori hedefi 1600\'den düşük olmamalıdır.' 
+            : 'Daily calorie goal should not be below 1600 for health reasons.'
         );
       }
       
@@ -88,65 +124,45 @@ export default function ProfileScreen() {
       };
 
       const goalsData = {
-        daily_calorie_goal: Math.max(calorieGoal, 1600), // Minimum 1600 kalori
+        daily_calorie_goal: Math.max(calorieGoal, 1600),
         water_goal: parseInt(formData.water_goal) || 2500,
         step_goal: parseInt(formData.step_goal) || 10000,
       };
-
-      console.log('[Profile] Saving profile data:', profileData);
-      console.log('[Profile] Saving goals data:', goalsData);
 
       const [updatedProfile, updatedGoals] = await Promise.all([
         updateProfile(profileData),
         updateGoals(goalsData),
       ]);
-
-      console.log('[Profile] Profile updated successfully');
       
       if (updatedGoals) {
         setUser(updatedGoals as any);
       }
       setEditing(false);
-      Alert.alert(t('success'), t('profileUpdated'));
+      Alert.alert(
+        lang === 'tr' ? 'Başarılı' : 'Success', 
+        lang === 'tr' ? 'Profil güncellendi' : 'Profile updated'
+      );
     } catch (error: any) {
-      console.error('[Profile] Error updating profile:', error);
-      
-      let errorMessage = t('profileUpdateError');
-      if (error?.message) {
-        if (error.message.includes('Network')) {
-          errorMessage = t('networkError') || 'Network error. Please check your connection.';
-        } else if (error.message.includes('401')) {
-          errorMessage = t('sessionExpired') || 'Session expired. Please login again.';
-        }
-      }
-      
-      Alert.alert(t('error'), errorMessage);
+      console.error('Error updating profile:', error);
+      Alert.alert(
+        lang === 'tr' ? 'Hata' : 'Error', 
+        lang === 'tr' ? 'Profil güncellenemedi' : 'Profile update failed'
+      );
     }
   };
 
   const handleLogout = async () => {
     Alert.alert(
-      t('logout'),
-      t('logoutConfirmWithDataWarning') || 'Çıkış yapmak istediğinizden emin misiniz?\n\n⚠️ 35 gün içinde tekrar giriş yapmazsanız tüm verileriniz kalıcı olarak silinecektir.',
+      lang === 'tr' ? 'Çıkış Yap' : 'Logout',
+      lang === 'tr' 
+        ? 'Çıkış yapmak istediğinizden emin misiniz?\n\n⚠️ 35 gün içinde tekrar giriş yapmazsanız tüm verileriniz silinecektir.'
+        : 'Are you sure you want to logout?\n\n⚠️ Your data will be deleted if you don\'t login within 35 days.',
       [
-        { text: t('cancel'), style: 'cancel' },
+        { text: lang === 'tr' ? 'İptal' : 'Cancel', style: 'cancel' },
         { 
-          text: t('logout'), 
+          text: lang === 'tr' ? 'Çıkış Yap' : 'Logout', 
           style: 'destructive', 
-          onPress: async () => {
-            const response = await logout();
-            
-            // Show data retention warning after logout
-            if (response?.data_retention_days) {
-              setTimeout(() => {
-                Alert.alert(
-                  t('logoutSuccess'),
-                  t('dataRetentionWarning', { days: response.data_retention_days }),
-                  [{ text: t('ok') }]
-                );
-              }, 500);
-            }
-          }
+          onPress: logout
         },
       ]
     );
@@ -154,12 +170,14 @@ export default function ProfileScreen() {
 
   const handleDeleteAccount = async () => {
     Alert.alert(
-      t('deleteAccount'),
-      t('deleteAccountConfirm'),
+      lang === 'tr' ? 'Hesabı Sil' : 'Delete Account',
+      lang === 'tr' 
+        ? 'Hesabınızı kalıcı olarak silmek istediğinizden emin misiniz?' 
+        : 'Are you sure you want to permanently delete your account?',
       [
-        { text: t('cancel'), style: 'cancel' },
+        { text: lang === 'tr' ? 'İptal' : 'Cancel', style: 'cancel' },
         { 
-          text: t('delete'), 
+          text: lang === 'tr' ? 'Sil' : 'Delete', 
           style: 'destructive', 
           onPress: async () => {
             try {
@@ -174,21 +192,20 @@ export default function ProfileScreen() {
               });
               
               if (response.ok) {
-                // Clear local storage
                 await AsyncStorage.multiRemove(['session_token', 'app_theme', 'is_premium', 'user_data', 'first_launch']);
-                
                 Alert.alert(
-                  t('success'),
-                  t('accountDeleted'),
-                  [{ text: t('ok'), onPress: logout }]
+                  lang === 'tr' ? 'Başarılı' : 'Success',
+                  lang === 'tr' ? 'Hesap silindi' : 'Account deleted',
+                  [{ text: 'OK', onPress: logout }]
                 );
               } else {
-                const errorData = await response.json();
-                throw new Error(errorData.detail || 'Delete failed');
+                throw new Error('Delete failed');
               }
-            } catch (error: any) {
-              console.error('Delete account error:', error);
-              Alert.alert(t('error'), t('deleteAccountError'));
+            } catch (error) {
+              Alert.alert(
+                lang === 'tr' ? 'Hata' : 'Error', 
+                lang === 'tr' ? 'Hesap silinemedi' : 'Account deletion failed'
+              );
             }
           }
         },
@@ -196,293 +213,363 @@ export default function ProfileScreen() {
     );
   };
 
-  const [showLanguageModal, setShowLanguageModal] = useState(false);
-  const [currentLang, setCurrentLang] = useState(i18n.language);
-
-  useEffect(() => {
-    setCurrentLang(i18n.language);
-  }, [i18n.language]);
-
   const handleLanguageChange = async (langCode: string) => {
     try {
       await changeLanguage(langCode);
-      setCurrentLang(langCode);
-      setShowLanguageModal(false);
-      Alert.alert(t('success'), t('languageChanged'));
+      Alert.alert(
+        lang === 'tr' ? 'Başarılı' : 'Success', 
+        lang === 'tr' ? 'Dil değiştirildi' : 'Language changed'
+      );
     } catch (error) {
-      Alert.alert(t('error'), t('languageChangeFailed'));
+      Alert.alert(
+        lang === 'tr' ? 'Hata' : 'Error', 
+        lang === 'tr' ? 'Dil değiştirilemedi' : 'Language change failed'
+      );
     }
   };
 
-  const getCurrentLanguageInfo = () => {
-    const lang = languageList.find(l => l.code === currentLang);
-    return lang || languageList[0];
-  };
+  const leagueColors = gamificationData 
+    ? LEAGUE_COLORS[gamificationData.league] || LEAGUE_COLORS.bronze 
+    : LEAGUE_COLORS.bronze;
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]} edges={['top']}>
-      <ScrollView contentContainerStyle={styles.content}>
-        {/* Header */}
-        <View style={[styles.header, { backgroundColor: colors.primary }]}>
-          {user?.picture ? (
-            <Image source={{ uri: user.picture }} style={styles.avatar} />
-          ) : (
-            <View style={[styles.avatar, styles.avatarPlaceholder]}>
-              <Ionicons name="person" size={40} color={colors.white} />
+    <SafeAreaView style={styles.container} edges={['top']}>
+      <ScrollView 
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Profile Header with Gamification */}
+        <LinearGradient
+          colors={leagueColors}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.profileHeader}
+        >
+          {/* Avatar */}
+          <View style={styles.avatarContainer}>
+            {user?.picture ? (
+              <Image source={{ uri: user.picture }} style={styles.avatar} />
+            ) : (
+              <View style={[styles.avatar, styles.avatarPlaceholder]}>
+                <Ionicons name="person" size={48} color="#FFF" />
+              </View>
+            )}
+            {gamificationData && (
+              <View style={styles.levelBadge}>
+                <Text style={styles.levelBadgeText}>{gamificationData.level}</Text>
+              </View>
+            )}
+          </View>
+
+          {/* User Info */}
+          <Text style={styles.userName}>{user?.name}</Text>
+          <Text style={styles.userEmail}>{user?.email}</Text>
+
+          {/* League Badge */}
+          {gamificationData && (
+            <View style={styles.leagueBadge}>
+              <Text style={styles.leagueEmoji}>
+                {LEAGUE_EMOJIS[gamificationData.league]}
+              </Text>
+              <Text style={styles.leagueName}>
+                {lang === 'tr' 
+                  ? gamificationData.league_info.name === 'Bronze' ? 'Bronz'
+                  : gamificationData.league_info.name === 'Silver' ? 'Gümüş'
+                  : gamificationData.league_info.name === 'Gold' ? 'Altın'
+                  : gamificationData.league_info.name === 'Platinum' ? 'Platin'
+                  : gamificationData.league_info.name === 'Diamond' ? 'Elmas'
+                  : 'Efsane'
+                  : gamificationData.league_info.name}
+              </Text>
             </View>
           )}
-          <Text style={[styles.name, { color: colors.darkText }]}>{user?.name}</Text>
-          <Text style={[styles.email, { color: colors.lightText }]}>{user?.email}</Text>
+
+          {/* Stats Row */}
+          {gamificationData && (
+            <View style={styles.statsRow}>
+              <View style={styles.statItem}>
+                <Ionicons name="flame" size={20} color="#FFF" />
+                <Text style={styles.statValue}>{gamificationData.daily_streak}</Text>
+                <Text style={styles.statLabel}>
+                  {lang === 'tr' ? 'Seri' : 'Streak'}
+                </Text>
+              </View>
+              <View style={styles.statDivider} />
+              <View style={styles.statItem}>
+                <Ionicons name="trophy" size={20} color="#FFF" />
+                <Text style={styles.statValue}>{gamificationData.total_points}</Text>
+                <Text style={styles.statLabel}>
+                  {lang === 'tr' ? 'Puan' : 'Points'}
+                </Text>
+              </View>
+              <View style={styles.statDivider} />
+              <View style={styles.statItem}>
+                <Ionicons name="ribbon" size={20} color="#FFF" />
+                <Text style={styles.statValue}>{gamificationData.achievements?.length || 0}</Text>
+                <Text style={styles.statLabel}>
+                  {lang === 'tr' ? 'Rozet' : 'Badges'}
+                </Text>
+              </View>
+            </View>
+          )}
+        </LinearGradient>
+
+        {/* Quick Stats Cards */}
+        <View style={styles.quickStatsContainer}>
+          <TouchableOpacity 
+            style={styles.quickStatCard}
+            onPress={() => router.push('/(tabs)/achievements')}
+          >
+            <Ionicons name="trophy" size={28} color={Colors.premium} />
+            <Text style={styles.quickStatValue}>
+              {lang === 'tr' ? 'Başarılarım' : 'Achievements'}
+            </Text>
+            <Ionicons name="chevron-forward" size={20} color={Colors.lightText} />
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={styles.quickStatCard}
+            onPress={() => router.push('/details/active-diet')}
+          >
+            <Ionicons name="nutrition" size={28} color={Colors.success} />
+            <Text style={styles.quickStatValue}>
+              {lang === 'tr' ? 'Diyetim' : 'My Diet'}
+            </Text>
+            <Ionicons name="chevron-forward" size={20} color={Colors.lightText} />
+          </TouchableOpacity>
         </View>
 
-        {/* Profile Info */}
+        {/* Profile Info Section */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>{t('updateProfile')}</Text>
-            <TouchableOpacity onPress={() => (editing ? handleSave() : setEditing(true))}>
-              <Text style={styles.editButton}>{editing ? t('save') : t('edit')}</Text>
+            <Text style={styles.sectionTitle}>
+              {lang === 'tr' ? 'Profil Bilgileri' : 'Profile Information'}
+            </Text>
+            <TouchableOpacity 
+              onPress={() => editing ? handleSave() : setEditing(true)}
+              style={styles.editButton}
+            >
+              <Ionicons 
+                name={editing ? 'checkmark-circle' : 'create'} 
+                size={24} 
+                color={Colors.primary} 
+              />
             </TouchableOpacity>
           </View>
 
           <View style={styles.card}>
+            {/* Height & Weight */}
             <View style={styles.inputRow}>
               <View style={styles.inputGroup}>
-                <Text style={styles.label}>{t('height')}</Text>
+                <Text style={styles.inputLabel}>
+                  {lang === 'tr' ? 'Boy (cm)' : 'Height (cm)'}
+                </Text>
                 <TextInput
-                  style={[styles.input, !editing && styles.inputDisabled]}
+                  style={[styles.textInput, !editing && styles.inputDisabled]}
                   value={formData.height}
                   onChangeText={(text) => setFormData({ ...formData, height: text })}
                   keyboardType="numeric"
                   editable={editing}
+                  placeholderTextColor={Colors.lightText}
                 />
               </View>
+
               <View style={styles.inputGroup}>
-                <Text style={styles.label}>{t('weight')}</Text>
+                <Text style={styles.inputLabel}>
+                  {lang === 'tr' ? 'Kilo (kg)' : 'Weight (kg)'}
+                </Text>
                 <TextInput
-                  style={[styles.input, !editing && styles.inputDisabled]}
+                  style={[styles.textInput, !editing && styles.inputDisabled]}
                   value={formData.weight}
                   onChangeText={(text) => setFormData({ ...formData, weight: text })}
                   keyboardType="numeric"
                   editable={editing}
+                  placeholderTextColor={Colors.lightText}
                 />
               </View>
             </View>
 
+            {/* Age & Gender */}
             <View style={styles.inputRow}>
               <View style={styles.inputGroup}>
-                <Text style={styles.label}>{t('age')}</Text>
+                <Text style={styles.inputLabel}>
+                  {lang === 'tr' ? 'Yaş' : 'Age'}
+                </Text>
                 <TextInput
-                  style={[styles.input, !editing && styles.inputDisabled]}
+                  style={[styles.textInput, !editing && styles.inputDisabled]}
                   value={formData.age}
                   onChangeText={(text) => setFormData({ ...formData, age: text })}
                   keyboardType="numeric"
                   editable={editing}
+                  placeholderTextColor={Colors.lightText}
                 />
               </View>
+
               <View style={styles.inputGroup}>
-                <Text style={styles.label}>{t('gender')}</Text>
-                <View style={styles.genderButtons}>
+                <Text style={styles.inputLabel}>
+                  {lang === 'tr' ? 'Cinsiyet' : 'Gender'}
+                </Text>
+                <View style={styles.genderRow}>
                   <TouchableOpacity
                     style={[
                       styles.genderButton,
                       formData.gender === 'male' && styles.genderButtonActive,
-                      !editing && styles.buttonDisabled,
                     ]}
                     onPress={() => editing && setFormData({ ...formData, gender: 'male' })}
                     disabled={!editing}
                   >
-                    <Text
-                      style={[
-                        styles.genderButtonText,
-                        formData.gender === 'male' && styles.genderButtonTextActive,
-                      ]}
-                    >
-                      {t('male')}
-                    </Text>
+                    <Ionicons 
+                      name="male" 
+                      size={20} 
+                      color={formData.gender === 'male' ? '#FFF' : Colors.primary} 
+                    />
                   </TouchableOpacity>
                   <TouchableOpacity
                     style={[
                       styles.genderButton,
                       formData.gender === 'female' && styles.genderButtonActive,
-                      !editing && styles.buttonDisabled,
                     ]}
                     onPress={() => editing && setFormData({ ...formData, gender: 'female' })}
                     disabled={!editing}
                   >
-                    <Text
-                      style={[
-                        styles.genderButtonText,
-                        formData.gender === 'female' && styles.genderButtonTextActive,
-                      ]}
-                    >
-                      {t('female')}
-                    </Text>
+                    <Ionicons 
+                      name="female" 
+                      size={20} 
+                      color={formData.gender === 'female' ? '#FFF' : Colors.primary} 
+                    />
                   </TouchableOpacity>
                 </View>
               </View>
             </View>
-          </View>
-        </View>
 
-        {/* Goals */}
-        <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('dailyGoals')}</Text>
-          <View style={styles.card}>
-            <View style={styles.inputGroup}>
-              <Text style={styles.label}>{t('calorieGoalKcal')}</Text>
-              <TextInput
-                style={[styles.input, !editing && styles.inputDisabled]}
-                value={formData.daily_calorie_goal}
-                onChangeText={(text) => setFormData({ ...formData, daily_calorie_goal: text })}
-                keyboardType="numeric"
-                editable={editing}
-              />
-            </View>
-            <View style={styles.inputGroup}>
-              <Text style={styles.label}>{t('waterGoal')} (ml)</Text>
-              <TextInput
-                style={[styles.input, !editing && styles.inputDisabled]}
-                value={formData.water_goal}
-                onChangeText={(text) => setFormData({ ...formData, water_goal: text })}
-                keyboardType="numeric"
-                editable={editing}
-              />
-            </View>
-            <View style={styles.inputGroup}>
-              <Text style={styles.label}>{t('stepGoal')}</Text>
-              <TextInput
-                style={[styles.input, !editing && styles.inputDisabled]}
-                value={formData.step_goal}
-                onChangeText={(text) => setFormData({ ...formData, step_goal: text })}
-                keyboardType="numeric"
-                editable={editing}
-              />
+            {/* Goals */}
+            <View style={styles.inputRow}>
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>
+                  {lang === 'tr' ? 'Kalori Hedefi' : 'Calorie Goal'}
+                </Text>
+                <TextInput
+                  style={[styles.textInput, !editing && styles.inputDisabled]}
+                  value={formData.daily_calorie_goal}
+                  onChangeText={(text) => setFormData({ ...formData, daily_calorie_goal: text })}
+                  keyboardType="numeric"
+                  editable={editing}
+                  placeholderTextColor={Colors.lightText}
+                />
+              </View>
+
+              <View style={styles.inputGroup}>
+                <Text style={styles.inputLabel}>
+                  {lang === 'tr' ? 'Su Hedefi (ml)' : 'Water Goal (ml)'}
+                </Text>
+                <TextInput
+                  style={[styles.textInput, !editing && styles.inputDisabled]}
+                  value={formData.water_goal}
+                  onChangeText={(text) => setFormData({ ...formData, water_goal: text })}
+                  keyboardType="numeric"
+                  editable={editing}
+                  placeholderTextColor={Colors.lightText}
+                />
+              </View>
             </View>
           </View>
         </View>
 
-        {/* Settings */}
+        {/* Settings Section */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('settings')}</Text>
-          <View style={styles.card}>
-            <TouchableOpacity style={styles.settingItem} onPress={() => setShowLanguageModal(true)}>
-              <View style={styles.settingLeft}>
-                <View style={styles.settingIconBg}>
-                  <Ionicons name="language" size={22} color={Colors.white} />
-                </View>
-                <View>
-                  <Text style={styles.settingText}>{t('languageSettings')}</Text>
-                  <Text style={styles.settingSubtext}>{getCurrentLanguageInfo().flag} {getCurrentLanguageInfo().name}</Text>
-                </View>
-              </View>
-              <Ionicons name="chevron-forward" size={22} color={Colors.lightText} />
-            </TouchableOpacity>
-          </View>
+          <Text style={styles.sectionTitle}>
+            {lang === 'tr' ? 'Ayarlar' : 'Settings'}
+          </Text>
+
+          {/* Language */}
+          <TouchableOpacity style={styles.settingItem}>
+            <View style={styles.settingLeft}>
+              <Ionicons name="language" size={24} color={Colors.primary} />
+              <Text style={styles.settingText}>
+                {lang === 'tr' ? 'Dil' : 'Language'}
+              </Text>
+            </View>
+            <View style={styles.settingRight}>
+              <Text style={styles.settingValue}>
+                {lang === 'tr' ? 'Türkçe' : 'English'}
+              </Text>
+              <Ionicons name="chevron-forward" size={20} color={Colors.lightText} />
+            </View>
+          </TouchableOpacity>
+
+          {/* Theme - Future feature */}
+          <TouchableOpacity style={styles.settingItem}>
+            <View style={styles.settingLeft}>
+              <Ionicons name="color-palette" size={24} color={Colors.primary} />
+              <Text style={styles.settingText}>
+                {lang === 'tr' ? 'Tema' : 'Theme'}
+              </Text>
+            </View>
+            <View style={styles.settingRight}>
+              <Text style={styles.settingValue}>
+                {lang === 'tr' ? 'Açık' : 'Light'}
+              </Text>
+              <Ionicons name="chevron-forward" size={20} color={Colors.lightText} />
+            </View>
+          </TouchableOpacity>
+
+          {/* Privacy Policy */}
+          <TouchableOpacity 
+            style={styles.settingItem}
+            onPress={() => {}}
+          >
+            <View style={styles.settingLeft}>
+              <Ionicons name="shield-checkmark" size={24} color={Colors.primary} />
+              <Text style={styles.settingText}>
+                {lang === 'tr' ? 'Gizlilik Politikası' : 'Privacy Policy'}
+              </Text>
+            </View>
+            <Ionicons name="chevron-forward" size={20} color={Colors.lightText} />
+          </TouchableOpacity>
+
+          {/* About */}
+          <TouchableOpacity style={styles.settingItem}>
+            <View style={styles.settingLeft}>
+              <Ionicons name="information-circle" size={24} color={Colors.primary} />
+              <Text style={styles.settingText}>
+                {lang === 'tr' ? 'Hakkında' : 'About'}
+              </Text>
+            </View>
+            <View style={styles.settingRight}>
+              <Text style={styles.settingValue}>v1.0.0</Text>
+              <Ionicons name="chevron-forward" size={20} color={Colors.lightText} />
+            </View>
+          </TouchableOpacity>
         </View>
 
-        {/* Legal Links Section */}
+        {/* Danger Zone */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>{t('legal') || 'Yasal'}</Text>
-          <View style={styles.card}>
-            <TouchableOpacity 
-              style={styles.settingItem} 
-              onPress={() => Linking.openURL(PRIVACY_POLICY_URL)}
-            >
-              <View style={styles.settingLeft}>
-                <View style={[styles.settingIconBg, { backgroundColor: '#7C3AED' }]}>
-                  <Ionicons name="shield-checkmark" size={22} color={Colors.white} />
-                </View>
-                <View>
-                  <Text style={styles.settingText}>{t('privacyPolicy') || 'Gizlilik Politikası'}</Text>
-                  <Text style={styles.settingSubtext}>{t('privacyPolicySubtext') || 'Verilerinizi nasıl koruyoruz'}</Text>
-                </View>
-              </View>
-              <Ionicons name="open-outline" size={22} color={Colors.lightText} />
-            </TouchableOpacity>
-            
-            <View style={styles.settingDivider} />
-            
-            <TouchableOpacity 
-              style={styles.settingItem} 
-              onPress={() => Linking.openURL(TERMS_OF_SERVICE_URL)}
-            >
-              <View style={styles.settingLeft}>
-                <View style={[styles.settingIconBg, { backgroundColor: '#EC4899' }]}>
-                  <Ionicons name="document-text" size={22} color={Colors.white} />
-                </View>
-                <View>
-                  <Text style={styles.settingText}>{t('termsOfService') || 'Kullanım Şartları'}</Text>
-                  <Text style={styles.settingSubtext}>{t('termsOfServiceSubtext') || 'Hizmet koşullarını okuyun'}</Text>
-                </View>
-              </View>
-              <Ionicons name="open-outline" size={22} color={Colors.lightText} />
-            </TouchableOpacity>
-          </View>
+          <Text style={[styles.sectionTitle, { color: Colors.error }]}>
+            {lang === 'tr' ? 'Tehlikeli Bölge' : 'Danger Zone'}
+          </Text>
+
+          <TouchableOpacity 
+            style={[styles.dangerButton, { borderColor: Colors.warning }]}
+            onPress={handleLogout}
+          >
+            <Ionicons name="log-out-outline" size={24} color={Colors.warning} />
+            <Text style={[styles.dangerButtonText, { color: Colors.warning }]}>
+              {lang === 'tr' ? 'Çıkış Yap' : 'Logout'}
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity 
+            style={[styles.dangerButton, { borderColor: Colors.error }]}
+            onPress={handleDeleteAccount}
+          >
+            <Ionicons name="trash-outline" size={24} color={Colors.error} />
+            <Text style={[styles.dangerButtonText, { color: Colors.error }]}>
+              {lang === 'tr' ? 'Hesabı Sil' : 'Delete Account'}
+            </Text>
+          </TouchableOpacity>
         </View>
-
-        {/* Theme Selector */}
-        <ThemeSelector />
-
-        {/* Logout */}
-        <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-          <Ionicons name="log-out" size={24} color={Colors.white} />
-          <Text style={styles.logoutButtonText}>{t('logout')}</Text>
-        </TouchableOpacity>
-
-        {/* Delete Account */}
-        <TouchableOpacity style={styles.deleteAccountButton} onPress={handleDeleteAccount}>
-          <Ionicons name="trash-outline" size={24} color={Colors.error} />
-          <Text style={styles.deleteAccountButtonText}>{t('deleteAccount') || 'Hesabı Sil'}</Text>
-        </TouchableOpacity>
       </ScrollView>
-
-      {/* Language Selection Modal */}
-      <Modal visible={showLanguageModal} animationType="slide" transparent>
-        <View style={styles.modalOverlay}>
-          <View style={styles.modalContent}>
-            <View style={styles.modalHeader}>
-              <Text style={styles.modalTitle}>{t('selectLanguage')}</Text>
-              <TouchableOpacity 
-                onPress={() => setShowLanguageModal(false)} 
-                style={styles.closeButton}
-                hitSlop={{ top: 15, bottom: 15, left: 15, right: 15 }}
-                activeOpacity={0.7}
-              >
-                <Ionicons name="close" size={28} color={Colors.darkText} />
-              </TouchableOpacity>
-            </View>
-            
-            <Text style={styles.modalSubtitle}>{t('languageSettings')}</Text>
-            
-            <ScrollView style={styles.languageList} showsVerticalScrollIndicator={false}>
-              {languageList.map((lang) => (
-                <TouchableOpacity
-                  key={lang.code}
-                  style={[
-                    styles.languageItem,
-                    currentLang === lang.code && styles.languageItemActive
-                  ]}
-                  onPress={() => handleLanguageChange(lang.code)}
-                >
-                  <Text style={styles.languageFlag}>{lang.flag}</Text>
-                  <View style={styles.languageTextContainer}>
-                    <Text style={[
-                      styles.languageName,
-                      currentLang === lang.code && styles.languageNameActive
-                    ]}>{lang.name}</Text>
-                    <Text style={styles.languageNative}>{lang.nativeName}</Text>
-                  </View>
-                  {currentLang === lang.code && (
-                    <View style={styles.checkCircle}>
-                      <Ionicons name="checkmark" size={18} color={Colors.white} />
-                    </View>
-                  )}
-                </TouchableOpacity>
-              ))}
-            </ScrollView>
-          </View>
-        </View>
-      </Modal>
     </SafeAreaView>
   );
 }
@@ -492,117 +579,214 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.background,
   },
-  content: {
-    padding: 16,
+  scrollView: {
+    flex: 1,
   },
-  header: {
+  scrollContent: {
+    paddingBottom: 32,
+  },
+  profileHeader: {
+    padding: 24,
     alignItems: 'center',
-    marginBottom: 32,
+    paddingTop: 32,
+    paddingBottom: 32,
+  },
+  avatarContainer: {
+    position: 'relative',
+    marginBottom: 16,
   },
   avatar: {
     width: 100,
     height: 100,
     borderRadius: 50,
-    marginBottom: 16,
+    borderWidth: 4,
+    borderColor: '#FFF',
   },
   avatarPlaceholder: {
-    backgroundColor: Colors.primary,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  name: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: Colors.darkText,
+  levelBadge: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    backgroundColor: '#FFF',
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    justifyContent: 'center',
+    alignItems: 'center',
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
   },
-  email: {
+  levelBadgeText: {
     fontSize: 14,
-    color: Colors.lightText,
-    marginTop: 4,
+    fontWeight: '900',
+    color: Colors.primary,
+  },
+  userName: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: '#FFF',
+    marginBottom: 4,
+  },
+  userEmail: {
+    fontSize: 14,
+    fontWeight: '500',
+    color: 'rgba(255, 255, 255, 0.8)',
+    marginBottom: 16,
+  },
+  leagueBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.2)',
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 20,
+    marginBottom: 16,
+  },
+  leagueEmoji: {
+    fontSize: 20,
+  },
+  leagueName: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: '#FFF',
+  },
+  statsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 24,
+    marginTop: 8,
+  },
+  statItem: {
+    alignItems: 'center',
+    gap: 4,
+  },
+  statValue: {
+    fontSize: 18,
+    fontWeight: '800',
+    color: '#FFF',
+  },
+  statLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: 'rgba(255, 255, 255, 0.8)',
+  },
+  statDivider: {
+    width: 1,
+    height: 40,
+    backgroundColor: 'rgba(255, 255, 255, 0.3)',
+  },
+  quickStatsContainer: {
+    flexDirection: 'row',
+    padding: 16,
+    gap: 12,
+    marginTop: -24,
+  },
+  quickStatCard: {
+    flex: 1,
+    backgroundColor: Colors.card,
+    borderRadius: 16,
+    padding: 16,
+    alignItems: 'center',
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  quickStatValue: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: Colors.darkText,
+    marginTop: 8,
+    marginBottom: 4,
   },
   section: {
-    marginBottom: 24,
+    padding: 16,
   },
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 12,
+    marginBottom: 16,
   },
   sectionTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 18,
+    fontWeight: '700',
     color: Colors.darkText,
   },
   editButton: {
-    fontSize: 16,
-    color: Colors.primary,
-    fontWeight: '600',
+    padding: 8,
   },
   card: {
-    backgroundColor: Colors.white,
-    borderRadius: 20,
-    padding: 20,
-    gap: 16,
-    shadowColor: Colors.cardShadow,
+    backgroundColor: Colors.card,
+    borderRadius: 16,
+    padding: 16,
+    elevation: 2,
+    shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 8,
-    elevation: 3,
+    shadowRadius: 4,
   },
   inputRow: {
     flexDirection: 'row',
     gap: 12,
+    marginBottom: 16,
   },
   inputGroup: {
     flex: 1,
   },
-  label: {
-    fontSize: 14,
+  inputLabel: {
+    fontSize: 12,
     fontWeight: '600',
-    color: Colors.darkText,
+    color: Colors.lightText,
     marginBottom: 8,
   },
-  input: {
+  textInput: {
     backgroundColor: Colors.background,
     borderRadius: 12,
     padding: 12,
     fontSize: 16,
+    fontWeight: '600',
     color: Colors.darkText,
+    borderWidth: 1,
+    borderColor: Colors.border,
   },
   inputDisabled: {
     opacity: 0.6,
   },
-  genderButtons: {
+  genderRow: {
     flexDirection: 'row',
     gap: 8,
   },
   genderButton: {
     flex: 1,
-    paddingVertical: 10,
+    backgroundColor: Colors.background,
     borderRadius: 12,
-    borderWidth: 1,
-    borderColor: Colors.primary,
+    padding: 12,
     alignItems: 'center',
+    borderWidth: 2,
+    borderColor: Colors.border,
   },
   genderButtonActive: {
     backgroundColor: Colors.primary,
-  },
-  genderButtonText: {
-    fontSize: 14,
-    color: Colors.primary,
-  },
-  genderButtonTextActive: {
-    color: Colors.white,
-  },
-  buttonDisabled: {
-    opacity: 0.6,
+    borderColor: Colors.primary,
   },
   settingItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 12,
+    backgroundColor: Colors.card,
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 8,
   },
   settingLeft: {
     flexDirection: 'row',
@@ -611,6 +795,7 @@ const styles = StyleSheet.create({
   },
   settingText: {
     fontSize: 16,
+    fontWeight: '600',
     color: Colors.darkText,
   },
   settingRight: {
@@ -620,139 +805,22 @@ const styles = StyleSheet.create({
   },
   settingValue: {
     fontSize: 14,
+    fontWeight: '500',
     color: Colors.lightText,
   },
-  settingDivider: {
-    height: 1,
-    backgroundColor: Colors.background,
-    marginVertical: 8,
-  },
-  logoutButton: {
+  dangerButton: {
     flexDirection: 'row',
-    backgroundColor: Colors.primary,
-    paddingVertical: 16,
-    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
     gap: 12,
-    marginTop: 8,
-  },
-  logoutButtonText: {
-    color: Colors.white,
-    fontSize: 18,
-    fontWeight: '600',
-  },
-  deleteAccountButton: {
-    flexDirection: 'row',
-    backgroundColor: 'transparent',
-    paddingVertical: 16,
+    backgroundColor: Colors.card,
     borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 12,
-    marginTop: 12,
-    borderWidth: 1,
-    borderColor: Colors.error,
-  },
-  deleteAccountButtonText: {
-    color: Colors.error,
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  // Modal styles
-  modalOverlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
-    justifyContent: 'flex-end',
-  },
-  modalContent: {
-    backgroundColor: Colors.white,
-    borderTopLeftRadius: 28,
-    borderTopRightRadius: 28,
-    padding: 24,
-    paddingBottom: 40,
-    maxHeight: '80%',
-  },
-  modalHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  modalTitle: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: Colors.darkText,
-  },
-  modalSubtitle: {
-    fontSize: 14,
-    color: Colors.lightText,
-    marginBottom: 20,
-  },
-  closeButton: {
-    padding: 12,
-    minWidth: 44,
-    minHeight: 44,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  languageList: {
-    maxHeight: 450,
-  },
-  languageItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
     padding: 16,
-    borderRadius: 16,
-    marginBottom: 10,
-    backgroundColor: Colors.background,
+    marginBottom: 8,
     borderWidth: 2,
-    borderColor: 'transparent',
   },
-  languageItemActive: {
-    backgroundColor: Colors.primary + '12',
-    borderColor: Colors.primary,
-  },
-  languageFlag: {
-    fontSize: 36,
-    marginRight: 16,
-  },
-  languageTextContainer: {
-    flex: 1,
-  },
-  languageName: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: Colors.darkText,
-  },
-  languageNative: {
-    fontSize: 13,
-    color: Colors.lightText,
-    marginTop: 2,
-  },
-  languageNameActive: {
-    color: Colors.primary,
-  },
-  checkCircle: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
-    backgroundColor: Colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  settingIconBg: {
-    width: 40,
-    height: 40,
-    borderRadius: 12,
-    backgroundColor: Colors.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginRight: 12,
-  },
-  settingSubtext: {
-    fontSize: 13,
-    color: Colors.lightText,
-    marginTop: 2,
+  dangerButtonText: {
+    fontSize: 16,
+    fontWeight: '700',
   },
 });
