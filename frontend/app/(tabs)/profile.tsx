@@ -613,7 +613,86 @@ export default function ModernProfileScreen() {
             </Text>
           </TouchableOpacity>
         </View>
+
+        {/* Bottom Spacing */}
+        <View style={{ height: 100 }} />
       </ScrollView>
+
+      {/* Language Selection Modal */}
+      <Modal visible={showLanguageModal} animationType="slide" transparent>
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>
+                {lang === 'tr' ? 'Dil Seçin' : 'Select Language'}
+              </Text>
+              <TouchableOpacity 
+                onPress={() => setShowLanguageModal(false)} 
+                style={styles.closeButton}
+              >
+                <Ionicons name="close" size={28} color={Colors.darkText} />
+              </TouchableOpacity>
+            </View>
+            
+            <ScrollView style={styles.languageList} showsVerticalScrollIndicator={false}>
+              {languageList.map((langItem) => (
+                <TouchableOpacity
+                  key={langItem.code}
+                  style={[
+                    styles.languageItem,
+                    currentLang === langItem.code && styles.languageItemActive
+                  ]}
+                  onPress={() => handleLanguageChange(langItem.code)}
+                >
+                  <Text style={styles.languageFlag}>{langItem.flag}</Text>
+                  <View style={styles.languageTextContainer}>
+                    <Text style={[
+                      styles.languageName,
+                      currentLang === langItem.code && styles.languageNameActive
+                    ]}>{langItem.name}</Text>
+                    <Text style={styles.languageNative}>{langItem.nativeName}</Text>
+                  </View>
+                  {currentLang === langItem.code && (
+                    <View style={styles.checkCircle}>
+                      <Ionicons name="checkmark" size={18} color={Colors.white} />
+                    </View>
+                  )}
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
+
+      {/* Theme Selection Modal */}
+      <Modal visible={showThemeModal} animationType="slide" transparent>
+        <View style={styles.modalOverlay}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>
+                {lang === 'tr' ? 'Tema Seçin' : 'Select Theme'}
+              </Text>
+              <TouchableOpacity 
+                onPress={() => setShowThemeModal(false)} 
+                style={styles.closeButton}
+              >
+                <Ionicons name="close" size={28} color={Colors.darkText} />
+              </TouchableOpacity>
+            </View>
+            
+            <ThemeSelector />
+            
+            <TouchableOpacity 
+              style={styles.modalCloseBtn}
+              onPress={() => setShowThemeModal(false)}
+            >
+              <Text style={styles.modalCloseBtnText}>
+                {lang === 'tr' ? 'Kapat' : 'Close'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
