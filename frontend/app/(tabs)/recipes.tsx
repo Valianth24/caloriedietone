@@ -567,7 +567,7 @@ export default function RecipesScreen() {
             {locale === 'tr' ? getRecipeNameTR(item.id) : getRecipeNameEN(item.id)}
           </Text>
           <Text style={styles.featuredCategory}>
-            {getCategoryLabel(item.category, locale)}
+            {item.category ? getCategoryLabel(item.category, locale) : (locale === 'tr' ? 'Genel' : 'General')}
           </Text>
         </View>
         {/* Premium lock - temporarily hidden
