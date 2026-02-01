@@ -9,6 +9,7 @@ import StepCard from '../../components/StepCard';
 import VitaminCard from '../../components/VitaminCard';
 import FoodPhotoCard from '../../components/FoodPhotoCard';
 import DietRecommendationModal from '../../components/DietRecommendationModal';
+import GamificationDashboard from '../../components/GamificationDashboard';
 import { useTheme } from '../../contexts/ThemeContext';
 import { Colors } from '../../constants/Colors';
 import { useTranslation } from 'react-i18next';
@@ -22,6 +23,7 @@ import { clearReminderNotifications, requestNotificationPermission, syncReminder
 import { calculateWaterGoal, UserData } from '../../utils/nutritionCalculator';
 import { allDiets } from '../../content/diets';
 import { LinearGradient } from 'expo-linear-gradient';
+import { getGamificationStatus, checkDailyLogin } from '../../utils/api';
 
 // Expo Go'da remote push notification uyarılarını gizle
 LogBox.ignoreLogs([
