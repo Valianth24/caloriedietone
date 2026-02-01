@@ -1,0 +1,64 @@
+{
+  "name": "Chicken Curry",
+  "description": "Creamy, aromatic Indian-inspired chicken curry with rich spices and coconut milk.",
+  "prepTime": "15 minutes",
+  "cookTime": "30 minutes",
+  "totalTime": "45 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Chicken breast or thighs", "amount": "600", "unit": "g", "note": "cubed"},
+    {"name": "Onion", "amount": "2", "unit": "pieces", "note": "finely diced"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh ginger", "amount": "2", "unit": "tbsp", "note": "grated"},
+    {"name": "Tomato paste", "amount": "2", "unit": "tbsp"},
+    {"name": "Crushed tomatoes", "amount": "400", "unit": "g"},
+    {"name": "Coconut milk", "amount": "400", "unit": "ml"},
+    {"name": "Curry powder", "amount": "2", "unit": "tbsp"},
+    {"name": "Garam masala", "amount": "1", "unit": "tsp"},
+    {"name": "Turmeric", "amount": "1", "unit": "tsp"},
+    {"name": "Cumin", "amount": "1", "unit": "tsp"},
+    {"name": "Cayenne pepper", "amount": "1/2", "unit": "tsp", "note": "optional"},
+    {"name": "Vegetable oil", "amount": "3", "unit": "tbsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Fresh cilantro", "amount": "1/4", "unit": "cup", "note": "chopped, for garnish"},
+    {"name": "Basmati rice", "amount": "2", "unit": "cups", "note": "cooked"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marinate chicken cubes with half the curry powder, half salt, and turmeric.", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Heat oil in large deep skillet over medium-high heat.", "duration": "2 minutes"},
+    {"step": 3, "instruction": "Add marinated chicken, brown on all sides 3-4 minutes, remove.", "tip": "Doesn't need to cook through, just get color.", "duration": "8 minutes"},
+    {"step": 4, "instruction": "Add onions to same pan, cook 5-6 minutes until caramelized.", "duration": "6 minutes"},
+    {"step": 5, "instruction": "Add garlic and ginger, cook 1 minute until fragrant.", "duration": "1 minute"},
+    {"step": 6, "instruction": "Add remaining curry powder, garam masala, cumin, and cayenne. Stir 30 seconds.", "tip": "Toasting spices blooms their flavors.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Add tomato paste, cook 1 minute.", "duration": "1 minute"},
+    {"step": 8, "instruction": "Add crushed tomatoes, stir and cook 3 minutes.", "duration": "3 minutes"},
+    {"step": 9, "instruction": "Pour in coconut milk, bring to simmer.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Reduce heat, return browned chicken to pan.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Simmer partially covered 15 minutes until chicken is cooked and sauce thickens.", "tip": "Stir occasionally.", "duration": "15 minutes"},
+    {"step": 12, "instruction": "Taste and adjust salt if needed.", "duration": "30 seconds"},
+    {"step": 13, "instruction": "Place basmati rice on serving plates.", "duration": "1 minute"},
+    {"step": 14, "instruction": "Spoon curry beside or over rice, garnish with fresh cilantro and serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 36,
+    "carbs": 28,
+    "fat": 26,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 720
+  },
+  "tips": [
+    "Can substitute yogurt or cream for coconut milk.",
+    "Increase green chilies or cayenne for more heat.",
+    "Tastes even better made a day ahead - flavors meld.",
+    "Try serving with naan bread."
+  ],
+  "storageInfo": "Refrigerate 4 days, freeze up to 2 months.",
+  "servingSuggestion": "Serve with basmati rice, naan bread, and cucumber raita.",
+  "variations": [
+    "Vegetarian chickpea: Use chickpeas instead of chicken.",
+    "With spinach: Add spinach last 5 minutes.",
+    "Shrimp: Use shrimp instead, reduce cooking time."
+  ]
+}

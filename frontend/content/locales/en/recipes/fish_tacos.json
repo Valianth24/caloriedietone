@@ -1,0 +1,64 @@
+{
+  "name": "Fish Tacos",
+  "description": "Light and flavorful Mexican tacos with fresh seasoned fish, crunchy cabbage slaw, and creamy chipotle sauce.",
+  "prepTime": "20 minutes",
+  "cookTime": "10 minutes",
+  "totalTime": "30 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "White fish fillet (sea bass, sea bream, or cod)", "amount": "500", "unit": "g"},
+    {"name": "Small taco tortillas", "amount": "8", "unit": "pieces"},
+    {"name": "Red cabbage", "amount": "200", "unit": "g", "note": "finely shredded"},
+    {"name": "Carrot", "amount": "1", "unit": "piece", "note": "grated"},
+    {"name": "Fresh cilantro", "amount": "1/2", "unit": "cup", "note": "chopped"},
+    {"name": "Lime", "amount": "3", "unit": "pieces"},
+    {"name": "Mayonnaise", "amount": "100", "unit": "g"},
+    {"name": "Greek yogurt", "amount": "100", "unit": "g"},
+    {"name": "Chipotle hot sauce", "amount": "1", "unit": "tbsp", "note": "or sriracha"},
+    {"name": "Paprika", "amount": "1", "unit": "tsp"},
+    {"name": "Cumin", "amount": "1", "unit": "tsp"},
+    {"name": "Garlic powder", "amount": "1/2", "unit": "tsp"},
+    {"name": "Salt", "amount": "1", "unit": "tsp"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"},
+    {"name": "Olive oil", "amount": "2", "unit": "tbsp"},
+    {"name": "Avocado", "amount": "1", "unit": "piece", "note": "sliced"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Rub fish fillets with paprika, cumin, garlic powder, half salt, and pepper.", "duration": "3 minutes"},
+    {"step": 2, "instruction": "Squeeze 1 lime over fish, marinate 10 minutes.", "duration": "10 minutes"},
+    {"step": 3, "instruction": "For chipotle crema, mix mayonnaise, yogurt, juice of 1 lime, chipotle sauce, and remaining salt.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "For slaw, combine shredded cabbage, carrot, half the cilantro, and remaining lime juice.", "duration": "3 minutes"},
+    {"step": 5, "instruction": "Heat olive oil in large skillet or grill pan over medium-high heat.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Add fish fillets to pan.", "duration": "30 seconds"},
+    {"step": 7, "instruction": "Cook 3-4 minutes per side until golden and cooked through.", "tip": "Fish should flake easily.", "duration": "8 minutes"},
+    {"step": 8, "instruction": "Roughly flake cooked fish with fork.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Warm tortillas in dry pan or directly over flame 20 seconds each side.", "tip": "Should puff slightly and be pliable.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Place some slaw in center of each tortilla.", "duration": "1 minute"},
+    {"step": 11, "instruction": "Top slaw with seasoned fish pieces.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Drizzle chipotle crema over fish.", "duration": "30 seconds"},
+    {"step": 13, "instruction": "Garnish with avocado slices and remaining fresh cilantro.", "duration": "1 minute"},
+    {"step": 14, "instruction": "Serve immediately with lime wedges.", "duration": "30 seconds"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 28,
+    "carbs": 32,
+    "fat": 16,
+    "fiber": 6,
+    "sugar": 4,
+    "sodium": 620
+  },
+  "tips": [
+    "Use freshest fish possible - it shows in tacos.",
+    "Shrimp or tuna also make great alternatives.",
+    "No chipotle? Use sriracha or any hot sauce.",
+    "Corn tortillas give more authentic flavor."
+  ],
+  "storageInfo": "Fish and sauce store separately 2 days. Assemble tacos at serving time.",
+  "servingSuggestion": "Serve with Mexican rice and refried beans.",
+  "variations": [
+    "Battered: Coat fish in beer batter and fry.",
+    "Shrimp: Use spiced shrimp instead of fish.",
+    "Grilled: Cook on grill or grill pan."
+  ]
+}

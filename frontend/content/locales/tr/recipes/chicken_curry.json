@@ -1,0 +1,64 @@
+{
+  "name": "Tavuk Köri",
+  "description": "Kremamsı, aromatik baharatlarla hazırlanmış, Hint mutfağından ilham alan zengin ve lezzetli tavuk köri.",
+  "prepTime": "15 dakika",
+  "cookTime": "30 dakika",
+  "totalTime": "45 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Tavuk göğsü veya but", "amount": "600", "unit": "g", "note": "küp doğranmış"},
+    {"name": "Soğan", "amount": "2", "unit": "adet", "note": "ince doğranmış"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Taze zencefil", "amount": "2", "unit": "yemek kaşığı", "note": "rendelenmiş"},
+    {"name": "Domates salçası", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Domates püresi", "amount": "400", "unit": "g"},
+    {"name": "Hindistan cevizi sütü", "amount": "400", "unit": "ml"},
+    {"name": "Köri tozu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Garam masala", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Zer deary", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Acı kırmızı biber", "amount": "1/2", "unit": "tatlı kaşığı", "note": "isteğe göre"},
+    {"name": "Bitkisel yağ", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Taze koriş", "amount": "1/4", "unit": "su bardağı", "note": "kıyılmış, süsleme için"},
+    {"name": "Basmati pirinç", "amount": "2", "unit": "su bardağı", "note": "pişmiş"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Tavuk küplerini yarım köri tozu, yarım tuz ve zerdeary ile marine edin.", "duration": "5 dakika"},
+    {"step": 2, "instruction": "Büyük derin tavada yağı orta-yüksek ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 3, "instruction": "Marine tavukları ekleyin, her tarafı 3-4 dakika kavurup alın.", "tip": "Tamamen pişmesine gerek yok, renk alsın yeter.", "duration": "8 dakika"},
+    {"step": 4, "instruction": "Aynı tavaya soğanları ekleyin, 5-6 dakika karamelize olana kadar pişirin.", "duration": "6 dakika"},
+    {"step": 5, "instruction": "Sarımsak ve zencefili ekleyin, 1 dakika kokular çıkana kadar kavurun.", "duration": "1 dakika"},
+    {"step": 6, "instruction": "Kalan köri tozu, garam masala, kimyon ve acı biberi ekleyin, 30 saniye karıştırın.", "tip": "Baharatları kavurmak lezzetlerini açar.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Domates salçasını ekleyin, 1 dakika kavurun.", "duration": "1 dakika"},
+    {"step": 8, "instruction": "Domates püresini ekleyip karıştırın, 3 dakika pişirin.", "duration": "3 dakika"},
+    {"step": 9, "instruction": "Hindistan cevizi sütünü ekleyin, kaynatın.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Ateşi kısın, kavurduğunuz tavukları geri ekleyin.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Kapak aralıklı olarak 15 dakika, tavuk tamamen pişene ve sos koyu laşana kadar pişirin.", "tip": "Ara sıra karıştırın.", "duration": "15 dakika"},
+    {"step": 12, "instruction": "Tadına bakın, gerekirse tuz ekleyin.", "duration": "30 saniye"},
+    {"step": 13, "instruction": "Basmati pilavı servis tabaklarına koyun.", "duration": "1 dakika"},
+    {"step": 14, "instruction": "Köriyi pilavın yanına veya üzerine dökün, taze korişle süsleyip servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 480,
+    "protein": 36,
+    "carbs": 28,
+    "fat": 26,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 720
+  },
+  "tips": [
+    "Hindistan cevizi sütü yerine yoğurt veya krema da kullanabilirsiniz.",
+    "Daha acılı seviyorsanız yeşil biber veya kırmızı pul biber artırın.",
+    "Bir gün önceden yapılırsa lezzetler daha iyi oturur.",
+    "Naan ekmek ile servis etmeyi deneyin."
+  ],
+  "storageInfo": "Buzdolabında 4 gün, dondurucuda 2 ay saklanır.",
+  "servingSuggestion": "Basmati pilav, naan ekmeği ve salatalık raitası ile servis edin.",
+  "variations": [
+    "Nohutlu vejetaryen: Tavuk yerine nohut kullanın.",
+    "Ispanaklı: Son 5 dakika ıspanak ekleyin.",
+    "Karidesli: Tavuk yerine karides kullanın, pişirme süresini kısaltın."
+  ]
+}

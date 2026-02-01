@@ -1,0 +1,64 @@
+{
+  "name": "Beef Stir Fry",
+  "description": "Asian-style beef stir fry quickly cooked over high heat with colorful vegetables and savory sauce.",
+  "prepTime": "15 minutes",
+  "cookTime": "12 minutes",
+  "totalTime": "27 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Beef (sirloin or ribeye)", "amount": "500", "unit": "g", "note": "thin strips"},
+    {"name": "Broccoli", "amount": "200", "unit": "g", "note": "cut into florets"},
+    {"name": "Red bell pepper", "amount": "1", "unit": "piece", "note": "thin strips"},
+    {"name": "Yellow bell pepper", "amount": "1", "unit": "piece", "note": "thin strips"},
+    {"name": "Carrots", "amount": "2", "unit": "pieces", "note": "sliced diagonally"},
+    {"name": "Snow peas", "amount": "100", "unit": "g"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh ginger", "amount": "1", "unit": "tbsp", "note": "grated"},
+    {"name": "Soy sauce", "amount": "3", "unit": "tbsp"},
+    {"name": "Oyster sauce", "amount": "2", "unit": "tbsp"},
+    {"name": "Sesame oil", "amount": "1", "unit": "tsp"},
+    {"name": "Cornstarch", "amount": "1", "unit": "tsp"},
+    {"name": "Chicken broth", "amount": "1/4", "unit": "cup"},
+    {"name": "Vegetable oil", "amount": "3", "unit": "tbsp"},
+    {"name": "Green onions", "amount": "3", "unit": "stalks", "note": "sliced"},
+    {"name": "Sesame seeds", "amount": "1", "unit": "tbsp", "note": "for garnish"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Marinate beef strips with 1 tbsp soy sauce and cornstarch.", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Mix remaining soy sauce, oyster sauce, sesame oil, and chicken broth for sauce.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Heat wok or large skillet over very high heat.", "tip": "Wok should be smoking - this is critical for flavor.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Add 2 tbsp vegetable oil.", "duration": "30 seconds"},
+    {"step": 5, "instruction": "Add marinated beef in batches, let sear 1-2 minutes without stirring.", "tip": "Don't overcrowd - it will steam instead of sear.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Stir and cook 1 more minute. Remove to plate.", "duration": "1 minute"},
+    {"step": 7, "instruction": "Add remaining oil to same wok.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Add carrots and broccoli, stir-fry 2 minutes.", "duration": "2 minutes"},
+    {"step": 9, "instruction": "Add bell peppers and snow peas, cook 1-2 minutes.", "tip": "Vegetables should still be crisp.", "duration": "2 minutes"},
+    {"step": 10, "instruction": "Add garlic and ginger, cook 30 seconds.", "duration": "30 seconds"},
+    {"step": 11, "instruction": "Return cooked beef and add prepared sauce.", "duration": "30 seconds"},
+    {"step": 12, "instruction": "Toss continuously 1-2 minutes until sauce thickens.", "duration": "2 minutes"},
+    {"step": 13, "instruction": "Add most of green onions and toss.", "duration": "30 seconds"},
+    {"step": 14, "instruction": "Serve over rice or noodles, garnish with sesame seeds and remaining green onions.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 32,
+    "carbs": 18,
+    "fat": 20,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 820
+  },
+  "tips": [
+    "Freeze beef 20 minutes before slicing - much easier to cut thin.",
+    "Prep all vegetables before starting - stir fry cooks fast.",
+    "No wok? Use wide-bottomed deep skillet.",
+    "Use low-sodium soy sauce for healthier version."
+  ],
+  "storageInfo": "Refrigerate up to 3 days. Reheat in wok or skillet.",
+  "servingSuggestion": "Serve over jasmine rice or egg noodles.",
+  "variations": [
+    "Chicken: Use chicken breast instead of beef.",
+    "Shrimp: Use quick-cooking shrimp.",
+    "Vegetarian: Use tofu and more vegetables."
+  ]
+}

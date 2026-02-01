@@ -1,0 +1,62 @@
+{
+  "name": "Teriyaki Tavuk",
+  "description": "Taze sebzeler ve pişmiş pirinç eşliğinde, tatlı ve tuzlu teriyaki soslu sülün gibi parlak tavuk.",
+  "prepTime": "15 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "35 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Tavuk but", "amount": "600", "unit": "g", "note": "kemikli veya kemiksiz"},
+    {"name": "Soya sosu", "amount": "1/4", "unit": "su bardağı"},
+    {"name": "Mirin", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Pirinc sirkesi", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Bal", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Taze zencefil", "amount": "1", "unit": "yemek kaşığı", "note": "rendelenmiş"},
+    {"name": "Mısır nişastası", "amount": "1", "unit": "yemek kaşığı"},
+    {"name": "Su", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Susam", "amount": "2", "unit": "yemek kaşığı", "note": "süsleme için"},
+    {"name": "Yeşil soğan", "amount": "3", "unit": "dal", "note": "ince dilimlenmiş"},
+    {"name": "Bitkisel yağ", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Jasmine pirinç", "amount": "2", "unit": "su bardağı", "note": "pişmiş"},
+    {"name": "Brokoli", "amount": "200", "unit": "g", "note": "buharında pişmiş"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Teriyaki sosu için soya sosu, mirin, pirinc sirkesi, bal, sarımsak ve zencefili karıştırın.", "duration": "2 dakika"},
+    {"step": 2, "instruction": "Mısır nişastasını su ile eritip sos karışımına ekleyin.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Tavuk butlarını eğer büyükse küçük parçalara bölün.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Büyük tavada yağı orta-yüksek ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 5, "instruction": "Tavuk parçalarını derisi alta gelecek şekilde koyun.", "duration": "30 saniye"},
+    {"step": 6, "instruction": "Alt taraf altın rengi alana kadar 5-6 dakika pişirin.", "tip": "Dokunmayın, güzel kabuk oluşsun.", "duration": "6 dakika"},
+    {"step": 7, "instruction": "Çevirip diğer tarafı da 5 dakika pişirin.", "duration": "5 dakika"},
+    {"step": 8, "instruction": "Hazırlanan teriyaki sosunu tavukların üzerine dökün.", "duration": "30 saniye"},
+    {"step": 9, "instruction": "Ateşi kısın, sos koyu kıvama gelene ve tavukları kaplayana kadar 5-7 dakika pişirin.", "tip": "Tavukları birkaç kez çevirerek sosla kaplayın.", "duration": "7 dakika"},
+    {"step": 10, "instruction": "Tavuk iç sıcaklığı 74°C olmalı.", "duration": "30 saniye"},
+    {"step": 11, "instruction": "Pilavı servis tabaklarına bölün.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Buharlı brokoli ekleyin.", "duration": "1 dakika"},
+    {"step": 13, "instruction": "Glazeli tavuğu üzerine yerleştirin.", "duration": "1 dakika"},
+    {"step": 14, "instruction": "Kalan sosu gezdirin, susam ve yeşil soğanla süsleyin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 450,
+    "protein": 35,
+    "carbs": 48,
+    "fat": 14,
+    "fiber": 3,
+    "sugar": 18,
+    "sodium": 920
+  },
+  "tips": [
+    "Mirin bulamazsanız 2 yk beyaz şarap + 1 yk şeker kullanın.",
+    "Tavuk göğsü de kullanabilirsiniz ama but daha sulu kalr.",
+    "Önceden marine ederseniz lezzet daha yoğun olur.",
+    "Düşük sodyum soya sosu ile daha sağlıklı yapılabilir."
+  ],
+  "storageInfo": "Buzdolabında 3 gün saklanır. Isıtırken biraz su ekleyip nemi koruyun.",
+  "servingSuggestion": "Jasmine pirinç ve buharlı sebzelerle servis edin.",
+  "variations": [
+    "Somon: Tavuk yerine somon fileto kullanın.",
+    "Tofu: Vegan versiyon için sıkılmış tofu kullanın.",
+    "Biftekli: İnce dilimlenmiş biftek kullanın."
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "name": "Balık Tacos",
+  "description": "Taze baharatlı balık, çıtır lahana salatası ve kremalı sosla hazırlanan hafif ve lezzetli Meksika tacosu.",
+  "prepTime": "20 dakika",
+  "cookTime": "10 dakika",
+  "totalTime": "30 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Beyaz balık fileto (levrek, çipura veya morina)", "amount": "500", "unit": "g"},
+    {"name": "Küçük taco tortillası", "amount": "8", "unit": "adet"},
+    {"name": "Kırmızı lahana", "amount": "200", "unit": "g", "note": "ince kıyılmış"},
+    {"name": "Havuç", "amount": "1", "unit": "adet", "note": "rendelenmiş"},
+    {"name": "Taze koriş", "amount": "1/2", "unit": "su bardağı", "note": "kıyılmış"},
+    {"name": "Limon", "amount": "3", "unit": "adet"},
+    {"name": "Mayonez", "amount": "100", "unit": "g"},
+    {"name": "Süzme yoğurt", "amount": "100", "unit": "g"},
+    {"name": "Chipotle biberli acı sos", "amount": "1", "unit": "yemek kaşığı", "note": "veya sriracha"},
+    {"name": "Kırmızı biber tozu", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Kimyon", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Sarımsak tozu", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Tuz", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Avokado", "amount": "1", "unit": "adet", "note": "dilimlenmiş"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Balık filetolarını kırmızı biber, kimyon, sarımsak tozu, yarım tuz ve karabiberle ovalayın.", "duration": "3 dakika"},
+    {"step": 2, "instruction": "1 limonun suyunu balığa sıkın, 10 dakika marine edin.", "duration": "10 dakika"},
+    {"step": 3, "instruction": "Chipotle krema sosu için mayonez, yoğurt, 1 limon suyu, chipotle sos ve kalan tuzu karıştırın.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Lahana salatası için kıyılmış lahana, havuç, korişin yarısı ve kalan 1 limonun suyunu karıştırın.", "duration": "3 dakika"},
+    {"step": 5, "instruction": "Büyük tavada veya ızgara tavada zeytinyağını orta-yüksek ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Balık filetolarını tavaya koyun.", "duration": "30 saniye"},
+    {"step": 7, "instruction": "Her tarafı 3-4 dakika, altın rengi ve pişene kadar kavurun.", "tip": "Balık kolayca parçalanmalı.", "duration": "8 dakika"},
+    {"step": 8, "instruction": "Pişen balığı çatal ile kabaca parçalayın.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Tortillaları kuru tavada veya doğrudan ocakta 20 saniye her tarafı ısıtın.", "tip": "Hafifçe kabarmalı ve esnek olmalı.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Her tortillanın ortasına biraz lahana salatası koyun.", "duration": "1 dakika"},
+    {"step": 11, "instruction": "Lahananın üzerine baharatlı balık parçalarını yerleştirin.", "duration": "1 dakika"},
+    {"step": 12, "instruction": "Chipotle kremayı gezdirin.", "duration": "30 saniye"},
+    {"step": 13, "instruction": "Avokado dilimleri ve kalan taze korişle süsleyin.", "duration": "1 dakika"},
+    {"step": 14, "instruction": "Limon dilimleriyle hemen servis edin.", "duration": "30 saniye"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 28,
+    "carbs": 32,
+    "fat": 16,
+    "fiber": 6,
+    "sugar": 4,
+    "sodium": 620
+  },
+  "tips": [
+    "En taze balığı kullanın, tacolarda fark edilir.",
+    "Karides veya ton balığı da harika alternatiflerdir.",
+    "Chipotle sos bulamazsanız sriracha veya acı sos kullanın.",
+    "Mısır tortillaları daha otantik lezzet verir."
+  ],
+  "storageInfo": "Balık ve sos ayrı ayrı 2 gün saklanabilir. Tacoyu servis anında birleştirin.",
+  "servingSuggestion": "Meksika pilavı ve fasulye püresi ile servis edin.",
+  "variations": [
+    "Kızartma: Balığı bira hamuruyla kızartın.",
+    "Karides: Balık yerine baharatlı karides kullanın.",
+    "Izgara: Mangalda veya ızgara tavada pişirin."
+  ]
+}

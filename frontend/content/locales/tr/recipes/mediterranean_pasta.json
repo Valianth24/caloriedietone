@@ -1,0 +1,61 @@
+{
+  "name": "Akdeniz Makarna",
+  "description": "Güneş kurutulmuş domates, zeytin, feta peyniri ve taze fesleğenle Akdeniz'in tüm lezzetlerini bir araya getiren makarna.",
+  "prepTime": "15 dakika",
+  "cookTime": "20 dakika",
+  "totalTime": "35 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Penne veya fusilli makarna", "amount": "400", "unit": "g"},
+    {"name": "Güneş kurutulmuş domates", "amount": "150", "unit": "g", "note": "yağlı, doğranmış"},
+    {"name": "Siyah zeytin", "amount": "100", "unit": "g", "note": "çekirdeksiz, dilimlenmiş"},
+    {"name": "Feta peyniri", "amount": "150", "unit": "g", "note": "ufalanmış"},
+    {"name": "Kiraz domates", "amount": "200", "unit": "g", "note": "ikiye bölünmüş"},
+    {"name": "Taze fesleğen", "amount": "1", "unit": "demet", "note": "yaprakları koparılmış"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ince dilimlenmiş"},
+    {"name": "Kırmızı pul biber", "amount": "1/2", "unit": "tatlı kaşığı"},
+    {"name": "Zeytinyağı", "amount": "1/4", "unit": "su bardağı"},
+    {"name": "Parmesan", "amount": "50", "unit": "g", "note": "rendelenmiş"},
+    {"name": "Limon", "amount": "1", "unit": "adet"},
+    {"name": "Tuz", "amount": "1", "unit": "yemek kaşığı", "note": "makarna suyu için"},
+    {"name": "Karabiber", "amount": "1/2", "unit": "tatlı kaşığı"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Büyük tencerede bol tuzlu suyu kaynatın.", "duration": "5 dakika"},
+    {"step": 2, "instruction": "Makarnayı paket talimatına göre al dente pişirin. 1 su bardağı makarna suyunu ayırın.", "tip": "Al dente = hafif sert, sosu emecek kıvamda.", "duration": "10 dakika"},
+    {"step": 3, "instruction": "Bu sırada büyük bir tavada zeytinyağını orta ateşte ısıtın.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "Sarımsak dilimlerini ekleyin, 1 dakika altın rengi alana kadar kavurun.", "tip": "Yanmasın dikkat, acılaşır.", "duration": "1 dakika"},
+    {"step": 5, "instruction": "Güneş kurutulmuş domatesleri ve pul biberi ekleyin, 2 dakika karıştırın.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Kiraz domatesleri ekleyin, hafifçe yumuşayana kadar 2-3 dakika pişirin.", "duration": "3 dakika"},
+    {"step": 7, "instruction": "Süzülmüş makarnayı tavaya alın.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Yarım su bardağı makarna suyunu ekleyip karıştırın.", "tip": "Nişastalı su sosu kremamsı yapar.", "duration": "1 dakika"},
+    {"step": 9, "instruction": "Zeytinleri ekleyip karıştırın.", "duration": "30 saniye"},
+    {"step": 10, "instruction": "Ateşten alın. Parmesanın yarısını ve feta'nın yarısını ekleyin.", "duration": "30 saniye"},
+    {"step": 11, "instruction": "Fesleğen yapraklarının çoğunu ekleyin, limon suyunu sıkın.", "duration": "30 saniye"},
+    {"step": 12, "instruction": "Karabiber ekleyip son kez karıştırın.", "duration": "30 saniye"},
+    {"step": 13, "instruction": "Servis tabaklarına bölün.", "duration": "1 dakika"},
+    {"step": 14, "instruction": "Kalan feta, parmesan ve taze fesleğenle süsleyip servis edin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 18,
+    "carbs": 62,
+    "fat": 24,
+    "fiber": 5,
+    "sugar": 8,
+    "sodium": 780
+  },
+  "tips": [
+    "Makarna suyunun bir kısmını her zaman ayırın - sosu birleştirmek için mükemmel.",
+    "Kurutulmuş domatesin yağını da kullanabilirsiniz, ekstra lezzet katar.",
+    "Izgara tavuk veya karides ekleyerek protein artırılabilir.",
+    "Tam buğday makarna ile daha besleyici olur."
+  ],
+  "storageInfo": "Buzdolabında 3 gün saklanır. Isıtırken biraz zeytinyağı veya su ekleyin.",
+  "servingSuggestion": "Crusty ekmek ve beyaz şarap eşliğinde servis edin.",
+  "variations": [
+    "Tavuklu: Izgara tavuk dilimleri ekleyin.",
+    "Deniz mahsullü: Karides ve midye ekleyin.",
+    "Vegan: Feta yerine vegan peynir, parmesan atlatın."
+  ]
+}

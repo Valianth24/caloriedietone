@@ -1,0 +1,62 @@
+{
+  "name": "Teriyaki Chicken",
+  "description": "Glossy, sweet and savory teriyaki glazed chicken served with fresh vegetables and steamed rice.",
+  "prepTime": "15 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "35 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Chicken thighs", "amount": "600", "unit": "g", "note": "bone-in or boneless"},
+    {"name": "Soy sauce", "amount": "1/4", "unit": "cup"},
+    {"name": "Mirin", "amount": "3", "unit": "tbsp"},
+    {"name": "Rice vinegar", "amount": "2", "unit": "tbsp"},
+    {"name": "Honey", "amount": "3", "unit": "tbsp"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "minced"},
+    {"name": "Fresh ginger", "amount": "1", "unit": "tbsp", "note": "grated"},
+    {"name": "Cornstarch", "amount": "1", "unit": "tbsp"},
+    {"name": "Water", "amount": "2", "unit": "tbsp"},
+    {"name": "Sesame seeds", "amount": "2", "unit": "tbsp", "note": "for garnish"},
+    {"name": "Green onions", "amount": "3", "unit": "stalks", "note": "thinly sliced"},
+    {"name": "Vegetable oil", "amount": "2", "unit": "tbsp"},
+    {"name": "Jasmine rice", "amount": "2", "unit": "cups", "note": "cooked"},
+    {"name": "Broccoli", "amount": "200", "unit": "g", "note": "steamed"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Mix soy sauce, mirin, rice vinegar, honey, garlic, and ginger for teriyaki sauce.", "duration": "2 minutes"},
+    {"step": 2, "instruction": "Dissolve cornstarch in water, add to sauce mixture.", "duration": "1 minute"},
+    {"step": 3, "instruction": "Cut chicken thighs into smaller pieces if large.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Heat oil in large skillet over medium-high heat.", "duration": "2 minutes"},
+    {"step": 5, "instruction": "Place chicken pieces skin-side down.", "duration": "30 seconds"},
+    {"step": 6, "instruction": "Cook until golden brown on bottom, 5-6 minutes.", "tip": "Don't touch - let it develop nice crust.", "duration": "6 minutes"},
+    {"step": 7, "instruction": "Flip and cook other side 5 minutes.", "duration": "5 minutes"},
+    {"step": 8, "instruction": "Pour prepared teriyaki sauce over chicken.", "duration": "30 seconds"},
+    {"step": 9, "instruction": "Reduce heat, cook until sauce thickens and coats chicken, 5-7 minutes.", "tip": "Turn chicken several times to coat with glaze.", "duration": "7 minutes"},
+    {"step": 10, "instruction": "Chicken internal temp should reach 165°F.", "duration": "30 seconds"},
+    {"step": 11, "instruction": "Divide rice among serving plates.", "duration": "1 minute"},
+    {"step": 12, "instruction": "Add steamed broccoli.", "duration": "1 minute"},
+    {"step": 13, "instruction": "Place glazed chicken on top.", "duration": "1 minute"},
+    {"step": 14, "instruction": "Drizzle remaining sauce, garnish with sesame seeds and green onions.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 450,
+    "protein": 35,
+    "carbs": 48,
+    "fat": 14,
+    "fiber": 3,
+    "sugar": 18,
+    "sodium": 920
+  },
+  "tips": [
+    "No mirin? Use 2 tbsp white wine + 1 tbsp sugar.",
+    "Chicken breast works but thighs stay juicier.",
+    "Marinating ahead intensifies flavor.",
+    "Use low-sodium soy sauce for healthier version."
+  ],
+  "storageInfo": "Refrigerate up to 3 days. Add splash of water when reheating to maintain moisture.",
+  "servingSuggestion": "Serve over jasmine rice with steamed vegetables.",
+  "variations": [
+    "Salmon: Use salmon fillet instead of chicken.",
+    "Tofu: Use pressed tofu for vegan version.",
+    "Beef: Use thinly sliced beef."
+  ]
+}

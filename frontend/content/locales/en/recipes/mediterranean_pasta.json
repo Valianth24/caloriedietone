@@ -1,0 +1,61 @@
+{
+  "name": "Mediterranean Pasta",
+  "description": "Pasta bringing together all Mediterranean flavors with sun-dried tomatoes, olives, feta cheese, and fresh basil.",
+  "prepTime": "15 minutes",
+  "cookTime": "20 minutes",
+  "totalTime": "35 minutes",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Penne or fusilli pasta", "amount": "400", "unit": "g"},
+    {"name": "Sun-dried tomatoes", "amount": "150", "unit": "g", "note": "in oil, chopped"},
+    {"name": "Black olives", "amount": "100", "unit": "g", "note": "pitted, sliced"},
+    {"name": "Feta cheese", "amount": "150", "unit": "g", "note": "crumbled"},
+    {"name": "Cherry tomatoes", "amount": "200", "unit": "g", "note": "halved"},
+    {"name": "Fresh basil", "amount": "1", "unit": "bunch", "note": "leaves picked"},
+    {"name": "Garlic", "amount": "4", "unit": "cloves", "note": "thinly sliced"},
+    {"name": "Red pepper flakes", "amount": "1/2", "unit": "tsp"},
+    {"name": "Olive oil", "amount": "1/4", "unit": "cup"},
+    {"name": "Parmesan", "amount": "50", "unit": "g", "note": "grated"},
+    {"name": "Lemon", "amount": "1", "unit": "piece"},
+    {"name": "Salt", "amount": "1", "unit": "tbsp", "note": "for pasta water"},
+    {"name": "Black pepper", "amount": "1/2", "unit": "tsp"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Bring large pot of well-salted water to boil.", "duration": "5 minutes"},
+    {"step": 2, "instruction": "Cook pasta according to package directions until al dente. Reserve 1 cup pasta water.", "tip": "Al dente = slightly firm, ready to absorb sauce.", "duration": "10 minutes"},
+    {"step": 3, "instruction": "Meanwhile, heat olive oil in large skillet over medium heat.", "duration": "2 minutes"},
+    {"step": 4, "instruction": "Add garlic slices, sauté until golden, about 1 minute.", "tip": "Don't let it burn - it turns bitter.", "duration": "1 minute"},
+    {"step": 5, "instruction": "Add sun-dried tomatoes and red pepper flakes, stir 2 minutes.", "duration": "2 minutes"},
+    {"step": 6, "instruction": "Add cherry tomatoes, cook until slightly softened, 2-3 minutes.", "duration": "3 minutes"},
+    {"step": 7, "instruction": "Add drained pasta to skillet.", "duration": "30 seconds"},
+    {"step": 8, "instruction": "Add half cup pasta water and toss to combine.", "tip": "Starchy water creates creamy sauce.", "duration": "1 minute"},
+    {"step": 9, "instruction": "Add olives and toss.", "duration": "30 seconds"},
+    {"step": 10, "instruction": "Remove from heat. Add half the parmesan and half the feta.", "duration": "30 seconds"},
+    {"step": 11, "instruction": "Add most basil leaves and squeeze lemon juice.", "duration": "30 seconds"},
+    {"step": 12, "instruction": "Add black pepper and toss one final time.", "duration": "30 seconds"},
+    {"step": 13, "instruction": "Divide among serving plates.", "duration": "1 minute"},
+    {"step": 14, "instruction": "Top with remaining feta, parmesan, and fresh basil to serve.", "duration": "1 minute"}
+  ],
+  "nutrition": {
+    "calories": 520,
+    "protein": 18,
+    "carbs": 62,
+    "fat": 24,
+    "fiber": 5,
+    "sugar": 8,
+    "sodium": 780
+  },
+  "tips": [
+    "Always save some pasta water - it's perfect for bringing sauce together.",
+    "Use the oil from sun-dried tomatoes for extra flavor.",
+    "Add grilled chicken or shrimp for extra protein.",
+    "Whole wheat pasta makes it more nutritious."
+  ],
+  "storageInfo": "Refrigerate up to 3 days. Add splash of olive oil or water when reheating.",
+  "servingSuggestion": "Serve with crusty bread and white wine.",
+  "variations": [
+    "With chicken: Add grilled chicken slices.",
+    "Seafood: Add shrimp and mussels.",
+    "Vegan: Skip feta or use vegan cheese, omit parmesan."
+  ]
+}

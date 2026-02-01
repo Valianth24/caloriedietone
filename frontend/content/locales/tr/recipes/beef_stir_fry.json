@@ -1,0 +1,64 @@
+{
+  "name": "Sığır Eti Stir Fry",
+  "description": "Yüksek ateşte hızla pişirilen, renkli sebzeler ve lezzetli sosla hazırlanan Asya usulü sığır eti kavurması.",
+  "prepTime": "15 dakika",
+  "cookTime": "12 dakika",
+  "totalTime": "27 dakika",
+  "servings": 4,
+  "ingredients": [
+    {"name": "Sığır eti (bonfile veya antrikot)", "amount": "500", "unit": "g", "note": "ince şeritler"},
+    {"name": "Brokoli", "amount": "200", "unit": "g", "note": "çiçeklere ayrılmış"},
+    {"name": "Kırmızı biber", "amount": "1", "unit": "adet", "note": "ince şeritler"},
+    {"name": "Sarı biber", "amount": "1", "unit": "adet", "note": "ince şeritler"},
+    {"name": "Havuç", "amount": "2", "unit": "adet", "note": "çapraz dilimlenmiş"},
+    {"name": "Şeker bezelyesi", "amount": "100", "unit": "g"},
+    {"name": "Sarımsak", "amount": "4", "unit": "diş", "note": "ezilmiş"},
+    {"name": "Taze zencefil", "amount": "1", "unit": "yemek kaşığı", "note": "rendelenmiş"},
+    {"name": "Soya sosu", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Istiridye sosu", "amount": "2", "unit": "yemek kaşığı"},
+    {"name": "Susam yağı", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Mısır nişastası", "amount": "1", "unit": "tatlı kaşığı"},
+    {"name": "Tavuk suyu", "amount": "1/4", "unit": "su bardağı"},
+    {"name": "Bitkisel yağ", "amount": "3", "unit": "yemek kaşığı"},
+    {"name": "Yeşil soğan", "amount": "3", "unit": "dal", "note": "dilimlenmiş"},
+    {"name": "Susam", "amount": "1", "unit": "yemek kaşığı", "note": "süsleme için"}
+  ],
+  "instructions": [
+    {"step": 1, "instruction": "Et şeritlerini 1 yk soya sosu ve mısır nişastası ile marine edin.", "duration": "5 dakika"},
+    {"step": 2, "instruction": "Sos için kalan soya sosu, ıstiridye sosu, susam yağı ve tavuk suyunu karıştırın.", "duration": "1 dakika"},
+    {"step": 3, "instruction": "Wok veya büyük tavayı yüksek ateşte çok iyi ısıtın.", "tip": "Wok dumanlı olmalı - bu lezzet için kritik.", "duration": "2 dakika"},
+    {"step": 4, "instruction": "2 yk bitkisel yağ ekleyin.", "duration": "30 saniye"},
+    {"step": 5, "instruction": "Marine edilmiş eti serimlere ayırarak koyun, 1-2 dakika çevirmeden pişirin.", "tip": "Tek seferde çok et koymayın, buharlaşır.", "duration": "2 dakika"},
+    {"step": 6, "instruction": "Karıştırıp 1 dakika daha pişirin. Tabağa alın.", "duration": "1 dakika"},
+    {"step": 7, "instruction": "Aynı wok'a kalan yağı ekleyin.", "duration": "30 saniye"},
+    {"step": 8, "instruction": "Havuç ve brokoli ekleyin, 2 dakika kavurun.", "duration": "2 dakika"},
+    {"step": 9, "instruction": "Biberleri ve şeker bezelyesini ekleyin, 1-2 dakika pişirin.", "tip": "Sebzeler hala çıtır olmalı.", "duration": "2 dakika"},
+    {"step": 10, "instruction": "Sarımsak ve zencefili ekleyin, 30 saniye kavurun.", "duration": "30 saniye"},
+    {"step": 11, "instruction": "Pişmiş eti ve hazırladığınız sosu ekleyin.", "duration": "30 saniye"},
+    {"step": 12, "instruction": "Sürekli karıştırarak 1-2 dakika, sos koyulaşana kadar pişirin.", "duration": "2 dakika"},
+    {"step": 13, "instruction": "Yeşil soğanların çoğunu ekleyip karıştırın.", "duration": "30 saniye"},
+    {"step": 14, "instruction": "Pilav veya noodle üzerine servis edin, susam ve kalan yeşil soğanla süsleyin.", "duration": "1 dakika"}
+  ],
+  "nutrition": {
+    "calories": 380,
+    "protein": 32,
+    "carbs": 18,
+    "fat": 20,
+    "fiber": 4,
+    "sugar": 8,
+    "sodium": 820
+  },
+  "tips": [
+    "Eti dondurmadan önce 20 dakika buzluğa koyun, daha kolay dilimlersiniz.",
+    "Sebzeleri önceden hazırlayın, stir fry hızlı pişer.",
+    "Wok yoksa geniş tabalı derin tava kullanın.",
+    "Düşük sodyum soya sosu ile daha sağlıklı yapılabilir."
+  ],
+  "storageInfo": "Buzdolabında 3 gün saklanır. Wok veya tavada ısıtın.",
+  "servingSuggestion": "Jasmine pilav veya yumurta noodle ile servis edin.",
+  "variations": [
+    "Tavuklu: Sığır eti yerine tavuk göğsü kullanın.",
+    "Karidesli: Hızlı pişen karides kullanın.",
+    "Vejetaryen: Tofu ve daha fazla sebze kullanın."
+  ]
+}
