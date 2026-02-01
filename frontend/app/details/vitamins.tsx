@@ -38,6 +38,7 @@ export default function VitaminsScreen() {
   const { t } = useTranslation();
   const router = useRouter();
   const { refreshData, user } = useStore();
+  const insets = useSafeAreaInsets(); // Safe area insets ekledik
   const [vitamins, setVitamins] = useState<Vitamin[]>([]);
   const [loading, setLoading] = useState(true);
   const [showAddModal, setShowAddModal] = useState(false);
