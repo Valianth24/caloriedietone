@@ -299,6 +299,12 @@ export default function TabLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="profile-old-backup"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 }
