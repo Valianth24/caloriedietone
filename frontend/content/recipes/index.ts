@@ -124,6 +124,16 @@ const recipeContentLoaders: Record<string, Record<RecipeId, () => Promise<Recipe
     fruit_salad: () => import('../locales/en/recipes/fruit_salad.json').then(m => m.default as RecipeContent),
     rice_pudding: () => import('../locales/en/recipes/rice_pudding.json').then(m => m.default as RecipeContent),
     baklava_oatmeal: () => import('../locales/en/recipes/baklava_oatmeal.json').then(m => m.default as RecipeContent),
+    chicken_wrap: () => import('../locales/en/recipes/chicken_wrap.json').then(m => m.default as RecipeContent),
+    taco_bowl: () => import('../locales/en/recipes/taco_bowl.json').then(m => m.default as RecipeContent),
+    veggie_burger: () => import('../locales/en/recipes/veggie_burger.json').then(m => m.default as RecipeContent),
+    chicken_quesadilla: () => import('../locales/en/recipes/chicken_quesadilla.json').then(m => m.default as RecipeContent),
+    egg_fried_rice: () => import('../locales/en/recipes/egg_fried_rice.json').then(m => m.default as RecipeContent),
+    teriyaki_chicken: () => import('../locales/en/recipes/teriyaki_chicken.json').then(m => m.default as RecipeContent),
+    mediterranean_pasta: () => import('../locales/en/recipes/mediterranean_pasta.json').then(m => m.default as RecipeContent),
+    chicken_curry: () => import('../locales/en/recipes/chicken_curry.json').then(m => m.default as RecipeContent),
+    beef_stir_fry: () => import('../locales/en/recipes/beef_stir_fry.json').then(m => m.default as RecipeContent),
+    fish_tacos: () => import('../locales/en/recipes/fish_tacos.json').then(m => m.default as RecipeContent),
   },
 };
 
