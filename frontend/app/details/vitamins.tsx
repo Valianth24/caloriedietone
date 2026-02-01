@@ -336,7 +336,7 @@ export default function VitaminsScreen() {
           behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
           style={styles.modalContainer}
         >
-          <View style={styles.modalContent}>
+          <View style={[styles.modalContent, { paddingBottom: Math.max(insets.bottom, 24) }]}>
             <Text style={styles.modalTitle}>{t('addNewVitamin')}</Text>
             <TextInput
               style={styles.modalInput}
