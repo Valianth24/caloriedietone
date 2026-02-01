@@ -9,6 +9,8 @@ import {
   Image,
   Alert,
   Dimensions,
+  Modal,
+  Linking,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Animated, {
@@ -21,13 +23,19 @@ import { LinearGradient } from 'expo-linear-gradient';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useAuth } from '../../contexts/AuthContext';
 import { useStore } from '../../store/useStore';
+import { useTheme } from '../../contexts/ThemeContext';
 import { Colors } from '../../constants/Colors';
 import { updateProfile, updateGoals, getGamificationStatus } from '../../utils/api';
 import { useTranslation } from 'react-i18next';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 import i18n, { languageList, changeLanguage } from '../../utils/i18n';
+import ThemeSelector from '../../components/ThemeSelector';
 import Constants from 'expo-constants';
+
+// Privacy Policy & Terms URLs
+const PRIVACY_POLICY_URL = 'https://sites.google.com/view/calorie-diet-tracker/ana-sayfa';
+const TERMS_OF_SERVICE_URL = 'https://sites.google.com/view/calorie-diet-tracker/ana-sayfa';
 
 const { width } = Dimensions.get('window');
 
