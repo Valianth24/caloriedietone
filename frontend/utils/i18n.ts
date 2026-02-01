@@ -54,6 +54,7 @@ const resources = {
       camera: 'Camera',
       nutrition: 'Nutrition',
       tracking: 'Tracking',
+      achievements: 'Achievements',
       profile: 'Profile',
       settings: 'Settings',
       
