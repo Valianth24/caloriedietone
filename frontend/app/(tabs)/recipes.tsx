@@ -257,8 +257,14 @@ export default function RecipesScreen() {
     }
   };
 
-  const handleRecipePress = async (recipe: RecipeMetadata, recipeIndex: number) => {
+  const handleRecipePress = async (recipe: RecipeMetadata | undefined, recipeIndex: number = 0) => {
     try {
+      // Null/undefined kontrolü
+      if (!recipe || !recipe.id) {
+        console.error('Recipe is undefined or missing id');
+        return;
+      }
+      
       // Free Pass aktifse tüm tarifler ücretsiz
       if (freePassActive) {
         router.push({
