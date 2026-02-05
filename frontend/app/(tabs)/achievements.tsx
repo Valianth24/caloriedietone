@@ -16,27 +16,25 @@ import GamificationDashboard from '../../components/GamificationDashboard';
 import DailyTasksCard from '../../components/DailyTasksCard';
 import LevelUpModal from '../../components/LevelUpModal';
 import LeaderboardScreen from '../../components/LeaderboardScreen';
-import { 
-  getGamificationStatus, 
-  checkDailyLogin,
-  getAchievements,
-  completeGoal 
-} from '../../utils/api';
+import { getGamificationStatus, checkDailyLogin, getAchievements, completeGoal } from '../../utils/api';
 import { useStore } from '../../store/useStore';
 
+type TabKey = 'overview' | 'leaderboard';
+
 export default function AchievementsScreen() {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
+
   const { user, dailySummary, waterData, stepData } = useStore();
-  
+
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [gamificationData, setGamificationData] = useState<any>(null);
   const [achievements, setAchievements] = useState<any>(null);
   const [showLevelUp, setShowLevelUp] = useState(false);
   const [newLevel, setNewLevel] = useState(1);
-  const [activeTab, setActiveTab] = useState<'overview' | 'leaderboard'>('overview');
-  
+  const [activeTab, setActiveTab] = useState<TabKey>('overview');
+
   // Günlük görevler - Adım hedefi dahil!
   const [dailyTasks, setDailyTasks] = useState([
     {
@@ -89,11 +87,12 @@ export default function AchievementsScreen() {
 
   useEffect(() => {
     loadData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  
+
   useEffect(() => {
-    // Görevlerin durumunu güncelle
     updateTasksStatus();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dailySummary, waterData, stepData, user]);
 
   const loadData = async () => {
@@ -101,23 +100,23 @@ export default function AchievementsScreen() {
     try {
       // Günlük giriş kontrolü yap
       const dailyCheck = await checkDailyLogin();
-      
+
       // Seviye atlama kontrolü
       if (dailyCheck?.rewards?.level_up) {
         setNewLevel(dailyCheck.rewards.new_level);
         setShowLevelUp(true);
       }
-      
+
       // Gamification durumunu al
       const status = await getGamificationStatus();
       setGamificationData(status);
-      
+
       // Rozetleri al
       const achievementsData = await getAchievements();
       setAchievements(achievementsData);
-      
-      // Görevlerin durumunu güncelle
-      await updateTasksStatus();
+
+      // Görevleri güncelle
+      updateTasksStatus();
     } catch (error) {
       console.error('Error loading gamification data:', error);
     } finally {
@@ -125,47 +124,49 @@ export default function AchievementsScreen() {
     }
   };
 
-  const updateTasksStatus = async () => {
-    setDailyTasks(prev => prev.map(task => {
-      if (task.id === 'login') {
-        return { ...task, completed: true };
-      }
-      
-      if (task.id === 'water') {
-        const current = waterData?.total_amount || 0;
-        const goal = user?.water_goal || 2500;
-        return {
-          ...task,
-          completed: current >= goal,
-          progress: current,
-          total: goal,
-        };
-      }
-      
-      if (task.id === 'steps') {
-        const current = stepData?.steps || 0;
-        const goal = user?.step_goal || 10000;
-        return {
-          ...task,
-          completed: current >= goal,
-          progress: current,
-          total: goal,
-        };
-      }
-      
-      if (task.id === 'calorie') {
-        const current = dailySummary?.total_calories || 0;
-        const goal = user?.daily_calorie_goal || 2000;
-        return {
-          ...task,
-          completed: current >= goal * 0.8, // %80'i yeterli
-          progress: current,
-          total: goal,
-        };
-      }
-      
-      return task;
-    }));
+  const updateTasksStatus = () => {
+    setDailyTasks(prev =>
+      prev.map(task => {
+        if (task.id === 'login') {
+          return { ...task, completed: true };
+        }
+
+        if (task.id === 'water') {
+          const current = waterData?.total_amount || 0;
+          const goal = user?.water_goal || 2500;
+          return {
+            ...task,
+            completed: current >= goal,
+            progress: current,
+            total: goal,
+          };
+        }
+
+        if (task.id === 'steps') {
+          const current = stepData?.steps || 0;
+          const goal = user?.step_goal || 10000;
+          return {
+            ...task,
+            completed: current >= goal,
+            progress: current,
+            total: goal,
+          };
+        }
+
+        if (task.id === 'calorie') {
+          const current = dailySummary?.total_calories || 0;
+          const goal = user?.daily_calorie_goal || 2000;
+          return {
+            ...task,
+            completed: current >= goal * 0.8, // %80'i yeterli
+            progress: current,
+            total: goal,
+          };
+        }
+
+        return task;
+      }),
+    );
   };
 
   const handleRefresh = async () => {
@@ -176,34 +177,33 @@ export default function AchievementsScreen() {
 
   const handleTaskPress = async (taskId: string) => {
     const task = dailyTasks.find(t => t.id === taskId);
-    if (!task || task.completed) return;
-    
-    // Görev tamamlandıysa backend'e bildir
-    if (taskId === 'water' && task.progress && task.total && task.progress >= task.total) {
-      try {
+    if (!task) return;
+
+    try {
+      const progressOk = typeof (task as any).progress === 'number';
+      const totalOk = typeof (task as any).total === 'number';
+
+      if (taskId === 'water' && progressOk && totalOk && (task as any).progress >= (task as any).total) {
         await completeGoal('water');
         await loadData();
-      } catch (error) {
-        console.error('Error completing water goal:', error);
       }
-    }
-    
-    if (taskId === 'steps' && task.progress && task.total && task.progress >= task.total) {
-      try {
+
+      if (taskId === 'steps' && progressOk && totalOk && (task as any).progress >= (task as any).total) {
         await completeGoal('steps');
         await loadData();
-      } catch (error) {
-        console.error('Error completing steps goal:', error);
       }
-    }
-    
-    if (taskId === 'calorie' && task.progress && task.total && task.progress >= task.total * 0.8) {
-      try {
+
+      if (
+        taskId === 'calorie' &&
+        progressOk &&
+        totalOk &&
+        (task as any).progress >= (task as any).total * 0.8
+      ) {
         await completeGoal('calorie');
         await loadData();
-      } catch (error) {
-        console.error('Error completing calorie goal:', error);
       }
+    } catch (error) {
+      console.error(`Error completing ${taskId} goal:`, error);
     }
   };
 
@@ -217,6 +217,9 @@ export default function AchievementsScreen() {
     );
   }
 
+  const earned = achievements?.earned ?? [];
+  const unearned = achievements?.unearned ?? [];
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       {/* Tab Switcher */}
@@ -225,24 +228,24 @@ export default function AchievementsScreen() {
           style={[styles.tabButton, activeTab === 'overview' && styles.tabButtonActive]}
           onPress={() => setActiveTab('overview')}
         >
-          <Ionicons 
-            name={activeTab === 'overview' ? 'trophy' : 'trophy-outline'} 
-            size={20} 
-            color={activeTab === 'overview' ? '#FFF' : Colors.lightText} 
+          <Ionicons
+            name={activeTab === 'overview' ? 'trophy' : 'trophy-outline'}
+            size={20}
+            color={activeTab === 'overview' ? '#FFF' : Colors.lightText}
           />
           <Text style={[styles.tabButtonText, activeTab === 'overview' && styles.tabButtonTextActive]}>
             {lang === 'tr' ? 'Genel Bakış' : 'Overview'}
           </Text>
         </TouchableOpacity>
-        
+
         <TouchableOpacity
           style={[styles.tabButton, activeTab === 'leaderboard' && styles.tabButtonActive]}
           onPress={() => setActiveTab('leaderboard')}
         >
-          <Ionicons 
-            name={activeTab === 'leaderboard' ? 'podium' : 'podium-outline'} 
-            size={20} 
-            color={activeTab === 'leaderboard' ? '#FFF' : Colors.lightText} 
+          <Ionicons
+            name={activeTab === 'leaderboard' ? 'podium' : 'podium-outline'}
+            size={20}
+            color={activeTab === 'leaderboard' ? '#FFF' : Colors.lightText}
           />
           <Text style={[styles.tabButtonText, activeTab === 'leaderboard' && styles.tabButtonTextActive]}>
             {lang === 'tr' ? 'Sıralama' : 'Leaderboard'}
@@ -258,132 +261,98 @@ export default function AchievementsScreen() {
           contentContainerStyle={styles.scrollContent}
           showsVerticalScrollIndicator={false}
           refreshControl={
-            <RefreshControl
-              refreshing={refreshing}
-              onRefresh={handleRefresh}
-              colors={[Colors.primary]}
-            />
+            <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} colors={[Colors.primary]} />
           }
         >
-        {/* Header */}
-        <View style={styles.header}>
-          <View>
-            <Text style={styles.headerTitle}>
-              {lang === 'tr' ? 'Başarılarım' : 'My Achievements'}
-            </Text>
-            <Text style={styles.headerSubtitle}>
-              {lang === 'tr' ? 'İlerlemeni takip et' : 'Track your progress'}
-            </Text>
-          </View>
-          <TouchableOpacity style={styles.infoButton}>
-            <Ionicons name="information-circle-outline" size={28} color={Colors.primary} />
-          </TouchableOpacity>
-        </View>
-
-        {/* Gamification Dashboard */}
-        {gamificationData && (
-          <GamificationDashboard 
-            data={gamificationData} 
-            onRefresh={loadData}
-          />
-        )}
-
-        {/* Daily Tasks */}
-        <DailyTasksCard 
-          tasks={dailyTasks}
-          onTaskPress={handleTaskPress}
-        />
-
-        {/* Achievements Section */}
-        {achievements && (
-          <View style={styles.achievementsSection}>
-            <View style={styles.sectionHeader}>
-              <Ionicons name="trophy" size={24} color={Colors.primary} />
-              <Text style={styles.sectionTitle}>
-                {lang === 'tr' ? 'Rozetler' : 'Badges'}
-              </Text>
+          {/* Header */}
+          <View style={styles.header}>
+            <View>
+              <Text style={styles.headerTitle}>{lang === 'tr' ? 'Başarılarım' : 'My Achievements'}</Text>
+              <Text style={styles.headerSubtitle}>{lang === 'tr' ? 'İlerlemeni takip et' : 'Track your progress'}</Text>
             </View>
 
-            {/* Earned Badges */}
-            {achievements.earned.length > 0 && (
-              <View style={styles.badgesGrid}>
-                {achievements.earned.map((achievement: any) => (
-                  <View key={achievement.id} style={styles.badgeCard}>
-                    <Text style={styles.badgeEmoji}>{achievement.emoji}</Text>
-                    <Text style={styles.badgeName} numberOfLines={2}>
-                      {lang === 'tr' ? achievement.name_tr : achievement.name_en}
-                    </Text>
-                    <Text style={styles.badgeXp}>+{achievement.xp} XP</Text>
-                  </View>
-                ))}
-              </View>
-            )}
+            <TouchableOpacity style={styles.infoButton}>
+              <Ionicons name="information-circle-outline" size={28} color={Colors.primary} />
+            </TouchableOpacity>
+          </View>
 
-            {/* Locked Badges */}
-            {achievements.unearned.length > 0 && (
-              <>
-                <Text style={styles.lockedTitle}>
-                  {lang === 'tr' ? 'Kilitli Rozetler' : 'Locked Badges'}
-                </Text>
+          {/* Gamification Dashboard */}
+          {gamificationData && <GamificationDashboard data={gamificationData} onRefresh={loadData} />}
+
+          {/* Daily Tasks */}
+          <DailyTasksCard tasks={dailyTasks} onTaskPress={handleTaskPress} />
+
+          {/* Achievements Section */}
+          {(earned.length > 0 || unearned.length > 0) && (
+            <View style={styles.achievementsSection}>
+              <View style={styles.sectionHeader}>
+                <Ionicons name="trophy" size={24} color={Colors.primary} />
+                <Text style={styles.sectionTitle}>{lang === 'tr' ? 'Rozetler' : 'Badges'}</Text>
+              </View>
+
+              {/* Earned Badges */}
+              {earned.length > 0 && (
                 <View style={styles.badgesGrid}>
-                  {achievements.unearned.slice(0, 6).map((achievement: any) => (
-                    <View key={achievement.id} style={[styles.badgeCard, styles.lockedBadge]}>
-                      <Text style={styles.badgeEmojiLocked}>{achievement.emoji}</Text>
-                      <Text style={[styles.badgeName, styles.badgeNameLocked]} numberOfLines={2}>
+                  {earned.map((achievement: any) => (
+                    <View key={achievement.id} style={styles.badgeCard}>
+                      <Text style={styles.badgeEmoji}>{achievement.emoji}</Text>
+                      <Text style={styles.badgeName} numberOfLines={2}>
                         {lang === 'tr' ? achievement.name_tr : achievement.name_en}
                       </Text>
-                      <Ionicons name="lock-closed" size={16} color={Colors.lightText} />
+                      <Text style={styles.badgeXp}>+{achievement.xp} XP</Text>
                     </View>
                   ))}
                 </View>
-              </>
-            )}
-          </View>
-        )}
+              )}
 
-        {/* Stats Summary */}
-        <View style={styles.statsSection}>
-          <Text style={styles.sectionTitle}>
-            {lang === 'tr' ? 'İstatistikler' : 'Statistics'}
-          </Text>
-          <View style={styles.statsGrid}>
-            <View style={styles.statCard}>
-              <Ionicons name="flame" size={32} color={Colors.primary} />
-              <Text style={styles.statValue}>
-                {gamificationData?.daily_streak || 0}
-              </Text>
-              <Text style={styles.statLabel}>
-                {lang === 'tr' ? 'Günlük Seri' : 'Day Streak'}
-              </Text>
+              {/* Locked Badges */}
+              {unearned.length > 0 && (
+                <>
+                  <Text style={styles.lockedTitle}>{lang === 'tr' ? 'Kilitli Rozetler' : 'Locked Badges'}</Text>
+                  <View style={styles.badgesGrid}>
+                    {unearned.slice(0, 6).map((achievement: any) => (
+                      <View key={achievement.id} style={[styles.badgeCard, styles.lockedBadge]}>
+                        <Text style={styles.badgeEmojiLocked}>{achievement.emoji}</Text>
+                        <Text style={[styles.badgeName, styles.badgeNameLocked]} numberOfLines={2}>
+                          {lang === 'tr' ? achievement.name_tr : achievement.name_en}
+                        </Text>
+                        <Ionicons name="lock-closed" size={16} color={Colors.lightText} />
+                      </View>
+                    ))}
+                  </View>
+                </>
+              )}
             </View>
-            <View style={styles.statCard}>
-              <Ionicons name="checkmark-circle" size={32} color={Colors.success} />
-              <Text style={styles.statValue}>
-                {gamificationData?.goal_streak || 0}
-              </Text>
-              <Text style={styles.statLabel}>
-                {lang === 'tr' ? 'Hedef Serisi' : 'Goal Streak'}
-              </Text>
-            </View>
-            <View style={styles.statCard}>
-              <Ionicons name="trophy" size={32} color={Colors.premium} />
-              <Text style={styles.statValue}>
-                {achievements?.total_earned || 0}
-              </Text>
-              <Text style={styles.statLabel}>
-                {lang === 'tr' ? 'Rozet' : 'Badges'}
-              </Text>
+          )}
+
+          {/* Stats Summary */}
+          <View style={styles.statsSection}>
+            <Text style={styles.sectionTitle}>{lang === 'tr' ? 'İstatistikler' : 'Statistics'}</Text>
+            <View style={styles.statsGrid}>
+              <View style={styles.statCard}>
+                <Ionicons name="flame" size={32} color={Colors.primary} />
+                <Text style={styles.statValue}>{gamificationData?.daily_streak || 0}</Text>
+                <Text style={styles.statLabel}>{lang === 'tr' ? 'Günlük Seri' : 'Day Streak'}</Text>
+              </View>
+
+              <View style={styles.statCard}>
+                <Ionicons name="checkmark-circle" size={32} color={Colors.success} />
+                <Text style={styles.statValue}>{gamificationData?.goal_streak || 0}</Text>
+                <Text style={styles.statLabel}>{lang === 'tr' ? 'Hedef Serisi' : 'Goal Streak'}</Text>
+              </View>
+
+              <View style={styles.statCard}>
+                <Ionicons name="trophy" size={32} color={Colors.premium} />
+                <Text style={styles.statValue}>{achievements?.total_earned || 0}</Text>
+                <Text style={styles.statLabel}>{lang === 'tr' ? 'Rozet' : 'Badges'}</Text>
+              </View>
             </View>
           </View>
-        </View>
-      </ScrollView>
+        </ScrollView>
+      )}
 
-      {/* Level Up Modal */}
-      <LevelUpModal
-        visible={showLevelUp}
-        level={newLevel}
-        onClose={() => setShowLevelUp(false)}
-      />
+      {/* Level Up Modal (tab'den bağımsız, SafeArea içinde) */}
+      <LevelUpModal visible={showLevelUp} level={newLevel} onClose={() => setShowLevelUp(false)} />
     </SafeAreaView>
   );
 }
