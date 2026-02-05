@@ -822,7 +822,7 @@ export default function RecipesScreen() {
             <ActivityIndicator size="large" color={Colors.primary} style={styles.loader} />
           ) : (
             <View style={styles.recipeGrid}>
-              {recipes.map((recipe, index) => (
+              {recipes.filter(recipe => recipe && recipe.id).map((recipe, index) => (
                 <View key={recipe.id} style={styles.gridItem}>
                   <RecipeCard item={recipe} index={index} />
                 </View>
