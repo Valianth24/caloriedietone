@@ -776,9 +776,9 @@ export default function RecipesScreen() {
             </Text>
             <FlatList
               horizontal
-              data={featuredRecipes}
+              data={featuredRecipes.filter(item => item && item.id)}
               renderItem={({ item }) => <FeaturedCard item={item} />}
-              keyExtractor={(item) => item.id}
+              keyExtractor={(item) => item?.id || Math.random().toString()}
               showsHorizontalScrollIndicator={false}
               contentContainerStyle={styles.featuredList}
             />
