@@ -40,8 +40,8 @@ const LEAGUE_EMOJIS: Record<string, string> = {
 
 // Demo leaderboard data for when API is not available
 const DEMO_LEADERBOARD: LeaderboardUser[] = [
-  { rank: 1, user_id: '1', name: 'Ahmet Y.', level: 15, total_points: 12500, league: 'gold', daily_streak: 45, achievements_count: 28 },
-  { rank: 2, user_id: '2', name: 'Elif K.', level: 14, total_points: 11200, league: 'gold', daily_streak: 38, achievements_count: 25 },
+  { rank: 1, user_id: '1', name: 'Eylül', level: 15, total_points: 12500, league: 'gold', daily_streak: 45, achievements_count: 28 },
+  { rank: 2, user_id: '2', name: 'Yusuf', level: 14, total_points: 11200, league: 'gold', daily_streak: 38, achievements_count: 25 },
   { rank: 3, user_id: '3', name: 'Mehmet A.', level: 12, total_points: 9800, league: 'silver', daily_streak: 30, achievements_count: 22 },
   { rank: 4, user_id: '4', name: 'Ayşe D.', level: 11, total_points: 8500, league: 'silver', daily_streak: 25, achievements_count: 20 },
   { rank: 5, user_id: '5', name: 'Can B.', level: 10, total_points: 7200, league: 'silver', daily_streak: 21, achievements_count: 18 },
