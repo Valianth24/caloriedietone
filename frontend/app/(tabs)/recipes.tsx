@@ -552,13 +552,18 @@ export default function RecipesScreen() {
 
   // Featured Card Component with fallback
   const FeaturedCard = React.memo(({ item }: { item: RecipeMetadata }) => {
+    // Null/undefined kontrolü
+    if (!item || !item.id) {
+      return null;
+    }
+    
     const [imageError, setImageError] = React.useState(false);
     const fallbackImage = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80';
     
     return (
       <TouchableOpacity
         style={styles.featuredCard}
-        onPress={() => handleRecipePress(item)}
+        onPress={() => handleRecipePress(item, 0)}
         activeOpacity={0.8}
       >
         <Image
