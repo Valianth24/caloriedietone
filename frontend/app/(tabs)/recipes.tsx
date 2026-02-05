@@ -447,6 +447,11 @@ export default function RecipesScreen() {
 
   // Recipe Card Component
   const RecipeCard = React.memo(({ item, index }: { item: RecipeMetadata; index: number }) => {
+    // Null/undefined kontrolü
+    if (!item || !item.id) {
+      return null;
+    }
+    
     const isFav = favoriteRecipes.includes(item.id);
     const [imageError, setImageError] = React.useState(false);
     
