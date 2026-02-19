@@ -67,7 +67,7 @@ const RECIPE_COLLECTIONS = {
     descTr: 'Kaydettiğiniz tarifler',
     descEn: 'Your saved recipes',
     filter: (_recipes: RecipeMetadata[], favoriteIds: string[]) => 
-      _recipes.filter(r => favoriteIds.includes(r.id)),
+      _recipes.filter(r => r && r.id && favoriteIds.includes(r.id)),
   },
   athlete: {
     id: 'athlete',
@@ -77,7 +77,7 @@ const RECIPE_COLLECTIONS = {
     color: '#E53935',
     descTr: 'Yüksek protein, kas yapıcı tarifler',
     descEn: 'High protein muscle building recipes',
-    filter: (_recipes: RecipeMetadata[]) => getAllAthleteRecipeMetadata(),
+    filter: (_recipes: RecipeMetadata[]) => getAllAthleteRecipeMetadata().filter(r => r && r.id),
   },
   traditional: {
     id: 'traditional',
@@ -88,8 +88,10 @@ const RECIPE_COLLECTIONS = {
     descTr: 'Türk mutfağından lezzetler',
     descEn: 'Flavors from Turkish cuisine',
     filter: (recipes: RecipeMetadata[]) => recipes.filter(r => 
-      ['lentil_soup', 'stuffed_peppers', 'lentil_curry', 'hummus'].includes(r.id) ||
-      r.tags.includes('mediterranean')
+      r && r.id && (
+        ['lentil_soup', 'stuffed_peppers', 'lentil_curry', 'hummus'].includes(r.id) ||
+        (r.tags && r.tags.includes('mediterranean'))
+      )
     ),
   },
   dessert: {
@@ -100,7 +102,7 @@ const RECIPE_COLLECTIONS = {
     color: '#EC407A',
     descTr: 'Sağlıklı ve lezzetli tatlılar',
     descEn: 'Healthy and delicious desserts',
-    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.category === 'dessert'),
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r && r.id && r.category === 'dessert'),
   },
   quick: {
     id: 'quick',
@@ -110,7 +112,7 @@ const RECIPE_COLLECTIONS = {
     color: '#FF9800',
     descTr: '30 dakika altında hazır',
     descEn: 'Ready in under 30 minutes',
-    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.tags.includes('quick')),
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r && r.id && r.tags && r.tags.includes('quick')),
   },
   vegan: {
     id: 'vegan',
@@ -120,7 +122,7 @@ const RECIPE_COLLECTIONS = {
     color: '#4CAF50',
     descTr: 'Tamamen bitkisel tarifler',
     descEn: 'Fully plant-based recipes',
-    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.tags.includes('vegan')),
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r && r.id && r.tags && r.tags.includes('vegan')),
   },
   lowcarb: {
     id: 'lowcarb',
@@ -130,7 +132,7 @@ const RECIPE_COLLECTIONS = {
     color: '#2196F3',
     descTr: 'Keto ve düşük karbonhidrat',
     descEn: 'Keto and low carb friendly',
-    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r.tags.includes('low_carb') || r.tags.includes('keto')),
+    filter: (recipes: RecipeMetadata[]) => recipes.filter(r => r && r.id && r.tags && (r.tags.includes('low_carb') || r.tags.includes('keto'))),
   },
 };
 
@@ -169,7 +171,7 @@ export default function RecipesScreen() {
   // Tüm tarifleri birleştir (normal + sporcu)
   const regularRecipes = getAllRecipeMetadata();
   const athleteRecipes = getAllAthleteRecipeMetadata();
-  const allRecipes = [...regularRecipes, ...athleteRecipes];
+  const allRecipes = [...regularRecipes, ...athleteRecipes].filter(r => r && r.id && r.category);
 
   // Free Pass durumunu kontrol et
   const checkFreePassStatus = async () => {
@@ -228,16 +230,20 @@ export default function RecipesScreen() {
       if (selectedCollection) {
         const collection = RECIPE_COLLECTIONS[selectedCollection];
         if (selectedCollection === 'favorites') {
-          setRecipes(collection.filter(allRecipes, favoriteRecipes));
+          const filtered = collection.filter(allRecipes, favoriteRecipes);
+          setRecipes(filtered.filter(r => r && r.id && r.category));
         } else {
-          setRecipes(collection.filter(allRecipes, []));
+          const filtered = collection.filter(allRecipes, []);
+          setRecipes(filtered.filter(r => r && r.id && r.category));
         }
       } else if (selectedCategory === 'all') {
-        setRecipes(allRecipes);
+        setRecipes(allRecipes.filter(r => r && r.id && r.category));
       } else {
-        setRecipes(getRecipesByCategory(selectedCategory));
+        const filtered = getRecipesByCategory(selectedCategory);
+        setRecipes(filtered.filter(r => r && r.id && r.category));
       }
-      setFeaturedRecipes(getFeaturedRecipes());
+      const featured = getFeaturedRecipes();
+      setFeaturedRecipes(featured.filter(r => r && r.id && r.category));
     } catch (error) {
       console.error('Error loading recipes:', error);
       setRecipes([]);
