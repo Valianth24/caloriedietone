@@ -14,6 +14,7 @@ import { useTheme } from '../../contexts/ThemeContext';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import React, { useCallback, useEffect } from 'react';
 import * as Haptics from 'expo-haptics';
+import * as NavigationBar from 'expo-navigation-bar';
 
 const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
@@ -146,9 +147,16 @@ export default function TabLayout() {
   const { colors } = useTheme();
   const insets = useSafeAreaInsets();
 
+  // Instagram tarzı navigation bar - Transparent background
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      NavigationBar.setBackgroundColorAsync('transparent');
+    }
+  }, []);
+
   // Edge-to-edge için dinamik bottom padding - SDK 54'te otomatik
   const bottomPadding = Platform.OS === 'android' 
-    ? Math.max(insets.bottom, 12) // Android için minimum 12
+    ? Math.max(insets.bottom, 16) // Android için minimum 16 (Instagram tarzı)
     : insets.bottom;
   
   const tabBarHeight = 60 + bottomPadding;

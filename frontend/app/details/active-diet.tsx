@@ -362,7 +362,7 @@ export default function ActiveDietScreen() {
         }}
         onWatchAd={handleWatchAdForDay}
         type="diet_day"
-        dietDay={pendingDayChange || undefined}
+        singleAd={true}
       />
     </SafeAreaView>
   );

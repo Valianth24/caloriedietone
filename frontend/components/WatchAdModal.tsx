@@ -70,6 +70,7 @@ export default function WatchAdModal({
       case 'calorie': 
       case 'calorie_calculation': return 'camera';
       case 'diet': return 'fitness';
+      case 'diet_day': return 'fitness';
       default: return 'play-circle';
     }
   };
@@ -84,6 +85,8 @@ export default function WatchAdModal({
         return lang === 'tr' ? 'Kalori Hesapla' : 'Calculate Calories';
       case 'diet':
         return lang === 'tr' ? 'Diyete Eriş' : 'Access Diet';
+      case 'diet_day':
+        return lang === 'tr' ? 'Günü Aç' : 'Unlock Day';
       default:
         return lang === 'tr' ? 'İçeriği Aç' : 'Unlock Content';
     }
@@ -110,6 +113,7 @@ export default function WatchAdModal({
       case 'calorie': 
       case 'calorie_calculation': return ['#667eea', '#764ba2'];
       case 'diet': return ['#4CAF50', '#8BC34A'];
+      case 'diet_day': return ['#4CAF50', '#8BC34A'];
       default: return ['#667eea', '#764ba2'];
     }
   };
