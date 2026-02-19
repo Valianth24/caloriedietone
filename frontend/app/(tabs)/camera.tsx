@@ -293,7 +293,7 @@ export default function CameraScreen() {
     }
   };
 
-  // Reklam izlendikten sonra analiz yap - 2 tıklama sistemi
+  // Reklam izlendikten sonra analiz yap - Tek reklam sistemi
   const handleWatchAdForCalorie = async () => {
     if (adLoading) return;
     
@@ -301,8 +301,7 @@ export default function CameraScreen() {
     
     try {
       console.log('[Camera] Watching ad for calorie calculation:', {
-        currentAdsWatched: adsWatchedForCalorie,
-        note: '2 tıklama = 2 reklam = analiz başlar'
+        note: '1 tıklama = 1 reklam = analiz başlar'
       });
       
       // Tek reklam göster
@@ -321,14 +320,10 @@ export default function CameraScreen() {
         return;
       }
       
-      // Reklam başarılı - sayacı artır
-      const newCount = adsWatchedForCalorie + 1;
-      setAdsWatchedForCalorie(newCount);
+      // Reklam başarılı - direkt analizi başlat (tek reklam yeterli)
+      console.log('[Camera] Ad watched successfully, starting analysis');
       
-      console.log('[Camera] Ad watched successfully, count:', newCount);
-      
-      // 2 reklam tamamlandıysa analizi başlat
-      if (newCount >= 2 && pendingAnalysis) {
+      if (pendingAnalysis) {
         setShowAdModal(false);
         setAdsWatchedForCalorie(0);
         
@@ -339,7 +334,6 @@ export default function CameraScreen() {
         setPendingAnalysis(null);
         setPendingBase64(null);
       }
-      // Değilse modal açık kalır, kullanıcı 2. reklamı izler
       
     } catch (error) {
       console.error('Error watching ad:', error);
@@ -889,6 +883,7 @@ export default function CameraScreen() {
         type="calorie_calculation"
         adsWatched={adsWatchedForCalorie}
         loading={adLoading}
+        singleAd={true}
       />
 
       {/* Context Input Modal - Ask user for food description */}
