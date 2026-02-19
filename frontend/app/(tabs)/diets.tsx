@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Alert, RefreshControl } from 'react-native';
+import { ScrollView, View, Text, StyleSheet, TouchableOpacity, Image, Alert, RefreshControl, Modal, ActivityIndicator } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Colors } from '../../constants/Colors';
 import { Ionicons } from '@expo/vector-icons';
@@ -10,6 +10,12 @@ import DietRecommendationModal from '../../components/DietRecommendationModal';
 import { allDiets, Diet } from '../../content/diets';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { LinearGradient } from 'expo-linear-gradient';
+import { 
+  isRecipeFreePassActive, 
+  getRecipeFreePassRemainingMinutes, 
+  getRecipePassAdsWatched, 
+  watchAdForRecipeFreePass 
+} from '../../utils/adSystem';
 
 export default function DietsScreen() {
   const { t, i18n } = useTranslation();
@@ -18,6 +24,13 @@ export default function DietsScreen() {
   const [showDietRecommendation, setShowDietRecommendation] = useState(false);
   const [hasActiveDiet, setHasActiveDiet] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  
+  // Free Pass state'leri
+  const [showFreePassModal, setShowFreePassModal] = useState(false);
+  const [freePassActive, setFreePassActive] = useState(false);
+  const [freePassRemainingMinutes, setFreePassRemainingMinutes] = useState(0);
+  const [freePassAdsWatched, setFreePassAdsWatched] = useState(0);
+  const [freePassLoading, setFreePassLoading] = useState(false);
 
   const lang = i18n.language === 'tr' ? 'tr' : 'en';
 
@@ -26,11 +39,68 @@ export default function DietsScreen() {
 
   useEffect(() => {
     checkActiveDiet();
+    checkFreePassStatus();
+    
+    // Her 1 dakikada free pass süresini güncelle
+    const interval = setInterval(() => {
+      checkFreePassStatus();
+    }, 60000);
+    
+    return () => clearInterval(interval);
   }, []);
 
   const checkActiveDiet = async () => {
     const data = await AsyncStorage.getItem('active_diet');
     setHasActiveDiet(!!data);
+  };
+
+  // Free Pass durumunu kontrol et
+  const checkFreePassStatus = async () => {
+    const isActive = await isRecipeFreePassActive();
+    setFreePassActive(isActive);
+    
+    if (isActive) {
+      const remaining = await getRecipeFreePassRemainingMinutes();
+      setFreePassRemainingMinutes(remaining);
+    } else {
+      const adsWatched = await getRecipePassAdsWatched();
+      setFreePassAdsWatched(adsWatched);
+    }
+  };
+
+  // Free Pass için reklam izle
+  const handleWatchFreePassAd = async () => {
+    setFreePassLoading(true);
+    
+    try {
+      const result = await watchAdForRecipeFreePass();
+      
+      if (result.success) {
+        setFreePassAdsWatched(result.adsWatched);
+        
+        if (result.activated) {
+          setFreePassActive(true);
+          setFreePassRemainingMinutes(result.remainingMinutes);
+          setShowFreePassModal(false);
+          
+          Alert.alert(
+            lang === 'tr' ? 'Tebrikler!' : 'Congratulations!',
+            lang === 'tr' 
+              ? 'Tüm tarifler 1 saat boyunca ücretsiz! İyi keşifler!' 
+              : 'All recipes are free for 1 hour! Enjoy exploring!'
+          );
+        }
+      } else {
+        Alert.alert(
+          lang === 'tr' ? 'Reklam Hatası' : 'Ad Error',
+          lang === 'tr' ? 'Reklam yüklenemedi. Tekrar deneyin.' : 'Ad failed to load. Please try again.'
+        );
+      }
+    } catch (error) {
+      console.error('Error watching free pass ad:', error);
+    } finally {
+      setFreePassLoading(false);
+    }
   };
 
   const onRefresh = async () => {
@@ -213,6 +283,97 @@ export default function DietsScreen() {
           console.log('Selected diet:', dietId);
         }}
       />
+      
+      {/* Free Pass Modal */}
+      <Modal
+        visible={showFreePassModal}
+        transparent
+        animationType="fade"
+        onRequestClose={() => setShowFreePassModal(false)}
+      >
+        <View style={styles.freePassModalOverlay}>
+          <View style={styles.freePassModalContent}>
+            {/* Close Button */}
+            <TouchableOpacity 
+              style={styles.freePassCloseButton}
+              onPress={() => setShowFreePassModal(false)}
+            >
+              <Ionicons name="close" size={24} color={Colors.lightText} />
+            </TouchableOpacity>
+            
+            {/* Icon */}
+            <View style={styles.freePassIconContainer}>
+              <Ionicons name="gift" size={48} color={Colors.primary} />
+            </View>
+            
+            {/* Title */}
+            <Text style={styles.freePassTitle}>
+              {lang === 'tr' ? '1 Saat Ücretsiz!' : '1 Hour Free!'}
+            </Text>
+            
+            {/* Description */}
+            <Text style={styles.freePassDescription}>
+              {lang === 'tr' 
+                ? '2 kısa reklam izleyerek tüm içeriklere 1 saat boyunca ücretsiz erişin!'
+                : 'Watch 2 short ads to unlock all content for 1 hour!'}
+            </Text>
+            
+            {/* Progress */}
+            <View style={styles.freePassProgress}>
+              <View style={styles.freePassProgressDots}>
+                <View style={[
+                  styles.freePassDot, 
+                  freePassAdsWatched >= 1 && styles.freePassDotActive
+                ]}>
+                  {freePassAdsWatched >= 1 && (
+                    <Ionicons name="checkmark" size={14} color="#fff" />
+                  )}
+                </View>
+                <View style={styles.freePassProgressLine} />
+                <View style={[
+                  styles.freePassDot, 
+                  freePassAdsWatched >= 2 && styles.freePassDotActive
+                ]}>
+                  {freePassAdsWatched >= 2 && (
+                    <Ionicons name="checkmark" size={14} color="#fff" />
+                  )}
+                </View>
+              </View>
+              <Text style={styles.freePassProgressText}>
+                {freePassAdsWatched}/2 {lang === 'tr' ? 'reklam izlendi' : 'ads watched'}
+              </Text>
+            </View>
+            
+            {/* Button */}
+            <TouchableOpacity
+              style={[styles.freePassButton, freePassLoading && styles.freePassButtonDisabled]}
+              onPress={handleWatchFreePassAd}
+              disabled={freePassLoading}
+            >
+              {freePassLoading ? (
+                <ActivityIndicator color="#fff" />
+              ) : (
+                <>
+                  <Ionicons name="play-circle" size={24} color="#fff" />
+                  <Text style={styles.freePassButtonText}>
+                    {lang === 'tr' ? 'Reklam İzle' : 'Watch Ad'}
+                  </Text>
+                </>
+              )}
+            </TouchableOpacity>
+            
+            {/* Skip */}
+            <TouchableOpacity
+              style={styles.freePassSkipButton}
+              onPress={() => setShowFreePassModal(false)}
+            >
+              <Text style={styles.freePassSkipText}>
+                {lang === 'tr' ? 'Şimdilik Geç' : 'Skip for Now'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 }
