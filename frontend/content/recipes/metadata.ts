@@ -72,7 +72,7 @@ export const RECIPE_IDS = [
   'rice_pudding',
   'baklava_oatmeal',
   
-  // Yeni Popüler Tarifler
+  // Yeni Popüler Tarifler (hatalı olanlar kaldırıldı)
   'chicken_wrap',
   'taco_bowl',
   'veggie_burger',
@@ -83,26 +83,6 @@ export const RECIPE_IDS = [
   'chicken_curry',
   'beef_stir_fry',
   'fish_tacos',
-  'chicken_shawarma',
-  'veggie_pizza',
-  'sweet_potato_bowl',
-  'chicken_noodle_stir_fry',
-  'lentil_bolognese',
-  'stuffed_zucchini',
-  'chicken_kebab',
-  'tuna_poke_bowl',
-  'veggie_stir_fry',
-  'chicken_fajitas',
-  'mushroom_risotto',
-  'chicken_tikka_masala',
-  'beef_tacos',
-  'veggie_lasagna',
-  'grilled_fish',
-  'chicken_satay',
-  'asian_noodle_bowl',
-  'turkey_chili',
-  'caprese_sandwich',
-  'coconut_curry_chicken',
 ] as const;
 
 export type RecipeId = typeof RECIPE_IDS[number];
