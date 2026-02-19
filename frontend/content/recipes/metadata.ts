@@ -891,17 +891,17 @@ export const getRecipeMetadata = (id: RecipeId): RecipeMetadata | undefined => {
 };
 
 export const getAllRecipeMetadata = (): RecipeMetadata[] => {
-  return RECIPE_IDS.map(id => recipeMetadata[id]);
+  return RECIPE_IDS.map(id => recipeMetadata[id]).filter((r): r is RecipeMetadata => r !== undefined && r !== null && typeof r.id === 'string');
 };
 
 export const getRecipesByCategory = (category: RecipeCategory): RecipeMetadata[] => {
-  return getAllRecipeMetadata().filter(r => r.category === category);
+  return getAllRecipeMetadata().filter(r => r && r.category === category);
 };
 
 export const getFeaturedRecipes = (): RecipeMetadata[] => {
-  return getAllRecipeMetadata().filter(r => r.featured);
+  return getAllRecipeMetadata().filter(r => r && r.featured);
 };
 
 export const getRecipesByTag = (tag: string): RecipeMetadata[] => {
-  return getAllRecipeMetadata().filter(r => r.tags.includes(tag as any));
+  return getAllRecipeMetadata().filter(r => r && r.tags.includes(tag as any));
 };
