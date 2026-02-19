@@ -712,11 +712,11 @@ export const getAthleteRecipeMetadata = (id: AthleteRecipeId): RecipeMetadata | 
 };
 
 export const getAllAthleteRecipeMetadata = (): RecipeMetadata[] => {
-  return ATHLETE_RECIPE_IDS.map(id => athleteRecipeMetadata[id]);
+  return ATHLETE_RECIPE_IDS.map(id => athleteRecipeMetadata[id]).filter((r): r is RecipeMetadata => r !== undefined && r !== null && typeof r.id === 'string');
 };
 
 export const getFeaturedAthleteRecipes = (): RecipeMetadata[] => {
-  return getAllAthleteRecipeMetadata().filter(r => r.featured);
+  return getAllAthleteRecipeMetadata().filter(r => r && r.featured);
 };
 
 // Recipe Names
